@@ -27,5 +27,5 @@ function Reset-Preferences {
 
     SwitchToSystem
 
-    Message -key "reopen" -icon "Information"
+    Message -key "reopen" -icon "Information" -action "OK"
 }

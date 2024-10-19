@@ -39,7 +39,7 @@ function Invoke-Install {
     $selectedApps = Get-SelectedItems -Mode "Apps"
 
     if($itt.ProcessRunning) {
-        Message -key "Pleasewait" -icon "Warning"
+        Message -key "Pleasewait" -icon "Warning" -action "OK"
         return
     }
 
@@ -47,7 +47,7 @@ function Invoke-Install {
     if($selectedApps.Count -eq 0)
     {
         # Show Message
-        Message -key "choseapp" -icon "Information"
+        Message -key "choseapp" -icon "info" -action "OK"
         return
     }
     else
@@ -56,8 +56,7 @@ function Invoke-Install {
         Show-Selected -ListView "AppsListView" -Mode "Filter"
     }
 
-    $areyousuremsg = $itt.database.locales.Controls.$($itt.Language).InstallMessage
-    $result = [System.Windows.MessageBox]::Show($areyousuremsg, "ITT | Emad Adel", [System.Windows.MessageBoxButton]::YesNo, [System.Windows.MessageBoxImage]::Question)
+    $result = Message -key "InstallMessage" -icon "ask" -action "YesNo"
 
    if($result -eq "no") {
         Show-Selected -ListView "AppsListView" -Mode "Default"
@@ -150,14 +149,14 @@ function Invoke-Apply {
     $selectedTweaks = Get-SelectedItems -Mode "Tweaks"
 
     if($itt.ProcessRunning) {
-        Message -key "Pleasewait" -icon "Warning"
+        Message -key "Pleasewait" -icon "Warning" -action "OK"
         return
     }
 
 
     if($selectedTweaks.Count -eq 0)
     {
-        Message -key "chosetweak" -icon "Information"
+        Message -key "chosetweak" -icon "info" -action "OK"
         return
     }
     else
@@ -165,8 +164,7 @@ function Invoke-Apply {
         Show-Selected -ListView "TweaksListView" -Mode "Filter"
     }
 
-    $areyousuremsg = $itt.database.locales.Controls.$($itt.Language).ApplyMessage
-    $result = [System.Windows.MessageBox]::Show($areyousuremsg, "ITT | Emad Adel", [System.Windows.MessageBoxButton]::YesNo, [System.Windows.MessageBoxImage]::Question)
+    $result = Message -key "ApplyMessage" -icon "ask" -action "YesNo"
 
    if($result -eq "no") 
     {

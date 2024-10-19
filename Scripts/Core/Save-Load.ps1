@@ -23,8 +23,7 @@ function Get-CheckBoxesFromStackPanel {
 # Function to load JSON data and update the UI
 function LoadJson {
     if ($itt.ProcessRunning) {
-        $msg = $itt.database.locales.Controls.$($itt.Language).Pleasewait
-        [System.Windows.MessageBox]::Show($msg, "ITT", [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Warning)
+        Message -key "Pleasewait" -icon "Warning" -action "OK"
         return
     }
 
@@ -58,7 +57,7 @@ function LoadJson {
         $itt['window'].FindName('appslist').Clear()
         $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt['window'].FindName('appslist').Items)
         $collectionView.Filter = $filterPredicate
-        [System.Windows.MessageBox]::Show("Restored successfully", "ITT", [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Information)
+        Message -NoneKey "Restored successfully" -icon "info" -action "OK"
     }
 }
 
@@ -66,7 +65,7 @@ function LoadJson {
 function SaveItemsToJson {
     if ($itt.ProcessRunning) {
         $msg = $itt.database.locales.Controls.$($itt.Language).Pleasewait
-        [System.Windows.MessageBox]::Show($msg, "ITT", [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Warning)
+        Message -key "Pleasewait" -icon "warning" -action "OK"
         return
     }
 
@@ -108,8 +107,7 @@ function SaveItemsToJson {
         if ($dialogResult -eq "OK") {
             $items | ConvertTo-Json | Out-File -FilePath $saveFileDialog.FileName -Force
             Write-Host "Saved: $($saveFileDialog.FileName)"
-            [System.Windows.MessageBox]::Show("Saved", "ITT", [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Information)
-
+            Message -NoneKey "Saved successfully" -icon "info" -action "OK"
             foreach ($item in $itt.AppsListView.Items) {
                 $checkBoxes = Get-CheckBoxesFromStackPanel -item $item
                 if ($checkBoxes.IsChecked) {
@@ -120,7 +118,7 @@ function SaveItemsToJson {
 
         
     } else {
-        Message -key "OneAppReq" -icon "Information"
+        Message -key "OneAppReq" -icon "Information" -action "OK"
     }
 
     # Clear Search input
