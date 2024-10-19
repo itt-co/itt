@@ -29,7 +29,7 @@ $itt = [Hashtable]::Synchronized(@{
     database       = @{}
     ProcessRunning = $false
     developer      = "Emad Adel"
-    lastupdate     = "10/18/2024"
+    lastupdate     = "10/19/2024"
     github         = "https://github.com/emadadel4/itt"
     telegram       = "https://t.me/emadadel4"
     blog           = "https://emadadel4.github.io"
@@ -6781,7 +6781,7 @@ $itt.database.locales = '{
         "Applying": "جارٍي التطبيق",
         "Pleasewait": "يرجى الانتظار، يوجد عملية في الخلفية",
         "choseapp":"اختر على الأقل تطبيقًا لتثبيته",
-        "chosetweak":"يرجى الانتظار حتى يتم تطبيق التحسينات",
+        "chosetweak":"اختار على الاقل تحسين واحد لتطبيقه",
         "lastupdate":"آخر تحديث",
         "sourcecode":"الشفرة المصدرية",
         "devby":"صنع بـ ♥ من قبل عماد عادل",
@@ -10792,7 +10792,7 @@ function Reset-Preferences {
 
     SwitchToSystem
 
-    Message -key "reopen" -icon "Information"
+    Message -key "reopen" -icon "Information" -action "OK"
 }
 # Function to get all CheckBoxes from a StackPanel
 function Get-CheckBoxesFromStackPanel {
@@ -10819,8 +10819,7 @@ function Get-CheckBoxesFromStackPanel {
 # Function to load JSON data and update the UI
 function LoadJson {
     if ($itt.ProcessRunning) {
-        $msg = $itt.database.locales.Controls.$($itt.Language).Pleasewait
-        [System.Windows.MessageBox]::Show($msg, "ITT", [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Warning)
+        Message -key "Pleasewait" -icon "Warning" -action "OK"
         return
     }
 
@@ -10854,7 +10853,7 @@ function LoadJson {
         $itt['window'].FindName('appslist').Clear()
         $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt['window'].FindName('appslist').Items)
         $collectionView.Filter = $filterPredicate
-        [System.Windows.MessageBox]::Show("Restored successfully", "ITT", [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Information)
+        Message -NoneKey "Restored successfully" -icon "info" -action "OK"
     }
 }
 
@@ -10862,7 +10861,7 @@ function LoadJson {
 function SaveItemsToJson {
     if ($itt.ProcessRunning) {
         $msg = $itt.database.locales.Controls.$($itt.Language).Pleasewait
-        [System.Windows.MessageBox]::Show($msg, "ITT", [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Warning)
+        Message -key "Pleasewait" -icon "warning" -action "OK"
         return
     }
 
@@ -10904,8 +10903,7 @@ function SaveItemsToJson {
         if ($dialogResult -eq "OK") {
             $items | ConvertTo-Json | Out-File -FilePath $saveFileDialog.FileName -Force
             Write-Host "Saved: $($saveFileDialog.FileName)"
-            [System.Windows.MessageBox]::Show("Saved", "ITT", [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::Information)
-
+            Message -NoneKey "Saved successfully" -icon "info" -action "OK"
             foreach ($item in $itt.AppsListView.Items) {
                 $checkBoxes = Get-CheckBoxesFromStackPanel -item $item
                 if ($checkBoxes.IsChecked) {
@@ -10916,7 +10914,7 @@ function SaveItemsToJson {
 
         
     } else {
-        Message -key "OneAppReq" -icon "Information"
+        Message -key "OneAppReq" -icon "Information" -action "OK"
     }
 
     # Clear Search input
@@ -11425,7 +11423,7 @@ function Invoke-Install {
     $selectedApps = Get-SelectedItems -Mode "Apps"
 
     if($itt.ProcessRunning) {
-        Message -key "Pleasewait" -icon "Warning"
+        Message -key "Pleasewait" -icon "Warning" -action "OK"
         return
     }
 
@@ -11433,7 +11431,7 @@ function Invoke-Install {
     if($selectedApps.Count -eq 0)
     {
         # Show Message
-        Message -key "choseapp" -icon "Information"
+        Message -key "choseapp" -icon "info" -action "OK"
         return
     }
     else
@@ -11442,8 +11440,7 @@ function Invoke-Install {
         Show-Selected -ListView "AppsListView" -Mode "Filter"
     }
 
-    $areyousuremsg = $itt.database.locales.Controls.$($itt.Language).InstallMessage
-    $result = [System.Windows.MessageBox]::Show($areyousuremsg, "ITT | Emad Adel", [System.Windows.MessageBoxButton]::YesNo, [System.Windows.MessageBoxImage]::Question)
+    $result = Message -key "InstallMessage" -icon "ask" -action "YesNo"
 
    if($result -eq "no") {
         Show-Selected -ListView "AppsListView" -Mode "Default"
@@ -11536,14 +11533,14 @@ function Invoke-Apply {
     $selectedTweaks = Get-SelectedItems -Mode "Tweaks"
 
     if($itt.ProcessRunning) {
-        Message -key "Pleasewait" -icon "Warning"
+        Message -key "Pleasewait" -icon "Warning" -action "OK"
         return
     }
 
 
     if($selectedTweaks.Count -eq 0)
     {
-        Message -key "chosetweak" -icon "Information"
+        Message -key "chosetweak" -icon "info" -action "OK"
         return
     }
     else
@@ -11551,8 +11548,7 @@ function Invoke-Apply {
         Show-Selected -ListView "TweaksListView" -Mode "Filter"
     }
 
-    $areyousuremsg = $itt.database.locales.Controls.$($itt.Language).ApplyMessage
-    $result = [System.Windows.MessageBox]::Show($areyousuremsg, "ITT | Emad Adel", [System.Windows.MessageBoxButton]::YesNo, [System.Windows.MessageBoxImage]::Question)
+    $result = Message -key "ApplyMessage" -icon "ask" -action "YesNo"
 
    if($result -eq "no") 
     {
@@ -12371,11 +12367,45 @@ function Message {
             Ensure that the `itt.database.locales.Controls` object is properly populated with localization data and that the specified keys exist for the current language.
     #>
     
-    param($key,$icon)
-    $localizedMessageTemplate = $itt.database.locales.Controls.$($itt.Language).$($key)
-    $msg = "$localizedMessageTemplate"
-    [System.Windows.MessageBox]::Show($msg, "ITT", [System.Windows.MessageBoxButton]::OK, [System.Windows.MessageBoxImage]::$icon)
-}
+    param(
+        [string]$key,
+        [string]$NoneKey,
+        [string]$icon,
+        [string]$action
+    )
+    
+    # Use switch to determine the correct MessageBoxImage
+    switch ($icon.ToLower()) {
+        "info" { $icon = [System.Windows.MessageBoxImage]::Information }
+        "ask" { $icon = [System.Windows.MessageBoxImage]::Question }
+        "warning" { $icon = [System.Windows.MessageBoxImage]::Warning }
+        Default { $icon = [System.Windows.MessageBoxImage]::Question }
+    }
+
+    switch ($action.ToLower()) {
+        "YesNo" 
+        { 
+            $action = [System.Windows.MessageBoxButton]::YesNo 
+        }
+        "OK" 
+        {
+            $action =  [System.Windows.MessageBoxButton]::OK 
+        }
+        Default { 
+            $icon = [System.Windows.MessageBoxButton]::OK 
+        }
+    }
+    
+    if ([string]::IsNullOrWhiteSpace($key)) {
+        # Show message with NoneKey if key is empty or null
+        [System.Windows.MessageBox]::Show($NoneKey, "ITT", [System.Windows.MessageBoxButton]::$action, $icon)
+    } else {
+        # Retrieve localized message template and display message
+        $localizedMessageTemplate = $itt.database.locales.Controls.$($itt.Language).$($key)
+        $msg = "$localizedMessageTemplate"
+        [System.Windows.MessageBox]::Show($msg, "ITT", [System.Windows.MessageBoxButton]::$action, $icon)
+    }
+}    
 function Notify {
 
     <#
