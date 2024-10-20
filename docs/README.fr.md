@@ -9,8 +9,8 @@ ITT (Outil d'Installation et de Réglage) 🛠️ 🚀
 </h1>
 
 <p align="center">
-  <a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Images/demo.PNG">
-    <img src="https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Images/demo.PNG" alt="ITT Demo" style="max-width: 100%;">
+  <a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/demo.PNG">
+    <img src="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/demo.PNG" alt="ITT Demo" style="max-width: 100%;">
   </a>
 </p>
 
@@ -51,7 +51,7 @@ ou
 
   ## Regardez la Démo
 
-  [![Regardez la vidéo](https://raw.githubusercontent.com/emadadel4/IT/main/Statics/Images/thumbnail.jpg)](https://www.youtube.com/watch?v=QmO82OTsU5c)
+  [![Regardez la vidéo](https://raw.githubusercontent.com/emadadel4/IT/main/static/Images/thumbnail.jpg)](https://www.youtube.com/watch?v=QmO82OTsU5c)
 </div>
 
 <h2> 📦 Comment Ajouter une Nouvelle Application/Réglage/OST/Quote</h2>

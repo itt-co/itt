@@ -9,8 +9,8 @@ ITT（安装和调整工具）🛠️ 🚀
 </h1>
 
 <p align="center">
-  <a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Images/demo.PNG">
-    <img src="https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Images/demo.PNG" alt="ITT Demo" style="max-width: 100%;">
+  <a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/demo.PNG">
+    <img src="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/demo.PNG" alt="ITT Demo" style="max-width: 100%;">
   </a>
 </p>
 
@@ -51,7 +51,7 @@ ITT（安装和调整工具）🛠️ 🚀
 
   ## 观看演示
 
-  [![观看视频](https://raw.githubusercontent.com/emadadel4/IT/main/Statics/Images/thumbnail.jpg)](https://www.youtube.com/watch?v=QmO82OTsU5c)
+  [![观看视频](https://raw.githubusercontent.com/emadadel4/IT/main/static/Images/thumbnail.jpg)](https://www.youtube.com/watch?v=QmO82OTsU5c)
 </div>
 
 <h2> 📦 如何添加新应用程序/调整/OST/引用</h2>

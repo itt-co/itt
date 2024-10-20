@@ -19,7 +19,7 @@
         <!--Header -->
           <Grid Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <StackPanel Orientation="Vertical">
-              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Images/logo.png" Height="130" Width="Auto"/>
+              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/logo.png" Height="130" Width="Auto"/>
               
               <TextBlock Text="Made with ♥ by Emad Adel" 
                 Foreground="{DynamicResource TextColorSecondaryColor2}"
@@ -72,7 +72,7 @@
           <Grid Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="0,0,0,10">
 
             <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Icons/telegram.png" 
+              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/telegram.png" 
               Name="telegram"
               VerticalAlignment="Bottom" 
               HorizontalAlignment="Center" 
@@ -81,7 +81,7 @@
               Cursor="Hand"
               Width="Auto"/>
 
-              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Icons/youtube.png"
+              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/youtube.png"
               Name="yt"
               Margin="10"
               Height="30"
@@ -90,7 +90,7 @@
               Cursor="Hand"
               Width="Auto"/>
 
-              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Icons/github.png" 
+              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/github.png" 
               Name="github"
               Margin="10"
               Height="30" 
@@ -99,7 +99,7 @@
               Cursor="Hand"
               Width="Auto"/>
 
-              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Icons/blog.png" 
+              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/blog.png" 
               Name="blog"
               Margin="10" 
               Height="30" 
@@ -114,7 +114,7 @@
         <!--End Footer -->
 
         <Grid Grid.Row="3">
-          <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Images/coffee.png" Cursor="Hand" Name="coffee" Height="50" Width="Auto"/>
+          <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/coffee.png" Cursor="Hand" Name="coffee" Height="50" Width="Auto"/>
         </Grid>
 
     </StackPanel>

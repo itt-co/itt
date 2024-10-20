@@ -1,9 +1,9 @@
 param (
     [string]$OutputScript = "itt.ps1",
     [string]$readme = "README.md",
-    [string]$Assets = ".\Statics",
+    [string]$Assets = ".\static",
     [string]$Controls = ".\UI\Controls",
-    [string]$DatabaseDirectory = ".\Statics\Database",
+    [string]$DatabaseDirectory = ".\static\Database",
     [string]$StartScript = ".\Initialize\start.ps1",
     [string]$MainScript = ".\Initialize\main.ps1",
     [string]$ScritsDirectory = ".\Scripts",
@@ -495,7 +495,7 @@ function GenerateInvokeButtons {
 function Convert-Locales {
     param (
         [string]$csvFolderPath = "locales", 
-        [string]$jsonOutputPath = "Statics/Database/locales.json" 
+        [string]$jsonOutputPath = "static/Database/locales.json" 
     )
 
     # Initialize a hashtable to store the "Controls" object

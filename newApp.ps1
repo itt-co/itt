@@ -1,5 +1,5 @@
 param (
-    [string]$json = "./Statics/Database/Applications.json"
+    [string]$json = "./static/Database/Applications.json"
 )
 
 Write-Host "
