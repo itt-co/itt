@@ -16,6 +16,14 @@ loadapps,Restore
 music,Music
 on,"On "
 off,Off
+diskmgr,Disk Managment
+taskmgr,Task Manager
+appsfeatures,Apps-Features
+networks,Networks
+services,Services
+devicemgr,Device Manager
+PowerOptions,Power Options
+sysinfo,System Info
 defaultTheme,Use system setting
 ittlink,Create desktop shortcut
 reset,Reset Preferences
