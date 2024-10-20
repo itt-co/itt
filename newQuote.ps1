@@ -1,5 +1,7 @@
-try {
-Clear-Host
+param (
+    [string]$json = "./Statics/Database/Tweaks.json"
+)
+
 Write-Host "
 +-------------------------------------------------------------------------+
 |    ___ _____ _____   ____    _  _____  _    ____    _    ____  _____    |
@@ -10,9 +12,12 @@ Write-Host "
 |    Made with ♥  By Emad Adel                                            |
 +-------------------------------------------------------------------------+
 "
+
+
+try {
+    
     # Read existing JSON file
-    $jsonFilePath = "./Statics/Database/Quotes.json"
-    $existingData = Get-Content $jsonFilePath -Raw -ErrorAction Stop | ConvertFrom-Json
+    $existingData = Get-Content $json -Raw -ErrorAction Stop | ConvertFrom-Json
 
     $QuotesList = @{
         # Available options
@@ -58,9 +63,11 @@ Write-Host "
 
     # Write updated JSON to file
     $existingData | ConvertTo-Json -Depth 4 | Out-File $jsonFilePath -ErrorAction Stop
-    Write-Host  "Added Successfully" -ForegroundColor Green
-
 }
 catch {
     Write-Host "An error occurred: $_"
+}
+finally {
+    Write-Host "Added successfully, Don't forget to build and test it before commit" -ForegroundColor Green 
+
 }
