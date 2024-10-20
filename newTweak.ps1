@@ -1,5 +1,7 @@
-try {
-Clear-Host
+param (
+    [string]$json = "./Statics/Database/Tweaks.json"
+)
+
 Write-Host "
 +-------------------------------------------------------------------------+
 |    ___ _____ _____   ____    _  _____  _    ____    _    ____  _____    |
@@ -10,6 +12,10 @@ Write-Host "
 |    Made with ♥  By Emad Adel                                            |
 +-------------------------------------------------------------------------+
 "
+
+try {
+    
+    
 $validCategories = @{
 
     # Available options
@@ -181,7 +187,7 @@ if ($data.ContainsKey("Delete")) {
 }
 
 # Read existing JSON file
-$existingJson = Get-Content -Path "./Statics/Database/Tweaks.json" -Raw | ConvertFrom-Json -ErrorAction SilentlyContinue
+$existingJson = Get-Content -Path $json -Raw | ConvertFrom-Json -ErrorAction SilentlyContinue
 if (!$existingJson) {
     $existingJson = @()
 }
@@ -193,9 +199,7 @@ $existingJson += $jsonString | ConvertFrom-Json
 $updatedJson = $existingJson | ConvertTo-Json -Depth 100
 
 # Output to file
-$updatedJson | Out-File -FilePath "./Statics/Database/Tweaks.json" -Encoding utf8
-    
-Write-Host "Added successfully, Don't forget to build and test it before commit" -ForegroundColor Green 
+$updatedJson | Out-File -FilePath $json -Encoding utf8
 }
 #===========================================================================
 #endregion Registry 
@@ -263,7 +267,7 @@ $jsonString = @"
 "@
 
 # Read existing JSON file
-$existingJson = Get-Content -Path "./Statics/Database/Tweaks.json" -Raw | ConvertFrom-Json -ErrorAction SilentlyContinue
+$existingJson = Get-Content -Path $json -Raw | ConvertFrom-Json -ErrorAction SilentlyContinue
 if (!$existingJson) {
     $existingJson = @()
 }
@@ -275,10 +279,7 @@ $existingJson += $jsonString | ConvertFrom-Json
 $updatedJson = $existingJson | ConvertTo-Json -Depth 100
 
 # Output to file
-$updatedJson | Out-File -FilePath "./Statics/Database/Tweaks.json" -Encoding utf8
-    
-Write-Host "Added successfully, Don't forget to build and test it before commit" -ForegroundColor Green 
-
+$updatedJson | Out-File -FilePath $json -Encoding utf8
 }
 
 #===========================================================================
@@ -362,7 +363,7 @@ $jsonString = @"
 
 
 # Read existing JSON file
-$existingJson = Get-Content -Path "./Statics/Database/Tweaks.json" | ConvertFrom-Json
+$existingJson = Get-Content -Path $json | ConvertFrom-Json
 
 # Append new data to existing JSON
 $existingJson += $jsonString | ConvertFrom-Json
@@ -371,10 +372,7 @@ $existingJson += $jsonString | ConvertFrom-Json
 $updatedJson = $existingJson | ConvertTo-Json -Depth 100
 
 # Output to file
-$updatedJson | Out-File -FilePath "./Statics/Database/Tweaks.json" -Encoding utf8
-
-Write-Host "Added successfully, Don't forget to build and test it before commit" -ForegroundColor Green 
-
+$updatedJson | Out-File -FilePath $json -Encoding utf8
 }
 
 #===========================================================================
@@ -479,7 +477,7 @@ $jsonString = @"
 "@
 
 # Read existing JSON file
-$existingJson = Get-Content -Path "./Statics/Database/Tweaks.json" -Raw | ConvertFrom-Json -ErrorAction SilentlyContinue
+$existingJson = Get-Content -Path $json -Raw | ConvertFrom-Json -ErrorAction SilentlyContinue
 if (!$existingJson) {
     $existingJson = @()
 }
@@ -491,17 +489,19 @@ $existingJson += $jsonString | ConvertFrom-Json
 $updatedJson = $existingJson | ConvertTo-Json -Depth 100
 
 # Output to file
-$updatedJson | Out-File -FilePath "./Statics/Database/Tweaks.json" -Encoding utf8
-
-Write-Host "Added successfully, Don't forget to build and test it before commit" -ForegroundColor Green 
-
-}
+$updatedJson | Out-File -FilePath $json -Encoding utf8
 
 #===========================================================================
 #endregion RemoveAppxPackage 
 #===========================================================================
-    
+}
+
 }
 catch {
     Write-Host "An error occurred: $_"
 }
+finally {
+    Write-Host "Added successfully, Don't forget to build and test it before commit" -ForegroundColor Green 
+}
+
+    

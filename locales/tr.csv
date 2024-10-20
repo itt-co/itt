@@ -1,4 +1,5 @@
 Key,Text
+name,Türkçe
 Welcome,Birden fazla programı tek seferde kurarak zaman kazanın ve Windows performansınızı artırın. Aracı iyileştirmemize katılın ve harika yapalım.
 sysinfo,Sistem Bilgisi
 PowerOptions,Güç Seçenekleri
@@ -44,11 +45,11 @@ installing,Yükleniyor..
 Applying,Uygulanıyor..
 choseapp,Lütfen kurulacak en az bir uygulama seçin
 chosetweak,Düzeltmelerin uygulanmasını bekleyin
-pleasewait,Lütfen bekleyin, arka planda bir işlem var.
+pleasewait,Lütfen bekleyin arka planda bir işlem var.
 lastupdate,Son güncelleme
 sourcecode,Kaynak Kod
 devby,Emad Adel tarafından ♥ ile yapıldı
-exit,Programı kapatmak istediğinizden emin misiniz? Eğer herhangi bir yükleme işlemi varsa, kesilecektir.
+exit,Programı kapatmak istediğinizden emin misiniz? Eğer herhangi bir yükleme işlemi varsa kesilecektir.
 watchdemo,Hoş Geldiniz
 happybirthday,Günün Kutlu Olsun Emad!
 myplaylist,Bugün Benim Doğum Günüm ve Benim Çalma Listem ♪

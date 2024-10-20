@@ -1,4 +1,5 @@
 Key,Text
+name,Español
 Welcome,Ahorra tiempo instalando varios programas a la vez y mejora el rendimiento de tu Windows. Únete a nosotros para mejorar la herramienta y hacerla excelente.
 sysinfo,Información del Sistema
 PowerOptions,Opciones de Energía
@@ -28,7 +29,7 @@ Dark,Oscuro
 Light,Claro
 defaultTheme,Sistema
 ittlink,Criar acesso direto na área de trabalho
-reopen,Por favor, vuelva a abrir ITT.
+reopen,Por favor  vuelva a abrir ITT.
 theme,Tema
 language,Idioma
 mas,Scripts de Activación de Microsoft (MAS)
@@ -44,11 +45,11 @@ installing,Instalando..
 Applying,Aplicando..
 choseapp,Selecciona al menos una aplicación para instalar
 chosetweak,Por favor espera mientras se aplican los ajustes
-pleasewait,Por favor espera, hay un proceso en segundo plano.
+pleasewait,Por favor espera  hay un proceso en segundo plano.
 lastupdate,Última actualización
 sourcecode,Código Fuente
 devby,Hecho con ♥ por Emad Adel
-exit,¿Estás seguro de que quieres cerrar el programa? Si hay instalaciones en curso, se cancelarán.
+exit,¿Estás seguro de que quieres cerrar el programa? Si hay instalaciones en curso  se cancelarán.
 watchdemo,Bienvenido
 happybirthday,¡Feliz Cumpleaños Emad!
 myplaylist,Es mi cumpleaños y mi lista de reproducción ♪

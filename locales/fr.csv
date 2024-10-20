@@ -1,4 +1,5 @@
 Key,Text
+name,Français
 Welcome,Économisez du temps en installant plusieurs programmes à la fois et améliorez les performances de votre Windows. Rejoignez-nous pour améliorer l'outil et le rendre excellent.
 sysinfo,Informations Système
 PowerOptions,Options d'Alimentation
@@ -44,7 +45,7 @@ installing,Installation en cours...
 Applying,Application des ajustements...
 choseapp,Sélectionnez au moins une application à installer
 chosetweak,Veuillez patienter pendant l'application des ajustements
-pleasewait,Veuillez patienter, un processus est en cours en arrière-plan.
+pleasewait,Veuillez patienter un processus est en cours en arrière-plan.
 lastupdate,Dernière mise à jour
 sourcecode,Code Source
 devby,Créé avec ♥ par Emad Adel
