@@ -138,8 +138,13 @@ or
 <pre><code>.\newTweak.ps1
 </code></pre>
 
-<h3>add Your native language</h3>
-<p><em>You can edit the file using any CSV editor such as Excel, or Notepad++.</em></p>
+<h3>Add your native language</h3>
+<p><em>
+
+Edit CSV file using [edit-csv extension ](https://marketplace.visualstudio.com/items?itemName=janisdd.vscode-edit-csv)
+</em></p>
+
+
 
 <pre><code>.\newLocale.ps1
 </code></pre>
