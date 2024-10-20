@@ -5,7 +5,7 @@
             <MenuItem.Icon>
                 <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/ps.png" Width="90" Height="Auto" Margin="5,5,0,0">
                     <Image.Effect>
-                        <DropShadowEffect Color="#027a3d" BlurRadius="5" ShadowDepth="0" Opacity="0.5"/>
+                        <DropShadowEffect Color="#027a3d" BlurRadius="1" ShadowDepth="0" Opacity="0.5"/>
                     </Image.Effect>
                 </Image>
             </MenuItem.Icon>
