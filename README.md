@@ -128,19 +128,19 @@ or
 <li><strong>Choose what you want to add.</strong></li>
 </ol>
 
-<h3>Add a New App</h3>
+<h3>📦 Add a New App</h3>
 
 <pre><code>.\newApp.ps1
 </code></pre>
 
-<h3>Add a New Tweak</h3>
+<h3>⚙️ Add a New Tweak</h3>
 
 <pre><code>.\newTweak.ps1
 </code></pre>
 
 <p><em>Note: Ensure you understand the tweak you are adding and test it before committing.</em></p>
 
-<h3>Add your native language</h3>
+<h3>🌐 Add your native language</h3>
 <p><em>
 
 <pre><code>.\newLocale.ps1
@@ -150,22 +150,22 @@ Edit CSV file using [edit-csv extension ](https://marketplace.visualstudio.com/i
 </em></p>
 
 
-<h3>Create your own theme</h3>
+<h3>🎨 Create your own theme</h3>
 
 <pre><code>.\newTheme.ps1
 </code></pre>
 
-<h3>Add a New Soundtrack</h3>
+<h3>🎵 Add a New Soundtrack</h3>
 
 <pre><code>.\newOST.ps1
 </code></pre>
 
-<h3>Add a New Quote</h3>
+<h3>📜 Add a New Quote</h3>
 
 <pre><code>.\newQuote.ps1
 </code></pre>
 
-<h3>Build and run 🏃</h3>
+<h3>🏃 Build and run</h3>
 
 <pre><code>.\build.ps1 -debug
 </code></pre>
