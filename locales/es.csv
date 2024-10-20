@@ -1,17 +1,9 @@
 Key,Text
 name,Español
-Welcome,Ahorra tiempo instalando varios programas a la vez y mejora el rendimiento de tu Windows. Únete a nosotros para mejorar la herramienta y hacerla excelente.
-sysinfo,Información del Sistema
-PowerOptions,Opciones de Energía
-devicemgr,Administrador de Dispositivos
-services,Servicios
-networks,Redes
-appsfeatures,Aplicaciones-Características
-taskmgr,Administrador de Tareas
-diskmgr,Administración de Discos
+Welcome,Ahorra tiempo instalando varios programas a la vez y mejora el rendimiento de tu Windows. Únete a nosotros para mejorar esta herramienta y hacerla aún mejor. También puedes agregar tus aplicaciones musicales y ajustes favoritos.
 installBtn,Instalar
 applyBtn,Aplicar
-downloading,Descargando
+downloading,Descargando...
 about,Acerca de
 thirdparty,Terceros
 preferences,Preferencias
@@ -19,37 +11,45 @@ management,Gestión
 apps,Aplicaciones
 tweaks,Ajustes
 settings,Configuración
-saveapps,Guardar aplicaciones seleccionadas
-loadapps,Restaurar aplicaciones seleccionadas
+saveapps,Guardar
+loadapps,Restaurar
 music,Música
-on,Activado
+on,"Encendido "
+off,Apagado
+diskmgr,Administración de discos
+taskmgr,Administrador de tareas
+appsfeatures,Aplicaciones-Funciones
+networks,Redes
+services,Servicios
+devicemgr,Administrador de dispositivos
+PowerOptions,Opciones de energía
+sysinfo,Información del sistema
+defaultTheme,Usar la configuración del sistema
+ittlink,Crear acceso directo en el escritorio
 reset,Restablecer preferencias
-off,Desactivado
-Dark,Oscuro
-Light,Claro
-defaultTheme,Sistema
-ittlink,Criar acesso direto na área de trabalho
-reopen,Por favor  vuelva a abrir ITT.
+reopen,Vuelve a abrir ITT.
 theme,Tema
 language,Idioma
-mas,Scripts de Activación de Microsoft (MAS)
+mas,Scripts de activación de Microsoft (MAS)
 winoffice,Descargar ISO de Windows / Office
-idm,Activación de IDM
-extensions,Extensiones de Navegadores
-all,Todo
-restorepoint,Crear punto de restauración
-chocoloc,Carpeta de Descargas Portátiles
-InstallMessage,¿Deseas instalar las aplicaciones seleccionadas?
-ApplyMessage,¿Deseas aplicar los ajustes seleccionados?
-installing,Instalando..
-Applying,Aplicando..
-choseapp,Selecciona al menos una aplicación para instalar
-chosetweak,Por favor espera mientras se aplican los ajustes
-pleasewait,Por favor espera  hay un proceso en segundo plano.
+idm,Activación IDM
+extensions,Extensiones del navegador
+all,Todos
+search,Buscar
+restorepoint,Crear un punto de restauración
+chocoloc,Carpeta de descargas portátiles
+InstallMessage,¿Estás seguro de que deseas instalar las siguientes aplicaciones?
+ApplyMessage,¿Estás seguro de que deseas aplicar los siguientes ajustes?
+Applying,Aplicando...
+choseapp,Selecciona al menos una aplicación para instalar.
+chosetweak,Selecciona al menos un ajuste para aplicar.
+pleasewait,Por favorespera un proceso se está ejecutando en segundo plano.
 lastupdate,Última actualización
-sourcecode,Código Fuente
+sourcecode,Código fuente
 devby,Hecho con ♥ por Emad Adel
-exit,¿Estás seguro de que quieres cerrar el programa? Si hay instalaciones en curso  se cancelarán.
+exit,¿Estás seguro de que deseas cerrar el programa? Si hay instalaciones se interrumpirán.
 watchdemo,Bienvenido
-happybirthday,¡Feliz Cumpleaños Emad!
+happybirthday,¡Feliz cumpleaños a mí!
 myplaylist,Es mi cumpleaños y mi lista de reproducción ♪
+OneAppReq,Elige al menos una aplicación para guardarla.
+contributors,Colaboradores

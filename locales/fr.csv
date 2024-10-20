@@ -1,55 +1,55 @@
 Key,Text
 name,Français
-Welcome,Économisez du temps en installant plusieurs programmes à la fois et améliorez les performances de votre Windows. Rejoignez-nous pour améliorer l'outil et le rendre excellent.
-sysinfo,Informations Système
-PowerOptions,Options d'Alimentation
-devicemgr,Gestionnaire de périphériques
-services,Services
-networks,Réseaux
-appsfeatures,Fonctionnalités des Applications
-taskmgr,Gestionnaire des tâches
-diskmgr,Gestion des disques
+Welcome,Gagnez du temps en installant plusieurs programmes à la fois et améliorez les performances de votre Windows. Rejoignez-nous pour améliorer cet outil et le rendre encore meilleur. Vous pouvez également ajouter vos applications musicales et vos tweaks préférés.
 installBtn,Installer
 applyBtn,Appliquer
-downloading,Téléchargement en cours
+downloading,Téléchargement...
 about,À propos
 thirdparty,Tiers
 preferences,Préférences
 management,Gestion
 apps,Applications
-tweaks,Réglages
+tweaks,Optimisations
 settings,Paramètres
-saveapps,Enregistrer les applications sélectionnées
-loadapps,Restaurer les applications sélectionnées
+saveapps,Sauvegarder
+loadapps,Restaurer
 music,Musique
-on,Activer
-off,Désactiver
-Dark,Sombre
-reset,Réinitialiser les préférences
-Light,Clair
-defaultTheme,Système
+on,"Activé "
+off,Désactivé
+diskmgr,Gestion des disques
+taskmgr,Gestionnaire des tâches
+appsfeatures,Applications-Fonctionnalités
+networks,Réseaux
+services,Services
+devicemgr,Gestionnaire de périphériques
+PowerOptions,Options d'alimentation
+sysinfo,Infos système
+defaultTheme,Utiliser les paramètres système
 ittlink,Créer un raccourci sur le bureau
-reopen,Veuillez rouvrir ITT à nouveau.
+reset,Réinitialiser les préférences
+reopen,Veuillez rouvrir ITT.
 theme,Thème
 language,Langue
-mas,Scripts d'Activation Microsoft (MAS)
-winoffice,Télécharger Windows / Office ISO
+mas,Scripts d'activation Microsoft (MAS)
+winoffice,Télécharger l'ISO Windows / Office
 idm,Activation IDM
-extensions,Extensions de Navigateurs
+extensions,Extensions de navigateurs
 all,Tout
+search,Rechercher
 restorepoint,Créer un point de restauration
-chocoloc,Dossier Téléchargements Portable
-InstallMessage,Souhaitez-vous installer les applications sélectionnées
-ApplyMessage,Souhaitez-vous appliquer les ajustements sélectionnés
-installing,Installation en cours...
-Applying,Application des ajustements...
-choseapp,Sélectionnez au moins une application à installer
-chosetweak,Veuillez patienter pendant l'application des ajustements
-pleasewait,Veuillez patienter un processus est en cours en arrière-plan.
-lastupdate,Dernière mise à jour
-sourcecode,Code Source
-devby,Créé avec ♥ par Emad Adel
-exit,Êtes-vous sûr de vouloir fermer le programme ? Toute installation en cours sera interrompue.
+chocoloc,Dossier de téléchargements portables
+InstallMessage,Êtes-vous sûr de vouloir installer les applications suivantes ?
+ApplyMessage,Êtes-vous sûr de vouloir appliquer les tweaks suivants ?
+Applying,Application...
+choseapp,Veuillez sélectionner au moins une application à installer.
+chosetweak,Veuillez sélectionner au moins un tweak à appliquer.
+pleasewait,Veuillez patienter
+lastupdate,Dernière mise à jour  un processus est en cours d'exécution en arrière-plan.
+sourcecode,Code source
+devby,Fait avec ♥ par Emad Adel
+exit,Êtes-vous sûr de vouloir fermer le programme ? Si des installations sont en cours  elles seront interrompues.
 watchdemo,Bienvenue
-happybirthday,Joyeux Anniversaire Emad !
-myplaylist,Doğum Günüm ve Playlistim ♪
+happybirthday,Joyeux anniversaire à moi !
+myplaylist,C'est mon anniversaire et ma playlist ♪
+OneAppReq,Choisissez au moins une application à sauvegarder.
+contributors,Contributeurs

@@ -1,55 +1,55 @@
-Key,Text,,
-name,Deutsch,,
-Welcome,Sparen Sie Zeit," indem Sie mehrere Programme gleichzeitig installieren und verbessern Sie die Leistung Ihres Windows. Helfen Sie uns dabei"," das Tool zu verbessern und großartig zu machen."
-sysinfo,Systeminformationen,,
-PowerOptions,Energieoptionen,,
-devicemgr,Geräte-Manager,,
-services,Dienste,,
-networks,Netzwerke,,
-appsfeatures,Apps-Funktionen,,
-taskmgr,Task-Manager,,
-diskmgr,Festplattenverwaltung,,
-installBtn,Installieren,,
-applyBtn,Anwenden,,
-downloading,Herunterladen,,
-about,Über,,
-thirdparty,Drittanbieter,,
-preferences,Einstellungen,,
-management,Verwaltung,,
-apps,Apps,,
-tweaks,Anpassungen,,
-settings,Einstellungen,,
-saveapps,Ausgewählte Apps speichern,,
-loadapps,Ausgewählte Apps wiederherstellen,,
-music,Musik,,
-on,Stummschalten,,
-reset,Einstellungen zurücksetzen,,
-off,Stummschalten,,
-Dark,Dunkel,,
-Light,Hell,,
-defaultTheme,System,,
-ittlink,Desktop-Verknüpfung erstellen,,
-reopen,Bitte öffnen Sie ITT erneut.,,
-theme,Thema,,
-language,Sprache,,
-mas,Microsoft-Aktivierungsskripte (MAS),,
-winoffice,Windows / Office ISO herunterladen,,
-idm,IDM-Aktivierung,,
-extensions,Browser-Erweiterungen,,
-all,Alle,,
-restorepoint,Wiederherstellungspunkt erstellen,,
-chocoloc,Tragbarer Download-Ordner,,
-InstallMessage,Möchten Sie die ausgewählten Apps installieren?,,
-ApplyMessage,Möchten Sie die ausgewählten Anpassungen anwenden?,,
-installing,Installiere..,,
-Applying,Wende an..,,
-choseapp,Wählen Sie mindestens eine App zum Installieren aus,,
-chosetweak,Bitte warten Sie," bis die Anpassungen angewendet wurden",
-pleasewait,Bitte warten Sie," es läuft ein Prozess im Hintergrund.",
-lastupdate,Letztes Update,,
-sourcecode,Quellcode,,
-devby,Hergestellt mit ♥ von Emad Adel,,
-exit,Sind Sie sicher," dass Sie das Programm schließen möchten? Falls Installationen laufen"," werden sie abgebrochen."
-watchdemo,Willkommen,,
-happybirthday,Alles Gute zum Geburtstag," Emad!",
-myplaylist,Es ist mein Geburtstag und meine Playlist ♪,,
+Key,Text
+name,Deutsch
+Welcome,Sparen Sie Zeit indem Sie mehrere Programme gleichzeitig installieren und die Leistung Ihres Windows steigern. Schließen Sie sich uns an um dieses Tool zu verbessern und noch besser zu machen. Sie können auch Ihre Lieblings-Musik-Apps und Anpassungen hinzufügen.
+installBtn,Installieren
+applyBtn,Anwenden
+downloading,Herunterladen...
+about,Über
+thirdparty,Drittanbieter
+preferences,Einstellungen
+management,Verwaltung
+apps,Apps
+tweaks,Optimierungen
+settings,Einstellungen
+saveapps,Speichern
+loadapps,Wiederherstellen
+music,Musik
+on,"Ein "
+off,Aus
+diskmgr,Datenträgerverwaltung
+taskmgr,Task-Manager
+appsfeatures,Apps-Funktionen
+networks,Netzwerke
+services,Dienste
+devicemgr,Geräte-Manager
+PowerOptions,Energieoptionen
+sysinfo,Systeminfo
+defaultTheme,Systemeinstellungen verwenden
+ittlink,Desktop-Verknüpfung erstellen
+reset,Einstellungen zurücksetzen
+reopen,Bitte ITT erneut öffnen.
+theme,Thema
+language,Sprache
+mas,Microsoft Aktivierungsskripte (MAS)
+winoffice,Windows / Office ISO herunterladen
+idm,IDM-Aktivierung
+extensions,Browser-Erweiterungen
+all,Alle
+search,Suchen
+restorepoint,Wiederherstellungspunkt erstellen
+chocoloc,Ordner für tragbare Downloads
+InstallMessage,Sind Sie sicher  dass Sie die folgenden Anwendungen installieren möchten?
+ApplyMessage,Sind Sie sicher dass Sie die folgenden Anpassungen anwenden möchten?
+Applying,Anwenden...
+choseapp,Wählen Sie mindestens eine App zur Installation aus.
+chosetweak,Wählen Sie mindestens eine Optimierung zur Anwendung aus.
+pleasewait,Bitte warten ein Prozess läuft im Hintergrund.
+lastupdate,Letztes Update
+sourcecode,Quellcode
+devby,Mit ♥ gemacht von Emad Adel
+exit,Sind Sie sicher dass Sie das Programm schließen möchten? Alle Installationen werden abgebrochen.
+watchdemo,Willkommen
+happybirthday,Alles Gute zum Geburtstag mir!
+myplaylist,Es ist mein Geburtstag und meine Playlist ♪
+OneAppReq,Wählen Sie mindestens eine App zum Speichern aus.
+contributors,Mitwirkende
