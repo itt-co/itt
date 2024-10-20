@@ -1,9 +1,9 @@
 param (
     [string]$OutputScript = "itt.ps1",
     [string]$readme = "README.md",
-    [string]$Assets = ".\Resources",
+    [string]$Assets = ".\Statics",
     [string]$Controls = ".\UI\Controls",
-    [string]$DatabaseDirectory = ".\Resources\Database",
+    [string]$DatabaseDirectory = ".\Statics\Database",
     [string]$StartScript = ".\Initialize\start.ps1",
     [string]$MainScript = ".\Initialize\main.ps1",
     [string]$ScritsDirectory = ".\Scripts",
@@ -354,7 +354,6 @@ function GenerateThemesKeys {
     return $stringBuilder.ToString().TrimEnd("`n".ToCharArray())  # Remove the trailing newline
 }
 
-
 function GenerateClickEventHandlers {
     
     try {
@@ -401,8 +400,7 @@ function GenerateClickEventHandlers {
     }
 }
 
-
-# This func Generate 
+# Generate GenerateInvokeButtons
 function GenerateInvokeButtons {
    
     # Define file paths for the Invoke button template
@@ -445,6 +443,41 @@ function GenerateInvokeButtons {
     }
 }
 
+
+# Generate Locales
+function Convert-Locales {
+    param (
+        [string]$csvFolderPath = "locales", # Path to the folder containing the CSV files
+        [string]$jsonOutputPath = "Statics/Database/locales.json" # Path where the generated JSON file will be saved
+    )
+
+    # Initialize a hashtable to store the "Controls" object
+    $locales = @{
+        "Controls" = @{}
+    }
+
+    # Get all CSV files in the specified folder and process each one
+    Get-ChildItem -Path $csvFolderPath -Filter *.csv | ForEach-Object {
+        # Import the content of the current CSV file
+        $csvData = Import-Csv -Path $_.FullName
+
+        # Extract the filename without the extension to use as the language key
+        $language = [System.IO.Path]::GetFileNameWithoutExtension($_.Name)
+
+        # If the language key doesn't already exist in the Controls object, add it
+        if (-not $locales["Controls"].ContainsKey($language)) {
+            $locales["Controls"][$language] = @{}
+        }
+
+        # Loop through each row of the CSV file and add the key-value pairs to the respective language section
+        foreach ($row in $csvData) {
+            $locales["Controls"][$language][$row.Key] = $row.Text
+        }
+    }
+
+    # Convert the hashtable to JSON format and save it to the specified output path
+    $locales | ConvertTo-Json -Depth 20 | Set-Content -Path $jsonOutputPath -Encoding UTF8
+}
 
 # Write script header
 function WriteHeader {
@@ -493,6 +526,7 @@ try {
 #===========================================================================
 "@
 
+    Convert-Locales
     Sync-JsonFiles -DatabaseDirectory $DatabaseDirectory -OutputScriptPath $OutputScript
 
     WriteToScript -Content @"
@@ -510,10 +544,7 @@ try {
 
 
     GenerateInvokeButtons
-
     ProcessDirectory -Directory $ScritsDirectory
-
-
 
     WriteToScript -Content @"
 #===========================================================================
