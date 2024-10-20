@@ -63,12 +63,12 @@
 
 
 <p align="center" dir="auto">
-    <a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/emadadel4/ITT/main/Resources/Images/demo.PNG"><img src="https://raw.githubusercontent.com/emadadel4/ITT/main/Resources/Images/demo.PNG" alt="ITT Demo" style="max-width: 100%;"></a>
+    <a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Images/demo.PNG"><img src="https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Images/demo.PNG" alt="ITT Demo" style="max-width: 100%;"></a>
 </p>
 
 <p>
 <div align="center">
-    <img src="https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/Resources/Images/gitt.gif" alt="My GIF">
+    <img src="https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/Statics/Images/gitt.gif" alt="My GIF">
 </div>
 </p>
 
@@ -110,7 +110,7 @@ or
   
 ## Watch Demo
 
-  [![Watch the video](https://raw.githubusercontent.com/emadadel4/ITT/main/Resources/Images/thumbnail.jpg)](https://www.youtube.com/watch?v=QmO82OTsU5c)
+  [![Watch the video](https://raw.githubusercontent.com/emadadel4/itt/main/Statics/Images/thumbnail.jpg)](https://www.youtube.com/watch?v=QmO82OTsU5c)
 </div>
 
 # 💡 How to Contribute
@@ -130,35 +130,40 @@ or
 
 <h3>Add a New App</h3>
 
-<pre><code>newApp.ps1
+<pre><code>.\newApp.ps1
 </code></pre>
 
 <h3>Add a New Tweak</h3>
 
-<pre><code>newTweak.ps1
+<pre><code>.\newTweak.ps1
+</code></pre>
+
+<h3>add Your native language</h3>
+<p><em>You can edit the file using any CSV editor such as Excel, or Notepad++.</em></p>
+
+<pre><code>.\newLocale.ps1
 </code></pre>
 
 <p><em>Note: Ensure you understand the tweak you are adding and test it before committing.</em></p>
 
 <h3>Create your own theme</h3>
 
-
-<pre><code>newTheme.ps1
+<pre><code>.\newTheme.ps1
 </code></pre>
 
 <h3>Add a New Soundtrack</h3>
 
-<pre><code>newOST.ps1
+<pre><code>.\newOST.ps1
 </code></pre>
 
 <h3>Add a New Quote</h3>
 
-<pre><code>newQuote.ps1
+<pre><code>.\newQuote.ps1
 </code></pre>
 
 <h3>Build and run</h3>
 
-<pre><code>build.ps1 -debug
+<pre><code>.\build.ps1 -debug
 </code></pre>
 
 

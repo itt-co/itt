@@ -1,0 +1,56 @@
+Key,Text
+name,عربي
+Welcome,توفر هذه الأداة تسهيلات كبيرة في عملية تثبيت البرامج وتحسين الاداء. انضم إلينا لتساهم في تطويرها وجعلها أكثر اكتمالًا
+sysinfo,معلومات النظام
+PowerOptions,خيارات الطاقة
+devicemgr,إدارة الأجهزة
+services,خدمات
+networks,شبكات
+appsfeatures,التطبيقات و الميزات
+taskmgr,مدير المهام
+diskmgr,إدارة القرص
+InstallBtn,تثبيت
+applyBtn,تطبيق
+downloading,جارٍ التثبيت
+about,عن المطور
+thirdparty,روابط خارجية
+preferences,التفضيلات
+management,إدارة الجهاز
+apps,تطبيقات
+tweaks,تحسينات
+settings,إعدادات
+saveapps,حفظ البرامج
+loadapps,أسترجاع البرامج
+music,الموسيقى
+on,"تشغيل "
+off,كتم
+Dark,ليلا
+Light,نهارا
+defaultTheme,استخدم إعدادات النظام
+ittlink,أنشاء أختصار على سطح المكتب
+reset,الوضع الافتراضي
+reopen,يرجى اعادة فتح الاداة مرة اخرى
+theme,المظهر
+language,اللغة
+mas,تفعيل الويندوز
+winoffice,تنزيل ويندوز / أوفيس
+idm,تفعيل الدون لود مانجر
+extensions,أضافات المتصفحات
+all,الكل
+search,بحث
+restorepoint,إنشاء نقطة الاستعادة
+chocoloc,مجلد التنزيلات المحمولة
+InstallMessage,هل تريد تثبيت البرامج التالية
+ApplyMessage,هل تريد تطبيق التحسينات التالية
+Applying,جارٍي التطبيق
+Pleasewait,يرجى الانتظار، يوجد عملية في الخلفية
+choseapp,اختر على الأقل تطبيقًا لتثبيته
+chosetweak,اختار على الاقل تحسين واحد لتطبيقه
+lastupdate,آخر تحديث
+sourcecode,الشفرة المصدرية
+devby,صنع بـ ♥ من قبل عماد عادل
+exit,هل أنت متأكد من رغبتك في إغلاق البرنامج؟ إذا كان هناك أي تثبيتات، فسيتم إيقافها.
+watchdemo,مرحبا بك
+happybirthday,!عيد ميلاد سعيد عماد
+myplaylist,انه عيد ميلادي و قائمة الموسيقى الخاصة بي
+OneAppReq,يرجى اختيار تطبيق واحد على الاقل لحفظه

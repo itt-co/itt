@@ -2,7 +2,7 @@
 
 ### Watch demo
 
-![itt.xName:ytv [https://www.youtube.com/watch?v=QmO82OTsU5c]](https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/Resources/Images/thumbnail.jpg)
+![itt.xName:ytv [https://www.youtube.com/watch?v=QmO82OTsU5c]](https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/Statics/Images/thumbnail.jpg)
 
 ##### Keyboard Shortcuts:
 
@@ -22,7 +22,7 @@
 
 ### Create your own theme
 
-![itt.xName:contribute [https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute]](https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/update/Resources/Images/customtheme.jpg)
+![itt.xName:contribute [https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute]](https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/Statics/Images/customtheme.jpg)
 
 #### Contribute and create your own theme, add your favorite apps, music. Click on the image above to see how to contribute.
 

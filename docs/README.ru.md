@@ -9,8 +9,8 @@ ITT (Инструмент установки и настройки) 🛠️ 🚀
 </h1>
 
 <p align="center">
-  <a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/emadadel4/ITT/main/Resources/Images/demo.PNG">
-    <img src="https://raw.githubusercontent.com/emadadel4/ITT/main/Resources/Images/demo.PNG" alt="ITT Demo" style="max-width: 100%;">
+  <a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Images/demo.PNG">
+    <img src="https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Images/demo.PNG" alt="ITT Demo" style="max-width: 100%;">
   </a>
 </p>
 
@@ -51,7 +51,7 @@ ITT (Инструмент установки и настройки) 🛠️ 🚀
 
   ## Посмотреть демонстрацию
 
-  [![Посмотреть видео](https://raw.githubusercontent.com/emadadel4/ITT/main/Resources/Images/thumbnail.jpg)](https://www.youtube.com/watch?v=QmO82OTsU5c)
+  [![Посмотреть видео](https://raw.githubusercontent.com/emadadel4/IT/main/Statics/Images/thumbnail.jpg)](https://www.youtube.com/watch?v=QmO82OTsU5c)
 </div>
 
 <h2> 📦 Как добавить новое приложение/настройку/OST/цитату</h2>

@@ -1,8 +1,7 @@
 param (
-    [string]$json = "./Resources/Database/Applications.json"
+    [string]$json = "./Statics/Database/Applications.json"
 )
 
-Clear-Host
 Write-Host "
 +-------------------------------------------------------------------------+
 |    ___ _____ _____   ____    _  _____  _    ____    _    ____  _____    |
@@ -16,6 +15,9 @@ Write-Host "
 |  Winget https://winget.run/                                             |
 +-------------------------------------------------------------------------+
 "
+
+try {
+
 $validCategories = @{
 
     # Available options
@@ -312,8 +314,6 @@ $updatedJson = $existingJson | ConvertTo-Json -Depth 100
 
 # Output to file
 $updatedJson | Out-File -FilePath $json -Encoding utf8
-
-Write-Host "Added successfully, Don't forget to build and test it before commit" -ForegroundColor Green 
 }
 
 }
@@ -386,7 +386,7 @@ function API {
             }
         } until ([int]$choice -in $validCategories.Keys)
 
-      
+        
 
 
     # Define the data
@@ -445,11 +445,7 @@ function API {
     $updatedJson = $existingJson | ConvertTo-Json -Depth 100
 
     # Output to file
-    $updatedJson | Out-File -FilePath $json -Encoding utf8
-
-    Write-Host "Added successfully, Don't forget to build and test it before commit" -ForegroundColor Green 
-        
-
+    $updatedJson | Out-File -FilePath $json -Encoding utf8        
 }
 #===========================================================================
 #endregion API 
@@ -462,4 +458,12 @@ if($userInput -eq "API [Choco/Winget] Recommended")
 }else
 {
     Native
+}
+    
+}
+catch {
+    Write-Host "An error occurred: $_"
+}
+finally {
+    Write-Host "Added successfully, Don't forget to build and test it before commit" -ForegroundColor Green 
 }

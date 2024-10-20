@@ -1,0 +1,55 @@
+Key,Text
+name,한국어
+Welcome,여러 프로그램을 한 번에 설치하여 시간을 절약하고 Windows 성능을 향상시킵니다. 도구를 개선하고 우리와 함께 훌륭하게 만들어 보세요.
+sysinfo,시스템 정보
+PowerOptions,전원 옵션
+devicemgr,장치 관리자
+services,서비스
+networks,네트워크
+appsfeatures,앱 기능
+taskmgr,작업 관리자
+diskmgr,디스크 관리
+installBtn,설치
+applyBtn,적용
+downloading,다운로드 중
+about,정보
+thirdparty,외부
+preferences,환경 설정
+management,관리
+apps,앱
+tweaks,설정
+settings,설정
+saveapps,선택한 앱 저장
+loadapps,선택한 앱 복원
+music,음악
+on,켜기
+reset,환경 설정 초기화
+off,끄기
+Dark,다크
+Light,라이트
+defaultTheme,시스템
+ittlink,바탕화면 바로 가기 만들기
+reopen,ITT를 다시 열어주세요.
+theme,테마
+language,언어
+mas,Microsoft 활성화 스크립트 (MAS)
+winoffice,Windows / Office ISO 다운로드
+idm,IDM 활성화
+extensions,브라우저 확장 프로그램
+all,모두
+restorepoint,복원 지점 생성
+chocoloc,휴대용 다운로드 폴더
+InstallMessage,선택한 앱을 설치하시겠습니까
+ApplyMessage,선택한 조정 사항을 적용하시겠습니까
+installing,설치 중..
+Applying,적용 중..
+choseapp,설치할 적어도 하나의 앱을 선택하십시오
+chosetweak,조정 사항 적용 대기 중
+pleasewait,배경에서 프로세스가 진행 중입니다. 잠시 기다려주세요.
+lastupdate,마지막 업데이트
+sourcecode,소스 코드
+devby,Emad Adel 제작 ♥
+exit,프로그램을 종료하시겠습니까? 진행 중인 설치가 있으면 중단됩니다.
+watchdemo,환영합니다
+happybirthday,생일 축하합니다 Emad!
+myplaylist,제 생일과 제 플레이리스트 ♪

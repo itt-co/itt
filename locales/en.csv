@@ -1,0 +1,46 @@
+Key,Text
+name,English
+Welcome,Save time by installing multiple programs at once and boost your Windows performance. Join us in improving this tool and making it better. You can also add your favorite music  apps  and tweaks.
+installBtn,Install
+applyBtn,Apply
+downloading,Downloading...
+about,About
+thirdparty,Third-party
+preferences,Preferences
+management,Management
+apps,Apps
+tweaks,Tweaks
+settings,Settings
+saveapps,Save
+loadapps,Restore
+music,Music
+on,"On "
+off,Off
+defaultTheme,Use system setting
+ittlink,Create desktop shortcut
+reset,Reset Preferences
+reopen,Please reopen ITT again.
+theme,Theme
+language,Language
+mas,Microsoft Activation Scripts (MAS)
+winoffice,Download Windows / Office ISO
+idm,IDM Activation
+extensions,Browsers Extensions
+all,All
+search,Search
+restorepoint,Create a restore point
+chocoloc,Portable Downloads Folder
+InstallMessage,Are you sure you want to install the following applications
+ApplyMessage,Are you sure you want to apply the following tweaks
+Applying,Applying...
+choseapp,Please select at least one app to install.
+chosetweak,Please select at least one tweak to apply.
+pleasewait,Please wait  a process is running in the background
+lastupdate,Last update
+sourcecode,Source Code
+devby,Made with ♥ by Emad Adel
+exit,Are you sure you want to close the program? If there are any installations they will be terminated.
+watchdemo,Welcome
+happybirthday,Happy Birthday to me!
+myplaylist,It's my Birthday and My Playlist ♪
+OneAppReq,Choose at least one app to save it

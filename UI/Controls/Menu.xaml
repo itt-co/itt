@@ -3,7 +3,7 @@
                                     
         <MenuItem Background="Transparent" BorderBrush="Transparent" BorderThickness="0" IsEnabled="False" ToolTip="Emad Adel">
             <MenuItem.Icon>
-                <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/Resources/Images/ps.png" Width="90" Height="Auto" Margin="5,5,0,0">
+                <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Images/ps.png" Width="90" Height="Auto" Margin="5,5,0,0">
                     <Image.Effect>
                         <DropShadowEffect Color="#027a3d" BlurRadius="5" ShadowDepth="0" Opacity="0.5"/>
                     </Image.Effect>
@@ -115,15 +115,7 @@
                     <MenuItem.Icon>
                         <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                     </MenuItem.Icon>
-                    <MenuItem Name="ar" Header="عربي" />
-                    <MenuItem Name="en" Header="English" />
-                    <MenuItem Name="fr" Header="Français" />
-                    <MenuItem Name="tr" Header="Türkçe" />
-                    <MenuItem Name="zh" Header="中文" />
-                    <MenuItem Name="ko" Header="한국어" />
-                    <MenuItem Name="de" Header="Deutsch" />
-                    <MenuItem Name="ru" Header="Русский" />
-                    <MenuItem Name="es" Header="Español" />
+                       {{LocalesKeys}}
             </MenuItem>
 
 

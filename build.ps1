@@ -1,9 +1,9 @@
 param (
     [string]$OutputScript = "itt.ps1",
     [string]$readme = "README.md",
-    [string]$Assets = ".\Resources",
+    [string]$Assets = ".\Statics",
     [string]$Controls = ".\UI\Controls",
-    [string]$DatabaseDirectory = ".\Resources\Database",
+    [string]$DatabaseDirectory = ".\Statics\Database",
     [string]$StartScript = ".\Initialize\start.ps1",
     [string]$MainScript = ".\Initialize\main.ps1",
     [string]$ScritsDirectory = ".\Scripts",
@@ -23,6 +23,7 @@ param (
 $itt = [Hashtable]::Synchronized(@{})
 $itt.database = @{}
 $global:imageLinkMap = @{}
+$global:localesMap = @{}
 $global:extractedContent = ""
 
 
@@ -354,6 +355,41 @@ function GenerateThemesKeys {
     return $stringBuilder.ToString().TrimEnd("`n".ToCharArray())  # Remove the trailing newline
 }
 
+function GenerateLocalesKeys {
+    param (
+        [string]$localesPath = "locales"
+    )
+
+    # Validate the path
+    if (-Not (Test-Path $localesPath)) {
+        Write-Host "The specified path does not exist: $ThemesPath"
+        return
+    }
+
+    $stringBuilder = New-Object System.Text.StringBuilder
+
+    Get-ChildItem -Path $localesPath -Filter *.csv | ForEach-Object {
+        
+        $csvData = Import-Csv -Path $_.FullName
+
+        $language = [System.IO.Path]::GetFileNameWithoutExtension($_.Name)
+
+        foreach ($row in $csvData) {
+
+            if ($row.Key -eq 'name') {
+                
+                $name = $row.Text
+            }
+
+        }
+
+        $null = $stringBuilder.AppendFormat("<MenuItem Name=`"{0}`" Header=`"{1}`"/>`n", "$language", "$name")
+
+    }
+
+
+    return $stringBuilder.ToString().TrimEnd("`n".ToCharArray())  # Remove the trailing newline
+}
 
 function GenerateClickEventHandlers {
     
@@ -401,8 +437,7 @@ function GenerateClickEventHandlers {
     }
 }
 
-
-# This func Generate 
+# Generate GenerateInvokeButtons
 function GenerateInvokeButtons {
    
     # Define file paths for the Invoke button template
@@ -414,8 +449,21 @@ function GenerateInvokeButtons {
         # Read the content of the Invoke-Button.ps1 file
         $InvokeContent = Get-Content -Path $FilePaths["Invoke"] -Raw
 
-        # Get all theme files in the Themes directory and create menu items
         $menuItems = Get-ChildItem -Path "Themes" -File | ForEach-Object {
+            # Get the filename without its extension
+            $filename = [System.IO.Path]::GetFileNameWithoutExtension($_.Name)
+
+            $Key = $filename -replace '[^\w]', ''
+
+            @"
+            "$Key" {
+                Set-Theme -Theme `$action # Call the Set-Theme function with the selected theme
+                Debug-Message # debug
+            }
+"@
+        }
+
+         $LanguageItems = Get-ChildItem -Path "locales" -File | ForEach-Object {
             # Get the filename without its extension
             $filename = [System.IO.Path]::GetFileNameWithoutExtension($_.Name)
 
@@ -425,26 +473,64 @@ function GenerateInvokeButtons {
             # Create a MenuItem block for each theme
             @"
             "$Key" {
-                Set-Theme -Theme `$action  # Call the Set-Theme function with the selected theme
-                Debug-Message  # Output a debug message for tracking
+                Set-Language -lang "$Key"
+                `Debug-Message
             }
 "@
         }
 
-        # Join the menu items with newlines
         $menuItemsOutput = $menuItems -join "`n"
+        $LanguageItemsItemsOutput = $LanguageItems -join "`n"
         
-        # Replace the #{themes} placeholder in the Invoke content with the generated menu items
+        $InvokeContent = $InvokeContent -replace '#{locales}', "$LanguageItemsItemsOutput"
         $InvokeContent = $InvokeContent -replace '#{themes}', "$menuItemsOutput"
-        
-        # Write the modified content back to the script
         WriteToScript -Content $InvokeContent
     }
     catch {
-        Write-Host $_.Exception.Message # Capture the error message
+        Write-Host $_.Exception.Message 
     }
 }
 
+# Generate Locales
+function Convert-Locales {
+    param (
+        [string]$csvFolderPath = "locales", 
+        [string]$jsonOutputPath = "Statics/Database/locales.json" 
+    )
+
+    # Initialize a hashtable to store the "Controls" object
+    $locales = @{
+        "Controls" = @{}
+    }
+
+    # Get all CSV files in the specified folder and process each one
+    Get-ChildItem -Path $csvFolderPath -Filter *.csv | ForEach-Object {
+        # Import the content of the current CSV file
+        $csvData = Import-Csv -Path $_.FullName
+
+        # Extract the filename without the extension to use as the language key
+        $language = [System.IO.Path]::GetFileNameWithoutExtension($_.Name)
+
+        # If the language key doesn't already exist in the Controls object, add it
+        if (-not $locales["Controls"].ContainsKey($language)) {
+            $locales["Controls"][$language] = @{}
+        }
+
+        # Loop through each row of the CSV file and add the key-value pairs to the respective language section
+        foreach ($row in $csvData) {
+
+            $locales["Controls"][$language][$row.Key] = $row.Text
+
+            if ($row.Key -eq 'name') {
+                $global:localesMap = $row.Text
+            }
+
+        }
+    }
+
+    # Convert the hashtable to JSON format and save it to the specified output path
+    $locales | ConvertTo-Json -Depth 20 | Set-Content -Path $jsonOutputPath -Encoding UTF8
+}
 
 # Write script header
 function WriteHeader {
@@ -493,6 +579,7 @@ try {
 #===========================================================================
 "@
 
+    Convert-Locales
     Sync-JsonFiles -DatabaseDirectory $DatabaseDirectory -OutputScriptPath $OutputScript
 
     WriteToScript -Content @"
@@ -508,12 +595,8 @@ try {
 #===========================================================================
 "@
 
-
     GenerateInvokeButtons
-
     ProcessDirectory -Directory $ScritsDirectory
-
-
 
     WriteToScript -Content @"
 #===========================================================================
@@ -572,6 +655,8 @@ WriteToScript -Content @"
     $MainXamlContent = $MainXamlContent -replace "{{Tweaks}}", $TweaksCheckboxes 
     $MainXamlContent = $MainXamlContent -replace "{{Settings}}", $SettingsCheckboxes 
     $MainXamlContent = $MainXamlContent -replace "{{ThemesKeys}}", (GenerateThemesKeys)
+    $MainXamlContent = $MainXamlContent -replace "{{LocalesKeys}}", (GenerateLocalesKeys)
+
 
     # Get xaml files from Themes and put it inside MainXamlContent
     $ThemeFilesContent = Get-ChildItem -Path "$Themes" -File | 
