@@ -529,7 +529,7 @@ function Convert-Locales {
     }
 
     # Convert the hashtable to JSON format and save it to the specified output path
-    $locales | ConvertTo-Json -Depth 20 | Set-Content -Path $jsonOutputPath -Encoding UTF8
+    $locales | ConvertTo-Json -Depth 100 | Set-Content -Path $jsonOutputPath -Encoding UTF8
 }
 
 # Write script header
