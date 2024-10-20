@@ -165,7 +165,7 @@ Edit CSV file using [edit-csv extension ](https://marketplace.visualstudio.com/i
 <pre><code>.\newQuote.ps1
 </code></pre>
 
-<h3>Build and run</h3>
+<h3>Build and run 🏃</h3>
 
 <pre><code>.\build.ps1 -debug
 </code></pre>
