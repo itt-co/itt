@@ -141,13 +141,11 @@ or
 <h3>Add your native language</h3>
 <p><em>
 
-Edit CSV file using [edit-csv extension ](https://marketplace.visualstudio.com/items?itemName=janisdd.vscode-edit-csv)
-</em></p>
-
-
-
 <pre><code>.\newLocale.ps1
 </code></pre>
+
+Edit CSV file using [edit-csv extension ](https://marketplace.visualstudio.com/items?itemName=janisdd.vscode-edit-csv)
+</em></p>
 
 <p><em>Note: Ensure you understand the tweak you are adding and test it before committing.</em></p>
 
