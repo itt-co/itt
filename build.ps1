@@ -2,14 +2,14 @@ param (
     [string]$OutputScript = "itt.ps1",
     [string]$readme = "README.md",
     [string]$Assets = ".\static",
-    [string]$Controls = ".\UI\Controls",
+    [string]$Controls = ".\xaml\Controls",
     [string]$DatabaseDirectory = ".\static\Database",
     [string]$StartScript = ".\Initialize\start.ps1",
     [string]$MainScript = ".\Initialize\main.ps1",
-    [string]$ScritsDirectory = ".\Scripts",
-    [string]$windows = ".\UI\Views",
+    [string]$ScritsDirectory = ".\scripts",
+    [string]$windows = ".\xaml\Views",
     [string]$LoadXamlScript = ".\Initialize\xaml.ps1",
-    [string]$Themes = "Themes",
+    [string]$Themes = "themes",
     [switch]$Debug,
     [switch]$code,
     [string]$ProjectDir = $PSScriptRoot,
@@ -214,7 +214,7 @@ function NewCONTRIBUTOR {
     $gitFolder = ".git"
     $contribFile = "CONTRIBUTORS.md"
     $xamlFile = "Templates\about.xaml"
-    $updatedXamlFile = "UI\Views\AboutWindow.xaml" 
+    $updatedXamlFile = "xaml\views\AboutWindow.xaml" 
 
     Update-Progress "Check for new contributor..." 40
 
@@ -326,7 +326,7 @@ function ConvertTo-Xaml {
 # Generate themes menu items
 function GenerateThemesKeys {
     param (
-        [string]$ThemesPath = "Themes"
+        [string]$ThemesPath = "themes"
     )
 
     # Validate the path
@@ -397,7 +397,7 @@ function GenerateClickEventHandlers {
         
         # Define file paths for scripts and templates
         $FilePaths = @{
-            "EventWindowScript" = Join-Path -Path "Templates" -ChildPath "Show-Event.ps1"
+            "EventWindowScript" = Join-Path -Path "templates" -ChildPath "Show-Event.ps1"
         }
 
         # Read the content of the event window script file
@@ -442,14 +442,14 @@ function GenerateInvokeButtons {
    
     # Define file paths for the Invoke button template
     $FilePaths = @{
-        "Invoke" = Join-Path -Path "Templates" -ChildPath "Invoke-Button.ps1"
+        "Invoke" = Join-Path -Path "templates" -ChildPath "Invoke-Button.ps1"
     }
 
     try {
         # Read the content of the Invoke-Button.ps1 file
         $InvokeContent = Get-Content -Path $FilePaths["Invoke"] -Raw
 
-        $menuItems = Get-ChildItem -Path "Themes" -File | ForEach-Object {
+        $menuItems = Get-ChildItem -Path "themes" -File | ForEach-Object {
             # Get the filename without its extension
             $filename = [System.IO.Path]::GetFileNameWithoutExtension($_.Name)
 

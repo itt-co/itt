@@ -20,7 +20,7 @@ try {
   $Key = $themeName -replace , '[^\w]', ''
 
   # Define the path for the Theme folder
-  $themeFolderPath = "Themes"
+  $themeFolderPath = "themes"
 
   # Create the Theme folder if it doesn't exist
   if (-not (Test-Path -Path $themeFolderPath)) {
