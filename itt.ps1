@@ -13482,7 +13482,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
             <MenuItem.Icon>
                 <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/ps.png" Width="60" Height="Auto" Margin="5,5,0,0">
                     <Image.Effect>
-                        <DropShadowEffect Color="#027a3d" BlurRadius="5" ShadowDepth="0" Opacity="0.5"/>
+                        <DropShadowEffect Color="#FFFF0000" BlurRadius="10" ShadowDepth="0" Opacity="1"/>
                     </Image.Effect>
                 </Image>
             </MenuItem.Icon>
