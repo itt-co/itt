@@ -13480,9 +13480,9 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                                     
         <MenuItem Background="Transparent" BorderBrush="Transparent" BorderThickness="0" IsEnabled="False" ToolTip="Emad Adel">
             <MenuItem.Icon>
-                <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/ps.png" Width="60" Height="Auto" Margin="5,5,0,0">
+                <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/ps.png" Width="70" Height="Auto" Margin="5,5,0,0">
                     <Image.Effect>
-                        <DropShadowEffect Color="#FFFF0000" BlurRadius="10" ShadowDepth="0" Opacity="1"/>
+                        <DropShadowEffect Color="#FFFF0000" BlurRadius="30" ShadowDepth="0" Opacity="0.8"/>
                     </Image.Effect>
                 </Image>
             </MenuItem.Icon>
@@ -16156,7 +16156,11 @@ $AboutWindowXaml = '<Window
         <!--Header -->
           <Grid Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <StackPanel Orientation="Vertical">
-              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/logo.png" Height="130" Width="Auto"/>
+              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/logo.png" Margin="0,0,0,25" Height="70" Width="Auto">
+                <Image.Effect>
+                  <DropShadowEffect Color="#FFFF0000" BlurRadius="5" ShadowDepth="0" Opacity="0.8"/>
+              </Image.Effect>
+              </Image>
               
               <TextBlock Text="Made with ♥ by Emad Adel" 
                 Foreground="{DynamicResource TextColorSecondaryColor2}"
