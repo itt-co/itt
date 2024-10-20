@@ -29,7 +29,7 @@ $itt = [Hashtable]::Synchronized(@{
     database       = @{}
     ProcessRunning = $false
     developer      = "Emad Adel"
-    lastupdate     = "10/19/2024"
+    lastupdate     = "10/20/2024"
     github         = "https://github.com/emadadel4/itt"
     telegram       = "https://t.me/emadadel4"
     blog           = "https://emadadel4.github.io"
@@ -37,7 +37,7 @@ $itt = [Hashtable]::Synchronized(@{
     buymeacoffee   = "https://buymeacoffee.com/emadadel"
     registryPath   = "HKCU:\Software\ITT@emadadel"
     firebaseUrl    = "https://ittools-7d9fe-default-rtdb.firebaseio.com/Users"
-    icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/Resources/Icons/icon.ico"
+    icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Icons/icon.ico"
     Theme          = "default"
     CurretTheme    = "default"
     Date           = (Get-Date -Format "MM/dd/yyy")
@@ -6735,503 +6735,501 @@ $itt.database.Applications = '[
 ' | ConvertFrom-Json
 $itt.database.locales = '{
   "Controls": {
-    "ar": {
-        "Welcome": "توفر هذه الأداة تسهيلات كبيرة في عملية تثبيت البرامج وتحسين الاداء. انضم إلينا لتساهم في تطويرها وجعلها أكثر اكتمالًا",
-        "sysinfo": "معلومات النظام",
-        "PowerOptions": "خيارات الطاقة",
-        "devicemgr": "إدارة الأجهزة",
-        "services": "خدمات",
-        "networks": "شبكات",
-        "appsfeatures": "التطبيقات و الميزات",
-        "taskmgr": "مدير المهام",
-        "diskmgr": "إدارة القرص",
-        "InstallBtn": "تثبيت",
-        "applyBtn": "تطبيق",
-        "downloading": "جارٍ التثبيت",
-        "about":"عن المطور",
-        "thirdparty":"روابط خارجية",
-        "preferences":"التفضيلات",
-        "management":"إدارة الجهاز",
-        "apps":"تطبيقات",
-        "tweaks":"تحسينات",
-        "settings": "إعدادات",
-        "saveapps":"حفظ البرامج",
-        "loadapps":"أسترجاع البرامج",
-        "music":"الموسيقى",
-        "on":"تشغيل ",
-        "off":"كتم",
-        "Dark":"ليلا",
-        "Light":"نهارا",
-        "defaultTheme":"استخدم إعدادات النظام",
-        "ittlink":"أنشاء أختصار على سطح المكتب",
-        "reset":"الوضع الافتراضي",
-        "reopen": "يرجى اعادة فتح الاداة مرة اخرى",
-        "theme":"المظهر",
-        "language":"اللغة",
-        "mas":"تفعيل الويندوز",
-        "winoffice":"تنزيل ويندوز / أوفيس",
-        "idm":"تفعيل الدون لود مانجر",
-        "extensions":"أضافات المتصفحات",
-        "all": "الكل",
-        "search": "بحث",
-        "restorepoint": "إنشاء نقطة الاستعادة",
-        "chocoloc": "مجلد التنزيلات المحمولة",
-        "InstallMessage":"هل تريد تثبيت البرامج التالية",
-        "ApplyMessage":"هل تريد تطبيق التحسينات التالية",
-        "Applying": "جارٍي التطبيق",
-        "Pleasewait": "يرجى الانتظار، يوجد عملية في الخلفية",
-        "choseapp":"اختر على الأقل تطبيقًا لتثبيته",
-        "chosetweak":"اختار على الاقل تحسين واحد لتطبيقه",
-        "lastupdate":"آخر تحديث",
-        "sourcecode":"الشفرة المصدرية",
-        "devby":"صنع بـ ♥ من قبل عماد عادل",
-        "exit":"هل أنت متأكد من رغبتك في إغلاق البرنامج؟ إذا كان هناك أي تثبيتات، فسيتم إيقافها.",
-        "watchdemo": "مرحبا بك",
-        "happybirthday": "!عيد ميلاد سعيد عماد",
-        "myplaylist": "انه عيد ميلادي و قائمة الموسيقى الخاصة بي",
-        "OneAppReq": "يرجى اختيار تطبيق واحد على الاقل لحفظه"
-    },
-    "en": {
-        "Welcome": "Save time by installing multiple programs at once and boost your Windows performance. Join us in improving this tool and making it better. You can also add your favorite music, apps, and tweaks.",
-        "sysinfo": "System Info",
-        "PowerOptions": "Power Options",
-        "devicemgr": "Device Manager",
-        "services": "Services",
-        "networks": "Networks",
-        "appsfeatures": "Apps-Features",
-        "taskmgr": "Task Manager",
-        "diskmgr": "Disk Managment",
-        "installBtn": "Install",
-        "applyBtn": "Apply",
-        "downloading": "Downloading...",
-        "about":"About",
-        "thirdparty":"Third-party",
-        "preferences":"Preferences",
-        "management":"Management",
-        "apps":"Apps",
-        "tweaks":"Tweaks",
-        "settings": "Settings",
-        "saveapps":"Save",
-        "loadapps":"Restore",
-        "music":"Music",
-        "on":"On ",
-        "off":"Off",
-        "Dark":"Dark ",
-        "Light":"Light",
-        "defaultTheme":"Use system setting",
-        "ittlink":"Create desktop shortcut",
-        "reset":"Reset Preferences",
-        "reopen":"Please reopen ITT again.",
-        "theme":"Theme",
-        "language":"Language",
-        "mas":"Microsoft Activation Scripts (MAS)",
-        "winoffice":"Download Windows / Office ISO",
-        "idm":"IDM Activation",
-        "extensions":"Browsers Extensions",
-        "all": "All",
-        "search": "Search",
-        "restorepoint": "Create a restore point",
-        "chocoloc": "Portable Downloads Folder",
-        "InstallMessage":"Are you sure you want to install the following applications",
-        "ApplyMessage":"Are you sure you want to apply the following tweaks",
-        "installing": "Installing...",
-        "Applying": "Applying...",
-        "choseapp":"Please select at least one app to install.",
-        "chosetweak":"Please select at least one tweak to apply.",
-        "pleasewait": "Please wait, a process is running in the background",
-        "lastupdate":"Last update",
-        "sourcecode":"Source Code",
-        "devby":"Made with ♥ by Emad Adel",
-        "exit":"Are you sure you want to close the program? If there are any installations, they will be terminated.",
-        "watchdemo": "Welcome",
-        "happybirthday": "Happy Birthday to me!",
-        "myplaylist": "It''s my Birthday and My Playlist ♪",
-        "OneAppReq": "Choose at least one app to save it"
-    },
-    "fr": {
-        "Welcome": "Économisez du temps en installant plusieurs programmes à la fois et améliorez les performances de votre Windows. Rejoignez-nous pour améliorer l''outil et le rendre excellent.",
-        "sysinfo": "Informations Système",
-        "PowerOptions": "Options d''Alimentation",
-        "devicemgr": "Gestionnaire de périphériques",
-        "services": "Services",
-        "networks": "Réseaux",
-        "appsfeatures": "Fonctionnalités des Applications",
-        "taskmgr": "Gestionnaire des tâches",
-        "diskmgr": "Gestion des disques",
-        "installBtn": "Installer",
-        "applyBtn": "Appliquer",
-        "downloading": "Téléchargement en cours",
-        "about": "À propos",
-        "thirdparty": "Tiers",
-        "preferences": "Préférences",
-        "management": "Gestion",
-        "apps": "Applications",
-        "tweaks": "Réglages",
-        "settings": "Paramètres",
-        "saveapps": "Enregistrer les applications sélectionnées",
-        "loadapps": "Restaurer les applications sélectionnées",
-        "music": "Musique",
-        "on": "Activer",
-        "off": "Désactiver",
-        "Dark": "Sombre",
-        "reset": "Réinitialiser les préférences",
-        "Light": "Clair",
-        "defaultTheme": "Système",
-        "ittlink": "Créer un raccourci sur le bureau",
-        "reopen": "Veuillez rouvrir ITT à nouveau.",
-        "theme": "Thème",
-        "language": "Langue",
-        "mas": "Scripts d''Activation Microsoft (MAS)",
-        "winoffice": "Télécharger Windows / Office ISO",
-        "idm": "Activation IDM",
-        "extensions": "Extensions de Navigateurs",
-        "all": "Tout",
-        "restorepoint": "Créer un point de restauration",
-        "chocoloc": "Dossier Téléchargements Portable",
-        "InstallMessage": "Souhaitez-vous installer les applications sélectionnées",
-        "ApplyMessage": "Souhaitez-vous appliquer les ajustements sélectionnés",
-        "installing": "Installation en cours...",
-        "Applying": "Application des ajustements...",
-        "choseapp": "Sélectionnez au moins une application à installer",
-        "chosetweak": "Veuillez patienter pendant l''application des ajustements",
-        "pleasewait": "Veuillez patienter, un processus est en cours en arrière-plan.",
-        "lastupdate": "Dernière mise à jour",
-        "sourcecode": "Code Source",
-        "devby": "Créé avec ♥ par Emad Adel",
-        "exit": "Êtes-vous sûr de vouloir fermer le programme ? Toute installation en cours sera interrompue.",
-        "watchdemo": "Bienvenue",
-        "happybirthday": "Joyeux Anniversaire Emad !",
-        "myplaylist": "Doğum Günüm ve Playlistim ♪"
-    },
-    "tr": {
-        "Welcome": "Birden fazla programı tek seferde kurarak zaman kazanın ve Windows performansınızı artırın. Aracı iyileştirmemize katılın ve harika yapalım.",
-        "sysinfo": "Sistem Bilgisi",
-        "PowerOptions": "Güç Seçenekleri",
-        "devicemgr": "Cihaz Yöneticisi",
-        "services": "Hizmetler",
-        "networks": "Ağlar",
-        "appsfeatures": "Uygulamalar-Özellikler",
-        "taskmgr": "Görev Yöneticisi",
-        "diskmgr": "Disk Yönetimi",
-        "installBtn": "Yükle",
-        "applyBtn": "Uygula",
-        "downloading": "İndiriliyor",
-        "about": "Hakkında",
-        "thirdparty": "Üçüncü Taraf",
-        "preferences": "Tercihler",
-        "management": "Yönetim",
-        "apps": "Uygulamalar",
-        "tweaks": "Düzeltmeler",
-        "settings": "Ayarlar",
-        "saveapps": "Seçili uygulamaları kaydet",
-        "loadapps": "Seçili uygulamaları geri yükle",
-        "music": "Müzik",
-        "on": "Aç",
-        "off": "Kapat",
-        "Dark": "Koyu",
-        "reset": "Tercihleri Sıfırla",
-        "Light": "Açık",
-        "defaultTheme": "Sistem",
-        "ittlink": "Masaüstü kısayolu oluştur",
-        "reopen": "Lütfen ITT''yi tekrar açın.",
-        "theme": "Tema",
-        "language": "Dil",
-        "mas": "Microsoft Aktivasyon Komut Dosyaları (MAS)",
-        "winoffice": "Windows / Office ISO İndir",
-        "idm": "IDM Aktivasyonu",
-        "extensions": "Tarayıcı Eklentileri",
-        "all": "Tüm",
-        "restorepoint": "Geri yükleme noktası oluştur",
-        "chocoloc": "Taşınabilir İndirilenler Klasörü",
-        "InstallMessage": "Seçilen uygulamaları yüklemek istiyor musunuz",
-        "ApplyMessage": "Seçilen düzeltmeleri uygulamak istiyor musunuz",
-        "installing": "Yükleniyor..",
-        "Applying": "Uygulanıyor..",
-        "choseapp": "Lütfen kurulacak en az bir uygulama seçin",
-        "chosetweak": "Düzeltmelerin uygulanmasını bekleyin",
-        "pleasewait": "Lütfen bekleyin, arka planda bir işlem var.",
-        "lastupdate": "Son güncelleme",
-        "sourcecode": "Kaynak Kod",
-        "devby": "Emad Adel tarafından ♥ ile yapıldı",
-        "exit": "Programı kapatmak istediğinizden emin misiniz? Eğer herhangi bir yükleme işlemi varsa, kesilecektir.",
-        "watchdemo": "Hoş Geldiniz",
-        "happybirthday": "Günün Kutlu Olsun Emad!",
-        "myplaylist": "Bugün Benim Doğum Günüm ve Benim Çalma Listem ♪"
-    },
-    "zh": {
-        "Welcome": "通过一次安装多个程序节省时间并提升您的Windows性能。加入我们，改进工具，使其更加优秀。",
-        "sysinfo": "系统信息",
-        "PowerOptions": "电源选项",
-        "devicemgr": "设备管理器",
-        "services": "服务",
-        "networks": "网络",
-        "appsfeatures": "应用特性",
-        "taskmgr": "任务管理器",
-        "diskmgr": "磁盘管理",
-        "installBtn": "安装",
-        "applyBtn": "应用",
-        "downloading": "下载中",
-        "about": "关于",
-        "thirdparty": "第三方",
-        "preferences": "偏好",
-        "management": "管理",
-        "apps": "应用",
-        "tweaks": "调整",
-        "settings": "设置",
-        "saveapps": "保存选定应用",
-        "loadapps": "恢复选定应用",
-        "music": "音乐",
-        "on": "开启",
-        "off": "关闭",
-        "reset": "重置偏好设置",
-        "Dark": "深色",
-        "Light": "浅色",
-        "defaultTheme": "系统",
-        "ittlink": "创建桌面快捷方式",
-        "reopen": "请重新打开ITT。",
-        "theme": "主题",
-        "language": "语言",
-        "mas": "Microsoft 激活脚本 (MAS)",
-        "winoffice": "下载 Windows / Office ISO",
-        "idm": "IDM 激活",
-        "extensions": "浏览器扩展",
-        "all": "都",
-        "restorepoint": "创建还原点",
-        "chocoloc": "便携下载文件夹",
-        "InstallMessage": "是否要安装选定的应用",
-        "ApplyMessage": "是否要应用选定的调整",
-        "installing": "安装中..",
-        "Applying": "应用中..",
-        "choseapp": "请选择至少一款要安装的应用",
-        "chosetweak": "请等待调整应用完成",
-        "pleasewait": "请等待，后台有进程在进行中。",
-        "lastupdate": "最后更新",
-        "sourcecode": "源代码",
-        "devby": "由 Emad Adel ♥ 制作",
-        "exit": "您确定要关闭程序吗？如果有任何安装正在进行，它们将被终止。",
-        "watchdemo": "欢迎",
-        "happybirthday": "生日快乐 Emad!",
-        "myplaylist": "这是我的生日和我的播放列表 ♪"
-    },
     "ko": {
-        "Welcome": "여러 프로그램을 한 번에 설치하여 시간을 절약하고 Windows 성능을 향상시킵니다. 도구를 개선하고 우리와 함께 훌륭하게 만들어 보세요.",
-        "sysinfo": "시스템 정보",
-        "PowerOptions": "전원 옵션",
-        "devicemgr": "장치 관리자",
-        "services": "서비스",
-        "networks": "네트워크",
-        "appsfeatures": "앱 기능",
-        "taskmgr": "작업 관리자",
-        "diskmgr": "디스크 관리",
-        "installBtn": "설치",
-        "applyBtn": "적용",
-        "downloading": "다운로드 중",
-        "about": "정보",
-        "thirdparty": "외부",
-        "preferences": "환경 설정",
-        "management": "관리",
-        "apps": "앱",
-        "tweaks": "설정",
-        "settings": "설정",
-        "saveapps": "선택한 앱 저장",
-        "loadapps": "선택한 앱 복원",
-        "music": "음악",
-        "on": "켜기",
-        "reset": "환경 설정 초기화",
-        "off": "끄기",
-        "Dark": "다크",
-        "Light": "라이트",
-        "defaultTheme": "시스템",
-        "ittlink": "바탕화면 바로 가기 만들기",
-        "reopen": "ITT를 다시 열어주세요.",
-        "theme": "테마",
-        "language": "언어",
-        "mas": "Microsoft 활성화 스크립트 (MAS)",
-        "winoffice": "Windows / Office ISO 다운로드",
-        "idm": "IDM 활성화",
-        "extensions": "브라우저 확장 프로그램",
-        "all": "모두",
-        "restorepoint": "복원 지점 생성",
-        "chocoloc": "휴대용 다운로드 폴더",
-        "InstallMessage": "선택한 앱을 설치하시겠습니까",
-        "ApplyMessage": "선택한 조정 사항을 적용하시겠습니까",
-        "installing": "설치 중..",
-        "Applying": "적용 중..",
-        "choseapp": "설치할 적어도 하나의 앱을 선택하십시오",
-        "chosetweak": "조정 사항 적용 대기 중",
-        "pleasewait": "배경에서 프로세스가 진행 중입니다. 잠시 기다려주세요.",
-        "lastupdate": "마지막 업데이트",
-        "sourcecode": "소스 코드",
-        "devby": "Emad Adel 제작 ♥",
-        "exit": "프로그램을 종료하시겠습니까? 진행 중인 설치가 있으면 중단됩니다.",
-        "watchdemo": "환영합니다",
-        "happybirthday": "생일 축하합니다 Emad!",
-        "myplaylist": "제 생일과 제 플레이리스트 ♪"
-    },
-    "de": {
-        "Welcome": "Sparen Sie Zeit, indem Sie mehrere Programme gleichzeitig installieren und verbessern Sie die Leistung Ihres Windows. Helfen Sie uns dabei, das Tool zu verbessern und großartig zu machen.",
-        "sysinfo": "Systeminformationen",
-        "PowerOptions": "Energieoptionen",
-        "devicemgr": "Geräte-Manager",
-        "services": "Dienste",
-        "networks": "Netzwerke",
-        "appsfeatures": "Apps-Funktionen",
-        "taskmgr": "Task-Manager",
-        "diskmgr": "Festplattenverwaltung",
-        "installBtn": "Installieren",
-        "applyBtn": "Anwenden",
-        "downloading": "Herunterladen",
-        "about": "Über",
-        "thirdparty": "Drittanbieter",
-        "preferences": "Einstellungen",
-        "management": "Verwaltung",
-        "apps": "Apps",
-        "tweaks": "Anpassungen",
-        "settings": "Einstellungen",
-        "saveapps": "Ausgewählte Apps speichern",
-        "loadapps": "Ausgewählte Apps wiederherstellen",
-        "music": "Musik",
-        "on": "Stummschalten ",
-        "reset": "Einstellungen zurücksetzen",
-        "off": "Stummschalten",
-        "Dark": "Dunkel ",
-        "Light": "Hell",
-        "defaultTheme": "System",
-        "ittlink": "Desktop-Verknüpfung erstellen",
-        "reopen": "Bitte öffnen Sie ITT erneut.",
-        "theme": "Thema",
-        "language": "Sprache",
-        "mas": "Microsoft-Aktivierungsskripte (MAS)",
-        "winoffice": "Windows / Office ISO herunterladen",
-        "idm": "IDM-Aktivierung",
-        "extensions": "Browser-Erweiterungen",
-        "all": "Alle",
-        "restorepoint": "Wiederherstellungspunkt erstellen",
-        "chocoloc": "Tragbarer Download-Ordner",
-        "InstallMessage": "Möchten Sie die ausgewählten Apps installieren?",
-        "ApplyMessage": "Möchten Sie die ausgewählten Anpassungen anwenden?",
-        "installing": "Installiere..",
-        "Applying": "Wende an..",
-        "choseapp": "Wählen Sie mindestens eine App zum Installieren aus",
-        "chosetweak": "Bitte warten Sie, bis die Anpassungen angewendet wurden",
-        "pleasewait": "Bitte warten Sie, es läuft ein Prozess im Hintergrund.",
-        "lastupdate": "Letztes Update",
-        "sourcecode": "Quellcode",
-        "devby": "Hergestellt mit ♥ von Emad Adel",
-        "exit": "Sind Sie sicher, dass Sie das Programm schließen möchten? Falls Installationen laufen, werden sie abgebrochen.",
-        "watchdemo": "Willkommen",
-        "happybirthday": "Alles Gute zum Geburtstag, Emad!",
-        "myplaylist": "Es ist mein Geburtstag und meine Playlist ♪"
-    },
-    "ru": {
-        "Welcome": "Экономьте время, устанавливая несколько программ одновременно и улучшая производительность Windows. Присоединяйтесь к нам в улучшении этого инструмента и сделайте его лучше.",
-        "sysinfo": "Информация о системе",
-        "PowerOptions": "Питание",
-        "devicemgr": "Диспетчер устройств",
-        "services": "Службы",
-        "networks": "Сети",
-        "appsfeatures": "Особенности приложений",
-        "taskmgr": "Диспетчер задач",
-        "diskmgr": "Управление дисками",
-        "installBtn": "Установить",
-        "applyBtn": "Применить",
-        "downloading": "Загрузка",
-        "about": "О программе",
-        "thirdparty": "Сторонние приложения",
-        "preferences": "Настройки",
-        "management": "Управление",
-        "apps": "Приложения",
-        "tweaks": "Настройки",
-        "settings": "Настройки",
-        "saveapps": "Сохранить выбранные приложения",
-        "loadapps": "Восстановить выбранные приложения",
-        "music": "Музыка",
-        "on": "Включить ",
-        "reset": "Сбросить настройки",
-        "off": "Выключить",
-        "Dark": "Темная ",
-        "Light": "Светлая",
-        "defaultTheme": "Системная",
-        "ittlink": "Создать ярлык на рабочем столе",
-        "reopen": "Пожалуйста, снова откройте ITT.",
-        "theme": "Тема",
-        "language": "Язык",
-        "mas": "Скрипты активации Microsoft (MAS)",
-        "winoffice": "Скачать Windows / Office ISO",
-        "idm": "Активация IDM",
-        "extensions": "Расширения браузера",
-        "all": "Все",
-        "restorepoint": "Создать точку восстановления",
-        "chocoloc": "Портативная папка загрузок",
-        "InstallMessage": "Хотите установить выбранные приложения?",
-        "ApplyMessage": "Хотите применить выбранные настройки?",
-        "installing": "Установка..",
-        "Applying": "Применение..",
-        "choseapp": "Выберите хотя бы одно приложение для установки",
-        "chosetweak": "Пожалуйста, подождите, пока будут применены настройки",
-        "pleasewait": "Пожалуйста, подождите, идет процесс на заднем плане.",
-        "lastupdate": "Последнее обновление",
-        "sourcecode": "Исходный код",
-        "devby": "Сделано с ♥ Emad Adel",
-        "exit": "Вы уверены, что хотите закрыть программу? Если есть установки, они будут прерваны.",
-        "watchdemo": "Добро пожаловать",
-        "happybirthday": "С днем рождения, Emad!",
-        "myplaylist": "Мой день рождения и мой плейлист ♪"
+      "music": "음악",
+      "on": "켜기",
+      "installBtn": "설치",
+      "sourcecode": "소스 코드",
+      "tweaks": "설정",
+      "ApplyMessage": "선택한 조정 사항을 적용하시겠습니까",
+      "watchdemo": "환영합니다",
+      "Light": "라이트",
+      "services": "서비스",
+      "extensions": "브라우저 확장 프로그램",
+      "about": "정보",
+      "loadapps": "선택한 앱 복원",
+      "saveapps": "선택한 앱 저장",
+      "lastupdate": "마지막 업데이트",
+      "Welcome": "여러 프로그램을 한 번에 설치하여 시간을 절약하고 Windows 성능을 향상시킵니다. 도구를 개선하고 우리와 함께 훌륭하게 만들어 보세요.",
+      "appsfeatures": "앱 기능",
+      "settings": "설정",
+      "applyBtn": "적용",
+      "PowerOptions": "전원 옵션",
+      "reopen": "ITT를 다시 열어주세요.",
+      "apps": "앱",
+      "installing": "설치 중..",
+      "myplaylist": "제 생일과 제 플레이리스트 ♪",
+      "choseapp": "설치할 적어도 하나의 앱을 선택하십시오",
+      "InstallMessage": "선택한 앱을 설치하시겠습니까",
+      "devicemgr": "장치 관리자",
+      "idm": "IDM 활성화",
+      "Dark": "다크",
+      "language": "언어",
+      "winoffice": "Windows / Office ISO 다운로드",
+      "taskmgr": "작업 관리자",
+      "diskmgr": "디스크 관리",
+      "management": "관리",
+      "sysinfo": "시스템 정보",
+      "Applying": "적용 중..",
+      "reset": "환경 설정 초기화",
+      "ittlink": "바탕화면 바로 가기 만들기",
+      "happybirthday": "생일 축하합니다 Emad!",
+      "mas": "Microsoft 활성화 스크립트 (MAS)",
+      "preferences": "환경 설정",
+      "chosetweak": "조정 사항 적용 대기 중",
+      "all": "모두",
+      "exit": "프로그램을 종료하시겠습니까? 진행 중인 설치가 있으면 중단됩니다.",
+      "theme": "테마",
+      "name": "한국어",
+      "thirdparty": "외부",
+      "devby": "Emad Adel 제작 ♥",
+      "pleasewait": "배경에서 프로세스가 진행 중입니다. 잠시 기다려주세요.",
+      "downloading": "다운로드 중",
+      "defaultTheme": "시스템",
+      "restorepoint": "복원 지점 생성",
+      "chocoloc": "휴대용 다운로드 폴더",
+      "networks": "네트워크",
+      "off": "끄기"
     },
     "es": {
-    "Welcome": "Ahorra tiempo instalando varios programas a la vez y mejora el rendimiento de tu Windows. Únete a nosotros para mejorar la herramienta y hacerla excelente.",
-    "sysinfo": "Información del Sistema",
-    "PowerOptions": "Opciones de Energía",
-    "devicemgr": "Administrador de Dispositivos",
-    "services": "Servicios",
-    "networks": "Redes",
-    "appsfeatures": "Aplicaciones-Características",
-    "taskmgr": "Administrador de Tareas",
-    "diskmgr": "Administración de Discos",
-    "installBtn": "Instalar",
-    "applyBtn": "Aplicar",
-    "downloading": "Descargando",
-    "about": "Acerca de",
-    "thirdparty": "Terceros",
-    "preferences": "Preferencias",
-    "management": "Gestión",
-    "apps": "Aplicaciones",
-    "tweaks": "Ajustes",
-    "settings": "Configuración",
-    "saveapps": "Guardar aplicaciones seleccionadas",
-    "loadapps": "Restaurar aplicaciones seleccionadas",
-    "music": "Música",
-    "on": "Activado ",
-    "reset": "Restablecer preferencias",
-    "off": "Desactivado",
-    "Dark": "Oscuro ",
-    "Light": "Claro",
-    "defaultTheme": "Sistema",
-    "ittlink": "Crear acceso directo en el escritorio",
-    "reopen": "Por favor, vuelva a abrir ITT.",
-    "theme": "Tema",
-    "language": "Idioma",
-    "mas": "Scripts de Activación de Microsoft (MAS)",
-    "winoffice": "Descargar ISO de Windows / Office",
-    "idm": "Activación de IDM",
-    "extensions": "Extensiones de Navegadores",
-    "all": "Todo",
-    "restorepoint": "Crear punto de restauración",
-    "chocoloc": "Carpeta de Descargas Portátiles",
-    "InstallMessage": "¿Deseas instalar las aplicaciones seleccionadas?",
-    "ApplyMessage": "¿Deseas aplicar los ajustes seleccionados?",
-    "installing": "Instalando..",
-    "Applying": "Aplicando..",
-    "choseapp": "Selecciona al menos una aplicación para instalar",
-    "chosetweak": "Por favor espera mientras se aplican los ajustes",
-    "pleasewait": "Por favor espera, hay un proceso en segundo plano.",
-    "lastupdate": "Última actualización",
-    "sourcecode": "Código Fuente",
-    "devby": "Hecho con ♥ por Emad Adel",
-    "exit": "¿Estás seguro de que quieres cerrar el programa? Si hay instalaciones en curso, se cancelarán.",
-    "watchdemo": "Bienvenido",
-    "happybirthday": "¡Feliz Cumpleaños Emad!",
-    "myplaylist": "Es mi cumpleaños y mi lista de reproducción ♪"
+      "music": "Música",
+      "on": "Activado",
+      "installBtn": "Instalar",
+      "sourcecode": "Código Fuente",
+      "tweaks": "Ajustes",
+      "ApplyMessage": "¿Deseas aplicar los ajustes seleccionados?",
+      "watchdemo": "Bienvenido",
+      "Light": "Claro",
+      "services": "Servicios",
+      "extensions": "Extensiones de Navegadores",
+      "about": "Acerca de",
+      "loadapps": "Restaurar aplicaciones seleccionadas",
+      "saveapps": "Guardar aplicaciones seleccionadas",
+      "lastupdate": "Última actualización",
+      "Welcome": "Ahorra tiempo instalando varios programas a la vez y mejora el rendimiento de tu Windows. Únete a nosotros para mejorar la herramienta y hacerla excelente.",
+      "appsfeatures": "Aplicaciones-Características",
+      "settings": "Configuración",
+      "applyBtn": "Aplicar",
+      "PowerOptions": "Opciones de Energía",
+      "reopen": "Por favor  vuelva a abrir ITT.",
+      "apps": "Aplicaciones",
+      "installing": "Instalando..",
+      "myplaylist": "Es mi cumpleaños y mi lista de reproducción ♪",
+      "choseapp": "Selecciona al menos una aplicación para instalar",
+      "InstallMessage": "¿Deseas instalar las aplicaciones seleccionadas?",
+      "devicemgr": "Administrador de Dispositivos",
+      "idm": "Activación de IDM",
+      "Dark": "Oscuro",
+      "language": "Idioma",
+      "winoffice": "Descargar ISO de Windows / Office",
+      "taskmgr": "Administrador de Tareas",
+      "diskmgr": "Administración de Discos",
+      "management": "Gestión",
+      "sysinfo": "Información del Sistema",
+      "Applying": "Aplicando..",
+      "reset": "Restablecer preferencias",
+      "ittlink": "Criar acesso direto na área de trabalho",
+      "happybirthday": "¡Feliz Cumpleaños Emad!",
+      "mas": "Scripts de Activación de Microsoft (MAS)",
+      "preferences": "Preferencias",
+      "chosetweak": "Por favor espera mientras se aplican los ajustes",
+      "all": "Todo",
+      "exit": "¿Estás seguro de que quieres cerrar el programa? Si hay instalaciones en curso  se cancelarán.",
+      "theme": "Tema",
+      "name": "Español",
+      "thirdparty": "Terceros",
+      "devby": "Hecho con ♥ por Emad Adel",
+      "pleasewait": "Por favor espera  hay un proceso en segundo plano.",
+      "downloading": "Descargando",
+      "defaultTheme": "Sistema",
+      "restorepoint": "Crear punto de restauración",
+      "chocoloc": "Carpeta de Descargas Portátiles",
+      "networks": "Redes",
+      "off": "Desactivado"
+    },
+    "ru": {
+      "music": "Музыка",
+      "on": "Включить",
+      "installBtn": "Установить",
+      "sourcecode": "Исходный код",
+      "tweaks": "Настройки",
+      "ApplyMessage": "Хотите применить выбранные настройки?",
+      "watchdemo": "Добро пожаловать",
+      "Light": "Светлая",
+      "services": "Службы",
+      "extensions": "Расширения браузера",
+      "about": "О программе",
+      "loadapps": "Восстановить выбранные приложения",
+      "saveapps": "Сохранить выбранные приложения",
+      "lastupdate": "Последнее обновление",
+      "Welcome": "Экономьте время устанавливая несколько программ одновременно и улучшая производительность Windows. Присоединяйтесь к нам в улучшении этого инструмента и сделайте его лучше.",
+      "appsfeatures": "Особенности приложений",
+      "settings": "Настройки",
+      "applyBtn": "Применить",
+      "PowerOptions": "Питание",
+      "reopen": "Пожалуйста снова откройте ITT.",
+      "apps": "Приложения",
+      "installing": "Установка..",
+      "myplaylist": "Мой день рождения и мой плейлист ♪",
+      "choseapp": "Выберите хотя бы одно приложение для установки устанавливая несколько программ одновременно и улучшая производительность Windows. Присоединяйтесь к нам в улучшении этого инструмента и сделайте его лучше.",
+      "InstallMessage": "Хотите установить выбранные приложения?",
+      "devicemgr": "Диспетчер устройств",
+      "idm": "Активация IDM",
+      "Dark": "Темная",
+      "language": "Язык",
+      "winoffice": "Скачать Windows / Office ISO",
+      "taskmgr": "Диспетчер задач",
+      "diskmgr": "Управление дисками",
+      "management": "Управление",
+      "sysinfo": "Информация о системе",
+      "Applying": "Применение..",
+      "reset": "Сбросить настройки",
+      "ittlink": "Создать ярлык на рабочем столе",
+      "happybirthday": "С днем рождения Emad!",
+      "mas": "Скрипты активации Microsoft (MAS)",
+      "preferences": "Настройки",
+      "chosetweak": "Пожалуйста подождите устанавливая несколько программ одновременно и улучшая производительность Windows. Присоединяйтесь к нам в улучшении этого инструмента и сделайте его лучше.",
+      "all": "Все",
+      "exit": "Вы уверены что хотите закрыть программу? Если есть установки",
+      "theme": "Тема",
+      "name": "Русский",
+      "thirdparty": "Сторонние приложения",
+      "devby": "Сделано с ♥ Emad Adel",
+      "pleasewait": "Пожалуйста подождите",
+      "downloading": "Загрузка",
+      "defaultTheme": "Системная",
+      "restorepoint": "Создать точку восстановления",
+      "chocoloc": "Портативная папка загрузок",
+      "networks": "Сети",
+      "off": "Выключить"
+    },
+    "en": {
+      "music": "Music",
+      "on": "On ",
+      "installBtn": "Install",
+      "sourcecode": "Source Code",
+      "tweaks": "Tweaks",
+      "loadapps": "Restore",
+      "watchdemo": "Welcome",
+      "extensions": "Browsers Extensions",
+      "about": "About",
+      "ittlink": "Create desktop shortcut",
+      "saveapps": "Save",
+      "lastupdate": "Last update",
+      "search": "Search",
+      "Welcome": "Save time by installing multiple programs at once and boost your Windows performance. Join us in improving this tool and making it better. You can also add your favorite music  apps  and tweaks.",
+      "choseapp": "Please select at least one app to install.",
+      "settings": "Settings",
+      "applyBtn": "Apply",
+      "reopen": "Please reopen ITT again.",
+      "apps": "Apps",
+      "myplaylist": "It''s my Birthday and My Playlist ♪",
+      "OneAppReq": "Choose at least one app to save it",
+      "InstallMessage": "Are you sure you want to install the following applications",
+      "chocoloc": "Portable Downloads Folder",
+      "idm": "IDM Activation",
+      "language": "Language",
+      "winoffice": "Download Windows / Office ISO",
+      "management": "Management",
+      "Applying": "Applying...",
+      "reset": "Reset Preferences",
+      "happybirthday": "Happy Birthday to me!",
+      "mas": "Microsoft Activation Scripts (MAS)",
+      "preferences": "Preferences",
+      "chosetweak": "Please select at least one tweak to apply.",
+      "all": "All",
+      "exit": "Are you sure you want to close the program? If there are any installations they will be terminated.",
+      "theme": "Theme",
+      "name": "English",
+      "thirdparty": "Third-party",
+      "devby": "Made with ♥ by Emad Adel",
+      "ApplyMessage": "Are you sure you want to apply the following tweaks",
+      "pleasewait": "Please wait  a process is running in the background",
+      "downloading": "Downloading...",
+      "defaultTheme": "Use system setting",
+      "restorepoint": "Create a restore point",
+      "off": "Off"
+    },
+    "de": {
+      "music": "Musik",
+      "on": "Stummschalten",
+      "installBtn": "Installieren",
+      "sourcecode": "Quellcode",
+      "tweaks": "Anpassungen",
+      "ApplyMessage": "Möchten Sie die ausgewählten Anpassungen anwenden?",
+      "watchdemo": "Willkommen",
+      "Light": "Hell",
+      "services": "Dienste",
+      "extensions": "Browser-Erweiterungen",
+      "about": "Über",
+      "loadapps": "Ausgewählte Apps wiederherstellen",
+      "saveapps": "Ausgewählte Apps speichern",
+      "lastupdate": "Letztes Update",
+      "Welcome": "Sparen Sie Zeit",
+      "appsfeatures": "Apps-Funktionen",
+      "settings": "Einstellungen",
+      "applyBtn": "Anwenden",
+      "PowerOptions": "Energieoptionen",
+      "reopen": "Bitte öffnen Sie ITT erneut.",
+      "apps": "Apps",
+      "installing": "Installiere..",
+      "myplaylist": "Es ist mein Geburtstag und meine Playlist ♪",
+      "choseapp": "Wählen Sie mindestens eine App zum Installieren aus",
+      "InstallMessage": "Möchten Sie die ausgewählten Apps installieren?",
+      "devicemgr": "Geräte-Manager",
+      "idm": "IDM-Aktivierung",
+      "Dark": "Dunkel",
+      "language": "Sprache",
+      "winoffice": "Windows / Office ISO herunterladen",
+      "taskmgr": "Task-Manager",
+      "diskmgr": "Festplattenverwaltung",
+      "management": "Verwaltung",
+      "sysinfo": "Systeminformationen",
+      "Applying": "Wende an..",
+      "reset": "Einstellungen zurücksetzen",
+      "ittlink": "Desktop-Verknüpfung erstellen",
+      "happybirthday": "Alles Gute zum Geburtstag",
+      "mas": "Microsoft-Aktivierungsskripte (MAS)",
+      "preferences": "Einstellungen",
+      "chosetweak": "Bitte warten Sie",
+      "all": "Alle",
+      "exit": "Sind Sie sicher",
+      "theme": "Thema",
+      "name": "Deutsch",
+      "thirdparty": "Drittanbieter",
+      "devby": "Hergestellt mit ♥ von Emad Adel",
+      "pleasewait": "Bitte warten Sie",
+      "downloading": "Herunterladen",
+      "defaultTheme": "System",
+      "restorepoint": "Wiederherstellungspunkt erstellen",
+      "chocoloc": "Tragbarer Download-Ordner",
+      "networks": "Netzwerke",
+      "off": "Stummschalten"
+    },
+    "fr": {
+      "music": "Musique",
+      "on": "Activer",
+      "installBtn": "Installer",
+      "sourcecode": "Code Source",
+      "tweaks": "Réglages",
+      "ApplyMessage": "Souhaitez-vous appliquer les ajustements sélectionnés",
+      "watchdemo": "Bienvenue",
+      "Light": "Clair",
+      "services": "Services",
+      "extensions": "Extensions de Navigateurs",
+      "about": "À propos",
+      "loadapps": "Restaurer les applications sélectionnées",
+      "saveapps": "Enregistrer les applications sélectionnées",
+      "lastupdate": "Dernière mise à jour",
+      "Welcome": "Économisez du temps en installant plusieurs programmes à la fois et améliorez les performances de votre Windows. Rejoignez-nous pour améliorer l''outil et le rendre excellent.",
+      "appsfeatures": "Fonctionnalités des Applications",
+      "settings": "Paramètres",
+      "applyBtn": "Appliquer",
+      "PowerOptions": "Options d''Alimentation",
+      "reopen": "Veuillez rouvrir ITT à nouveau.",
+      "apps": "Applications",
+      "installing": "Installation en cours...",
+      "myplaylist": "Doğum Günüm ve Playlistim ♪",
+      "choseapp": "Sélectionnez au moins une application à installer",
+      "InstallMessage": "Souhaitez-vous installer les applications sélectionnées",
+      "devicemgr": "Gestionnaire de périphériques",
+      "idm": "Activation IDM",
+      "Dark": "Sombre",
+      "language": "Langue",
+      "winoffice": "Télécharger Windows / Office ISO",
+      "taskmgr": "Gestionnaire des tâches",
+      "diskmgr": "Gestion des disques",
+      "management": "Gestion",
+      "sysinfo": "Informations Système",
+      "Applying": "Application des ajustements...",
+      "reset": "Réinitialiser les préférences",
+      "ittlink": "Créer un raccourci sur le bureau",
+      "happybirthday": "Joyeux Anniversaire Emad !",
+      "mas": "Scripts d''Activation Microsoft (MAS)",
+      "preferences": "Préférences",
+      "chosetweak": "Veuillez patienter pendant l''application des ajustements",
+      "all": "Tout",
+      "exit": "Êtes-vous sûr de vouloir fermer le programme ? Toute installation en cours sera interrompue.",
+      "theme": "Thème",
+      "name": "Français",
+      "thirdparty": "Tiers",
+      "devby": "Créé avec ♥ par Emad Adel",
+      "pleasewait": "Veuillez patienter un processus est en cours en arrière-plan.",
+      "downloading": "Téléchargement en cours",
+      "defaultTheme": "Système",
+      "restorepoint": "Créer un point de restauration",
+      "chocoloc": "Dossier Téléchargements Portable",
+      "networks": "Réseaux",
+      "off": "Désactiver"
+    },
+    "tr": {
+      "music": "Müzik",
+      "on": "Aç",
+      "installBtn": "Yükle",
+      "sourcecode": "Kaynak Kod",
+      "tweaks": "Düzeltmeler",
+      "ApplyMessage": "Seçilen düzeltmeleri uygulamak istiyor musunuz",
+      "watchdemo": "Hoş Geldiniz",
+      "Light": "Açık",
+      "services": "Hizmetler",
+      "extensions": "Tarayıcı Eklentileri",
+      "about": "Hakkında",
+      "loadapps": "Seçili uygulamaları geri yükle",
+      "saveapps": "Seçili uygulamaları kaydet",
+      "lastupdate": "Son güncelleme",
+      "Welcome": "Birden fazla programı tek seferde kurarak zaman kazanın ve Windows performansınızı artırın. Aracı iyileştirmemize katılın ve harika yapalım.",
+      "appsfeatures": "Uygulamalar-Özellikler",
+      "settings": "Ayarlar",
+      "applyBtn": "Uygula",
+      "PowerOptions": "Güç Seçenekleri",
+      "reopen": "Lütfen ITT''yi tekrar açın.",
+      "apps": "Uygulamalar",
+      "installing": "Yükleniyor..",
+      "myplaylist": "Bugün Benim Doğum Günüm ve Benim Çalma Listem ♪",
+      "choseapp": "Lütfen kurulacak en az bir uygulama seçin",
+      "InstallMessage": "Seçilen uygulamaları yüklemek istiyor musunuz",
+      "devicemgr": "Cihaz Yöneticisi",
+      "idm": "IDM Aktivasyonu",
+      "Dark": "Koyu",
+      "language": "Dil",
+      "winoffice": "Windows / Office ISO İndir",
+      "taskmgr": "Görev Yöneticisi",
+      "diskmgr": "Disk Yönetimi",
+      "management": "Yönetim",
+      "sysinfo": "Sistem Bilgisi",
+      "Applying": "Uygulanıyor..",
+      "reset": "Tercihleri Sıfırla",
+      "ittlink": "Masaüstü kısayolu oluştur",
+      "happybirthday": "Günün Kutlu Olsun Emad!",
+      "mas": "Microsoft Aktivasyon Komut Dosyaları (MAS)",
+      "preferences": "Tercihler",
+      "chosetweak": "Düzeltmelerin uygulanmasını bekleyin",
+      "all": "Tüm",
+      "exit": "Programı kapatmak istediğinizden emin misiniz? Eğer herhangi bir yükleme işlemi varsa kesilecektir.",
+      "theme": "Tema",
+      "name": "Türkçe",
+      "thirdparty": "Üçüncü Taraf",
+      "devby": "Emad Adel tarafından ♥ ile yapıldı",
+      "pleasewait": "Lütfen bekleyin arka planda bir işlem var.",
+      "downloading": "İndiriliyor",
+      "defaultTheme": "Sistem",
+      "restorepoint": "Geri yükleme noktası oluştur",
+      "chocoloc": "Taşınabilir İndirilenler Klasörü",
+      "networks": "Ağlar",
+      "off": "Kapat"
+    },
+    "ar": {
+      "music": "الموسيقى",
+      "on": "تشغيل ",
+      "InstallBtn": "تثبيت",
+      "sourcecode": "الشفرة المصدرية",
+      "tweaks": "تحسينات",
+      "ApplyMessage": "هل تريد تطبيق التحسينات التالية",
+      "watchdemo": "مرحبا بك",
+      "Light": "نهارا",
+      "services": "خدمات",
+      "extensions": "أضافات المتصفحات",
+      "about": "عن المطور",
+      "loadapps": "أسترجاع البرامج",
+      "saveapps": "حفظ البرامج",
+      "lastupdate": "آخر تحديث",
+      "search": "بحث",
+      "Welcome": "توفر هذه الأداة تسهيلات كبيرة في عملية تثبيت البرامج وتحسين الاداء. انضم إلينا لتساهم في تطويرها وجعلها أكثر اكتمالًا",
+      "appsfeatures": "التطبيقات و الميزات",
+      "settings": "إعدادات",
+      "applyBtn": "تطبيق",
+      "PowerOptions": "خيارات الطاقة",
+      "reopen": "يرجى اعادة فتح الاداة مرة اخرى",
+      "apps": "تطبيقات",
+      "myplaylist": "انه عيد ميلادي و قائمة الموسيقى الخاصة بي",
+      "choseapp": "اختر على الأقل تطبيقًا لتثبيته",
+      "InstallMessage": "هل تريد تثبيت البرامج التالية",
+      "devicemgr": "إدارة الأجهزة",
+      "idm": "تفعيل الدون لود مانجر",
+      "Dark": "ليلا",
+      "language": "اللغة",
+      "winoffice": "تنزيل ويندوز / أوفيس",
+      "taskmgr": "مدير المهام",
+      "diskmgr": "إدارة القرص",
+      "management": "إدارة الجهاز",
+      "sysinfo": "معلومات النظام",
+      "Applying": "جارٍي التطبيق",
+      "reset": "الوضع الافتراضي",
+      "ittlink": "أنشاء أختصار على سطح المكتب",
+      "OneAppReq": "يرجى اختيار تطبيق واحد على الاقل لحفظه",
+      "happybirthday": "!عيد ميلاد سعيد عماد",
+      "mas": "تفعيل الويندوز",
+      "preferences": "التفضيلات",
+      "chosetweak": "اختار على الاقل تحسين واحد لتطبيقه",
+      "all": "الكل",
+      "exit": "هل أنت متأكد من رغبتك في إغلاق البرنامج؟ إذا كان هناك أي تثبيتات، فسيتم إيقافها.",
+      "theme": "المظهر",
+      "name": "عربي",
+      "thirdparty": "روابط خارجية",
+      "devby": "صنع بـ ♥ من قبل عماد عادل",
+      "Pleasewait": "يرجى الانتظار، يوجد عملية في الخلفية",
+      "downloading": "جارٍ التثبيت",
+      "defaultTheme": "استخدم إعدادات النظام",
+      "restorepoint": "إنشاء نقطة الاستعادة",
+      "chocoloc": "مجلد التنزيلات المحمولة",
+      "networks": "شبكات",
+      "off": "كتم"
+    },
+    "zh": {
+      "music": "音乐",
+      "on": "开启",
+      "installBtn": "安装",
+      "sourcecode": "源代码",
+      "tweaks": "调整",
+      "ApplyMessage": "是否要应用选定的调整",
+      "watchdemo": "欢迎",
+      "Light": "浅色",
+      "services": "服务",
+      "extensions": "浏览器扩展",
+      "about": "关于",
+      "loadapps": "恢复选定应用",
+      "saveapps": "保存选定应用",
+      "lastupdate": "最后更新",
+      "Welcome": "通过一次安装多个程序节省时间并提升您的Windows性能。加入我们，改进工具，使其更加优秀。",
+      "appsfeatures": "应用特性",
+      "settings": "设置",
+      "applyBtn": "应用",
+      "PowerOptions": "电源选项",
+      "reopen": "请重新打开ITT。",
+      "apps": "应用",
+      "installing": "安装中..",
+      "myplaylist": "这是我的生日和我的播放列表 ♪",
+      "choseapp": "请选择至少一款要安装的应用",
+      "InstallMessage": "是否要安装选定的应用",
+      "devicemgr": "设备管理器",
+      "idm": "IDM 激活",
+      "Dark": "深色",
+      "language": "语言",
+      "winoffice": "下载 Windows / Office ISO",
+      "taskmgr": "任务管理器",
+      "diskmgr": "磁盘管理",
+      "management": "管理",
+      "sysinfo": "系统信息",
+      "Applying": "应用中..",
+      "reset": "重置偏好设置",
+      "ittlink": "创建桌面快捷方式",
+      "happybirthday": "生日快乐 Emad!",
+      "mas": "Microsoft 激活脚本 (MAS)",
+      "preferences": "偏好",
+      "chosetweak": "请等待调整应用完成",
+      "all": "都",
+      "exit": "您确定要关闭程序吗？如果有任何安装正在进行，它们将被终止。",
+      "theme": "主题",
+      "name": "中文",
+      "thirdparty": "第三方",
+      "devby": "由 Emad Adel ♥ 制作",
+      "pleasewait": "请等待，后台有进程在进行中。",
+      "downloading": "下载中",
+      "defaultTheme": "系统",
+      "restorepoint": "创建还原点",
+      "chocoloc": "便携下载文件夹",
+      "networks": "网络",
+      "off": "关闭"
     }
   }
 }
@@ -9588,42 +9586,44 @@ function Invoke-Button {
         }
 
         # Menu items
-        "ar" {
-            Set-Language -lang "ar"
-            Debug-Message
-        }
-        "en" {
-            Set-Language -lang "en"
-            Debug-Message
-        }
-        "fr" {
-            Set-Language -lang "fr"
-            Debug-Message
-        }
-        "tr" {
-            Set-Language -lang "tr"
-            Debug-Message
-        }
-        "zh" {
-            Set-Language -lang "zh"
-            Debug-Message
-        }
-        "ko" {
-            Set-Language -lang "ko"
-            Debug-Message
-        }
-        "de" {
-            Set-Language -lang "de"
-            Debug-Message
-        }
-        "ru" {
-            Set-Language -lang "ru"
-            Debug-Message
-        }
-        "es" {
-            Set-Language -lang "es"
-            Debug-Message
-        }
+        
+                    "ar" {
+                Set-Language -lang "ar"
+                Debug-Message
+            }
+            "de" {
+                Set-Language -lang "de"
+                Debug-Message
+            }
+            "en" {
+                Set-Language -lang "en"
+                Debug-Message
+            }
+            "es" {
+                Set-Language -lang "es"
+                Debug-Message
+            }
+            "fr" {
+                Set-Language -lang "fr"
+                Debug-Message
+            }
+            "ko" {
+                Set-Language -lang "ko"
+                Debug-Message
+            }
+            "ru" {
+                Set-Language -lang "ru"
+                Debug-Message
+            }
+            "tr" {
+                Set-Language -lang "tr"
+                Debug-Message
+            }
+            "zh" {
+                Set-Language -lang "zh"
+                Debug-Message
+            }
+
         "save" {
             SaveItemsToJson
             Debug-Message
@@ -9674,16 +9674,16 @@ function Invoke-Button {
         }
 
                     "Dark" {
-                Set-Theme -Theme $action  # Call the Set-Theme function with the selected theme
-                Debug-Message  # Output a debug message for tracking
+                Set-Theme -Theme $action # Call the Set-Theme function with the selected theme
+                Debug-Message # debug
             }
             "Light" {
-                Set-Theme -Theme $action  # Call the Set-Theme function with the selected theme
-                Debug-Message  # Output a debug message for tracking
+                Set-Theme -Theme $action # Call the Set-Theme function with the selected theme
+                Debug-Message # debug
             }
             "thedarkknight" {
-                Set-Theme -Theme $action  # Call the Set-Theme function with the selected theme
-                Debug-Message  # Output a debug message for tracking
+                Set-Theme -Theme $action # Call the Set-Theme function with the selected theme
+                Debug-Message # debug
             }
 
 
@@ -11020,16 +11020,16 @@ function Set-Taskbar {
         switch ($icon) {
 
             "done" {
-                $itt["window"].taskbarItemInfo.Overlay = "https://raw.githubusercontent.com/emadadel4/ITT/main/Resources/Icons/done.png"
+                $itt["window"].taskbarItemInfo.Overlay = "https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Icons/done.png"
             }
             "logo" {
-                $itt["window"].taskbarItemInfo.Overlay = "https://raw.githubusercontent.com/emadadel4/ITT/main/Resources/Icons/icon.ico"
+                $itt["window"].taskbarItemInfo.Overlay = "https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Icons/icon.ico"
             }
             "error" {
-                $itt["window"].taskbarItemInfo.Overlay = "https://raw.githubusercontent.com/emadadel4/ITT/main/Resources/Icons/error.png"
+                $itt["window"].taskbarItemInfo.Overlay = "https://raw.githubusercontent.com/emadadel4/IT/main/Statics/Icons/error.png"
             }
             default{
-                $itt["window"].taskbarItemInfo.Overlay = "https://raw.githubusercontent.com/emadadel4/ITT/main/Resources/Icons/icon.ico"
+                $itt["window"].taskbarItemInfo.Overlay = "https://raw.githubusercontent.com/emadadel4/main//Statics/Icons/icon.ico"
             }
         }   
     }
@@ -12738,7 +12738,7 @@ MinHeight="600"
 MinWidth="800" 
 Topmost="False"  
 ShowInTaskbar = "True" 
-Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/Resources/Icons/icon.ico">
+Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Icons/icon.ico">
 
 <Window.Resources>
     <!--Listview Fade in-->
@@ -13472,7 +13472,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/Resources/Icons/icon.
                                     
         <MenuItem Background="Transparent" BorderBrush="Transparent" BorderThickness="0" IsEnabled="False" ToolTip="Emad Adel">
             <MenuItem.Icon>
-                <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/Resources/Images/ps.png" Width="90" Height="Auto" Margin="5,5,0,0">
+                <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Images/ps.png" Width="90" Height="Auto" Margin="5,5,0,0">
                     <Image.Effect>
                         <DropShadowEffect Color="#027a3d" BlurRadius="5" ShadowDepth="0" Opacity="0.5"/>
                     </Image.Effect>
@@ -13586,15 +13586,15 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/Resources/Icons/icon.
                     <MenuItem.Icon>
                         <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                     </MenuItem.Icon>
-                    <MenuItem Name="ar" Header="عربي" />
-                    <MenuItem Name="en" Header="English" />
-                    <MenuItem Name="fr" Header="Français" />
-                    <MenuItem Name="tr" Header="Türkçe" />
-                    <MenuItem Name="zh" Header="中文" />
-                    <MenuItem Name="ko" Header="한국어" />
-                    <MenuItem Name="de" Header="Deutsch" />
-                    <MenuItem Name="ru" Header="Русский" />
-                    <MenuItem Name="es" Header="Español" />
+                       <MenuItem Name="ar" Header="عربي"/>
+<MenuItem Name="de" Header="Deutsch"/>
+<MenuItem Name="en" Header="English"/>
+<MenuItem Name="es" Header="Español"/>
+<MenuItem Name="fr" Header="Français"/>
+<MenuItem Name="ko" Header="한국어"/>
+<MenuItem Name="ru" Header="Русский"/>
+<MenuItem Name="tr" Header="Türkçe"/>
+<MenuItem Name="zh" Header="中文"/>
             </MenuItem>
 
 
@@ -16148,7 +16148,7 @@ $AboutWindowXaml = '<Window
         <!--Header -->
           <Grid Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <StackPanel Orientation="Vertical">
-              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/Resources/Images/logo.png" Height="130" Width="Auto"/>
+              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Images/logo.png" Height="130" Width="Auto"/>
               
               <TextBlock Text="Made with ♥ by Emad Adel" 
                 Foreground="{DynamicResource TextColorSecondaryColor2}"
@@ -16203,7 +16203,7 @@ $AboutWindowXaml = '<Window
           <Grid Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="0,0,0,10">
 
             <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/Resources/Icons/telegram.png" 
+              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Icons/telegram.png" 
               Name="telegram"
               VerticalAlignment="Bottom" 
               HorizontalAlignment="Center" 
@@ -16212,7 +16212,7 @@ $AboutWindowXaml = '<Window
               Cursor="Hand"
               Width="Auto"/>
 
-              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/Resources/Icons/youtube.png"
+              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Icons/youtube.png"
               Name="yt"
               Margin="10"
               Height="30"
@@ -16221,7 +16221,7 @@ $AboutWindowXaml = '<Window
               Cursor="Hand"
               Width="Auto"/>
 
-              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/Resources/Icons/github.png" 
+              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Icons/github.png" 
               Name="github"
               Margin="10"
               Height="30" 
@@ -16230,7 +16230,7 @@ $AboutWindowXaml = '<Window
               Cursor="Hand"
               Width="Auto"/>
 
-              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/Resources/Icons/blog.png" 
+              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Icons/blog.png" 
               Name="blog"
               Margin="10" 
               Height="30" 
@@ -16245,7 +16245,7 @@ $AboutWindowXaml = '<Window
         <!--End Footer -->
 
         <Grid Grid.Row="3">
-          <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/Resources/Images/coffee.png" Cursor="Hand" Name="coffee" Height="50" Width="Auto"/>
+          <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Images/coffee.png" Cursor="Hand" Name="coffee" Height="50" Width="Auto"/>
         </Grid>
 
     </StackPanel>
@@ -16279,16 +16279,16 @@ function Show-Event {
         
 
     
-            $itt.event.FindName('contribute').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')  # Start the process to open the URL when clicked
+            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
+                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')  # Start the process to open the URL when clicked
                 })
             
             $itt.event.FindName('shell').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/shelltube')  # Start the process to open the URL when clicked
                 })
             
-            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
-                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')  # Start the process to open the URL when clicked
+            $itt.event.FindName('contribute').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')  # Start the process to open the URL when clicked
                 })
             
 
@@ -16472,7 +16472,7 @@ $EventWindowXaml = '<Window
             <ScrollViewer Name="ScrollViewer" VerticalScrollBarVisibility="Auto" Height="Auto">
                 <StackPanel Margin="20" Orientation="Vertical">
                     <TextBlock Text=''Watch demo'' FontSize=''20'' Margin=''0,18,0,18'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
-<Image x:Name=''ytv'' Source=''https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/Resources/Images/thumbnail.jpg'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''/>
+<Image x:Name=''ytv'' Source=''https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/Statics/Images/thumbnail.jpg'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''/>
 <TextBlock Text='' • Keyboard Shortcuts:'' FontSize=''20'' Margin=''0,18,0,18'' Foreground=''{DynamicResource PrimaryButtonForeground}'' FontWeight=''bold'' TextWrapping=''Wrap''/>
 
                 
@@ -16566,7 +16566,7 @@ $EventWindowXaml = '<Window
                 
                 
 <TextBlock Text=''Create your own theme'' FontSize=''20'' Margin=''0,18,0,18'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
-<Image x:Name=''contribute'' Source=''https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/update/Resources/Images/customtheme.jpg'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''/>
+<Image x:Name=''contribute'' Source=''https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/Statics/Images/customtheme.jpg'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''/>
 <TextBlock Text=''Contribute and create your own theme, add your favorite apps, music. Click on the image above to see how to contribute.'' FontSize=''15'' Margin=''8''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
 <TextBlock Text=''Download any Youtube video'' FontSize=''20'' Margin=''0,18,0,18'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
 <Image x:Name=''shell'' Source=''https://raw.githubusercontent.com/emadadel4/ShellTube/main/demo.jpg'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''/>
