@@ -9,8 +9,8 @@ ITT (설치 및 조정 도구) 🛠️ 🚀
 </h1>
 
 <p align="center">
-  <a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/emadadel4/ITT/main/Resourcesces/Images/demo.PNG">
-    <img src="https://raw.githubusercontent.com/emadadel4/ITT/m/Resourcesources/Images/demo.PNG" alt="ITT Demo" style="max-width: 100%;">
+  <a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Images/demo.PNG">
+    <img src="https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Images/demo.PNG" alt="ITT Demo" style="max-width: 100%;">
   </a>
 </p>
 
@@ -51,7 +51,7 @@ ITT (설치 및 조정 도구) 🛠️ 🚀
 
   ## 데모 보기
 
-  [![비디오 보기](https://raw.githubusercontent.com/emadadel4/IT/ResourcesResources/Images/thumbnail.jpg)](https://www.youtube.com/watch?v=QmO82OTsU5c)
+  [![비디오 보기](https://raw.githubusercontent.com/emadadel4/IT/main/Statics/Images/thumbnail.jpg)](https://www.youtube.com/watch?v=QmO82OTsU5c)
 </div>
 
 <h2> 📦 새 애플리케이션/조정/OST/인용 추가 방법</h2>
