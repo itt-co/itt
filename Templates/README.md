@@ -68,7 +68,7 @@
 
 <p>
 <div align="center">
-    <img src="https://raw.githubusercontent.com/emadadel4/ITT/refs/head/main/Statics/Images/gitt.gif" alt="My GIF">
+    <img src="https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/Statics/Images/gitt.gif" alt="My GIF">
 </div>
 </p>
 
