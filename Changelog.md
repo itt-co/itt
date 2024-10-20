@@ -22,7 +22,7 @@
 
 ### Create your own theme
 
-![itt.xName:contribute [https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute]](https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/update/Statics/Images/customtheme.jpg)
+![itt.xName:contribute [https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute]](https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/Statics/Images/customtheme.jpg)
 
 #### Contribute and create your own theme, add your favorite apps, music. Click on the image above to see how to contribute.
 
