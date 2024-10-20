@@ -130,35 +130,40 @@ or
 
 <h3>Add a New App</h3>
 
-<pre><code>newApp.ps1
+<pre><code>.\newApp.ps1
 </code></pre>
 
 <h3>Add a New Tweak</h3>
 
-<pre><code>newTweak.ps1
+<pre><code>.\newTweak.ps1
+</code></pre>
+
+<h3>add Your native language</h3>
+<p><em>You can edit the file using any CSV editor such as Excel, or Notepad++.</em></p>
+
+<pre><code>.\newLocale.ps1
 </code></pre>
 
 <p><em>Note: Ensure you understand the tweak you are adding and test it before committing.</em></p>
 
 <h3>Create your own theme</h3>
 
-
-<pre><code>newTheme.ps1
+<pre><code>.\newTheme.ps1
 </code></pre>
 
 <h3>Add a New Soundtrack</h3>
 
-<pre><code>newOST.ps1
+<pre><code>.\newOST.ps1
 </code></pre>
 
 <h3>Add a New Quote</h3>
 
-<pre><code>newQuote.ps1
+<pre><code>.\newQuote.ps1
 </code></pre>
 
 <h3>Build and run</h3>
 
-<pre><code>build.ps1 -debug
+<pre><code>.\build.ps1 -debug
 </code></pre>
 
 
