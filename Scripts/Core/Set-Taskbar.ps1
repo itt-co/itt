@@ -43,16 +43,16 @@ function Set-Taskbar {
         switch ($icon) {
 
             "done" {
-                $itt["window"].taskbarItemInfo.Overlay = "https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Icons/done.png"
+                $itt["window"].taskbarItemInfo.Overlay = "https://raw.githubusercontent.com/emadadel4/ITT/main/Resourcesces/Icons/done.png"
             }
             "logo" {
-                $itt["window"].taskbarItemInfo.Overlay = "https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Icons/icon.ico"
+                $itt["window"].taskbarItemInfo.Overlay = "https://raw.githubusercontent.com/emadadel4/ITT/m/Resourcesources/Icons/icon.ico"
             }
             "error" {
-                $itt["window"].taskbarItemInfo.Overlay = "https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Icons/error.png"
+                $itt["window"].taskbarItemInfo.Overlay = "https://raw.githubusercontent.com/emadadel4/IT/ResourcesResources/Icons/error.png"
             }
             default{
-                $itt["window"].taskbarItemInfo.Overlay = "https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Icons/icon.ico"
+                $itt["window"].taskbarItemInfo.Overlay = "https://raw.githubusercontent.com/emadadel4/Resourcesin/Resources/Icons/icon.ico"
             }
         }   
     }
