@@ -495,7 +495,6 @@ $updatedJson | Out-File -FilePath $json -Encoding utf8
 #endregion RemoveAppxPackage 
 #===========================================================================
 }
-
 }
 catch {
     Write-Host "An error occurred: $_"
