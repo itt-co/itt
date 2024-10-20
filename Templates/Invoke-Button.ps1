@@ -63,42 +63,9 @@ function Invoke-Button {
         }
 
         # Menu items
-        "ar" {
-            Set-Language -lang "ar"
-            Debug-Message
-        }
-        "en" {
-            Set-Language -lang "en"
-            Debug-Message
-        }
-        "fr" {
-            Set-Language -lang "fr"
-            Debug-Message
-        }
-        "tr" {
-            Set-Language -lang "tr"
-            Debug-Message
-        }
-        "zh" {
-            Set-Language -lang "zh"
-            Debug-Message
-        }
-        "ko" {
-            Set-Language -lang "ko"
-            Debug-Message
-        }
-        "de" {
-            Set-Language -lang "de"
-            Debug-Message
-        }
-        "ru" {
-            Set-Language -lang "ru"
-            Debug-Message
-        }
-        "es" {
-            Set-Language -lang "es"
-            Debug-Message
-        }
+        
+        #{locales}
+
         "save" {
             SaveItemsToJson
             Debug-Message
