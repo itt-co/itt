@@ -115,9 +115,9 @@ or
 
 # 💡 How to Contribute
 
-1. **Make sure you have PowerShell 7 installed (recommended) for building. Install it using "ITT"**
+1. **Make sure you have PowerShell 7 installed (recommended) for building. is available on ITT**
 
-2. **Fork the repository and clone it.**
+2. **Fork the repository and clone it using [Github desktop](https://desktop.github.com/download/). is available on ITT**
 
 3. **Open the ITT directory in PowerShell run as administrator:**
 
