@@ -1,5 +1,7 @@
-try {
-Clear-Host
+param (
+    [string]$json = "./Statics/Database/OST.json"
+)
+
 Write-Host "
 +-------------------------------------------------------------------------+
 |    ___ _____ _____   ____    _  _____  _    ____    _    ____  _____    |
@@ -11,9 +13,11 @@ Write-Host "
 +-------------------------------------------------------------------------+
 "
 
+try {
+    
     # Read existing JSON file
-    $jsonFilePath = "./Statics/Database/OST.json"
-    $existingData = Get-Content $jsonFilePath -Raw -ErrorAction Stop | ConvertFrom-Json
+    $jsonFilePath = $json
+    $existingData = Get-Content $json -Raw -ErrorAction Stop | ConvertFrom-Json
 
     # Prompt for input
     $name = Read-Host "Enter the track name"
@@ -30,9 +34,10 @@ Write-Host "
 
     # Write updated JSON to file
     $existingData | ConvertTo-Json -Depth 10 | Set-Content $jsonFilePath -ErrorAction Stop
-    Write-Host "Added Successfully" -ForegroundColor Green
-
 }
 catch {
     Write-Host "An error occurred: $_"
+}
+finally {
+    Write-Host "Added successfully, Don't forget to build and test it before commit" -ForegroundColor Green 
 }
