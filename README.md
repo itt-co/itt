@@ -138,6 +138,8 @@ or
 <pre><code>.\newTweak.ps1
 </code></pre>
 
+<p><em>Note: Ensure you understand the tweak you are adding and test it before committing.</em></p>
+
 <h3>Add your native language</h3>
 <p><em>
 
@@ -147,7 +149,6 @@ or
 Edit CSV file using [edit-csv extension ](https://marketplace.visualstudio.com/items?itemName=janisdd.vscode-edit-csv)
 </em></p>
 
-<p><em>Note: Ensure you understand the tweak you are adding and test it before committing.</em></p>
 
 <h3>Create your own theme</h3>
 
