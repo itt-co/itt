@@ -12,7 +12,7 @@ Write-Host "
 "
 
     # Read existing JSON file
-    $jsonFilePath = "./Resources/Database/OST.json"
+    $jsonFilePath = "./Statics/Database/OST.json"
     $existingData = Get-Content $jsonFilePath -Raw -ErrorAction Stop | ConvertFrom-Json
 
     # Prompt for input

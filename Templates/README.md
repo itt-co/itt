@@ -63,12 +63,12 @@
 
 
 <p align="center" dir="auto">
-    <a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/emadadel4/ITT/main/Resources/Images/demo.PNG"><img src="https://raw.githubusercontent.com/emadadel4/ITT/main/Resources/Images/demo.PNG" alt="ITT Demo" style="max-width: 100%;"></a>
+    <a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Images/demo.PNG"><img src="https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Images/demo.PNG" alt="ITT Demo" style="max-width: 100%;"></a>
 </p>
 
 <p>
 <div align="center">
-    <img src="https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/Resources/Images/gitt.gif" alt="My GIF">
+    <img src="https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/Statics/Images/gitt.gif" alt="My GIF">
 </div>
 </p>
 
@@ -110,7 +110,7 @@ or
   
 ## Watch Demo
 
-  [![Watch the video](https://raw.githubusercontent.com/emadadel4/ITT/main/Resources/Images/thumbnail.jpg)](https://www.youtube.com/watch?v=QmO82OTsU5c)
+  [![Watch the video](https://raw.githubusercontent.com/emadadel4/ITT/main/Statics/Images/thumbnail.jpg)](https://www.youtube.com/watch?v=QmO82OTsU5c)
 </div>
 
 # 💡 How to Contribute

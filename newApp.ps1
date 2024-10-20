@@ -1,5 +1,5 @@
 param (
-    [string]$json = "./Resources/Database/Applications.json"
+    [string]$json = "./Statics/Database/Applications.json"
 )
 
 Clear-Host
