@@ -19,7 +19,7 @@
         <!--Header -->
           <Grid Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <StackPanel Orientation="Vertical">
-              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/logo.png" Margin="0,0,0,25" Height="70" Width="Auto">
+              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/logo.png" Margin="20" Height="70" Width="Auto">
                 <Image.Effect>
                   <DropShadowEffect Color="#FFFF0000" BlurRadius="5" ShadowDepth="0" Opacity="0.8"/>
               </Image.Effect>
