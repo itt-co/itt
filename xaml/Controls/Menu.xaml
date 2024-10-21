@@ -76,12 +76,12 @@
                 </MenuItem.Icon>
             </MenuItem>
 
-            <MenuItem Name="save" InputGestureText="Shift+S" Header="{Binding saveapps}">
+            <MenuItem Name="save" ToolTip="Save selected apps" InputGestureText="Shift+S" Header="{Binding saveapps}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
-            <MenuItem Name="load" InputGestureText="Shift+D" Header="{Binding loadapps}">
+            <MenuItem Name="load" ToolTip="Restore selected apps" InputGestureText="Shift+D" Header="{Binding loadapps}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
@@ -142,18 +142,18 @@
             </MenuItem.Icon>
 
 
-            <MenuItem Name="mas" Header="{Binding mas}">
+            <MenuItem Name="mas" ToolTip="Windows activation " Header="{Binding mas}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
-            <MenuItem Name="idm" Header="{Binding idm}">
+            <MenuItem Name="idm" ToolTip="Get rid of IDM Active message" Header="{Binding idm}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
 
-            <MenuItem Name="winoffice" Header="{Binding winoffice}">
+            <MenuItem Name="winoffice" ToolTip="Windows and Office Orginal ISO" Header="{Binding winoffice}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
@@ -170,19 +170,25 @@
                 <MenuItem Name="neat" Header="Neat Download Manager"/>
             </MenuItem>
 
-            <MenuItem Name="sordum" Header="Sordum tools">
+            <MenuItem Name="sordum" ToolTip="Collection of free utilities designed to enhance or control various aspects of the Windows operating system" Header="Sordum tools">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
 
-            <MenuItem Name="majorgeeks" Header="Major Geeks">
+            <MenuItem Name="majorgeeks" ToolTip="website that provides trusted, safe, and curated software downloads for Windows users. It focuses on high-quality tools" Header="Major Geeks">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
 
-            <MenuItem Name="shelltube" Header="ShellTube">
+            <MenuItem Name="webtor" ToolTip="Web-based platform that allows users to stream torrent files directly in their browser without needing to download them" Header="Webtor">
+                <MenuItem.Icon>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+                </MenuItem.Icon>
+            </MenuItem>
+
+            <MenuItem Name="shelltube" ToolTip="Download youtube video easily" Header="ShellTube">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
