@@ -1,10 +1,3 @@
----
-# = h1
-### = h2
-#### = description 
-Image = ![itt.xName:text [link]](jpg url)
----
-
 ## Welcome!
 
 ### Watch demo
