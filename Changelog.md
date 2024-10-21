@@ -24,7 +24,7 @@
 
 ![itt.xName:contribute [https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute]](https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/customtheme.jpg)
 
-#### Contribute and create your own theme, add your favorite apps, music. Click on the image above to see how to contribute.
+#### Contribute and create your own theme, add your native language. favorite apps & music and more. Click on the image to see how to contribute.
 
 ### Download any Youtube video
 
