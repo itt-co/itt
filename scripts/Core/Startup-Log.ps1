@@ -252,7 +252,7 @@ function Startup  {
             Write-Host " |   | |  | |   | |   |  _| | |\/| | / _ \ | | | |   / _ \ | | | |  _| | |      |" 
             Write-Host " |   | |  | |   | |   | |___| |  | |/ ___ \| |_| |  / ___ \| |_| | |___| |___   |" 
             Write-Host " |  |___| |_|   |_|   |_____|_|  |_/_/   \_\____/  /_/   \_\____/|_____|_____|  |" 
-            Write-Host " |                       Made with ♥ By  Emad Adel                              |" 
+            Write-Host " |                       Made with ♥ By Emad Adel                               |" 
             Write-Host " |                          #StandWithPalestine                                 |" 
             Write-Host " +==============================================================================+" 
             Write-Host " Launch Anytime, Anywhere! `n` " 
