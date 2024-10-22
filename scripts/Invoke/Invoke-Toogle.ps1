@@ -39,5 +39,6 @@ function Invoke-Toogle {
         "EndTaskOnTaskbar" {Invoke-TaskbarEnd $(Get-ToggleStatus EndTaskOnTaskbar)}
         "ClearPageFileAtShutdown" {Invoke-ClearPageFile $(Get-ToggleStatus ClearPageFileAtShutdown)}
         "AutoEndTasks" {Invoke-AutoEndTasks $(Get-ToggleStatus AutoEndTasks)}
+        "VisualFXSetting" {Invoke-PerformanceOptions $(Get-ToggleStatus VisualFXSetting)}
     }
 }
