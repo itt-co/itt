@@ -16167,7 +16167,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
           HorizontalContentAlignment="Center"
           VerticalContentAlignment="Center"
           Cursor="Hand"
-          Width="150" 
+          Width="140" 
           Height="45" 
           Margin="20">
 
@@ -16199,7 +16199,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
             HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center"
             Cursor="Hand"
-            Width="150" 
+            Width="140" 
             Height="45" 
             Margin="20">
             
