@@ -50,7 +50,7 @@
   {
     "Content": "Auto End Tasks",
     "Name":"AutoEndTasks",
-    "description": "Page file in Windows removes sensitive data stored in virtual memory when the system shuts down. This enhances security by ensuring that the data in the page file (which may contain passwords, encryption keys, or other sensitive information) is wiped out and cannot be accessed after rebooting. However, it can increase shutdown time",
+    "description": "Automatically end tasks that are not responding",
     "category": "Storage "
   }
   
