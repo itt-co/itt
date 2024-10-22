@@ -13293,7 +13293,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
 
 <!--ListViewItem Style-->
     <Style TargetType="ListViewItem">
-        <Setter Property="Margin" Value="8"/>
+        <Setter Property="Margin" Value="2"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Padding" Value="0"/>
         <Setter Property="Template">
