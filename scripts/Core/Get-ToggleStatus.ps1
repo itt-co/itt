@@ -34,7 +34,6 @@ Function Get-ToggleStatus {
         - The function includes error handling to return `$false` if the registry values do not match the expected criteria for the toggle switches.
     #>
 
-
     Param($ToggleSwitch) # Parameter to specify which toggle switch status to check
 
     # Check status of "ToggleDarkMode"
@@ -109,5 +108,60 @@ Function Get-ToggleStatus {
         } else {
             return $false
         }
+    }
+
+    # EndTaskOnTaskbar     
+    if($ToggleSwitch -eq "EndTaskOnTaskbar") 
+    {
+
+        $path = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDeveloperSettings"
+
+        if (-not (Test-Path $path))
+        {
+            return $false
+        }
+        else 
+        {
+            $TaskBar = (Get-ItemProperty -path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDeveloperSettings').TaskbarEndTask
+            
+            if($TaskBar -eq 1) 
+            {
+                return $true
+            } 
+            else 
+            {
+                return $false
+            }
+        }
+    }
+
+    # Remove Page file     
+    if($ToggleSwitch -eq "ClearPageFileAtShutdown") 
+    {
+        $PageFile = (Get-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\\Memory Management').ClearPageFileAtShutdown
+        
+        if($PageFile -eq 1) 
+        {
+            return $true
+        } 
+        else 
+        {
+            return $false
+        }
+    }
+
+     # Auto end tasks     
+    if($ToggleSwitch -eq "AutoEndTasks") 
+    {
+         $PageFile = (Get-ItemProperty -path 'HKCU:\Control Panel\Desktop').AutoEndTasks
+         
+         if($PageFile -eq 1) 
+         {
+             return $true
+         } 
+         else 
+         {
+             return $false
+         }
     }
 }
