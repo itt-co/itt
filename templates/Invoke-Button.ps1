@@ -63,6 +63,11 @@ function Invoke-Button {
         }
 
         # Menu items
+
+        "systemlang" {
+            Set-Language -lang "default"
+            Debug-Message
+        }
         
         #{locales}
 
