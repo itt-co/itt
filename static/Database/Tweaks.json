@@ -6,8 +6,7 @@
     "Category": "Cleanup",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "\r\n        Remove-Item -Path \"$env:LOCALAPPDATA\\Temp\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        Remove-Item -Path \"C:\\Windows\\Prefetch\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        Stop-Service -Name wuauserv -Force\r\n        takeown /f C:\\Windows\\SoftwareDistribution\\Download /r /d y\r\n        icacls C:\\Windows\\SoftwareDistribution\\Download /grant administrators:F /t\r\n        Remove-Item -Path \"C:\\Windows\\SoftwareDistribution\\Download\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        cleanmgr.exe /d C: /VERYLOWDISK /sagerun:1 Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase\r\n        cleanmgr.exe /d C: /sagerun:1\r\n        cleanmgr.exe /sagerun:1\r\n        Dism.exe /online /Cleanup-Image /StartComponentCleanup\r\n        cleanmgr.exe /d C: /VERYLOWDISK\r\n        Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase\r\n        Start-Service -Name wuauserv\r\n      "
     ],
@@ -22,8 +21,7 @@
     "Category": "Fixer",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "\r\n        Chkdsk /scan\r\n        sfc /scannow\r\n        DISM /Online /Cleanup-Image /Restorehealth\r\n        sfc /scannow\r\n      "
     ],
@@ -38,8 +36,7 @@
     "Category": "Performance",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "Invoke-RestMethod https://raw.githubusercontent.com/emadadel4/WindowsTweaks/main/ClearStartMenu.ps1 | Invoke-Expression"
     ],
@@ -54,8 +51,7 @@
     "Category": "Performance",
     "Type": "Registry",
     "Refresh": "true",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Feeds",
@@ -358,8 +354,7 @@
     "Category": "Fixer",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "Invoke-RestMethod https://raw.githubusercontent.com/emadadel4/WindowsTweaks/main/restore.bat | Invoke-Expression"
     ],
@@ -374,8 +369,7 @@
     "Category": "Performance",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "\r\n        takeown /f C:\\Windows\\System32\\GameBarPresenceWriter.exe\r\n\r\n        takeown /f C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll\r\n\r\n        takeown /f C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll\r\n\r\n        Start-Sleep -Seconds 1\r\n\r\n\r\n        icacls C:\\Windows\\System32\\GameBarPresenceWriter.exe /grant administrators:F\r\n\r\n        icacls C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll /grant administrators:F\r\n\r\n        icacls C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll /grant administrators:F\r\n\r\n        Start-Sleep -Seconds 1\r\n\r\n\r\n        Rename-Item C:\\Windows\\System32\\GameBarPresenceWriter.exe -NewName GameBarPresenceWriter.exe_backup\r\n\r\n        Rename-Item C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll -NewName GameBarPresenceWriter.proxy.dll_backup\r\n\r\n        Rename-Item C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll -NewName Windows.Gaming.UI.GameBar.dll_backup\r\n\r\n      "
     ],
@@ -390,8 +384,7 @@
     "Category": "Performance",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61; Start-Process powercfg.cpl"
     ],
@@ -406,8 +399,7 @@
     "Category": "Fixer",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "netsh int ip reset"
     ],
@@ -422,8 +414,7 @@
     "Category": "Other",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "curl.exe -ss \"https://live.sysinternals.com/Autologon.exe\" -o $env:temp\\autologin.exe ; cmd /c $env:temp\\autologin.exe /accepteula"
     ],
@@ -438,8 +429,7 @@
     "Category": "Performance",
     "Type": "Registry",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKCU:\\SOFTWARE\\Microsoft\\GameBar",
@@ -639,8 +629,7 @@
     "Category": "Privacy",
     "Type": "Registry",
     "Refresh": "true",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo",
@@ -685,8 +674,7 @@
     "Category": "Privacy",
     "Type": "Registry",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
@@ -710,8 +698,7 @@
     "Category": "Performance",
     "Type": "Registry",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications",
@@ -742,8 +729,7 @@
     "Category": "Privacy",
     "Type": "Modify",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
@@ -767,8 +753,7 @@
     "Category": "Other",
     "Type": "Registry",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Delete": [
       {
         "Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\",
@@ -841,8 +826,7 @@
     "Category": "Performance",
     "Type": "service",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Service": [
       {
         "Name": "Spooler",
@@ -850,59 +834,59 @@
         "DefaultType": "Automatic"
       },
       {
-          "Name": "Fax",
-          "StartupType": "Disabled",
-          "DefaultType": "Automatic"
+        "Name": "Fax",
+        "StartupType": "Disabled",
+        "DefaultType": "Automatic"
       },
       {
-          "Name": "DPS",
-          "StartupType": "Disabled",
-          "DefaultType": "Automatic"
+        "Name": "DPS",
+        "StartupType": "Disabled",
+        "DefaultType": "Automatic"
       },
       {
-          "Name": "MapsBroker",
-          "StartupType": "Disabled",
-          "DefaultType": "Automatic"
+        "Name": "MapsBroker",
+        "StartupType": "Disabled",
+        "DefaultType": "Automatic"
       },
       {
-          "Name": "WerSvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "WerSvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "RemoteRegistry",
-          "StartupType": "Disabled",
-          "DefaultType": "Disabled"
+        "Name": "RemoteRegistry",
+        "StartupType": "Disabled",
+        "DefaultType": "Disabled"
       },
       {
-          "Name": "lmhosts",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "lmhosts",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "SharedAccess",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "SharedAccess",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "DiagTrack",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "DiagTrack",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "diagnosticshub.standardcollector.service",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "diagnosticshub.standardcollector.service",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "dmwappushservice",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "dmwappushservice",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "lfsvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "lfsvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
         "Name": "TrkWks",
@@ -910,179 +894,179 @@
         "DefaultType": "Manual"
       },
       {
-          "Name": "NetTcpPortSharing",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "NetTcpPortSharing",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "RemoteAccess",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "RemoteAccess",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "WbioSrvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "WbioSrvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "WMPNetworkSvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "WMPNetworkSvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "WSearch",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "WSearch",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "XblAuthManager",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "XblAuthManager",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "XblGameSave",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "XblGameSave",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "XboxNetApiSvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "XboxNetApiSvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "XboxGipSvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "XboxGipSvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "WerSvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "WerSvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "Spooler",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "Spooler",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "fhsvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "fhsvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "gupdate",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "gupdate",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "gupdatem",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "gupdatem",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "stisvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "stisvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "AJRouter",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "AJRouter",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "MSDTC",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "MSDTC",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "WpcMonSvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "WpcMonSvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "PhoneSvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "PhoneSvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "PcaSvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "PcaSvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "WPDBusEnum",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "WPDBusEnum",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "LicenseManager",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "LicenseManager",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "seclogon",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "seclogon",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "SysMain",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "SysMain",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "wisvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "wisvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "FontCache",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "FontCache",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "RetailDemo",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "RetailDemo",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "ALG",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "ALG",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "SCardSvr",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "SCardSvr",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "SCPolicySvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "SCPolicySvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "ScDeviceEnum",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "ScDeviceEnum",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "MessagingService_34048",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "MessagingService_34048",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "wlidsvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "wlidsvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "BthAvctpSvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "BthAvctpSvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "Browser",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "Browser",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
         "Name": "DusmSvc",
@@ -1090,24 +1074,24 @@
         "DefaultType": "Manual"
       },
       {
-          "Name": "BDESVC",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "BDESVC",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "iphlpsvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "iphlpsvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "edgeupdate",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "edgeupdate",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "MicrosoftEdgeElevationService",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "MicrosoftEdgeElevationService",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
         "Name": "SEMgrSvc",
@@ -1144,8 +1128,7 @@
     "Category": "Performance",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKLM:\\System\\CurrentControlSet\\Control\\Session Manager\\Power",
@@ -1209,8 +1192,7 @@
     "Category": "Classic",
     "Type": "Registry",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows Photo Viewer\\Capabilities\\FileAssociations",
@@ -1276,8 +1258,7 @@
     "Category": "Classic",
     "Type": "Registry",
     "Refresh": "true",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Classes\\CLSID\\",
@@ -1308,8 +1289,7 @@
     "Category": "Privacy",
     "Type": "Registry",
     "Refresh": "true",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Policies\\Microsoft\\Windows\\WindowsCopilot",
@@ -1361,8 +1341,7 @@
     "Category": "Privacy",
     "Type": "Registry",
     "Refresh": "true",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Policies\\Microsoft\\Windows\\WindowsAI",
@@ -1393,8 +1372,7 @@
     "Category": "Performance",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "Remove-Item \"$env:LocalAppData\\Microsoft\\Windows\\Explorer\\thumbcache*\" -Force -Recurse"
     ],
@@ -1409,8 +1387,7 @@
     "Category": "Classic",
     "Type": "Registry",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": {
       "Path": "HKLM:\\Software\\Microsoft\\Windows NT\\CurrentVersion\\MTCUVC",
       "Name": "EnableMtcUvc",
@@ -1432,8 +1409,7 @@
     "Category": "Classic",
     "Type": "Registry",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": {
       "Path": "HKCU:\\Control Panel\\Accessibility\\ToggleKeys",
       "Name": "Flags",
@@ -1455,8 +1431,7 @@
     "Category": "Privacy",
     "Type": "service",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Service": [
       {
         "Name": "HomeGroupListener",
@@ -1477,8 +1452,7 @@
     "Category": "Performance",
     "Type": "Registry",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
@@ -1512,8 +1486,7 @@
     "Category": "Privacy",
     "Type": "Registry",
     "refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\location",
@@ -1846,8 +1819,7 @@
     "Category": "Protection",
     "Type": "Registry",
     "refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\AutoplayHandlers",
@@ -1878,8 +1850,7 @@
     "Category": "Protection",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "Set-SmbServerConfiguration -EnableSMB1Protocol $false -Force; Set-SmbServerConfiguration -EnableSMB2Protocol $false -Force"
     ],
@@ -1894,8 +1865,7 @@
     "Category": "Protection",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "Set-NetConnectionProfile -NetworkCategory Public"
     ],
@@ -1910,8 +1880,7 @@
     "Category": "BIOS",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "bcdedit /set bootmenupolicy Standard | Out-Null"
     ],
@@ -1926,8 +1895,7 @@
     "Category": "Power",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "\r\n        powercfg /X monitor-timeout-ac 0\r\n        powercfg /X monitor-timeout-dc 0\r\n        powercfg /X standby-timeout-ac 0\r\n        powercfg /X standby-timeout-dc 0\r\n      "
     ],
@@ -1942,8 +1910,7 @@
     "Category": "Personalization",
     "Type": "Registry",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKLM:\\System\\CurrentControlSet\\Control\\CrashControl",
@@ -1967,8 +1934,7 @@
     "Category": "Performance",
     "Type": "Registry",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
@@ -1992,8 +1958,7 @@
     "Category": "Performance",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Defrag\\ScheduledDefrag' | Out-Null"
     ],
@@ -2008,11 +1973,116 @@
     "Category": "Runtimes",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "DISM /Online /Enable-Feature /FeatureName:NetFx3 /All"
     ],
     "UndoCommand": []
+  },
+  {
+    "Name": "Super Performance",
+    "Description": "All Windows effects disabled and optimized for windowed games. You may need to log out and back in for changes to take effect. You can reset to default settings in Settings Tab",
+    "Check": "false",
+    "Type": "Registry",
+    "Refresh": "true",
+    "Modify": [
+      {
+        "defaultValue": "1",
+        "Type": "String",
+        "Path": "HKCU:\\Control Panel\\Desktop",
+        "Value": "0",
+        "Name": "DragFullWindows"
+      },
+      {
+        "defaultValue": "1",
+        "Type": "String",
+        "Path": "HKCU:\\Control Panel\\Desktop",
+        "Value": "200",
+        "Name": "MenuShowDelay"
+      },
+      {
+        "defaultValue": "1",
+        "Type": "String",
+        "Path": "HKCU:\\Control Panel\\Desktop\\WindowMetrics",
+        "Value": "0",
+        "Name": "MinAnimate"
+      },
+      {
+        "defaultValue": "1",
+        "Type": "DWord",
+        "Path": "HKCU:\\Control Panel\\Keyboard",
+        "Value": "0",
+        "Name": "KeyboardDelay"
+      },
+      {
+        "defaultValue": "1",
+        "Type": "DWord",
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "Value": "0",
+        "Name": "ListviewAlphaSelect"
+      },
+      {
+        "defaultValue": "1",
+        "Type": "DWord",
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "Value": "0",
+        "Name": "ListviewShadow"
+      },
+      {
+        "defaultValue": "1",
+        "Type": "DWord",
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "Value": "0",
+        "Name": "TaskbarAnimations"
+      },
+      {
+        "defaultValue": "1",
+        "Type": "DWord",
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VisualEffects",
+        "Value": "2",
+        "Name": "VisualFXSetting"
+      },
+      {
+        "defaultValue": "1",
+        "Type": "DWord",
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\DWM",
+        "Value": "0",
+        "Name": "EnableAeroPeek"
+      },
+      {
+        "defaultValue": "1",
+        "Type": "DWord",
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "Value": "0",
+        "Name": "TaskbarMn"
+      },
+      {
+        "defaultValue": "1",
+        "Type": "DWord",
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "Value": "0",
+        "Name": "TaskbarDa"
+      },
+      {
+        "defaultValue": "1",
+        "Type": "DWord",
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "Value": "0",
+        "Name": "ShowTaskViewButton"
+      },
+      {
+        "defaultValue": "1",
+        "Type": "DWord",
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
+        "Value": "0",
+        "Name": "SearchboxTaskbarMode"
+      }
+    ],
+    "InvokeCommand": [
+      ""
+    ],
+    "UndoCommand": [
+      ""
+    ]
   }
 ]
