@@ -10292,7 +10292,6 @@ Function Get-ToggleStatus {
         - The function includes error handling to return `$false` if the registry values do not match the expected criteria for the toggle switches.
     #>
 
-
     Param($ToggleSwitch) # Parameter to specify which toggle switch status to check
 
     # Check status of "ToggleDarkMode"
@@ -10369,7 +10368,6 @@ Function Get-ToggleStatus {
         }
     }
 
-
     # EndTaskOnTaskbar     
     if($ToggleSwitch -eq "EndTaskOnTaskbar") 
     {
@@ -10411,8 +10409,8 @@ Function Get-ToggleStatus {
     }
 
      # Auto end tasks     
-     if($ToggleSwitch -eq "AutoEndTasks") 
-     {
+    if($ToggleSwitch -eq "AutoEndTasks") 
+    {
          $PageFile = (Get-ItemProperty -path 'HKCU:\Control Panel\Desktop').AutoEndTasks
          
          if($PageFile -eq 1) 
@@ -10423,7 +10421,7 @@ Function Get-ToggleStatus {
          {
              return $false
          }
-     }
+    }
 }
 
 function Install-App {
@@ -11782,17 +11780,9 @@ function Invoke-Toogle {
         "ToggleNumLook" {Invoke-NumLock $(Get-ToggleStatus ToggleNumLook)}
         "ToggleStickyKeys" {Invoke-StickyKeys $(Get-ToggleStatus ToggleStickyKeys)}
         "MouseAcceleration" {Invoke-MouseAcceleration $(Get-ToggleStatus MouseAcceleration)}
-        
         "EndTaskOnTaskbar" {Invoke-TaskbarEnd $(Get-ToggleStatus EndTaskOnTaskbar)}
-
         "ClearPageFileAtShutdown" {Invoke-ClearPageFile $(Get-ToggleStatus ClearPageFileAtShutdown)}
-
-
         "AutoEndTasks" {Invoke-AutoEndTasks $(Get-ToggleStatus AutoEndTasks)}
-
-
-
-
     }
 }
 function Invoke-AutoEndTasks {
