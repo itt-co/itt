@@ -173,9 +173,9 @@ function Invoke-Apply {
         return
     }
 
-    Invoke-ScriptBlock -ArgumentList $selectedTweaks -ScriptBlock {
+    Invoke-ScriptBlock -ArgumentList $selectedTweaks -debug $debug -ScriptBlock {
 
-        param($selectedTweaks)
+        param($selectedTweaks,$debug)
 
         $itt.ProcessRunning = $true
         UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Applying" -TextIcon "applyIcon" -Icon "  " -Width "auto"
@@ -188,7 +188,29 @@ function Invoke-Apply {
             switch ($tweak.Type) {        
         
                 "command" {
+
                     $tweak.Command | ForEach-Object { ExecuteCommand -Name $tweak.Name -Command $tweak.Command}
+
+                    # Remove tasks 
+                    if ($tweak.RemoveTasks -and $tweak.RemoveTasks.Count -gt 0)
+                    {
+
+                        foreach ($taskName in $tweak.RemoveTasks) {
+                        
+                            $task = Get-ScheduledTask | Where-Object { $_.TaskName -eq $taskName }
+                                
+                            if ($task) {
+                                Unregister-ScheduledTask -TaskName $taskName -Confirm:$false
+                                Add-Log -Message "Removed $taskName" -Level "INFO"
+                            } else {
+                                if($Debug){Add-Log -Message "$taskName task not found" -Level "ERROR"}
+                            }
+                        }
+
+                    }else {
+                        if($Debug){Add-Log -Message "This tweak has no RemoveTasks" -Level "INFO"}
+                    }
+
                 }
                 "Registry" {
                     $tweak.Modify | ForEach-Object {
@@ -204,6 +226,26 @@ function Invoke-Apply {
                         Add-Log -Message "Restarting explorer" -Level "Apply"
                         Refresh-Explorer
                     }
+
+                    # Remove tasks 
+                    if ($tweak.RemoveTasks -and $tweak.RemoveTasks.Count -gt 0)
+                    {
+
+                        foreach ($taskName in $tweak.RemoveTasks) {
+                        
+                            $task = Get-ScheduledTask | Where-Object { $_.TaskName -eq $taskName }
+                                
+                            if ($task) {
+                                Unregister-ScheduledTask -TaskName $taskName -Confirm:$false
+                                Add-Log -Message "Removed $taskName" -Level "INFO"
+                            } else {
+                                if($Debug){Add-Log -Message "$taskName task not found" -Level "ERROR"}
+                            }
+                        }
+
+                    }else {
+                        if($Debug){Add-Log -Message "This tweak has no RemoveTasks" -Level "INFO"}
+                    }
                 }
                 "AppxPackage" {
                     $tweak.removeAppxPackage | ForEach-Object { Uninstall-AppxPackage -Name $_.Name }
@@ -213,9 +255,49 @@ function Invoke-Apply {
                         # debug
                         if($debug){Write-Host $tweak.Command}
                     }
+
+                    # Remove tasks 
+                    if ($tweak.RemoveTasks -and $tweak.RemoveTasks.Count -gt 0)
+                    {
+
+                        foreach ($taskName in $tweak.RemoveTasks) {
+                        
+                            $task = Get-ScheduledTask | Where-Object { $_.TaskName -eq $taskName }
+                                
+                            if ($task) {
+                                Unregister-ScheduledTask -TaskName $taskName -Confirm:$false
+                                Add-Log -Message "Removed $taskName" -Level "INFO"
+                            } else {
+                                if($Debug){Add-Log -Message "$taskName task not found" -Level "ERROR"}
+                            }
+                        }
+
+                    }else {
+                        if($Debug){Add-Log -Message "This tweak has no RemoveTasks" -Level "INFO"}
+                    }
                 }
                 "service" {
                     $tweak.Service | ForEach-Object { Disable-Service -ServiceName $_.Name -StartupType $_.StartupType }
+
+                    # Remove tasks 
+                    if ($tweak.RemoveTasks -and $tweak.RemoveTasks.Count -gt 0)
+                    {
+
+                        foreach ($taskName in $tweak.RemoveTasks) {
+                        
+                            $task = Get-ScheduledTask | Where-Object { $_.TaskName -eq $taskName }
+                                
+                            if ($task) {
+                                Unregister-ScheduledTask -TaskName $taskName -Confirm:$false
+                                Add-Log -Message "Removed $taskName" -Level "INFO"
+                            } else {
+                                if($Debug){Add-Log -Message "$taskName task not found" -Level "ERROR"}
+                            }
+                        }
+
+                    }else {
+                        if($Debug){Add-Log -Message "This tweak has no RemoveTasks" -Level "INFO"}
+                    }
                 }
             }
         }

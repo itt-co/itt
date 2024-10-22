@@ -28,6 +28,7 @@ $desiredFunctions = @(
 'Uninstall-AppxPackage',
 'Set-Taskbar',
 'Refresh-Explorer'
+'Remove-ScheduledTasks'
 )
 
 $functions = Get-ChildItem function:\ | Where-Object { $_.Name -in $desiredFunctions }

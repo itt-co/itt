@@ -6,22 +6,10 @@
     "Category": "Cleanup",
     "Type": "command",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
-      "
-        Remove-Item -Path \"$env:LOCALAPPDATA\\Temp\\*\" -Recurse -Force -ErrorAction SilentlyContinue
-        Remove-Item -Path \"C:\\Windows\\Prefetch\\*\" -Recurse -Force -ErrorAction SilentlyContinue
-        Stop-Service -Name wuauserv -Force
-        takeown /f C:\\Windows\\SoftwareDistribution\\Download /r /d y
-        icacls C:\\Windows\\SoftwareDistribution\\Download /grant administrators:F /t
-        Remove-Item -Path \"C:\\Windows\\SoftwareDistribution\\Download\\*\" -Recurse -Force -ErrorAction SilentlyContinue
-        cleanmgr.exe /d C: /VERYLOWDISK /sagerun:1 Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase
-        cleanmgr.exe /d C: /sagerun:1
-        cleanmgr.exe /sagerun:1
-        Dism.exe /online /Cleanup-Image /StartComponentCleanup
-        cleanmgr.exe /d C: /VERYLOWDISK
-        Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase
-        Start-Service -Name wuauserv
-      "
+      "\r\n        Remove-Item -Path \"$env:LOCALAPPDATA\\Temp\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        Remove-Item -Path \"C:\\Windows\\Prefetch\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        Stop-Service -Name wuauserv -Force\r\n        takeown /f C:\\Windows\\SoftwareDistribution\\Download /r /d y\r\n        icacls C:\\Windows\\SoftwareDistribution\\Download /grant administrators:F /t\r\n        Remove-Item -Path \"C:\\Windows\\SoftwareDistribution\\Download\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        cleanmgr.exe /d C: /VERYLOWDISK /sagerun:1 Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase\r\n        cleanmgr.exe /d C: /sagerun:1\r\n        cleanmgr.exe /sagerun:1\r\n        Dism.exe /online /Cleanup-Image /StartComponentCleanup\r\n        cleanmgr.exe /d C: /VERYLOWDISK\r\n        Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase\r\n        Start-Service -Name wuauserv\r\n      "
     ],
     "UndoCommand": [
       ""
@@ -34,13 +22,10 @@
     "Category": "Fixer",
     "Type": "command",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
-      "
-        Chkdsk /scan
-        sfc /scannow
-        DISM /Online /Cleanup-Image /Restorehealth
-        sfc /scannow
-      "
+      "\r\n        Chkdsk /scan\r\n        sfc /scannow\r\n        DISM /Online /Cleanup-Image /Restorehealth\r\n        sfc /scannow\r\n      "
     ],
     "UndoCommand": [
       ""
@@ -53,6 +38,8 @@
     "Category": "Performance",
     "Type": "command",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
       "Invoke-RestMethod https://raw.githubusercontent.com/emadadel4/WindowsTweaks/main/ClearStartMenu.ps1 | Invoke-Expression"
     ],
@@ -67,6 +54,8 @@
     "Category": "Performance",
     "Type": "Registry",
     "Refresh": "true",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Feeds",
@@ -118,6 +107,10 @@
     "Category": "Performance",
     "Type": "AppxPackage",
     "Refresh": "false",
+    "RemoveTasks": [
+      "OneDrive",
+      "Microsoft"
+    ],
     "RemoveAppxPackage": [
       {
         "Name": "Microsoft.BingNews"
@@ -352,10 +345,7 @@
       }
     ],
     "InvokeCommand": [
-      "
-        DISM /Online /Remove-Capability /CapabilityName:Microsoft.Windows.MSPaint~~~~0.0.1.0
-        Invoke-RestMethod https://raw.githubusercontent.com/emadadel4/WindowsTweaks/main/ClearStartMenu.ps1 | Invoke-Expression
-      "
+      "\r\n        DISM /Online /Remove-Capability /CapabilityName:Microsoft.Windows.MSPaint~~~~0.0.1.0\r\n        Invoke-RestMethod https://raw.githubusercontent.com/emadadel4/WindowsTweaks/main/ClearStartMenu.ps1 | Invoke-Expression\r\n      "
     ],
     "UndoCommand": [
       ""
@@ -368,6 +358,8 @@
     "Category": "Fixer",
     "Type": "command",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
       "Invoke-RestMethod https://raw.githubusercontent.com/emadadel4/WindowsTweaks/main/restore.bat | Invoke-Expression"
     ],
@@ -382,6 +374,8 @@
     "Category": "Performance",
     "Type": "command",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
       "\r\n        takeown /f C:\\Windows\\System32\\GameBarPresenceWriter.exe\r\n\r\n        takeown /f C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll\r\n\r\n        takeown /f C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll\r\n\r\n        Start-Sleep -Seconds 1\r\n\r\n\r\n        icacls C:\\Windows\\System32\\GameBarPresenceWriter.exe /grant administrators:F\r\n\r\n        icacls C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll /grant administrators:F\r\n\r\n        icacls C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll /grant administrators:F\r\n\r\n        Start-Sleep -Seconds 1\r\n\r\n\r\n        Rename-Item C:\\Windows\\System32\\GameBarPresenceWriter.exe -NewName GameBarPresenceWriter.exe_backup\r\n\r\n        Rename-Item C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll -NewName GameBarPresenceWriter.proxy.dll_backup\r\n\r\n        Rename-Item C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll -NewName Windows.Gaming.UI.GameBar.dll_backup\r\n\r\n      "
     ],
@@ -396,6 +390,8 @@
     "Category": "Performance",
     "Type": "command",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
       "powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61; Start-Process powercfg.cpl"
     ],
@@ -410,6 +406,8 @@
     "Category": "Fixer",
     "Type": "command",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
       "netsh int ip reset"
     ],
@@ -424,6 +422,8 @@
     "Category": "Other",
     "Type": "command",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
       "curl.exe -ss \"https://live.sysinternals.com/Autologon.exe\" -o $env:temp\\autologin.exe ; cmd /c $env:temp\\autologin.exe /accepteula"
     ],
@@ -438,6 +438,8 @@
     "Category": "Performance",
     "Type": "Registry",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKCU:\\SOFTWARE\\Microsoft\\GameBar",
@@ -637,6 +639,8 @@
     "Category": "Privacy",
     "Type": "Registry",
     "Refresh": "true",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo",
@@ -681,6 +685,8 @@
     "Category": "Privacy",
     "Type": "Registry",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
@@ -704,6 +710,8 @@
     "Category": "Performance",
     "Type": "Registry",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications",
@@ -734,6 +742,8 @@
     "Category": "Privacy",
     "Type": "Modify",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
@@ -757,6 +767,8 @@
     "Category": "Other",
     "Type": "Registry",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Delete": [
       {
         "Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\",
@@ -829,6 +841,8 @@
     "Category": "Performance",
     "Type": "service",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Service": [
       {
         "Name": "Spooler",
@@ -890,6 +904,8 @@
     "Category": "Performance",
     "Type": "command",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKLM:\\System\\CurrentControlSet\\Control\\Session Manager\\Power",
@@ -920,6 +936,8 @@
     "Category": "Performance",
     "Type": "Registry",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\OneDrive",
@@ -950,6 +968,8 @@
     "Category": "Classic",
     "Type": "Registry",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows Photo Viewer\\Capabilities\\FileAssociations",
@@ -1015,6 +1035,8 @@
     "Category": "Classic",
     "Type": "Registry",
     "Refresh": "true",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Classes\\CLSID\\",
@@ -1045,6 +1067,8 @@
     "Category": "Privacy",
     "Type": "Registry",
     "Refresh": "true",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Policies\\Microsoft\\Windows\\WindowsCopilot",
@@ -1096,6 +1120,8 @@
     "Category": "Privacy",
     "Type": "Registry",
     "Refresh": "true",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Policies\\Microsoft\\Windows\\WindowsAI",
@@ -1126,6 +1152,8 @@
     "Category": "Performance",
     "Type": "command",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
       "Remove-Item \"$env:LocalAppData\\Microsoft\\Windows\\Explorer\\thumbcache*\" -Force -Recurse"
     ],
@@ -1140,6 +1168,8 @@
     "Category": "Classic",
     "Type": "Registry",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": {
       "Path": "HKLM:\\Software\\Microsoft\\Windows NT\\CurrentVersion\\MTCUVC",
       "Name": "EnableMtcUvc",
@@ -1161,6 +1191,8 @@
     "Category": "Classic",
     "Type": "Registry",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": {
       "Path": "HKCU:\\Control Panel\\Accessibility\\ToggleKeys",
       "Name": "Flags",
@@ -1182,6 +1214,8 @@
     "Category": "Privacy",
     "Type": "service",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Service": [
       {
         "Name": "HomeGroupListener",
@@ -1202,6 +1236,8 @@
     "Category": "Performance",
     "Type": "Registry",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
@@ -1235,6 +1271,8 @@
     "Category": "Privacy",
     "Type": "Registry",
     "refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\location",
@@ -1544,6 +1582,13 @@
         "Value": "0",
         "Type": "DWord",
         "defaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Feeds",
+        "Name": "EnableFeeds",
+        "Value": "0",
+        "Type": "DWord",
+        "defaultValue": "1"
       }
     ],
     "InvokeCommand": [
@@ -1560,6 +1605,8 @@
     "Category": "Protection",
     "Type": "Registry",
     "refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\AutoplayHandlers",
@@ -1589,7 +1636,9 @@
     "Check": "false",
     "Category": "Protection",
     "Type": "command",
-    "refresh": "false",
+    "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
       "Set-SmbServerConfiguration -EnableSMB1Protocol $false -Force; Set-SmbServerConfiguration -EnableSMB2Protocol $false -Force"
     ],
@@ -1603,7 +1652,9 @@
     "Check": "false",
     "Category": "Protection",
     "Type": "command",
-    "refresh": "false",
+    "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
       "Set-NetConnectionProfile -NetworkCategory Public"
     ],
@@ -1617,7 +1668,9 @@
     "Check": "false",
     "Category": "BIOS",
     "Type": "command",
-    "refresh": "false",
+    "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
       "bcdedit /set bootmenupolicy Standard | Out-Null"
     ],
@@ -1631,14 +1684,11 @@
     "Check": "false",
     "Category": "Power",
     "Type": "command",
-    "refresh": "false",
+    "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
-      "
-        powercfg /X monitor-timeout-ac 0
-        powercfg /X monitor-timeout-dc 0
-        powercfg /X standby-timeout-ac 0
-        powercfg /X standby-timeout-dc 0
-      "
+      "\r\n        powercfg /X monitor-timeout-ac 0\r\n        powercfg /X monitor-timeout-dc 0\r\n        powercfg /X standby-timeout-ac 0\r\n        powercfg /X standby-timeout-dc 0\r\n      "
     ],
     "UndoCommand": [
       ""
@@ -1650,7 +1700,9 @@
     "Check": "false",
     "Category": "Personalization",
     "Type": "Registry",
-    "refresh": "false",
+    "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKLM:\\System\\CurrentControlSet\\Control\\CrashControl",
@@ -1673,7 +1725,9 @@
     "Check": "false",
     "Category": "Performance",
     "Type": "Registry",
-    "refresh": "false",
+    "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
@@ -1696,7 +1750,9 @@
     "Check": "false",
     "Category": "Performance",
     "Type": "command",
-    "refresh": "false",
+    "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
       "Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Defrag\\ScheduledDefrag' | Out-Null"
     ],
@@ -1711,6 +1767,8 @@
     "Category": "Runtimes",
     "Type": "command",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
       "DISM /Online /Enable-Feature /FeatureName:NetFx3 /All"
     ],

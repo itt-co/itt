@@ -79,6 +79,7 @@ function Get-SelectedItems {
                                             Modify              = $tweak.Modify
                                             Delete              = $tweak.Delete
                                             Service             = $tweak.Service
+                                            RemoveTasks         = $tweak.RemoveTasks
                                             RemoveAppxPackage   = $tweak.RemoveAppxPackage
                                             Command             = $tweak.InvokeCommand
                                             Refresh             = $tweak.Refresh
