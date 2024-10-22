@@ -37,6 +37,6 @@ function Disable-Service {
     }
     catch
     {
-        Write-Host "Failed to disable service '$ServiceName'. Error: $_" -ForegroundColor Red
+        Add-Log -Message "Service '$ServiceName not found." -Level "INFO"
     }
 }
