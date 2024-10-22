@@ -7825,6 +7825,18 @@ $itt.database.Quotes = '{
     {
       "type": "quote",
       "text": "The devil is sitting on the throne with his assistants (USA)"
+    },
+    {
+      "type": "quote",
+      "text": "!جميع حدود الدول تحت قدمي"
+    },
+    {
+      "type": "quote",
+      "text": "حدود الدول هي فكرة استعمارية لتفريق الامم و جلعها في مواجهة بعضها البعض"
+    },
+    {
+      "type": "quote",
+      "text": "أكثر الحدود تحدياً هي تلك التي نضعها لأنفسنا. حدود الأفكار والخوف من الآخر"
     }
   ]
 }
