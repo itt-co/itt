@@ -10073,7 +10073,7 @@ function Finish {
         }
 
         "TweaksListView" {
-            UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "applyBtn" -TextIcon "applyIcon" -Icon "  "
+            UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "applyBtn" -TextIcon "applyIcon" -Icon "  " -Width "150"
             Add-Log -Message "Finished, Some tweaks require restarting" -Level "WARNING"
         }
     }
@@ -11629,10 +11629,8 @@ function Invoke-Apply {
         param($selectedTweaks)
 
         $itt.ProcessRunning = $true
-        UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Applying" -TextIcon "applyIcon" -Icon "  " -Width "120"
-
+        UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Applying" -TextIcon "applyIcon" -Icon "  " -Width "auto"
         $itt["window"].Dispatcher.Invoke([action]{ Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
-
 
         foreach ($tweak in $selectedTweaks) {
 
@@ -12628,6 +12626,9 @@ function Set-Language {
 
     # Set registry value for the language
     Set-ItemProperty -Path $itt.registryPath  -Name "locales" -Value "$lang" -Force
+
+    Message -key "reopen" -icon "Information" -action "OK"
+
 }
 function ToggleTheme {
 
@@ -13804,8 +13805,8 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <TabItem.HeaderTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="" FontFamily="Segoe MDL2 Assets" FontSize="18" Margin="0,0,5,0"/>
-                            <TextBlock Text="{Binding}"  FontSize="15"  Margin="0,0,5,0"/>
+                            <TextBlock Text="" FontFamily="Segoe MDL2 Assets" FontSize="18" Margin="0,0,2,0"/>
+                            <TextBlock Text="{Binding}"  FontSize="15" TextWrapping="Wrap"  Margin="0,0,2,0"/>
                         </StackPanel>
                     </DataTemplate>
             </TabItem.HeaderTemplate>
@@ -15823,8 +15824,8 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <TabItem.HeaderTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="" FontFamily="Segoe MDL2 Assets" FontSize="18" Margin="0,0,5,0"/>
-                                <TextBlock Text="{Binding}"  FontSize="15"  Margin="0,0,5,0"/>
+                                <TextBlock Text="" FontFamily="Segoe MDL2 Assets" FontSize="18" Margin="0,0,2,0"/>
+                                <TextBlock Text="{Binding}"  FontSize="15" TextWrapping="Wrap" Margin="0,0,2,0"/>
                             </StackPanel>
                         </DataTemplate>
                 </TabItem.HeaderTemplate>
@@ -16064,8 +16065,8 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <TabItem.HeaderTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="" FontFamily="Segoe MDL2 Assets" FontSize="18" Margin="0,0,5,0"/>
-                                <TextBlock Text="{Binding}"  FontSize="15" Margin="0,0,5,0"/>
+                                <TextBlock Text="" FontFamily="Segoe MDL2 Assets" FontSize="18" Margin="0,0,2,0"/>
+                                <TextBlock Text="{Binding}"  FontSize="15" TextWrapping="Wrap" Margin="0,0,2,0"/>
                             </StackPanel>
                         </DataTemplate>
                 </TabItem.HeaderTemplate>
@@ -16116,74 +16117,117 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
 <Grid Row="2">
 
   <Grid.ColumnDefinitions>
-    <ColumnDefinition Width="auto"/>
     <ColumnDefinition Width="*"/>
+    <ColumnDefinition Width="auto"/>
   </Grid.ColumnDefinitions>
 
 
-     <!-- Buttons -->
-     <Grid Column="1">
+  <!-- Buttons -->
+     <Grid Column="1" Background="Transparent">
       <!--applyBtn Button-->
-            <Button
+      
+          <Button
+
             Name="applyBtn"
-            FontSize="15" 
-            HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
-            Width="100" Height="40" Margin="20">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock Name="applyText" Text="{Binding applyBtn}" Foreground="White" Margin="10,0,0,0" VerticalAlignment="Center"/>
-                <TextBlock Name="applyIcon" Text=" &#xE930;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="15" VerticalAlignment="Center"/>
+            FontSize="14" 
+            Background="Transparent"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Cursor="Hand"
+            Width="auto" 
+            Height="auto" 
+            Margin="0">
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20">
+
+                <TextBlock Name="applyText" 
+                Text="{Binding applyBtn}" 
+                Foreground="White" 
+                Margin="0" 
+                VerticalAlignment="Center"/>
+
+                <TextBlock Name="applyIcon" 
+                Text=" &#xE930;" Foreground="White" 
+                FontFamily="Segoe MDL2 Assets" 
+                FontSize="14" 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"/>
+
             </StackPanel>
+
           </Button>
+
+
       <!--End applyBtn Button-->
+
+
       <!--Install Button-->
         <Button
           Name="installBtn"
-          FontSize="15"
-          HorizontalAlignment="Right"
-          VerticalAlignment="Bottom"
-          Width="100" Height="40" Margin="20">
+          FontSize="14"
+          Background="Transparent"
+          HorizontalAlignment="Center"
+          VerticalAlignment="Center"
+          HorizontalContentAlignment="Center"
+          VerticalContentAlignment="Center"
+          Cursor="Hand"
+          Width="auto" 
+          Height="auto" 
+          Margin="0">
+
           <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-              <TextBlock Name="installText" Text="{Binding installBtn}" Foreground="White" Margin="10,0,0,0" VerticalAlignment="Center"/>
-              <TextBlock Name="installIcon" Text=" &#xE930;" Foreground="White" FontFamily="Segoe MDL2 Assets" FontSize="15" VerticalAlignment="Center"/>
+              <TextBlock Name="installText" 
+              Text="{Binding installBtn}" 
+              Foreground="White" 
+              Margin="0" 
+              VerticalAlignment="Center"/>
+
+              <TextBlock Name="installIcon"
+               Text=" &#xE930;" 
+               Foreground="White" 
+               FontFamily="Segoe MDL2 Assets" 
+               FontSize="14" 
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"/>
           </StackPanel>
+
         </Button>
       <!--End Install Button-->
+
     </Grid>
   <!-- Buttons -->
-   
-    <!-- Quote Text & Icon -->
-      <Grid Column="0">
 
-        <StackPanel Orientation="Horizontal">
+  <!-- Quote Text & Icon -->
+    <Grid Column="0" Background="Transparent">
+      <StackPanel Orientation="Horizontal">
 
-          <TextBlock
-            Text="&#xEFA9;"
-            Name="QuoteIcon"
-            Margin="15,0,0,0"
-            FontSize="18"
-            TextAlignment="Center"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            FontFamily="Segoe MDL2 Assets"
-          />
+        <TextBlock
+          Text="&#xEFA9;"
+          Name="QuoteIcon"
+          Margin="15,0,0,0"
+          FontSize="14"
+          TextAlignment="Center"
+          HorizontalAlignment="Center"
+          VerticalAlignment="Center"
+          FontFamily="Segoe MDL2 Assets"
+        />
 
-          <TextBlock Name="quotes"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center" 
-            TextWrapping="Wrap"
-            Padding="8"
-            Text="#StandWithPalestine"
-            FontWeight="SemiBold"
-            FlowDirection="LeftToRight"
-            Width="611"
-          />
+        <TextBlock Name="quotes"
+          HorizontalAlignment="Left"
+          VerticalAlignment="Center" 
+          TextWrapping="Wrap"
+          Padding="8"
+          Text="#StandWithPalestine"
+          FontWeight="SemiBold"
+          FlowDirection="LeftToRight"
+          Width="611"
+        />
 
-        </StackPanel>
-      </Grid>
-    <!-- Quote Text & Icon -->
-
- 
+      </StackPanel>
+    </Grid>
+  <!-- Quote Text & Icon -->
 
 </Grid>
 
