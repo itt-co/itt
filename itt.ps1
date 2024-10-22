@@ -6739,6 +6739,7 @@ $itt.database.locales = '{
       "loadapps": "Athchóirigh",
       "ApplyMessage": "An bhfuil tú cinnte gur mhaith leat na feabhsúcháin seo a chur i bhfeidhm",
       "idm": "Gníomhachtú IDM",
+      "syslang": "Teanga an chórais",
       "language": "Teanga",
       "diskmgr": "Bainistíocht Diosca",
       "chocoloc": "Fillteán Íoslódálacha Inaistrithe",
@@ -6794,6 +6795,7 @@ $itt.database.locales = '{
       "loadapps": "Restore",
       "ApplyMessage": "Are you sure you want to apply the following tweaks",
       "idm": "IDM Activation",
+      "syslang": "System language",
       "language": "Language",
       "diskmgr": "Disk Managment",
       "chocoloc": "Portable Downloads Folder",
@@ -6849,6 +6851,7 @@ $itt.database.locales = '{
       "loadapps": "Geri Yükle",
       "ApplyMessage": "Aşağıdaki ayarları uygulamak istediğinizden emin misiniz?",
       "idm": "IDM Etkinleştirme",
+      "syslang": "Sistem dili",
       "language": "Dil",
       "diskmgr": "Disk Yönetimi",
       "chocoloc": "Taşınabilir İndirilenler Klasörü",
@@ -6905,6 +6908,7 @@ $itt.database.locales = '{
       "loadapps": "Восстановить",
       "ApplyMessage": "Вы уверены что хотите применить следующие настройки?",
       "idm": "Активация IDM",
+      "syslang": "Язык системы",
       "language": "Язык",
       "diskmgr": "Управление дисками",
       "chocoloc": "Папка для портативных загрузок",
@@ -6961,6 +6965,7 @@ $itt.database.locales = '{
       "loadapps": "Restaurar",
       "ApplyMessage": "¿Estás seguro de que deseas aplicar los siguientes ajustes?",
       "idm": "Activación IDM",
+      "syslang": "Idioma del sistema",
       "language": "Idioma",
       "diskmgr": "Administración de discos",
       "chocoloc": "Carpeta de descargas portátiles",
@@ -7017,6 +7022,7 @@ $itt.database.locales = '{
       "loadapps": "Restaurer",
       "ApplyMessage": "Êtes-vous sûr de vouloir appliquer les tweaks suivants ?",
       "idm": "Activation IDM",
+      "syslang": "Langue du système",
       "language": "Langue",
       "diskmgr": "Gestion des disques",
       "chocoloc": "Dossier de téléchargements portables",
@@ -7073,6 +7079,7 @@ $itt.database.locales = '{
       "loadapps": "Wiederherstellen",
       "ApplyMessage": "Sind Sie sicher dass Sie die folgenden Anpassungen anwenden möchten?",
       "idm": "IDM-Aktivierung",
+      "syslang": "Systemsprache",
       "language": "Sprache",
       "diskmgr": "Datenträgerverwaltung",
       "chocoloc": "Ordner für tragbare Downloads",
@@ -7171,6 +7178,7 @@ $itt.database.locales = '{
       "defaultTheme": "استخدم إعدادات النظام",
       "lastupdate": "آخر تحديث",
       "OneAppReq": "يرجى اختيار تطبيق واحد على الاقل لحفظه",
+      "syslang": "استخدم لغة النظام",
       "taskmgr": "مدير المهام",
       "search": "بحث",
       "PowerOptions": "خيارات الطاقة",
@@ -7228,6 +7236,7 @@ $itt.database.locales = '{
       "restorepoint": "创建还原点",
       "defaultTheme": "系统",
       "lastupdate": "最后更新",
+      "syslang": "系统语言",
       "taskmgr": "任务管理器",
       "PowerOptions": "电源选项",
       "thirdparty": "第三方",
@@ -7284,6 +7293,7 @@ $itt.database.locales = '{
       "restorepoint": "복원 지점 생성",
       "defaultTheme": "시스템",
       "lastupdate": "마지막 업데이트",
+      "syslang": "시스템 언어",
       "taskmgr": "작업 관리자",
       "PowerOptions": "전원 옵션",
       "thirdparty": "외부",
@@ -9649,6 +9659,11 @@ function Invoke-Button {
         }
 
         # Menu items
+
+        "systemlang" {
+            Set-Language -lang "default"
+            Debug-Message
+        }
         
                     "ar" {
                 Set-Language -lang "ar"
@@ -12622,13 +12637,18 @@ function Set-Language {
     )
 
     # Set DataContext of the window to the specified language
-    $itt["window"].DataContext = $itt.database.locales.Controls.$($lang)
 
-    # Set registry value for the language
-    Set-ItemProperty -Path $itt.registryPath  -Name "locales" -Value "$lang" -Force
+
+    if($lang -eq "default")
+    {
+        Set-ItemProperty -Path $itt.registryPath  -Name "locales" -Value "default" -Force
+    }else {
+        # Set registry value for the language
+        $itt["window"].DataContext = $itt.database.locales.Controls.$($lang)
+        Set-ItemProperty -Path $itt.registryPath  -Name "locales" -Value "$lang" -Force
+    }
 
     Message -key "reopen" -icon "Information" -action "OK"
-
 }
 function ToggleTheme {
 
@@ -13654,6 +13674,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                     <MenuItem.Icon>
                         <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                     </MenuItem.Icon>
+                    <MenuItem Name="systemlang" Header="{Binding syslang}"/>
                        <MenuItem Name="ar" Header="عربي"/>
 <MenuItem Name="de" Header="Deutsch"/>
 <MenuItem Name="en" Header="English"/>
