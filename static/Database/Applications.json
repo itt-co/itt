@@ -6648,5 +6648,165 @@
     ],
     "category": "Utilities",
     "check": "false"
+  },
+  {
+    "name": "Komodo Edit",
+    "description": "Komodo Edit is a free and open source text editor for dynamic programming languages",
+    "winget": "ActiveState.KomodoEdit",
+    "choco": "komodo-edit",
+    "scoop": "none",
+    "default": [
+      {
+        "IsExcute": "false",
+        "url": "none",
+        "exeArgs": "/verysilent /tasks=addcontextmenufiles,addcontextmenufolders,addtopath",
+        "output": "none",
+        "launcher": "none",
+        "shortcut": "no",
+        "run": "no"
+      }
+    ],
+    "category": "Development",
+    "check": "false"
+  },
+  {
+    "name": "FreeCAD",
+    "description": "A free and opensource multiplatform 3D parametric modeler",
+    "winget": "FreeCAD.FreeCAD",
+    "choco": "freecad",
+    "scoop": "none",
+    "default": [
+      {
+        "IsExcute": "false",
+        "url": "none",
+        "exeArgs": "/verysilent /tasks=addcontextmenufiles,addcontextmenufolders,addtopath",
+        "output": "none",
+        "launcher": "none",
+        "shortcut": "no",
+        "run": "no"
+      }
+    ],
+    "category": "Imaging",
+    "check": "false"
+  },
+  {
+    "name": "SQLite",
+    "description": "SQLite is an inprocess library that implements a selfcontained serverless zeroconfiguration transactional SQL database engine SQLite is an embedded SQL database engine Unlike most other SQL databases SQLite does not have a separate server process SQLite reads and writes directly to ordinary disk files A complete SQL database with multiple tables indices triggers and views is contained in a single disk file",
+    "winget": "SQLite.SQLite",
+    "choco": "sqlite",
+    "scoop": "none",
+    "default": [
+      {
+        "IsExcute": "false",
+        "url": "none",
+        "exeArgs": "/verysilent /tasks=addcontextmenufiles,addcontextmenufolders,addtopath",
+        "output": "none",
+        "launcher": "none",
+        "shortcut": "no",
+        "run": "no"
+      }
+    ],
+    "category": "Development",
+    "check": "false"
+  },
+  {
+    "name": "MkDocs",
+    "description": "MkDocs is a fast simple and downright gorgeous static site generator thats geared towards building project documentation Documentation source files are written in Markdown and configured with a single YAML configuration file",
+    "winget": "none",
+    "choco": "mkdocs",
+    "scoop": "none",
+    "default": [
+      {
+        "IsExcute": "false",
+        "url": "none",
+        "exeArgs": "/verysilent /tasks=addcontextmenufiles,addcontextmenufolders,addtopath",
+        "output": "none",
+        "launcher": "none",
+        "shortcut": "no",
+        "run": "no"
+      }
+    ],
+    "category": "Development",
+    "check": "false"
+  },
+  {
+    "name": "MkDocs Material Theme",
+    "description": "MkDocs is a fast simple and downright gorgeous static site generator thats geared towards building project documentation Documentation source files are written in Markdown and configured with a single YAML configuration file",
+    "winget": "none",
+    "choco": "mkdocs-material",
+    "scoop": "none",
+    "default": [
+      {
+        "IsExcute": "false",
+        "url": "none",
+        "exeArgs": "/verysilent /tasks=addcontextmenufiles,addcontextmenufolders,addtopath",
+        "output": "none",
+        "launcher": "none",
+        "shortcut": "no",
+        "run": "no"
+      }
+    ],
+    "category": "Development",
+    "check": "false"
+  },
+  {
+    "name": "PuTTY",
+    "description": "A free implementation of SSH and Telnet along with an xterm terminal emulator",
+    "winget": "PuTTY.PuTTY",
+    "choco": "putty",
+    "scoop": "none",
+    "default": [
+      {
+        "IsExcute": "false",
+        "url": "none",
+        "exeArgs": "/verysilent /tasks=addcontextmenufiles,addcontextmenufolders,addtopath",
+        "output": "none",
+        "launcher": "none",
+        "shortcut": "no",
+        "run": "no"
+      }
+    ],
+    "category": "Utilities",
+    "check": "false"
+  },
+  {
+    "name": "WinSCP",
+    "description": "WinSCP is an open source free SFTP client FTP client WebDAV client S3 client and SCP client for Windows Its main function is file transfer between a local and a remote computer Beyond this WinSCP offers scripting and basic file manager functionality",
+    "winget": "WinSCP.WinSCP",
+    "choco": "winscp",
+    "scoop": "none",
+    "default": [
+      {
+        "IsExcute": "false",
+        "url": "none",
+        "exeArgs": "/verysilent /tasks=addcontextmenufiles,addcontextmenufolders,addtopath",
+        "output": "none",
+        "launcher": "none",
+        "shortcut": "no",
+        "run": "no"
+      }
+    ],
+    "category": "Utilities",
+    "check": "false"
+  },
+  {
+    "name": "LibreOffice Still",
+    "description": "LibreOffice is the free powerpacked Open Source personal productivity suite for Windows macOS and Linux that gives you six featurerich applications for all your document production and data processing needs",
+    "winget": "none",
+    "choco": "libreoffice-still",
+    "scoop": "none",
+    "default": [
+      {
+        "IsExcute": "false",
+        "url": "none",
+        "exeArgs": "/verysilent /tasks=addcontextmenufiles,addcontextmenufolders,addtopath",
+        "output": "none",
+        "launcher": "none",
+        "shortcut": "no",
+        "run": "no"
+      }
+    ],
+    "category": "Documents",
+    "check": "false"
   }
 ]
