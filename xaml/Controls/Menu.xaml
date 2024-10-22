@@ -115,6 +115,7 @@
                     <MenuItem.Icon>
                         <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                     </MenuItem.Icon>
+                    <MenuItem Name="systemlang" Header="{Binding syslang}"/>
                        {{LocalesKeys}}
             </MenuItem>
 
