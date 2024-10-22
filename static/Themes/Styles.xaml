@@ -82,6 +82,7 @@
     <Style TargetType="ListViewItem">
         <Setter Property="Margin" Value="2"/>
         <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="BorderBrush" Value="WhiteSmoke"/>
         <Setter Property="Padding" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
