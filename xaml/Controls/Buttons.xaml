@@ -20,7 +20,7 @@
           HorizontalContentAlignment="Center"
           VerticalContentAlignment="Center"
           Cursor="Hand"
-          Width="150" 
+          Width="140" 
           Height="45" 
           Margin="20">
 
@@ -52,7 +52,7 @@
             HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center"
             Cursor="Hand"
-            Width="150" 
+            Width="140" 
             Height="45" 
             Margin="20">
             
