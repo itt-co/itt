@@ -11,55 +11,67 @@
    Launch Anytime, Anywhere!
 </h3>
 <br>
+
+
 <div align="center">
 
   <a href="/docs/README.ar.md">
-    <img src="https://img.shields.io/badge/-Arabic-green" alt="Arabic">
+    <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/ps.png"  Height="30" width="auto" alt="ar">
+  </a>
+   <a href="/docs/README.ar.md">
+    <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/ie.png" Height="30" width="auto" alt="ir">
   </a>
   <a href="/docs/README.fr.md">
-    <img src="https://img.shields.io/badge/-Français-blue" alt="Français">
+    <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/fr.png"  Height="30" width="auto" alt="fr">
   </a>
   <a href="/docs/README.tr.md">
-    <img src="https://img.shields.io/badge/-Türkçe-red" alt="Türkçe">
+    <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/tr.png" Height="30" width="auto" alt="tr">
   </a>
   <a href="/docs/README.cn.md">
-    <img src="https://img.shields.io/badge/-中文-yellow" alt="中文">
+    <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/cn.png" Height="30" width="auto" alt="cn">
   </a>
   <a href="/docs/README.ko.md">
-    <img src="https://img.shields.io/badge/-한국어-purple" alt="한국어">
+    <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/kr.png" Height="30" width="auto"  alt="kr">
   </a>
   <a href="/docs/README.de.md">
-    <img src="https://img.shields.io/badge/-Deutsch-orange" alt="Deutsch">
+    <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/de.png" Height="30" width="auto" alt="de">
   </a>
   <a href="/docs/README.ru.md">
-    <img src="https://img.shields.io/badge/-Русский-blue" alt="Русский">
+    <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/ru.png" Height="30" width="auto" alt="ru">
   </a>
   <a href="/docs/README.es.md">
-    <img src="https://img.shields.io/badge/-Español-red" alt="Español">
+    <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/es.png" Height="30" width="auto" alt="es">
   </a>
 </div>
 
-<div align="center">
-   <a href="https://www.youtube.com/@emadadel4" target="_blank" style="margin-right: 20px;">
-        <img src="https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white" alt="YouTube" height="25">
-    </a>
-    <a href="https://t.me/ittemadadel_bot" target="_blank" style="margin-right: 20px;">
-        <img src="https://img.shields.io/badge/Telegram-2CA5E0?style=flat&logo=telegram&logoColor=white" alt="Telegram" height="25">
-    </a>
-    <a href="https://discord.gg/63m34EE6mX" target="_blank" style="margin-right: 20px;">
-        <img src="https://img.shields.io/badge/-Discord-7289da?style=flat&logo=discord&logoColor=white" alt="Discord" height="25">
-    </a>
-    <a href="https://emadadel4.github.io" target="_blank" style="margin-right: 20px;">
-        <img src="https://img.shields.io/badge/Blog-0000?style=flat&logo=blogger&logoColor=white" alt="Blog" height="25">
-    </a>
-    <a href="https://www.reddit.com/r/ittea/" target="_blank" style="margin-right: 20px;">
-      <img src="https://img.shields.io/badge/Reddit-FFf?style=flat&logo=reddit&logoColor=black" alt="reddit" height="25">
-    </a>
-</div>
+
+
+
+<p align="center">
+  <a href="https://www.youtube.com/@emadadel4" target="_blank" style="margin-right: 0px;">
+      <img src="https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white" width="auto" alt="YouTube" height="auto">
+  </a>
+  <a href="https://t.me/ittemadadel_bot" target="_blank" style="margin-right: 0px;">
+      <img src="https://img.shields.io/badge/Telegram-2CA5E0?style=flat&logo=telegram&logoColor=white" alt="Telegram" height="auto">
+  </a>
+  <a href="https://discord.gg/63m34EE6mX" target="_blank" style="margin-right: 0;">
+      <img src="https://img.shields.io/badge/-Discord-7289da?style=flat&logo=discord&logoColor=white" alt="Discord" height="auto">
+  </a>
+  <a href="https://emadadel4.github.io" target="_blank" style="margin-right: 0px;">
+      <img src="https://img.shields.io/badge/Blog-0000?style=flat&logo=blogger&logoColor=white" alt="Blog" height="auto">
+  </a>
+  <a href="https://www.reddit.com/r/ittea/" target="_blank" style="margin-right: 0px;">
+    <img src="https://img.shields.io/badge/Reddit-FFf?style=flat&logo=reddit&logoColor=black" alt="reddit" height="auto">
+  </a>
+</p>
 
 <div align="center">
   <h5> #{a} App |  #{t} Tweaks | #{s} Settings | #{q} Quote |  #{OST} Soundtrack | #{loc} Localization </h5>
 </div>
+
+<p align="center">
+  <a  href="#" rel="nofollow"><img src="https://img.shields.io/badge/Latest Update-10/22/2024-blue?style=for-the-badge"></a>
+</p>
 
 
 <p align="center" dir="auto">
