@@ -498,7 +498,7 @@ function GenerateInvokeButtons {
 function Convert-Locales {
     param (
         [string]$csvFolderPath = "locales", 
-        [string]$jsonOutputPath = "static/Database/locales.json" 
+        [string]$jsonOutputPath = "static/Database/locales.json"
     )
 
     # Initialize a hashtable to store the "Controls" object
@@ -521,18 +521,16 @@ function Convert-Locales {
 
         # Loop through each row of the CSV file and add the key-value pairs to the respective language section
         foreach ($row in $csvData) {
-
             $locales["Controls"][$language][$row.Key] = $row.Text
 
             if ($row.Key -eq 'name') {
                 $global:localesMap = $row.Text
             }
-
         }
     }
 
-    # Convert the hashtable to JSON format and save it to the specified output path
-    $locales | ConvertTo-Json | Set-Content -Path $jsonOutputPath -Encoding UTF8
+    # Convert the hashtable to JSON format with static structure and write to file
+    $locales | ConvertTo-Json -Compress -Depth 10 | Set-Content -Path $jsonOutputPath -Encoding UTF8
 }
 
 # Write script header
