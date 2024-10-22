@@ -40,11 +40,10 @@ function Set-Registry {
 
         # Set or create the registry value
         New-ItemProperty -Path $Path -Name $Name -PropertyType $Type -Value $Value -Force | Out-Null
-        Write-Output "Registry value set successfully."
+
+        if($Debug){Write-Output "Registry value set successfully."}
 
     } catch {
         Write-Error "An error occurred: $_"
     }
 }
-
-Set-Registry -Name "EnableFeeds" -Type "DWord" -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Feeds" -Value 0
