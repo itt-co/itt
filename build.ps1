@@ -117,6 +117,9 @@ function GenerateCheckboxes {
         [string]$NameField = ""
     )
 
+    Write-Host "Generate Checkboxes..." -ForegroundColor Yellow
+
+
     $Checkboxes = ""
 
     foreach ($Item in $Items) {
@@ -170,6 +173,8 @@ function Update-Readme {
         [string]$OriginalReadmePath = "Templates\README.md",
         [string]$NewReadmePath = "README.md"
     )
+
+    Write-Host "Update Readme..." -ForegroundColor Yellow
 
     # Read the content of the original README.md file
     $readmeContent = Get-Content -Path $OriginalReadmePath -Raw
@@ -332,6 +337,8 @@ function GenerateThemesKeys {
         [string]$ThemesPath = "themes"
     )
 
+    Write-Host "Generate Themes Keys..." -ForegroundColor Yellow
+
     # Validate the path
     if (-Not (Test-Path $ThemesPath)) {
         Write-Host "The specified path does not exist: $ThemesPath"
@@ -362,6 +369,8 @@ function GenerateLocalesKeys {
     param (
         [string]$localesPath = "locales"
     )
+
+    Write-Host "Generate Locales Keys..." -ForegroundColor Yellow
 
     # Validate the path
     if (-Not (Test-Path $localesPath)) {
@@ -396,6 +405,8 @@ function GenerateLocalesKeys {
 
 function GenerateClickEventHandlers {
     
+    Write-Host "Generate Click Event Handlers..." -ForegroundColor Yellow
+
     try {
         
         # Define file paths for scripts and templates
@@ -443,6 +454,8 @@ function GenerateClickEventHandlers {
 # Generate GenerateInvokeButtons
 function GenerateInvokeButtons {
    
+    Write-Host "Generate InvokeButtons..." -ForegroundColor Yellow
+
     # Define file paths for the Invoke button template
     $FilePaths = @{
         "Invoke" = Join-Path -Path "templates" -ChildPath "Invoke-Button.ps1"
@@ -500,6 +513,8 @@ function Convert-Locales {
         [string]$csvFolderPath = "locales", 
         [string]$jsonOutputPath = "static/Database/locales.json"
     )
+
+    Write-Host "Convert Locales CSV Files..." -ForegroundColor Yellow
 
     # Initialize a hashtable to store the "Controls" object
     $locales = @{
