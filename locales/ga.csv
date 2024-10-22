@@ -3,12 +3,12 @@ name,Irish
 Welcome,Sábháil am trí níos mó ná clár amháin a shuiteáil ag an am céanna agus feabhsaigh feidhmíocht do Windows. Bí linn ag feabhsú an uirlis seo agus ag déanamh é níos fearr. Is féidir leat do chuid apps ceoil agus feabhsúcháin is fearr leat a chur leis freisin.
 installBtn,Suiteáil
 applyBtn,Cuir i bhfeidhm
-downloading,Íoslódáil...
+downloading,Ag suiteáil...
 about,Faoi
 thirdparty,Tríú páirtí
 preferences,Roghanna
 management,Bainistíocht
-apps,Aipeanna
+apps,Aplaicí
 tweaks,Feabhsúcháin
 settings,Socruithe
 saveapps,Sábháil
@@ -40,7 +40,7 @@ restorepoint,Cruthaigh pointe athchóirithe
 chocoloc,Fillteán Íoslódálacha Inaistrithe
 InstallMessage,An bhfuil tú cinnte gur mhaith leat na feidhmchláir seo a shuiteáil
 ApplyMessage,An bhfuil tú cinnte gur mhaith leat na feabhsúcháin seo a chur i bhfeidhm
-Applying,Ag cur i bhfeidhm...
+Applying,Cur i bhfeidhm...
 choseapp,Roghnaigh ar a laghad aip amháin le suiteáil.
 chosetweak,Roghnaigh ar a laghad feabhsúchán amháin le cur i bhfeidhm.
 pleasewait,Fan le do thoil tá próiseas ag rith sa chúlra
