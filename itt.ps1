@@ -8320,42 +8320,282 @@ $itt.database.Tweaks = '[
         "DefaultType": "Automatic"
       },
       {
-        "Name": "Fax",
-        "StartupType": "Disabled",
-        "DefaultType": "Automatic"
+          "Name": "Fax",
+          "StartupType": "Disabled",
+          "DefaultType": "Automatic"
       },
       {
-        "Name": "DPS",
-        "StartupType": "Disabled",
-        "DefaultType": "Automatic"
+          "Name": "DPS",
+          "StartupType": "Disabled",
+          "DefaultType": "Automatic"
       },
       {
-        "Name": "MapsBroker",
-        "StartupType": "Disabled",
-        "DefaultType": "Automatic"
+          "Name": "MapsBroker",
+          "StartupType": "Disabled",
+          "DefaultType": "Automatic"
       },
       {
-        "Name": "WerSvc",
+          "Name": "WerSvc",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "RemoteRegistry",
+          "StartupType": "Disabled",
+          "DefaultType": "Disabled"
+      },
+      {
+          "Name": "lmhosts",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "SharedAccess",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "DiagTrack",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "diagnosticshub.standardcollector.service",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "dmwappushservice",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "lfsvc",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+        "Name": "TrkWks",
         "StartupType": "Disabled",
         "DefaultType": "Manual"
       },
       {
-        "Name": "RemoteRegistry",
-        "StartupType": "Disabled",
-        "DefaultType": "Disabled"
+          "Name": "NetTcpPortSharing",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
       },
       {
-        "Name": "lmhosts",
+          "Name": "RemoteAccess",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "WbioSrvc",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "WMPNetworkSvc",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "WSearch",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "XblAuthManager",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "XblGameSave",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "XboxNetApiSvc",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "XboxGipSvc",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "WerSvc",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "Spooler",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "fhsvc",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "gupdate",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "gupdatem",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "stisvc",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "AJRouter",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "MSDTC",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "WpcMonSvc",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "PhoneSvc",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "PcaSvc",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "WPDBusEnum",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "LicenseManager",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "seclogon",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "SysMain",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "wisvc",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "FontCache",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "RetailDemo",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "ALG",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "SCardSvr",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "SCPolicySvc",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "ScDeviceEnum",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "MessagingService_34048",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "wlidsvc",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "BthAvctpSvc",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "Browser",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+        "Name": "DusmSvc",
         "StartupType": "Disabled",
         "DefaultType": "Manual"
       },
       {
-        "Name": "SharedAccess",
+          "Name": "BDESVC",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "iphlpsvc",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "edgeupdate",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+          "Name": "MicrosoftEdgeElevationService",
+          "StartupType": "Disabled",
+          "DefaultType": "Manual"
+      },
+      {
+        "Name": "SEMgrSvc",
         "StartupType": "Disabled",
         "DefaultType": "Manual"
       },
       {
-        "Name": "DiagTrack",
+        "Name": "PerfHost",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
+      },
+      {
+        "Name": "BcastDVRUserService_48486de",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
+      },
+      {
+        "Name": "SensorDataService",
         "StartupType": "Disabled",
         "DefaultType": "Manual"
       }
@@ -8407,6 +8647,7 @@ $itt.database.Tweaks = '[
     "Type": "Registry",
     "Refresh": "false",
     "RemoveTasks": [
+      "OneDrive"
     ],
     "Modify": [
       {
@@ -9664,7 +9905,7 @@ function Disable-Service {
     }
     catch
     {
-        Write-Host "Failed to disable service '$ServiceName'. Error: $_" -ForegroundColor Red
+        Add-Log -Message "service '$ServiceName not found." -Level "INFO"
     }
 }
 function ExecuteCommand {
@@ -10502,30 +10743,6 @@ function Remove-Registry {
     }
     catch {
         Write-Host "An error occurred: $_" -ForegroundColor red
-    }
-}
-function Remove-ScheduledTasks {
-    param (
-        [string]$jsonFilePath
-    )
-
-    if (-Not (Test-Path $jsonFilePath)) {
-        Write-Host "Not exist $jsonFilePath"
-        return
-    }
-
-    $jsonContent = $jsonFilePath
-    $tasksToRemove = $jsonContent  
-
-    foreach ($taskName in $tasksToRemove) {
-        $task = Get-ScheduledTask | Where-Object { $_.TaskName -eq $taskName }
-        
-        if ($task) {
-            Unregister-ScheduledTask -TaskName $taskName -Confirm:  $false
-            Write-Host "Removed $taskName"
-        } else {
-            Write-Host "Not found $taskName"
-        }
     }
 }
 function Reset-Preferences {
