@@ -1,5 +1,5 @@
 param (
-    [string]$json = "./static/Database/Tweaks.json"
+    [string]$json = "./static/Database/Quotes.json"
 )
 
 Write-Host "
@@ -17,7 +17,10 @@ Write-Host "
 try {
     
     # Read existing JSON file
-    $existingData = Get-Content $json -Raw -ErrorAction Stop | ConvertFrom-Json
+
+    $jsonFilePath = $json
+
+    $existingData = Get-Content $jsonFilePath -Raw -ErrorAction Stop | ConvertFrom-Json
 
     $QuotesList = @{
         # Available options
