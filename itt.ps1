@@ -6893,7 +6893,7 @@ $itt.database.Applications = '[
   }
 ]
 ' | ConvertFrom-Json
-$itt.database.locales = '{"Controls":{"fr":{"name":"Français","Welcome":"Gagnez du temps en installant plusieurs programmes à la fois et améliorez les performances de votre Windows. Rejoignez-nous pour améliorer cet outil et le rendre encore meilleur. Vous pouvez également ajouter vos applications musicales et vos tweaks préférés.","installBtn":"Installer","applyBtn":"Appliquer","downloading":"Téléchargement...","about":"À propos","thirdparty":"Tiers","preferences":"Préférences","management":"Gestion","apps":"Applications","tweaks":"Optimisations","settings":"Paramètres","saveapps":"Sauvegarder","loadapps":"Restaurer","music":"Musique","on":"Activé ","off":"Désactivé","diskmgr":"Gestion des disques","taskmgr":"Gestionnaire des tâches","appsfeatures":"Applications-Fonctionnalités","networks":"Réseaux","services":"Services","devicemgr":"Gestionnaire de périphériques","PowerOptions":"Options d''alimentation","sysinfo":"Infos système","defaultTheme":"Utiliser les paramètres système","ittlink":"Créer un raccourci sur le bureau","reset":"Réinitialiser les préférences","reopen":"Veuillez rouvrir ITT.","theme":"Thème","language":"Langue","mas":"Scripts d''activation Microsoft (MAS)","winoffice":"Télécharger l''ISO Windows / Office","idm":"Activation IDM","extensions":"Extensions de navigateurs","all":"Tout","search":"Rechercher","restorepoint":"Créer un point de restauration","chocoloc":"Dossier de téléchargements portables","InstallMessage":"Êtes-vous sûr de vouloir installer les applications suivantes ?","ApplyMessage":"Êtes-vous sûr de vouloir appliquer les tweaks suivants ?","Applying":"Application...","choseapp":"Veuillez sélectionner au moins une application à installer.","chosetweak":"Veuillez sélectionner au moins un tweak à appliquer.","pleasewait":"Veuillez patienter","lastupdate":"Dernière mise à jour  un processus est en cours d''exécution en arrière-plan.","sourcecode":"Code source","devby":"Fait avec ♥ par Emad Adel","exit":"Êtes-vous sûr de vouloir fermer le programme ? Si des installations sont en cours  elles seront interrompues.","watchdemo":"Bienvenue","happybirthday":"Joyeux anniversaire à moi !","myplaylist":"C''est mon anniversaire et ma playlist ♪","OneAppReq":"Choisissez au moins une application à sauvegarder.","contributors":"Contributeurs","syslang":"Langue du système"},"ar":{"name":"عربي","Welcome":"توفر هذه الأداة تسهيلات كبيرة في عملية تثبيت البرامج وتحسين الاداء. انضم إلينا لتساهم في تطويرها وجعلها أكثر اكتمالًا","sysinfo":"معلومات النظام","PowerOptions":"خيارات الطاقة","devicemgr":"إدارة الأجهزة","services":"خدمات","networks":"شبكات","appsfeatures":"التطبيقات و الميزات","taskmgr":"مدير المهام","diskmgr":"إدارة القرص","InstallBtn":"تثبيت","applyBtn":"تطبيق","downloading":"جارٍ التثبيت","about":"عن المطور","thirdparty":"روابط خارجية","preferences":"التفضيلات","management":"إدارة الجهاز","apps":"تطبيقات","tweaks":"تحسينات","settings":"إعدادات","saveapps":"حفظ البرامج","loadapps":"أسترجاع البرامج","music":"الموسيقى","on":"تشغيل ","off":"كتم","Dark":"ليلا","Light":"نهارا","defaultTheme":"استخدم إعدادات النظام","ittlink":"أنشاء أختصار على سطح المكتب","reset":"الوضع الافتراضي","reopen":"يرجى اعادة فتح الاداة مرة اخرى","theme":"المظهر","language":"اللغة","mas":"تفعيل الويندوز","winoffice":"تنزيل ويندوز / أوفيس","idm":"تفعيل الدون لود مانجر","extensions":"أضافات المتصفحات","all":"الكل","search":"بحث","restorepoint":"إنشاء نقطة الاستعادة","chocoloc":"مجلد التنزيلات المحمولة","InstallMessage":"هل تريد تثبيت البرامج التالية","ApplyMessage":"هل تريد تطبيق التحسينات التالية","Applying":"جارٍي التطبيق","Pleasewait":"يرجى الانتظار، يوجد عملية في الخلفية","choseapp":"اختر على الأقل تطبيقًا لتثبيته","chosetweak":"اختار على الاقل تحسين واحد لتطبيقه","lastupdate":"آخر تحديث","sourcecode":"الشفرة المصدرية","devby":"صنع بـ ♥ من قبل عماد عادل","exit":"هل أنت متأكد من رغبتك في إغلاق البرنامج؟ إذا كان هناك أي تثبيتات، فسيتم إيقافها.","watchdemo":"مرحبا بك","happybirthday":"!عيد ميلاد سعيد عماد","myplaylist":"انه عيد ميلادي و قائمة الموسيقى الخاصة بي","OneAppReq":"يرجى اختيار تطبيق واحد على الاقل لحفظه","syslang":"استخدم لغة النظام"},"ru":{"name":"Русский","Welcome":"Сэкономьте время устанавливая несколько программ одновременно и улучшите производительность Windows. Присоединяйтесь к нам для улучшения этого инструмента и его совершенствования. Вы также можете добавить свои любимые музыкальные приложения и настройки.","installBtn":"Установить","applyBtn":"Применить","downloading":"Загрузка...","about":"О нас","thirdparty":"Сторонние","preferences":"Настройки","management":"Управление","apps":"Приложения","tweaks":"Настройки","settings":"Параметры","saveapps":"Сохранить","loadapps":"Восстановить","music":"Музыка","on":"Вкл ","off":"Выкл","diskmgr":"Управление дисками","taskmgr":"Диспетчер задач","appsfeatures":"Приложения-Функции","networks":"Сети","services":"Сервисы","devicemgr":"Диспетчер устройств","PowerOptions":"Энергопитание","sysinfo":"Информация о системе","defaultTheme":"Использовать системные настройки","ittlink":"Создать ярлык на рабочем столе","reset":"Сбросить настройки","reopen":"Пожалуйста перезапустите ITT.","theme":"Тема","language":"Язык","mas":"Microsoft Activation Scripts (MAS)","winoffice":"Скачать ISO Windows / Office","idm":"Активация IDM","extensions":"Расширения для браузеров","all":"Все","search":"Поиск","restorepoint":"Создать точку восстановления","chocoloc":"Папка для портативных загрузок","InstallMessage":"Вы уверены что хотите установить следующие приложения?","ApplyMessage":"Вы уверены что хотите применить следующие настройки?","Applying":"Применение...","choseapp":"Выберите хотя бы одно приложение для установки.","chosetweak":"Выберите хотя бы одну настройку для применения.","pleasewait":"Подождите выполняется фоновый процесс.","lastupdate":"Последнее обновление","sourcecode":"Исходный код","devby":"Сделано с ♥ Emad Adel","exit":"Вы уверены что хотите закрыть программу? Все установки будут прерваны.","watchdemo":"Добро пожаловать","happybirthday":"С Днем Рождения меня!","myplaylist":"Это мой день рождения и мой плейлист ♪","OneAppReq":"Выберите хотя бы одно приложение для сохранения.","contributors":"Соавторы","syslang":"Язык системы"},"zh":{"name":"中文","Welcome":"通过一次安装多个程序节省时间并提升您的Windows性能。加入我们，改进工具，使其更加优秀。","sysinfo":"系统信息","PowerOptions":"电源选项","devicemgr":"设备管理器","services":"服务","networks":"网络","appsfeatures":"应用特性","taskmgr":"任务管理器","diskmgr":"磁盘管理","installBtn":"安装","applyBtn":"应用","downloading":"下载中","about":"关于","thirdparty":"第三方","preferences":"偏好","management":"管理","apps":"应用","tweaks":"调整","settings":"设置","saveapps":"保存选定应用","loadapps":"恢复选定应用","music":"音乐","on":"开启","off":"关闭","reset":"重置偏好设置","Dark":"深色","Light":"浅色","defaultTheme":"系统","ittlink":"创建桌面快捷方式","reopen":"请重新打开ITT。","theme":"主题","language":"语言","mas":"Microsoft 激活脚本 (MAS)","winoffice":"下载 Windows / Office ISO","idm":"IDM 激活","extensions":"浏览器扩展","all":"都","restorepoint":"创建还原点","chocoloc":"便携下载文件夹","InstallMessage":"是否要安装选定的应用","ApplyMessage":"是否要应用选定的调整","installing":"安装中..","Applying":"应用中..","choseapp":"请选择至少一款要安装的应用","chosetweak":"请等待调整应用完成","pleasewait":"请等待，后台有进程在进行中。","lastupdate":"最后更新","sourcecode":"源代码","devby":"由 Emad Adel ♥ 制作","exit":"您确定要关闭程序吗？如果有任何安装正在进行，它们将被终止。","watchdemo":"欢迎","happybirthday":"生日快乐 Emad!","myplaylist":"这是我的生日和我的播放列表 ♪","syslang":"系统语言"},"ko":{"name":"한국어","Welcome":"여러 프로그램을 한 번에 설치하여 시간을 절약하고 Windows 성능을 향상시킵니다. 도구를 개선하고 우리와 함께 훌륭하게 만들어 보세요.","sysinfo":"시스템 정보","PowerOptions":"전원 옵션","devicemgr":"장치 관리자","services":"서비스","networks":"네트워크","appsfeatures":"앱 기능","taskmgr":"작업 관리자","diskmgr":"디스크 관리","installBtn":"설치","applyBtn":"적용","downloading":"다운로드 중","about":"정보","thirdparty":"외부","preferences":"환경 설정","management":"관리","apps":"앱","tweaks":"설정","settings":"설정","saveapps":"선택한 앱 저장","loadapps":"선택한 앱 복원","music":"음악","on":"켜기","reset":"환경 설정 초기화","off":"끄기","Dark":"다크","Light":"라이트","defaultTheme":"시스템","ittlink":"바탕화면 바로 가기 만들기","reopen":"ITT를 다시 열어주세요.","theme":"테마","language":"언어","mas":"Microsoft 활성화 스크립트 (MAS)","winoffice":"Windows / Office ISO 다운로드","idm":"IDM 활성화","extensions":"브라우저 확장 프로그램","all":"모두","restorepoint":"복원 지점 생성","chocoloc":"휴대용 다운로드 폴더","InstallMessage":"선택한 앱을 설치하시겠습니까","ApplyMessage":"선택한 조정 사항을 적용하시겠습니까","installing":"설치 중..","Applying":"적용 중..","choseapp":"설치할 적어도 하나의 앱을 선택하십시오","chosetweak":"조정 사항 적용 대기 중","pleasewait":"배경에서 프로세스가 진행 중입니다. 잠시 기다려주세요.","lastupdate":"마지막 업데이트","sourcecode":"소스 코드","devby":"Emad Adel 제작 ♥","exit":"프로그램을 종료하시겠습니까? 진행 중인 설치가 있으면 중단됩니다.","watchdemo":"환영합니다","happybirthday":"생일 축하합니다 Emad!","myplaylist":"제 생일과 제 플레이리스트 ♪","syslang":"시스템 언어"},"en":{"name":"English","Welcome":"Save time by installing multiple programs at once and boost your Windows performance. Join us in improving this tool and making it better. You can also add your favorite music  apps  and tweaks.","installBtn":"Install","applyBtn":"Apply","downloading":"Downloading...","about":"About","thirdparty":"Third-party","preferences":"Preferences","management":"Management","apps":"Apps","tweaks":"Tweaks","settings":"Settings","saveapps":"Save","loadapps":"Restore","music":"Music","on":"On ","off":"Off","diskmgr":"Disk Managment","taskmgr":"Task Manager","appsfeatures":"Apps-Features","networks":"Networks","services":"Services","devicemgr":"Device Manager","PowerOptions":"Power Options","sysinfo":"System Info","defaultTheme":"Use system setting","ittlink":"Create desktop shortcut","reset":"Reset Preferences","reopen":"Please reopen ITT again.","theme":"Theme","language":"Language","mas":"Microsoft Activation Scripts (MAS)","winoffice":"Download Windows / Office ISO","idm":"IDM Activation","extensions":"Browsers Extensions","all":"All","search":"Search","restorepoint":"Create a restore point","chocoloc":"Portable Downloads Folder","InstallMessage":"Are you sure you want to install the following applications","ApplyMessage":"Are you sure you want to apply the following tweaks","Applying":"Applying...","choseapp":"Please select at least one app to install.","chosetweak":"Please select at least one tweak to apply.","pleasewait":"Please wait  a process is running in the background","lastupdate":"Last update","sourcecode":"Source Code","devby":"Made with ♥ by Emad Adel","exit":"Are you sure you want to close the program? If there are any installations they will be terminated.","watchdemo":"Welcome","happybirthday":"Happy Birthday to me!","myplaylist":"It''s my Birthday and My Playlist ♪","OneAppReq":"Choose at least one app to save it","syslang":"System language"},"es":{"name":"Español","Welcome":"Ahorra tiempo instalando varios programas a la vez y mejora el rendimiento de tu Windows. Únete a nosotros para mejorar esta herramienta y hacerla aún mejor. También puedes agregar tus aplicaciones musicales y ajustes favoritos.","installBtn":"Instalar","applyBtn":"Aplicar","downloading":"Descargando...","about":"Acerca de","thirdparty":"Terceros","preferences":"Preferencias","management":"Gestión","apps":"Aplicaciones","tweaks":"Ajustes","settings":"Configuración","saveapps":"Guardar","loadapps":"Restaurar","music":"Música","on":"Encendido ","off":"Apagado","diskmgr":"Administración de discos","taskmgr":"Administrador de tareas","appsfeatures":"Aplicaciones-Funciones","networks":"Redes","services":"Servicios","devicemgr":"Administrador de dispositivos","PowerOptions":"Opciones de energía","sysinfo":"Información del sistema","defaultTheme":"Usar la configuración del sistema","ittlink":"Crear acceso directo en el escritorio","reset":"Restablecer preferencias","reopen":"Vuelve a abrir ITT.","theme":"Tema","language":"Idioma","mas":"Scripts de activación de Microsoft (MAS)","winoffice":"Descargar ISO de Windows / Office","idm":"Activación IDM","extensions":"Extensiones del navegador","all":"Todos","search":"Buscar","restorepoint":"Crear un punto de restauración","chocoloc":"Carpeta de descargas portátiles","InstallMessage":"¿Estás seguro de que deseas instalar las siguientes aplicaciones?","ApplyMessage":"¿Estás seguro de que deseas aplicar los siguientes ajustes?","Applying":"Aplicando...","choseapp":"Selecciona al menos una aplicación para instalar.","chosetweak":"Selecciona al menos un ajuste para aplicar.","pleasewait":"Por favorespera un proceso se está ejecutando en segundo plano.","lastupdate":"Última actualización","sourcecode":"Código fuente","devby":"Hecho con ♥ por Emad Adel","exit":"¿Estás seguro de que deseas cerrar el programa? Si hay instalaciones se interrumpirán.","watchdemo":"Bienvenido","happybirthday":"¡Feliz cumpleaños a mí!","myplaylist":"Es mi cumpleaños y mi lista de reproducción ♪","OneAppReq":"Elige al menos una aplicación para guardarla.","contributors":"Colaboradores","syslang":"Idioma del sistema"},"de":{"name":"Deutsch","Welcome":"Sparen Sie Zeit indem Sie mehrere Programme gleichzeitig installieren und die Leistung Ihres Windows steigern. Schließen Sie sich uns an um dieses Tool zu verbessern und noch besser zu machen. Sie können auch Ihre Lieblings-Musik-Apps und Anpassungen hinzufügen.","installBtn":"Installieren","applyBtn":"Anwenden","downloading":"Herunterladen...","about":"Über","thirdparty":"Drittanbieter","preferences":"Einstellungen","management":"Verwaltung","apps":"Apps","tweaks":"Optimierungen","settings":"Einstellungen","saveapps":"Speichern","loadapps":"Wiederherstellen","music":"Musik","on":"Ein ","off":"Aus","diskmgr":"Datenträgerverwaltung","taskmgr":"Task-Manager","appsfeatures":"Apps-Funktionen","networks":"Netzwerke","services":"Dienste","devicemgr":"Geräte-Manager","PowerOptions":"Energieoptionen","sysinfo":"Systeminfo","defaultTheme":"Systemeinstellungen verwenden","ittlink":"Desktop-Verknüpfung erstellen","reset":"Einstellungen zurücksetzen","reopen":"Bitte ITT erneut öffnen.","theme":"Thema","language":"Sprache","mas":"Microsoft Aktivierungsskripte (MAS)","winoffice":"Windows / Office ISO herunterladen","idm":"IDM-Aktivierung","extensions":"Browser-Erweiterungen","all":"Alle","search":"Suchen","restorepoint":"Wiederherstellungspunkt erstellen","chocoloc":"Ordner für tragbare Downloads","InstallMessage":"Sind Sie sicher  dass Sie die folgenden Anwendungen installieren möchten?","ApplyMessage":"Sind Sie sicher dass Sie die folgenden Anpassungen anwenden möchten?","Applying":"Anwenden...","choseapp":"Wählen Sie mindestens eine App zur Installation aus.","chosetweak":"Wählen Sie mindestens eine Optimierung zur Anwendung aus.","pleasewait":"Bitte warten ein Prozess läuft im Hintergrund.","lastupdate":"Letztes Update","sourcecode":"Quellcode","devby":"Mit ♥ gemacht von Emad Adel","exit":"Sind Sie sicher dass Sie das Programm schließen möchten? Alle Installationen werden abgebrochen.","watchdemo":"Willkommen","happybirthday":"Alles Gute zum Geburtstag mir!","myplaylist":"Es ist mein Geburtstag und meine Playlist ♪","OneAppReq":"Wählen Sie mindestens eine App zum Speichern aus.","contributors":"Mitwirkende","syslang":"Systemsprache"},"ga":{"name":"Irish","Welcome":"Sábháil am trí níos mó ná clár amháin a shuiteáil ag an am céanna agus feabhsaigh feidhmíocht do Windows. Bí linn ag feabhsú an uirlis seo agus ag déanamh é níos fearr. Is féidir leat do chuid apps ceoil agus feabhsúcháin is fearr leat a chur leis freisin.","installBtn":"Suiteáil","applyBtn":"Cuir i bhfeidhm","downloading":"Ag suiteáil...","about":"Faoi","thirdparty":"Tríú páirtí","preferences":"Roghanna","management":"Bainistíocht","apps":"Aplaicí","tweaks":"Feabhsúcháin","settings":"Socruithe","saveapps":"Sábháil","loadapps":"Athchóirigh","music":"Ceol","on":"Ar ","off":"Múchta","diskmgr":"Bainistíocht Diosca","taskmgr":"Bainisteoir Tascanna","appsfeatures":"Gnéithe Aipeanna","networks":"Líonraí","services":"Seirbhísí","devicemgr":"Bainisteoir Gléasanna","PowerOptions":"Roghanna Cumhachta","sysinfo":"Eolas Córas","defaultTheme":"Úsáid socrú an chórais","ittlink":"Cruthaigh gearrthagairt deisce","reset":"Athshocraigh Roghanna","reopen":"Oscail ITT arís le do thoil.","theme":"Téama","language":"Teanga","mas":"Scripteanna Gníomhachtaithe Microsoft (MAS)","winoffice":"Íoslódáil ISO Windows / Office","idm":"Gníomhachtú IDM","extensions":"Síntí Brabhsálaí","all":"Uile","search":"Cuardaigh","restorepoint":"Cruthaigh pointe athchóirithe","chocoloc":"Fillteán Íoslódálacha Inaistrithe","InstallMessage":"An bhfuil tú cinnte gur mhaith leat na feidhmchláir seo a shuiteáil","ApplyMessage":"An bhfuil tú cinnte gur mhaith leat na feabhsúcháin seo a chur i bhfeidhm","Applying":"Cur i bhfeidhm...","choseapp":"Roghnaigh ar a laghad aip amháin le suiteáil.","chosetweak":"Roghnaigh ar a laghad feabhsúchán amháin le cur i bhfeidhm.","pleasewait":"Fan le do thoil tá próiseas ag rith sa chúlra","lastupdate":"An nuashonrú deireanach","sourcecode":"Cód Foinse","devby":"Déanta le ♥ ag Emad Adel","exit":"An bhfuil tú cinnte gur mhaith leat an clár a dhúnadh? Má tá suiteálacha ar siúl beidh siad curtha ar ceal.","watchdemo":"Fáilte","happybirthday":"Breithlá Shona domsa!","myplaylist":"Is é mo Bhreithlá é agus Mo Phléaráca ♪","OneAppReq":"Roghnaigh ar a laghad aip amháin chun é a shábháil","syslang":"Teanga an chórais"},"tr":{"name":"Türkçe","Welcome":"Birden fazla programı aynı anda yükleyerek zaman kazanın ve Windows performansınızı artırın. Bu aracı geliştirmek ve daha da iyileştirmek için bize katılın. Ayrıca favori müzik uygulamalarınızı ve ayarlarınızı da ekleyebilirsiniz.","installBtn":"Yükle","applyBtn":"Uygula","downloading":"İndiriliyor...","about":"Hakkında","thirdparty":"Üçüncü Taraf","preferences":"Tercihler","management":"Yönetim","apps":"Uygulamalar","tweaks":"İnce Ayarlar","settings":"Ayarlar","saveapps":"Kayıt Et","loadapps":"Geri Yükle","music":"Müzik","on":"Açık ","off":"Kapalı","diskmgr":"Disk Yönetimi","taskmgr":"Görev Yöneticisi","appsfeatures":"Uygulamalar-Özellikler","networks":"Ağlar","services":"Hizmetler","devicemgr":"Aygıt Yöneticisi","PowerOptions":"Güç Seçenekleri","sysinfo":"Sistem Bilgisi","defaultTheme":"Sistem ayarlarını kullan","ittlink":"Masaüstü kısayolu oluştur","reset":"Tercihleri sıfırla","reopen":"Lütfen ITT''yi tekrar açın.","theme":"Tema","language":"Dil","mas":"Microsoft Etkinleştirme Betikleri (MAS)","winoffice":"Windows / Office ISO İndir","idm":"IDM Etkinleştirme","extensions":"Tarayıcı Eklentileri","all":"Tümü","search":"Ara","restorepoint":"Geri yükleme noktası oluştur","chocoloc":"Taşınabilir İndirilenler Klasörü","InstallMessage":"Aşağıdaki uygulamaları yüklemek istediğinizden emin misiniz?","ApplyMessage":"Aşağıdaki ayarları uygulamak istediğinizden emin misiniz?","Applying":"Uygulanıyor...","choseapp":"Lütfen yüklemek için en az bir uygulama seçin.","chosetweak":"Lütfen uygulamak için en az bir ince ayar seçin.","pleasewait":"Lütfen bekleyin arka planda bir işlem çalışıyor.","lastupdate":"Son güncelleme","sourcecode":"Kaynak Kodu","devby":"Emad Adel tarafından ♥ ile yapıldı","exit":"Programı kapatmak istediğinizden emin misiniz? Herhangi bir kurulum varsa durdurulacak.","watchdemo":"Hoş geldiniz","happybirthday":"Kendime Mutlu Yıllar!","myplaylist":"Benim Doğum Günüm ve Benim Çalma Listem ♪","OneAppReq":"Kaydetmek için en az bir uygulama seçin.","contributors":"Katkıda Bulunanlar","syslang":"Sistem dili"}}}
+$itt.database.locales = '{"Controls":{"ko":{"name":"한국어","Welcome":"여러 프로그램을 한 번에 설치하여 시간을 절약하고 Windows 성능을 향상시킵니다. 도구를 개선하고 우리와 함께 훌륭하게 만들어 보세요.","sysinfo":"시스템 정보","PowerOptions":"전원 옵션","devicemgr":"장치 관리자","services":"서비스","networks":"네트워크","appsfeatures":"앱 기능","taskmgr":"작업 관리자","diskmgr":"디스크 관리","installBtn":"설치","applyBtn":"적용","downloading":"다운로드 중","about":"정보","thirdparty":"외부","preferences":"환경 설정","management":"관리","apps":"앱","tweaks":"설정","settings":"설정","saveapps":"선택한 앱 저장","loadapps":"선택한 앱 복원","music":"음악","on":"켜기","reset":"환경 설정 초기화","off":"끄기","Dark":"다크","Light":"라이트","defaultTheme":"시스템","ittlink":"바탕화면 바로 가기 만들기","reopen":"ITT를 다시 열어주세요.","theme":"테마","language":"언어","mas":"Microsoft 활성화 스크립트 (MAS)","winoffice":"Windows / Office ISO 다운로드","idm":"IDM 활성화","extensions":"브라우저 확장 프로그램","all":"모두","restorepoint":"복원 지점 생성","chocoloc":"휴대용 다운로드 폴더","InstallMessage":"선택한 앱을 설치하시겠습니까","ApplyMessage":"선택한 조정 사항을 적용하시겠습니까","installing":"설치 중..","Applying":"적용 중..","choseapp":"설치할 적어도 하나의 앱을 선택하십시오","chosetweak":"조정 사항 적용 대기 중","pleasewait":"배경에서 프로세스가 진행 중입니다. 잠시 기다려주세요.","lastupdate":"마지막 업데이트","sourcecode":"소스 코드","devby":"Emad Adel 제작 ♥","exit":"프로그램을 종료하시겠습니까? 진행 중인 설치가 있으면 중단됩니다.","watchdemo":"환영합니다","happybirthday":"생일 축하합니다 Emad!","myplaylist":"제 생일과 제 플레이리스트 ♪","syslang":"시스템 언어"},"de":{"name":"Deutsch","Welcome":"Sparen Sie Zeit indem Sie mehrere Programme gleichzeitig installieren und die Leistung Ihres Windows steigern. Schließen Sie sich uns an um dieses Tool zu verbessern und noch besser zu machen. Sie können auch Ihre Lieblings-Musik-Apps und Anpassungen hinzufügen.","installBtn":"Installieren","applyBtn":"Anwenden","downloading":"Herunterladen...","about":"Über","thirdparty":"Drittanbieter","preferences":"Einstellungen","management":"Verwaltung","apps":"Apps","tweaks":"Optimierungen","settings":"Einstellungen","saveapps":"Speichern","loadapps":"Wiederherstellen","music":"Musik","on":"Ein ","off":"Aus","diskmgr":"Datenträgerverwaltung","taskmgr":"Task-Manager","appsfeatures":"Apps-Funktionen","networks":"Netzwerke","services":"Dienste","devicemgr":"Geräte-Manager","PowerOptions":"Energieoptionen","sysinfo":"Systeminfo","defaultTheme":"Systemeinstellungen verwenden","ittlink":"Desktop-Verknüpfung erstellen","reset":"Einstellungen zurücksetzen","reopen":"Bitte ITT erneut öffnen.","theme":"Thema","language":"Sprache","mas":"Microsoft Aktivierungsskripte (MAS)","winoffice":"Windows / Office ISO herunterladen","idm":"IDM-Aktivierung","extensions":"Browser-Erweiterungen","all":"Alle","search":"Suchen","restorepoint":"Wiederherstellungspunkt erstellen","chocoloc":"Ordner für tragbare Downloads","InstallMessage":"Sind Sie sicher  dass Sie die folgenden Anwendungen installieren möchten?","ApplyMessage":"Sind Sie sicher dass Sie die folgenden Anpassungen anwenden möchten?","Applying":"Anwenden...","choseapp":"Wählen Sie mindestens eine App zur Installation aus.","chosetweak":"Wählen Sie mindestens eine Optimierung zur Anwendung aus.","pleasewait":"Bitte warten ein Prozess läuft im Hintergrund.","lastupdate":"Letztes Update","sourcecode":"Quellcode","devby":"Mit ♥ gemacht von Emad Adel","exit":"Sind Sie sicher dass Sie das Programm schließen möchten? Alle Installationen werden abgebrochen.","watchdemo":"Willkommen","happybirthday":"Alles Gute zum Geburtstag mir!","myplaylist":"Es ist mein Geburtstag und meine Playlist ♪","OneAppReq":"Wählen Sie mindestens eine App zum Speichern aus.","contributors":"Mitwirkende","syslang":"Systemsprache"},"zh":{"name":"中文","Welcome":"通过一次安装多个程序节省时间并提升您的Windows性能。加入我们，改进工具，使其更加优秀。","sysinfo":"系统信息","PowerOptions":"电源选项","devicemgr":"设备管理器","services":"服务","networks":"网络","appsfeatures":"应用特性","taskmgr":"任务管理器","diskmgr":"磁盘管理","installBtn":"安装","applyBtn":"应用","downloading":"下载中","about":"关于","thirdparty":"第三方","preferences":"偏好","management":"管理","apps":"应用","tweaks":"调整","settings":"设置","saveapps":"保存选定应用","loadapps":"恢复选定应用","music":"音乐","on":"开启","off":"关闭","reset":"重置偏好设置","Dark":"深色","Light":"浅色","defaultTheme":"系统","ittlink":"创建桌面快捷方式","reopen":"请重新打开ITT。","theme":"主题","language":"语言","mas":"Microsoft 激活脚本 (MAS)","winoffice":"下载 Windows / Office ISO","idm":"IDM 激活","extensions":"浏览器扩展","all":"都","restorepoint":"创建还原点","chocoloc":"便携下载文件夹","InstallMessage":"是否要安装选定的应用","ApplyMessage":"是否要应用选定的调整","installing":"安装中..","Applying":"应用中..","choseapp":"请选择至少一款要安装的应用","chosetweak":"请等待调整应用完成","pleasewait":"请等待，后台有进程在进行中。","lastupdate":"最后更新","sourcecode":"源代码","devby":"由 Emad Adel ♥ 制作","exit":"您确定要关闭程序吗？如果有任何安装正在进行，它们将被终止。","watchdemo":"欢迎","happybirthday":"生日快乐 Emad!","myplaylist":"这是我的生日和我的播放列表 ♪","syslang":"系统语言"},"tr":{"name":"Türkçe","Welcome":"Birden fazla programı aynı anda yükleyerek zaman kazanın ve Windows performansınızı artırın. Bu aracı geliştirmek ve daha da iyileştirmek için bize katılın. Ayrıca favori müzik uygulamalarınızı ve ayarlarınızı da ekleyebilirsiniz.","installBtn":"Yükle","applyBtn":"Uygula","downloading":"İndiriliyor...","about":"Hakkında","thirdparty":"Üçüncü Taraf","preferences":"Tercihler","management":"Yönetim","apps":"Uygulamalar","tweaks":"İnce Ayarlar","settings":"Ayarlar","saveapps":"Kayıt Et","loadapps":"Geri Yükle","music":"Müzik","on":"Açık ","off":"Kapalı","diskmgr":"Disk Yönetimi","taskmgr":"Görev Yöneticisi","appsfeatures":"Uygulamalar-Özellikler","networks":"Ağlar","services":"Hizmetler","devicemgr":"Aygıt Yöneticisi","PowerOptions":"Güç Seçenekleri","sysinfo":"Sistem Bilgisi","defaultTheme":"Sistem ayarlarını kullan","ittlink":"Masaüstü kısayolu oluştur","reset":"Tercihleri sıfırla","reopen":"Lütfen ITT''yi tekrar açın.","theme":"Tema","language":"Dil","mas":"Microsoft Etkinleştirme Betikleri (MAS)","winoffice":"Windows / Office ISO İndir","idm":"IDM Etkinleştirme","extensions":"Tarayıcı Eklentileri","all":"Tümü","search":"Ara","restorepoint":"Geri yükleme noktası oluştur","chocoloc":"Taşınabilir İndirilenler Klasörü","InstallMessage":"Aşağıdaki uygulamaları yüklemek istediğinizden emin misiniz?","ApplyMessage":"Aşağıdaki ayarları uygulamak istediğinizden emin misiniz?","Applying":"Uygulanıyor...","choseapp":"Lütfen yüklemek için en az bir uygulama seçin.","chosetweak":"Lütfen uygulamak için en az bir ince ayar seçin.","pleasewait":"Lütfen bekleyin arka planda bir işlem çalışıyor.","lastupdate":"Son güncelleme","sourcecode":"Kaynak Kodu","devby":"Emad Adel tarafından ♥ ile yapıldı","exit":"Programı kapatmak istediğinizden emin misiniz? Herhangi bir kurulum varsa durdurulacak.","watchdemo":"Hoş geldiniz","happybirthday":"Kendime Mutlu Yıllar!","myplaylist":"Benim Doğum Günüm ve Benim Çalma Listem ♪","OneAppReq":"Kaydetmek için en az bir uygulama seçin.","contributors":"Katkıda Bulunanlar","syslang":"Sistem dili"},"fr":{"name":"Français","Welcome":"Gagnez du temps en installant plusieurs programmes à la fois et améliorez les performances de votre Windows. Rejoignez-nous pour améliorer cet outil et le rendre encore meilleur. Vous pouvez également ajouter vos applications musicales et vos tweaks préférés.","installBtn":"Installer","applyBtn":"Appliquer","downloading":"Téléchargement...","about":"À propos","thirdparty":"Tiers","preferences":"Préférences","management":"Gestion","apps":"Applications","tweaks":"Optimisations","settings":"Paramètres","saveapps":"Sauvegarder","loadapps":"Restaurer","music":"Musique","on":"Activé ","off":"Désactivé","diskmgr":"Gestion des disques","taskmgr":"Gestionnaire des tâches","appsfeatures":"Applications-Fonctionnalités","networks":"Réseaux","services":"Services","devicemgr":"Gestionnaire de périphériques","PowerOptions":"Options d''alimentation","sysinfo":"Infos système","defaultTheme":"Utiliser les paramètres système","ittlink":"Créer un raccourci sur le bureau","reset":"Réinitialiser les préférences","reopen":"Veuillez rouvrir ITT.","theme":"Thème","language":"Langue","mas":"Scripts d''activation Microsoft (MAS)","winoffice":"Télécharger l''ISO Windows / Office","idm":"Activation IDM","extensions":"Extensions de navigateurs","all":"Tout","search":"Rechercher","restorepoint":"Créer un point de restauration","chocoloc":"Dossier de téléchargements portables","InstallMessage":"Êtes-vous sûr de vouloir installer les applications suivantes ?","ApplyMessage":"Êtes-vous sûr de vouloir appliquer les tweaks suivants ?","Applying":"Application...","choseapp":"Veuillez sélectionner au moins une application à installer.","chosetweak":"Veuillez sélectionner au moins un tweak à appliquer.","pleasewait":"Veuillez patienter","lastupdate":"Dernière mise à jour  un processus est en cours d''exécution en arrière-plan.","sourcecode":"Code source","devby":"Fait avec ♥ par Emad Adel","exit":"Êtes-vous sûr de vouloir fermer le programme ? Si des installations sont en cours  elles seront interrompues.","watchdemo":"Bienvenue","happybirthday":"Joyeux anniversaire à moi !","myplaylist":"C''est mon anniversaire et ma playlist ♪","OneAppReq":"Choisissez au moins une application à sauvegarder.","contributors":"Contributeurs","syslang":"Langue du système"},"ru":{"name":"Русский","Welcome":"Сэкономьте время устанавливая несколько программ одновременно и улучшите производительность Windows. Присоединяйтесь к нам для улучшения этого инструмента и его совершенствования. Вы также можете добавить свои любимые музыкальные приложения и настройки.","installBtn":"Установить","applyBtn":"Применить","downloading":"Загрузка...","about":"О нас","thirdparty":"Сторонние","preferences":"Настройки","management":"Управление","apps":"Приложения","tweaks":"Настройки","settings":"Параметры","saveapps":"Сохранить","loadapps":"Восстановить","music":"Музыка","on":"Вкл ","off":"Выкл","diskmgr":"Управление дисками","taskmgr":"Диспетчер задач","appsfeatures":"Приложения-Функции","networks":"Сети","services":"Сервисы","devicemgr":"Диспетчер устройств","PowerOptions":"Энергопитание","sysinfo":"Информация о системе","defaultTheme":"Использовать системные настройки","ittlink":"Создать ярлык на рабочем столе","reset":"Сбросить настройки","reopen":"Пожалуйста перезапустите ITT.","theme":"Тема","language":"Язык","mas":"Microsoft Activation Scripts (MAS)","winoffice":"Скачать ISO Windows / Office","idm":"Активация IDM","extensions":"Расширения для браузеров","all":"Все","search":"Поиск","restorepoint":"Создать точку восстановления","chocoloc":"Папка для портативных загрузок","InstallMessage":"Вы уверены что хотите установить следующие приложения?","ApplyMessage":"Вы уверены что хотите применить следующие настройки?","Applying":"Применение...","choseapp":"Выберите хотя бы одно приложение для установки.","chosetweak":"Выберите хотя бы одну настройку для применения.","pleasewait":"Подождите выполняется фоновый процесс.","lastupdate":"Последнее обновление","sourcecode":"Исходный код","devby":"Сделано с ♥ Emad Adel","exit":"Вы уверены что хотите закрыть программу? Все установки будут прерваны.","watchdemo":"Добро пожаловать","happybirthday":"С Днем Рождения меня!","myplaylist":"Это мой день рождения и мой плейлист ♪","OneAppReq":"Выберите хотя бы одно приложение для сохранения.","contributors":"Соавторы","syslang":"Язык системы"},"ar":{"name":"عربي","Welcome":"توفر هذه الأداة تسهيلات كبيرة في عملية تثبيت البرامج وتحسين الاداء. انضم إلينا لتساهم في تطويرها وجعلها أكثر اكتمالًا","sysinfo":"معلومات النظام","PowerOptions":"خيارات الطاقة","devicemgr":"إدارة الأجهزة","services":"خدمات","networks":"شبكات","appsfeatures":"التطبيقات و الميزات","taskmgr":"مدير المهام","diskmgr":"إدارة القرص","InstallBtn":"تثبيت","applyBtn":"تطبيق","downloading":"جارٍ التثبيت","about":"عن المطور","thirdparty":"روابط خارجية","preferences":"التفضيلات","management":"إدارة الجهاز","apps":"تطبيقات","tweaks":"تحسينات","settings":"إعدادات","saveapps":"حفظ البرامج","loadapps":"أسترجاع البرامج","music":"الموسيقى","on":"تشغيل ","off":"كتم","Dark":"ليلا","Light":"نهارا","defaultTheme":"استخدم إعدادات النظام","ittlink":"أنشاء أختصار على سطح المكتب","reset":"الوضع الافتراضي","reopen":"يرجى اعادة فتح الاداة مرة اخرى","theme":"المظهر","language":"اللغة","mas":"تفعيل الويندوز","winoffice":"تنزيل ويندوز / أوفيس","idm":"تفعيل الدون لود مانجر","extensions":"أضافات المتصفحات","all":"الكل","search":"بحث","restorepoint":"إنشاء نقطة الاستعادة","chocoloc":"مجلد التنزيلات المحمولة","InstallMessage":"هل تريد تثبيت البرامج التالية","ApplyMessage":"هل تريد تطبيق التحسينات التالية","Applying":"جارٍي التطبيق","Pleasewait":"يرجى الانتظار، يوجد عملية في الخلفية","choseapp":"اختر على الأقل تطبيقًا لتثبيته","chosetweak":"اختار على الاقل تحسين واحد لتطبيقه","lastupdate":"آخر تحديث","sourcecode":"الشفرة المصدرية","devby":"صنع بـ ♥ من قبل عماد عادل","exit":"هل أنت متأكد من رغبتك في إغلاق البرنامج؟ إذا كان هناك أي تثبيتات، فسيتم إيقافها.","watchdemo":"مرحبا بك","happybirthday":"!عيد ميلاد سعيد عماد","myplaylist":"انه عيد ميلادي و قائمة الموسيقى الخاصة بي","OneAppReq":"يرجى اختيار تطبيق واحد على الاقل لحفظه","syslang":"استخدم لغة النظام"},"es":{"name":"Español","Welcome":"Ahorra tiempo instalando varios programas a la vez y mejora el rendimiento de tu Windows. Únete a nosotros para mejorar esta herramienta y hacerla aún mejor. También puedes agregar tus aplicaciones musicales y ajustes favoritos.","installBtn":"Instalar","applyBtn":"Aplicar","downloading":"Descargando...","about":"Acerca de","thirdparty":"Terceros","preferences":"Preferencias","management":"Gestión","apps":"Aplicaciones","tweaks":"Ajustes","settings":"Configuración","saveapps":"Guardar","loadapps":"Restaurar","music":"Música","on":"Encendido ","off":"Apagado","diskmgr":"Administración de discos","taskmgr":"Administrador de tareas","appsfeatures":"Aplicaciones-Funciones","networks":"Redes","services":"Servicios","devicemgr":"Administrador de dispositivos","PowerOptions":"Opciones de energía","sysinfo":"Información del sistema","defaultTheme":"Usar la configuración del sistema","ittlink":"Crear acceso directo en el escritorio","reset":"Restablecer preferencias","reopen":"Vuelve a abrir ITT.","theme":"Tema","language":"Idioma","mas":"Scripts de activación de Microsoft (MAS)","winoffice":"Descargar ISO de Windows / Office","idm":"Activación IDM","extensions":"Extensiones del navegador","all":"Todos","search":"Buscar","restorepoint":"Crear un punto de restauración","chocoloc":"Carpeta de descargas portátiles","InstallMessage":"¿Estás seguro de que deseas instalar las siguientes aplicaciones?","ApplyMessage":"¿Estás seguro de que deseas aplicar los siguientes ajustes?","Applying":"Aplicando...","choseapp":"Selecciona al menos una aplicación para instalar.","chosetweak":"Selecciona al menos un ajuste para aplicar.","pleasewait":"Por favorespera un proceso se está ejecutando en segundo plano.","lastupdate":"Última actualización","sourcecode":"Código fuente","devby":"Hecho con ♥ por Emad Adel","exit":"¿Estás seguro de que deseas cerrar el programa? Si hay instalaciones se interrumpirán.","watchdemo":"Bienvenido","happybirthday":"¡Feliz cumpleaños a mí!","myplaylist":"Es mi cumpleaños y mi lista de reproducción ♪","OneAppReq":"Elige al menos una aplicación para guardarla.","contributors":"Colaboradores","syslang":"Idioma del sistema"},"ga":{"name":"Irish","Welcome":"Sábháil am trí níos mó ná clár amháin a shuiteáil ag an am céanna agus feabhsaigh feidhmíocht do Windows. Bí linn ag feabhsú an uirlis seo agus ag déanamh é níos fearr. Is féidir leat do chuid apps ceoil agus feabhsúcháin is fearr leat a chur leis freisin.","installBtn":"Suiteáil","applyBtn":"Cuir i bhfeidhm","downloading":"Ag suiteáil...","about":"Faoi","thirdparty":"Tríú páirtí","preferences":"Roghanna","management":"Bainistíocht","apps":"Aplaicí","tweaks":"Feabhsúcháin","settings":"Socruithe","saveapps":"Sábháil","loadapps":"Athchóirigh","music":"Ceol","on":"Ar ","off":"Múchta","diskmgr":"Bainistíocht Diosca","taskmgr":"Bainisteoir Tascanna","appsfeatures":"Gnéithe Aipeanna","networks":"Líonraí","services":"Seirbhísí","devicemgr":"Bainisteoir Gléasanna","PowerOptions":"Roghanna Cumhachta","sysinfo":"Eolas Córas","defaultTheme":"Úsáid socrú an chórais","ittlink":"Cruthaigh gearrthagairt deisce","reset":"Athshocraigh Roghanna","reopen":"Oscail ITT arís le do thoil.","theme":"Téama","language":"Teanga","mas":"Scripteanna Gníomhachtaithe Microsoft (MAS)","winoffice":"Íoslódáil ISO Windows / Office","idm":"Gníomhachtú IDM","extensions":"Síntí Brabhsálaí","all":"Uile","search":"Cuardaigh","restorepoint":"Cruthaigh pointe athchóirithe","chocoloc":"Fillteán Íoslódálacha Inaistrithe","InstallMessage":"An bhfuil tú cinnte gur mhaith leat na feidhmchláir seo a shuiteáil","ApplyMessage":"An bhfuil tú cinnte gur mhaith leat na feabhsúcháin seo a chur i bhfeidhm","Applying":"Cur i bhfeidhm...","choseapp":"Roghnaigh ar a laghad aip amháin le suiteáil.","chosetweak":"Roghnaigh ar a laghad feabhsúchán amháin le cur i bhfeidhm.","pleasewait":"Fan le do thoil tá próiseas ag rith sa chúlra","lastupdate":"An nuashonrú deireanach","sourcecode":"Cód Foinse","devby":"Déanta le ♥ ag Emad Adel","exit":"An bhfuil tú cinnte gur mhaith leat an clár a dhúnadh? Má tá suiteálacha ar siúl beidh siad curtha ar ceal.","watchdemo":"Fáilte","happybirthday":"Breithlá Shona domsa!","myplaylist":"Is é mo Bhreithlá é agus Mo Phléaráca ♪","OneAppReq":"Roghnaigh ar a laghad aip amháin chun é a shábháil","syslang":"Teanga an chórais"},"en":{"name":"English","Welcome":"Save time by installing multiple programs at once and boost your Windows performance. Join us in improving this tool and making it better. You can also add your favorite music  apps  and tweaks.","installBtn":"Install","applyBtn":"Apply","downloading":"Downloading...","about":"About","thirdparty":"Third-party","preferences":"Preferences","management":"Management","apps":"Apps","tweaks":"Tweaks","settings":"Settings","saveapps":"Save","loadapps":"Restore","music":"Music","on":"On ","off":"Off","diskmgr":"Disk Managment","taskmgr":"Task Manager","appsfeatures":"Apps-Features","networks":"Networks","services":"Services","devicemgr":"Device Manager","PowerOptions":"Power Options","sysinfo":"System Info","defaultTheme":"Use system setting","ittlink":"Create desktop shortcut","reset":"Reset Preferences","reopen":"Please reopen ITT again.","theme":"Theme","language":"Language","mas":"Microsoft Activation Scripts (MAS)","winoffice":"Download Windows / Office ISO","idm":"IDM Activation","extensions":"Browsers Extensions","all":"All","search":"Search","restorepoint":"Create a restore point","chocoloc":"Portable Downloads Folder","InstallMessage":"Are you sure you want to install the following applications","ApplyMessage":"Are you sure you want to apply the following tweaks","Applying":"Applying...","choseapp":"Please select at least one app to install.","chosetweak":"Please select at least one tweak to apply.","pleasewait":"Please wait  a process is running in the background","lastupdate":"Last update","sourcecode":"Source Code","devby":"Made with ♥ by Emad Adel","exit":"Are you sure you want to close the program? If there are any installations they will be terminated.","watchdemo":"Welcome","happybirthday":"Happy Birthday to me!","myplaylist":"It''s my Birthday and My Playlist ♪","OneAppReq":"Choose at least one app to save it","syslang":"System language"}}}
 ' | ConvertFrom-Json
 $itt.database.OST = '{
   "Tracks": [
@@ -7482,9 +7482,14 @@ $itt.database.Settings = '[
     "Content": "Auto End Tasks",
     "Name":"AutoEndTasks",
     "description": "Automatically end tasks that are not responding",
-    "category": "Storage "
+    "category": "Performance"
+  },
+  {
+    "Content": "Performance Options",
+    "Name":"VisualFXSetting",
+    "description": "Adjust for best performance",
+    "category": "Performance"
   }
-  
 ]' | ConvertFrom-Json
 $itt.database.Tweaks = '[
   {
@@ -7494,8 +7499,7 @@ $itt.database.Tweaks = '[
     "Category": "Cleanup",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "\r\n        Remove-Item -Path \"$env:LOCALAPPDATA\\Temp\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        Remove-Item -Path \"C:\\Windows\\Prefetch\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        Stop-Service -Name wuauserv -Force\r\n        takeown /f C:\\Windows\\SoftwareDistribution\\Download /r /d y\r\n        icacls C:\\Windows\\SoftwareDistribution\\Download /grant administrators:F /t\r\n        Remove-Item -Path \"C:\\Windows\\SoftwareDistribution\\Download\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        cleanmgr.exe /d C: /VERYLOWDISK /sagerun:1 Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase\r\n        cleanmgr.exe /d C: /sagerun:1\r\n        cleanmgr.exe /sagerun:1\r\n        Dism.exe /online /Cleanup-Image /StartComponentCleanup\r\n        cleanmgr.exe /d C: /VERYLOWDISK\r\n        Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase\r\n        Start-Service -Name wuauserv\r\n      "
     ],
@@ -7510,8 +7514,7 @@ $itt.database.Tweaks = '[
     "Category": "Fixer",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "\r\n        Chkdsk /scan\r\n        sfc /scannow\r\n        DISM /Online /Cleanup-Image /Restorehealth\r\n        sfc /scannow\r\n      "
     ],
@@ -7526,8 +7529,7 @@ $itt.database.Tweaks = '[
     "Category": "Performance",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "Invoke-RestMethod https://raw.githubusercontent.com/emadadel4/WindowsTweaks/main/ClearStartMenu.ps1 | Invoke-Expression"
     ],
@@ -7542,8 +7544,7 @@ $itt.database.Tweaks = '[
     "Category": "Performance",
     "Type": "Registry",
     "Refresh": "true",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Feeds",
@@ -7846,8 +7847,7 @@ $itt.database.Tweaks = '[
     "Category": "Fixer",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "Invoke-RestMethod https://raw.githubusercontent.com/emadadel4/WindowsTweaks/main/restore.bat | Invoke-Expression"
     ],
@@ -7862,8 +7862,7 @@ $itt.database.Tweaks = '[
     "Category": "Performance",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "\r\n        takeown /f C:\\Windows\\System32\\GameBarPresenceWriter.exe\r\n\r\n        takeown /f C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll\r\n\r\n        takeown /f C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll\r\n\r\n        Start-Sleep -Seconds 1\r\n\r\n\r\n        icacls C:\\Windows\\System32\\GameBarPresenceWriter.exe /grant administrators:F\r\n\r\n        icacls C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll /grant administrators:F\r\n\r\n        icacls C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll /grant administrators:F\r\n\r\n        Start-Sleep -Seconds 1\r\n\r\n\r\n        Rename-Item C:\\Windows\\System32\\GameBarPresenceWriter.exe -NewName GameBarPresenceWriter.exe_backup\r\n\r\n        Rename-Item C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll -NewName GameBarPresenceWriter.proxy.dll_backup\r\n\r\n        Rename-Item C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll -NewName Windows.Gaming.UI.GameBar.dll_backup\r\n\r\n      "
     ],
@@ -7878,8 +7877,7 @@ $itt.database.Tweaks = '[
     "Category": "Performance",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61; Start-Process powercfg.cpl"
     ],
@@ -7894,8 +7892,7 @@ $itt.database.Tweaks = '[
     "Category": "Fixer",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "netsh int ip reset"
     ],
@@ -7910,8 +7907,7 @@ $itt.database.Tweaks = '[
     "Category": "Other",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "curl.exe -ss \"https://live.sysinternals.com/Autologon.exe\" -o $env:temp\\autologin.exe ; cmd /c $env:temp\\autologin.exe /accepteula"
     ],
@@ -7926,8 +7922,7 @@ $itt.database.Tweaks = '[
     "Category": "Performance",
     "Type": "Registry",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKCU:\\SOFTWARE\\Microsoft\\GameBar",
@@ -8127,8 +8122,7 @@ $itt.database.Tweaks = '[
     "Category": "Privacy",
     "Type": "Registry",
     "Refresh": "true",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo",
@@ -8173,8 +8167,7 @@ $itt.database.Tweaks = '[
     "Category": "Privacy",
     "Type": "Registry",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
@@ -8198,8 +8191,7 @@ $itt.database.Tweaks = '[
     "Category": "Performance",
     "Type": "Registry",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications",
@@ -8230,8 +8222,7 @@ $itt.database.Tweaks = '[
     "Category": "Privacy",
     "Type": "Modify",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
@@ -8255,8 +8246,7 @@ $itt.database.Tweaks = '[
     "Category": "Other",
     "Type": "Registry",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Delete": [
       {
         "Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\",
@@ -8329,8 +8319,7 @@ $itt.database.Tweaks = '[
     "Category": "Performance",
     "Type": "service",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Service": [
       {
         "Name": "Spooler",
@@ -8338,59 +8327,59 @@ $itt.database.Tweaks = '[
         "DefaultType": "Automatic"
       },
       {
-          "Name": "Fax",
-          "StartupType": "Disabled",
-          "DefaultType": "Automatic"
+        "Name": "Fax",
+        "StartupType": "Disabled",
+        "DefaultType": "Automatic"
       },
       {
-          "Name": "DPS",
-          "StartupType": "Disabled",
-          "DefaultType": "Automatic"
+        "Name": "DPS",
+        "StartupType": "Disabled",
+        "DefaultType": "Automatic"
       },
       {
-          "Name": "MapsBroker",
-          "StartupType": "Disabled",
-          "DefaultType": "Automatic"
+        "Name": "MapsBroker",
+        "StartupType": "Disabled",
+        "DefaultType": "Automatic"
       },
       {
-          "Name": "WerSvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "WerSvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "RemoteRegistry",
-          "StartupType": "Disabled",
-          "DefaultType": "Disabled"
+        "Name": "RemoteRegistry",
+        "StartupType": "Disabled",
+        "DefaultType": "Disabled"
       },
       {
-          "Name": "lmhosts",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "lmhosts",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "SharedAccess",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "SharedAccess",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "DiagTrack",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "DiagTrack",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "diagnosticshub.standardcollector.service",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "diagnosticshub.standardcollector.service",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "dmwappushservice",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "dmwappushservice",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "lfsvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "lfsvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
         "Name": "TrkWks",
@@ -8398,179 +8387,179 @@ $itt.database.Tweaks = '[
         "DefaultType": "Manual"
       },
       {
-          "Name": "NetTcpPortSharing",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "NetTcpPortSharing",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "RemoteAccess",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "RemoteAccess",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "WbioSrvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "WbioSrvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "WMPNetworkSvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "WMPNetworkSvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "WSearch",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "WSearch",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "XblAuthManager",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "XblAuthManager",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "XblGameSave",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "XblGameSave",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "XboxNetApiSvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "XboxNetApiSvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "XboxGipSvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "XboxGipSvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "WerSvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "WerSvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "Spooler",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "Spooler",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "fhsvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "fhsvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "gupdate",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "gupdate",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "gupdatem",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "gupdatem",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "stisvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "stisvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "AJRouter",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "AJRouter",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "MSDTC",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "MSDTC",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "WpcMonSvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "WpcMonSvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "PhoneSvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "PhoneSvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "PcaSvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "PcaSvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "WPDBusEnum",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "WPDBusEnum",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "LicenseManager",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "LicenseManager",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "seclogon",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "seclogon",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "SysMain",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "SysMain",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "wisvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "wisvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "FontCache",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "FontCache",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "RetailDemo",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "RetailDemo",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "ALG",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "ALG",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "SCardSvr",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "SCardSvr",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "SCPolicySvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "SCPolicySvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "ScDeviceEnum",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "ScDeviceEnum",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "MessagingService_34048",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "MessagingService_34048",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "wlidsvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "wlidsvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "BthAvctpSvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "BthAvctpSvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "Browser",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "Browser",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
         "Name": "DusmSvc",
@@ -8578,24 +8567,24 @@ $itt.database.Tweaks = '[
         "DefaultType": "Manual"
       },
       {
-          "Name": "BDESVC",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "BDESVC",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "iphlpsvc",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "iphlpsvc",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "edgeupdate",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "edgeupdate",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
-          "Name": "MicrosoftEdgeElevationService",
-          "StartupType": "Disabled",
-          "DefaultType": "Manual"
+        "Name": "MicrosoftEdgeElevationService",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
       },
       {
         "Name": "SEMgrSvc",
@@ -8632,8 +8621,7 @@ $itt.database.Tweaks = '[
     "Category": "Performance",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKLM:\\System\\CurrentControlSet\\Control\\Session Manager\\Power",
@@ -8697,8 +8685,7 @@ $itt.database.Tweaks = '[
     "Category": "Classic",
     "Type": "Registry",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows Photo Viewer\\Capabilities\\FileAssociations",
@@ -8764,8 +8751,7 @@ $itt.database.Tweaks = '[
     "Category": "Classic",
     "Type": "Registry",
     "Refresh": "true",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Classes\\CLSID\\",
@@ -8796,8 +8782,7 @@ $itt.database.Tweaks = '[
     "Category": "Privacy",
     "Type": "Registry",
     "Refresh": "true",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Policies\\Microsoft\\Windows\\WindowsCopilot",
@@ -8849,8 +8834,7 @@ $itt.database.Tweaks = '[
     "Category": "Privacy",
     "Type": "Registry",
     "Refresh": "true",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Policies\\Microsoft\\Windows\\WindowsAI",
@@ -8881,8 +8865,7 @@ $itt.database.Tweaks = '[
     "Category": "Performance",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "Remove-Item \"$env:LocalAppData\\Microsoft\\Windows\\Explorer\\thumbcache*\" -Force -Recurse"
     ],
@@ -8897,8 +8880,7 @@ $itt.database.Tweaks = '[
     "Category": "Classic",
     "Type": "Registry",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": {
       "Path": "HKLM:\\Software\\Microsoft\\Windows NT\\CurrentVersion\\MTCUVC",
       "Name": "EnableMtcUvc",
@@ -8920,8 +8902,7 @@ $itt.database.Tweaks = '[
     "Category": "Classic",
     "Type": "Registry",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": {
       "Path": "HKCU:\\Control Panel\\Accessibility\\ToggleKeys",
       "Name": "Flags",
@@ -8943,8 +8924,7 @@ $itt.database.Tweaks = '[
     "Category": "Privacy",
     "Type": "service",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Service": [
       {
         "Name": "HomeGroupListener",
@@ -8965,8 +8945,7 @@ $itt.database.Tweaks = '[
     "Category": "Performance",
     "Type": "Registry",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
@@ -9000,8 +8979,7 @@ $itt.database.Tweaks = '[
     "Category": "Privacy",
     "Type": "Registry",
     "refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\location",
@@ -9334,8 +9312,7 @@ $itt.database.Tweaks = '[
     "Category": "Protection",
     "Type": "Registry",
     "refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\AutoplayHandlers",
@@ -9366,8 +9343,7 @@ $itt.database.Tweaks = '[
     "Category": "Protection",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "Set-SmbServerConfiguration -EnableSMB1Protocol $false -Force; Set-SmbServerConfiguration -EnableSMB2Protocol $false -Force"
     ],
@@ -9382,8 +9358,7 @@ $itt.database.Tweaks = '[
     "Category": "Protection",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "Set-NetConnectionProfile -NetworkCategory Public"
     ],
@@ -9398,8 +9373,7 @@ $itt.database.Tweaks = '[
     "Category": "BIOS",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "bcdedit /set bootmenupolicy Standard | Out-Null"
     ],
@@ -9414,8 +9388,7 @@ $itt.database.Tweaks = '[
     "Category": "Power",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "\r\n        powercfg /X monitor-timeout-ac 0\r\n        powercfg /X monitor-timeout-dc 0\r\n        powercfg /X standby-timeout-ac 0\r\n        powercfg /X standby-timeout-dc 0\r\n      "
     ],
@@ -9430,8 +9403,7 @@ $itt.database.Tweaks = '[
     "Category": "Personalization",
     "Type": "Registry",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKLM:\\System\\CurrentControlSet\\Control\\CrashControl",
@@ -9455,8 +9427,7 @@ $itt.database.Tweaks = '[
     "Category": "Performance",
     "Type": "Registry",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
@@ -9480,8 +9451,7 @@ $itt.database.Tweaks = '[
     "Category": "Performance",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\Defrag\\ScheduledDefrag'' | Out-Null"
     ],
@@ -9496,12 +9466,117 @@ $itt.database.Tweaks = '[
     "Category": "Runtimes",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "DISM /Online /Enable-Feature /FeatureName:NetFx3 /All"
     ],
     "UndoCommand": []
+  },
+  {
+    "Name": "Super Performance",
+    "Description": "All Windows effects disabled and optimized for windowed games. You may need to log out and back in for changes to take effect. You can reset to default settings in Settings Tab",
+    "Check": "false",
+    "Type": "Registry",
+    "Refresh": "true",
+    "Modify": [
+      {
+        "defaultValue": "1",
+        "Type": "String",
+        "Path": "HKCU:\\Control Panel\\Desktop",
+        "Value": "0",
+        "Name": "DragFullWindows"
+      },
+      {
+        "defaultValue": "1",
+        "Type": "String",
+        "Path": "HKCU:\\Control Panel\\Desktop",
+        "Value": "200",
+        "Name": "MenuShowDelay"
+      },
+      {
+        "defaultValue": "1",
+        "Type": "String",
+        "Path": "HKCU:\\Control Panel\\Desktop\\WindowMetrics",
+        "Value": "0",
+        "Name": "MinAnimate"
+      },
+      {
+        "defaultValue": "1",
+        "Type": "DWord",
+        "Path": "HKCU:\\Control Panel\\Keyboard",
+        "Value": "0",
+        "Name": "KeyboardDelay"
+      },
+      {
+        "defaultValue": "1",
+        "Type": "DWord",
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "Value": "0",
+        "Name": "ListviewAlphaSelect"
+      },
+      {
+        "defaultValue": "1",
+        "Type": "DWord",
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "Value": "0",
+        "Name": "ListviewShadow"
+      },
+      {
+        "defaultValue": "1",
+        "Type": "DWord",
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "Value": "0",
+        "Name": "TaskbarAnimations"
+      },
+      {
+        "defaultValue": "1",
+        "Type": "DWord",
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VisualEffects",
+        "Value": "2",
+        "Name": "VisualFXSetting"
+      },
+      {
+        "defaultValue": "1",
+        "Type": "DWord",
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\DWM",
+        "Value": "0",
+        "Name": "EnableAeroPeek"
+      },
+      {
+        "defaultValue": "1",
+        "Type": "DWord",
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "Value": "0",
+        "Name": "TaskbarMn"
+      },
+      {
+        "defaultValue": "1",
+        "Type": "DWord",
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "Value": "0",
+        "Name": "TaskbarDa"
+      },
+      {
+        "defaultValue": "1",
+        "Type": "DWord",
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "Value": "0",
+        "Name": "ShowTaskViewButton"
+      },
+      {
+        "defaultValue": "1",
+        "Type": "DWord",
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
+        "Value": "0",
+        "Name": "SearchboxTaskbarMode"
+      }
+    ],
+    "InvokeCommand": [
+      ""
+    ],
+    "UndoCommand": [
+      ""
+    ]
   }
 ]
 ' | ConvertFrom-Json
@@ -10421,6 +10496,21 @@ Function Get-ToggleStatus {
          {
              return $false
          }
+    }
+
+      # Auto end tasks     
+    if($ToggleSwitch -eq "VisualFXSetting") 
+    {
+        $VisualFXSetting = (Get-ItemProperty -path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects').VisualFXSetting
+        
+        if($VisualFXSetting -eq 2) 
+        {
+            return $true
+        } 
+        else 
+        {
+            return $false
+        }
     }
 }
 
@@ -11783,6 +11873,7 @@ function Invoke-Toogle {
         "EndTaskOnTaskbar" {Invoke-TaskbarEnd $(Get-ToggleStatus EndTaskOnTaskbar)}
         "ClearPageFileAtShutdown" {Invoke-ClearPageFile $(Get-ToggleStatus ClearPageFileAtShutdown)}
         "AutoEndTasks" {Invoke-AutoEndTasks $(Get-ToggleStatus AutoEndTasks)}
+        "VisualFXSetting" {Invoke-PerformanceOptions $(Get-ToggleStatus VisualFXSetting)}
     }
 }
 function Invoke-AutoEndTasks {
@@ -12079,6 +12170,65 @@ function Invoke-NumLock {
     }
 }
 
+function Invoke-PerformanceOptions {
+
+    <#
+        .SYNOPSIS
+        Toggles the visibility of file extensions in Windows Explorer.
+
+        .DESCRIPTION
+        The `Invoke-ShowFile-Extensions` function updates the Windows registry to show or hide file extensions for known file types in Windows Explorer based on the `$Enabled` parameter.
+        - If `$Enabled` is `$true`, file extensions are shown.
+        - If `$Enabled` is `$false`, file extensions are hidden.
+
+        .PARAMETER Enabled
+        A boolean value that determines whether file extensions should be shown (`$true`) or hidden (`$false`).
+
+        .EXAMPLE
+            Invoke-ShowFile-Extensions -Enabled $true
+        This example makes file extensions visible in Windows Explorer.
+
+        .EXAMPLE
+            Invoke-ShowFile-Extensions -Enabled $false
+        This example hides file extensions in Windows Explorer.
+
+        .NOTES
+        - The function requires restarting Windows Explorer to apply the changes.
+        - Administrative privileges might be required depending on system configuration.
+    #>
+   
+    Param(
+        $Enabled,
+        [string]$Path = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects",
+        [string]$name = "VisualFXSetting"
+    )
+
+        Try{
+
+            if ($Enabled -eq $false){
+                $value = 2
+                Add-Log -Message "Enabled auto end tasks" -Level "Apply"
+            }
+            else {
+                $value = 0
+                Add-Log -Message "Disabled auto end tasks" -Level "Disabled"
+            }
+
+        Set-ItemProperty -Path $Path -Name $name -Value $value -ErrorAction Stop
+        Refresh-Explorer
+
+        }
+        Catch [System.Security.SecurityException] {
+            Write-Warning "Unable to set $Path\$Name to $Value due to a Security Exception"
+        }
+        Catch [System.Management.Automation.ItemNotFoundException] {
+            Write-Warning $psitem.Exception.ErrorRecord
+        }
+        Catch{
+            Write-Warning "Unable to set $Name due to unhandled exception"
+            Write-Warning $psitem.Exception.StackTrace
+        }
+}
 function Invoke-ShowFile {
 
     <#
@@ -16359,6 +16509,12 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Some old games and applications require .NET Framework 3.5."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Super Performance"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content=""/>
+            </StackPanel>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="All Windows effects disabled and optimized for windowed games. You may need to log out and back in for changes to take effect. You can reset to default settings in Settings Tab."/>
         </StackPanel>
                     </ListView>
             </TabItem>
@@ -16423,9 +16579,15 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="Auto End Tasks" Tag=""  Style="{StaticResource ToggleSwitchStyle}" Name="AutoEndTasks"  FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Storage "/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Automatically end tasks that are not responding."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Performance Options" Tag=""  Style="{StaticResource ToggleSwitchStyle}" Name="VisualFXSetting"  FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
+            </StackPanel>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Adjust for best performance."/>
         </StackPanel>
                     </ListView>
             </TabItem>
@@ -16714,16 +16876,16 @@ function Show-Event {
         
 
     
-            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
-                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')  # Start the process to open the URL when clicked
-                })
-            
             $itt.event.FindName('contribute').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')  # Start the process to open the URL when clicked
                 })
             
             $itt.event.FindName('shell').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/shelltube')  # Start the process to open the URL when clicked
+                })
+            
+            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
+                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')  # Start the process to open the URL when clicked
                 })
             
 
