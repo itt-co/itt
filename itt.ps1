@@ -7476,22 +7476,10 @@ $itt.database.Tweaks = '[
     "Category": "Cleanup",
     "Type": "command",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
-      "
-        Remove-Item -Path \"$env:LOCALAPPDATA\\Temp\\*\" -Recurse -Force -ErrorAction SilentlyContinue
-        Remove-Item -Path \"C:\\Windows\\Prefetch\\*\" -Recurse -Force -ErrorAction SilentlyContinue
-        Stop-Service -Name wuauserv -Force
-        takeown /f C:\\Windows\\SoftwareDistribution\\Download /r /d y
-        icacls C:\\Windows\\SoftwareDistribution\\Download /grant administrators:F /t
-        Remove-Item -Path \"C:\\Windows\\SoftwareDistribution\\Download\\*\" -Recurse -Force -ErrorAction SilentlyContinue
-        cleanmgr.exe /d C: /VERYLOWDISK /sagerun:1 Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase
-        cleanmgr.exe /d C: /sagerun:1
-        cleanmgr.exe /sagerun:1
-        Dism.exe /online /Cleanup-Image /StartComponentCleanup
-        cleanmgr.exe /d C: /VERYLOWDISK
-        Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase
-        Start-Service -Name wuauserv
-      "
+      "\r\n        Remove-Item -Path \"$env:LOCALAPPDATA\\Temp\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        Remove-Item -Path \"C:\\Windows\\Prefetch\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        Stop-Service -Name wuauserv -Force\r\n        takeown /f C:\\Windows\\SoftwareDistribution\\Download /r /d y\r\n        icacls C:\\Windows\\SoftwareDistribution\\Download /grant administrators:F /t\r\n        Remove-Item -Path \"C:\\Windows\\SoftwareDistribution\\Download\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        cleanmgr.exe /d C: /VERYLOWDISK /sagerun:1 Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase\r\n        cleanmgr.exe /d C: /sagerun:1\r\n        cleanmgr.exe /sagerun:1\r\n        Dism.exe /online /Cleanup-Image /StartComponentCleanup\r\n        cleanmgr.exe /d C: /VERYLOWDISK\r\n        Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase\r\n        Start-Service -Name wuauserv\r\n      "
     ],
     "UndoCommand": [
       ""
@@ -7504,13 +7492,10 @@ $itt.database.Tweaks = '[
     "Category": "Fixer",
     "Type": "command",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
-      "
-        Chkdsk /scan
-        sfc /scannow
-        DISM /Online /Cleanup-Image /Restorehealth
-        sfc /scannow
-      "
+      "\r\n        Chkdsk /scan\r\n        sfc /scannow\r\n        DISM /Online /Cleanup-Image /Restorehealth\r\n        sfc /scannow\r\n      "
     ],
     "UndoCommand": [
       ""
@@ -7523,6 +7508,8 @@ $itt.database.Tweaks = '[
     "Category": "Performance",
     "Type": "command",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
       "Invoke-RestMethod https://raw.githubusercontent.com/emadadel4/WindowsTweaks/main/ClearStartMenu.ps1 | Invoke-Expression"
     ],
@@ -7537,6 +7524,8 @@ $itt.database.Tweaks = '[
     "Category": "Performance",
     "Type": "Registry",
     "Refresh": "true",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Feeds",
@@ -7588,6 +7577,10 @@ $itt.database.Tweaks = '[
     "Category": "Performance",
     "Type": "AppxPackage",
     "Refresh": "false",
+    "RemoveTasks": [
+      "OneDrive",
+      "Microsoft"
+    ],
     "RemoveAppxPackage": [
       {
         "Name": "Microsoft.BingNews"
@@ -7822,10 +7815,7 @@ $itt.database.Tweaks = '[
       }
     ],
     "InvokeCommand": [
-      "
-        DISM /Online /Remove-Capability /CapabilityName:Microsoft.Windows.MSPaint~~~~0.0.1.0
-        Invoke-RestMethod https://raw.githubusercontent.com/emadadel4/WindowsTweaks/main/ClearStartMenu.ps1 | Invoke-Expression
-      "
+      "\r\n        DISM /Online /Remove-Capability /CapabilityName:Microsoft.Windows.MSPaint~~~~0.0.1.0\r\n        Invoke-RestMethod https://raw.githubusercontent.com/emadadel4/WindowsTweaks/main/ClearStartMenu.ps1 | Invoke-Expression\r\n      "
     ],
     "UndoCommand": [
       ""
@@ -7838,6 +7828,8 @@ $itt.database.Tweaks = '[
     "Category": "Fixer",
     "Type": "command",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
       "Invoke-RestMethod https://raw.githubusercontent.com/emadadel4/WindowsTweaks/main/restore.bat | Invoke-Expression"
     ],
@@ -7852,6 +7844,8 @@ $itt.database.Tweaks = '[
     "Category": "Performance",
     "Type": "command",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
       "\r\n        takeown /f C:\\Windows\\System32\\GameBarPresenceWriter.exe\r\n\r\n        takeown /f C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll\r\n\r\n        takeown /f C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll\r\n\r\n        Start-Sleep -Seconds 1\r\n\r\n\r\n        icacls C:\\Windows\\System32\\GameBarPresenceWriter.exe /grant administrators:F\r\n\r\n        icacls C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll /grant administrators:F\r\n\r\n        icacls C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll /grant administrators:F\r\n\r\n        Start-Sleep -Seconds 1\r\n\r\n\r\n        Rename-Item C:\\Windows\\System32\\GameBarPresenceWriter.exe -NewName GameBarPresenceWriter.exe_backup\r\n\r\n        Rename-Item C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll -NewName GameBarPresenceWriter.proxy.dll_backup\r\n\r\n        Rename-Item C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll -NewName Windows.Gaming.UI.GameBar.dll_backup\r\n\r\n      "
     ],
@@ -7866,6 +7860,8 @@ $itt.database.Tweaks = '[
     "Category": "Performance",
     "Type": "command",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
       "powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61; Start-Process powercfg.cpl"
     ],
@@ -7880,6 +7876,8 @@ $itt.database.Tweaks = '[
     "Category": "Fixer",
     "Type": "command",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
       "netsh int ip reset"
     ],
@@ -7894,6 +7892,8 @@ $itt.database.Tweaks = '[
     "Category": "Other",
     "Type": "command",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
       "curl.exe -ss \"https://live.sysinternals.com/Autologon.exe\" -o $env:temp\\autologin.exe ; cmd /c $env:temp\\autologin.exe /accepteula"
     ],
@@ -7908,6 +7908,8 @@ $itt.database.Tweaks = '[
     "Category": "Performance",
     "Type": "Registry",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKCU:\\SOFTWARE\\Microsoft\\GameBar",
@@ -8107,6 +8109,8 @@ $itt.database.Tweaks = '[
     "Category": "Privacy",
     "Type": "Registry",
     "Refresh": "true",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo",
@@ -8151,6 +8155,8 @@ $itt.database.Tweaks = '[
     "Category": "Privacy",
     "Type": "Registry",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
@@ -8174,6 +8180,8 @@ $itt.database.Tweaks = '[
     "Category": "Performance",
     "Type": "Registry",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications",
@@ -8204,6 +8212,8 @@ $itt.database.Tweaks = '[
     "Category": "Privacy",
     "Type": "Modify",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
@@ -8227,6 +8237,8 @@ $itt.database.Tweaks = '[
     "Category": "Other",
     "Type": "Registry",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Delete": [
       {
         "Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\",
@@ -8299,6 +8311,8 @@ $itt.database.Tweaks = '[
     "Category": "Performance",
     "Type": "service",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Service": [
       {
         "Name": "Spooler",
@@ -8360,6 +8374,8 @@ $itt.database.Tweaks = '[
     "Category": "Performance",
     "Type": "command",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKLM:\\System\\CurrentControlSet\\Control\\Session Manager\\Power",
@@ -8390,6 +8406,8 @@ $itt.database.Tweaks = '[
     "Category": "Performance",
     "Type": "Registry",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\OneDrive",
@@ -8420,6 +8438,8 @@ $itt.database.Tweaks = '[
     "Category": "Classic",
     "Type": "Registry",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows Photo Viewer\\Capabilities\\FileAssociations",
@@ -8485,6 +8505,8 @@ $itt.database.Tweaks = '[
     "Category": "Classic",
     "Type": "Registry",
     "Refresh": "true",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Classes\\CLSID\\",
@@ -8515,6 +8537,8 @@ $itt.database.Tweaks = '[
     "Category": "Privacy",
     "Type": "Registry",
     "Refresh": "true",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Policies\\Microsoft\\Windows\\WindowsCopilot",
@@ -8566,6 +8590,8 @@ $itt.database.Tweaks = '[
     "Category": "Privacy",
     "Type": "Registry",
     "Refresh": "true",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Policies\\Microsoft\\Windows\\WindowsAI",
@@ -8596,6 +8622,8 @@ $itt.database.Tweaks = '[
     "Category": "Performance",
     "Type": "command",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
       "Remove-Item \"$env:LocalAppData\\Microsoft\\Windows\\Explorer\\thumbcache*\" -Force -Recurse"
     ],
@@ -8610,6 +8638,8 @@ $itt.database.Tweaks = '[
     "Category": "Classic",
     "Type": "Registry",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": {
       "Path": "HKLM:\\Software\\Microsoft\\Windows NT\\CurrentVersion\\MTCUVC",
       "Name": "EnableMtcUvc",
@@ -8631,6 +8661,8 @@ $itt.database.Tweaks = '[
     "Category": "Classic",
     "Type": "Registry",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": {
       "Path": "HKCU:\\Control Panel\\Accessibility\\ToggleKeys",
       "Name": "Flags",
@@ -8652,6 +8684,8 @@ $itt.database.Tweaks = '[
     "Category": "Privacy",
     "Type": "service",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Service": [
       {
         "Name": "HomeGroupListener",
@@ -8672,6 +8706,8 @@ $itt.database.Tweaks = '[
     "Category": "Performance",
     "Type": "Registry",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
@@ -8705,6 +8741,8 @@ $itt.database.Tweaks = '[
     "Category": "Privacy",
     "Type": "Registry",
     "refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\location",
@@ -9014,6 +9052,13 @@ $itt.database.Tweaks = '[
         "Value": "0",
         "Type": "DWord",
         "defaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Feeds",
+        "Name": "EnableFeeds",
+        "Value": "0",
+        "Type": "DWord",
+        "defaultValue": "1"
       }
     ],
     "InvokeCommand": [
@@ -9030,6 +9075,8 @@ $itt.database.Tweaks = '[
     "Category": "Protection",
     "Type": "Registry",
     "refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\AutoplayHandlers",
@@ -9059,7 +9106,9 @@ $itt.database.Tweaks = '[
     "Check": "false",
     "Category": "Protection",
     "Type": "command",
-    "refresh": "false",
+    "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
       "Set-SmbServerConfiguration -EnableSMB1Protocol $false -Force; Set-SmbServerConfiguration -EnableSMB2Protocol $false -Force"
     ],
@@ -9073,7 +9122,9 @@ $itt.database.Tweaks = '[
     "Check": "false",
     "Category": "Protection",
     "Type": "command",
-    "refresh": "false",
+    "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
       "Set-NetConnectionProfile -NetworkCategory Public"
     ],
@@ -9087,7 +9138,9 @@ $itt.database.Tweaks = '[
     "Check": "false",
     "Category": "BIOS",
     "Type": "command",
-    "refresh": "false",
+    "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
       "bcdedit /set bootmenupolicy Standard | Out-Null"
     ],
@@ -9101,14 +9154,11 @@ $itt.database.Tweaks = '[
     "Check": "false",
     "Category": "Power",
     "Type": "command",
-    "refresh": "false",
+    "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
-      "
-        powercfg /X monitor-timeout-ac 0
-        powercfg /X monitor-timeout-dc 0
-        powercfg /X standby-timeout-ac 0
-        powercfg /X standby-timeout-dc 0
-      "
+      "\r\n        powercfg /X monitor-timeout-ac 0\r\n        powercfg /X monitor-timeout-dc 0\r\n        powercfg /X standby-timeout-ac 0\r\n        powercfg /X standby-timeout-dc 0\r\n      "
     ],
     "UndoCommand": [
       ""
@@ -9120,7 +9170,9 @@ $itt.database.Tweaks = '[
     "Check": "false",
     "Category": "Personalization",
     "Type": "Registry",
-    "refresh": "false",
+    "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKLM:\\System\\CurrentControlSet\\Control\\CrashControl",
@@ -9143,7 +9195,9 @@ $itt.database.Tweaks = '[
     "Check": "false",
     "Category": "Performance",
     "Type": "Registry",
-    "refresh": "false",
+    "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "Modify": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
@@ -9166,7 +9220,9 @@ $itt.database.Tweaks = '[
     "Check": "false",
     "Category": "Performance",
     "Type": "command",
-    "refresh": "false",
+    "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
       "Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\Defrag\\ScheduledDefrag'' | Out-Null"
     ],
@@ -9181,6 +9237,8 @@ $itt.database.Tweaks = '[
     "Category": "Runtimes",
     "Type": "command",
     "Refresh": "false",
+    "RemoveTasks": [
+    ],
     "InvokeCommand": [
       "DISM /Online /Enable-Feature /FeatureName:NetFx3 /All"
     ],
@@ -9921,6 +9979,7 @@ function Get-SelectedItems {
                                             Modify              = $tweak.Modify
                                             Delete              = $tweak.Delete
                                             Service             = $tweak.Service
+                                            RemoveTasks         = $tweak.RemoveTasks
                                             RemoveAppxPackage   = $tweak.RemoveAppxPackage
                                             Command             = $tweak.InvokeCommand
                                             Refresh             = $tweak.Refresh
@@ -10445,6 +10504,30 @@ function Remove-Registry {
         Write-Host "An error occurred: $_" -ForegroundColor red
     }
 }
+function Remove-ScheduledTasks {
+    param (
+        [string]$jsonFilePath
+    )
+
+    if (-Not (Test-Path $jsonFilePath)) {
+        Write-Host "Not exist $jsonFilePath"
+        return
+    }
+
+    $jsonContent = $jsonFilePath
+    $tasksToRemove = $jsonContent  
+
+    foreach ($taskName in $tasksToRemove) {
+        $task = Get-ScheduledTask | Where-Object { $_.TaskName -eq $taskName }
+        
+        if ($task) {
+            Unregister-ScheduledTask -TaskName $taskName -Confirm:  $false
+            Write-Host "Removed $taskName"
+        } else {
+            Write-Host "Not found $taskName"
+        }
+    }
+}
 function Reset-Preferences {
 
     <#
@@ -10625,38 +10708,36 @@ function Set-Registry {
         The value to be set for the registry key. This parameter is required.
 
         .EXAMPLE
-        Set-Registry -Name "ExampleValue" -Type "String" -Path "HKCU\Software\MyCompany" -Value "ExampleData"
-        Sets the registry value named "ExampleValue" to "ExampleData" under "HKCU\Software\MyCompany". If the path does not exist, it attempts to create it.
+        Set-Registry -Name "EnableFeeds" -Type "DWord" -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Feeds" -Value 0
+        Sets the registry value named "EnableFeeds" to 0 (DWORD) under "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Feeds". If the path does not exist, it attempts to create it.
     #>
 
     param (
-        $Name,
-        $Type,
-        $Path,
-        $Value
+        [string]$Name,
+        [string]$Type,
+        [string]$Path,
+        [psobject]$Value
     )
     
-    try
-    {
+    try {
         # Check if the registry path exists
         if (-not (Test-Path -Path $Path)) {
             Write-Output "Registry path does not exist. Creating it..."
-            # Try to create the registry path
-            try {
-                New-Item -Path $Path -Name $Name -Type $Type -Value $Value -Force -ErrorAction Stop | Out-Null
-                #Add-Log -Message "Registry path created successfully." -Level "INFO"
-            } catch {
-                Add-Log -Message "Failed to create registry path: $_" -Level "ERROR"
-            }
-        } else {
-            Set-ItemProperty -Path $Path -Name $Name -Type $Type -Value $Value -Force -ErrorAction Stop
+            # Create the registry path
+            New-Item -Path $Path -Force | Out-Null
         }
-    }
 
-    catch {
+        # Set or create the registry value
+        New-ItemProperty -Path $Path -Name $Name -PropertyType $Type -Value $Value -Force | Out-Null
+        Write-Output "Registry value set successfully."
+
+    } catch {
         Write-Error "An error occurred: $_"
     }
 }
+
+Set-Registry -Name "EnableFeeds" -Type "DWord" -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Feeds" -Value 0
+
 function Set-Taskbar {
 
     <#
@@ -11239,9 +11320,9 @@ function Invoke-Apply {
         return
     }
 
-    Invoke-ScriptBlock -ArgumentList $selectedTweaks -ScriptBlock {
+    Invoke-ScriptBlock -ArgumentList $selectedTweaks -debug $debug -ScriptBlock {
 
-        param($selectedTweaks)
+        param($selectedTweaks,$debug)
 
         $itt.ProcessRunning = $true
         UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Applying" -TextIcon "applyIcon" -Icon "  " -Width "auto"
@@ -11254,7 +11335,29 @@ function Invoke-Apply {
             switch ($tweak.Type) {        
         
                 "command" {
+
                     $tweak.Command | ForEach-Object { ExecuteCommand -Name $tweak.Name -Command $tweak.Command}
+
+                    # Remove tasks 
+                    if ($tweak.RemoveTasks -and $tweak.RemoveTasks.Count -gt 0)
+                    {
+
+                        foreach ($taskName in $tweak.RemoveTasks) {
+                        
+                            $task = Get-ScheduledTask | Where-Object { $_.TaskName -eq $taskName }
+                                
+                            if ($task) {
+                                Unregister-ScheduledTask -TaskName $taskName -Confirm:$false
+                                Add-Log -Message "Removed $taskName" -Level "INFO"
+                            } else {
+                                if($Debug){Add-Log -Message "$taskName task not found" -Level "ERROR"}
+                            }
+                        }
+
+                    }else {
+                        if($Debug){Add-Log -Message "This tweak has no RemoveTasks" -Level "INFO"}
+                    }
+
                 }
                 "Registry" {
                     $tweak.Modify | ForEach-Object {
@@ -11270,6 +11373,26 @@ function Invoke-Apply {
                         Add-Log -Message "Restarting explorer" -Level "Apply"
                         Refresh-Explorer
                     }
+
+                    # Remove tasks 
+                    if ($tweak.RemoveTasks -and $tweak.RemoveTasks.Count -gt 0)
+                    {
+
+                        foreach ($taskName in $tweak.RemoveTasks) {
+                        
+                            $task = Get-ScheduledTask | Where-Object { $_.TaskName -eq $taskName }
+                                
+                            if ($task) {
+                                Unregister-ScheduledTask -TaskName $taskName -Confirm:$false
+                                Add-Log -Message "Removed $taskName" -Level "INFO"
+                            } else {
+                                if($Debug){Add-Log -Message "$taskName task not found" -Level "ERROR"}
+                            }
+                        }
+
+                    }else {
+                        if($Debug){Add-Log -Message "This tweak has no RemoveTasks" -Level "INFO"}
+                    }
                 }
                 "AppxPackage" {
                     $tweak.removeAppxPackage | ForEach-Object { Uninstall-AppxPackage -Name $_.Name }
@@ -11279,9 +11402,49 @@ function Invoke-Apply {
                         # debug
                         if($debug){Write-Host $tweak.Command}
                     }
+
+                    # Remove tasks 
+                    if ($tweak.RemoveTasks -and $tweak.RemoveTasks.Count -gt 0)
+                    {
+
+                        foreach ($taskName in $tweak.RemoveTasks) {
+                        
+                            $task = Get-ScheduledTask | Where-Object { $_.TaskName -eq $taskName }
+                                
+                            if ($task) {
+                                Unregister-ScheduledTask -TaskName $taskName -Confirm:$false
+                                Add-Log -Message "Removed $taskName" -Level "INFO"
+                            } else {
+                                if($Debug){Add-Log -Message "$taskName task not found" -Level "ERROR"}
+                            }
+                        }
+
+                    }else {
+                        if($Debug){Add-Log -Message "This tweak has no RemoveTasks" -Level "INFO"}
+                    }
                 }
                 "service" {
                     $tweak.Service | ForEach-Object { Disable-Service -ServiceName $_.Name -StartupType $_.StartupType }
+
+                    # Remove tasks 
+                    if ($tweak.RemoveTasks -and $tweak.RemoveTasks.Count -gt 0)
+                    {
+
+                        foreach ($taskName in $tweak.RemoveTasks) {
+                        
+                            $task = Get-ScheduledTask | Where-Object { $_.TaskName -eq $taskName }
+                                
+                            if ($task) {
+                                Unregister-ScheduledTask -TaskName $taskName -Confirm:$false
+                                Add-Log -Message "Removed $taskName" -Level "INFO"
+                            } else {
+                                if($Debug){Add-Log -Message "$taskName task not found" -Level "ERROR"}
+                            }
+                        }
+
+                    }else {
+                        if($Debug){Add-Log -Message "This tweak has no RemoveTasks" -Level "INFO"}
+                    }
                 }
             }
         }
@@ -16418,6 +16581,7 @@ $desiredFunctions = @(
 'Uninstall-AppxPackage',
 'Set-Taskbar',
 'Refresh-Explorer'
+'Remove-ScheduledTasks'
 )
 
 $functions = Get-ChildItem function:\ | Where-Object { $_.Name -in $desiredFunctions }
