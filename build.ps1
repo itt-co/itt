@@ -516,7 +516,7 @@ function Convert-Locales {
 
         # If the language key doesn't already exist in the Controls object, add it
         if (-not $locales["Controls"].ContainsKey($language)) {
-            $locales["Controls"][$language] = @{}
+            $locales["Controls"][$language] = [ordered]@{}  # Use ordered hashtable
         }
 
         # Loop through each row of the CSV file and add the key-value pairs to the respective language section
@@ -529,8 +529,13 @@ function Convert-Locales {
         }
     }
 
-    # Convert the hashtable to JSON format with static structure and write to file
-    $locales | ConvertTo-Json -Compress -Depth 10 | Set-Content -Path $jsonOutputPath -Encoding UTF8
+    # Convert the hashtable to JSON format and save it to the specified output path
+    $jsonOutput = $locales | ConvertTo-Json -Compress
+
+    # Write the JSON to the specified file only if it has changed
+    if (-not (Test-Path $jsonOutputPath) -or (Get-Content $jsonOutputPath -Raw) -ne $jsonOutput) {
+        Set-Content -Path $jsonOutputPath -Value $jsonOutput -Encoding UTF8
+    }
 }
 
 # Write script header
