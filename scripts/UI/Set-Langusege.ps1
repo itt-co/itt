@@ -33,4 +33,7 @@ function Set-Language {
 
     # Set registry value for the language
     Set-ItemProperty -Path $itt.registryPath  -Name "locales" -Value "$lang" -Force
+
+    Message -key "reopen" -icon "Information" -action "OK"
+
 }
