@@ -1,0 +1,54 @@
+Key,Text
+name,Irish
+Welcome,Sábháil am trí níos mó ná clár amháin a shuiteáil ag an am céanna agus feabhsaigh feidhmíocht do Windows. Bí linn ag feabhsú an uirlis seo agus ag déanamh é níos fearr. Is féidir leat do chuid apps ceoil agus feabhsúcháin is fearr leat a chur leis freisin.
+installBtn,Suiteáil
+applyBtn,Cuir i bhfeidhm
+downloading,Íoslódáil...
+about,Faoi
+thirdparty,Tríú páirtí
+preferences,Roghanna
+management,Bainistíocht
+apps,Aipeanna
+tweaks,Feabhsúcháin
+settings,Socruithe
+saveapps,Sábháil
+loadapps,Athchóirigh
+music,Ceol
+on,"Ar "
+off,Múchta
+diskmgr,Bainistíocht Diosca
+taskmgr,Bainisteoir Tascanna
+appsfeatures,Gnéithe Aipeanna
+networks,Líonraí
+services,Seirbhísí
+devicemgr,Bainisteoir Gléasanna
+PowerOptions,Roghanna Cumhachta
+sysinfo,Eolas Córas
+defaultTheme,Úsáid socrú an chórais
+ittlink,Cruthaigh gearrthagairt deisce
+reset,Athshocraigh Roghanna
+reopen,Oscail ITT arís le do thoil.
+theme,Téama
+language,Teanga
+mas,Scripteanna Gníomhachtaithe Microsoft (MAS)
+winoffice,Íoslódáil ISO Windows / Office
+idm,Gníomhachtú IDM
+extensions,Síntí Brabhsálaí
+all,Uile
+search,Cuardaigh
+restorepoint,Cruthaigh pointe athchóirithe
+chocoloc,Fillteán Íoslódálacha Inaistrithe
+InstallMessage,An bhfuil tú cinnte gur mhaith leat na feidhmchláir seo a shuiteáil
+ApplyMessage,An bhfuil tú cinnte gur mhaith leat na feabhsúcháin seo a chur i bhfeidhm
+Applying,Ag cur i bhfeidhm...
+choseapp,Roghnaigh ar a laghad aip amháin le suiteáil.
+chosetweak,Roghnaigh ar a laghad feabhsúchán amháin le cur i bhfeidhm.
+pleasewait,Fan le do thoil tá próiseas ag rith sa chúlra
+lastupdate,An nuashonrú deireanach
+sourcecode,Cód Foinse
+devby,Déanta le ♥ ag Emad Adel
+exit,An bhfuil tú cinnte gur mhaith leat an clár a dhúnadh? Má tá suiteálacha ar siúl beidh siad curtha ar ceal.
+watchdemo,Fáilte
+happybirthday,Breithlá Shona domsa!
+myplaylist,Is é mo Bhreithlá é agus Mo Phléaráca ♪
+OneAppReq,Roghnaigh ar a laghad aip amháin chun é a shábháil
