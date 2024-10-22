@@ -40,7 +40,7 @@ function Finish {
     switch($ListView)
     {
         "AppsListView" {
-            UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "InstallBtn" -TextIcon "installIcon" -Icon "  "
+            UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "InstallBtn" -TextIcon "installIcon" -Icon "  " -Width "150"
             Add-Log -Message "Installs have finished" -Level "Installed"
             Add-Log -Message "If you experience any issues while installing a program, `n` please report the problem." -Level "INFO"
         }

@@ -10067,7 +10067,7 @@ function Finish {
     switch($ListView)
     {
         "AppsListView" {
-            UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "InstallBtn" -TextIcon "installIcon" -Icon "  "
+            UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "InstallBtn" -TextIcon "installIcon" -Icon "  " -Width "150"
             Add-Log -Message "Installs have finished" -Level "Installed"
             Add-Log -Message "If you experience any issues while installing a program, `n` please report the problem." -Level "INFO"
         }
@@ -11520,7 +11520,7 @@ function Invoke-Install {
         param($selectedApps ,$debug)
 
         $itt.ProcessRunning = $true
-        UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "downloading" -TextIcon "installIcon" -Icon "  " -Width "144"
+        UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "downloading" -TextIcon "installIcon" -Icon "  " -Width "auto"
         $itt["window"].Dispatcher.Invoke([action]{ Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
 
         $selectedApps | ForEach-Object {
@@ -16124,23 +16124,53 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
 
   <!-- Buttons -->
      <Grid Column="1" Background="Transparent">
-      <!--applyBtn Button-->
       
+      <!--Install Button-->
+        <Button
+          Name="installBtn"
+          FontSize="14"
+          HorizontalAlignment="Center"
+          VerticalAlignment="Center"
+          HorizontalContentAlignment="Center"
+          VerticalContentAlignment="Center"
+          Cursor="Hand"
+          Width="150" 
+          Height="45" 
+          Margin="20">
+
+          <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+              <TextBlock Name="installText" 
+              Text="{Binding installBtn}" 
+              Foreground="White" 
+              Margin="0" 
+              VerticalAlignment="Center"/>
+
+              <TextBlock Name="installIcon"
+              Text=" &#xE930;" 
+              Foreground="White" 
+              FontFamily="Segoe MDL2 Assets" 
+              FontSize="14" 
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"/>
+          </StackPanel>
+        </Button>
+      <!--End Install Button-->
+
+      <!--Apply Button-->
           <Button
 
             Name="applyBtn"
             FontSize="14" 
-            Background="Transparent"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center"
             Cursor="Hand"
-            Width="auto" 
-            Height="auto" 
-            Margin="0">
+            Width="150" 
+            Height="45" 
+            Margin="20">
             
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
 
                 <TextBlock Name="applyText" 
                 Text="{Binding applyBtn}" 
@@ -16158,43 +16188,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
             </StackPanel>
 
           </Button>
-
-
-      <!--End applyBtn Button-->
-
-
-      <!--Install Button-->
-        <Button
-          Name="installBtn"
-          FontSize="14"
-          Background="Transparent"
-          HorizontalAlignment="Center"
-          VerticalAlignment="Center"
-          HorizontalContentAlignment="Center"
-          VerticalContentAlignment="Center"
-          Cursor="Hand"
-          Width="auto" 
-          Height="auto" 
-          Margin="0">
-
-          <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-              <TextBlock Name="installText" 
-              Text="{Binding installBtn}" 
-              Foreground="White" 
-              Margin="0" 
-              VerticalAlignment="Center"/>
-
-              <TextBlock Name="installIcon"
-               Text=" &#xE930;" 
-               Foreground="White" 
-               FontFamily="Segoe MDL2 Assets" 
-               FontSize="14" 
-               HorizontalAlignment="Center"
-               VerticalAlignment="Center"/>
-          </StackPanel>
-
-        </Button>
-      <!--End Install Button-->
+      <!--End Apply Button-->
 
     </Grid>
   <!-- Buttons -->

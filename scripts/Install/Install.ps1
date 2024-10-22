@@ -69,7 +69,7 @@ function Invoke-Install {
         param($selectedApps ,$debug)
 
         $itt.ProcessRunning = $true
-        UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "downloading" -TextIcon "installIcon" -Icon "  " -Width "144"
+        UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "downloading" -TextIcon "installIcon" -Icon "  " -Width "auto"
         $itt["window"].Dispatcher.Invoke([action]{ Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
 
         $selectedApps | ForEach-Object {
