@@ -174,6 +174,8 @@ function Update-Readme {
     # Read the content of the original README.md file
     $readmeContent = Get-Content -Path $OriginalReadmePath -Raw
 
+    $badgeUrl = "https://img.shields.io/badge/Latest Update-$(Get-Date -Format 'MM/dd/yyy')-blue?style=for-the-badge"
+
     # Prepare values for the placeholders
     $applicationsCount = $itt.database.Applications.Count
     $tweaksCount = $itt.database.Tweaks.Count
@@ -190,6 +192,7 @@ function Update-Readme {
         "#{OST}" = $tracksCount
         "#{s}" = $settingsCount
         "#{loc}" = $localesCount
+        "#{last}" = $badgeUrl
     }
 
     # Replace placeholders in a single pass
