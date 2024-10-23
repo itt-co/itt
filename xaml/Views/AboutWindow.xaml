@@ -1,130 +1,197 @@
 <Window
-  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-  x:Name="Window" Title="About | ITT " WindowStartupLocation = "CenterScreen" 
-  Background="{DynamicResource PrimaryBackgroundColor}"
-  WindowStyle="ToolWindow"
-  Height="488" Width="350" ShowInTaskbar = "True" Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/icon.ico">
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="About | ITT"
+    WindowStartupLocation="CenterScreen"
+    Background="{DynamicResource PrimaryBackgroundColor}"
+    WindowStyle="ToolWindow"
+    Height="555" Width="455"
+    ShowInTaskbar="True"
+    MinHeight="555"
+    MinWidth="455"
+    ResizeMode="NoResize"
+    Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/icon.ico">
 
-    <Grid>
-      <Grid.RowDefinitions>
-        <RowDefinition Height="auto"/>
-        <RowDefinition Height="auto"/>
-        <RowDefinition Height="auto"/>
-        <RowDefinition Height="*"/>
-      </Grid.RowDefinitions>
+    <Window.Resources>
+      <!--Scrollbar Thumbs-->
+          <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
+              <Setter Property="Template">
+                  <Setter.Value>
+                      <ControlTemplate TargetType="{x:Type Thumb}">
+                          <Grid x:Name="Grid">
+                              <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Fill="Transparent" />
+                              <Border x:Name="Rectangle1" CornerRadius="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="{TemplateBinding Background}" />
+                          </Grid>
+                          <ControlTemplate.Triggers>
+                              <Trigger Property="Tag" Value="Horizontal">
+                                  <Setter TargetName="Rectangle1" Property="Width" Value="Auto" />
+                                  <Setter TargetName="Rectangle1" Property="Height" Value="7" />
+                              </Trigger>
+                          </ControlTemplate.Triggers>
+                      </ControlTemplate>
+                  </Setter.Value>
+              </Setter>
+          </Style>
+          <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
+              <Setter Property="Stylus.IsFlicksEnabled" Value="false" />
+              <Setter Property="Foreground" Value="{DynamicResource PrimaryButtonForeground}" />
+              <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}" />
+              <Setter Property="Width" Value="8" />
+              <Setter Property="Template">
+                  <Setter.Value>
+                      <ControlTemplate TargetType="{x:Type ScrollBar}">
+                          <Grid x:Name="GridRoot" Width="8" Background="{TemplateBinding Background}">
+                              <Grid.RowDefinitions>
+                                  <RowDefinition Height="0.00001*" />
+                              </Grid.RowDefinitions>
+                              <Track x:Name="PART_Track" Grid.Row="0" IsDirectionReversed="true" Focusable="false">
+                                  <Track.Thumb>
+                                      <Thumb x:Name="Thumb" Background="{TemplateBinding Foreground}" Style="{DynamicResource ScrollThumbs}" />
+                                  </Track.Thumb>
+                                  <Track.IncreaseRepeatButton>
+                                      <RepeatButton x:Name="PageUp" Command="ScrollBar.PageDownCommand" Opacity="0" Focusable="false" />
+                                  </Track.IncreaseRepeatButton>
+                                  <Track.DecreaseRepeatButton>
+                                      <RepeatButton x:Name="PageDown" Command="ScrollBar.PageUpCommand" Opacity="0" Focusable="false" />
+                                  </Track.DecreaseRepeatButton>
+                              </Track>
+                          </Grid>
+                          <ControlTemplate.Triggers>
+                              <Trigger SourceName="Thumb" Property="IsMouseOver" Value="true">
+                                  <Setter Value="{DynamicResource ButtonSelectBrush}" TargetName="Thumb" Property="Background" />
+                              </Trigger>
+                              <Trigger SourceName="Thumb" Property="IsDragging" Value="true">
+                                  <Setter Value="{DynamicResource DarkBrush}" TargetName="Thumb" Property="Background" />
+                              </Trigger>
+                              <Trigger Property="IsEnabled" Value="false">
+                                  <Setter TargetName="Thumb" Property="Visibility" Value="Collapsed" />
+                              </Trigger>
+                              <Trigger Property="Orientation" Value="Horizontal">
+                                  <Setter TargetName="GridRoot" Property="LayoutTransform">
+                                      <Setter.Value>
+                                          <RotateTransform Angle="-90" />
+                                      </Setter.Value>
+                                  </Setter>
+                                  <Setter TargetName="PART_Track" Property="LayoutTransform">
+                                      <Setter.Value>
+                                          <RotateTransform Angle="-90" />
+                                      </Setter.Value>
+                                  </Setter>
+                                  <Setter Property="Width" Value="Auto" />
+                                  <Setter Property="Height" Value="8" />
+                                  <Setter TargetName="Thumb" Property="Tag" Value="Horizontal" />
+                                  <Setter TargetName="PageDown" Property="Command" Value="ScrollBar.PageLeftCommand" />
+                                  <Setter TargetName="PageUp" Property="Command" Value="ScrollBar.PageRightCommand" />
+                              </Trigger>
+                          </ControlTemplate.Triggers>
+                      </ControlTemplate>
+                  </Setter.Value>
+              </Setter>
+          </Style>
+      <!--End Scrollbar Thumbs-->
+      <!--Button Style-->
+        <Style TargetType="Button">
+          <Setter Property="Background" Value="{DynamicResource PrimaryButtonForeground}"/>
+          <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor2}"/>
+          <Setter Property="BorderBrush" Value="Transparent"/>
+          <Setter Property="BorderThickness" Value="1"/>
+          
+          <Setter Property="Template">
+              <Setter.Value>
+                  <ControlTemplate TargetType="Button">
+                      <Border CornerRadius="20" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                          <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                          
+                      </Border>
+                  </ControlTemplate>
+              </Setter.Value>
+          </Setter>
+          <Style.Triggers>
+              <Trigger Property="IsMouseOver" Value="True">
+                  <Setter Property="Background" Value="{DynamicResource HighlightColor}"/>
+                  <Setter Property="Foreground" Value="{DynamicResource PrimaryButtonHighlight}"/>
+              </Trigger>
+          </Style.Triggers>
+        </Style>
+      <!--End Button Style-->
+  </Window.Resources>
 
-      <StackPanel Margin="2">
+  <Grid Margin="10">
 
-        <!--Header -->
-          <Grid Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+      <!-- Define rows and columns for layout -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/> <!-- Logo -->
+            <RowDefinition Height="Auto"/> <!-- Contribute Names -->
+            <RowDefinition Height="Auto"/> <!-- Icons -->
+        </Grid.RowDefinitions>
+      <!-- Define rows and columns for layout -->
+
+      <!-- Logo Section -->
+        <Grid Grid.Row="0">
             <StackPanel Orientation="Vertical">
-              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/logo.png" Margin="20" Height="70" Width="Auto">
-                <Image.Effect>
-                  <DropShadowEffect Color="#FFFF0000" BlurRadius="5" ShadowDepth="0" Opacity="0.8"/>
-              </Image.Effect>
-              </Image>
-              
-              <TextBlock Text="Made with ♥ by Emad Adel" 
-                Foreground="{DynamicResource TextColorSecondaryColor2}"
-                VerticalAlignment="Center" 
-                HorizontalAlignment="Center"
-                FontSize="15"
-                Margin="0,0,0,0"
-              />
 
-              <TextBlock Text="{Binding lastupdate}" 
-              x:Name="ver"
-              Foreground="{DynamicResource TextColorSecondaryColor2}"
-              VerticalAlignment="Center" 
-              HorizontalAlignment="Center"
-              Margin="0,0,0,0"/>
-              
+                <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/logo.png" 
+                Height="70" Width="Auto" HorizontalAlignment="Center" Margin="0,5,0,5"/>
+
+                <TextBlock 
+                Name="ver" 
+                Text="9/1/1998" 
+                FontSize="14" 
+                TextAlignment="Center" 
+                Foreground="{DynamicResource TextColorSecondaryColor2}" />
+
+                <!-- Description Section -->
+                <TextBlock  Text="ITT was created to simplify software installation and Windows tweaks, making it easier for others to use their computers. It is an open-source project, and you can contribute to make it better by adding your favorite apps and more."
+                            TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,5,0,5" Width="355" Padding="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="14" TextAlignment="Center"/>
+
             </StackPanel>
-          </Grid>
-        <!--Header -->
-
-        <!-- Contributors -->
-          <Grid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-
-
-              <ScrollViewer VerticalScrollBarVisibility="Auto" Height="150">
-
-                
-              <StackPanel x:Name="names" Orientation="Vertical" Margin="15,0,0,0">
-
-                <TextBlock Text="Contributors"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Left"
-                FontSize="15"
-                FontWeight="SemiBold" 
-                Margin="0,10,0,10"
-                Foreground='{DynamicResource TextColorSecondaryColor2}' />
+        </Grid>
+      <!-- Logo Section -->
+      <!-- Contribute Names Section -->
+        <Grid Grid.Row="1">
+                  
+          <StackPanel Orientation="Vertical">
+      
+              <!-- Contribute Names Section -->
+              <TextBlock Text="Contributors"
+              TextWrapping="Wrap" HorizontalAlignment="Center" Foreground="{DynamicResource TextColorSecondaryColor2}" Margin="0,5,0,5" FontSize="12" FontStyle="Italic" TextAlignment="Center"/>
 
 
-                <TextBlock Text='emadadel4' Margin='1' Foreground='{DynamicResource TextColorSecondaryColor2}' />
+              <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" Height="155">
+      
+                <StackPanel Margin="25">
+                  <TextBlock Text='emadadel4' Margin='1' Foreground='{DynamicResource TextColorSecondaryColor2}' />
 <TextBlock Text='yousefmhmd' Margin='1' Foreground='{DynamicResource TextColorSecondaryColor2}' />
 
+                </StackPanel>
 
-              </StackPanel>
+                </ScrollViewer>
 
+          </StackPanel>
 
-
-            </ScrollViewer>
-          </Grid>
-        <!--End Contributors -->
-
-        <!--Footer -->
-          <Grid Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="0,0,0,10">
-
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/telegram.png" 
-              Name="telegram"
-              VerticalAlignment="Bottom" 
-              HorizontalAlignment="Center" 
-              Margin="10" 
-              Height="30"
-              Cursor="Hand"
-              Width="Auto"/>
-
-              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/youtube.png"
-              Name="yt"
-              Margin="10"
-              Height="30"
-              VerticalAlignment="Bottom"
-              HorizontalAlignment="Center"
-              Cursor="Hand"
-              Width="Auto"/>
-
-              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/github.png" 
-              Name="github"
-              Margin="10"
-              Height="30" 
-              VerticalAlignment="Bottom"
-              HorizontalAlignment="Center"
-              Cursor="Hand"
-              Width="Auto"/>
-
-              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/blog.png" 
-              Name="blog"
-              Margin="10" 
-              Height="30" 
-              VerticalAlignment="Bottom"
-              HorizontalAlignment="Center"
-              Cursor="Hand"
-              Width="Auto"/>
-
-
-            </StackPanel>
-          </Grid>
-        <!--End Footer -->
-
-        <Grid Grid.Row="3">
-          <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/coffee.png" Cursor="Hand" Name="coffee" Height="50" Width="Auto"/>
         </Grid>
+      <!-- Contribute Names Section -->
+      <!-- Social Media Icons Section -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5">
+            <Button Width="40" Name="github" Cursor="Hand" Height="40" Margin="5">
+                <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/github.png"/>
+            </Button>
+            <Button Width="40" Name="telegram" Cursor="Hand" Height="40" Margin="5">
+              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/telegram.png"/>
+          </Button>
+            <Button Width="40"  Cursor="Hand" Name="yt" Height="40" Margin="5">
+                <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/youtube.png"/>
+            </Button>
+            <Button Width="40" Name="blog" Cursor="Hand" Height="40" Margin="5">
+                <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/blog.png"/>
+            </Button>
+            <Button Width="40" Name="coffee" Cursor="Hand" Height="40" Margin="5">
+              <Image Source="https://cdn.buymeacoffee.com/assets/homepage/meta/apple-icon-120x120.png"/>
+          </Button>
+        </StackPanel>
+      <!--  Icons Section -->
 
-    </StackPanel>
-
-    </Grid>
-  </Window>
+  </Grid>
+</Window>
 
