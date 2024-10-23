@@ -4,6 +4,9 @@
     <img src="https://raw.githubusercontent.com/Safouene1/support-palestine-banner/master/StandWithPalestine.svg" alt="Ceasefire Now" style="width:40%;">
   </a>
 </p>
+
+[![Genocide Watch](https://hinds-banner.vercel.app/genocide-watch?variant=forest)](https://www.pcrf.net/)
+
   
 <h1 align="center">🔻 ITT (Install Tweaks Tool) 🔻 </h1>
 
