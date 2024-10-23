@@ -8,13 +8,13 @@ function About {
     # Get main style theme
     $itt["about"].Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.CurretTheme))
 
-    # Set Events on Click
+    # # Set Events on Click
     $itt.about.FindName('ver').Text = "Last update $($itt.lastupdate)"
-    $itt.about.FindName("telegram").add_MouseLeftButtonDown({Start-Process($itt.telegram)})
-    $itt.about.FindName("github").add_MouseLeftButtonDown({Start-Process($itt.github)})
-    $itt.about.FindName("blog").add_MouseLeftButtonDown({Start-Process($itt.blog)})
-    $itt.about.FindName("yt").add_MouseLeftButtonDown({Start-Process($itt.youtube)})
-    $itt.about.FindName("coffee").add_MouseLeftButtonDown({Start-Process($itt.buymeacoffee)})
+    $itt.about.FindName("telegram").Add_Click({Start-Process($itt.telegram)})
+    $itt.about.FindName("github").Add_Click({Start-Process($itt.github)})
+    $itt.about.FindName("blog").Add_Click({Start-Process($itt.blog)})
+    $itt.about.FindName("yt").Add_Click({Start-Process($itt.youtube)})
+    $itt.about.FindName("coffee").Add_Click({Start-Process($itt.buymeacoffee)})
     
     # Set data context language
     $itt.about.DataContext = $itt.database.locales.Controls.en
