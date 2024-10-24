@@ -1,0 +1,12 @@
+stages:
+  - mirror
+
+mirror:
+  stage: mirror
+  script:
+    - git clone --mirror https://github.com/emadadel4/itt.git /tmp/itt
+    - cd /tmp/itt
+    - git remote set-url origin https://oauth2:${GITLAB_TOKEN}@gitlab.com/emadadel/itt.git
+    - git push --mirror origin
+  only:
+    - triggers
