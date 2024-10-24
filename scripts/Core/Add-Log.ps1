@@ -5,8 +5,6 @@ function Add-Log {
         [string]$Level = "INFO" # Message Level [INFO] [ERROR] [WARNING],
     )
 
-    $timestamp = Get-Date -Format "hh:mm tt"
-
     # Determine the color based on the log level
     switch ($Level.ToUpper()) {
         "INFO" { $color = "White" }
@@ -18,14 +16,14 @@ function Add-Log {
     }
 
     switch ($Level.ToUpper()) {
-        "INFO" { $icon = "+" }
+        "INFO" { $icon = "i" }
         "WARNING" { $icon = "!" }
         "ERROR" { $icon = "X" }
         "Installed" { $icon = "√" }
         "Apply" { $icon = "√" }
         "Disabled" { $icon = "X" }
         "Enabled" { $icon = "√" }
-        default { $icon = "!" }
+        default { $icon = "i" }
     }
 
     # Construct the log message
