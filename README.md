@@ -7,14 +7,12 @@
 
 [![Genocide Watch](https://hinds-banner.vercel.app/genocide-watch?variant=forest)](#support-palestine)
 
-  
 <h1 align="center">🔻 ITT (Install Tweaks Tool) 🔻 </h1>
 
 <h3 align="center">
    Launch Anytime, Anywhere!
 </h3>
 <br>
-
 <div align="center">
 
   <a href="/docs/README.ar.md">
@@ -72,7 +70,7 @@
 </div>
 
 <p align="center">
-  <a  href="#" rel="nofollow"><img src="https://img.shields.io/badge/Latest Update-10/24/2024-blue?style=for-the-badge"></a>
+  <a  href="#" rel="nofollow"><img src="https://img.shields.io/badge/Latest Update-10/25/2024-blue?style=for-the-badge"></a>
 </p>
 
 
