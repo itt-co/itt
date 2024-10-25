@@ -10107,40 +10107,6 @@ function Finish {
 }
 function Show-Selected {
 
-   <#
-        .SYNOPSIS
-        Filters or clears items in a specified ListView based on their selection status.
-
-        .DESCRIPTION
-        This function provides functionality to either filter the items in a specified ListView to show only those with selected checkboxes or to clear the filter and reset the ListView. It handles two modes:
-        - `Filter`: Filters items based on whether their checkboxes are selected.
-        - Default: Clears the ListView and resets the filter.
-
-        .PARAMETER ListView
-        The name of the ListView control within the `$itt` object to be processed. This parameter is required.
-
-        .PARAMETER mode
-        The mode of operation for the function. Options include:
-        - `Filter`: Applies a filter to show only items with selected checkboxes.
-        - Default: Clears any applied filter and resets the ListView.
-
-        .OPTIONS
-        AppsListView
-        TweaksListView
-
-        .EXAMPLE
-        Show-Selected -ListView "AppsListView" -mode "Filter"
-        Filters the "AppsListView" to display only the items where the associated checkbox is selected.
-
-        .EXAMPLE
-        Show-Selected -ListView "TweaksListView"
-        Clears the filter on the "TweaksListView" and resets the ListView to show all items.
-
-        .NOTES
-        - Ensure the `$itt` object and its `ListView` are properly initialized and accessible.
-        - The `mode` parameter determines whether to apply a filter or reset the ListView. If not specified, the function defaults to clearing the ListView.
-    #>
-
     param (
         [string]$ListView,
         [string]$mode,
