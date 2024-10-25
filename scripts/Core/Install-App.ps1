@@ -55,6 +55,6 @@ function Install-App {
     }
     else
     {
-        Add-Log -Message "Successfully Installed Using Chocolatey." -Level "Installed"
+        Add-Log -Message "($appName) Successfully Installed Using Chocolatey." -Level "Installed"
     }
 }
