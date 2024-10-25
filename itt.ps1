@@ -9576,6 +9576,26 @@ $itt.database.Tweaks = '[
     "UndoCommand": [
       ""
     ]
+  },
+  {
+    "Name": "Remove Widgets from Taskbar in Windows 11",
+    "Description": "Widgets are one of the new user interface elements in Windows 11 They are used to display dynamic information on the desktop including weather news and other information from various sources",
+    "Check": "false",
+    "Type": "Registry",
+    "Refresh": "false",
+    "Modify": {
+      "Name": "TaskbarDa",
+      "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\TaskbarDeveloperSettings",
+      "defaultValue": "1",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    "InvokeCommand": [
+     "winget uninstall ''windows web experience pack''"
+    ],
+    "UndoCommand": [
+      ""
+    ]
   }
 ]
 ' | ConvertFrom-Json
@@ -11707,12 +11727,28 @@ function Invoke-Apply {
                 }
                 "Registry" {
                     $tweak.Modify | ForEach-Object {
+
                         Set-Registry -Name $_.Name -Type $_.Type -Path $_.Path -Value $_.Value
+
                         if($debug){Write-Host -Name $_.Name -Type $_.Type -Path $_.Path -Value $_.Value}
+
+                        $tweak.Command | ForEach-Object {
+                            ExecuteCommand -Name $tweak.Name -Command $tweak.Command 
+    
+                            # debug
+                            if($debug){Write-Host $tweak.Command}
+                        }
                     }
                     $tweak.Delete | ForEach-Object {
+
                         Remove-Registry -RegistryPath $_.Path -Folder $_.Name
                         if($debug){Write-Host $_.Path -Folder $_.Name}
+
+                        if ($tweak.InvokeCommand -and $tweak.InvokeCommand.Count -gt 0)
+                        {
+                            ExecuteCommand -Command $tweak.Command
+                        }
+
                     }
                     if($tweak.Refresh -eq "true")
                     {
@@ -11742,6 +11778,7 @@ function Invoke-Apply {
                 }
                 "AppxPackage" {
                     $tweak.removeAppxPackage | ForEach-Object { Uninstall-AppxPackage -Name $_.Name }
+
                     $tweak.Command | ForEach-Object {
                         ExecuteCommand -Name $tweak.Name -Command $tweak.Command 
 
@@ -16483,6 +16520,12 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content=""/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="All Windows effects disabled and optimized for windowed games. You may need to log out and back in for changes to take effect. You can reset to default settings in Settings Tab."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Remove Widgets from Taskbar in Windows 11"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content=""/>
+            </StackPanel>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Widgets are one of the new user interface elements in Windows 11 They are used to display dynamic information on the desktop including weather news and other information from various sources."/>
         </StackPanel>
                     </ListView>
             </TabItem>
