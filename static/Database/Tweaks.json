@@ -341,7 +341,7 @@
       }
     ],
     "InvokeCommand": [
-      "\r\n        DISM /Online /Remove-Capability /CapabilityName:Microsoft.Windows.MSPaint~~~~0.0.1.0\r\n        Invoke-RestMethod https://raw.githubusercontent.com/emadadel4/WindowsTweaks/main/ClearStartMenu.ps1 | Invoke-Expression\r\n      "
+      ""
     ],
     "UndoCommand": [
       ""
