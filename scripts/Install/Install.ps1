@@ -36,24 +36,23 @@ function Invoke-Install {
     #>
 
   
-    $selectedApps = Get-SelectedItems -Mode "Apps"
 
     if($itt.ProcessRunning) {
         Message -key "Pleasewait" -icon "Warning" -action "OK"
         return
     }
 
+    # Show only selected item
+    Show-Selected -ListView "AppsListView" -Mode "Filter"
+
+    # Get Selected apps
+    $selectedApps = Get-SelectedItems -Mode "Apps"
 
     if($selectedApps.Count -eq 0)
     {
         # Show Message
         Message -key "choseapp" -icon "info" -action "OK"
         return
-    }
-    else
-    {
-        # Show only selected item
-        Show-Selected -ListView "AppsListView" -Mode "Filter"
     }
 
     $result = Message -key "InstallMessage" -icon "ask" -action "YesNo"
@@ -84,7 +83,7 @@ function Invoke-Install {
                 Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
 
                 # Debug
-                if($debug){Write-Host $_.Winget $_.Choco}
+                if($debug){Write-Host $_.Name}
                 Install-App -appName $_.Name -appWinget $_.Winget -appChoco $_.Choco
 
             }
