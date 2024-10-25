@@ -112,7 +112,8 @@ function Show-Selected {
 
     param (
         [string]$ListView,
-        [string]$mode
+        [string]$mode,
+        [string]$count = "false"
      )
 
     switch ($mode) {
@@ -142,7 +143,13 @@ function Show-Selected {
                 return $true
             }
         
-            $collectionView.Filter = $filterPredicate
+            $CountApps = Get-SelectedItems -Mode "Apps"
+
+            if($CountApps.count -gt 0)
+            {
+                $collectionView.Filter = $filterPredicate
+            }
+
 
         }
         Default {
