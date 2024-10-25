@@ -1706,7 +1706,6 @@
         "defaultValue": "0"
       },
       {
-        "_Comment": "Driver searching is a function that should be left in",
         "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DriverSearching",
         "Name": "SearchOrderConfig",
         "Value": "1",
