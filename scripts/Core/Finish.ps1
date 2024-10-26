@@ -104,7 +104,7 @@ function Show-Selected {
                 }
         
                 # Return $true if no CheckBox found (to include all items)
-                #return $true
+                return $true
             }
         
             $collectionView.Filter = $filterPredicate
