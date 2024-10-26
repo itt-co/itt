@@ -20,14 +20,24 @@ function ExecuteCommand {
 
     param (
         [string]$Name,
-        [scriptblock]$Command
+        [array]$Tweak
     )
 
     try {
-        Add-Log -Message "$Name" -Level "INFO"
-        Invoke-Command $Command -ErrorAction Stop
 
-        If($Debug){ Add-Log -Message "$Name $Command" -Level "info"}
+        if($debug){ Add-Log -Message $Name $Tweak -Level "debug"}
+
+        if ($tweak -and $tweak.Count -gt 0) {
+            
+            $Tweak | ForEach-Object { 
+                $cmd = [scriptblock]::Create($psitem)
+                Invoke-Command  $cmd -ErrorAction Stop
+            }
+        }
+        else
+        {
+            if($debug){Add-Log -Message "InvokeCommand is empty" -Level "debug" }
+        }
 
     } catch [System.Management.Automation.CommandNotFoundException] {
         Write-Warning "The specified command was not found."
@@ -42,8 +52,7 @@ function ExecuteCommand {
         Write-Warning "Access denied. You do not have permission to perform this operation."
         Write-Warning $PSItem.Exception.message
     } catch {
-        # Generic catch block to handle any other type of exception
-        Write-Warning "Unable to run script for $name due to unhandled exception"
+        Write-Warning "Unable to run script for $Name due to unhandled exception"
         Write-Warning $psitem.Exception.StackTrace
     }
 }
