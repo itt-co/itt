@@ -12,6 +12,7 @@ function Add-Log {
         "ERROR" { $color = "Red" }
         "Installed" { $color = "White" }
         "Apply" { $color = "White" }
+        "debug" { $color = "Yello" }
         default { $color = "White" }
     }
 
@@ -23,6 +24,7 @@ function Add-Log {
         "Apply" { $icon = "√" }
         "Disabled" { $icon = "X" }
         "Enabled" { $icon = "√" }
+        "debug" { $icon = "debug" }
         default { $icon = "i" }
     }
 
