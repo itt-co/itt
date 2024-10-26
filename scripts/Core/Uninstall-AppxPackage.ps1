@@ -1,4 +1,5 @@
-function Uninstall-AppxPackage  {
+function Uninstall-AppxPackage {
+
     <#
         .SYNOPSIS
         Uninstalls an AppX package and removes any provisioned package references.
@@ -18,17 +19,24 @@ function Uninstall-AppxPackage  {
         - The function runs PowerShell commands in a new process to handle the removal operations.
         - Add-Log should be implemented in your script or module to handle logging appropriately.
     #>
-
+    
     param (
         $Name
     )
-       
+
     try {
-        Add-Log -Message "Trying to remove $($Name)" -Level "INFO"
-        #Get-AppxPackage -AllUsers "*$Name*" | Remove-AppxPackage -ErrorAction SilentlyContinue
-        Start-Process -FilePath "powershell.exe" -ArgumentList "-Command Get-AppxPackage -AllUsers '*$Name*' | Remove-AppxPackage -ErrorAction SilentlyContinue" -NoNewWindow -Wait
-        Start-Process -FilePath "powershell.exe" -ArgumentList "-Command Get-AppxProvisionedPackage -Online | Where-Object DisplayName -like "*$Name*" | Remove-AppxProvisionedPackage -Online -ErrorAction SilentlyContinue" -NoNewWindow -Wait
+        Write-Host "Removing $Name"
+        Get-AppxPackage "*$Name*" | Remove-AppxPackage -ErrorAction SilentlyContinue
+        Get-AppxProvisionedPackage -Online | Where-Object DisplayName -like "*$Name*" | Remove-AppxProvisionedPackage -Online -ErrorAction SilentlyContinue
+    } catch [System.Exception] {
+        if ($psitem.Exception.Message -like "*The requested operation requires elevation*") {
+            Write-Warning "Unable to uninstall $name due to a Security Exception"
+        } else {
+            Write-Warning "Unable to uninstall $name due to unhandled exception"
+            Write-Warning $psitem.Exception.StackTrace
+        }
     } catch {
-            Write-Output "Not installed or unable to remove it: $($_.Exception.Message)"
+        Write-Warning "Unable to uninstall $name due to unhandled exception"
+        Write-Warning $psitem.Exception.StackTrace
     }
 }
