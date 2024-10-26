@@ -10184,7 +10184,7 @@ function Show-Selected {
                 }
         
                 # Return $true if no CheckBox found (to include all items)
-                #return $true
+                return $true
             }
         
             $collectionView.Filter = $filterPredicate
@@ -11665,10 +11665,10 @@ function Invoke-Install {
             {
 
                 # Some packages won't install until the package folder is removed.
-                #$chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($_.Choco)"
-                #Remove-Item -Path "$chocoFolder" -Recurse -Force
-                #Remove-Item -Path "$chocoFolder.install" -Recurse -Force
-                #Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
+                $chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($_.Choco)"
+                Remove-Item -Path "$chocoFolder" -Recurse -Force
+                Remove-Item -Path "$chocoFolder.install" -Recurse -Force
+                Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
 
                 # Debug
                 if($debug){Add-Log -Message $_.Name -Level "debug"}
