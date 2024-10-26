@@ -20,12 +20,30 @@ function ExecuteCommand {
 
     param (
         [string]$Name,
-        [string]$Command
+        [scriptblock]$Command
     )
+
     try {
-        #Add-Log -Message "$Name" -Level "INFO"
-        Start-Process -FilePath "powershell.exe" -ArgumentList "-Command `"$Command`"" -NoNewWindow -Wait
+        Add-Log -Message "$Name" -Level "INFO"
+        Invoke-Command $Command -ErrorAction Stop
+
+        If($Debug){ Add-Log -Message "$Name $Command" -Level "info"}
+
+    } catch [System.Management.Automation.CommandNotFoundException] {
+        Write-Warning "The specified command was not found."
+        Write-Warning $PSItem.Exception.message
+    } catch [System.Management.Automation.RuntimeException] {
+        Write-Warning "A runtime exception occurred."
+        Write-Warning $PSItem.Exception.message
+    } catch [System.Security.SecurityException] {
+        Write-Warning "A security exception occurred."
+        Write-Warning $PSItem.Exception.message
+    } catch [System.UnauthorizedAccessException] {
+        Write-Warning "Access denied. You do not have permission to perform this operation."
+        Write-Warning $PSItem.Exception.message
     } catch {
-        Write-Host "Error executing command '$Command': $_"
+        # Generic catch block to handle any other type of exception
+        Write-Warning "Unable to run script for $name due to unhandled exception"
+        Write-Warning $psitem.Exception.StackTrace
     }
 }
