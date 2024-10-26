@@ -15,7 +15,7 @@ function Remove-ScheduledTasks {
                 }
             } else {
                 if ($Debug) {
-                    Add-Log -Message "No tasks matching '$taskNamePattern' found" -Level "INFO"
+                    Add-Log -Message "No tasks matching '$taskNamePattern' found" -Level "debug"
                 }
             }
         }
