@@ -24,10 +24,9 @@ $desiredFunctions = @(
 'ExecuteCommand',
 'Set-Registry',
 'Remove-Registry',
-'Disable-Service',
 'Uninstall-AppxPackage',
 'Set-Taskbar',
-'Refresh-Explorer'
+'Refresh-Explorer',
 'Remove-ScheduledTasks'
 )
 
@@ -88,7 +87,7 @@ try {
         }
         catch {
             # Creating missing registry keys
-            if($Debug) {Add-Log -Message "An error occurred. Creating missing registry keys..." -Level "INFO"}
+            if($Debug) {Add-Log -Message "An error occurred. Creating missing registry keys..." -Level "debug"}
             New-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -PropertyType String -Force *> $Null
             New-ItemProperty -Path $itt.registryPath -Name "UserTheme" -Value "none" -PropertyType String -Force *> $Null
             New-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -PropertyType String -Force *> $Null
