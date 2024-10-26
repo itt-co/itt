@@ -18,25 +18,24 @@ function Disable-Service {
     #>
 
     param(
-        $ServiceName,
+        $Name,
         $StartupType
     )
 
     try {
 
+        Add-Log -Message "Set Service $Name to $StartupType" -Level "info"
 
-        # Check if the service exists
-        if (Get-Service -Name $ServiceName -ErrorAction SilentlyContinue) {
-            Set-Service -Name $ServiceName -StartupType $StartupType -ErrorAction Stop
-            Stop-Service -Name $ServiceName 
-            Add-Log -Message "Service '$ServiceName' disabled." -Level "INFO"
-        }
-        else {
-            Add-Log -Message "Service '$ServiceName' not found." -Level "INFO"
-        }
-    }
-    catch
-    {
-        Add-Log -Message "Service '$ServiceName not found." -Level "INFO"
+        # Check first
+        $service = Get-Service -Name $Name -ErrorAction Stop
+
+        # Service exists, proceed with changing properties
+        $service | Set-Service -StartupType $StartupType -ErrorAction Stop
+        Stop-Service -Name $Name -ErrorAction Stop
+    } catch [System.ServiceProcess.ServiceNotFoundException] {
+        Write-Warning "Service $Name was not found"
+    } catch {
+        Write-Warning "Unable to set $Name due to unhandled exception"
+        Write-Warning $_.Exception.Message
     }
 }
