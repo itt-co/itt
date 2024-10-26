@@ -25,6 +25,9 @@ function Uninstall-AppxPackage {
     )
 
     try {
+        
+        if($debug){ Add-Log -Message $Name -Level "debug"}
+
         Write-Host "Removing $Name"
         Get-AppxPackage "*$Name*" | Remove-AppxPackage -ErrorAction SilentlyContinue
         Get-AppxProvisionedPackage -Online | Where-Object DisplayName -like "*$Name*" | Remove-AppxProvisionedPackage -Online -ErrorAction SilentlyContinue
