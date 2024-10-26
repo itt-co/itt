@@ -31,9 +31,16 @@ function Set-Registry {
     )
     
     try {
+
+        if($debug){ Add-Log -Message $Name $Type  $Path $Value -Level "debug"}
+
+        if(!(Test-Path 'HKU:\')) {New-PSDrive -PSProvider Registry -Name HKU -Root HKEY_USERS}
+
         # Check if the registry path exists
         if (-not (Test-Path -Path $Path)) {
-            Write-Output "Registry path does not exist. Creating it..."
+
+            if($debug){ Add-Log -Message "Registry path does not exist. Creating it..." -Level "debug"}
+
             # Create the registry path
             New-Item -Path $Path -Force | Out-Null
         }
@@ -41,7 +48,12 @@ function Set-Registry {
         # Set or create the registry value
         New-ItemProperty -Path $Path -Name $Name -PropertyType $Type -Value $Value -Force | Out-Null
 
-        if($Debug){Write-Output "Registry value set successfully."}
+        Add-Log -Message "Optmize $Name" -Level "info"
+
+        if($Debug){
+           Add-Log -Message "$Name $Type $Path $Value" -Level "debug"
+           Add-Log -Message "Registry value set successfully." -Level "debug"
+        }
 
     } catch {
         Write-Error "An error occurred: $_"

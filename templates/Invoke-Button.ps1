@@ -34,7 +34,7 @@ function Invoke-Button {
 
     # Helper function for debugging
     function Debug-Message {
-        if($Debug) {  Add-Log "Name:$action Content:$Content" -Level "INFO"  }
+        if($Debug) {  Add-Log "Name:$action Content:$Content" -Level "debug"  }
     }
 
     # Switch block to handle different actions

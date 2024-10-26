@@ -20,12 +20,39 @@ function ExecuteCommand {
 
     param (
         [string]$Name,
-        [string]$Command
+        [array]$Tweak
     )
+
     try {
-        #Add-Log -Message "$Name" -Level "INFO"
-        Start-Process -FilePath "powershell.exe" -ArgumentList "-Command `"$Command`"" -NoNewWindow -Wait
+
+        if($debug){ Add-Log -Message $Name $Tweak -Level "debug"}
+
+        if ($tweak -and $tweak.Count -gt 0) {
+            
+            $Tweak | ForEach-Object { 
+                $cmd = [scriptblock]::Create($psitem)
+                Invoke-Command  $cmd -ErrorAction Stop
+            }
+        }
+        else
+        {
+            if($debug){Add-Log -Message "InvokeCommand is empty on this tweak" -Level "debug" }
+        }
+
+    } catch [System.Management.Automation.CommandNotFoundException] {
+        Write-Warning "The specified command was not found."
+        Write-Warning $PSItem.Exception.message
+    } catch [System.Management.Automation.RuntimeException] {
+        Write-Warning "A runtime exception occurred."
+        Write-Warning $PSItem.Exception.message
+    } catch [System.Security.SecurityException] {
+        Write-Warning "A security exception occurred."
+        Write-Warning $PSItem.Exception.message
+    } catch [System.UnauthorizedAccessException] {
+        Write-Warning "Access denied. You do not have permission to perform this operation."
+        Write-Warning $PSItem.Exception.message
     } catch {
-        Write-Host "Error executing command '$Command': $_"
+        Write-Warning "Unable to run script for $Name due to unhandled exception"
+        Write-Warning $psitem.Exception.StackTrace
     }
 }
