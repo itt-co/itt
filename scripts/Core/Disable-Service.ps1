@@ -1,20 +1,20 @@
 function Disable-Service {
     
     <#
-    .SYNOPSIS
-    Disables a specified service by changing its startup type and stopping it.
+        .SYNOPSIS
+        Disables a specified service by changing its startup type and stopping it.
 
-    .DESCRIPTION
-    This function disables a Windows service by first changing its startup type to the specified value, then stopping the service if it is running. The function logs the outcome of the operation, including whether the service was found and successfully disabled or if an error occurred.
+        .DESCRIPTION
+        This function disables a Windows service by first changing its startup type to the specified value, then stopping the service if it is running. The function logs the outcome of the operation, including whether the service was found and successfully disabled or if an error occurred.
 
-    .PARAMETER ServiceName
-    The name of the service to be disabled. This is a required parameter.
+        .PARAMETER ServiceName
+        The name of the service to be disabled. This is a required parameter.
 
-    .PARAMETER StartupType
-    The desired startup type for the service. Common values include 'Disabled', 'Manual', and 'Automatic'. This is a required parameter.
+        .PARAMETER StartupType
+        The desired startup type for the service. Common values include 'Disabled', 'Manual', and 'Automatic'. This is a required parameter.
 
-    .EXAMPLE
-    Disable-Service -ServiceName "wuauserv" -StartupType "Disabled"
+        .EXAMPLE
+        Disable-Service -ServiceName "wuauserv" -StartupType "Disabled"
     #>
 
     param(
@@ -23,6 +23,8 @@ function Disable-Service {
     )
 
     try {
+
+        if($debug){ Add-Log -Message $Name $StartupType -Level "debug"}
 
         Add-Log -Message "Set Service $Name to $StartupType" -Level "info"
 
