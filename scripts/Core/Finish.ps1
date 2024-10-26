@@ -77,8 +77,7 @@ function Show-Selected {
 
     param (
         [string]$ListView,
-        [string]$mode,
-        [string]$count = "false"
+        [string]$mode
      )
 
     switch ($mode) {
@@ -105,16 +104,10 @@ function Show-Selected {
                 }
         
                 # Return $true if no CheckBox found (to include all items)
-                return $true
+                #return $true
             }
         
-            $CountApps = Get-SelectedItems -Mode "Apps"
-
-            if($CountApps.count -gt 0)
-            {
-                $collectionView.Filter = $filterPredicate
-            }
-
+            $collectionView.Filter = $filterPredicate
 
         }
         Default {
