@@ -41,7 +41,10 @@ function Set-Registry {
         # Set or create the registry value
         New-ItemProperty -Path $Path -Name $Name -PropertyType $Type -Value $Value -Force | Out-Null
 
-        if($Debug){Write-Output "Registry value set successfully."}
+        if($Debug){
+           Add-Log -Message "$Name $Type $Path $Value" -Level "INFO"
+           Add-Log -Message "Registry value set successfully." -Level "INFO"
+        }
 
     } catch {
         Write-Error "An error occurred: $_"
