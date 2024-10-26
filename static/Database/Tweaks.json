@@ -2083,5 +2083,25 @@
     "UndoCommand": [
       ""
     ]
+  },
+  {
+    "Name": "Remove Widgets from Taskbar in Windows 11",
+    "Description": "Widgets are one of the new user interface elements in Windows 11 They are used to display dynamic information on the desktop including weather news and other information from various sources",
+    "Check": "false",
+    "Type": "Registry",
+    "Refresh": "false",
+    "Modify": {
+      "Name": "TaskbarDa",
+      "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\TaskbarDeveloperSettings",
+      "defaultValue": "1",
+      "Value": "0",
+      "Type": "DWord"
+    },
+    "InvokeCommand": [
+     "winget uninstall 'windows web experience pack' --silent"
+    ],
+    "UndoCommand": [
+      ""
+    ]
   }
 ]
