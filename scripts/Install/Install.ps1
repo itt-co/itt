@@ -35,26 +35,27 @@ function Invoke-Install {
         - The `Invoke-ScriptBlock` function is used to execute the installation commands asynchronously.
     #>
 
-  
-
     if($itt.ProcessRunning) {
         Message -key "Pleasewait" -icon "Warning" -action "OK"
         return
     }
 
-    # Show only selected item
-    Show-Selected -ListView "AppsListView" -Mode "Filter"
-
     # Get Selected apps
+    $itt.Category.SelectedIndex = 0
     $selectedApps = Get-SelectedItems -Mode "Apps"
 
-    if($selectedApps.Count -eq 0)
+    if($selectedApps.Count -gt 0)
+    {
+        # Show only selected item
+        Show-Selected -ListView "AppsListView" -Mode "Filter"
+    }
+    else
     {
         # Show Message
         Message -key "choseapp" -icon "info" -action "OK"
         return
     }
-
+    
     $result = Message -key "InstallMessage" -icon "ask" -action "YesNo"
 
    if($result -eq "no") {
@@ -77,10 +78,10 @@ function Invoke-Install {
             {
 
                 # Some packages won't install until the package folder is removed.
-                $chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($_.Choco)"
-                Remove-Item -Path "$chocoFolder" -Recurse -Force
-                Remove-Item -Path "$chocoFolder.install" -Recurse -Force
-                Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
+                #$chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($_.Choco)"
+                #Remove-Item -Path "$chocoFolder" -Recurse -Force
+                #Remove-Item -Path "$chocoFolder.install" -Recurse -Force
+                #Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
 
                 # Debug
                 if($debug){Add-Log -Message $_.Name -Level "debug"}
