@@ -36,7 +36,7 @@ function ExecuteCommand {
         }
         else
         {
-            if($debug){Add-Log -Message "InvokeCommand is empty" -Level "debug" }
+            if($debug){Add-Log -Message "InvokeCommand is empty on this tweak" -Level "debug" }
         }
 
     } catch [System.Management.Automation.CommandNotFoundException] {
