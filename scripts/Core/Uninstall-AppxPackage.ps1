@@ -28,6 +28,11 @@ function Uninstall-AppxPackage {
         Write-Host "Removing $Name"
         Get-AppxPackage "*$Name*" | Remove-AppxPackage -ErrorAction SilentlyContinue
         Get-AppxProvisionedPackage -Online | Where-Object DisplayName -like "*$Name*" | Remove-AppxProvisionedPackage -Online -ErrorAction SilentlyContinue
+
+        if($debug){
+            Add-Log -Message "Registry value set successfully." -Level "INFO"
+        }
+
     } catch [System.Exception] {
         if ($psitem.Exception.Message -like "*The requested operation requires elevation*") {
             Write-Warning "Unable to uninstall $name due to a Security Exception"
