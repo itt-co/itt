@@ -20,7 +20,7 @@
 - Shift + I: ITT Shortcut.
 - Ctrl + G: Closes the application.
 
-### Create your own theme
+### How to Contribute
 
 ![itt.xName:contribute [https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute]](https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/customtheme.jpg)
 
