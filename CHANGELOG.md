@@ -31,4 +31,3 @@
 ![itt.xName:shell [https://github.com/emadadel4/shelltube]](https://raw.githubusercontent.com/emadadel4/ShellTube/main/demo.jpg)
 
 #### Shelltube is simple way to downnload videos and playlist from youtube just Launch it and start download your video you can Launch it from Third-party section.
-
