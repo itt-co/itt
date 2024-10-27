@@ -6808,5 +6808,26 @@
     ],
     "category": "Documents",
     "check": "false"
+  },
+  {
+    "name": "Aio Runtimes",
+    "description": "All in One Runtimes also known as AIO Runtimes is a program that integrates essential runtime packages ensuring the seamless functionality of all programs by installing them automatically",
+    "winget": "none",
+    "choco": "none",
+    "scoop": "none",
+    "default": [
+      {
+        "IsExcute": "false",
+        "url": "https://allinoneruntimes.org/files/aio-runtimes_v2.5.0.exe",
+        "extinction": "exe",
+        "exeArgs": "/verysilent",
+        "output": "none",
+        "launcher": "none",
+        "shortcut": "no",
+        "run": "no"
+      }
+    ],
+    "category": "Runtimes",
+    "check": "false"
   }
 ]
