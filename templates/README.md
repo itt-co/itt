@@ -220,9 +220,6 @@ English
 <div align="left">
 
 <div>
-    <a href="https://www.youtube.com/watch?v=UcyNg1B8FJI" target="blank">
-      <img src="https://img.youtube.com/vi/UcyNg1B8FJI/0.jpg" alt="Play Video" style="width: 200px;">
-    </a>
     <a href="https://www.youtube.com/watch?v=kx5kanvn_ug" target="blank">
       <img src="https://img.youtube.com/vi/kx5kanvn_ug/0.jpg" alt="Play Video" style="width: 200px;">
     </a>
