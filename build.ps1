@@ -516,9 +516,9 @@ function Convert-Locales {
 
     Write-Host "Convert Locales CSV Files..." -ForegroundColor Yellow
 
-    # Initialize a hashtable to store the "Controls" object
+    # Initialize an OrderedDictionary to store the "Controls" object
     $locales = @{
-        "Controls" = @{}
+        "Controls" = [System.Collections.Specialized.OrderedDictionary]@{}
     }
 
     # Get all CSV files in the specified folder and process each one
@@ -530,26 +530,32 @@ function Convert-Locales {
         $language = [System.IO.Path]::GetFileNameWithoutExtension($_.Name)
 
         # If the language key doesn't already exist in the Controls object, add it
-        if (-not $locales["Controls"].ContainsKey($language)) {
-            $locales["Controls"][$language] = [ordered]@{}  # Use ordered hashtable
+        if (-not $locales["Controls"].Contains($language)) {
+            $locales["Controls"][$language] = [System.Collections.Specialized.OrderedDictionary]@{}  # Use OrderedDictionary
         }
 
         # Loop through each row of the CSV file and add the key-value pairs to the respective language section
         foreach ($row in $csvData) {
             $locales["Controls"][$language][$row.Key] = $row.Text
-
-            if ($row.Key -eq 'name') {
-                $global:localesMap = $row.Text
-            }
         }
     }
 
     # Convert the hashtable to JSON format and save it to the specified output path
-    $jsonOutput = $locales | ConvertTo-Json -Compress
+    $jsonOutput = $locales | ConvertTo-Json -Depth 10 -Compress
+
+    # Read existing JSON content if the file exists
+    $existingJsonOutput = if (Test-Path $jsonOutputPath) { Get-Content $jsonOutputPath -Raw } else { "" }
+
+    # Normalize both JSON outputs for comparison
+    $jsonOutputNormalized = $jsonOutput | ConvertFrom-Json | ConvertTo-Json -Depth 10
+    $existingJsonOutputNormalized = $existingJsonOutput | ConvertFrom-Json | ConvertTo-Json -Depth 10
 
     # Write the JSON to the specified file only if it has changed
-    if (-not (Test-Path $jsonOutputPath) -or (Get-Content $jsonOutputPath -Raw) -ne $jsonOutput) {
+    if ($existingJsonOutputNormalized -ne $jsonOutputNormalized) {
         Set-Content -Path $jsonOutputPath -Value $jsonOutput -Encoding UTF8
+        Write-Host "JSON file updated." -ForegroundColor Green
+    } else {
+        Write-Host "No changes detected. JSON file not updated." -ForegroundColor Yellow
     }
 }
 
