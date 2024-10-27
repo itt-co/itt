@@ -13,7 +13,7 @@ param (
     [switch]$Debug,
     [switch]$code,
     [string]$ProjectDir = $PSScriptRoot,
-    [string]$localNodePath = "Changelog.md",
+    [string]$localNodePath = "CHANGELOG.md",
     [string]$NoteUrl = "https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/Changelog.md"
 
 
