@@ -9797,7 +9797,7 @@ function Invoke-Button {
                 Set-Theme -Theme $action # Call the Set-Theme function with the selected theme
                 Debug-Message # debug
             }
-            "thedarkknight" {
+            "Palestine" {
                 Set-Theme -Theme $action # Call the Set-Theme function with the selected theme
                 Debug-Message # debug
             }
@@ -13306,14 +13306,14 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
 
 <!--ListViewItem Style-->
     <Style TargetType="ListViewItem">
-        <Setter Property="Margin" Value="2"/>
+        <Setter Property="Margin" Value="3"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="BorderBrush" Value="WhiteSmoke"/>
         <Setter Property="Padding" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListViewItem">
-                    <Border CornerRadius="0"
+                    <Border CornerRadius="8"
                             Padding="{TemplateBinding Padding}" 
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
@@ -13908,9 +13908,9 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <Color x:Key="ListViewCardRightColor">#ffffff</Color>
         </ResourceDictionary>
 <!-- {Light} -->
-<!-- {The Dark Kinght} -->
+<!-- {Palestine} -->
 <!-- by {emadadel} -->
-<ResourceDictionary x:Key="thedarkknight">
+<ResourceDictionary x:Key="palestine">
   <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="Black"/>
   <SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#FF111111"/>
   <SolidColorBrush x:Key="PrimaryButtonForeground" Color="#FFB80000" />
@@ -13929,7 +13929,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
   <Color x:Key="ListViewCardLeftColor">#FF1B1B1B</Color> 
   <Color x:Key="ListViewCardRightColor">#FF1B1B1B</Color>
 </ResourceDictionary>
-<!-- Name {The Dark Kinght} -->
+<!-- Name {Palestine} -->
 
 
 <!-- Generated from build dont play here -->
@@ -14047,7 +14047,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <MenuItem Name="systheme" Header="{Binding defaultTheme}"/>
                 <MenuItem Name="Dark" Header="Dark"/>
 <MenuItem Name="Light" Header="Light"/>
-<MenuItem Name="thedarkknight" Header="The Dark Kinght"/>
+<MenuItem Name="palestine" Header="Palestine"/>
             </MenuItem>
 
             <MenuItem Header="{Binding music}">
