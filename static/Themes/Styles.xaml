@@ -80,14 +80,14 @@
 
 <!--ListViewItem Style-->
     <Style TargetType="ListViewItem">
-        <Setter Property="Margin" Value="2"/>
+        <Setter Property="Margin" Value="3"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="BorderBrush" Value="WhiteSmoke"/>
         <Setter Property="Padding" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListViewItem">
-                    <Border CornerRadius="0"
+                    <Border CornerRadius="8"
                             Padding="{TemplateBinding Padding}" 
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
