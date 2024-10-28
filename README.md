@@ -213,7 +213,7 @@ Together, we can be the voice for those who have no voice and work toward a fair
 
 معًا، يمكننا أن نكون صوتًا لمن لا صوت لهم، وأن نعمل من أجل عالم أكثر عدلاً. فلنتحد ونرفع أصواتنا لنصرة فلسطين ولإحياء الأمل في قلوب من يحتاجونه.
 
-### <a href="https://www.palestinercs.org/en/Donation" target="blank">
+<a href="https://www.palestinercs.org/en/Donation" target="blank">
 Donate to the Palestinian Red Crescent
 </a>
 
