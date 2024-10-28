@@ -1,6 +1,6 @@
-<!-- {The Dark Kinght} -->
+<!-- {Palestine} -->
 <!-- by {emadadel} -->
-<ResourceDictionary x:Key="thedarkknight">
+<ResourceDictionary x:Key="palestine">
   <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="Black"/>
   <SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#FF111111"/>
   <SolidColorBrush x:Key="PrimaryButtonForeground" Color="#FFB80000" />
@@ -19,4 +19,4 @@
   <Color x:Key="ListViewCardLeftColor">#FF1B1B1B</Color> 
   <Color x:Key="ListViewCardRightColor">#FF1B1B1B</Color>
 </ResourceDictionary>
-<!-- Name {The Dark Kinght} -->
+<!-- Name {Palestine} -->
