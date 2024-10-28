@@ -281,6 +281,9 @@
         "Name": "Microsoft.ZuneVideo"
       },
       {
+        "Name": "Microsoft.ZuneMusic"
+      },
+      {
         "Name": "EclipseManager"
       },
       {
