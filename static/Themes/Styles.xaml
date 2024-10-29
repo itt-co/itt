@@ -153,61 +153,27 @@
 <!--End CheckBox Style-->
 
 <!--SearchBox Style-->
-    <Style x:Key="SearchBox" TargetType="TextBox">
-        <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
-        <Setter Property="Foreground" Value="{DynamicResource TextColorPrimary}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Padding" Value="8"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="TextBox">
-                    <Border Margin="0" Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="15">
-                        <Grid>
-                            <ScrollViewer x:Name="PART_ContentHost" />
-                        <StackPanel Orientation="Horizontal">
-
-                            <!-- Icon -->
-                            <TextBlock x:Name="SearchIcon"
-                                Foreground="Gray" 
-                                Text=""
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Left"
-                                Margin="10,0,0,0"
-                                FontFamily="Segoe MDL2 Assets"
-                                IsHitTestVisible="False"/>
-
-                            <!-- Hint Search Text -->
-                            <TextBlock x:Name="SearchHintText"
-                                Foreground="Gray" 
-                                Text="{Binding search}"
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Left"
-                                Margin="10,0,0,0"
-                                IsHitTestVisible="False"/>
-                        </StackPanel>
-                        </Grid>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsKeyboardFocusWithin" Value="True">
-                            <Setter TargetName="SearchHintText" Property="Visibility" Value="Collapsed"/>
-                            <Setter TargetName="SearchIcon" Property="Visibility" Value="Collapsed"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-        <Style.Triggers>
-            <Trigger Property="IsKeyboardFocusWithin" Value="True">
-                <Setter Property="BorderThickness" Value="2"/>
-                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryButtonForeground}"/>
-                <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
+<Style x:Key="SearchBox" TargetType="TextBox">
+    <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
+    <Setter Property="Foreground" Value="{DynamicResource TextColorPrimary}"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+    <Setter Property="BorderThickness" Value="0"/>
+    <Setter Property="Padding" Value="8"/>
+    <Setter Property="Template">
+        <Setter.Value>
+            <ControlTemplate TargetType="TextBox">
+                <Border Margin="0" 
+                        Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}" 
+                        CornerRadius="15">
+                    <ScrollViewer x:Name="PART_ContentHost" 
+                                  Background="Transparent"/>
+                </Border>
+            </ControlTemplate>
+        </Setter.Value>
+    </Setter>
+</Style>
 <!--End SearchBox Style-->
 
 <!--Label Style-->
