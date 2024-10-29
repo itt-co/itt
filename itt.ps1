@@ -10175,7 +10175,7 @@ function Finish {
 
         "TweaksListView" {
             UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "applyBtn" -TextIcon "applyIcon" -Icon "  " -Width "140"
-            Add-Log -Message "Tweaks are Finished, Some tweaks require a restart" -Level "info"
+            Add-Log -Message "Tweaks are Finished, Some tweaks require a restart" -Level "Apply"
         }
     }
 
@@ -16980,16 +16980,16 @@ function Show-Event {
                     Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')  # Start the process to open the URL when clicked
                 })
             
-            $itt.event.FindName('ps').add_MouseLeftButtonDown({
-                    Start-Process('https://www.palestinercs.org/en/Donation')  # Start the process to open the URL when clicked
-                })
-            
             $itt.event.FindName('shell').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/shelltube')  # Start the process to open the URL when clicked
                 })
             
             $itt.event.FindName('ytv').add_MouseLeftButtonDown({
                     Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')  # Start the process to open the URL when clicked
+                })
+            
+            $itt.event.FindName('ps').add_MouseLeftButtonDown({
+                    Start-Process('https://www.palestinercs.org/en/Donation')  # Start the process to open the URL when clicked
                 })
             
 
