@@ -6,8 +6,7 @@
     "Category": "Cleanup",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "\r\n        Remove-Item -Path \"$env:LOCALAPPDATA\\Temp\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        Remove-Item -Path \"C:\\Windows\\Prefetch\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        Stop-Service -Name wuauserv -Force\r\n        takeown /f C:\\Windows\\SoftwareDistribution\\Download /r /d y\r\n        icacls C:\\Windows\\SoftwareDistribution\\Download /grant administrators:F /t\r\n        Remove-Item -Path \"C:\\Windows\\SoftwareDistribution\\Download\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        cleanmgr.exe /d C: /VERYLOWDISK /sagerun:1 Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase\r\n        cleanmgr.exe /d C: /sagerun:1\r\n        cleanmgr.exe /sagerun:1\r\n        Dism.exe /online /Cleanup-Image /StartComponentCleanup\r\n        cleanmgr.exe /d C: /VERYLOWDISK\r\n        Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase\r\n        Start-Service -Name wuauserv\r\n      "
     ],
@@ -1984,6 +1983,7 @@
     "Name": "Super Performance",
     "Description": "All Windows effects disabled and optimized for windowed games. You may need to log out and back in for changes to take effect. You can reset to default settings in Settings Tab",
     "Check": "false",
+    "Category": "Performance",
     "Type": "Registry",
     "Refresh": "true",
     "Modify": [
@@ -2090,6 +2090,7 @@
     "Name": "Remove Widgets from Taskbar in Windows 11",
     "Description": "Widgets are one of the new user interface elements in Windows 11 They are used to display dynamic information on the desktop including weather news and other information from various sources",
     "Check": "false",
+    "Category": "Performance",
     "Type": "Registry",
     "Refresh": "false",
     "Modify": {
@@ -2100,10 +2101,22 @@
       "Type": "DWord"
     },
     "InvokeCommand": [
-     "winget uninstall 'windows web experience pack' --silent"
+      "winget uninstall 'windows web experience pack' --silent"
     ],
     "UndoCommand": [
       ""
     ]
+  },
+  {
+    "Name": "Fix arabic encoding",
+    "Description": "Fix issues related to strange symbols appearing in Arabic text",
+    "Check": "false",
+    "Category": "Fixer",
+    "Type": "command",
+    "Refresh": "false",
+    "InvokeCommand": [
+      "Set-WinSystemLocale -SystemLocale \"ar-EG\""
+    ],
+    "UndoCommand": []
   }
 ]
