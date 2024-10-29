@@ -9617,13 +9617,15 @@ $itt.database.Tweaks = '[
     "Category": "Performance",
     "Type": "Registry",
     "Refresh": "false",
-    "Modify": {
-      "Name": "TaskbarDa",
-      "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\TaskbarDeveloperSettings",
-      "defaultValue": "1",
-      "Value": "0",
-      "Type": "DWord"
-    },
+    "Modify":[
+      {
+        "Name": "TaskbarDa",
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\TaskbarDeveloperSettings",
+        "defaultValue": "1",
+        "Value": "0",
+        "Type": "DWord"
+      }
+    ],
     "InvokeCommand": [
       "winget uninstall ''windows web experience pack'' --silent"
     ],
