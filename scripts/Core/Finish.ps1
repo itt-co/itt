@@ -46,7 +46,7 @@ function Finish {
 
         "TweaksListView" {
             UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "applyBtn" -TextIcon "applyIcon" -Icon "  " -Width "140"
-            Add-Log -Message "Tweaks are Finished, Some tweaks require a restart" -Level "info"
+            Add-Log -Message "Tweaks are Finished, Some tweaks require a restart" -Level "Apply"
         }
     }
 
