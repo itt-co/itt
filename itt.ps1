@@ -7530,8 +7530,7 @@ $itt.database.Tweaks = '[
     "Category": "Cleanup",
     "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [
-    ],
+    "RemoveTasks": [],
     "InvokeCommand": [
       "\r\n        Remove-Item -Path \"$env:LOCALAPPDATA\\Temp\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        Remove-Item -Path \"C:\\Windows\\Prefetch\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        Stop-Service -Name wuauserv -Force\r\n        takeown /f C:\\Windows\\SoftwareDistribution\\Download /r /d y\r\n        icacls C:\\Windows\\SoftwareDistribution\\Download /grant administrators:F /t\r\n        Remove-Item -Path \"C:\\Windows\\SoftwareDistribution\\Download\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        cleanmgr.exe /d C: /VERYLOWDISK /sagerun:1 Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase\r\n        cleanmgr.exe /d C: /sagerun:1\r\n        cleanmgr.exe /sagerun:1\r\n        Dism.exe /online /Cleanup-Image /StartComponentCleanup\r\n        cleanmgr.exe /d C: /VERYLOWDISK\r\n        Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase\r\n        Start-Service -Name wuauserv\r\n      "
     ],
@@ -9508,6 +9507,7 @@ $itt.database.Tweaks = '[
     "Name": "Super Performance",
     "Description": "All Windows effects disabled and optimized for windowed games. You may need to log out and back in for changes to take effect. You can reset to default settings in Settings Tab",
     "Check": "false",
+    "Category": "Performance",
     "Type": "Registry",
     "Refresh": "true",
     "Modify": [
@@ -9614,6 +9614,7 @@ $itt.database.Tweaks = '[
     "Name": "Remove Widgets from Taskbar in Windows 11",
     "Description": "Widgets are one of the new user interface elements in Windows 11 They are used to display dynamic information on the desktop including weather news and other information from various sources",
     "Check": "false",
+    "Category": "Performance",
     "Type": "Registry",
     "Refresh": "false",
     "Modify": {
@@ -9624,11 +9625,23 @@ $itt.database.Tweaks = '[
       "Type": "DWord"
     },
     "InvokeCommand": [
-     "winget uninstall ''windows web experience pack'' --silent"
+      "winget uninstall ''windows web experience pack'' --silent"
     ],
     "UndoCommand": [
       ""
     ]
+  },
+  {
+    "Name": "Fix arabic encoding",
+    "Description": "Fix issues related to strange symbols appearing in Arabic text",
+    "Check": "false",
+    "Category": "Fixer",
+    "Type": "command",
+    "Refresh": "false",
+    "InvokeCommand": [
+      "Set-WinSystemLocale -SystemLocale \"ar-EG\""
+    ],
+    "UndoCommand": []
   }
 ]
 ' | ConvertFrom-Json
@@ -16518,15 +16531,21 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="Super Performance"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content=""/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="All Windows effects disabled and optimized for windowed games. You may need to log out and back in for changes to take effect. You can reset to default settings in Settings Tab."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="Remove Widgets from Taskbar in Windows 11"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content=""/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Widgets are one of the new user interface elements in Windows 11 They are used to display dynamic information on the desktop including weather news and other information from various sources."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Fix arabic encoding"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Fixer"/>
+            </StackPanel>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Fix issues related to strange symbols appearing in Arabic text."/>
         </StackPanel>
                     </ListView>
             </TabItem>
@@ -16955,16 +16974,16 @@ function Show-Event {
         
 
     
+            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
+                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')  # Start the process to open the URL when clicked
+                })
+            
             $itt.event.FindName('shell').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/shelltube')  # Start the process to open the URL when clicked
                 })
             
             $itt.event.FindName('contribute').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')  # Start the process to open the URL when clicked
-                })
-            
-            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
-                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')  # Start the process to open the URL when clicked
                 })
             
 
