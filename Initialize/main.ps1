@@ -61,10 +61,17 @@ $onClosingEvent = {
 }
 
 # Handle the Loaded event
-$itt["window"].Add_Loaded({
+$itt["window"].Add_ContentRendered({
     Startup
     Show-Event
-    #Get-DateStatus
+})
+
+$itt.SearchInput.Add_TextChanged({
+    if (![string]::IsNullOrEmpty($itt.SearchInput.Text)) {
+        $itt.SearchIcon.Text = "" 
+    }else{
+        $itt.SearchIcon.Text = ""
+    }
 })
 
 # Close Event handler
@@ -75,7 +82,6 @@ $itt["window"].Add_PreViewKeyDown($KeyEvents)
 
 # Show Window
 $itt["window"].ShowDialog() | Out-Null
-
 
 $script:powershell.Dispose()        
 $itt.runspace.Dispose()             
