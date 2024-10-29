@@ -29,7 +29,7 @@ $itt = [Hashtable]::Synchronized(@{
     database       = @{}
     ProcessRunning = $false
     developer      = "Emad Adel"
-    lastupdate     = "10/28/2024"
+    lastupdate     = "10/29/2024"
     github         = "https://github.com/emadadel4/itt"
     telegram       = "https://t.me/emadadel4"
     blog           = "https://emadadel4.github.io"
@@ -13389,61 +13389,27 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
 <!--End CheckBox Style-->
 
 <!--SearchBox Style-->
-    <Style x:Key="SearchBox" TargetType="TextBox">
-        <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
-        <Setter Property="Foreground" Value="{DynamicResource TextColorPrimary}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Padding" Value="8"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="TextBox">
-                    <Border Margin="0" Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="15">
-                        <Grid>
-                            <ScrollViewer x:Name="PART_ContentHost" />
-                        <StackPanel Orientation="Horizontal">
-
-                            <!-- Icon -->
-                            <TextBlock x:Name="SearchIcon"
-                                Foreground="Gray" 
-                                Text=""
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Left"
-                                Margin="10,0,0,0"
-                                FontFamily="Segoe MDL2 Assets"
-                                IsHitTestVisible="False"/>
-
-                            <!-- Hint Search Text -->
-                            <TextBlock x:Name="SearchHintText"
-                                Foreground="Gray" 
-                                Text="{Binding search}"
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Left"
-                                Margin="10,0,0,0"
-                                IsHitTestVisible="False"/>
-                        </StackPanel>
-                        </Grid>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsKeyboardFocusWithin" Value="True">
-                            <Setter TargetName="SearchHintText" Property="Visibility" Value="Collapsed"/>
-                            <Setter TargetName="SearchIcon" Property="Visibility" Value="Collapsed"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-        <Style.Triggers>
-            <Trigger Property="IsKeyboardFocusWithin" Value="True">
-                <Setter Property="BorderThickness" Value="2"/>
-                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryButtonForeground}"/>
-                <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
+<Style x:Key="SearchBox" TargetType="TextBox">
+    <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
+    <Setter Property="Foreground" Value="{DynamicResource TextColorPrimary}"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+    <Setter Property="BorderThickness" Value="0"/>
+    <Setter Property="Padding" Value="8"/>
+    <Setter Property="Template">
+        <Setter.Value>
+            <ControlTemplate TargetType="TextBox">
+                <Border Margin="0" 
+                        Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}" 
+                        CornerRadius="15">
+                    <ScrollViewer x:Name="PART_ContentHost" 
+                                  Background="Transparent"/>
+                </Border>
+            </ControlTemplate>
+        </Setter.Value>
+    </Setter>
+</Style>
 <!--End SearchBox Style-->
 
 <!--Label Style-->
@@ -14218,6 +14184,16 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
             HorizontalAlignment="Left"
             Style="{StaticResource SearchBox}"
             Name="searchInput" />
+
+            <TextBlock x:Name="SearchIcon" Text="" 
+                FontSize="15" 
+                Foreground="Gray" 
+                VerticalAlignment="Center" 
+                FontFamily="Segoe MDL2 Assets"
+                Background="Transparent"
+                HorizontalAlignment="Left" 
+                Margin="9,0,0,0" />
+
 </Grid>
 <!--End Search-->
 
@@ -17544,11 +17520,16 @@ $itt.InstallBtn = $itt["window"].FindName("installBtn")
 $itt.ApplyBtn = $itt["window"].FindName("applyBtn")
 $itt.Category = $itt["window"].FindName("category")
 $itt.SearchInput = $itt["window"].FindName("searchInput")
+$itt.SearchIcon = $itt["window"].FindName("SearchIcon")
 $itt.installText = $itt["window"].FindName("installText")
 $itt.installIcon = $itt["window"].FindName("installIcon")
 $itt.applyText = $itt["window"].FindName("applyText")
 $itt.applyIcon = $itt["window"].FindName("applyIcon")
 $itt.QuoteIcon = $itt["window"].FindName("QuoteIcon")
+
+
+
+
 
 #===========================================================================
 #endregion End loadXmal
@@ -17619,10 +17600,17 @@ $onClosingEvent = {
 }
 
 # Handle the Loaded event
-$itt["window"].Add_Loaded({
+$itt["window"].Add_ContentRendered({
     Startup
     Show-Event
-    #Get-DateStatus
+})
+
+$itt.SearchInput.Add_TextChanged({
+    if (![string]::IsNullOrEmpty($itt.SearchInput.Text)) {
+        $itt.SearchIcon.Text = "" 
+    }else{
+        $itt.SearchIcon.Text = ""
+    }
 })
 
 # Close Event handler
@@ -17633,7 +17621,6 @@ $itt["window"].Add_PreViewKeyDown($KeyEvents)
 
 # Show Window
 $itt["window"].ShowDialog() | Out-Null
-
 
 $script:powershell.Dispose()        
 $itt.runspace.Dispose()             
