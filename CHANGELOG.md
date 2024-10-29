@@ -35,7 +35,7 @@
 
 ### Support Palestine - أدعم فلسطين
 
-![itt.xName:ps [https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute]](https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/ps_flag.jpg)
+![itt.xName:ps [https://www.palestinercs.org/en/Donation]](https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/ps_flag.jpg)
 
 
 #### Do not hesitate to use your words and talk about Palestine In this age, where voices intertwine and humanitarian issues multiply, each of us has a role to play as an influential activist. Every post can reach someone who needs to hear this truth. Every message can be a source of inspiration or awareness for another person. Do not be afraid to express your opinions, for words are the tools through which we can build awareness and spread the truth. Make your platforms a space for dialogue, and be part of this movement toward positive change. Share stories, ideas, and news—everything you provide can be a step toward achieving justice. Together, we can be the voice for those who have no voice and work toward a fairer world. Let us unite and raise our voices in support of Palestine and to revive hope in the hearts of those who need it.
