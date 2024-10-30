@@ -1645,16 +1645,34 @@
     "Registry": []
   },
   {
-    "Name": "a",
-    "Description": "a",
+    "Name": "test",
+    "Description": "tset",
     "Category": "Privacy",
     "Check": "false",
     "Refresh": "false",
-    "Script": null,
-    "UndoScript": null,
-    "ScheduledTask": null,
-    "AppxPackage": null,
-    "Services": [],
-    "Registry": []
+    "Script": [
+      "Write-Host 'this 1'"
+    ],
+    "UndoScript": [],
+    "ScheduledTask": [],
+    "AppxPackage": [
+      "Microsoft.BingNews"
+    ],
+    "Services": [
+      {
+        "Name": "Spooler",
+        "StartupType": "Disabled",
+        "DefaultType": "Manual"
+      }
+    ],
+    "Registry": [
+      {
+        "Name": "ShellFeedsTaskbarViewMode",
+        "Value": "2",
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Feeds",
+        "Type": "DWord",
+        "DefaultValue": "0"
+      }
+    ]
   }
 ]
