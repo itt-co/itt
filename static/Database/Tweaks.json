@@ -437,7 +437,7 @@
     "Description": "Disable Start menu Ads and Settings",
     "Category": "Privacy",
     "Check": "false",
-    "Refresh": "false",
+    "Refresh": "true",
     "InvokeCommand": [],
     "UndoCommand": [],
     "Registry": [
@@ -479,7 +479,7 @@
     "Description": "Disable web search in Windows by Modify the registry settings related to Windows Search for Windows 10 and 11",
     "Category": "Privacy",
     "Check": "false",
-    "Refresh": "false",
+    "Refresh": "true",
     "InvokeCommand": [],
     "UndoCommand": [],
     "Registry": [
@@ -892,7 +892,7 @@
     "Description": "Recall is an upcoming preview experience exclusive to Copilot+ PCs that will help you easily find and remember things you've seen using natural language",
     "Category": "Privacy",
     "Check": "false",
-    "Refresh": "false",
+    "Refresh": "true",
     "InvokeCommand": [],
     "UndoCommand": [],
     "Registry": [
@@ -935,7 +935,7 @@
     "Description": "The old volume control in Windows 10 refers to the classic audio mixer interface that was used in earlier versions of Windows, before the modern volume control system was introduced.",
     "Category": "Classic",
     "Check": "false",
-    "Refresh": "false",
+    "Refresh": "true",
     "InvokeCommand": [],
     "UndoCommand": [],
     "Registry": [
@@ -956,7 +956,7 @@
     "Description": "Toggle key sounds in Windows are audio cues that play when you press the Caps Lock, Num Lock, or Scroll Lock keys. These sounds help users identify when these keys are activated or deactivated",
     "Category": "Classic",
     "Check": "false",
-    "Refresh": "false",
+    "Refresh": "true",
     "InvokeCommand": [],
     "UndoCommand": [],
     "Registry": [
@@ -1001,7 +1001,7 @@
     "Description": "Removes the Home and Gallery from explorer and sets This PC as default",
     "Category": "Privacy",
     "Check": "false",
-    "Refresh": "false",
+    "Refresh": "true",
     "InvokeCommand": [],
     "UndoCommand": [],
     "Registry": [
@@ -1030,7 +1030,7 @@
     "Description": "Disable Wifi-Sense & Activity History & ActivityFeed Telemetry & DataCollection",
     "Category": "Privacy",
     "Check": "false",
-    "Refresh": "false",
+    "Refresh": "true",
     "InvokeCommand": [
       "Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Application Experience\\Microsoft Compatibility Appraiser' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Application Experience\\ProgramDataUpdater' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Autochk\\Proxy' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Customer Experience Improvement Program\\Consolidator' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Customer Experience Improvement Program\\UsbCeip' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\DiskDiagnostic\\Microsoft-Windows-DiskDiagnosticDataCollector' | Out-Null"
     ],
@@ -1470,7 +1470,7 @@
     "Description": "It's Microsoft, what should I say!",
     "Category": "Performance",
     "Check": "false",
-    "Refresh": "false",
+    "Refresh": "true",
     "InvokeCommand": [],
     "UndoCommand": [],
     "Registry": [
@@ -1521,7 +1521,7 @@
     "Description": "All Windows effects disabled and optimized for windowed games. You may need to log out and back in for changes to take effect. You can reset to default settings in Settings Tab",
     "Category": "Performance",
     "Check": "false",
-    "Refresh": "false",
+    "Refresh": "true",
     "InvokeCommand": [],
     "UndoCommand": [],
     "Registry": [
@@ -1626,7 +1626,7 @@
     "Description": "Widgets are one of the new user interface elements in Windows 11 They are used to display dynamic information on the desktop including weather news and other information from various sources",
     "Category": "Performance",
     "Check": "false",
-    "Refresh": "false",
+    "Refresh": "true",
     "InvokeCommand": [
       "winget uninstall 'windows web experience pack' --silent"
     ],
