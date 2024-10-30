@@ -56,6 +56,31 @@ if($userInput -eq "Registry")
 $TweakName = Read-Host "Enter Tweak Name"
 $description = (Read-Host "Enter Tweak description").Trim() -replace '[^\w\s]', ''
 
+# category
+$ActionType = @{
+    1 = "Privacy"
+    2 = "Fixer"
+    3 = "Performance"
+    4 = "Personalization"
+    5 = "Power"
+    6 = "Protection"
+    7 = "Classic"
+}
+
+do {
+    Write-Host "This Tweak will do?"
+    foreach ($key in $ActionType.Keys | Sort-Object) {
+        Write-Host "$key - $($ActionType[$key])"
+    }
+    $choice = Read-Host "Enter the number corresponding to the Tweak Type"
+    if ([int]$choice -in $ActionType.Keys) {
+        $category = $ActionType[[int]$choice]
+    } else {
+        Write-Host "Invalid choice. Please select a valid option."
+    }
+} until ([int]$choice -in $ActionType.Keys)
+# category
+
 # Initialize arrays for Modify and Delete paths
 $modifyPaths = @()
 $deletePaths = @()
@@ -147,6 +172,7 @@ $data = @{
     "Name" = $TweakName
     "Description" = $description
     "Check" = "false"
+    "Category" = $category
     "Type" = "Registry"
     "Refresh" = "false"
     "Modify" = $modifyPaths
@@ -169,6 +195,7 @@ $jsonString = @"
     "Name": "$($data["Name"])",
     "Description": "$($data["Description"])",
     "Check": "$($data["Check"])",
+    "Category": "$($data["Category"])",
     "Type": "$($data["Type"])",
     "Refresh": "$($data["Refresh"])",
     "Modify": $($data["Modify"] | ConvertTo-Json -Depth 100),
@@ -205,7 +232,6 @@ $updatedJson | Out-File -FilePath $json -Encoding utf8
 #endregion Registry 
 #===========================================================================
 
-
 #===========================================================================
 #region RemoveAppxPackage 
 #===========================================================================
@@ -215,6 +241,32 @@ if($userInput -eq "RemoveAppxPackage")
 
 $TweakName = Read-Host "Enter Tweak Name"
 $description = (Read-Host "Enter tweak description").Trim() -replace '[^\w\s]', ''
+
+# category
+$ActionType = @{
+    1 = "Privacy"
+    2 = "Fixer"
+    3 = "Performance"
+    4 = "Personalization"
+    5 = "Power"
+    6 = "Protection"
+    7 = "Classic"
+}
+
+do {
+    Write-Host "This Tweak will do?"
+    foreach ($key in $ActionType.Keys | Sort-Object) {
+        Write-Host "$key - $($ActionType[$key])"
+    }
+    $choice = Read-Host "Enter the number corresponding to the Tweak Type"
+    if ([int]$choice -in $ActionType.Keys) {
+        $category = $ActionType[[int]$choice]
+    } else {
+        Write-Host "Invalid choice. Please select a valid option."
+    }
+} until ([int]$choice -in $ActionType.Keys)
+# category
+
 
 # Read multiple AppxPackage Names
 $Names = @()
@@ -231,6 +283,7 @@ $data = @{
     "Name" = $TweakName
     "Description" = $description
     "Check" = "false"
+    "Category" = $category
     "Type" = "AppxPackage"
     "Refresh" = "false"
     "$userInput" = @(
@@ -254,6 +307,7 @@ $jsonString = @"
     "Name": "$($data["Name"])",
     "Description": "$($data["Description"])",
     "Check": "$($data["Check"])",
+    "Category": "$($data["Category"])",
     "Type": "$($data["Type"])",
     "Refresh": "$($data["Refresh"])",
     "$userInput": $($data["$userInput"] | ConvertTo-Json -Depth 100),
@@ -296,6 +350,30 @@ if($userInput -eq "InvokeCommand")
 $TweakName = Read-Host "Enter Tweak Name"
 $description = (Read-Host "Enter tweak description").Trim() -replace '[^\w\s]', ''
 
+# category
+$ActionType = @{
+    1 = "Privacy"
+    2 = "Fixer"
+    3 = "Performance"
+    4 = "Personalization"
+    5 = "Power"
+    6 = "Protection"
+    7 = "Classic"
+}
+
+do {
+    Write-Host "This Tweak will do?"
+    foreach ($key in $ActionType.Keys | Sort-Object) {
+        Write-Host "$key - $($ActionType[$key])"
+    }
+    $choice = Read-Host "Enter the number corresponding to the Tweak Type"
+    if ([int]$choice -in $ActionType.Keys) {
+        $category = $ActionType[[int]$choice]
+    } else {
+        Write-Host "Invalid choice. Please select a valid option."
+    }
+} until ([int]$choice -in $ActionType.Keys)
+# category
 
 # Initialize an empty array to collect commands
 $cmd = @()
@@ -327,6 +405,7 @@ $data = @{
     "Name" = $TweakName
     "Description" = $description
     "Check" = "false"
+    "Category" = $category
     "Type" = "command"
     "Refresh" = "false"
     "userInput" = $cmd
@@ -350,6 +429,7 @@ $jsonString = @"
     "Name": "$($data["Name"])",
     "Description": "$($data["Description"])",
     "Check": "$($data["Check"])",
+    "Category": "$($data["Category"])",
     "Type": "$($data["Type"])",
     "Refresh": "$($data["Refresh"])",
     "$userInput": [
@@ -388,6 +468,31 @@ if($userInput -eq "Service")
 
 $TweakName = Read-Host "Enter Tweak Name"
 $description = (Read-Host "Enter tweak description").Trim() -replace '[^\w\s]', ''
+
+# category
+$ActionType = @{
+    1 = "Privacy"
+    2 = "Fixer"
+    3 = "Performance"
+    4 = "Personalization"
+    5 = "Power"
+    6 = "Protection"
+    7 = "Classic"
+}
+
+do {
+    Write-Host "This Tweak will do?"
+    foreach ($key in $ActionType.Keys | Sort-Object) {
+        Write-Host "$key - $($ActionType[$key])"
+    }
+    $choice = Read-Host "Enter the number corresponding to the Tweak Type"
+    if ([int]$choice -in $ActionType.Keys) {
+        $category = $ActionType[[int]$choice]
+    } else {
+        Write-Host "Invalid choice. Please select a valid option."
+    }
+} until ([int]$choice -in $ActionType.Keys)
+# category
 
 # Read multiple Disable Services Names
 $Names = @()
@@ -451,6 +556,7 @@ $data = [Ordered]@{
     "Name" = $TweakName
     "Description" = $description
     "Check" = "false"
+    "Category" = $category
     "Type" = "service"
     "Refresh" = "false"
     "$userInput" = @(
@@ -470,6 +576,7 @@ $jsonString = @"
     "Name": "$($data["Name"])",
     "Description": "$($data["Description"])",
     "Check": "$($data["Check"])",
+    "Category": "$($data["Category"])",
     "Type": "$($data["Type"])",
     "Refresh": "$($data["Refresh"])",
     "$userInput": $($data["$userInput"] | ConvertTo-Json -Depth 100)
