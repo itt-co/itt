@@ -9,22 +9,7 @@
       "\r\n Remove-Item -Path \"$env:LOCALAPPDATA\\Temp\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        Remove-Item -Path \"C:\\Windows\\Prefetch\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        Stop-Service -Name wuauserv -Force\r\n        takeown /f C:\\Windows\\SoftwareDistribution\\Download /r /d y\r\n        icacls C:\\Windows\\SoftwareDistribution\\Download /grant administrators:F /t\r\n        Remove-Item -Path \"C:\\Windows\\SoftwareDistribution\\Download\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        cleanmgr.exe /d C: /VERYLOWDISK /sagerun:1 Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase\r\n        cleanmgr.exe /d C: /sagerun:1\r\n        cleanmgr.exe /sagerun:1\r\n        Dism.exe /online /Cleanup-Image /StartComponentCleanup\r\n        cleanmgr.exe /d C: /VERYLOWDISK\r\n        Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase\r\n        Start-Service -Name wuauserv\r\n      "
     ],
     "UndoCommand": [],
-    "Registry": [
-      {
-        "Type": "Dword",
-        "Path": "HKCU:\\Software\\TestKey",
-        "Name": "Test",
-        "Value": "2",
-        "DefaultValue": "0"
-      },
-      {
-        "Type": "Dword",
-        "Path": "HKCU:\\Software\\TestKey",
-        "Name": "emad",
-        "Value": "<RemoveEntry>",
-        "DefaultValue": "0"
-      }
-    ],
+    "Registry": [],
     "RemoveAppxPackage": [],
     "RemoveTasks": [],
     "Services": []
