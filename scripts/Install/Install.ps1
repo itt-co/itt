@@ -185,8 +185,8 @@ function Invoke-Apply {
 
             $tweak | ForEach-Object {
         
-                if ($_.InvokeCommand -and $_.InvokeCommand.Count -gt 0) {
-                    ExecuteCommand -tweak $tweak.InvokeCommand
+                if ($_.Script -and $_.Script.Count -gt 0) {
+                    ExecuteCommand -tweak $tweak.Script
                     if($_.Refresh -eq $true)
                     {
                         Refresh-Explorer
@@ -201,24 +201,24 @@ function Invoke-Apply {
                     }
                 } 
 
-                if ($_.RemoveAppxPackage -and $_.RemoveAppxPackage.Count -gt 0) {
-                    Uninstall-AppxPackage -tweak $tweak.RemoveAppxPackage
+                if ($_.AppxPackage -and $_.AppxPackage.Count -gt 0) {
+                    Uninstall-AppxPackage -tweak $tweak.AppxPackage
                     if($_.Refresh -eq $true)
                     {
                         Refresh-Explorer
                     }
                 } 
 
-                if ($_.RemoveTasks -and $_.RemoveTasks.Count -gt 0) {
-                    Remove-ScheduledTasks -tweak $tweak.RemoveTasks
+                if ($_.ScheduledTask -and $_.ScheduledTask.Count -gt 0) {
+                    Remove-ScheduledTasks -tweak $tweak.ScheduledTask
                     if($_.Refresh -eq $true)
                     {
                         Refresh-Explorer
                     }
                 } 
 
-                if ($_.DisableServices -and $_.DisableServices.Count -gt 0) {
-                    Disable-Service -tweak $tweak.DisableServices
+                if ($_.Services -and $_.Services.Count -gt 0) {
+                    Disable-Service -tweak $tweak.Services
                     if($_.Refresh -eq $true)
                     {
                         Refresh-Explorer
