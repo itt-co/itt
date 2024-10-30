@@ -129,18 +129,41 @@ function Add-Services {
     $ServicesEntries = @() # Initialize an array 
 
     do {
-        # Create a new entry for Modify
-        $Services = @{
-            Name         = Read-Host "Enter Service name"
-            StartupType  = Read-Host "Enter StartupType "
-            DefaultType  = Read-Host "Enter the DefaultType Type"
+
+    # StartupType
+        $StartupType = @{
+
+            1 = "Disabled"
+            2 = "Automatic"
+            4 = "Manual "
         }
 
-        $modifyEntries += $Services # Add the entry to the array
+        do {
+            Write-Host "Which category will this tweak belong to?"
+            foreach ($key in $StartupType.Keys | Sort-Object) {
+                Write-Host "$key - $($StartupType[$key])"
+            }
+            $choice = Read-Host "Enter the number corresponding to the Tweak Type"
+            if ([int]$choice -in $StartupType.Keys) {
+                $type = $StartupType[[int]$choice]
+            } else {
+                Write-Host "Invalid choice. Please select a valid option."
+            }
+        } until ([int]$choice -in $StartupType.Keys)
+    # StartupType
+
+    # Create a new entry for Modify
+    $Services = @{
+        Name         = Read-Host "Enter Service name"
+        StartupType  = $type
+        DefaultType  = "Manual"
+    }
+
+    $ServicesEntries += $Services # Add the entry to the array
 
         # Ask if the user wants to add another Modify entry
-        $continue = Read-Host "Do you want to add another Service entry? (yes/no)"
-    } while ($continue -eq "yes")
+        $continue = Read-Host "Do you want to add another Service entry? (y/n)"
+    } while ($continue -eq "y")
 
     return $ServicesEntries
 }
@@ -204,7 +227,7 @@ function Add-AppxPackage {
 
     do {
         $packageName = Read-Host "Enter Appx package name'"
-        $appxPackages += @{ Name = $packageName } # Add the package as an object with the Name property
+        $appxPackages += $packageName 
         
         # Ask if the user wants to add another Appx package
         $addAnotherAppx = Read-Host "Do you want to add another Appx package? (y/n)"
@@ -236,12 +259,12 @@ if (Test-Path $outputFilePath) {
             Category           = $item.Category
             Check              = $item.Check
             Refresh            = $item.Refresh
-            InvokeCommand      = $item.InvokeCommand
-            UndoCommand        = $item.UndoCommand
-            Registry           = $item.Registry
-            RemoveAppxPackage  = $item.RemoveAppxPackage
-            RemoveTasks        = $item.RemoveTasks
+            Script             = $item.Script
+            UndoScript         = $item.UndoScript
+            ScheduledTask      = $item.ScheduledTask
+            AppxPackage        = $item.AppxPackage
             Services           = $item.Services
+            Registry           = $item.Registry
         }
     }
 
