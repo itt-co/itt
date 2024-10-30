@@ -21,30 +21,19 @@ function Uninstall-AppxPackage {
     #>
     
     param (
-        $Name
+        [array]$tweak
     )
 
     try {
-        
-        if($debug){ Add-Log -Message $Name -Level "debug"}
 
-        Write-Host "Removing $Name"
-        Get-AppxPackage "*$Name*" | Remove-AppxPackage -ErrorAction SilentlyContinue
-        Get-AppxProvisionedPackage -Online | Where-Object DisplayName -like "*$Name*" | Remove-AppxProvisionedPackage -Online -ErrorAction SilentlyContinue
-
-        if($debug){
-            Add-Log -Message "Registry value set successfully." -Level "INFO"
+        foreach ($name in $tweak) {
+            Add-Log -Message "Removing $name..." -Level "info"
+            Get-AppxPackage "*$name*" | Remove-AppxPackage -ErrorAction SilentlyContinue
+            Get-AppxProvisionedPackage -Online | Where-Object DisplayName -like "*$name*" | Remove-AppxProvisionedPackage -Online -ErrorAction SilentlyContinue
         }
-
-    } catch [System.Exception] {
-        if ($psitem.Exception.Message -like "*The requested operation requires elevation*") {
-            Write-Warning "Unable to uninstall $name due to a Security Exception"
-        } else {
-            Write-Warning "Unable to uninstall $name due to unhandled exception"
-            Write-Warning $psitem.Exception.StackTrace
-        }
-    } catch {
-        Write-Warning "Unable to uninstall $name due to unhandled exception"
-        Write-Warning $psitem.Exception.StackTrace
+    } 
+    catch 
+    {
+        Add-Log -Message "Unable to uninstall $name. Please Use Windows poershell not Terminal" -Level "info"
     }
 }
