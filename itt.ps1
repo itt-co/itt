@@ -9167,37 +9167,6 @@ $itt.database.Tweaks = '[
     "AppxPackage": [],
     "Services": [],
     "Registry": []
-  },
-  {
-    "Name": "test",
-    "Description": "tset",
-    "Category": "Privacy",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [
-      "Write-Host ''this 1''"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [
-      "Microsoft.BingNews"
-    ],
-    "Services": [
-      {
-        "Name": "Spooler",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      }
-    ],
-    "Registry": [
-      {
-        "Name": "ShellFeedsTaskbarViewMode",
-        "Value": "2",
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Feeds",
-        "Type": "DWord",
-        "DefaultValue": "0"
-      }
-    ]
   }
 ]
 ' | ConvertFrom-Json
@@ -16006,12 +15975,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content=""/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Fix issues related to strange symbols appearing in Arabic text."/>
-        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
-            <StackPanel Orientation="Horizontal">
-                <CheckBox Content="test"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
-            </StackPanel>
-            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="tset."/>
         </StackPanel>
                     </ListView>
             </TabItem>
