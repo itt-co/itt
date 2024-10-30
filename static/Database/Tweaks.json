@@ -1644,5 +1644,35 @@
     "RemoveAppxPackage": [],
     "RemoveTasks": [],
     "Services": []
+  },
+  {
+    "Name": "Unknown",
+    "Description": "Rename Computer name to Unknown. The changes will take effect after you restart the computer",
+    "Category": "Privacy",
+    "Check": "false",
+    "Refresh": "false",
+    "InvokeCommand": [
+        "Rename-Computer -NewName 'Unknown'"
+    ],
+    "UndoCommand": [],
+    "Registry": [],
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
+  },
+  {
+    "Name": "Fix arabic encoding",
+    "Description": "Fix issues related to strange symbols appearing in Arabic text",
+    "Category": "",
+    "Check": "false",
+    "Refresh": "false",
+    "InvokeCommand": [
+       "Set-WinSystemLocale -SystemLocale 'ar-EG'"
+    ],
+    "UndoCommand": [],
+    "Registry": [],
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   }
 ]
