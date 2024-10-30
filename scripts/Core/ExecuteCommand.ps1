@@ -19,40 +19,18 @@ function ExecuteCommand {
     #>
 
     param (
-        [string]$Name,
-        [array]$Tweak
+        [array]$tweak
     )
 
     try {
 
-        if($debug){ Add-Log -Message $Name $Tweak -Level "debug"}
-
-        if ($tweak -and $tweak.Count -gt 0) {
-            
-            $Tweak | ForEach-Object { 
-                $cmd = [scriptblock]::Create($psitem)
-                Invoke-Command  $cmd -ErrorAction Stop
-            }
-        }
-        else
-        {
-            if($debug){Add-Log -Message "InvokeCommand is empty on this tweak" -Level "debug" }
+        foreach ($cmd in $tweak) {
+            if($debug) {Add-Log -Message $cmd -action "debug"}
+            $script = [scriptblock]::Create($cmd)
+            Invoke-Command  $script -ErrorAction Stop
         }
 
-    } catch [System.Management.Automation.CommandNotFoundException] {
-        Write-Warning "The specified command was not found."
-        Write-Warning $PSItem.Exception.message
-    } catch [System.Management.Automation.RuntimeException] {
-        Write-Warning "A runtime exception occurred."
-        Write-Warning $PSItem.Exception.message
-    } catch [System.Security.SecurityException] {
-        Write-Warning "A security exception occurred."
-        Write-Warning $PSItem.Exception.message
-    } catch [System.UnauthorizedAccessException] {
-        Write-Warning "Access denied. You do not have permission to perform this operation."
-        Write-Warning $PSItem.Exception.message
-    } catch {
-        Write-Warning "Unable to run script for $Name due to unhandled exception"
-        Write-Warning $psitem.Exception.StackTrace
+    } catch  {
+        Add-Log -Message "The specified command was not found." -Level "info"
     }
 }
