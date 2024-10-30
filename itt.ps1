@@ -7526,57 +7526,59 @@ $itt.database.Tweaks = '[
   {
     "Name": "Disk cleanup",
     "Description": "Clean temporary files that are not necessary",
+    "Category": "",
     "Check": "false",
-    "Category": "Cleanup",
-    "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [],
     "InvokeCommand": [
-      "\r\n        Remove-Item -Path \"$env:LOCALAPPDATA\\Temp\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        Remove-Item -Path \"C:\\Windows\\Prefetch\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        Stop-Service -Name wuauserv -Force\r\n        takeown /f C:\\Windows\\SoftwareDistribution\\Download /r /d y\r\n        icacls C:\\Windows\\SoftwareDistribution\\Download /grant administrators:F /t\r\n        Remove-Item -Path \"C:\\Windows\\SoftwareDistribution\\Download\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        cleanmgr.exe /d C: /VERYLOWDISK /sagerun:1 Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase\r\n        cleanmgr.exe /d C: /sagerun:1\r\n        cleanmgr.exe /sagerun:1\r\n        Dism.exe /online /Cleanup-Image /StartComponentCleanup\r\n        cleanmgr.exe /d C: /VERYLOWDISK\r\n        Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase\r\n        Start-Service -Name wuauserv\r\n      "
+      "\r\n Remove-Item -Path \"$env:LOCALAPPDATA\\Temp\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        Remove-Item -Path \"C:\\Windows\\Prefetch\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        Stop-Service -Name wuauserv -Force\r\n        takeown /f C:\\Windows\\SoftwareDistribution\\Download /r /d y\r\n        icacls C:\\Windows\\SoftwareDistribution\\Download /grant administrators:F /t\r\n        Remove-Item -Path \"C:\\Windows\\SoftwareDistribution\\Download\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        cleanmgr.exe /d C: /VERYLOWDISK /sagerun:1 Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase\r\n        cleanmgr.exe /d C: /sagerun:1\r\n        cleanmgr.exe /sagerun:1\r\n        Dism.exe /online /Cleanup-Image /StartComponentCleanup\r\n        cleanmgr.exe /d C: /VERYLOWDISK\r\n        Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase\r\n        Start-Service -Name wuauserv\r\n      "
     ],
-    "UndoCommand": [
-      ""
-    ]
+    "UndoCommand": [],
+    "Registry": [
+      {
+        "Type": "Dword",
+        "Path": "HKCU:\\Software\\TestKey",
+        "Name": "Test",
+        "Value": "2",
+        "DefaultValue": "0"
+      },
+      {
+        "Type": "Dword",
+        "Path": "HKCU:\\Software\\TestKey",
+        "Name": "emad",
+        "Value": "<RemoveEntry>",
+        "DefaultValue": "0"
+      }
+    ],
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
+
   },
   {
     "Name": "System File Checker",
     "Description": "sfc /scannow Use the System File Checker tool to repair missing or corrupted system files",
+    "Category": "",
     "Check": "false",
-    "Category": "Fixer",
-    "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [],
     "InvokeCommand": [
       "\r\n        Chkdsk /scan\r\n        sfc /scannow\r\n        DISM /Online /Cleanup-Image /Restorehealth\r\n        sfc /scannow\r\n      "
     ],
-    "UndoCommand": [
-      ""
-    ]
-  },
-  {
-    "Name": "Clear Start Menu Windows 10/11",
-    "Description": "Clear all pinned apps from the start menu",
-    "Check": "false",
-    "Category": "Performance",
-    "Type": "command",
-    "Refresh": "false",
+    "UndoCommand": [],
+    "Registry": [],
+    "RemoveAppxPackage": [],
     "RemoveTasks": [],
-    "InvokeCommand": [
-      "Invoke-RestMethod https://raw.githubusercontent.com/emadadel4/WindowsTweaks/main/ClearStartMenu.ps1 | Invoke-Expression"
-    ],
-    "UndoCommand": [
-      ""
-    ]
+    "Services": []
+
   },
   {
     "Name": "Clean Taskbar",
     "Description": "Disable the (News and interests) and (People icon) Show Search icon only for Windows 10/11",
+    "Category": "",
     "Check": "false",
-    "Category": "Performance",
-    "Type": "Registry",
     "Refresh": "true",
-    "RemoveTasks": [],
-    "Modify": [
+    "InvokeCommand": [],
+    "UndoCommand": [],
+    "Registry": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Feeds",
         "Name": "ShellFeedsTaskbarViewMode",
@@ -7613,348 +7615,160 @@ $itt.database.Tweaks = '[
         "defaultValue": "0"
       }
     ],
-    "InvokeCommand": [
-      ""
-    ],
-    "UndoCommand": [
-      ""
-    ]
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
+
   },
   {
     "Name": "Remove Windows 10/11 Bloatware",
     "Description": "BingNews, GetHelp, Getstarted, Messaging, Microsoft3DViewer, MicrosoftOfficeHub, MicrosoftSolitaireCollection, News, Office.Lens, Office.OneNote, Office.Sway, OneConnect, People, Print3D, RemoteDesktop, SkypeApp, StorePurchaseApp, Office.Todo.List, Whiteboard, WindowsAlarms, WindowsCamera, windowscommunicationsapps, WindowsFeedbackHub, WindowsMaps, WindowsSoundRecorder, Xbox.TCUI, XboxApp, XboxGameOverlay, XboxIdentityProvider, XboxSpeechToTextOverlay, ZuneMusic, ZuneVideo, Windows.Cortana, MSPaint, Clipchamp",
+    "Category": "",
     "Check": "false",
-    "Category": "Performance",
-    "Type": "AppxPackage",
     "Refresh": "false",
-    "RemoveTasks": [
-      "OneDrive",
-      "MicrosoftEdge"
-    ],
+    "InvokeCommand": [],
+    "UndoCommand": [],
+    "Registry": [],
     "RemoveAppxPackage": [
-      {
-        "Name": "Microsoft.BingNews"
-      },
-      {
-        "Name": "Microsoft.WindowsCamera"
-      },
-      {
-        "Name": " Microsoft.Getstarted"
-      },
-      {
-        "Name": "Microsoft.MicrosoftEdge.Stable"
-      },
-      {
-        "Name": "Microsoft.MicrosoftEdgeDevToolsClient"
-      },
-      {
-        "Name": "Microsoft.BingWeather_1.0.6.0_x64__8wekyb3d8bbwe"
-      },
-      {
-        "Name": "MicrosoftWindows.Client.WebExperience_cw5n1h2txyewy"
-      },
-      {
-        "Name": "Microsoft.GetHelp"
-      },
-      {
-        "Name": "Microsoft.AppConnector"
-      },
-      {
-        "Name": "Microsoft.BingFinance"
-      },
-      {
-        "Name": "Microsoft.XboxGamingOverlay"
-      },
-      {
-        "Name": "Microsoft.BingTranslator"
-      },
-      {
-        "Name": "Microsoft.BingHealthAndFitness"
-      },
-      {
-        "Name": "Microsoft.BingTravel"
-      },
-      {
-        "Name": "Microsoft.MinecraftUWP"
-      },
-      {
-        "Name": "Microsoft.GamingServices"
-      },
-      {
-        "Name": "Microsoft.BingFoodAndDrink"
-      },
-      {
-        "Name": "Microsoft.BingWeather"
-      },
-      {
-        "Name": "Microsoft.Messaging"
-      },
-      {
-        "Name": "Microsoft.Microsoft3DViewer"
-      },
-      {
-        "Name": "Microsoft.MicrosoftOfficeHub"
-      },
-      {
-        "Name": "Microsoft.MicrosoftSolitaireCollection"
-      },
-      {
-        "Name": "Microsoft.NetworkSpeedTest"
-      },
-      {
-        "Name": "Microsoft.News"
-      },
-      {
-        "Name": "Microsoft.549981C3F5F10"
-      },
-      {
-        "Name": "Microsoft.Office.Lens"
-      },
-      {
-        "Name": "Microsoft.Office.OneNote"
-      },
-      {
-        "Name": "Microsoft.Office.Sway"
-      },
-      {
-        "Name": "Microsoft.OneConnect"
-      },
-      {
-        "Name": "Microsoft.People"
-      },
-      {
-        "Name": "Microsoft.Print3D"
-      },
-      {
-        "Name": "Microsoft.RemoteDesktop"
-      },
-      {
-        "Name": "Microsoft.SkypeApp"
-      },
-      {
-        "Name": "Microsoft.StorePurchaseApp"
-      },
-      {
-        "Name": "Microsoft.Office.Todo.List"
-      },
-      {
-        "Name": "Microsoft.Whiteboard"
-      },
-      {
-        "Name": "Microsoft.WindowsAlarms"
-      },
-      {
-        "Name": "Microsoft.WindowsCamera"
-      },
-      {
-        "Name": "Microsoft.windowscommunicationsapps"
-      },
-      {
-        "Name": "Microsoft.WindowsFeedbackHub"
-      },
-      {
-        "Name": "Microsoft.Wallet"
-      },
-      {
-        "Name": "Microsoft.WindowsMaps"
-      },
-      {
-        "Name": "Microsoft.YourPhone"
-      },
-      {
-        "Name": "Microsoft.WindowsSoundRecorder"
-      },
-      {
-        "Name": "Microsoft.Xbox.TCUI"
-      },
-      {
-        "Name": "Microsoft.XboxApp"
-      },
-      {
-        "Name": "Microsoft.XboxGameOverlay"
-      },
-      {
-        "Name": "Microsoft.GamingApp"
-      },
-      {
-        "Name": "Microsoft.XboxIdentityProvider"
-      },
-      {
-        "Name": "Microsoft.XboxSpeechToTextOverlay"
-      },
-      {
-        "Name": "Microsoft.Windows.Cortana"
-      },
-      {
-        "Name": "Microsoft.ScreenSketch"
-      },
-      {
-        "Name": "Microsoft.Windows.DevHome"
-      },
-      {
-        "Name": "Microsoft.MixedReality.Portal"
-      },
-      {
-        "Name": "Microsoft.MSPaint"
-      },
-      {
-        "Name": "Microsoft.Getstarted"
-      },
-      {
-        "Name": "Microsoft.ZuneVideo"
-      },
-      {
-        "Name": "Microsoft.ZuneMusic"
-      },
-      {
-        "Name": "EclipseManager"
-      },
-      {
-        "Name": "ActiproSoftwareLLC"
-      },
-      {
-        "Name": "AdobeSystemsIncorporated.AdobePhotoshopExpress"
-      },
-      {
-        "Name": "Duolingo-LearnLanguagesforFree"
-      },
-      {
-        "Name": "PandoraMediaInc"
-      },
-      {
-        "Name": "CandyCrush"
-      },
-      {
-        "Name": "BubbleWitch3Saga"
-      },
-      {
-        "Name": "Wunderlist"
-      },
-      {
-        "Name": "Flipboard"
-      },
-      {
-        "Name": "Twitter"
-      },
-      {
-        "Name": "Facebook"
-      },
-      {
-        "Name": "Minecraft"
-      },
-      {
-        "Name": "Royal Revolt"
-      },
-      {
-        "Name": "Sway"
-      },
-      {
-        "Name": "Microsoft.549981"
-      },
-      {
-        "Name": "Microsoft.MicrosoftStickyNotes"
-      },
-      {
-        "Name": "TikTok.TikTok_8wekyb3d8bbwe"
-      },
-      {
-        "Name": "TikTok"
-      },
-      {
-        "Name": "Microsoft.NetworkSpeedTest"
-      }
+      "Microsoft.BingNews",
+      "Microsoft.WindowsCamera",
+      "Microsoft.Getstarted",
+      "Microsoft.MicrosoftEdge.Stable",
+      "Microsoft.MicrosoftEdgeDevToolsClient",
+      "Microsoft.BingWeather_1.0.6.0_x64__8wekyb3d8bbwe",
+      "MicrosoftWindows.Client.WebExperience_cw5n1h2txyewy",
+      "Microsoft.GetHelp",
+      "Microsoft.AppConnector",
+      "Microsoft.BingFinance",
+      "Microsoft.XboxGamingOverlay",
+      "Microsoft.BingTranslator",
+      "Microsoft.BingHealthAndFitness",
+      "Microsoft.BingTravel",
+      "Microsoft.MinecraftUWP",
+      "Microsoft.GamingServices",
+      "Microsoft.BingFoodAndDrink",
+      "Microsoft.BingWeather",
+      "Microsoft.Messaging",
+      "Microsoft.Microsoft3DViewer",
+      "Microsoft.MicrosoftOfficeHub",
+      "Microsoft.MicrosoftSolitaireCollection",
+      "Microsoft.NetworkSpeedTest",
+      "Microsoft.News",
+      "Microsoft.549981C3F5F10",
+      "Microsoft.Office.Lens",
+      "Microsoft.Office.OneNote",
+      "Microsoft.Office.Sway",
+      "Microsoft.OneConnect",
+      "Microsoft.People",
+      "Microsoft.Print3D",
+      "Microsoft.RemoteDesktop",
+      "Microsoft.SkypeApp",
+      "Microsoft.StorePurchaseApp",
+      "Microsoft.Office.Todo.List",
+      "Microsoft.Whiteboard",
+      "Microsoft.WindowsAlarms",
+      "Microsoft.WindowsCamera",
+      "Microsoft.windowscommunicationsapps",
+      "Microsoft.WindowsFeedbackHub",
+      "Microsoft.Wallet",
+      "Microsoft.WindowsMaps",
+      "Microsoft.YourPhone",
+      "Microsoft.WindowsSoundRecorder",
+      "Microsoft.Xbox.TCUI",
+      "Microsoft.XboxApp",
+      "Microsoft.XboxGameOverlay",
+      "Microsoft.GamingApp",
+      "Microsoft.XboxIdentityProvider",
+      "Microsoft.XboxSpeechToTextOverlay",
+      "Microsoft.Windows.Cortana",
+      "Microsoft.ScreenSketch",
+      "Microsoft.Windows.DevHome",
+      "Microsoft.MixedReality.Portal",
+      "Microsoft.MSPaint",
+      "Microsoft.Getstarted",
+      "Microsoft.ZuneVideo",
+      "Microsoft.ZuneMusic",
+      "EclipseManager",
+      "ActiproSoftwareLLC",
+      "AdobeSystemsIncorporated.AdobePhotoshopExpress",
+      "Duolingo-LearnLanguagesforFree",
+      "PandoraMediaInc",
+      "CandyCrush",
+      "BubbleWitch3Saga",
+      "Wunderlist",
+      "Flipboard",
+      "Twitter",
+      "Facebook",
+      "Minecraft",
+      "Royal Revolt",
+      "Sway",
+      "Microsoft.549981",
+      "Microsoft.MicrosoftStickyNotes",
+      "TikTok.TikTok_8wekyb3d8bbwe",
+      "TikTok",
+      "Microsoft.NetworkSpeedTest"
     ],
-    "InvokeCommand": [
-      ""
-    ],
-    "UndoCommand": [
-      ""
-    ]
-  },
-  {
-    "Name": "Restore All Windows Services to Default",
-    "Description": "If you face a problem with some system services, you can restore all services to Default",
-    "Check": "false",
-    "Category": "Fixer",
-    "Type": "command",
-    "Refresh": "false",
     "RemoveTasks": [],
-    "InvokeCommand": [
-      "Invoke-RestMethod https://raw.githubusercontent.com/emadadel4/WindowsTweaks/main/restore.bat | Invoke-Expression"
-    ],
-    "UndoCommand": [
-      ""
-    ]
-  },
-  {
-    "Name": "Fix Stutter in Games",
-    "Description": "Fix Stutter in Games Disable GameBarPresenceWriter for Windows 10 and 11",
-    "Check": "false",
-    "Category": "Performance",
-    "Type": "command",
-    "Refresh": "false",
-    "RemoveTasks": [],
-    "InvokeCommand": [
-      "\r\n        takeown /f C:\\Windows\\System32\\GameBarPresenceWriter.exe\r\n\r\n        takeown /f C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll\r\n\r\n        takeown /f C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll\r\n\r\n        Start-Sleep -Seconds 1\r\n\r\n\r\n        icacls C:\\Windows\\System32\\GameBarPresenceWriter.exe /grant administrators:F\r\n\r\n        icacls C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll /grant administrators:F\r\n\r\n        icacls C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll /grant administrators:F\r\n\r\n        Start-Sleep -Seconds 1\r\n\r\n\r\n        Rename-Item C:\\Windows\\System32\\GameBarPresenceWriter.exe -NewName GameBarPresenceWriter.exe_backup\r\n\r\n        Rename-Item C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll -NewName GameBarPresenceWriter.proxy.dll_backup\r\n\r\n        Rename-Item C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll -NewName Windows.Gaming.UI.GameBar.dll_backup\r\n\r\n      "
-    ],
-    "UndoCommand": [
-      ""
-    ]
+    "Services": []
+
   },
   {
     "Name": "Enable the Ultimate Performance Power Plan",
     "Description": "Enable the Ultimate Performance Power Plan",
+    "Category": "",
     "Check": "false",
-    "Category": "Performance",
-    "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [],
     "InvokeCommand": [
       "powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61; Start-Process powercfg.cpl"
     ],
-    "UndoCommand": [
-      ""
-    ]
+    "UndoCommand": [],
+    "Registry": [],
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Reset the TCP/IP Stack",
     "Description": "If you have an internet problem, Reset network configuration",
-    "Check": "false",
     "Category": "Fixer",
-    "Type": "command",
+    "Check": "false",
     "Refresh": "false",
-    "RemoveTasks": [],
     "InvokeCommand": [
       "netsh int ip reset"
     ],
-    "UndoCommand": [
-      ""
-    ]
+    "UndoCommand": [],
+    "Registry": [],
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Setup Auto login",
     "Description": "Setup auto login Windows username",
-    "Check": "false",
     "Category": "Other",
-    "Type": "command",
+    "Check": "false",
     "Refresh": "false",
-    "RemoveTasks": [],
     "InvokeCommand": [
-      "curl.exe -ss \"https://live.sysinternals.com/Autologon.exe\" -o $env:temp\\autologin.exe ; cmd /c $env:temp\\autologin.exe /accepteula"
+       "curl.exe -ss \"https://live.sysinternals.com/Autologon.exe\" -o $env:temp\\autologin.exe ; cmd /c $env:temp\\autologin.exe /accepteula"
     ],
-    "UndoCommand": [
-      ""
-    ]
+    "UndoCommand": [],
+    "Registry": [],
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Disable  Xbox Services",
     "Description": "Disables all Xbox Services Game Mode and Optimizations for Windowed Games and fix stutter playing smooth",
-    "Check": "false",
     "Category": "Performance",
-    "Type": "Registry",
+    "Check": "false",
     "Refresh": "false",
-    "RemoveTasks": [],
-    "Modify": [
+    "InvokeCommand": [
+      "Disable-MMAgent -MemoryCompression | Out-Null",
+      "\r\n        takeown /f C:\\Windows\\System32\\GameBarPresenceWriter.exe\r\n\r\n        takeown /f C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll\r\n\r\n        takeown /f C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll\r\n\r\n        Start-Sleep -Seconds 1\r\n\r\n\r\n        icacls C:\\Windows\\System32\\GameBarPresenceWriter.exe /grant administrators:F\r\n\r\n        icacls C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll /grant administrators:F\r\n\r\n        icacls C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll /grant administrators:F\r\n\r\n        Start-Sleep -Seconds 1\r\n\r\n\r\n        Rename-Item C:\\Windows\\System32\\GameBarPresenceWriter.exe -NewName GameBarPresenceWriter.exe_backup\r\n\r\n        Rename-Item C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll -NewName GameBarPresenceWriter.proxy.dll_backup\r\n\r\n        Rename-Item C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll -NewName Windows.Gaming.UI.GameBar.dll_backup\r\n\r\n      "
+    ],
+    "UndoCommand": [],
+    "Registry": [
       {
         "Path": "HKCU:\\SOFTWARE\\Microsoft\\GameBar",
         "Name": "AutoGameModeEnabled",
@@ -8138,23 +7952,19 @@ $itt.database.Tweaks = '[
         "defaultValue": "0"
       }
     ],
-    "InvokeCommand": [
-      "Disable-MMAgent -MemoryCompression | Out-Null",
-      "\r\n        takeown /f C:\\Windows\\System32\\GameBarPresenceWriter.exe\r\n\r\n        takeown /f C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll\r\n\r\n        takeown /f C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll\r\n\r\n        Start-Sleep -Seconds 1\r\n\r\n\r\n        icacls C:\\Windows\\System32\\GameBarPresenceWriter.exe /grant administrators:F\r\n\r\n        icacls C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll /grant administrators:F\r\n\r\n        icacls C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll /grant administrators:F\r\n\r\n        Start-Sleep -Seconds 1\r\n\r\n\r\n        Rename-Item C:\\Windows\\System32\\GameBarPresenceWriter.exe -NewName GameBarPresenceWriter.exe_backup\r\n\r\n        Rename-Item C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll -NewName GameBarPresenceWriter.proxy.dll_backup\r\n\r\n        Rename-Item C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll -NewName Windows.Gaming.UI.GameBar.dll_backup\r\n\r\n      "
-    ],
-    "UndoCommand": [
-      ""
-    ]
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Disable Start Menu Ads",
     "Description": "Disable Start menu Ads and Settings",
-    "Check": "false",
     "Category": "Privacy",
-    "Type": "Registry",
-    "Refresh": "true",
-    "RemoveTasks": [],
-    "Modify": [
+    "Check": "false",
+    "Refresh": "false",
+    "InvokeCommand": [],
+    "UndoCommand": [],
+    "Registry": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo",
         "Name": "Enabled",
@@ -8184,22 +7994,19 @@ $itt.database.Tweaks = '[
         "defaultValue": "1"
       }
     ],
-    "InvokeCommand": [
-      ""
-    ],
-    "UndoCommand": [
-      ""
-    ]
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Disable Windows Web Search",
     "Description": "Disable web search in Windows by Modify the registry settings related to Windows Search for Windows 10 and 11",
-    "Check": "false",
     "Category": "Privacy",
-    "Type": "Registry",
+    "Check": "false",
     "Refresh": "false",
-    "RemoveTasks": [],
-    "Modify": [
+    "InvokeCommand": [],
+    "UndoCommand": [],
+    "Registry": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
         "Name": "BingSearchEnabled",
@@ -8208,22 +8015,19 @@ $itt.database.Tweaks = '[
         "defaultValue": "1"
       }
     ],
-    "InvokeCommand": [
-      ""
-    ],
-    "UndoCommand": [
-      ""
-    ]
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Turn off background Apps",
     "Description": "Turn off background apps for Windows 10 and 11",
-    "Check": "false",
     "Category": "Performance",
-    "Type": "Registry",
+    "Check": "false",
     "Refresh": "false",
-    "RemoveTasks": [],
-    "Modify": [
+    "InvokeCommand": [],
+    "UndoCommand": [],
+    "Registry": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications",
         "Name": "GlobalUserDisabled",
@@ -8239,22 +8043,19 @@ $itt.database.Tweaks = '[
         "defaultValue": "1"
       }
     ],
-    "InvokeCommand": [
-      ""
-    ],
-    "UndoCommand": [
-      ""
-    ]
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Disable suggestions on Start Menu",
     "Description": "Disables suggestions on start menu for Windows 10 and 11",
-    "Check": "false",
     "Category": "Privacy",
-    "Type": "Modify",
+    "Check": "false",
     "Refresh": "false",
-    "RemoveTasks": [],
-    "Modify": [
+    "InvokeCommand": [],
+    "UndoCommand": [],
+    "Registry": [
       {
         "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
         "Name": "DisableWindowsConsumerFeatures",
@@ -8263,95 +8064,104 @@ $itt.database.Tweaks = '[
         "defaultValue": "0"
       }
     ],
-    "InvokeCommand": [
-      ""
-    ],
-    "UndoCommand": [
-      ""
-    ]
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Remove Folder Shortcuts From File Explorer",
     "Description": "Remove Documents, Videos, Pictures, Desktop. Shortcuts from File Explorer",
-    "Check": "false",
     "Category": "Other",
-    "Type": "Registry",
+    "Check": "false",
     "Refresh": "false",
-    "RemoveTasks": [],
-    "Delete": [
+    "InvokeCommand": [],
+    "UndoCommand": [],
+    "Registry": [
       {
-        "Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\",
-        "Name": "{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}"
+        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{f86fa3ab-70d2-4fc7-9c99-fcbf05467f3a}",
+        "Value": "Remove"
       },
       {
-        "Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\",
-        "Name": "{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}"
+        "Path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}",
+        "Value": "Remove"
+
       },
       {
-        "Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\",
-        "Name": "{f86fa3ab-70d2-4fc7-9c99-fcbf05467f3a}"
+        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\",
+        "Value": "Remove"
+
       },
       {
-        "Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\",
-        "Name": "{f86fa3ab-70d2-4fc7-9c99-fcbf05467f3a}"
+        "Path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{f86fa3ab-70d2-4fc7-9c99-fcbf05467f3a}",
+        "Value": "Remove"
+
       },
       {
-        "Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\",
-        "Name": "{3dfdf296-dbec-4fb4-81d1-6a3438bcf4de}"
+        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{3dfdf296-dbec-4fb4-81d1-6a3438bcf4de}",
+        "Value": "Remove"
+
       },
       {
-        "Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\",
-        "Name": "{3dfdf296-dbec-4fb4-81d1-6a3438bcf4de}"
+        "Path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{3dfdf296-dbec-4fb4-81d1-6a3438bcf4de}",
+        "Value": "Remove"
+
       },
       {
-        "Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\",
-        "Name": "{24ad3ad4-a569-4530-98e1-ab02f9417aa8}"
+        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{24ad3ad4-a569-4530-98e1-ab02f9417aa8}",
+        "Value": "Remove"
+
       },
       {
-        "Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\",
-        "Name": "{24ad3ad4-a569-4530-98e1-ab02f9417aa8}"
+        "Path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{24ad3ad4-a569-4530-98e1-ab02f9417aa8}",
+        "Value": "Remove"
+
       },
       {
-        "Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\",
-        "Name": "{088e3905-0323-4b02-9826-5d99428e115f}"
+        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{088e3905-0323-4b02-9826-5d99428e115f}",
+        "Value": "Remove"
+
       },
       {
-        "Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\",
-        "Name": "{088e3905-0323-4b02-9826-5d99428e115f}"
+        "Path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{088e3905-0323-4b02-9826-5d99428e115f}",
+        "Value": "Remove"
+
       },
       {
-        "Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\",
-        "Name": "{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}"
+        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}",
+        "Value": "Remove"
+
       },
       {
-        "Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\",
-        "Name": "{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}"
+        "Path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}",
+        "Value": "Remove"
+
       },
       {
-        "Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\",
-        "Name": "{d3162b92-9365-467a-956b-92703aca08af}"
+        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{d3162b92-9365-467a-956b-92703aca08af}",
+        "Value": "Remove"
+
       },
       {
-        "Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\",
-        "Name": "{d3162b92-9365-467a-956b-92703aca08af}"
+        "Path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{d3162b92-9365-467a-956b-92703aca08af}",
+        "Value": "Remove"
       }
     ],
-    "InvokeCommand": [
-      ""
-    ],
-    "UndoCommand": [
-      ""
-    ]
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Optimize Windows Services",
     "Description": "Disable (Print Spooler), (Fax), (Diagnostic Policy), (Downloaded Maps Manager), (Windows Error Reporting Service), (Remote Registry) , (Internet Connection Sharing), (Disables Telemetry and Data)",
-    "Check": "false",
     "Category": "Performance",
-    "Type": "service",
+    "Check": "false",
     "Refresh": "false",
+    "InvokeCommand": [],
+    "UndoCommand": [],
+    "Registry": [],
+    "RemoveAppxPackage": [],
     "RemoveTasks": [],
-    "Service": [
+    "Services": [
       {
         "Name": "Spooler",
         "StartupType": "Disabled",
@@ -8396,264 +8206,22 @@ $itt.database.Tweaks = '[
         "Name": "DiagTrack",
         "StartupType": "Disabled",
         "DefaultType": "Manual"
-      },
-      {
-        "Name": "diagnosticshub.standardcollector.service",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "dmwappushservice",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "lfsvc",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "TrkWks",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "NetTcpPortSharing",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "RemoteAccess",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "WbioSrvc",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "WMPNetworkSvc",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "WSearch",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "XblAuthManager",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "XblGameSave",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "XboxNetApiSvc",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "XboxGipSvc",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "WerSvc",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "Spooler",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "fhsvc",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "gupdate",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "gupdatem",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "stisvc",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "AJRouter",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "MSDTC",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "WpcMonSvc",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "PhoneSvc",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "PcaSvc",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "WPDBusEnum",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "LicenseManager",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "seclogon",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "SysMain",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "wisvc",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "FontCache",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "RetailDemo",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "ALG",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "SCardSvr",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "SCPolicySvc",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "ScDeviceEnum",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "MessagingService_34048",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "wlidsvc",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "BthAvctpSvc",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "Browser",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "DusmSvc",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "BDESVC",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "iphlpsvc",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "edgeupdate",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "MicrosoftEdgeElevationService",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "SEMgrSvc",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "PerfHost",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "BcastDVRUserService_48486de",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "SensorDataService",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
       }
-    ],
-    "InvokeCommand": [
-      ""
-    ],
-    "UndoCommand": [
-      ""
     ]
   },
   {
     "Name": "Disable Hibernate",
     "Description": "Hibernate is a power-saving mode in Microsoft Windows operating systems that allows the system to save the current state of your computer to the hard disk and then power down completely",
-    "Check": "false",
     "Category": "Performance",
-    "Type": "command",
+    "Check": "false",
     "Refresh": "false",
-    "RemoveTasks": [],
-    "Modify": [
+    "InvokeCommand": [
+      "powercfg.exe /hibernate off"
+    ],
+    "UndoCommand": [
+        "powercfg.exe /hibernate on"
+    ],
+    "Registry": [
       {
         "Path": "HKLM:\\System\\CurrentControlSet\\Control\\Session Manager\\Power",
         "Name": "HibernateEnabled",
@@ -8669,25 +8237,19 @@ $itt.database.Tweaks = '[
         "defaultValue": "1"
       }
     ],
-    "InvokeCommand": [
-      "powercfg.exe /hibernate off"
-    ],
-    "UndoCommand": [
-      "powercfg.exe /hibernate on"
-    ]
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Disable OneDrive",
     "Description": "Disabling OneDrive for Windows 10 and 11",
-    "Check": "false",
     "Category": "Performance",
-    "Type": "Registry",
+    "Check": "false",
     "Refresh": "false",
-    "RemoveTasks": [
-      "OneDrive",
-      "MicrosoftEdge"
-    ],
-    "Modify": [
+    "InvokeCommand": [],
+    "UndoCommand": [],
+    "Registry": [
       {
         "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\OneDrive",
         "Name": "DisableFileSyncNGSC",
@@ -8703,22 +8265,22 @@ $itt.database.Tweaks = '[
         "defaultValue": ""
       }
     ],
-    "InvokeCommand": [
-      ""
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [
+      "OneDrive",
+      "MicrosoftEdge"
     ],
-    "UndoCommand": [
-      ""
-    ]
+    "Services": []
   },
   {
     "Name": "Activate Windows Old Photo Viewer",
-    "Description": "This tweak enables the classic Windows Photo Viewer for Windows 10",
-    "Check": "false",
+    "Description": "Enables the classic Windows Photo Viewer for Windows 10",
     "Category": "Classic",
-    "Type": "Registry",
+    "Check": "false",
     "Refresh": "false",
-    "RemoveTasks": [],
-    "Modify": [
+    "InvokeCommand": [],
+    "UndoCommand": [],
+    "Registry": [
       {
         "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows Photo Viewer\\Capabilities\\FileAssociations",
         "Name": ".jpg",
@@ -8769,22 +8331,19 @@ $itt.database.Tweaks = '[
         "defaultValue": "0"
       }
     ],
-    "InvokeCommand": [
-      ""
-    ],
-    "UndoCommand": [
-      ""
-    ]
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Restore Classic Context Menu Windows 11",
     "Description": "Restore the old context menu for Windows 11",
-    "Check": "false",
     "Category": "Classic",
-    "Type": "Registry",
-    "Refresh": "true",
-    "RemoveTasks": [],
-    "Modify": [
+    "Check": "false",
+    "Refresh": "false",
+    "InvokeCommand": [],
+    "UndoCommand": [],
+    "Registry": [
       {
         "Path": "HKCU:\\Software\\Classes\\CLSID\\",
         "Name": "{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}",
@@ -8800,22 +8359,19 @@ $itt.database.Tweaks = '[
         "defaultValue": "default"
       }
     ],
-    "InvokeCommand": [
-      ""
-    ],
-    "UndoCommand": [
-      ""
-    ]
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Remove Copilot in Windows 11",
     "Description": "Copilot in Windows provides centralized generative AI assistance to your users right from the Windows desktop Copilot in Windows appears as a side bar docked on the Windows desktop and is designed to help users get things done in Windows Copilot in Windows can perform common tasks in Windows like changing Windows settings which makes it different from the browserbased Copilot in Edge",
-    "Check": "false",
     "Category": "Privacy",
-    "Type": "Registry",
-    "Refresh": "true",
-    "RemoveTasks": [],
-    "Modify": [
+    "Check": "false",
+    "Refresh": "false",
+    "InvokeCommand": [],
+    "UndoCommand": [],
+    "Registry": [
       {
         "Path": "HKCU:\\Software\\Policies\\Microsoft\\Windows\\WindowsCopilot",
         "Name": "TurnOffWindowsCopilot",
@@ -8852,22 +8408,19 @@ $itt.database.Tweaks = '[
         "defaultValue": "0"
       }
     ],
-    "InvokeCommand": [
-      ""
-    ],
-    "UndoCommand": [
-      ""
-    ]
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Disable Recall Snapshots in Windows 11 24H",
     "Description": "Recall is an upcoming preview experience exclusive to Copilot+ PCs that will help you easily find and remember things you''ve seen using natural language",
-    "Check": "false",
     "Category": "Privacy",
-    "Type": "Registry",
-    "Refresh": "true",
-    "RemoveTasks": [],
-    "Modify": [
+    "Check": "false",
+    "Refresh": "false",
+    "InvokeCommand": [],
+    "UndoCommand": [],
+    "Registry": [
       {
         "Path": "HKCU:\\Software\\Policies\\Microsoft\\Windows\\WindowsAI",
         "Name": "DisableAIDataAnalysis",
@@ -8883,81 +8436,79 @@ $itt.database.Tweaks = '[
         "defaultValue": "0"
       }
     ],
-    "InvokeCommand": [
-      ""
-    ],
-    "UndoCommand": [
-      ""
-    ]
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Delete Thumbnail Cache",
-    "Description": "removing the stored image thumbnails on your computer These thumbnails are small versions of images used by the operating system to display image previews quickly Over time the cache can become large or corrupted causing slowdowns or display issues Deleting it can free up space and resolve such issues as the system will regenerate",
-    "Check": "false",
+    "Description": "removing the stored image thumbnails on your computer These thumbnails are small versions of images used by the operating system to display image previews quickly Over time the cache can become large or corrupted causing slowdowns or display issues Deleting it can free up space.",
     "Category": "Performance",
-    "Type": "command",
+    "Check": "false",
     "Refresh": "false",
-    "RemoveTasks": [],
     "InvokeCommand": [
       "Remove-Item \"$env:LocalAppData\\Microsoft\\Windows\\Explorer\\thumbcache*\" -Force -Recurse"
     ],
-    "UndoCommand": [
-      ""
-    ]
+    "UndoCommand": [],
+    "Registry": [],
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Old Volume Control in Windows 10",
-    "Description": "The old volume control in Windows 10 refers to the classic audio mixer interface that was used in earlier versions of Windows, before the modern volume control system was introduced. This interface allowed users to adjust the volume for individual applications separately, providing a more detailed and flexible approach to managing audio levels",
-    "Check": "false",
+    "Description": "The old volume control in Windows 10 refers to the classic audio mixer interface that was used in earlier versions of Windows, before the modern volume control system was introduced.",
     "Category": "Classic",
-    "Type": "Registry",
+    "Check": "false",
     "Refresh": "false",
-    "RemoveTasks": [],
-    "Modify": {
-      "Path": "HKLM:\\Software\\Microsoft\\Windows NT\\CurrentVersion\\MTCUVC",
-      "Name": "EnableMtcUvc",
-      "Type": "DWord",
-      "Value": "0",
-      "defaultValue": "1"
-    },
-    "InvokeCommand": [
-      ""
+    "InvokeCommand": [],
+    "UndoCommand": [],
+    "Registry": [
+      {
+        "Path": "HKLM:\\Software\\Microsoft\\Windows NT\\CurrentVersion\\MTCUVC",
+        "Name": "EnableMtcUvc",
+        "Type": "DWord",
+        "Value": "0",
+        "defaultValue": "1"
+      }
     ],
-    "UndoCommand": [
-      ""
-    ]
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Disable Toggle Key Sounds",
     "Description": "Toggle key sounds in Windows are audio cues that play when you press the Caps Lock, Num Lock, or Scroll Lock keys. These sounds help users identify when these keys are activated or deactivated",
-    "Check": "false",
     "Category": "Classic",
-    "Type": "Registry",
+    "Check": "false",
     "Refresh": "false",
-    "RemoveTasks": [],
-    "Modify": {
-      "Path": "HKCU:\\Control Panel\\Accessibility\\ToggleKeys",
-      "Name": "Flags",
-      "Type": "String",
-      "Value": "58",
-      "defaultValue": "62"
-    },
-    "InvokeCommand": [
-      ""
+    "InvokeCommand": [],
+    "UndoCommand": [],
+    "Registry": [
+      {
+        "Path": "HKCU:\\Control Panel\\Accessibility\\ToggleKeys",
+        "Name": "Flags",
+        "Type": "String",
+        "Value": "58",
+        "defaultValue": "62"
+      }
     ],
-    "UndoCommand": [
-      ""
-    ]
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Disable Homegroup",
     "Description": "Disables HomeGroup  HomeGroup is a passwordprotected home networking service that lets you share your stuff with other PCs that are currently running and connected to your network",
+    "Category": "",
     "Check": "false",
-    "Category": "Privacy",
-    "Type": "service",
     "Refresh": "false",
+    "InvokeCommand": [],
+    "UndoCommand": [],
+    "Registry": [],
+    "RemoveAppxPackage": [],
     "RemoveTasks": [],
-    "Service": [
+    "Services": [
       {
         "Name": "HomeGroupListener",
         "StartupType": "Manual ",
@@ -8971,48 +8522,45 @@ $itt.database.Tweaks = '[
     ]
   },
   {
-    "Name": "Remove Home and Gallery from explorer",
+    "Name": "Remove Home and Gallery from explorer in Windows 11",
     "Description": "Removes the Home and Gallery from explorer and sets This PC as default",
+    "Category": "Privacy",
     "Check": "false",
-    "Category": "Performance",
-    "Type": "Registry",
     "Refresh": "false",
-    "RemoveTasks": [],
-    "Modify": [
+    "InvokeCommand": [],
+    "UndoCommand": [],
+    "Registry": [
       {
         "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
         "Name": "1",
         "Type": "DWord",
         "Value": "1",
         "defaultValue": "1"
-      }
-    ],
-    "Delete": [
-      {
-        "Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Desktop\\NameSpace",
-        "Name": "{e88865ea-0e1c-4e20-9aa6-edcd0212c87c}"
       },
       {
-        "Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Desktop\\NameSpace",
-        "Name": "{f874310e-b6b7-47dc-bc84-b9e6b38f5903}"
+        "Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Desktop\\NameSpace\\{e88865ea-0e1c-4e20-9aa6-edcd0212c87c}",
+        "Name": "Remove"
+      },
+      {
+        "Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Desktop\\NameSpace\\{f874310e-b6b7-47dc-bc84-b9e6b38f5903}",
+        "Name": "Remove"
       }
     ],
-    "InvokeCommand": [
-      ""
-    ],
-    "UndoCommand": [
-      ""
-    ]
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Disable all Privacy Settings",
     "Description": "Disable Wifi-Sense & Activity History & ActivityFeed Telemetry & DataCollection",
-    "Check": "false",
     "Category": "Privacy",
-    "Type": "Registry",
-    "refresh": "false",
-    "RemoveTasks": [],
-    "Modify": [
+    "Check": "false",
+    "Refresh": "false",
+    "InvokeCommand": [
+      "Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\Application Experience\\Microsoft Compatibility Appraiser'' | Out-Null; Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\Application Experience\\ProgramDataUpdater'' | Out-Null; Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\Autochk\\Proxy'' | Out-Null; Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\Customer Experience Improvement Program\\Consolidator'' | Out-Null; Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\Customer Experience Improvement Program\\UsbCeip'' | Out-Null; Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\DiskDiagnostic\\Microsoft-Windows-DiskDiagnosticDataCollector'' | Out-Null"
+    ],
+    "UndoCommand": [],
+    "Registry": [
       {
         "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\location",
         "Name": "Value",
@@ -9329,22 +8877,19 @@ $itt.database.Tweaks = '[
         "defaultValue": "1"
       }
     ],
-    "InvokeCommand": [
-      "Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\Application Experience\\Microsoft Compatibility Appraiser'' | Out-Null; Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\Application Experience\\ProgramDataUpdater'' | Out-Null; Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\Autochk\\Proxy'' | Out-Null; Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\Customer Experience Improvement Program\\Consolidator'' | Out-Null; Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\Customer Experience Improvement Program\\UsbCeip'' | Out-Null; Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\DiskDiagnostic\\Microsoft-Windows-DiskDiagnosticDataCollector'' | Out-Null"
-    ],
-    "UndoCommand": [
-      ""
-    ]
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Disable Autoplay and Autorun",
-    "Description": "Disabling autoplay in Windows prevents the automatic launch of media or applications when a removable device, such as a USB drive or CD, is connected to the computer. Autoplay is a feature that, by default, prompts the user to choose an action whenever a new media device is inserted, such as playing a video or opening a file",
-    "Check": "false",
+    "Description": "Disabling autoplay in Windows prevents the automatic launch of media or applications when a removable device, such as a USB drive or CD, is connected to the computer",
     "Category": "Protection",
-    "Type": "Registry",
-    "refresh": "false",
-    "RemoveTasks": [],
-    "Modify": [
+    "Check": "false",
+    "Refresh": "false",
+    "InvokeCommand": [],
+    "UndoCommand": [],
+    "Registry": [
       {
         "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\AutoplayHandlers",
         "Name": "DisableAutoplay",
@@ -9360,82 +8905,79 @@ $itt.database.Tweaks = '[
         "defaultValue": "255"
       }
     ],
-    "InvokeCommand": [
-      ""
-    ],
-    "UndoCommand": [
-      ""
-    ]
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Disable SMB Server",
     "Description": "SMB Server enables file and printer sharing over a network, allowing access to resources on remote computers as if they were local",
-    "Check": "false",
     "Category": "Protection",
-    "Type": "command",
+    "Check": "false",
     "Refresh": "false",
-    "RemoveTasks": [],
     "InvokeCommand": [
       "Set-SmbServerConfiguration -EnableSMB1Protocol $false -Force; Set-SmbServerConfiguration -EnableSMB2Protocol $false -Force"
     ],
-    "UndoCommand": [
-      ""
-    ]
+    "UndoCommand": [],
+    "Registry": [],
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Set current network profile to public",
     "Description": "Deny file sharing, device discovery, etc",
+    "Category": "",
     "Check": "false",
-    "Category": "Protection",
-    "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [],
     "InvokeCommand": [
       "Set-NetConnectionProfile -NetworkCategory Public"
     ],
-    "UndoCommand": [
-      ""
-    ]
+    "UndoCommand": [],
+    "Registry": [],
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Enable F8 boot menu options",
     "Description": "Enable F8 boot menu options",
-    "Check": "false",
     "Category": "BIOS",
-    "Type": "command",
+    "Check": "false",
     "Refresh": "false",
-    "RemoveTasks": [],
     "InvokeCommand": [
       "bcdedit /set bootmenupolicy Standard | Out-Null"
     ],
-    "UndoCommand": [
-      ""
-    ]
+    "UndoCommand": [],
+    "Registry": [],
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Disable display and sleep mode timeouts",
     "Description": "If you frequently use your device, disable this",
-    "Check": "false",
     "Category": "Power",
-    "Type": "command",
+    "Check": "false",
     "Refresh": "false",
-    "RemoveTasks": [],
     "InvokeCommand": [
       "\r\n        powercfg /X monitor-timeout-ac 0\r\n        powercfg /X monitor-timeout-dc 0\r\n        powercfg /X standby-timeout-ac 0\r\n        powercfg /X standby-timeout-dc 0\r\n      "
     ],
-    "UndoCommand": [
-      ""
-    ]
+    "UndoCommand": [],
+    "Registry": [],
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Set Wallpaper desktop Quality to 100%",
     "Description": "It''s Microsoft, what should I say!",
-    "Check": "false",
     "Category": "Personalization",
-    "Type": "Registry",
+    "Check": "false",
     "Refresh": "false",
-    "RemoveTasks": [],
-    "Modify": [
+    "InvokeCommand": [],
+    "UndoCommand": [],
+    "Registry": [
       {
         "Path": "HKLM:\\System\\CurrentControlSet\\Control\\CrashControl",
         "Name": "DisplayParameters",
@@ -9444,22 +8986,19 @@ $itt.database.Tweaks = '[
         "defaultValue": "0"
       }
     ],
-    "InvokeCommand": [
-      ""
-    ],
-    "UndoCommand": [
-      ""
-    ]
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Disable Windows Transparency",
-    "Description": "Windows transparency has a significant impact on performance, disable it if you want performance",
-    "Check": "false",
+    "Description": "It''s Microsoft, what should I say!",
     "Category": "Performance",
-    "Type": "Registry",
+    "Check": "false",
     "Refresh": "false",
-    "RemoveTasks": [],
-    "Modify": [
+    "InvokeCommand": [],
+    "UndoCommand": [],
+    "Registry": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
         "Name": "EnableTransparency",
@@ -9468,49 +9007,49 @@ $itt.database.Tweaks = '[
         "defaultValue": "1"
       }
     ],
-    "InvokeCommand": [
-      ""
-    ],
-    "UndoCommand": [
-      ""
-    ]
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Disable scheduled defragmentation task",
     "Description": "Defragmentation in Windows optimizes disk performance by reorganizing fragmented data, improving access times and system efficiency",
-    "Check": "false",
     "Category": "Performance",
-    "Type": "command",
+    "Check": "false",
     "Refresh": "false",
-    "RemoveTasks": [],
     "InvokeCommand": [
       "Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\Defrag\\ScheduledDefrag'' | Out-Null"
     ],
-    "UndoCommand": [
-      ""
-    ]
+    "UndoCommand": [],
+    "Registry": [],
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Enable NET 3.5",
     "Description": "Some old games and applications require .NET Framework 3.5",
+    "Category": "",
     "Check": "false",
-    "Category": "Runtimes",
-    "Type": "command",
     "Refresh": "false",
-    "RemoveTasks": [],
     "InvokeCommand": [
       "DISM /Online /Enable-Feature /FeatureName:NetFx3 /All"
     ],
-    "UndoCommand": []
+    "UndoCommand": [],
+    "Registry": [],
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Super Performance",
     "Description": "All Windows effects disabled and optimized for windowed games. You may need to log out and back in for changes to take effect. You can reset to default settings in Settings Tab",
-    "Check": "false",
     "Category": "Performance",
-    "Type": "Registry",
-    "Refresh": "true",
-    "Modify": [
+    "Check": "false",
+    "Refresh": "false",
+    "InvokeCommand": [],
+    "UndoCommand": [],
+    "Registry": [
       {
         "defaultValue": "1",
         "Type": "String",
@@ -9603,21 +9142,21 @@ $itt.database.Tweaks = '[
         "Name": "SearchboxTaskbarMode"
       }
     ],
-    "InvokeCommand": [
-      ""
-    ],
-    "UndoCommand": [
-      ""
-    ]
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   },
   {
     "Name": "Remove Widgets from Taskbar in Windows 11",
     "Description": "Widgets are one of the new user interface elements in Windows 11 They are used to display dynamic information on the desktop including weather news and other information from various sources",
-    "Check": "false",
     "Category": "Performance",
-    "Type": "Registry",
+    "Check": "false",
     "Refresh": "false",
-    "Modify": [
+    "InvokeCommand": [
+      "winget uninstall ''windows web experience pack'' --silent"
+    ],
+    "UndoCommand": [],
+    "Registry": [
       {
         "Name": "TaskbarDa",
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\TaskbarDeveloperSettings",
@@ -9626,36 +9165,9 @@ $itt.database.Tweaks = '[
         "Type": "DWord"
       }
     ],
-    "InvokeCommand": [
-      "winget uninstall ''windows web experience pack'' --silent"
-    ],
-    "UndoCommand": [
-      ""
-    ]
-  },
-  {
-    "Name": "Fix arabic encoding",
-    "Description": "Fix issues related to strange symbols appearing in Arabic text",
-    "Check": "false",
-    "Category": "Fixer",
-    "Type": "command",
-    "Refresh": "false",
-    "InvokeCommand": [
-      "Set-WinSystemLocale -SystemLocale \"ar-EG\""
-    ],
-    "UndoCommand": []
-  },
-  {
-    "Name": "Unknown",
-    "Description": "Rename Computer name to Unknown. The changes will take effect after you restart the computer",
-    "Check": "false",
-    "Category": "Privacy",
-    "Type": "command",
-    "Refresh": "false",
-    "InvokeCommand": [
-      "Rename-Computer -NewName \"Unknown\""
-    ],
-    "UndoCommand": []
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
   }
 ]
 ' | ConvertFrom-Json
@@ -10058,27 +9570,21 @@ function Disable-Service {
     #>
 
     param(
-        $Name,
-        $StartupType
+        [array]$tweak
     )
 
-    try {
 
-        if($debug){ Add-Log -Message $Name $StartupType -Level "debug"}
-
-        Add-Log -Message "Set Service $Name to $StartupType" -Level "info"
-
-        # Check first
-        $service = Get-Service -Name $Name -ErrorAction Stop
-
-        # Service exists, proceed with changing properties
-        $service | Set-Service -StartupType $StartupType -ErrorAction Stop
-        Stop-Service -Name $Name -ErrorAction Stop
-    } catch [System.ServiceProcess.ServiceNotFoundException] {
-        Write-Warning "Service $Name was not found"
-    } catch {
-        Write-Warning "Unable to set $Name due to unhandled exception"
-        Write-Warning $_.Exception.Message
+    foreach ($serv in $tweak) {
+        
+        try {
+            Write-Host "Setting Service $($serv.Name)"
+            $service = Get-Service -Name $serv.Name -ErrorAction Stop
+            Stop-Service -Name $serv.Name -ErrorAction Stop
+            $service | Set-Service -StartupType $serv.StartupType -ErrorAction Stop
+        }
+        catch {
+            Add-Log -Message "Service $Name was not found" -Level "info"
+        }
     }
 }
 function ExecuteCommand {
@@ -10102,41 +9608,19 @@ function ExecuteCommand {
     #>
 
     param (
-        [string]$Name,
-        [array]$Tweak
+        [array]$tweak
     )
 
     try {
 
-        if($debug){ Add-Log -Message $Name $Tweak -Level "debug"}
-
-        if ($tweak -and $tweak.Count -gt 0) {
-            
-            $Tweak | ForEach-Object { 
-                $cmd = [scriptblock]::Create($psitem)
-                Invoke-Command  $cmd -ErrorAction Stop
-            }
-        }
-        else
-        {
-            if($debug){Add-Log -Message "InvokeCommand is empty on this tweak" -Level "debug" }
+        foreach ($cmd in $tweak) {
+            if($debug) {Add-Log -Message $cmd -action "debug"}
+            $script = [scriptblock]::Create($cmd)
+            Invoke-Command  $script -ErrorAction Stop
         }
 
-    } catch [System.Management.Automation.CommandNotFoundException] {
-        Write-Warning "The specified command was not found."
-        Write-Warning $PSItem.Exception.message
-    } catch [System.Management.Automation.RuntimeException] {
-        Write-Warning "A runtime exception occurred."
-        Write-Warning $PSItem.Exception.message
-    } catch [System.Security.SecurityException] {
-        Write-Warning "A security exception occurred."
-        Write-Warning $PSItem.Exception.message
-    } catch [System.UnauthorizedAccessException] {
-        Write-Warning "Access denied. You do not have permission to perform this operation."
-        Write-Warning $PSItem.Exception.message
-    } catch {
-        Write-Warning "Unable to run script for $Name due to unhandled exception"
-        Write-Warning $psitem.Exception.StackTrace
+    } catch  {
+        Add-Log -Message "The specified command was not found." -Level "info"
     }
 }
 function Finish {
@@ -10381,13 +9865,11 @@ function Get-SelectedItems {
                                     if ($tweak) {
                                         $items += @{
                                             Name                = $tweak.Name
-                                            Type                = $tweak.Type
-                                            Modify              = $tweak.Modify
-                                            Delete              = $tweak.Delete
-                                            Service             = $tweak.Service
+                                            Registry            = $tweak.Registry
+                                            DisableServices     = $tweak.Services
                                             RemoveTasks         = $tweak.RemoveTasks
                                             RemoveAppxPackage   = $tweak.RemoveAppxPackage
-                                            Command             = $tweak.InvokeCommand
+                                            InvokeCommand       = $tweak.InvokeCommand
                                             Refresh             = $tweak.Refresh
                                             # Add a new method tweak here
                                         }
@@ -10930,7 +10412,7 @@ function Start-DownloadAndInstallExe {
 }
 function Refresh-Explorer {
     # Check if explorer is not running and start it if needed
-    Add-Log -Message "Restarting explorer" -Level "info"
+    Add-Log -Message "Restarting explorer..." -Level "info"
     Stop-Process -Name explorer -Force
     Start-Sleep -Seconds 1
     if (-not (Get-Process -Name explorer -ErrorAction SilentlyContinue)) {
@@ -10983,26 +10465,34 @@ function Remove-Registry {
 function Remove-ScheduledTasks {
     param (
         [Parameter(Mandatory = $true)]
-        [array]$TasksToRemove
+        [array]$tweak
     )
 
-    if ($TasksToRemove -and $TasksToRemove.Count -gt 0) {
-        foreach ($taskNamePattern in $TasksToRemove) {
-            $tasks = Get-ScheduledTask -TaskName "*$taskNamePattern*" -ErrorAction SilentlyContinue
 
-            if ($tasks) {
-                foreach ($task in $tasks) {
-                    Unregister-ScheduledTask -TaskName $task.TaskName -Confirm:$false
-                    Add-Log -Message "$($task.TaskName) Removed" -Level "INFO"
-                }
-            } else {
-                if ($Debug) {
-                    Add-Log -Message "No tasks matching '$taskNamePattern' found" -Level "debug"
-                }
+    foreach ($task in $tweak) {
+
+        Add-Log -Message "Removing $task..."
+
+        $tasks = Get-ScheduledTask -TaskName "*$task*" -ErrorAction SilentlyContinue
+
+        if ($tasks) 
+        {
+            foreach ($task in $tasks) 
+            {
+                Unregister-ScheduledTask -TaskName $task.TaskName -Confirm:$false
+                Add-Log -Message "$($task.TaskName) Removed" -Level "INFO"
+            }
+        } 
+        else
+        {
+            if ($Debug) 
+            {
+                Add-Log -Message "No tasks matching '$task' found" -Level "debug"
             }
         }
     }
 }
+
 function Reset-Preferences {
 
     <#
@@ -11188,35 +10678,27 @@ function Set-Registry {
     #>
 
     param (
-        [string]$Name,
-        [string]$Type,
-        [string]$Path,
-        [psobject]$Value
+        [array]$tweak
     )
     
     try {
 
-        if($debug){ Add-Log -Message $Name $Type  $Path $Value -Level "debug"}
+        foreach ($reg in $tweak) {
 
-        if(!(Test-Path 'HKU:\')) {New-PSDrive -PSProvider Registry -Name HKU -Root HKEY_USERS}
-
-        # Check if the registry path exists
-        if (-not (Test-Path -Path $Path)) {
-
-            if($debug){ Add-Log -Message "Registry path does not exist. Creating it..." -Level "debug"}
-
-            # Create the registry path
-            New-Item -Path $Path -Force | Out-Null
-        }
-
-        # Set or create the registry value
-        New-ItemProperty -Path $Path -Name $Name -PropertyType $Type -Value $Value -Force | Out-Null
-
-        Add-Log -Message "Optmize $Name" -Level "info"
-
-        if($Debug){
-           Add-Log -Message "$Name $Type $Path $Value" -Level "debug"
-           Add-Log -Message "Registry value set successfully." -Level "debug"
+            if(!(Test-Path 'HKU:\')) {New-PSDrive -PSProvider Registry -Name HKU -Root HKEY_USERS}
+    
+            if($reg.Value -ne "Remove")
+            {
+                Add-Log -Message "Optmize $($reg.name)..." -action "info"
+                
+                # Set or create the registry value
+                New-ItemProperty -Path $reg.Path -Name $reg.Name -PropertyType $reg.Type -Value $reg.Value -Force | Out-Null
+            }
+            else
+            {
+                Remove-Item -Path $reg.Path -Recurse -Force
+            }
+        
         }
 
     } catch {
@@ -11619,31 +11101,21 @@ function Uninstall-AppxPackage {
     #>
     
     param (
-        $Name
+        [array]$tweak
     )
 
     try {
-        
-        if($debug){ Add-Log -Message $Name -Level "debug"}
 
-        Write-Host "Removing $Name"
-        Get-AppxPackage "*$Name*" | Remove-AppxPackage -ErrorAction SilentlyContinue
-        Get-AppxProvisionedPackage -Online | Where-Object DisplayName -like "*$Name*" | Remove-AppxProvisionedPackage -Online -ErrorAction SilentlyContinue
-
-        if($debug){
-            Add-Log -Message "Registry value set successfully." -Level "INFO"
+        foreach ($name in $tweak) {
+            Add-Log -Message "Removing $name..." -Level "info"
+            Get-AppxPackage "*$name*" | Remove-AppxPackage -ErrorAction SilentlyContinue
+            Get-AppxProvisionedPackage -Online | Where-Object DisplayName -like "*$name*" | Remove-AppxProvisionedPackage -Online -ErrorAction SilentlyContinue
         }
 
-    } catch [System.Exception] {
-        if ($psitem.Exception.Message -like "*The requested operation requires elevation*") {
-            Write-Warning "Unable to uninstall $name due to a Security Exception"
-        } else {
-            Write-Warning "Unable to uninstall $name due to unhandled exception"
-            Write-Warning $psitem.Exception.StackTrace
-        }
-    } catch {
-        Write-Warning "Unable to uninstall $name due to unhandled exception"
-        Write-Warning $psitem.Exception.StackTrace
+    } 
+    catch 
+    {
+        Add-Log -Message "Unable to uninstall $name. Please Use Windows poershell not Terminal" -Level "info"
     }
 }
 function Invoke-Install {
@@ -11831,50 +11303,49 @@ function Invoke-Apply {
 
         foreach ($tweak in $selectedTweaks) {
 
-            #Add-Log -Message $tweak.Name -Level "Apply" 
-
-            switch ($tweak.Type) {        
+            $tweak | ForEach-Object {
         
-                "command" {
-
-                    ExecuteCommand -name $tweak.name -Tweak $tweak.Command 
-                    Remove-ScheduledTasks -TasksToRemove $tweak.RemoveTasks
-                }
-                "Registry" {
-                    $tweak.Modify | ForEach-Object {
-                        
-                        Set-Registry -Name $_.Name -Type $_.Type -Path $_.Path -Value $_.Value
-                    }
-                    $tweak.Delete | ForEach-Object {
-
-                        Remove-Registry -RegistryPath $_.Path -Folder $_.Name
-                    }
-
-                    if($tweak.Refresh -eq "true")
+                if ($_.InvokeCommand -and $_.InvokeCommand.Count -gt 0) {
+                    ExecuteCommand -tweak $tweak.InvokeCommand
+                    if($_.Refresh -eq $true)
                     {
                         Refresh-Explorer
                     }
+                } 
 
-                    ExecuteCommand -name $tweak.name -Tweak $tweak.Command 
-                    Remove-ScheduledTasks -TasksToRemove $tweak.RemoveTasks
-                }
-                "AppxPackage" {
-                    
-                    $tweak.removeAppxPackage | ForEach-Object { Uninstall-AppxPackage -Name $_.Name }
-                    ExecuteCommand -name $tweak.name -Tweak $tweak.Command 
-                    Remove-ScheduledTasks -TasksToRemove $tweak.RemoveTasks
-                }
-                "service" {
-
-                    $tweak.Service | ForEach-Object { 
-
-                        Disable-Service -Name $_.Name -StartupType $_.StartupType 
+                if ($_.Registry -and $_.Registry.Count -gt 0) {
+                  Set-Registry -tweak $tweak.Registry
+                  if($_.Refresh -eq $true)
+                    {
+                        Refresh-Explorer
                     }
+                } 
 
-                    ExecuteCommand -name $tweak.name -Tweak $tweak.Command 
-                    Remove-ScheduledTasks -TasksToRemove $tweak.RemoveTasks
-                }
+                if ($_.RemoveAppxPackage -and $_.RemoveAppxPackage.Count -gt 0) {
+                    Uninstall-AppxPackage -tweak $tweak.RemoveAppxPackage
+                    if($_.Refresh -eq $true)
+                    {
+                        Refresh-Explorer
+                    }
+                } 
+
+                if ($_.RemoveTasks -and $_.RemoveTasks.Count -gt 0) {
+                    Remove-ScheduledTasks -tweak $tweak.RemoveTasks
+                    if($_.Refresh -eq $true)
+                    {
+                        Refresh-Explorer
+                    }
+                } 
+
+                if ($_.DisableServices -and $_.DisableServices.Count -gt 0) {
+                    Disable-Service -tweak $tweak.DisableServices
+                    if($_.Refresh -eq $true)
+                    {
+                        Refresh-Explorer
+                    }
+                } 
             }
+
         }
 
         Finish -ListView "TweaksListView"
@@ -16317,49 +15788,31 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                                 <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="Disk cleanup"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Cleanup"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content=""/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Clean temporary files that are not necessary."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="System File Checker"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Fixer"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content=""/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="sfc scannow Use the System File Checker tool to repair missing or corrupted system files."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
-                <CheckBox Content="Clear Start Menu Windows 10/11"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
-            </StackPanel>
-            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Clear all pinned apps from the start menu."/>
-        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
-            <StackPanel Orientation="Horizontal">
                 <CheckBox Content="Clean Taskbar"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content=""/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Disable the News and interests and People icon Show Search icon only for Windows 1011."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="Remove Windows 10/11 Bloatware"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content=""/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="BingNews GetHelp Getstarted Messaging Microsoft3DViewer MicrosoftOfficeHub MicrosoftSolitaireCollection News Office.Lens Office.OneNote Office.Sway OneConnect People Print3D RemoteDesktop SkypeApp StorePurchaseApp Office.Todo.List Whiteboard WindowsAlarms WindowsCamera windowscommunicationsapps WindowsFeedbackHub WindowsMaps WindowsSoundRecorder Xbox.TCUI XboxApp XboxGameOverlay XboxIdentityProvider XboxSpeechToTextOverlay ZuneMusic ZuneVideo Windows.Cortana MSPaint Clipchamp."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
-                <CheckBox Content="Restore All Windows Services to Default"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Fixer"/>
-            </StackPanel>
-            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="If you face a problem with some system services you can restore all services to Default."/>
-        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
-            <StackPanel Orientation="Horizontal">
-                <CheckBox Content="Fix Stutter in Games"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
-            </StackPanel>
-            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Fix Stutter in Games Disable GameBarPresenceWriter for Windows 10 and 11."/>
-        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
-            <StackPanel Orientation="Horizontal">
                 <CheckBox Content="Enable the Ultimate Performance Power Plan"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content=""/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Enable the Ultimate Performance Power Plan."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
@@ -16433,7 +15886,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <CheckBox Content="Activate Windows Old Photo Viewer"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Classic"/>
             </StackPanel>
-            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="This tweak enables the classic Windows Photo Viewer for Windows 10."/>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Enables the classic Windows Photo Viewer for Windows 10."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="Restore Classic Context Menu Windows 11"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -16457,13 +15910,13 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <CheckBox Content="Delete Thumbnail Cache"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
             </StackPanel>
-            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="removing the stored image thumbnails on your computer These thumbnails are small versions of images used by the operating system to display image previews quickly Over time the cache can become large or corrupted causing slowdowns or display issues Deleting it can free up space and resolve such issues as the system will regenerate."/>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="removing the stored image thumbnails on your computer These thumbnails are small versions of images used by the operating system to display image previews quickly Over time the cache can become large or corrupted causing slowdowns or display issues Deleting it can free up space.."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="Old Volume Control in Windows 10"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Classic"/>
             </StackPanel>
-            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The old volume control in Windows 10 refers to the classic audio mixer interface that was used in earlier versions of Windows before the modern volume control system was introduced. This interface allowed users to adjust the volume for individual applications separately providing a more detailed and flexible approach to managing audio levels."/>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The old volume control in Windows 10 refers to the classic audio mixer interface that was used in earlier versions of Windows before the modern volume control system was introduced.."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="Disable Toggle Key Sounds"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -16473,13 +15926,13 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="Disable Homegroup"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content=""/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Disables HomeGroup  HomeGroup is a passwordprotected home networking service that lets you share your stuff with other PCs that are currently running and connected to your network."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
-                <CheckBox Content="Remove Home and Gallery from explorer"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
+                <CheckBox Content="Remove Home and Gallery from explorer in Windows 11"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Removes the Home and Gallery from explorer and sets This PC as default."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
@@ -16493,7 +15946,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <CheckBox Content="Disable Autoplay and Autorun"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Protection"/>
             </StackPanel>
-            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Disabling autoplay in Windows prevents the automatic launch of media or applications when a removable device such as a USB drive or CD is connected to the computer. Autoplay is a feature that by default prompts the user to choose an action whenever a new media device is inserted such as playing a video or opening a file."/>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Disabling autoplay in Windows prevents the automatic launch of media or applications when a removable device such as a USB drive or CD is connected to the computer."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="Disable SMB Server"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -16503,7 +15956,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="Set current network profile to public"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Protection"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content=""/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Deny file sharing device discovery etc."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
@@ -16529,7 +15982,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <CheckBox Content="Disable Windows Transparency"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
             </StackPanel>
-            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Windows transparency has a significant impact on performance disable it if you want performance."/>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Its Microsoft what should I say."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="Disable scheduled defragmentation task"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -16539,7 +15992,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="Enable NET 3.5"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content=""/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Some old games and applications require .NET Framework 3.5."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
@@ -16554,18 +16007,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Widgets are one of the new user interface elements in Windows 11 They are used to display dynamic information on the desktop including weather news and other information from various sources."/>
-        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
-            <StackPanel Orientation="Horizontal">
-                <CheckBox Content="Fix arabic encoding"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Fixer"/>
-            </StackPanel>
-            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Fix issues related to strange symbols appearing in Arabic text."/>
-        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
-            <StackPanel Orientation="Horizontal">
-                <CheckBox Content="Unknown"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
-            </StackPanel>
-            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Rename Computer name to Unknown. The changes will take effect after you restart the computer."/>
         </StackPanel>
                     </ListView>
             </TabItem>
@@ -16994,20 +16435,20 @@ function Show-Event {
         
 
     
-            $itt.event.FindName('contribute').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')  # Start the process to open the URL when clicked
-                })
-            
             $itt.event.FindName('shell').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/shelltube')  # Start the process to open the URL when clicked
                 })
             
-            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
-                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')  # Start the process to open the URL when clicked
+            $itt.event.FindName('contribute').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')  # Start the process to open the URL when clicked
                 })
             
             $itt.event.FindName('ps').add_MouseLeftButtonDown({
                     Start-Process('https://www.palestinercs.org/en/Donation')  # Start the process to open the URL when clicked
+                })
+            
+            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
+                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')  # Start the process to open the URL when clicked
                 })
             
 
