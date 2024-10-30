@@ -29,7 +29,7 @@ $itt = [Hashtable]::Synchronized(@{
     database       = @{}
     ProcessRunning = $false
     developer      = "Emad Adel"
-    lastupdate     = "10/29/2024"
+    lastupdate     = "10/30/2024"
     github         = "https://github.com/emadadel4/itt"
     telegram       = "https://t.me/emadadel4"
     blog           = "https://emadadel4.github.io"
@@ -9617,7 +9617,7 @@ $itt.database.Tweaks = '[
     "Category": "Performance",
     "Type": "Registry",
     "Refresh": "false",
-    "Modify":[
+    "Modify": [
       {
         "Name": "TaskbarDa",
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\TaskbarDeveloperSettings",
@@ -9642,6 +9642,18 @@ $itt.database.Tweaks = '[
     "Refresh": "false",
     "InvokeCommand": [
       "Set-WinSystemLocale -SystemLocale \"ar-EG\""
+    ],
+    "UndoCommand": []
+  },
+  {
+    "Name": "Unknown",
+    "Description": "Rename Computer name to Unknown. The changes will take effect after you restart the computer",
+    "Check": "false",
+    "Category": "Privacy",
+    "Type": "command",
+    "Refresh": "false",
+    "InvokeCommand": [
+      "Rename-Computer -NewName \"Unknown\""
     ],
     "UndoCommand": []
   }
@@ -16548,6 +16560,12 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Fixer"/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Fix issues related to strange symbols appearing in Arabic text."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Unknown"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
+            </StackPanel>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Rename Computer name to Unknown. The changes will take effect after you restart the computer."/>
         </StackPanel>
                     </ListView>
             </TabItem>
