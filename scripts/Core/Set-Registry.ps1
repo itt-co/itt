@@ -24,35 +24,27 @@ function Set-Registry {
     #>
 
     param (
-        [string]$Name,
-        [string]$Type,
-        [string]$Path,
-        [psobject]$Value
+        [array]$tweak
     )
     
     try {
 
-        if($debug){ Add-Log -Message $Name $Type  $Path $Value -Level "debug"}
+        foreach ($reg in $tweak) {
 
-        if(!(Test-Path 'HKU:\')) {New-PSDrive -PSProvider Registry -Name HKU -Root HKEY_USERS}
-
-        # Check if the registry path exists
-        if (-not (Test-Path -Path $Path)) {
-
-            if($debug){ Add-Log -Message "Registry path does not exist. Creating it..." -Level "debug"}
-
-            # Create the registry path
-            New-Item -Path $Path -Force | Out-Null
-        }
-
-        # Set or create the registry value
-        New-ItemProperty -Path $Path -Name $Name -PropertyType $Type -Value $Value -Force | Out-Null
-
-        Add-Log -Message "Optmize $Name" -Level "info"
-
-        if($Debug){
-           Add-Log -Message "$Name $Type $Path $Value" -Level "debug"
-           Add-Log -Message "Registry value set successfully." -Level "debug"
+            if(!(Test-Path 'HKU:\')) {New-PSDrive -PSProvider Registry -Name HKU -Root HKEY_USERS}
+    
+            if($reg.Value -ne "Remove")
+            {
+                Add-Log -Message "Optmize $($reg.name)..." -action "info"
+                
+                # Set or create the registry value
+                New-ItemProperty -Path $reg.Path -Name $reg.Name -PropertyType $reg.Type -Value $reg.Value -Force | Out-Null
+            }
+            else
+            {
+                Remove-Item -Path $reg.Path -Recurse -Force
+            }
+        
         }
 
     } catch {
