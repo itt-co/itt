@@ -7533,22 +7533,7 @@ $itt.database.Tweaks = '[
       "\r\n Remove-Item -Path \"$env:LOCALAPPDATA\\Temp\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        Remove-Item -Path \"C:\\Windows\\Prefetch\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        Stop-Service -Name wuauserv -Force\r\n        takeown /f C:\\Windows\\SoftwareDistribution\\Download /r /d y\r\n        icacls C:\\Windows\\SoftwareDistribution\\Download /grant administrators:F /t\r\n        Remove-Item -Path \"C:\\Windows\\SoftwareDistribution\\Download\\*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n        cleanmgr.exe /d C: /VERYLOWDISK /sagerun:1 Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase\r\n        cleanmgr.exe /d C: /sagerun:1\r\n        cleanmgr.exe /sagerun:1\r\n        Dism.exe /online /Cleanup-Image /StartComponentCleanup\r\n        cleanmgr.exe /d C: /VERYLOWDISK\r\n        Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase\r\n        Start-Service -Name wuauserv\r\n      "
     ],
     "UndoCommand": [],
-    "Registry": [
-      {
-        "Type": "Dword",
-        "Path": "HKCU:\\Software\\TestKey",
-        "Name": "Test",
-        "Value": "2",
-        "DefaultValue": "0"
-      },
-      {
-        "Type": "Dword",
-        "Path": "HKCU:\\Software\\TestKey",
-        "Name": "emad",
-        "Value": "<RemoveEntry>",
-        "DefaultValue": "0"
-      }
-    ],
+    "Registry": [],
     "RemoveAppxPackage": [],
     "RemoveTasks": [],
     "Services": []
@@ -7961,7 +7946,7 @@ $itt.database.Tweaks = '[
     "Description": "Disable Start menu Ads and Settings",
     "Category": "Privacy",
     "Check": "false",
-    "Refresh": "false",
+    "Refresh": "true",
     "InvokeCommand": [],
     "UndoCommand": [],
     "Registry": [
@@ -8003,7 +7988,7 @@ $itt.database.Tweaks = '[
     "Description": "Disable web search in Windows by Modify the registry settings related to Windows Search for Windows 10 and 11",
     "Category": "Privacy",
     "Check": "false",
-    "Refresh": "false",
+    "Refresh": "true",
     "InvokeCommand": [],
     "UndoCommand": [],
     "Registry": [
@@ -8084,10 +8069,9 @@ $itt.database.Tweaks = '[
       {
         "Path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}",
         "Value": "Remove"
-
       },
       {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\",
+        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}",
         "Value": "Remove"
 
       },
@@ -8417,7 +8401,7 @@ $itt.database.Tweaks = '[
     "Description": "Recall is an upcoming preview experience exclusive to Copilot+ PCs that will help you easily find and remember things you''ve seen using natural language",
     "Category": "Privacy",
     "Check": "false",
-    "Refresh": "false",
+    "Refresh": "true",
     "InvokeCommand": [],
     "UndoCommand": [],
     "Registry": [
@@ -8460,7 +8444,7 @@ $itt.database.Tweaks = '[
     "Description": "The old volume control in Windows 10 refers to the classic audio mixer interface that was used in earlier versions of Windows, before the modern volume control system was introduced.",
     "Category": "Classic",
     "Check": "false",
-    "Refresh": "false",
+    "Refresh": "true",
     "InvokeCommand": [],
     "UndoCommand": [],
     "Registry": [
@@ -8481,7 +8465,7 @@ $itt.database.Tweaks = '[
     "Description": "Toggle key sounds in Windows are audio cues that play when you press the Caps Lock, Num Lock, or Scroll Lock keys. These sounds help users identify when these keys are activated or deactivated",
     "Category": "Classic",
     "Check": "false",
-    "Refresh": "false",
+    "Refresh": "true",
     "InvokeCommand": [],
     "UndoCommand": [],
     "Registry": [
@@ -8526,7 +8510,7 @@ $itt.database.Tweaks = '[
     "Description": "Removes the Home and Gallery from explorer and sets This PC as default",
     "Category": "Privacy",
     "Check": "false",
-    "Refresh": "false",
+    "Refresh": "true",
     "InvokeCommand": [],
     "UndoCommand": [],
     "Registry": [
@@ -8555,7 +8539,7 @@ $itt.database.Tweaks = '[
     "Description": "Disable Wifi-Sense & Activity History & ActivityFeed Telemetry & DataCollection",
     "Category": "Privacy",
     "Check": "false",
-    "Refresh": "false",
+    "Refresh": "true",
     "InvokeCommand": [
       "Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\Application Experience\\Microsoft Compatibility Appraiser'' | Out-Null; Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\Application Experience\\ProgramDataUpdater'' | Out-Null; Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\Autochk\\Proxy'' | Out-Null; Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\Customer Experience Improvement Program\\Consolidator'' | Out-Null; Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\Customer Experience Improvement Program\\UsbCeip'' | Out-Null; Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\DiskDiagnostic\\Microsoft-Windows-DiskDiagnosticDataCollector'' | Out-Null"
     ],
@@ -8995,7 +8979,7 @@ $itt.database.Tweaks = '[
     "Description": "It''s Microsoft, what should I say!",
     "Category": "Performance",
     "Check": "false",
-    "Refresh": "false",
+    "Refresh": "true",
     "InvokeCommand": [],
     "UndoCommand": [],
     "Registry": [
@@ -9046,7 +9030,7 @@ $itt.database.Tweaks = '[
     "Description": "All Windows effects disabled and optimized for windowed games. You may need to log out and back in for changes to take effect. You can reset to default settings in Settings Tab",
     "Category": "Performance",
     "Check": "false",
-    "Refresh": "false",
+    "Refresh": "true",
     "InvokeCommand": [],
     "UndoCommand": [],
     "Registry": [
@@ -9151,7 +9135,7 @@ $itt.database.Tweaks = '[
     "Description": "Widgets are one of the new user interface elements in Windows 11 They are used to display dynamic information on the desktop including weather news and other information from various sources",
     "Category": "Performance",
     "Check": "false",
-    "Refresh": "false",
+    "Refresh": "true",
     "InvokeCommand": [
       "winget uninstall ''windows web experience pack'' --silent"
     ],
@@ -9165,6 +9149,36 @@ $itt.database.Tweaks = '[
         "Type": "DWord"
       }
     ],
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
+  },
+  {
+    "Name": "Unknown",
+    "Description": "Rename Computer name to Unknown. The changes will take effect after you restart the computer",
+    "Category": "Privacy",
+    "Check": "false",
+    "Refresh": "false",
+    "InvokeCommand": [
+        "Rename-Computer -NewName ''Unknown''"
+    ],
+    "UndoCommand": [],
+    "Registry": [],
+    "RemoveAppxPackage": [],
+    "RemoveTasks": [],
+    "Services": []
+  },
+  {
+    "Name": "Fix arabic encoding",
+    "Description": "Fix issues related to strange symbols appearing in Arabic text",
+    "Category": "",
+    "Check": "false",
+    "Refresh": "false",
+    "InvokeCommand": [
+       "Set-WinSystemLocale -SystemLocale ''ar-EG''"
+    ],
+    "UndoCommand": [],
+    "Registry": [],
     "RemoveAppxPackage": [],
     "RemoveTasks": [],
     "Services": []
@@ -10471,7 +10485,7 @@ function Remove-ScheduledTasks {
 
     foreach ($task in $tweak) {
 
-        Add-Log -Message "Removing $task..."
+        Add-Log -Message "Removing $task ScheduledTask..."
 
         $tasks = Get-ScheduledTask -TaskName "*$task*" -ErrorAction SilentlyContinue
 
@@ -11111,7 +11125,6 @@ function Uninstall-AppxPackage {
             Get-AppxPackage "*$name*" | Remove-AppxPackage -ErrorAction SilentlyContinue
             Get-AppxProvisionedPackage -Online | Where-Object DisplayName -like "*$name*" | Remove-AppxProvisionedPackage -Online -ErrorAction SilentlyContinue
         }
-
     } 
     catch 
     {
@@ -16007,6 +16020,18 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Widgets are one of the new user interface elements in Windows 11 They are used to display dynamic information on the desktop including weather news and other information from various sources."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Unknown"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
+            </StackPanel>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Rename Computer name to Unknown. The changes will take effect after you restart the computer."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Fix arabic encoding"      FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content=""/>
+            </StackPanel>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Fix issues related to strange symbols appearing in Arabic text."/>
         </StackPanel>
                     </ListView>
             </TabItem>
