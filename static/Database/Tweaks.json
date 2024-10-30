@@ -2093,7 +2093,7 @@
     "Category": "Performance",
     "Type": "Registry",
     "Refresh": "false",
-    "Modify":[
+    "Modify": [
       {
         "Name": "TaskbarDa",
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\TaskbarDeveloperSettings",
@@ -2118,6 +2118,18 @@
     "Refresh": "false",
     "InvokeCommand": [
       "Set-WinSystemLocale -SystemLocale \"ar-EG\""
+    ],
+    "UndoCommand": []
+  },
+  {
+    "Name": "Unknown",
+    "Description": "Rename Computer name to Unknown. The changes will take effect after you restart the computer",
+    "Check": "false",
+    "Category": "Privacy",
+    "Type": "command",
+    "Refresh": "false",
+    "InvokeCommand": [
+      "Rename-Computer -NewName \"Unknown\""
     ],
     "UndoCommand": []
   }
