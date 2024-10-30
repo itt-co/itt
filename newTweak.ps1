@@ -1,8 +1,8 @@
 # Function to create JSON structure
 function Create-JsonObject {
     $jsonObject = @{
-        Name                = ""
-        Description         = ""
+        Name                = $Name
+        Description         = $Description
         Check               = "false"
         Category            = ""
         Refresh             = "false"
@@ -13,27 +13,56 @@ function Create-JsonObject {
         UndoCommand         = @()
     }
 
-    $addRemoveCommands = Read-Host "Do you want to add 'Command' in this tweak? (yes/no)"
-    if ($addRemoveCommands -eq "yes") {
+    
+    $Name = Read-Host "Tweak name"
+    $Description  = Read-Host "Description"
+
+    $addRemoveCommands = Read-Host "Do you want to add 'Command' in this tweak? (y/n)"
+    if ($addRemoveCommands -eq "y") {
         $jsonObject.InvokeCommand += Add-Commands
     }
 
     # Prompt user to add items to specific properties
-    $addRemoveTasks = Read-Host "Do you want to add 'RemoveTasks' in this tweak? (yes/no)"
-    if ($addRemoveTasks -eq "yes") {
+    $addRemoveTasks = (Read-Host "Do you want to add 'Remove ScheduledTask' in this tweak? (y/n)").ToLower()
+    if ($addRemoveTasks -eq "y") {
         $jsonObject.RemoveTasks += Add-RemoveTasks
     }
 
-    $addRegistry = Read-Host "Do you want to add 'Registry'? (yes/no)"
-    if ($addRegistry -eq "yes") {
+    $addRegistry = Read-Host "Do you want to Modify 'Registry'? (y/n)"
+    if ($addRegistry -eq "y") {
         $jsonObject.Registry += Add-ModifyEntries
     }
 
     # Prompt user to add Appx packages
-    $addRemoveAppxPackage = Read-Host "Do you want to add 'RemoveAppxPackage'? (yes/no)"
-    if ($addRemoveAppxPackage -eq "yes") {
+    $addRemoveAppxPackage = Read-Host "Do you want to Remove 'AppxPackage'? (y/n)"
+    if ($addRemoveAppxPackage -eq "y") {
         $jsonObject.RemoveAppxPackage += Add-AppxPackage
     }
+
+    # category
+    $ActionType = @{
+        1 = "Privacy"
+        2 = "Fixer"
+        3 = "Performance"
+        4 = "Personalization"
+        5 = "Power"
+        6 = "Protection"
+        7 = "Classic"
+    }
+
+    do {
+        Write-Host "Which category will this tweak belong to?"
+        foreach ($key in $ActionType.Keys | Sort-Object) {
+            Write-Host "$key - $($ActionType[$key])"
+        }
+        $choice = Read-Host "Enter the number corresponding to the Tweak Type"
+        if ([int]$choice -in $ActionType.Keys) {
+            $category = $ActionType[[int]$choice]
+        } else {
+            Write-Host "Invalid choice. Please select a valid option."
+        }
+    } until ([int]$choice -in $ActionType.Keys)
+    # category
 
     return $jsonObject
 }
@@ -47,8 +76,8 @@ function Add-Commands {
         $Commands += $cmd
         
         # Ask if the user wants to add another task
-        $addAnotherCommand = Read-Host "Do you want to add another command? (yes/no)"
-    } while ($addAnotherCommand -eq "yes")
+        $addAnotherCommand = Read-Host "Do you want to add another command? (y/n)"
+    } while ($addAnotherCommand -eq "y")
 
     return $Commands
 }
@@ -58,7 +87,7 @@ function Add-RemoveTasks {
     $tasks = @() # Initialize an array for tasks
 
     do {
-        $task = Read-Host "Enter a task to add to 'RemoveTasks'"
+        $task = Read-Host "Enter ScheduledTask name"
         $tasks += $task
         
         # Ask if the user wants to add another task
@@ -96,7 +125,7 @@ function Add-AppxPackage {
     $appxPackages = @() # Initialize an array for Appx packages
 
     do {
-        $packageName = Read-Host "Enter an Appx package name to add to 'RemoveAppxPackage'"
+        $packageName = Read-Host "Enter Appx package name'"
         $appxPackages += @{ Name = $packageName } # Add the package as an object with the Name property
         
         # Ask if the user wants to add another Appx package
