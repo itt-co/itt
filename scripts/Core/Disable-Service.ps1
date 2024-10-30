@@ -25,7 +25,7 @@ function Disable-Service {
     foreach ($serv in $tweak) {
         
         try {
-            Write-Host "Setting Service $($serv.Name)"
+            Add-Log  -Message "Setting Service $($serv.Name)" -Level "info"
             $service = Get-Service -Name $serv.Name -ErrorAction Stop
             Stop-Service -Name $serv.Name -ErrorAction Stop
             $service | Set-Service -StartupType $serv.StartupType -ErrorAction Stop
