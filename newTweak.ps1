@@ -1,5 +1,20 @@
+Write-Host "
++-------------------------------------------------------------------------+
+|    ___ _____ _____   ____    _  _____  _    ____    _    ____  _____    |
+|   |_ _|_   _|_   _| |  _ \  / \|_   _|/ \  | __ )  / \  / ___|| ____|   |
+|    | |  | |   | |   | | | |/ _ \ | | / _ \ |  _ \ / _ \ \___ \|  _|     |
+|    | |  | |   | |   | |_| / ___ \| |/ ___ \| |_) / ___ \ ___) | |___    |
+|   |___| |_|   |_|   |____/_/   \_\_/_/   \_\____/_/   \_\____/|_____|   |
+|    Made with ♥  By Emad Adel                                            |
++-------------------------------------------------------------------------+
+"
+
 # Function to create JSON structure
 function Create-JsonObject {
+
+    $Name = Read-Host "Tweak name"
+    $Description  = Read-Host "Description"
+
     $jsonObject = @{
         Name                = $Name
         Description         = $Description
@@ -11,11 +26,11 @@ function Create-JsonObject {
         RemoveTasks         = @()
         InvokeCommand       = @()
         UndoCommand         = @()
+        Services            = @()
     }
 
-    
-    $Name = Read-Host "Tweak name"
-    $Description  = Read-Host "Description"
+    $jsonObject.Category += Category
+
 
     $addRemoveCommands = Read-Host "Do you want to add 'Command' in this tweak? (y/n)"
     if ($addRemoveCommands -eq "y") {
@@ -28,17 +43,27 @@ function Create-JsonObject {
         $jsonObject.RemoveTasks += Add-RemoveTasks
     }
 
-    $addRegistry = Read-Host "Do you want to Modify 'Registry'? (y/n)"
+    $addRegistry = Read-Host "Do you want to Modify 'Registry' in this tweak? (y/n)"
     if ($addRegistry -eq "y") {
-        $jsonObject.Registry += Add-ModifyEntries
+        $jsonObject.Registry += Add-Registry
     }
 
     # Prompt user to add Appx packages
-    $addRemoveAppxPackage = Read-Host "Do you want to Remove 'AppxPackage'? (y/n)"
+    $addRemoveAppxPackage = Read-Host "Do you want to Remove 'AppxPackage' in this tweak? (y/n)"
     if ($addRemoveAppxPackage -eq "y") {
         $jsonObject.RemoveAppxPackage += Add-AppxPackage
     }
 
+    $addServices = Read-Host "Do you want to add 'Services' in this tweak? (y/n)"
+    if ($addServices -eq "y") {
+        $jsonObject.Services += Add-Services
+    }
+
+    return $jsonObject
+}
+
+function Category {
+    
     # category
     $ActionType = @{
         1 = "Privacy"
@@ -64,7 +89,8 @@ function Create-JsonObject {
     } until ([int]$choice -in $ActionType.Keys)
     # category
 
-    return $jsonObject
+    return $category
+    
 }
 
 # Function to add Command 
@@ -97,25 +123,77 @@ function Add-RemoveTasks {
     return $tasks
 }
 
-# Function to add modify entries to Registry
-function Add-ModifyEntries {
-    $modifyEntries = @() # Initialize an array for Modify entries
+# Function to add Services
+function Add-Services {
+
+    $ServicesEntries = @() # Initialize an array 
 
     do {
         # Create a new entry for Modify
+        $Services = @{
+            Name         = Read-Host "Enter Service name"
+            StartupType  = Read-Host "Enter StartupType "
+            DefaultType  = Read-Host "Enter the DefaultType Type"
+        }
+
+        $modifyEntries += $Services # Add the entry to the array
+
+        # Ask if the user wants to add another Modify entry
+        $continue = Read-Host "Do you want to add another Service entry? (yes/no)"
+    } while ($continue -eq "yes")
+
+    return $ServicesEntries
+}
+
+# Function to add modify entries to Registry
+function Add-Registry {
+
+    $modifyEntries = @() # Initialize an array
+
+    do {
+
+        # ValueType
+            $ValueType = @{
+
+                1 = "DWord"
+                2 = "Qword"
+                3 = "Binary"
+                4 = "String"
+                5 = "MultiString"
+                6 = "ExpandString"
+                7 = "LINK"
+                8 = "NONE"
+                9 = "QWORD_LITTLE_ENDIAN"
+            }
+    
+            do {
+                Write-Host "What is the value type"
+                foreach ($key in $ValueType.Keys | Sort-Object) {
+                    Write-Host "$key - $($ValueType[$key])"
+                }
+                $choice = Read-Host "Enter the number corresponding to the Tweak Type"
+                if ([int]$choice -in $ValueType.Keys) {
+                    $type = $ValueType[[int]$choice]
+                } else {
+                    Write-Host "Invalid choice. Please select a valid option."
+                }
+            } until ([int]$choice -in $ValueType.Keys)
+        # ValueType
+
+        # Create a new entry for Registry
         $modifyEntry = @{
-            Path         = Read-Host "Enter the registry Path"
-            Name         = Read-Host "Enter the registry Name"
-            Type         = Read-Host "Enter the registry Type"
-            Value        = Read-Host "Enter the registry Value"
-            DefaultValue = Read-Host "Enter the defaultValue"
+            Path         = Read-Host "Enter Path"
+            Name         = Read-Host "Enter value Name"
+            Type         = $type
+            Value        = Read-Host "Enter Value"
+            DefaultValue = Read-Host "Enter  Default Value"
         }
 
         $modifyEntries += $modifyEntry # Add the entry to the Modify array
 
         # Ask if the user wants to add another Modify entry
-        $continue = Read-Host "Do you want to add another Modify entry? (yes/no)"
-    } while ($continue -eq "yes")
+        $continue = Read-Host "Do you want to add another Modify entry? (y/n)"
+    } while ($continue -eq "y")
 
     return $modifyEntries
 }
@@ -129,8 +207,8 @@ function Add-AppxPackage {
         $appxPackages += @{ Name = $packageName } # Add the package as an object with the Name property
         
         # Ask if the user wants to add another Appx package
-        $addAnotherAppx = Read-Host "Do you want to add another Appx package? (yes/no)"
-    } while ($addAnotherAppx -eq "yes")
+        $addAnotherAppx = Read-Host "Do you want to add another Appx package? (y/n)"
+    } while ($addAnotherAppx -eq "y")
 
     return $appxPackages
 }
@@ -163,6 +241,7 @@ if (Test-Path $outputFilePath) {
             Registry           = $item.Registry
             RemoveAppxPackage  = $item.RemoveAppxPackage
             RemoveTasks        = $item.RemoveTasks
+            Services           = $item.Services
         }
     }
 
