@@ -22,10 +22,10 @@ function Create-JsonObject {
         Category            = ""
         Refresh             = "false"
         Registry            = @()
-        RemoveAppxPackage   = @()
-        RemoveTasks         = @()
-        InvokeCommand       = @()
-        UndoCommand         = @()
+        AppxPackage         = @()
+        ScheduledTask       = @()
+        Script              = @()
+        UndoScript          = @()
         Services            = @()
     }
 
@@ -34,13 +34,13 @@ function Create-JsonObject {
 
     $addRemoveCommands = Read-Host "Do you want to add 'Command' in this tweak? (y/n)"
     if ($addRemoveCommands -eq "y") {
-        $jsonObject.InvokeCommand += Add-Commands
+        $jsonObject.Script += Add-Commands
     }
 
     # Prompt user to add items to specific properties
     $addRemoveTasks = (Read-Host "Do you want to add 'Remove ScheduledTask' in this tweak? (y/n)").ToLower()
     if ($addRemoveTasks -eq "y") {
-        $jsonObject.RemoveTasks += Add-RemoveTasks
+        $jsonObject.ScheduledTask += Add-RemoveTasks
     }
 
     $addRegistry = Read-Host "Do you want to Modify 'Registry' in this tweak? (y/n)"
@@ -51,7 +51,7 @@ function Create-JsonObject {
     # Prompt user to add Appx packages
     $addRemoveAppxPackage = Read-Host "Do you want to Remove 'AppxPackage' in this tweak? (y/n)"
     if ($addRemoveAppxPackage -eq "y") {
-        $jsonObject.RemoveAppxPackage += Add-AppxPackage
+        $jsonObject.AppxPackage += Add-AppxPackage
     }
 
     $addServices = Read-Host "Do you want to add 'Services' in this tweak? (y/n)"
