@@ -7,7 +7,7 @@ function Remove-ScheduledTasks {
 
     foreach ($task in $tweak) {
 
-        Add-Log -Message "Removing $task..."
+        Add-Log -Message "Removing $task ScheduledTask..."
 
         $tasks = Get-ScheduledTask -TaskName "*$task*" -ErrorAction SilentlyContinue
 
