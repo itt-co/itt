@@ -183,7 +183,7 @@ function Invoke-Apply {
 
         foreach ($tweak in $selectedTweaks) {
 
-            Add-Log -Message $tweak.Name -Level "info"
+            Add-Log -Message "::::$($tweak.Name)::::" -Level "info"
 
             $tweak | ForEach-Object {
         
