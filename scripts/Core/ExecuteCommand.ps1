@@ -31,6 +31,6 @@ function ExecuteCommand {
         }
 
     } catch  {
-        Add-Log -Message "The specified command was not found." -Level "info"
+        Add-Log -Message "The specified command was not found." -Level "WARNING"
     }
 }
