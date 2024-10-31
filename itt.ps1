@@ -11082,7 +11082,7 @@ function Uninstall-AppxPackage {
     } 
     catch 
     {
-        Add-Log -Message "Unable to uninstall $name. Please Use Windows poershell not Terminal" -Level "info"
+        Add-Log -Message "PLEASE USE (WINDOWS POWERSHELL) NOT (TERMINAL POWERSHELL 7) TO UNINSTALL $NAME." -Level "WARNING"
     }
 }
 function Invoke-Install {
