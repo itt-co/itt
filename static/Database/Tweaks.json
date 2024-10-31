@@ -70,8 +70,8 @@
         "defaultValue": "0"
       },
       {
-        "Path": "HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
-        "Name": "HideSCAMeetNow",
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
+        "Name": "NoNewsAndInterests",
         "Type": "DWord",
         "Value": "1",
         "defaultValue": "0"
