@@ -33,18 +33,29 @@ function Set-Registry {
 
             if(!(Test-Path 'HKU:\')) {New-PSDrive -PSProvider Registry -Name HKU -Root HKEY_USERS}
     
+            Add-Log -Message "Optmize $($reg.name)..." -Level "info"
+
             if($reg.Value -ne "Remove")
             {
-                Add-Log -Message "Optmize $($reg.name)..." -action "info"
-                
-                # Set or create the registry value
-                New-ItemProperty -Path $reg.Path -Name $reg.Name -PropertyType $reg.Type -Value $reg.Value -Force | Out-Null
+                If (!(Test-Path $Path)) {
+                    if($debug){Add-Log -Message "$($reg.Path) Path was not found, Creating..." -Level "info"}
+                    New-Item -Path $reg.Path -Force -ErrorAction Stop | Out-Null
+                }
+
+                Set-ItemProperty -Path $reg.Path -Name $reg.Name -Type $reg.Type -Value $reg.Value -Force -ErrorAction Stop | Out-Null
             }
             else
             {
-                Remove-Item -Path $reg.Path -Recurse -Force
+                if($reg.Name -ne $null)
+                {
+                    # Remove the specific registry value
+                    Remove-ItemProperty -Path $reg.Path -Name $reg.Name -Force -ErrorAction SilentlyContinue
+
+                }else{
+                    # remove the registry path
+                    Remove-Item -Path $reg.Path -Recurse -Force -ErrorAction SilentlyContinue
+                }
             }
-        
         }
 
     } catch {
