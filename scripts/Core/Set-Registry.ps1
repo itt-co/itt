@@ -37,7 +37,7 @@ function Set-Registry {
             {
 
                 If (!(Test-Path $_.Path)) {
-                    Write-Host "$($_.Path) was not found, Creating..."
+                    Add-Log -Message "$($_.Path) was not found, Creating..." -Level "info"
                     New-Item -Path $_.Path | Out-Null   
                 }
 
@@ -49,10 +49,12 @@ function Set-Registry {
                 if($_.Name -ne $null)
                 {
                     # Remove the specific registry value
+                    Add-Log -Message "Remove $($_.name) from registry..." -Level "info"
                     Remove-ItemProperty -Path $_.Path -Name $_.Name -Force -ErrorAction SilentlyContinue
 
                 }else{
                     # remove the registry path
+                    Add-Log -Message "Remove $($_.Path)..." -Level "info"
                     Remove-Item -Path $_.Path -Recurse -Force -ErrorAction SilentlyContinue
                 }
             }
