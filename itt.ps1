@@ -7594,8 +7594,8 @@ $itt.database.Tweaks = '[
         "defaultValue": "0"
       },
       {
-        "Path": "HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
-        "Name": "HideSCAMeetNow",
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
+        "Name": "NoNewsAndInterests",
         "Type": "DWord",
         "Value": "1",
         "defaultValue": "0"
@@ -10638,31 +10638,31 @@ function Set-Registry {
     
     try {
 
-        foreach ($reg in $tweak) {
+        if(!(Test-Path 'HKU:\')) {New-PSDrive -PSProvider Registry -Name HKU -Root HKEY_USERS}
 
-            if(!(Test-Path 'HKU:\')) {New-PSDrive -PSProvider Registry -Name HKU -Root HKEY_USERS}
-    
-            Add-Log -Message "Optmize $($reg.name)..." -Level "info"
+        $tweak | ForEach-Object {
 
-            if($reg.Value -ne "Remove")
+            if($_.Value -ne "Remove")
             {
-                If (!(Test-Path $Path)) {
-                    if($debug){Add-Log -Message "$($reg.Path) Path was not found, Creating..." -Level "info"}
-                    New-Item -Path $reg.Path -Force -ErrorAction Stop | Out-Null
+
+                If (!(Test-Path $_.Path)) {
+                    Write-Host "$($_.Path) was not found, Creating..."
+                    New-Item -Path $_.Path | Out-Null   
                 }
 
-                Set-ItemProperty -Path $reg.Path -Name $reg.Name -Type $reg.Type -Value $reg.Value -Force -ErrorAction Stop | Out-Null
-            }
-            else
+                Add-Log -Message "Optmize $($_.name)..." -Level "info"
+                New-ItemProperty -Path $_.Path -Name $_.Name -PropertyType $_.Type -Value $_.Value -Force | Out-Null     
+
+            }else
             {
-                if($reg.Name -ne $null)
+                if($_.Name -ne $null)
                 {
                     # Remove the specific registry value
-                    Remove-ItemProperty -Path $reg.Path -Name $reg.Name -Force -ErrorAction SilentlyContinue
+                    Remove-ItemProperty -Path $_.Path -Name $_.Name -Force -ErrorAction SilentlyContinue
 
                 }else{
                     # remove the registry path
-                    Remove-Item -Path $reg.Path -Recurse -Force -ErrorAction SilentlyContinue
+                    Remove-Item -Path $_.Path -Recurse -Force -ErrorAction SilentlyContinue
                 }
             }
         }
@@ -11267,6 +11267,8 @@ function Invoke-Apply {
         $itt["window"].Dispatcher.Invoke([action]{ Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
 
         foreach ($tweak in $selectedTweaks) {
+
+            Add-Log -Message ":::$($tweak.Name):::" -Level "info"
 
             $tweak | ForEach-Object {
         
@@ -16412,8 +16414,8 @@ function Show-Event {
         
 
     
-            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
-                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')  # Start the process to open the URL when clicked
+            $itt.event.FindName('contribute').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')  # Start the process to open the URL when clicked
                 })
             
             $itt.event.FindName('shell').add_MouseLeftButtonDown({
@@ -16424,8 +16426,8 @@ function Show-Event {
                     Start-Process('https://www.palestinercs.org/en/Donation')  # Start the process to open the URL when clicked
                 })
             
-            $itt.event.FindName('contribute').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')  # Start the process to open the URL when clicked
+            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
+                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')  # Start the process to open the URL when clicked
                 })
             
 
