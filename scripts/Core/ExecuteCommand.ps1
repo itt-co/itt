@@ -25,9 +25,8 @@ function ExecuteCommand {
     try {
 
         foreach ($cmd in $tweak) {
-            if($debug) {Add-Log -Message $cmd -action "debug"}
-            $script = [scriptblock]::Create($cmd)
             Add-Log -Message "Executing script in the background; please wait..."
+            $script = [scriptblock]::Create($cmd)
             Invoke-Command  $script -ErrorAction Stop
         }
 
