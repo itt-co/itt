@@ -9617,7 +9617,7 @@ function ExecuteCommand {
         }
 
     } catch  {
-        Add-Log -Message "The specified command was not found." -Level "info"
+        Add-Log -Message "The specified command was not found." -Level "WARNING"
     }
 }
 function Finish {
@@ -10426,7 +10426,7 @@ function Remove-ScheduledTasks {
 
     foreach ($task in $tweak) {
 
-        Add-Log -Message "Removing $task ScheduledTask..."
+        Add-Log -Message "Removing $task ScheduledTask..." -Level "info"
 
         $tasks = Get-ScheduledTask -TaskName "*$task*" -ErrorAction SilentlyContinue
 
