@@ -32,7 +32,7 @@ function Finish {
     param (
        [string]$ListView,
        [string]$title = "ITT Emad Adel",
-       [string]$msg = "Installed successfully",
+       [string]$msg = "ALL INSTALLATIONS COMPLETED SUCCESSFULLY",
        [string]$icon = "Info"
     )
 
