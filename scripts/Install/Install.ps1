@@ -183,6 +183,8 @@ function Invoke-Apply {
 
         foreach ($tweak in $selectedTweaks) {
 
+            Add-Log -Message $tweak.Name -Level "info"
+
             $tweak | ForEach-Object {
         
                 if ($_.Script -and $_.Script.Count -gt 0) {
