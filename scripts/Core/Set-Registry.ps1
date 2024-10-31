@@ -41,7 +41,7 @@ function Set-Registry {
                     New-Item -Path $_.Path | Out-Null   
                 }
 
-                Add-Log -Message "Optmize $($reg.name)..." -Level "info"
+                Add-Log -Message "Optmize $($_.name)..." -Level "info"
                 New-ItemProperty -Path $_.Path -Name $_.Name -PropertyType $_.Type -Value $_.Value -Force | Out-Null     
 
             }else
