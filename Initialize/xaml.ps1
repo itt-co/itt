@@ -23,7 +23,6 @@ $desiredFunctions = @(
 'Install-Choco',
 'ExecuteCommand',
 'Set-Registry',
-'Remove-Registry',
 'Uninstall-AppxPackage',
 'Set-Taskbar',
 'Refresh-Explorer',

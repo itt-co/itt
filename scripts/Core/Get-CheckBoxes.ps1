@@ -75,13 +75,12 @@ function Get-SelectedItems {
                                     if ($tweak) {
                                         $items += @{
                                             Name                = $tweak.Name
-                                            Type                = $tweak.Type
-                                            Modify              = $tweak.Modify
-                                            Delete              = $tweak.Delete
-                                            Service             = $tweak.Service
-                                            RemoveTasks         = $tweak.RemoveTasks
-                                            RemoveAppxPackage   = $tweak.RemoveAppxPackage
-                                            Command             = $tweak.InvokeCommand
+                                            Registry            = $tweak.Registry
+                                            Services            = $tweak.Services
+                                            ScheduledTask       = $tweak.ScheduledTask
+                                            AppxPackage         = $tweak.AppxPackage
+                                            Script              = $tweak.Script
+                                            UndoScript          = $tweak.UndoScript
                                             Refresh             = $tweak.Refresh
                                             # Add a new method tweak here
                                         }

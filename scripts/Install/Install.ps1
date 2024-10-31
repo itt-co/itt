@@ -183,50 +183,51 @@ function Invoke-Apply {
 
         foreach ($tweak in $selectedTweaks) {
 
-            #Add-Log -Message $tweak.Name -Level "Apply" 
+            Add-Log -Message "::::$($tweak.Name)::::" -Level "info"
 
-            switch ($tweak.Type) {        
+            $tweak | ForEach-Object {
         
-                "command" {
-
-                    ExecuteCommand -name $tweak.name -Tweak $tweak.Command 
-                    Remove-ScheduledTasks -TasksToRemove $tweak.RemoveTasks
-                }
-                "Registry" {
-                    $tweak.Modify | ForEach-Object {
-                        
-                        Set-Registry -Name $_.Name -Type $_.Type -Path $_.Path -Value $_.Value
-                    }
-                    $tweak.Delete | ForEach-Object {
-
-                        Remove-Registry -RegistryPath $_.Path -Folder $_.Name
-                    }
-
-                    if($tweak.Refresh -eq "true")
+                if ($_.Script -and $_.Script.Count -gt 0) {
+                    ExecuteCommand -tweak $tweak.Script
+                    if($_.Refresh -eq $true)
                     {
                         Refresh-Explorer
                     }
+                } 
 
-                    ExecuteCommand -name $tweak.name -Tweak $tweak.Command 
-                    Remove-ScheduledTasks -TasksToRemove $tweak.RemoveTasks
-                }
-                "AppxPackage" {
-                    
-                    $tweak.removeAppxPackage | ForEach-Object { Uninstall-AppxPackage -Name $_.Name }
-                    ExecuteCommand -name $tweak.name -Tweak $tweak.Command 
-                    Remove-ScheduledTasks -TasksToRemove $tweak.RemoveTasks
-                }
-                "service" {
-
-                    $tweak.Service | ForEach-Object { 
-
-                        Disable-Service -Name $_.Name -StartupType $_.StartupType 
+                if ($_.Registry -and $_.Registry.Count -gt 0) {
+                  Set-Registry -tweak $tweak.Registry
+                  if($_.Refresh -eq $true)
+                    {
+                        Refresh-Explorer
                     }
+                } 
 
-                    ExecuteCommand -name $tweak.name -Tweak $tweak.Command 
-                    Remove-ScheduledTasks -TasksToRemove $tweak.RemoveTasks
-                }
+                if ($_.AppxPackage -and $_.AppxPackage.Count -gt 0) {
+                    Uninstall-AppxPackage -tweak $tweak.AppxPackage
+                    if($_.Refresh -eq $true)
+                    {
+                        Refresh-Explorer
+                    }
+                } 
+
+                if ($_.ScheduledTask -and $_.ScheduledTask.Count -gt 0) {
+                    Remove-ScheduledTasks -tweak $tweak.ScheduledTask
+                    if($_.Refresh -eq $true)
+                    {
+                        Refresh-Explorer
+                    }
+                } 
+
+                if ($_.Services -and $_.Services.Count -gt 0) {
+                    Disable-Service -tweak $tweak.Services
+                    if($_.Refresh -eq $true)
+                    {
+                        Refresh-Explorer
+                    }
+                } 
             }
+
         }
 
         Finish -ListView "TweaksListView"

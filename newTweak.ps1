@@ -1,7 +1,3 @@
-param (
-    [string]$json = "./static/Database/Tweaks.json"
-)
-
 Write-Host "
 +-------------------------------------------------------------------------+
 |    ___ _____ _____   ____    _  _____  _    ____    _    ____  _____    |
@@ -13,601 +9,269 @@ Write-Host "
 +-------------------------------------------------------------------------+
 "
 
-try {
-    
-    
-$validCategories = @{
+# Function to create JSON structure
+function Create-JsonObject {
 
-    # Available options
+    $Name = Read-Host "Tweak name"
+    $Description  = Read-Host "Description"
 
-    1 = "InvokeCommand"
+    $jsonObject = @{
+        Name                = $Name
+        Description         = $Description
+        Check               = "false"
+        Category            = ""
+        Refresh             = "false"
+        Registry            = @()
+        AppxPackage         = @()
+        ScheduledTask       = @()
+        Script              = @()
+        UndoScript          = @()
+        Services            = @()
+    }
 
-    2 = "Registry"
+    $jsonObject.Category += Category
 
-    3 = "RemoveAppxPackage"
 
-    4 = "Service"
+    $addRemoveCommands = Read-Host "Do you want to add 'Command' in this tweak? (y/n)"
+    if ($addRemoveCommands -eq "y") {
+        $jsonObject.Script += Add-Commands
+    }
 
+    # Prompt user to add items to specific properties
+    $addRemoveTasks = (Read-Host "Do you want to add 'Remove ScheduledTask' in this tweak? (y/n)").ToLower()
+    if ($addRemoveTasks -eq "y") {
+        $jsonObject.ScheduledTask += Add-RemoveTasks
+    }
+
+    $addRegistry = Read-Host "Do you want to Modify 'Registry' in this tweak? (y/n)"
+    if ($addRegistry -eq "y") {
+        $jsonObject.Registry += Add-Registry
+    }
+
+    # Prompt user to add Appx packages
+    $addRemoveAppxPackage = Read-Host "Do you want to Remove 'AppxPackage' in this tweak? (y/n)"
+    if ($addRemoveAppxPackage -eq "y") {
+        $jsonObject.AppxPackage += Add-AppxPackage
+    }
+
+    $addServices = Read-Host "Do you want to add 'Services' in this tweak? (y/n)"
+    if ($addServices -eq "y") {
+        $jsonObject.Services += Add-Services
+    }
+
+    return $jsonObject
 }
 
-# Prompt user to choose tweaks
-do {
-    Write-Host "Which Tweak this will be?:"
-    foreach ($key in $validCategories.Keys | Sort-Object) {
-        Write-Host "$key - $($validCategories[$key])"
-    }
-    $choice = Read-Host "Enter the number corresponding to the tweaks"
-    if ([int]$choice -in $validCategories.Keys) {
-        $userInput = $validCategories[[int]$choice]
-    } else {
-        Write-Host "Invalid choice. Please select a valid option."
-    }
-} until ([int]$choice -in $validCategories.Keys)
-
-# Read User Input.
-$userInput
-
-#===========================================================================
-#region Registry 
-#===========================================================================
-if($userInput -eq "Registry")
-{
-
-$TweakName = Read-Host "Enter Tweak Name"
-$description = (Read-Host "Enter Tweak description").Trim() -replace '[^\w\s]', ''
-
-# category
-$ActionType = @{
-    1 = "Privacy"
-    2 = "Fixer"
-    3 = "Performance"
-    4 = "Personalization"
-    5 = "Power"
-    6 = "Protection"
-    7 = "Classic"
-}
-
-do {
-    Write-Host "This Tweak will do?"
-    foreach ($key in $ActionType.Keys | Sort-Object) {
-        Write-Host "$key - $($ActionType[$key])"
-    }
-    $choice = Read-Host "Enter the number corresponding to the Tweak Type"
-    if ([int]$choice -in $ActionType.Keys) {
-        $category = $ActionType[[int]$choice]
-    } else {
-        Write-Host "Invalid choice. Please select a valid option."
-    }
-} until ([int]$choice -in $ActionType.Keys)
-# category
-
-# Initialize arrays for Modify and Delete paths
-$modifyPaths = @()
-$deletePaths = @()
-
-# Read multiple AppxPackage Names
-do {
-
+function Category {
+    
+    # category
     $ActionType = @{
-        1 = "Modify"
-        2 = "Delete"
+        1 = "Privacy"
+        2 = "Fixer"
+        3 = "Performance"
+        4 = "Personalization"
+        5 = "Power"
+        6 = "Protection"
+        7 = "Classic"
     }
-    
+
     do {
-        Write-Host "This Tweak will do?"
+        Write-Host "Which category will this tweak belong to?"
         foreach ($key in $ActionType.Keys | Sort-Object) {
             Write-Host "$key - $($ActionType[$key])"
         }
         $choice = Read-Host "Enter the number corresponding to the Tweak Type"
         if ([int]$choice -in $ActionType.Keys) {
-            $AType = $ActionType[[int]$choice]
+            $category = $ActionType[[int]$choice]
         } else {
             Write-Host "Invalid choice. Please select a valid option."
         }
     } until ([int]$choice -in $ActionType.Keys)
+    # category
 
+    return $category
+    
+}
 
-    if($AType -eq "Modify")
-    {
-        $Path = Read-Host "Enter Reg Path"
-        $Name = Read-Host "Enter Value Name"
+# Function to add Command 
+function Add-Commands {
+    $Commands = @() # Initialize an array for tasks
 
-        $KeyType = @{
-            1 = "DWord"
-            2 = "Qword"
-            3 = "Binary"
-            4 = "String"
-            5 = "MultiString"
-            6 = "ExpandString"
-            7 = "LINK"
-            8 = "NONE"
-            9 = "QWORD_LITTLE_ENDIAN"
-        }
+    do {
+        $cmd = Read-Host "Enter a command"
+        $Commands += $cmd
         
-        # Prompt user to choose KeyType
+        # Ask if the user wants to add another task
+        $addAnotherCommand = Read-Host "Do you want to add another command? (y/n)"
+    } while ($addAnotherCommand -eq "y")
+
+    return $Commands
+}
+
+# Function to add tasks to RemoveTasks
+function Add-RemoveTasks {
+    $tasks = @() # Initialize an array for tasks
+
+    do {
+        $task = Read-Host "Enter ScheduledTask name"
+        $tasks += $task
+        
+        # Ask if the user wants to add another task
+        $addAnotherTask = Read-Host "Do you want to add another task? (yes/no)"
+    } while ($addAnotherTask -eq "yes")
+
+    return $tasks
+}
+
+# Function to add Services
+function Add-Services {
+
+    $ServicesEntries = @() # Initialize an array 
+
+    do {
+
+    # StartupType
+        $StartupType = @{
+
+            1 = "Disabled"
+            2 = "Automatic"
+            4 = "Manual "
+        }
+
         do {
-            Write-Host "What is the Key type"
-            foreach ($key in $KeyType.Keys | Sort-Object) {
-                Write-Host "$key - $($KeyType[$key])"
+            Write-Host "Which category will this tweak belong to?"
+            foreach ($key in $StartupType.Keys | Sort-Object) {
+                Write-Host "$key - $($StartupType[$key])"
             }
-            $choice = Read-Host "Enter the number corresponding to the Key Type"
-            if ([int]$choice -in $KeyType.Keys) {
-                $Type = $KeyType[[int]$choice]
+            $choice = Read-Host "Enter the number corresponding to the Tweak Type"
+            if ([int]$choice -in $StartupType.Keys) {
+                $type = $StartupType[[int]$choice]
             } else {
                 Write-Host "Invalid choice. Please select a valid option."
             }
-        } until ([int]$choice -in $KeyType.Keys)
+        } until ([int]$choice -in $StartupType.Keys)
+    # StartupType
 
-        $Value = Read-Host "Enter Value"
-        $defaultValue = Read-Host "Enter default Value"
-
-        $modifyPaths += @{
-            "Path" = "$Path"
-            "Name" = "$Name"
-            "Type" = "$Type"
-            "Value" = "$Value"
-            "defaultValue" = "$defaultValue"
-        }
-    }
-    else
-    {
-        do {
-            $Path = Read-Host "Enter Reg Path"
-            $Name = Read-Host "Enter Value Name"
-
-            $deletePaths += @{
-                "Path" = "$Path"
-                "Name" = "$Name"
-            }
-
-            $continue = Read-Host "Do you want to add another Delete path? (y/n)"
-        }while ($continue -eq "y")
+    # Create a new entry for Modify
+    $Services = @{
+        Name         = Read-Host "Enter Service name"
+        StartupType  = $type
+        DefaultType  = "Manual"
     }
 
-    $continue = Read-Host "Do you want to add another Path in current Tweak? (y/n)"
-} while ($continue -eq "y")
+    $ServicesEntries += $Services # Add the entry to the array
 
-# Define the data
-$data = @{
-    "Name" = $TweakName
-    "Description" = $description
-    "Check" = "false"
-    "Category" = $category
-    "Type" = "Registry"
-    "Refresh" = "false"
-    "Modify" = $modifyPaths
-    "InvokeCommand" = @(
-        ""
-    )
-    "UndoCommand" = @(
-        ""
-    )
+        # Ask if the user wants to add another Modify entry
+        $continue = Read-Host "Do you want to add another Service entry? (y/n)"
+    } while ($continue -eq "y")
+
+    return $ServicesEntries
 }
 
-# Add Delete field only if there are entries
-if ($deletePaths.Count -gt 0) {
-    $data["Delete"] = $deletePaths
-}
+# Function to add modify entries to Registry
+function Add-Registry {
 
-# Convert to JSON string
-$jsonString = @"
-{
-    "Name": "$($data["Name"])",
-    "Description": "$($data["Description"])",
-    "Check": "$($data["Check"])",
-    "Category": "$($data["Category"])",
-    "Type": "$($data["Type"])",
-    "Refresh": "$($data["Refresh"])",
-    "Modify": $($data["Modify"] | ConvertTo-Json -Depth 100),
-    "InvokeCommand": [
-        ""
-    ],
-    "UndoCommand": [
-    ""
-    ]
-}
-"@
-
-# Include Delete field in JSON string if it exists
-if ($data.ContainsKey("Delete")) {
-    $jsonString = $jsonString -replace '"Delete": \[\]', '"Delete": $($data["Delete"] | ConvertTo-Json -Depth 100)'
-}
-
-# Read existing JSON file
-$existingJson = Get-Content -Path $json -Raw | ConvertFrom-Json -ErrorAction SilentlyContinue
-if (!$existingJson) {
-    $existingJson = @()
-}
-
-# Append new data to existing JSON
-$existingJson += $jsonString | ConvertFrom-Json
-
-# Convert to JSON string
-$updatedJson = $existingJson | ConvertTo-Json -Depth 100
-
-# Output to file
-$updatedJson | Out-File -FilePath $json -Encoding utf8
-}
-#===========================================================================
-#endregion Registry 
-#===========================================================================
-
-#===========================================================================
-#region RemoveAppxPackage 
-#===========================================================================
-
-if($userInput -eq "RemoveAppxPackage")
-{
-
-$TweakName = Read-Host "Enter Tweak Name"
-$description = (Read-Host "Enter tweak description").Trim() -replace '[^\w\s]', ''
-
-# category
-$ActionType = @{
-    1 = "Privacy"
-    2 = "Fixer"
-    3 = "Performance"
-    4 = "Personalization"
-    5 = "Power"
-    6 = "Protection"
-    7 = "Classic"
-}
-
-do {
-    Write-Host "This Tweak will do?"
-    foreach ($key in $ActionType.Keys | Sort-Object) {
-        Write-Host "$key - $($ActionType[$key])"
-    }
-    $choice = Read-Host "Enter the number corresponding to the Tweak Type"
-    if ([int]$choice -in $ActionType.Keys) {
-        $category = $ActionType[[int]$choice]
-    } else {
-        Write-Host "Invalid choice. Please select a valid option."
-    }
-} until ([int]$choice -in $ActionType.Keys)
-# category
-
-
-# Read multiple AppxPackage Names
-$Names = @()
-# Read multiple AppxPackage Names
-do {
-    $Name = Read-Host "Enter AppxPackage Name"
-    $Names += $Name
-    $continue = Read-Host "Do you want to add another AppxPackage in current Tweak? (y/n)"
-} while ($continue -eq "y")
-
-
-# Define the data
-$data = @{
-    "Name" = $TweakName
-    "Description" = $description
-    "Check" = "false"
-    "Category" = $category
-    "Type" = "AppxPackage"
-    "Refresh" = "false"
-    "$userInput" = @(
-        $Names | ForEach-Object {
-            @{
-                "Name" = $_
-            }
-        }
-    )
-    "InvokeCommand" = @(
-        ""
-    )
-    "UndoCommand" = @(
-        ""
-    )
-}
-
-# Convert to JSON string
-$jsonString = @"
-{
-    "Name": "$($data["Name"])",
-    "Description": "$($data["Description"])",
-    "Check": "$($data["Check"])",
-    "Category": "$($data["Category"])",
-    "Type": "$($data["Type"])",
-    "Refresh": "$($data["Refresh"])",
-    "$userInput": $($data["$userInput"] | ConvertTo-Json -Depth 100),
-    "InvokeCommand": [
-        ""
-    ],
-    "UndoCommand": [
-    ""
-    ]
-}
-"@
-
-# Read existing JSON file
-$existingJson = Get-Content -Path $json -Raw | ConvertFrom-Json -ErrorAction SilentlyContinue
-if (!$existingJson) {
-    $existingJson = @()
-}
-
-# Append new data to existing JSON
-$existingJson += $jsonString | ConvertFrom-Json
-
-# Convert to JSON string
-$updatedJson = $existingJson | ConvertTo-Json -Depth 100
-
-# Output to file
-$updatedJson | Out-File -FilePath $json -Encoding utf8
-}
-
-#===========================================================================
-#endregion RemoveAppxPackage 
-#===========================================================================
-
-#===========================================================================
-#region Command 
-#===========================================================================
-
-if($userInput -eq "InvokeCommand")
-{
-    
-$TweakName = Read-Host "Enter Tweak Name"
-$description = (Read-Host "Enter tweak description").Trim() -replace '[^\w\s]', ''
-
-# category
-$ActionType = @{
-    1 = "Privacy"
-    2 = "Fixer"
-    3 = "Performance"
-    4 = "Personalization"
-    5 = "Power"
-    6 = "Protection"
-    7 = "Classic"
-}
-
-do {
-    Write-Host "This Tweak will do?"
-    foreach ($key in $ActionType.Keys | Sort-Object) {
-        Write-Host "$key - $($ActionType[$key])"
-    }
-    $choice = Read-Host "Enter the number corresponding to the Tweak Type"
-    if ([int]$choice -in $ActionType.Keys) {
-        $category = $ActionType[[int]$choice]
-    } else {
-        Write-Host "Invalid choice. Please select a valid option."
-    }
-} until ([int]$choice -in $ActionType.Keys)
-# category
-
-# Initialize an empty array to collect commands
-$cmd = @()
-$cmd2 = @()
-
-
-# Loop to collect commands from the user
-do {
-    $line = Read-Host "Enter InvokeCommand (leave empty to finish)"
-    if ($line -ne '') {
-        $line = $line -replace '(?<!\\)\\(?!\\)', '\\'
-        $cmd += $line
-    }
-} while ($line -ne '')
-
-
-# Loop to collect commands from the user
-do {
-    $line = Read-Host "Enter UndoCommand (leave empty to finish)"
-    if ($line -ne '') {
-        $line = $line -replace '(?<!\\)\\(?!\\)', '\\'
-        $cmd2 += $line
-    }
-} while ($line -ne '')
-
-
-# Define the data
-$data = @{
-    "Name" = $TweakName
-    "Description" = $description
-    "Check" = "false"
-    "Category" = $category
-    "Type" = "command"
-    "Refresh" = "false"
-    "userInput" = $cmd
-    "UndoCommand" = $cmd2
-
-}
-
-# Convert userInput array to JSON formatted string
-$userInputJson = ($data["userInput"] | ForEach-Object { '"' + $_.Replace('"', '\"') + '"' }) -join ",
-
-"
-
-$userInputJson2 = ($data["UndoCommand"] | ForEach-Object { '"' + $_.Replace('"', '\"') + '"' }) -join ",
-
-"
-
-
-# Convert to JSON string
-$jsonString = @"
-{
-    "Name": "$($data["Name"])",
-    "Description": "$($data["Description"])",
-    "Check": "$($data["Check"])",
-    "Category": "$($data["Category"])",
-    "Type": "$($data["Type"])",
-    "Refresh": "$($data["Refresh"])",
-    "$userInput": [
-        $userInputJson
-    ],
-    "UndoCommand": [
-        $userInputJson2
-    ]
-}
-"@
-
-
-# Read existing JSON file
-$existingJson = Get-Content -Path $json | ConvertFrom-Json
-
-# Append new data to existing JSON
-$existingJson += $jsonString | ConvertFrom-Json
-
-# Convert to JSON string
-$updatedJson = $existingJson | ConvertTo-Json -Depth 100
-
-# Output to file
-$updatedJson | Out-File -FilePath $json -Encoding utf8
-}
-
-#===========================================================================
-#endregion Command 
-#===========================================================================
-
-#===========================================================================
-#region Services 
-#===========================================================================
-
-if($userInput -eq "Service")
-{
-
-$TweakName = Read-Host "Enter Tweak Name"
-$description = (Read-Host "Enter tweak description").Trim() -replace '[^\w\s]', ''
-
-# category
-$ActionType = @{
-    1 = "Privacy"
-    2 = "Fixer"
-    3 = "Performance"
-    4 = "Personalization"
-    5 = "Power"
-    6 = "Protection"
-    7 = "Classic"
-}
-
-do {
-    Write-Host "This Tweak will do?"
-    foreach ($key in $ActionType.Keys | Sort-Object) {
-        Write-Host "$key - $($ActionType[$key])"
-    }
-    $choice = Read-Host "Enter the number corresponding to the Tweak Type"
-    if ([int]$choice -in $ActionType.Keys) {
-        $category = $ActionType[[int]$choice]
-    } else {
-        Write-Host "Invalid choice. Please select a valid option."
-    }
-} until ([int]$choice -in $ActionType.Keys)
-# category
-
-# Read multiple Disable Services Names
-$Names = @()
-# Read multiple Disable Services Names
-do {
-
-    $Name = Read-Host "Enter Service Name"
-
-    $StartupType = @{
-
-        1 = "Disabled"
-        2 = "Automatic"
-        4 = "Manual "
-    }
-
-    $DefaultType = @{
-
-        1 = "Disabled"
-        2 = "Automatic"
-        4 = "Manual "
-    }
-    
-    # Prompt user to choose KeyType
-    do {
-        Write-Host "What is Startup Type will be?"
-        foreach ($key in $StartupType.Keys | Sort-Object) {
-            Write-Host "$key - $($StartupType[$key])"
-        }
-        $choice = Read-Host "Enter the number corresponding to the Key Type"
-        if ([int]$choice -in $StartupType.Keys) {
-            $Type = $StartupType[[int]$choice]
-        } else {
-            Write-Host "Invalid choice. Please select a valid option."
-        }
-    } until ([int]$choice -in $StartupType.Keys)
+    $modifyEntries = @() # Initialize an array
 
     do {
-        Write-Host "What is Default Type will be?"
-        foreach ($key in $DefaultType.Keys | Sort-Object) {
-            Write-Host "$key - $($DefaultType[$key])"
-        }
-        $choice = Read-Host "Enter the number corresponding to the Key Type"
-        if ([int]$choice -in $DefaultType.Keys) {
-            $DeType = $DefaultType[[int]$choice]
-        } else {
-            Write-Host "Invalid choice. Please select a valid option."
-        }
-    } until ([int]$choice -in $DefaultType.Keys)
 
+        # ValueType
+            $ValueType = @{
 
-    $Names += $Name
-
-
-    $continue = Read-Host "Do you want to add another Service in current Tweak ? (y/n)"
-} while ($continue -eq "y")
-
-
-# Define the data as an ordered hashtable
-$data = [Ordered]@{
-
-    "Name" = $TweakName
-    "Description" = $description
-    "Check" = "false"
-    "Category" = $category
-    "Type" = "service"
-    "Refresh" = "false"
-    "$userInput" = @(
-        $Names | ForEach-Object {
-            [Ordered]@{
-                "Name" = $_
-                "StartupType" = $Type
-                "DefaultType" = $DeType
+                1 = "DWord"
+                2 = "Qword"
+                3 = "Binary"
+                4 = "String"
+                5 = "MultiString"
+                6 = "ExpandString"
+                7 = "LINK"
+                8 = "NONE"
+                9 = "QWORD_LITTLE_ENDIAN"
             }
-        }
-    )
-}
-
-# Convert to JSON string
-$jsonString = @"
-{
-    "Name": "$($data["Name"])",
-    "Description": "$($data["Description"])",
-    "Check": "$($data["Check"])",
-    "Category": "$($data["Category"])",
-    "Type": "$($data["Type"])",
-    "Refresh": "$($data["Refresh"])",
-    "$userInput": $($data["$userInput"] | ConvertTo-Json -Depth 100)
-}
-"@
-
-# Read existing JSON file
-$existingJson = Get-Content -Path $json -Raw | ConvertFrom-Json -ErrorAction SilentlyContinue
-if (!$existingJson) {
-    $existingJson = @()
-}
-
-# Append new data to existing JSON
-$existingJson += $jsonString | ConvertFrom-Json
-
-# Convert to JSON string
-$updatedJson = $existingJson | ConvertTo-Json -Depth 100
-
-# Output to file
-$updatedJson | Out-File -FilePath $json -Encoding utf8
-
-#===========================================================================
-#endregion RemoveAppxPackage 
-#===========================================================================
-}
-}
-catch {
-    Write-Host "An error occurred: $_"
-}
-finally {
-    Write-Host "Added successfully, Don't forget to build and test it before commit" -ForegroundColor Green 
-}
-
     
+            do {
+                Write-Host "What is the value type"
+                foreach ($key in $ValueType.Keys | Sort-Object) {
+                    Write-Host "$key - $($ValueType[$key])"
+                }
+                $choice = Read-Host "Enter the number corresponding to the Tweak Type"
+                if ([int]$choice -in $ValueType.Keys) {
+                    $type = $ValueType[[int]$choice]
+                } else {
+                    Write-Host "Invalid choice. Please select a valid option."
+                }
+            } until ([int]$choice -in $ValueType.Keys)
+        # ValueType
+
+        # Create a new entry for Registry
+        $modifyEntry = @{
+            Path         = Read-Host "Enter Path"
+            Name         = Read-Host "Enter value Name"
+            Type         = $type
+            Value        = Read-Host "Enter Value"
+            DefaultValue = Read-Host "Enter  Default Value"
+        }
+
+        $modifyEntries += $modifyEntry # Add the entry to the Modify array
+
+        # Ask if the user wants to add another Modify entry
+        $continue = Read-Host "Do you want to add another Modify entry? (y/n)"
+    } while ($continue -eq "y")
+
+    return $modifyEntries
+}
+
+# Function to add Appx packages
+function Add-AppxPackage {
+    $appxPackages = @() # Initialize an array for Appx packages
+
+    do {
+        $packageName = Read-Host "Enter Appx package name'"
+        $appxPackages += $packageName 
+        
+        # Ask if the user wants to add another Appx package
+        $addAnotherAppx = Read-Host "Do you want to add another Appx package? (y/n)"
+    } while ($addAnotherAppx -eq "y")
+
+    return $appxPackages
+}
+
+# Main script execution
+$outputFilePath = "./static/Database/Tweaks.json"
+
+# Check if the JSON file exists
+if (Test-Path $outputFilePath) {
+    # Read existing JSON file
+    $existingJson = Get-Content -Path $outputFilePath -Raw | ConvertFrom-Json
+
+    # Create a new JSON object to add
+    $newJsonObject = Create-JsonObject
+
+    # Append the new object to the existing JSON structure
+    $existingJson += $newJsonObject
+
+    # Convert back to JSON format while maintaining the property order
+    $jsonOutput = @()
+    foreach ($item in $existingJson) {
+        $jsonOutput += [PSCustomObject]@{
+            Name               = $item.Name
+            Description        = $item.Description
+            Category           = $item.Category
+            Check              = $item.Check
+            Refresh            = $item.Refresh
+            Script             = $item.Script
+            UndoScript         = $item.UndoScript
+            ScheduledTask      = $item.ScheduledTask
+            AppxPackage        = $item.AppxPackage
+            Services           = $item.Services
+            Registry           = $item.Registry
+        }
+    }
+
+    # Write the ordered JSON to the file
+    $jsonOutput | ConvertTo-Json -Depth 20 | Out-File -FilePath $outputFilePath -Encoding utf8
+
+    Write-Host "Added successfully to existing JSON file. Don't forget to build and test it before commit" -ForegroundColor Green
+} else {
+    Write-Host "The file $outputFilePath does not exist!" -ForegroundColor Red
+}

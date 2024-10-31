@@ -24,35 +24,40 @@ function Set-Registry {
     #>
 
     param (
-        [string]$Name,
-        [string]$Type,
-        [string]$Path,
-        [psobject]$Value
+        [array]$tweak
     )
     
     try {
 
-        if($debug){ Add-Log -Message $Name $Type  $Path $Value -Level "debug"}
-
         if(!(Test-Path 'HKU:\')) {New-PSDrive -PSProvider Registry -Name HKU -Root HKEY_USERS}
 
-        # Check if the registry path exists
-        if (-not (Test-Path -Path $Path)) {
+        $tweak | ForEach-Object {
 
-            if($debug){ Add-Log -Message "Registry path does not exist. Creating it..." -Level "debug"}
+            if($_.Value -ne "Remove")
+            {
 
-            # Create the registry path
-            New-Item -Path $Path -Force | Out-Null
-        }
+                If (!(Test-Path $_.Path)) {
+                    Add-Log -Message "$($_.Path) was not found, Creating..." -Level "info"
+                    New-Item -Path $_.Path | Out-Null   
+                }
 
-        # Set or create the registry value
-        New-ItemProperty -Path $Path -Name $Name -PropertyType $Type -Value $Value -Force | Out-Null
+                Add-Log -Message "Optmize $($_.name)..." -Level "info"
+                New-ItemProperty -Path $_.Path -Name $_.Name -PropertyType $_.Type -Value $_.Value -Force | Out-Null     
 
-        Add-Log -Message "Optmize $Name" -Level "info"
+            }else
+            {
+                if($_.Name -ne $null)
+                {
+                    # Remove the specific registry value
+                    Add-Log -Message "Remove $($_.name) from registry..." -Level "info"
+                    Remove-ItemProperty -Path $_.Path -Name $_.Name -Force -ErrorAction SilentlyContinue
 
-        if($Debug){
-           Add-Log -Message "$Name $Type $Path $Value" -Level "debug"
-           Add-Log -Message "Registry value set successfully." -Level "debug"
+                }else{
+                    # remove the registry path
+                    Add-Log -Message "Remove $($_.Path)..." -Level "info"
+                    Remove-Item -Path $_.Path -Recurse -Force -ErrorAction SilentlyContinue
+                }
+            }
         }
 
     } catch {

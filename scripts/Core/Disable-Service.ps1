@@ -18,26 +18,20 @@ function Disable-Service {
     #>
 
     param(
-        $Name,
-        $StartupType
+        [array]$tweak
     )
 
-    try {
 
-        if($debug){ Add-Log -Message $Name $StartupType -Level "debug"}
-
-        Add-Log -Message "Set Service $Name to $StartupType" -Level "info"
-
-        # Check first
-        $service = Get-Service -Name $Name -ErrorAction Stop
-
-        # Service exists, proceed with changing properties
-        $service | Set-Service -StartupType $StartupType -ErrorAction Stop
-        Stop-Service -Name $Name -ErrorAction Stop
-    } catch [System.ServiceProcess.ServiceNotFoundException] {
-        Write-Warning "Service $Name was not found"
-    } catch {
-        Write-Warning "Unable to set $Name due to unhandled exception"
-        Write-Warning $_.Exception.Message
+    foreach ($serv in $tweak) {
+        
+        try {
+            Add-Log  -Message "Setting Service $($serv.Name)" -Level "info"
+            $service = Get-Service -Name $serv.Name -ErrorAction Stop
+            Stop-Service -Name $serv.Name -ErrorAction Stop
+            $service | Set-Service -StartupType $serv.StartupType -ErrorAction Stop
+        }
+        catch {
+            Add-Log -Message "Service $Name was not found" -Level "info"
+        }
     }
 }
