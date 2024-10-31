@@ -29,31 +29,31 @@ function Set-Registry {
     
     try {
 
-        foreach ($reg in $tweak) {
+        if(!(Test-Path 'HKU:\')) {New-PSDrive -PSProvider Registry -Name HKU -Root HKEY_USERS}
 
-            if(!(Test-Path 'HKU:\')) {New-PSDrive -PSProvider Registry -Name HKU -Root HKEY_USERS}
-    
-            Add-Log -Message "Optmize $($reg.name)..." -Level "info"
+        $tweak | ForEach-Object {
 
-            if($reg.Value -ne "Remove")
+            if($_.Value -ne "Remove")
             {
-                If (!(Test-Path $Path)) {
-                    if($debug){Add-Log -Message "$($reg.Path) Path was not found, Creating..." -Level "info"}
-                    New-Item -Path $reg.Path -Force -ErrorAction Stop | Out-Null
+
+                If (!(Test-Path $_.Path)) {
+                    Write-Host "$($_.Path) was not found, Creating..."
+                    New-Item -Path $_.Path | Out-Null   
                 }
 
-                Set-ItemProperty -Path $reg.Path -Name $reg.Name -Type $reg.Type -Value $reg.Value -Force -ErrorAction Stop | Out-Null
-            }
-            else
+                Add-Log -Message "Optmize $($reg.name)..." -action "info"
+                New-ItemProperty -Path $_.Path -Name $_.Name -PropertyType $_.Type -Value $_.Value -Force | Out-Null     
+
+            }else
             {
-                if($reg.Name -ne $null)
+                if($_.Name -ne $null)
                 {
                     # Remove the specific registry value
-                    Remove-ItemProperty -Path $reg.Path -Name $reg.Name -Force -ErrorAction SilentlyContinue
+                    Remove-ItemProperty -Path $_.Path -Name $_.Name -Force -ErrorAction SilentlyContinue
 
                 }else{
                     # remove the registry path
-                    Remove-Item -Path $reg.Path -Recurse -Force -ErrorAction SilentlyContinue
+                    Remove-Item -Path $_.Path -Recurse -Force -ErrorAction SilentlyContinue
                 }
             }
         }
