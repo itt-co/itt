@@ -61,6 +61,6 @@ function Set-Registry {
         }
 
     } catch {
-        Write-Error "An error occurred: $_"
+        Add-Log -Message "An error occurred: $_" -Level "WARNING"
     }
 }
