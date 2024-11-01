@@ -10076,7 +10076,7 @@ Function Get-ToggleStatus {
     {
         $LaunchTo = (Get-ItemProperty -path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced').LaunchTo
         
-        if($LaunchTo -eq 2) 
+        if($LaunchTo -eq 1) 
         {
             return $true
         } 
@@ -11463,11 +11463,12 @@ function Invoke-LaunchTo {
                 Add-Log -Message "Launch to This PC" -Level "Apply"
             }
             else {
-                $value = 0
+                $value = 2
                 Add-Log -Message "Launch to Quick Access" -Level "Disabled"
             }
 
         Set-ItemProperty -Path $Path -Name $name -Value $value -ErrorAction Stop
+        Refresh-Explorer
 
         }
         Catch [System.Security.SecurityException] {
