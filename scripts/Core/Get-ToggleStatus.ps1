@@ -185,7 +185,7 @@ Function Get-ToggleStatus {
     {
         $LaunchTo = (Get-ItemProperty -path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced').LaunchTo
         
-        if($LaunchTo -eq 2) 
+        if($LaunchTo -eq 1) 
         {
             return $true
         } 
