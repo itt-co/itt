@@ -29,7 +29,7 @@ $itt = [Hashtable]::Synchronized(@{
     database       = @{}
     ProcessRunning = $false
     developer      = "Emad Adel"
-    lastupdate     = "10/31/2024"
+    lastupdate     = "11/02/2024"
     github         = "https://github.com/emadadel4/itt"
     telegram       = "https://t.me/emadadel4"
     blog           = "https://emadadel4.github.io"
@@ -7520,6 +7520,12 @@ $itt.database.Settings = '[
     "Name":"VisualFXSetting",
     "description": "Adjust for best performance",
     "category": "Performance"
+  },
+  {
+    "Content": "Launch To This PC",
+    "Name":"LaunchTo",
+    "description": "Changing the default opening location of File Explorer in Windows allows it to open directly to This PC instead of Quick Access, making it easier to quickly access main drives and system folders",
+    "category": "Accessibility"
   }
 ]' | ConvertFrom-Json
 $itt.database.Tweaks = '[
@@ -10050,12 +10056,27 @@ Function Get-ToggleStatus {
          }
     }
 
-      # Auto end tasks     
+    # Auto end tasks     
     if($ToggleSwitch -eq "VisualFXSetting") 
     {
         $VisualFXSetting = (Get-ItemProperty -path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects').VisualFXSetting
         
         if($VisualFXSetting -eq 2) 
+        {
+            return $true
+        } 
+        else 
+        {
+            return $false
+        }
+    }
+
+    # Quick Access   
+    if($ToggleSwitch -eq "LaunchTo") 
+    {
+        $LaunchTo = (Get-ItemProperty -path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced').LaunchTo
+        
+        if($LaunchTo -eq 2) 
         {
             return $true
         } 
@@ -11364,6 +11385,8 @@ function Invoke-Toogle {
         "ClearPageFileAtShutdown" {Invoke-ClearPageFile $(Get-ToggleStatus ClearPageFileAtShutdown)}
         "AutoEndTasks" {Invoke-AutoEndTasks $(Get-ToggleStatus AutoEndTasks)}
         "VisualFXSetting" {Invoke-PerformanceOptions $(Get-ToggleStatus VisualFXSetting)}
+        "LaunchTo" {Invoke-LaunchTo $(Get-ToggleStatus LaunchTo)}
+
     }
 }
 function Invoke-AutoEndTasks {
@@ -11408,6 +11431,40 @@ function Invoke-AutoEndTasks {
             else {
                 $value = 0
                 Add-Log -Message "Disabled auto end tasks" -Level "Disabled"
+            }
+
+        Set-ItemProperty -Path $Path -Name $name -Value $value -ErrorAction Stop
+
+        }
+        Catch [System.Security.SecurityException] {
+            Write-Warning "Unable to set $Path\$Name to $Value due to a Security Exception"
+        }
+        Catch [System.Management.Automation.ItemNotFoundException] {
+            Write-Warning $psitem.Exception.ErrorRecord
+        }
+        Catch{
+            Write-Warning "Unable to set $Name due to unhandled exception"
+            Write-Warning $psitem.Exception.StackTrace
+        }
+}
+function Invoke-LaunchTo {
+
+   
+    Param(
+        $Enabled,
+        [string]$Path = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
+        [string]$name = "LaunchTo"
+    )
+
+        Try{
+
+            if ($Enabled -eq $false){
+                $value = 1
+                Add-Log -Message "Launch to This PC" -Level "Apply"
+            }
+            else {
+                $value = 0
+                Add-Log -Message "Launch to Quick Access" -Level "Disabled"
             }
 
         Set-ItemProperty -Path $Path -Name $name -Value $value -ErrorAction Stop
@@ -16061,6 +16118,12 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Adjust for best performance."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Launch To This PC" Tag=""  Style="{StaticResource ToggleSwitchStyle}" Name="LaunchTo"  FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Accessibility"/>
+            </StackPanel>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Changing the default opening location of File Explorer in Windows allows it to open directly to This PC instead of Quick Access making it easier to quickly access main drives and system folders."/>
         </StackPanel>
                     </ListView>
             </TabItem>
@@ -16416,8 +16479,8 @@ function Show-Event {
         
 
     
-            $itt.event.FindName('contribute').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')  # Start the process to open the URL when clicked
+            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
+                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')  # Start the process to open the URL when clicked
                 })
             
             $itt.event.FindName('shell').add_MouseLeftButtonDown({
@@ -16428,8 +16491,8 @@ function Show-Event {
                     Start-Process('https://www.palestinercs.org/en/Donation')  # Start the process to open the URL when clicked
                 })
             
-            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
-                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')  # Start the process to open the URL when clicked
+            $itt.event.FindName('contribute').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')  # Start the process to open the URL when clicked
                 })
             
 
