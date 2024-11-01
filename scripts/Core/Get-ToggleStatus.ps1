@@ -165,12 +165,27 @@ Function Get-ToggleStatus {
          }
     }
 
-      # Auto end tasks     
+    # Auto end tasks     
     if($ToggleSwitch -eq "VisualFXSetting") 
     {
         $VisualFXSetting = (Get-ItemProperty -path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects').VisualFXSetting
         
         if($VisualFXSetting -eq 2) 
+        {
+            return $true
+        } 
+        else 
+        {
+            return $false
+        }
+    }
+
+    # Quick Access   
+    if($ToggleSwitch -eq "LaunchTo") 
+    {
+        $LaunchTo = (Get-ItemProperty -path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced').LaunchTo
+        
+        if($LaunchTo -eq 2) 
         {
             return $true
         } 

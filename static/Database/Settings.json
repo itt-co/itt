@@ -58,5 +58,11 @@
     "Name":"VisualFXSetting",
     "description": "Adjust for best performance",
     "category": "Performance"
+  },
+  {
+    "Content": "Launch To This PC",
+    "Name":"LaunchTo",
+    "description": "Changing the default opening location of File Explorer in Windows allows it to open directly to This PC instead of Quick Access, making it easier to quickly access main drives and system folders",
+    "category": "Accessibility"
   }
 ]

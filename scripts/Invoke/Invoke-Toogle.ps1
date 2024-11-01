@@ -40,5 +40,7 @@ function Invoke-Toogle {
         "ClearPageFileAtShutdown" {Invoke-ClearPageFile $(Get-ToggleStatus ClearPageFileAtShutdown)}
         "AutoEndTasks" {Invoke-AutoEndTasks $(Get-ToggleStatus AutoEndTasks)}
         "VisualFXSetting" {Invoke-PerformanceOptions $(Get-ToggleStatus VisualFXSetting)}
+        "LaunchTo" {Invoke-LaunchTo $(Get-ToggleStatus LaunchTo)}
+
     }
 }
