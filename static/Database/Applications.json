@@ -6829,5 +6829,25 @@
     ],
     "category": "Runtimes",
     "check": "false"
+  },
+  {
+    "name": "GPU-Z",
+    "description": "GPUZ is a lightweight system utility designed to provide vital information about your video card and graphics processor",
+    "winget": "TechPowerUp.GPU-Z",
+    "choco": "gpu-z",
+    "scoop": "none",
+    "default": [
+      {
+        "IsExcute": "false",
+        "url": "none",
+        "exeArgs": "/verysilent /tasks=addcontextmenufiles,addcontextmenufolders,addtopath",
+        "output": "none",
+        "launcher": "none",
+        "shortcut": "no",
+        "run": "no"
+      }
+    ],
+    "category": "Utilities",
+    "check": "false"
   }
 ]
