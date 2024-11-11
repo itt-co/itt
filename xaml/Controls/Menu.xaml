@@ -167,7 +167,7 @@
                 </MenuItem.Icon>
                 
                 <MenuItem Name="uBlock" Header="uBlock Origin"/>
-                <MenuItem Name="unhook" Header="Unhook: Customize youtube"/>
+                <MenuItem Name="unhook" Header="Unhook: Customize youtube."/>
                 <MenuItem Name="neat" Header="Neat Download Manager"/>
             </MenuItem>
 
@@ -177,13 +177,19 @@
                 </MenuItem.Icon>
             </MenuItem>
 
-            <MenuItem Name="majorgeeks" ToolTip="website that provides trusted, safe, and curated software downloads for Windows users. It focuses on high-quality tools" Header="Major Geeks">
+            <MenuItem Name="techpowerup" Header="TechPowerUp" ToolTip="Collection of free TechPowerUp utilities.">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
 
-            <MenuItem Name="webtor" ToolTip="Web-based platform that allows users to stream torrent files directly in their browser without needing to download them" Header="Webtor">
+            <MenuItem Name="majorgeeks" ToolTip="website that provides trusted, safe, and curated software downloads for Windows users. It focuses on high-quality tools." Header="Major Geeks">
+                <MenuItem.Icon>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+                </MenuItem.Icon>
+            </MenuItem>
+
+            <MenuItem Name="webtor" ToolTip="Web-based platform that allows users to stream torrent files directly in their browser without needing to download them." Header="Webtor">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
