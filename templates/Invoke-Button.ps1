@@ -181,6 +181,11 @@ function Invoke-Button {
             Debug-Message $action
         }
 
+        "techpowerup" {
+            Start-Process "https://www.techpowerup.com/download/" 
+            Debug-Message $action
+        }
+
         # Other actions
         "ittshortcut" {
             ITTShortcut $action
