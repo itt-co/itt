@@ -29,7 +29,7 @@ $itt = [Hashtable]::Synchronized(@{
     database       = @{}
     ProcessRunning = $false
     developer      = "Emad Adel"
-    lastupdate     = "11/09/2024"
+    lastupdate     = "11/12/2024"
     github         = "https://github.com/emadadel4/itt"
     telegram       = "https://t.me/emadadel4"
     blog           = "https://emadadel4.github.io"
@@ -9461,6 +9461,11 @@ function Invoke-Button {
             Debug-Message $action
         }
 
+        "techpowerup" {
+            Start-Process "https://www.techpowerup.com/download/" 
+            Debug-Message $action
+        }
+
         # Other actions
         "ittshortcut" {
             ITTShortcut $action
@@ -13680,7 +13685,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 </MenuItem.Icon>
                 
                 <MenuItem Name="uBlock" Header="uBlock Origin"/>
-                <MenuItem Name="unhook" Header="Unhook: Customize youtube"/>
+                <MenuItem Name="unhook" Header="Unhook: Customize youtube."/>
                 <MenuItem Name="neat" Header="Neat Download Manager"/>
             </MenuItem>
 
@@ -13690,13 +13695,19 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 </MenuItem.Icon>
             </MenuItem>
 
-            <MenuItem Name="majorgeeks" ToolTip="website that provides trusted, safe, and curated software downloads for Windows users. It focuses on high-quality tools" Header="Major Geeks">
+            <MenuItem Name="techpowerup" Header="TechPowerUp" ToolTip="Collection of free TechPowerUp utilities.">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
 
-            <MenuItem Name="webtor" ToolTip="Web-based platform that allows users to stream torrent files directly in their browser without needing to download them" Header="Webtor">
+            <MenuItem Name="majorgeeks" ToolTip="website that provides trusted, safe, and curated software downloads for Windows users. It focuses on high-quality tools." Header="Major Geeks">
+                <MenuItem.Icon>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+                </MenuItem.Icon>
+            </MenuItem>
+
+            <MenuItem Name="webtor" ToolTip="Web-based platform that allows users to stream torrent files directly in their browser without needing to download them." Header="Webtor">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
@@ -16534,20 +16545,20 @@ function Show-Event {
         
 
     
-            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
-                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')  # Start the process to open the URL when clicked
+            $itt.event.FindName('shell').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/emadadel4/shelltube')  # Start the process to open the URL when clicked
                 })
             
             $itt.event.FindName('ps').add_MouseLeftButtonDown({
                     Start-Process('https://www.palestinercs.org/en/Donation')  # Start the process to open the URL when clicked
                 })
             
-            $itt.event.FindName('shell').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/shelltube')  # Start the process to open the URL when clicked
-                })
-            
             $itt.event.FindName('contribute').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')  # Start the process to open the URL when clicked
+                })
+            
+            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
+                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')  # Start the process to open the URL when clicked
                 })
             
 
