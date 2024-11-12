@@ -90,14 +90,13 @@ function Invoke-Install {
             }
             else
             {
-                if($_.default.IsExcute -eq "true")
-                {
-                    Start-DownloadAndInstallExe -name "$($_.Name)" -url  $_.default.url -type $_.default.extinction -exeArgs $_.default.exeArgs -outputDir "ITT\Downloads\" -run $_.default.run -shortcut $_.default.shortcut
-                }
-                else
-                {
-                    Start-DownloadAndUnzip -url $_.default.url -shortcutName "$($_.Name)" -exeFileName $_.default.launcher -run $_.default.run -Createshortcut $_.default.shortcut -exeArgs $_.default.exeArgs
-                }
+             
+                Native-Downloader `
+                -name           $_.name `
+                -url            $_.default.url `
+                -launcher       $_.default.launcher `
+                -portable       $_.default.portable `
+                -installArgs    $_.default.args
             }
         }
         
