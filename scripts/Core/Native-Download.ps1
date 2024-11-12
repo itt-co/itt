@@ -22,7 +22,7 @@ function Native-Downloader {
 
         try {
             # Start downloading the file
-            Add-Log -Message "Downloading using Invoke-WebRequest" -Level "INFO"
+            Add-Log -Message "Downloading $name using Invoke-WebRequest" -Level "INFO"
             Invoke-WebRequest -Uri $url -OutFile $DownloadPath -ErrorAction Stop
             Expand-Archive -Path $DownloadPath -DestinationPath $Destination_Directory -Force -ErrorAction Stop
         }
