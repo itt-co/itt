@@ -48,7 +48,7 @@ function Native-Downloader {
                 $shortcut = $shell.CreateShortcut($shortcutPath)
                 $shortcut.TargetPath = $targetPath
                 $shortcut.Save()
-                Add-Log -Message "Shortcut created successfully at $shortcutPath" -Level "info"
+                Add-Log -Message "Shortcut created on Destkop" -Level "info"
             } catch {
                 Write-Error "Failed to create shortcut. Error: $_"
             }
