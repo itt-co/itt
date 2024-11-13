@@ -29,7 +29,7 @@ $itt = [Hashtable]::Synchronized(@{
     database       = @{}
     ProcessRunning = $false
     developer      = "Emad Adel"
-    lastupdate     = "11/12/2024"
+    lastupdate     = "11/13/2024"
     github         = "https://github.com/emadadel4/itt"
     telegram       = "https://t.me/emadadel4"
     blog           = "https://emadadel4.github.io"
@@ -9710,7 +9710,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                                     
         <MenuItem Background="Transparent" BorderBrush="Transparent" BorderThickness="0" IsEnabled="False" ToolTip="Emad Adel">
             <MenuItem.Icon>
-                <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/ps.png" Width="70" Height="Auto" Margin="5,5,0,0">
+                <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/logo.png" Width="70" Height="Auto" Margin="5,5,0,0">
                     <Image.Effect>
                         <DropShadowEffect Color="#FFFF0000" BlurRadius="30" ShadowDepth="0" Opacity="0.8"/>
                     </Image.Effect>
@@ -12755,16 +12755,16 @@ function Show-Event {
                     Start-Process('https://github.com/emadadel4/shelltube')  # Start the process to open the URL when clicked
                 })
             
-            $itt.event.FindName('ps').add_MouseLeftButtonDown({
-                    Start-Process('https://www.palestinercs.org/en/Donation')  # Start the process to open the URL when clicked
-                })
-            
             $itt.event.FindName('contribute').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')  # Start the process to open the URL when clicked
                 })
             
             $itt.event.FindName('ytv').add_MouseLeftButtonDown({
                     Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')  # Start the process to open the URL when clicked
+                })
+            
+            $itt.event.FindName('ps').add_MouseLeftButtonDown({
+                    Start-Process('https://www.palestinercs.org/en/Donation')  # Start the process to open the URL when clicked
                 })
             
 
