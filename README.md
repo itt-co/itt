@@ -51,7 +51,7 @@
   <a href="https://www.youtube.com/@emadadel4" target="_blank" style="margin-right: 0px;">
       <img src="https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white" width="auto" alt="YouTube" height="auto">
   </a>
-  <a href="https://t.me/bacave" target="_blank" style="margin-right: 0px;">
+  <a href="https://t.me/ittemadadel_bot" target="_blank" style="margin-right: 0px;">
       <img src="https://img.shields.io/badge/Telegram-2CA5E0?style=flat&logo=telegram&logoColor=white" alt="Telegram" height="auto">
   </a>
   <a href="https://discord.gg/63m34EE6mX" target="_blank" style="margin-right: 0;">
@@ -66,11 +66,11 @@
 </p>
 
 <div align="center">
-  <h5> 345 App |  39 Tweaks | 11 Settings | 99 Quote |  15 Soundtrack | 10 Localization </h5>
+  <h5> 346 App |  39 Tweaks | 11 Settings | 99 Quote |  15 Soundtrack | 10 Localization </h5>
 </div>
 
 <p align="center">
-  <a  href="#" rel="nofollow"><img src="https://img.shields.io/badge/Latest Update-11/15/2024-blue?style=for-the-badge"></a>
+  <a  href="#" rel="nofollow"><img src="https://img.shields.io/badge/Latest Update-11/16/2024-blue?style=for-the-badge"></a>
 </p>
 
 
