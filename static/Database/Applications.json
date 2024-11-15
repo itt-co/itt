@@ -3168,5 +3168,21 @@
     ],
     "category": "Utilities",
     "check": "false"
+  },
+  {
+    "Name": "Memtest86+",
+    "Description": "Memtest86+ v6 is a unified, free, open-source memory testing tool, released under GNU GPL v2.0. The new v6 code base (originally called PCMemTest) was provided by Martin Whitaker, based on Memtest86+ v5, developed by Sam Demeulemeester. Both are now working on Memtest86+.",
+    "winget": "none",
+    "choco": "none",
+    "default": [
+      {
+        "url": "https://www.memtest.org/download/v7.20/mt86plus_7.20_USB_Installer.exe",
+        "launcher": "mt86plus_7.20_USB_Installer.exe",
+        "args": "/verysilent /tasks=addcontextmenufiles,addcontextmenufolders,addtopath",
+        "portable": "ture"
+      }
+    ],
+    "category": "Utilities",
+    "check": "false"
   }
 ]
