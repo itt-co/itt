@@ -51,7 +51,7 @@
   <a href="https://www.youtube.com/@emadadel4" target="_blank" style="margin-right: 0px;">
       <img src="https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white" width="auto" alt="YouTube" height="auto">
   </a>
-  <a href="https://t.me/ittemadadel_bot" target="_blank" style="margin-right: 0px;">
+  <a href="https://t.me/bacav" target="_blank" style="margin-right: 0px;">
       <img src="https://img.shields.io/badge/Telegram-2CA5E0?style=flat&logo=telegram&logoColor=white" alt="Telegram" height="auto">
   </a>
   <a href="https://discord.gg/63m34EE6mX" target="_blank" style="margin-right: 0;">
