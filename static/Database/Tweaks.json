@@ -88,6 +88,7 @@
     "UndoScript": [],
     "ScheduledTask": [],
     "AppxPackage": [
+      "Microsoft.Copilot",
       "Microsoft.BingNews",
       "Microsoft.WindowsCamera",
       "Microsoft.Getstarted",
