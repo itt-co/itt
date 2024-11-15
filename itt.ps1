@@ -29,7 +29,7 @@ $itt = [Hashtable]::Synchronized(@{
     database       = @{}
     ProcessRunning = $false
     developer      = "Emad Adel"
-    lastupdate     = "11/15/2024"
+    lastupdate     = "11/16/2024"
     github         = "https://github.com/emadadel4/itt"
     telegram       = "https://t.me/emadadel4"
     blog           = "https://emadadel4.github.io"
@@ -3232,6 +3232,22 @@ $itt.database.Applications = '[
     "winget": "TechPowerUp.GPU-Z",
     "choco": "gpu-z",
     "default": [],
+    "category": "Utilities",
+    "check": "false"
+  },
+  {
+    "Name": "MemTest86",
+    "Description": "MemTest86 boots from a USB flash drive and tests the RAM in your computer for faults using a series of comprehensive algorithms and test patterns.",
+    "winget": "none",
+    "choco": "none",
+    "default": [
+      {
+        "url": "https://www.memtest86.com/downloads/memtest86-usb.zip",
+        "launcher": "imageUSB.exe",
+        "args": "/silent",
+        "portable": "ture"
+      }
+    ],
     "category": "Utilities",
     "check": "false"
   }
@@ -12066,6 +12082,12 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="GPUZ is a lightweight system utility designed to provide vital information about your video card and graphics processor."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="MemTest86" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
+            </StackPanel>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="MemTest86 boots from a USB flash drive and tests the RAM in your computer for faults using a series of comprehensive algorithms and test patterns.."/>
         </StackPanel>
                     </ListView>
                 </TabItem.Content>
@@ -12748,16 +12770,16 @@ function Show-Event {
         
 
     
-            $itt.event.FindName('ps').add_MouseLeftButtonDown({
-                    Start-Process('https://www.palestinercs.org/en/Donation')  # Start the process to open the URL when clicked
-                })
-            
             $itt.event.FindName('contribute').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')  # Start the process to open the URL when clicked
                 })
             
             $itt.event.FindName('ytv').add_MouseLeftButtonDown({
                     Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')  # Start the process to open the URL when clicked
+                })
+            
+            $itt.event.FindName('ps').add_MouseLeftButtonDown({
+                    Start-Process('https://www.palestinercs.org/en/Donation')  # Start the process to open the URL when clicked
                 })
             
             $itt.event.FindName('shell').add_MouseLeftButtonDown({
