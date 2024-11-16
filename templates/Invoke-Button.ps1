@@ -58,7 +58,7 @@ function Invoke-Button {
         }
         "searchInput" {
             Search
-            $itt['window'].FindName('category').SelectedIndex = 0
+            $itt['window'].FindName($itt.CurrentCategory).SelectedIndex = 0
             Debug-Message
         }
 
