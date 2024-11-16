@@ -12854,8 +12854,8 @@ function Show-Event {
                 })
             
             
-            $itt.event.FindName('shell').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/shelltube')
+            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
+                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
                 })
             
             
@@ -12864,8 +12864,13 @@ function Show-Event {
                 })
             
             
-            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
-                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+            $itt.event.FindName('cat').add_MouseLeftButtonDown({
+                    Start-Process('https://private-user-images.githubusercontent.com/19177373/386806551-0e875373-53d9-473d-ac84-929c81c504a6.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzE3Mjc1ODQsIm5iZiI6MTczMTcyNzI4NCwicGF0aCI6Ii8xOTE3NzM3My8zODY4MDY1NTEtMGU4NzUzNzMtNTNkOS00NzNkLWFjODQtOTI5YzgxYzUwNGE2LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDExMTYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMTE2VDAzMjEyNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWY1M2Q4ODk5OGYyMjY3NTM4MjU1YjU3MmNiMGVjYzc5MTlmYzkzOWJiODgzNTA3NGI2YjUyYzhmMzA2ZTNiODAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.bjT0QCYqZ9XMF9c6jewAae9_E6HXtCn5B9Bx0LsUBRM')
+                })
+            
+            
+            $itt.event.FindName('shell').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/emadadel4/shelltube')
                 })
             
             
@@ -13143,10 +13148,12 @@ $EventWindowXaml = '<Window
                 </StackPanel>
                 
                 
-<TextBlock Text=''How to Contribute'' FontSize=''20'' Margin=''0,18,0,18'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
+<TextBlock Text=''Tweaks Category Selection:'' FontSize=''20'' Margin=''0,18,0,18'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
+<Image x:Name=''cat'' Source=''https://private-user-images.githubusercontent.com/19177373/386806551-0e875373-53d9-473d-ac84-929c81c504a6.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzE3Mjc1ODQsIm5iZiI6MTczMTcyNzI4NCwicGF0aCI6Ii8xOTE3NzM3My8zODY4MDY1NTEtMGU4NzUzNzMtNTNkOS00NzNkLWFjODQtOTI5YzgxYzUwNGE2LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDExMTYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMTE2VDAzMjEyNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWY1M2Q4ODk5OGYyMjY3NTM4MjU1YjU3MmNiMGVjYzc5MTlmYzkzOWJiODgzNTA3NGI2YjUyYzhmMzA2ZTNiODAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.bjT0QCYqZ9XMF9c6jewAae9_E6HXtCn5B9Bx0LsUBRM'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''/>
+<TextBlock Text=''How to Contribute:'' FontSize=''20'' Margin=''0,18,0,18'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
 <Image x:Name=''contribute'' Source=''https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/customtheme.jpg'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''/>
 <TextBlock Text=''Contribute and create your own theme, add your native language. favorite apps and music and more. Click on the image to see how to contribute.'' FontSize=''15'' Margin=''8''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
-<TextBlock Text=''Download any Youtube video'' FontSize=''20'' Margin=''0,18,0,18'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
+<TextBlock Text=''Download any Youtube video:'' FontSize=''20'' Margin=''0,18,0,18'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
 <Image x:Name=''shell'' Source=''https://raw.githubusercontent.com/emadadel4/ShellTube/main/demo.jpg'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''/>
 <TextBlock Text=''Shelltube is simple way to downnload videos and playlist from youtube just Launch it and start download your video you can Launch it from Third-party section.'' FontSize=''15'' Margin=''8''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
 <TextBlock Text=''Support Palestine - أدعم فلسطين'' FontSize=''20'' Margin=''0,18,0,18'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
