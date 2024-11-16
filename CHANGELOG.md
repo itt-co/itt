@@ -1,5 +1,3 @@
-###### Date
-
 ## Changelog
 
 ### Watch demo
