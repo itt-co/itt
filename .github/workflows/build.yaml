@@ -25,7 +25,7 @@ jobs:
         run: |
           DATE=$(date +"%Y/%m/%d")
           echo "Date: $DATE"
-          sed -i "s/^###### Date.*/###### Date: $DATE/" CHANGELOG.md
+          (Get-Content CHANGELOG.md) -replace '^###### Date.*', "###### Date: $date" | Set-Content CHANGELOG.md
 
       - name: Build project
         shell: pwsh
