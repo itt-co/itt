@@ -22,13 +22,19 @@
 - Shift + I: ITT Shortcut.
 - Ctrl + G: Closes the application.
 
-### How to Contribute
+
+### Tweaks Category Selection:
+
+![itt.xName:cat [https://private-user-images.githubusercontent.com/19177373/386806551-0e875373-53d9-473d-ac84-929c81c504a6.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzE3Mjc1ODQsIm5iZiI6MTczMTcyNzI4NCwicGF0aCI6Ii8xOTE3NzM3My8zODY4MDY1NTEtMGU4NzUzNzMtNTNkOS00NzNkLWFjODQtOTI5YzgxYzUwNGE2LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDExMTYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMTE2VDAzMjEyNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWY1M2Q4ODk5OGYyMjY3NTM4MjU1YjU3MmNiMGVjYzc5MTlmYzkzOWJiODgzNTA3NGI2YjUyYzhmMzA2ZTNiODAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.bjT0QCYqZ9XMF9c6jewAae9_E6HXtCn5B9Bx0LsUBRM]](https://private-user-images.githubusercontent.com/19177373/386806551-0e875373-53d9-473d-ac84-929c81c504a6.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzE3Mjc1ODQsIm5iZiI6MTczMTcyNzI4NCwicGF0aCI6Ii8xOTE3NzM3My8zODY4MDY1NTEtMGU4NzUzNzMtNTNkOS00NzNkLWFjODQtOTI5YzgxYzUwNGE2LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDExMTYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMTE2VDAzMjEyNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWY1M2Q4ODk5OGYyMjY3NTM4MjU1YjU3MmNiMGVjYzc5MTlmYzkzOWJiODgzNTA3NGI2YjUyYzhmMzA2ZTNiODAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.bjT0QCYqZ9XMF9c6jewAae9_E6HXtCn5B9Bx0LsUBRM)
+
+
+### How to Contribute:
 
 ![itt.xName:contribute [https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute]](https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/customtheme.jpg)
 
 #### Contribute and create your own theme, add your native language. favorite apps and music and more. Click on the image to see how to contribute.
 
-### Download any Youtube video
+### Download any Youtube video:
 
 ![itt.xName:shell [https://github.com/emadadel4/shelltube]](https://raw.githubusercontent.com/emadadel4/ShellTube/main/demo.jpg)
 
