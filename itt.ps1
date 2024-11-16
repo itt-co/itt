@@ -5624,7 +5624,7 @@ function Invoke-Button {
         }
         "searchInput" {
             Search
-            $itt['window'].FindName('category').SelectedIndex = 0
+            $itt['window'].FindName($itt.CurrentCategory).SelectedIndex = 0
             Debug-Message
         }
 
@@ -6130,7 +6130,7 @@ function Show-Selected {
         Default {
             $itt.$ListView.Clear()
             [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.$ListView.Items).Filter = $null
-            $itt.category.SelectedIndex = 0
+            $itt['window'].FindName($itt.CurrentList).SelectedIndex = 0
         }
     }
 }
@@ -6177,7 +6177,7 @@ function Clear-Item {
         [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.$ListView.Items).Filter = $null
     })
 
-    $itt.category.SelectedIndex = 0
+    $itt['window'].FindName($itt.CurrentList).SelectedIndex = 0
     
 }
 function Get-SelectedItems {
@@ -7456,7 +7456,7 @@ function Invoke-Install {
     }
 
     # Get Selected apps
-    $itt.Category.SelectedIndex = 0
+    $itt['window'].FindName($itt.CurrentList).SelectedIndex = 0
     $selectedApps = Get-SelectedItems -Mode "Apps"
 
     if($selectedApps.Count -gt 0)
@@ -12850,20 +12850,20 @@ function Show-Event {
         
 
     
-            $itt.event.FindName('contribute').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')  # Start the process to open the URL when clicked
+            $itt.event.FindName('ps').add_MouseLeftButtonDown({
+                    Start-Process('https://www.palestinercs.org/en/Donation')  # Start the process to open the URL when clicked
                 })
             
             $itt.event.FindName('ytv').add_MouseLeftButtonDown({
                     Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')  # Start the process to open the URL when clicked
                 })
             
-            $itt.event.FindName('ps').add_MouseLeftButtonDown({
-                    Start-Process('https://www.palestinercs.org/en/Donation')  # Start the process to open the URL when clicked
-                })
-            
             $itt.event.FindName('shell').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/shelltube')  # Start the process to open the URL when clicked
+                })
+            
+            $itt.event.FindName('contribute').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')  # Start the process to open the URL when clicked
                 })
             
 
