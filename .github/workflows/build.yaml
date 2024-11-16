@@ -20,8 +20,8 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Update CHANGELOG.md with new timestamp
-        shell: bash
+      - name: Timestamp
+        shell: pwsh
         run: |
           $date = Get-Date -Format "yyyy/MM/dd"
           (Get-Content CHANGELOG.md) -replace '^###### Date.*', "###### Date: $date" | Set-Content CHANGELOG.md
