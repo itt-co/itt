@@ -28,6 +28,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Update CHANGELOG.md with new timestamp
+        shell: bash
+        run: |
+          DATE=$(date +"%Y/%m/%d")
+          sed -i "s/^###### Date.*/###### Date: $DATE/" CHANGELOG.md
+
       - name: Commit 'itt' file
         run: |
           git config --global user.name "emadadel4"
