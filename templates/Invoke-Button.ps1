@@ -52,13 +52,13 @@ function Invoke-Button {
         "taps" {
             ChangeTap
         }
-        "category" {
-            FilterByCat($itt.category.SelectedItem.Content)
+        "$($itt.CurrentCategory)" {
+            FilterByCat($itt["window"].FindName($itt.CurrentCategory).SelectedItem.Content)
             Debug-Message $action
         }
         "searchInput" {
             Search
-            $itt['window'].FindName('category').SelectedIndex = 0
+            $itt['window'].FindName($itt.CurrentCategory).SelectedIndex = 0
             Debug-Message
         }
 

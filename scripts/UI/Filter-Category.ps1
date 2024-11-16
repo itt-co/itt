@@ -86,15 +86,23 @@ function FilterByCat {
         "Security",
         "Portable",
         "Runtimes",
-        "Drivers"
+        "Drivers",
+        "Performance",
+        "Privacy",
+        "Fixer",
+        "Performance",
+        "Personalization",
+        "Power",
+        "Protection",
+        "Classic"
     )
 
     # Update DataContext
     #$itt["window"].DataContext = $itt.database.locales.Controls.$($itt.Language)
 
     # if user is on another tab, return to the apps list
-    $itt['window'].FindName('apps').IsSelected = $true
-    $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.AppsListView.Items)
+    #$itt['window'].FindName('apps').IsSelected = $true
+    $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt['window'].FindName($itt.CurrentList).Items)
 
     # Define the filter predicate
     $filterPredicate = {
@@ -119,17 +127,17 @@ function FilterByCat {
 
     if ($validCategories -contains $Cat) {
         # Apply the filter to the collection view
-        $itt.AppsListView.Clear()
+        $itt['window'].FindName($itt.CurrentList).Clear()
         $collectionView.Filter = $filterPredicate
     }
     else {
         # Clear the filter if selected category is not in the predefined list
-        $itt.AppsListView.Clear()
+        $itt['window'].FindName($itt.CurrentList).Clear()
         $collectionView.Filter = $null
     }
     
     # Scroll to the top
-    $itt.AppsListView.ScrollIntoView($itt.AppsListView.Items[0])
+    $itt.AppsListView.ScrollIntoView($itt['window'].FindName($itt.CurrentList).Items[0])
 }
 function ClearFilter {
 

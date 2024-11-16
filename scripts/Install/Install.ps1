@@ -41,7 +41,7 @@ function Invoke-Install {
     }
 
     # Get Selected apps
-    $itt.Category.SelectedIndex = 0
+    $itt['window'].FindName("AppsCategory").SelectedIndex = 0
     $selectedApps = Get-SelectedItems -Mode "Apps"
 
     if($selectedApps.Count -gt 0)
@@ -145,6 +145,7 @@ function Invoke-Apply {
     #>
 
     
+    $itt['window'].FindName("TwaeksCategory").SelectedIndex = 0
     $selectedTweaks = Get-SelectedItems -Mode "Tweaks"
 
     if($itt.ProcessRunning) {

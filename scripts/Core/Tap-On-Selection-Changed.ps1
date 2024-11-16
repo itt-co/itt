@@ -18,9 +18,26 @@ function ChangeTap {
     #>
     
     $tabSettings = @{
-        'apps'        = @{ 'installBtn' = 'Visible'; 'applyBtn' = 'Hidden'; 'currentList' = 'appslist' }
-        'tweeksTab'   = @{ 'installBtn' = 'Hidden'; 'applyBtn' = 'Visible'; 'currentList' = 'tweakslist' }
-        'SettingsTab' = @{ 'installBtn' = 'Hidden'; 'applyBtn' = 'Hidden'; 'currentList' = 'SettingsList' }
+
+            'apps'        = @{ 
+            'installBtn' = 'Visible';
+            'applyBtn' = 'Hidden'; 
+            'CurrentList' = 'appslist'; 
+            'CurrentCategory' = 'AppsCategory' 
+            
+        }
+            'tweeksTab'   = @{ 
+            'installBtn' = 'Hidden'; 
+            'applyBtn' = 'Visible'; 
+            'CurrentList' = 'tweakslist'; 
+            'CurrentCategory' = 'TwaeksCategory'
+        }
+
+        'SettingsTab' = @{ 
+            'installBtn' = 'Hidden'; 
+            'applyBtn' = 'Hidden'; 
+            'CurrentList' = 'SettingsList'
+        }
     }
 
     # Iterate over the tab settings
@@ -30,14 +47,17 @@ function ChangeTap {
             $settings = $tabSettings[$tab]
             
             # Update button visibility and currentList based on the selected tab
+            $itt.CurrentList = $settings['CurrentList']
+            $itt.CurrentCategory = $settings['CurrentCategory']
             $itt['window'].FindName('installBtn').Visibility = $settings['installBtn']
             $itt['window'].FindName('applyBtn').Visibility = $settings['applyBtn']
-            $itt.currentList = $settings['currentList']
+            $itt['window'].FindName('AppsCategory').Visibility = $settings['installBtn']
+            $itt['window'].FindName('TwaeksCategory').Visibility = $settings['applyBtn']
 
             # Debug
-            if($Debug) { Add-Log -Message $settings['currentList'] -Level "debug"}
-            
-            break  # Exit the loop once the matching tab is found
+            if($Debug) { Add-Log -Message $settings['CurrentList'] -Level "debug"}
+            if($Debug) { Add-Log -Message $settings['CurrentCategory'] -Level "debug"}
+            break # Exit the loop once the matching tab is found
         }
     }
 }

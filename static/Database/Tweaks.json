@@ -2,7 +2,7 @@
   {
     "Name": "Disk cleanup",
     "Description": "Clean temporary files that are not necessary",
-    "Category": "",
+    "Category": "Storage",
     "Check": "false",
     "Refresh": "false",
     "Script": [
@@ -17,7 +17,7 @@
   {
     "Name": "System File Checker",
     "Description": "sfc /scannow Use the System File Checker tool to repair missing or corrupted system files",
-    "Category": "",
+    "Category": "Fixer",
     "Check": "false",
     "Refresh": "false",
     "Script": [
@@ -32,7 +32,7 @@
   {
     "Name": "Clean Taskbar",
     "Description": "Disable the (News and interests) and (People icon) Show Search icon only for Windows 10/11",
-    "Category": "",
+    "Category": "Performance",
     "Check": "false",
     "Refresh": "true",
     "Script": [],
@@ -81,7 +81,7 @@
   {
     "Name": "Remove Windows 10/11 Bloatware",
     "Description": "BingNews, GetHelp, Getstarted, Messaging, Microsoft3DViewer, MicrosoftOfficeHub, MicrosoftSolitaireCollection, News, Office.Lens, Office.OneNote, Office.Sway, OneConnect, People, Print3D, RemoteDesktop, SkypeApp, StorePurchaseApp, Office.Todo.List, Whiteboard, WindowsAlarms, WindowsCamera, windowscommunicationsapps, WindowsFeedbackHub, WindowsMaps, WindowsSoundRecorder, Xbox.TCUI, XboxApp, XboxGameOverlay, XboxIdentityProvider, XboxSpeechToTextOverlay, ZuneMusic, ZuneVideo, Windows.Cortana, MSPaint, Clipchamp",
-    "Category": "",
+    "Category": "Performance",
     "Check": "false",
     "Refresh": "false",
     "Script": [],
@@ -173,7 +173,7 @@
   {
     "Name": "Enable the Ultimate Performance Power Plan",
     "Description": "Enable the Ultimate Performance Power Plan",
-    "Category": "",
+    "Category": "Power",
     "Check": "false",
     "Refresh": "false",
     "Script": [

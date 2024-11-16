@@ -113,7 +113,7 @@ function Show-Selected {
         Default {
             $itt.$ListView.Clear()
             [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.$ListView.Items).Filter = $null
-            $itt.category.SelectedIndex = 0
+            $itt['window'].FindName($itt.CurrentList).SelectedIndex = 0
         }
     }
 }
@@ -160,6 +160,6 @@ function Clear-Item {
         [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.$ListView.Items).Filter = $null
     })
 
-    $itt.category.SelectedIndex = 0
+    $itt['window'].FindName($itt.CurrentList).SelectedIndex = 0
     
 }
