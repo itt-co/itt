@@ -27,20 +27,13 @@ jobs:
         continue-on-error: false 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
-      - name: Timestamp
-        shell: pwsh
-        run: |
-          $date = Get-Date -Format "yyyy/MM/dd"
-          (Get-Content CHANGELOG.md) -replace '#######{replaceme}', "###### Date: $date" | Set-Content CHANGELOG.md
-          echo "Date: $DATE"
 
       - name: Commit 'itt' file
         run: |
-          # git config --global user.name "emadadel4"
-          # git config --global user.email "19177373+emadadel4@users.noreply.github.com"
-          # git add itt.ps1
-          # git commit -m "update"
-          # git push
+          git config --global user.name "emadadel4"
+          git config --global user.email "19177373+emadadel4@users.noreply.github.com"
+          git add itt.ps1
+          git commit -m "update"
+          git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
