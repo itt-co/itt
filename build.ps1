@@ -24,8 +24,8 @@ $itt = [Hashtable]::Synchronized(@{})
 $itt.database = @{}
 $global:imageLinkMap = @{}
 $global:localesMap = @{}
-$global:extractedContent = ""
-
+$global:TitleContent = ""
+$global:DateContent = ""
 
 function Update-Progress {
     param (
@@ -294,6 +294,12 @@ function ConvertTo-Xaml {
     # Process each line of the input text
     foreach ($line in $text -split "`n") {
         switch -Regex ($line) {
+
+
+            "^###### (.+)"{
+                $global:DateContent += $matches[1].Trim()
+            }
+
             "!\[itt\.xName:(.+?)\s*\[(.+?)\]\]\((.+?)\)" {
                 $xaml += "<Image x:Name=''$($matches[1].Trim())'' Source=''$($matches[3].Trim())'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''/>`n"
                 $link = $matches[2].Trim()   # Extract the link from inside the brackets
@@ -301,7 +307,7 @@ function ConvertTo-Xaml {
                 $global:imageLinkMap[$name] = $link
             }
             "^## (.+)" { # Event title
-                $global:extractedContent += $matches[1].Trim() + "`n"
+                $global:TitleContent += $matches[1].Trim()
             }
             "^### (.+)" { # Headline 
                 $text = $matches[1].Trim()
@@ -425,18 +431,20 @@ function GenerateClickEventHandlers {
         {
             # Get the URL corresponding to the current image link name
             $url = $imageLinkMap[$name]
-
             # Append a mouse click event handler for each image link
-            $EventHandler += "
+            $EventHandler += 
+            "
             `$itt.event.FindName('$name').add_MouseLeftButtonDown({
-                    Start-Process('$url')  # Start the process to open the URL when clicked
-                })`
+                    Start-Process('$url')
+                })
+            `
             "
         }
 
         # Create the event title assignment using the extracted content
         $EventTitle = "
-        `$itt.event.FindName('title').text = '$global:extractedContent'`.Trim()  # Set the title text
+        `$itt.event.FindName('title').text = '$global:TitleContent'`.Trim()  # Set the title text
+        `$itt.event.FindName('date').text = '$global:DateContent'`.Trim()  # Set the Date text
         "
 
         # Replace placeholders in the event window script with actual event handlers and title
