@@ -23,9 +23,9 @@ jobs:
       - name: Update CHANGELOG.md with new timestamp
         shell: bash
         run: |
-          DATE=$(date +"%Y/%m/%d")
-          echo "Date: $DATE"
+          $date = Get-Date -Format "yyyy/MM/dd"
           (Get-Content CHANGELOG.md) -replace '^###### Date.*', "###### Date: $date" | Set-Content CHANGELOG.md
+          echo "Date: $DATE"
 
       - name: Build project
         shell: pwsh
