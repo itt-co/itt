@@ -32,7 +32,7 @@ jobs:
         shell: pwsh
         run: |
           $date = Get-Date -Format "yyyy/MM/dd"
-          (Get-Content CHANGELOG.md) -replace '^###### Date.*', "###### Date: $date" | Set-Content CHANGELOG.md
+          (Get-Content CHANGELOG.md) -replace '#######{replaceme}', "###### Date: $date" | Set-Content CHANGELOG.md
           echo "Date: $DATE"
 
       - name: Commit 'itt' file
