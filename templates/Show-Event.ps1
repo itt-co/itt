@@ -7,7 +7,6 @@ function Show-Event {
     $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.CurretTheme))
 
 
-    $itt.event.FindName('date').Text = $itt.date
     $CloseBtn = $itt.event.FindName('closebtn')
 
     #{title}
