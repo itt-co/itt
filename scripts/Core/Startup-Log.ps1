@@ -256,7 +256,7 @@ function Startup  {
             Write-Host " |                          #StandWithPalestine                                 |" 
             Write-Host " +==============================================================================+" 
             Write-Host " Launch Anytime, Anywhere! `n` " 
-            Write-Host " Telegram: https://t.me/ittemadadel_bot" 
+            Write-Host " Telegram: https://t.me/bacave" 
             Write-Host " Discord: https://discord.gg/63m34EE6mX `n` "
         
             Get-PCInfo
