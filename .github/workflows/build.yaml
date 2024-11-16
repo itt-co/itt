@@ -20,6 +20,13 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Update CHANGELOG.md with new timestamp
+        shell: bash
+        run: |
+          DATE=$(date +"%Y/%m/%d")
+          echo "Date: $DATE"
+          sed -i "s/^###### Date.*/###### Date: $DATE/" CHANGELOG.md
+
       - name: Build project
         shell: pwsh
         run: |
@@ -27,12 +34,6 @@ jobs:
         continue-on-error: false 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Update CHANGELOG.md with new timestamp
-        shell: bash
-        run: |
-          DATE=$(date +"%Y/%m/%d")
-          sed -i "s/^###### Date.*/###### Date: $DATE/" CHANGELOG.md
 
       - name: Commit 'itt' file
         run: |
