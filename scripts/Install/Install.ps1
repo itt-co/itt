@@ -41,7 +41,7 @@ function Invoke-Install {
     }
 
     # Get Selected apps
-    $itt.Category.SelectedIndex = 0
+    $itt['window'].FindName($itt.CurrentList).SelectedIndex = 0
     $selectedApps = Get-SelectedItems -Mode "Apps"
 
     if($selectedApps.Count -gt 0)
