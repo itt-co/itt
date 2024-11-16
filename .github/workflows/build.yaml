@@ -20,13 +20,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Timestamp
-        shell: pwsh
-        run: |
-          $date = Get-Date -Format "yyyy/MM/dd"
-          (Get-Content CHANGELOG.md) -replace '^###### Date.*', "###### Date: $date" | Set-Content CHANGELOG.md
-          echo "Date: $DATE"
-
       - name: Build project
         shell: pwsh
         run: |
@@ -34,6 +27,13 @@ jobs:
         continue-on-error: false 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Timestamp
+        shell: pwsh
+        run: |
+          $date = Get-Date -Format "yyyy/MM/dd"
+          (Get-Content CHANGELOG.md) -replace '^###### Date.*', "###### Date: $date" | Set-Content CHANGELOG.md
+          echo "Date: $DATE"
 
       - name: Commit 'itt' file
         run: |
