@@ -34,7 +34,6 @@
 
 #### Shelltube is simple way to downnload videos and playlist from youtube just Launch it and start download your video you can Launch it from Third-party section.
 
-
 ### Support Palestine - أدعم فلسطين
 
 ![itt.xName:ps [https://www.palestinercs.org/en/Donation]](https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/ps_flag.jpg)
