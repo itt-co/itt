@@ -7297,7 +7297,7 @@ function Startup  {
             Write-Host " |                          #StandWithPalestine                                 |" 
             Write-Host " +==============================================================================+" 
             Write-Host " Launch Anytime, Anywhere! `n` " 
-            Write-Host " Telegram: https://t.me/ittemadadel_bot" 
+            Write-Host " Telegram: https://t.me/bacave" 
             Write-Host " Discord: https://discord.gg/63m34EE6mX `n` "
         
             Get-PCInfo
@@ -12854,16 +12854,16 @@ function Show-Event {
                     Start-Process('https://github.com/emadadel4/shelltube')  # Start the process to open the URL when clicked
                 })
             
-            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
-                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')  # Start the process to open the URL when clicked
-                })
-            
             $itt.event.FindName('ps').add_MouseLeftButtonDown({
                     Start-Process('https://www.palestinercs.org/en/Donation')  # Start the process to open the URL when clicked
                 })
             
             $itt.event.FindName('contribute').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')  # Start the process to open the URL when clicked
+                })
+            
+            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
+                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')  # Start the process to open the URL when clicked
                 })
             
 
