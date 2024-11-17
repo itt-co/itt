@@ -18,6 +18,10 @@ jobs:
           git config --global user.name "emadadel"
           git config --global user.email "19177373+emadadel4@users.noreply.github.com"
 
+      - name: Clean existing remotes
+        run: |
+          git remote remove sourceforge || true
+
       - name: Add SourceForge remote
         run: |
           git remote add sourceforge https://emadadel:${{ secrets.SOURCEFORGE_TOKEN }}@git.code.sf.net/p/itt/code.git
