@@ -112,54 +112,54 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
-            <StackPanel x:Name="MainStackPanel" Height="Auto" Background="Transparent" Orientation="Vertical" Margin="10">
+            <StackPanel x:Name="MainStackPanel" Height="Auto" Background="Transparent" Orientation="Vertical" Margin="20">
             
                 <!-- Title -->
-                <Grid Row="0" Background="Transparent">
-                            
-                    <TextBlock Text="&#10006;" 
-                    Name="closebtn"
-                    HorizontalAlignment="Right" 
-                    VerticalAlignment="Top"
-                    Margin="0"
-                    Cursor="Hand"
-                    Foreground="red" />
+                    <Grid Row="0" Background="Transparent">
+                                
+                        <TextBlock Text="&#10006;" 
+                        Name="closebtn"
+                        HorizontalAlignment="Right" 
+                        VerticalAlignment="Top"
+                        Margin="0"
+                        Cursor="Hand"
+                        Foreground="red" />
 
 
-                    <StackPanel Orientation="Vertical" Margin="0">
+                        <StackPanel Orientation="Vertical" Margin="0">
 
-                        <TextBlock 
-                        Name="title"
-                        Height="Auto"
-                        Width="Auto"
-                        FontSize="20"
-                        Text="What's New"
-                        Foreground="{DynamicResource TextColorSecondaryColor}"
-                        FontWeight="SemiBold"
-                        TextWrapping="Wrap"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Left" />
-    
-                        <TextBlock
-                        Name="date" 
-                        Height="Auto"
-                        Width="Auto"
-                        Text="8/29/2024"
-                        Foreground="{DynamicResource TextColorSecondaryColor2}"
-                        TextWrapping="Wrap"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Left" />
-    
-                    </StackPanel>
+                            <TextBlock 
+                            Name="title"
+                            Height="Auto"
+                            Width="Auto"
+                            FontSize="20"
+                            Text="What's New"
+                            Foreground="{DynamicResource TextColorSecondaryColor}"
+                            FontWeight="SemiBold"
+                            TextWrapping="Wrap"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left" />
+        
+                            <TextBlock
+                            Name="date" 
+                            Height="Auto"
+                            Width="Auto"
+                            Text="8/29/2024"
+                            Foreground="{DynamicResource TextColorSecondaryColor2}"
+                            TextWrapping="Wrap"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left" />
+        
+                        </StackPanel>
 
-                </Grid>
-            <!-- End Title -->
+                    </Grid>
+                <!-- End Title -->
 
             </StackPanel>
 
-        <Grid Row="1" Background="Transparent" Margin="0">
+        <Grid Row="1" Background="Transparent" Margin="20">
             <ScrollViewer Name="ScrollViewer" VerticalScrollBarVisibility="Auto" Height="Auto">
-                <StackPanel Margin="20" Orientation="Vertical">
+                <StackPanel Orientation="Vertical">
                     UpdateContent
                 </StackPanel>
             </ScrollViewer>
