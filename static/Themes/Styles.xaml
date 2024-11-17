@@ -153,27 +153,27 @@
 <!--End CheckBox Style-->
 
 <!--SearchBox Style-->
-<Style x:Key="SearchBox" TargetType="TextBox">
-    <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
-    <Setter Property="Foreground" Value="{DynamicResource TextColorPrimary}"/>
-    <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-    <Setter Property="BorderThickness" Value="0"/>
-    <Setter Property="Padding" Value="8"/>
-    <Setter Property="Template">
-        <Setter.Value>
-            <ControlTemplate TargetType="TextBox">
-                <Border Margin="0" 
-                        Background="{TemplateBinding Background}" 
-                        BorderBrush="{TemplateBinding BorderBrush}" 
-                        BorderThickness="{TemplateBinding BorderThickness}" 
-                        CornerRadius="15">
-                    <ScrollViewer x:Name="PART_ContentHost" 
-                                  Background="Transparent"/>
-                </Border>
-            </ControlTemplate>
-        </Setter.Value>
-    </Setter>
-</Style>
+    <Style x:Key="SearchBox" TargetType="TextBox">
+        <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextColorPrimary}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="8"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Border Margin="0" 
+                            Background="{TemplateBinding Background}" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            CornerRadius="15">
+                        <ScrollViewer x:Name="PART_ContentHost" 
+                                    Background="Transparent"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 <!--End SearchBox Style-->
 
 <!--Label Style-->
@@ -229,7 +229,7 @@
 
     <Style TargetType="MenuItem">
         <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
-        <Setter Property="Foreground" Value="#000000"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor}"/>
         <Setter Property="Margin" Value="1"/>
         <Setter Property="Padding" Value="0"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
@@ -261,7 +261,7 @@
                             <TextBlock x:Name="TextBlock"
                                        Grid.Column="1"
                                        Text="{TemplateBinding Header}"
-                                       Foreground="{DynamicResource TextColorSecondaryColor}"
+                                       Foreground="{TemplateBinding BorderThickness}"
                                        VerticalAlignment="Center"
                                        Margin="0"/>
     
