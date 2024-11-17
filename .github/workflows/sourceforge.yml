@@ -18,15 +18,14 @@ jobs:
           git config --global user.name "emadadel4"
           git config --global user.email "19177373+emadadel4@users.noreply.github.com"
 
-      - name: Add SourceForge remote with token
+      - name: Add SourceForge remote
         run: |
           git remote add sourceforge https://emadadel:$SOURCEFORGE_TOKEN@git.code.sf.net/p/itt/code.git
 
       - name: Test SourceForge credentials
         run: |
-          echo "Testing SourceForge credentials..."
-          git ls-remote https://emadadel:$SOURCEFORGE_TOKEN@git.code.sf.net/p/itt/code.git
+          git ls-remote sourceforge
 
       - name: Push to SourceForge
         run: |
-          git push -u sourceforge main
+          git push --force --set-upstream sourceforge main
