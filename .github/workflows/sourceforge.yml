@@ -18,9 +18,9 @@ jobs:
           git config --global user.name "emadadel4"
           git config --global user.email "19177373+emadadel4@users.noreply.github.com"
           
-      - name: Add SourceForge remote
+      - name: Add SourceForge remote with token
         run: |
-          git remote add sourceforge https://$GITHUB_ACTOR:$SOURCEFORGE_TOKEN@git.code.sf.net/p/itt/code.git
+          git remote add sourceforge https://emadadel:$SOURCEFORGE_TOKEN@git.code.sf.net/p/itt/code.git
 
       - name: Push to SourceForge
         run: |
