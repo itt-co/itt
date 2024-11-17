@@ -3,30 +3,23 @@ name: Sync to SourceForge
 on:
   push:
     branches:
-      - main
+      - main  # Or whatever branch you want to track
 
 jobs:
   sync:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      - name: Configure Git
+      - name: Set up Git
         run: |
-          git config --global user.name "emadadel"
-          git config --global user.email "19177373+emadadel4@users.noreply.github.com"
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
 
-      - name: Add SourceForge Remote
-        run: |
-          git remote add sourceforge https://emadadel:${{ secrets.SOURCEFORGE_TOKEN }}@git.code.sf.net/p/itt/code.git
-
-      - name: Verify Remote Connection
-        run: |
-          git remote -v
-          git ls-remote sourceforge
+      - name: Add SourceForge remote
+        run: git remote add sourceforge git://git.code.sf.net/p/projectname/code
 
       - name: Push to SourceForge
-        run: |
-          git push --force --set-upstream sourceforge main
+        run: git push sourceforge main
