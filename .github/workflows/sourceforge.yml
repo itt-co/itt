@@ -21,7 +21,7 @@ jobs:
       - name: Add SourceForge remote
         run: |
           git remote add sourceforge https://emadadel:${{ secrets.SOURCEFORGE_TOKEN }}@git.code.sf.net/p/itt/code.git
-          git fetch sourceforge
 
       - name: Push changes to SourceForge
-        run: git push --force --set-upstream sourceforge main
+        run: |
+          git push --force --set-upstream sourceforge main
