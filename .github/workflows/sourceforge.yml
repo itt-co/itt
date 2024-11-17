@@ -3,7 +3,7 @@ name: Sync to SourceForge
 on:
   push:
     branches:
-      - main  # Or whatever branch you want to track
+      - main  # Trigger action on push to the main branch
 
 jobs:
   sync:
@@ -19,7 +19,8 @@ jobs:
           git config --global user.email "19177373+emadadel4@users.noreply.github.com"
 
       - name: Add SourceForge remote
-        run: git remote add sourceforge git://git.code.sf.net/p/projectname/code
+        run: |
+          git remote add sourceforge https://emadadel:${{ secrets.SOURCEFORGE_TOKEN }}@sourceforge.net/p/projectname/code.git
 
       - name: Push to SourceForge
         run: git push sourceforge main
