@@ -22,5 +22,5 @@ jobs:
 
       - name: Push to SourceForge
         run: |
-          git remote add sourceforge ssh://emadadel@git.code.sf.net/p/itt/code itt-code
+          git remote add sourceforge ssh://emadadel@git.code.sf.net/p/itt/code.git
           git push -u sourceforge main
