@@ -20,7 +20,7 @@ jobs:
 
       - name: Add SourceForge remote
         run: |
-          git remote add sourceforge https://emadadel:${{ secrets.SOURCEFORGE_TOKEN }}@sourceforge.net/p/projectname/code.git
+          git remote add sourceforge https://emadadel:${{ secrets.SOURCEFORGE_TOKEN }}@sourceforge.net/p/itt/code.git
 
       - name: Push to SourceForge
         run: git push sourceforge main
