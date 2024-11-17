@@ -9228,27 +9228,27 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
 <!--End CheckBox Style-->
 
 <!--SearchBox Style-->
-<Style x:Key="SearchBox" TargetType="TextBox">
-    <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
-    <Setter Property="Foreground" Value="{DynamicResource TextColorPrimary}"/>
-    <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-    <Setter Property="BorderThickness" Value="0"/>
-    <Setter Property="Padding" Value="8"/>
-    <Setter Property="Template">
-        <Setter.Value>
-            <ControlTemplate TargetType="TextBox">
-                <Border Margin="0" 
-                        Background="{TemplateBinding Background}" 
-                        BorderBrush="{TemplateBinding BorderBrush}" 
-                        BorderThickness="{TemplateBinding BorderThickness}" 
-                        CornerRadius="15">
-                    <ScrollViewer x:Name="PART_ContentHost" 
-                                  Background="Transparent"/>
-                </Border>
-            </ControlTemplate>
-        </Setter.Value>
-    </Setter>
-</Style>
+    <Style x:Key="SearchBox" TargetType="TextBox">
+        <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextColorPrimary}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="8"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Border Margin="0" 
+                            Background="{TemplateBinding Background}" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            CornerRadius="15">
+                        <ScrollViewer x:Name="PART_ContentHost" 
+                                    Background="Transparent"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 <!--End SearchBox Style-->
 
 <!--Label Style-->
@@ -9304,7 +9304,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
 
     <Style TargetType="MenuItem">
         <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
-        <Setter Property="Foreground" Value="#000000"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor}"/>
         <Setter Property="Margin" Value="1"/>
         <Setter Property="Padding" Value="0"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
@@ -9336,7 +9336,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                             <TextBlock x:Name="TextBlock"
                                        Grid.Column="1"
                                        Text="{TemplateBinding Header}"
-                                       Foreground="{DynamicResource TextColorSecondaryColor}"
+                                       Foreground="{TemplateBinding BorderThickness}"
                                        VerticalAlignment="Center"
                                        Margin="0"/>
     
@@ -12849,8 +12849,8 @@ function Show-Event {
         
 
     
-            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
-                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+            $itt.event.FindName('shell').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/emadadel4/shelltube')
                 })
             
             
@@ -12859,18 +12859,13 @@ function Show-Event {
                 })
             
             
-            $itt.event.FindName('cat').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/itt')
-                })
-            
-            
-            $itt.event.FindName('shell').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/shelltube')
-                })
-            
-            
             $itt.event.FindName('ps').add_MouseLeftButtonDown({
                     Start-Process('https://www.palestinercs.org/en/Donation')
+                })
+            
+            
+            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
+                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
                 })
             
             
@@ -13148,8 +13143,6 @@ $EventWindowXaml = '<Window
                 </StackPanel>
                 
                 
-<TextBlock Text=''Tweaks Category Selection:'' FontSize=''20'' Margin=''0,18,0,18'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
-<Image x:Name=''cat'' Source=''https://private-user-images.githubusercontent.com/19177373/386806551-0e875373-53d9-473d-ac84-929c81c504a6.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzE3Mjc1ODQsIm5iZiI6MTczMTcyNzI4NCwicGF0aCI6Ii8xOTE3NzM3My8zODY4MDY1NTEtMGU4NzUzNzMtNTNkOS00NzNkLWFjODQtOTI5YzgxYzUwNGE2LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDExMTYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMTE2VDAzMjEyNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWY1M2Q4ODk5OGYyMjY3NTM4MjU1YjU3MmNiMGVjYzc5MTlmYzkzOWJiODgzNTA3NGI2YjUyYzhmMzA2ZTNiODAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.bjT0QCYqZ9XMF9c6jewAae9_E6HXtCn5B9Bx0LsUBRM'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''/>
 <TextBlock Text=''How to Contribute:'' FontSize=''20'' Margin=''0,18,0,18'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
 <Image x:Name=''contribute'' Source=''https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/customtheme.jpg'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''/>
 <TextBlock Text=''Contribute and create your own theme, add your native language. favorite apps and music and more. Click on the image to see how to contribute.'' FontSize=''15'' Margin=''8''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
