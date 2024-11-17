@@ -18,7 +18,11 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SOURCEFORGE_SSH_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -H emadadel.git.sourceforge.net >> ~/.ssh/known_hosts
+          ssh-keyscan -H git.code.sf.net >> ~/.ssh/known_hosts
+
+      - name: Test SSH Connection
+        run: |
+          ssh -T emadadel@git.code.sf.net
 
       - name: Push to SourceForge
         run: |
