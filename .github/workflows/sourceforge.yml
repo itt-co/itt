@@ -15,8 +15,8 @@ jobs:
 
       - name: Set up Git
         run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
+          git config --global user.name "emadadel4"
+          git config --global user.email "19177373+emadadel4@users.noreply.github.com"
 
       - name: Add SourceForge remote
         run: git remote add sourceforge git://git.code.sf.net/p/projectname/code
