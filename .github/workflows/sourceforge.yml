@@ -13,19 +13,15 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Set up Git credentials
+      - name: Configure Git
         run: |
-          git config --global user.name "emadadel4"
+          git config --global user.name "emadadel"
           git config --global user.email "19177373+emadadel4@users.noreply.github.com"
 
       - name: Add SourceForge remote
         run: |
-          git remote add sourceforge https://emadadel:$SOURCEFORGE_TOKEN@git.code.sf.net/p/itt/code.git
+          git remote add sourceforge https://emadadel:${{ secrets.SOURCEFORGE_TOKEN }}@git.code.sf.net/p/itt/code.git
+          git fetch sourceforge
 
-      - name: Test SourceForge credentials
-        run: |
-          git ls-remote sourceforge
-
-      - name: Push to SourceForge
-        run: |
-          git push --force --set-upstream sourceforge main
+      - name: Push changes to SourceForge
+        run: git push --force --set-upstream sourceforge main
