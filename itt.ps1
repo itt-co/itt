@@ -12849,13 +12849,8 @@ function Show-Event {
         
 
     
-            $itt.event.FindName('shell').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/shelltube')
-                })
-            
-            
-            $itt.event.FindName('contribute').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')
+            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
+                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
                 })
             
             
@@ -12864,8 +12859,13 @@ function Show-Event {
                 })
             
             
-            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
-                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+            $itt.event.FindName('shell').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/emadadel4/shelltube')
+                })
+            
+            
+            $itt.event.FindName('contribute').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')
                 })
             
             
@@ -13001,54 +13001,54 @@ $EventWindowXaml = '<Window
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
-            <StackPanel x:Name="MainStackPanel" Height="Auto" Background="Transparent" Orientation="Vertical" Margin="10">
+            <StackPanel x:Name="MainStackPanel" Height="Auto" Background="Transparent" Orientation="Vertical" Margin="20">
             
                 <!-- Title -->
-                <Grid Row="0" Background="Transparent">
-                            
-                    <TextBlock Text="&#10006;" 
-                    Name="closebtn"
-                    HorizontalAlignment="Right" 
-                    VerticalAlignment="Top"
-                    Margin="0"
-                    Cursor="Hand"
-                    Foreground="red" />
+                    <Grid Row="0" Background="Transparent">
+                                
+                        <TextBlock Text="&#10006;" 
+                        Name="closebtn"
+                        HorizontalAlignment="Right" 
+                        VerticalAlignment="Top"
+                        Margin="0"
+                        Cursor="Hand"
+                        Foreground="red" />
 
 
-                    <StackPanel Orientation="Vertical" Margin="0">
+                        <StackPanel Orientation="Vertical" Margin="0">
 
-                        <TextBlock 
-                        Name="title"
-                        Height="Auto"
-                        Width="Auto"
-                        FontSize="20"
-                        Text="What''s New"
-                        Foreground="{DynamicResource TextColorSecondaryColor}"
-                        FontWeight="SemiBold"
-                        TextWrapping="Wrap"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Left" />
-    
-                        <TextBlock
-                        Name="date" 
-                        Height="Auto"
-                        Width="Auto"
-                        Text="8/29/2024"
-                        Foreground="{DynamicResource TextColorSecondaryColor2}"
-                        TextWrapping="Wrap"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Left" />
-    
-                    </StackPanel>
+                            <TextBlock 
+                            Name="title"
+                            Height="Auto"
+                            Width="Auto"
+                            FontSize="20"
+                            Text="What''s New"
+                            Foreground="{DynamicResource TextColorSecondaryColor}"
+                            FontWeight="SemiBold"
+                            TextWrapping="Wrap"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left" />
+        
+                            <TextBlock
+                            Name="date" 
+                            Height="Auto"
+                            Width="Auto"
+                            Text="8/29/2024"
+                            Foreground="{DynamicResource TextColorSecondaryColor2}"
+                            TextWrapping="Wrap"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left" />
+        
+                        </StackPanel>
 
-                </Grid>
-            <!-- End Title -->
+                    </Grid>
+                <!-- End Title -->
 
             </StackPanel>
 
-        <Grid Row="1" Background="Transparent" Margin="0">
+        <Grid Row="1" Background="Transparent" Margin="20">
             <ScrollViewer Name="ScrollViewer" VerticalScrollBarVisibility="Auto" Height="Auto">
-                <StackPanel Margin="20" Orientation="Vertical">
+                <StackPanel Orientation="Vertical">
                     <TextBlock Text=''Watch demo'' FontSize=''20'' Margin=''0,18,0,18'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
 <Image x:Name=''ytv'' Source=''https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/thumbnail.jpg'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''/>
 <TextBlock Text='' • Keyboard Shortcuts:'' FontSize=''20'' Margin=''0,18,0,18'' Foreground=''{DynamicResource PrimaryButtonForeground}'' FontWeight=''bold'' TextWrapping=''Wrap''/>
