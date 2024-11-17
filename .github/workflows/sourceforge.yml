@@ -1,0 +1,26 @@
+name: Sync to SourceForge
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SOURCEFORGE_SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H emadadel.git.sourceforge.net >> ~/.ssh/known_hosts
+
+      - name: Push to SourceForge
+        run: |
+          git remote add sourceforge ssh://emadadel@emadadel.git.sourceforge.net/gitroot/itt
+          git push -u sourceforge main
