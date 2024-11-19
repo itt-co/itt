@@ -3193,5 +3193,14 @@
     "default": [],
     "category": "Media Tools",
     "check": "false"
+  },
+  {
+    "Name": "GrepWin",
+    "Description": "Regular expression search and replace for Windows.",
+    "winget": "StefansTools.grepWin",
+    "choco": "grepwin",
+    "default": [],
+    "category": "Utilities",
+    "check": "false"
   }
 ]
