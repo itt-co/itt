@@ -3271,9 +3271,18 @@ $itt.database.Applications = '[
     "Name": "VLC Skins",
     "Description": "Put the downloaded VLT files in the following folder: On Windows: the skins folder in the VLC installation directory (e.g. C:\\Program Files\\VideoLAN\\VLC\\skins) On Linux/Unix: ~/.local/share/vlc/skins2",
     "winget": "",
-    "choco": "choco install vlc-skins",
+    "choco": "vlc-skins",
     "default": [],
     "category": "Media Tools",
+    "check": "false"
+  },
+  {
+    "Name": "GrepWin",
+    "Description": "Regular expression search and replace for Windows.",
+    "winget": "StefansTools.grepWin",
+    "choco": "grepwin",
+    "default": [],
+    "category": "Utilities",
     "check": "false"
   }
 ]
@@ -12183,6 +12192,12 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Put the downloaded VLT files in the following folder On Windows the skins folder in the VLC installation directory e.g. CProgram FilesVideoLANVLCskins On LinuxUnix .localsharevlcskins2."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="GrepWin" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
+            </StackPanel>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Regular expression search and replace for Windows.."/>
         </StackPanel>
                     </ListView>
                 </TabItem.Content>
