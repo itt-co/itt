@@ -109,9 +109,13 @@ function Download-Mthoed {
         "API [Choco/Winget] Recommended" {
 
             $choco  = Read-Host "Enter choco package"
-            Check -choco $choco
+            
+            #Check -choco $choco
+
             $winget = Read-Host "Enter winget package"
-            Check -winget $winget
+
+            #Check -winget $winget
+
 
             return @{
                 winget    = $winget
