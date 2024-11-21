@@ -21,7 +21,6 @@ $itt = [Hashtable]::Synchronized(@{
     youtube        = "https://youtube.com/@emadadel4"
     buymeacoffee   = "https://buymeacoffee.com/emadadel"
     registryPath   = "HKCU:\Software\ITT@emadadel"
-    firebaseUrl    = "https://ittools-7d9fe-default-rtdb.firebaseio.com/Users"
     icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
     Theme          = "default"
     CurretTheme    = "default"
