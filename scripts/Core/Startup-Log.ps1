@@ -187,6 +187,7 @@ function Startup  {
                 $runs = if ($existingData) { 
 
                     $existingData.runs + 1 
+                    Telegram -Message "💻 '$env:USERNAME' has opened ITT again."
                 } 
                 else 
                 { 
@@ -201,10 +202,7 @@ function Startup  {
                 # Count the number of keys under the root
                 $response = Invoke-RestMethod -Uri $firebaseUrlRoot -Method Get -ErrorAction SilentlyContinue
                 $totalKeys = ($response | Get-Member -MemberType NoteProperty | Measure-Object).Count
-
-                if ($existingData) {
-                    Telegram -Message "💻 '$env:USERNAME' has opened ITT again.`n`🌍 Total users worldwide: $totalKeys"
-                }
+                Telegram -Message "🌍 Total users worldwide: $totalKeys"
 
                 Write-Host "`nITT has been used on $totalKeys devices worldwide.`n" -ForegroundColor White
         
