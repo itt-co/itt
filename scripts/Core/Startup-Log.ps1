@@ -202,7 +202,7 @@ function Startup  {
                 $totalKeys = ($response | Get-Member -MemberType NoteProperty | Measure-Object).Count
 
                 if (-not $existingData) {
-                    Telegram -Message "🎉A new device 👤'$env:USERNAME is now running ITT!`n`💻 $Win`n`🌍 Total users worldwide: $totalKeys"
+                    Telegram -Message "🎉A new device 👤'$env:USERNAME' is now running ITT!`n`💻 $Win`n`🌍 Total users worldwide: $totalKeys"
                 }else{
                     Telegram -Message "💻 '$env:USERNAME' has opened ITT again."
                 }
