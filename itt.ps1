@@ -7245,12 +7245,10 @@ function Startup  {
                 $runs = if ($existingData) { 
 
                     $existingData.runs + 1 
-                    Telegram -Message "💻 '$env:USERNAME' has opened ITT again."
                 } 
                 else 
                 { 
                     1 
-                    Telegram -Message "🎉A new device 👤'$env:USERNAME is now running ITT!`n`💻 $Win"
                 }
         
                 # Update Firebase with the new value
@@ -7260,7 +7258,12 @@ function Startup  {
                 # Count the number of keys under the root
                 $response = Invoke-RestMethod -Uri $firebaseUrlRoot -Method Get -ErrorAction SilentlyContinue
                 $totalKeys = ($response | Get-Member -MemberType NoteProperty | Measure-Object).Count
-                Telegram -Message "🌍 Total users worldwide: $totalKeys"
+
+                if (-not $existingData) {
+                    Telegram -Message "🎉A new device 👤'$env:USERNAME is now running ITT!`n`💻 $Win`n`🌍 Total users worldwide: $totalKeys"
+                }else{
+                    Telegram -Message "💻 '$env:USERNAME' has opened ITT again."
+                }
 
                 Write-Host "`nITT has been used on $totalKeys devices worldwide.`n" -ForegroundColor White
         
