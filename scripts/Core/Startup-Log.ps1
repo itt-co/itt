@@ -191,6 +191,7 @@ function Startup  {
                 else 
                 { 
                     1 
+                    Telegram -Message "🎉A new device 👤'$env:USERNAME is now running ITT!`n`💻 $Win"
                 }
         
                 # Update Firebase with the new value
@@ -201,10 +202,8 @@ function Startup  {
                 $response = Invoke-RestMethod -Uri $firebaseUrlRoot -Method Get -ErrorAction SilentlyContinue
                 $totalKeys = ($response | Get-Member -MemberType NoteProperty | Measure-Object).Count
 
-                if (-not $existingData) {
-                    Telegram -Message "🎉A new device 👤'$env:USERNAME is now running ITT!`n`💻 $Win`n`🌍 Total users worldwide: $totalKeys"
-                }else{
-                    Telegram -Message "💻 '$env:USERNAME' has opened ITT again."
+                if ($existingData) {
+                    Telegram -Message "💻 '$env:USERNAME' has opened ITT again.`n`🌍 Total users worldwide: $totalKeys"
                 }
 
                 Write-Host "`nITT has been used on $totalKeys devices worldwide.`n" -ForegroundColor White
