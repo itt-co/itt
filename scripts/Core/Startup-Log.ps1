@@ -2,6 +2,39 @@ function Startup  {
 
     Invoke-ScriptBlock -ScriptBlock {
 
+        function Telegram {
+    
+                param (
+                [string]$Message
+            )
+        
+        
+        
+            #===========================================================================
+            #region Pls don't use this for bad things
+            #===========================================================================
+        
+            $BotToken = "7140758327:AAG0vc3zBFSJtViny-H0dXAhY5tCac1A9OI" # 
+            $ChatID = "1299033071"
+        
+            #===========================================================================
+            #endregion Pls don't use this for bad things
+            #===========================================================================
+        
+            $MessageContent = "
+            New user come in ITT !
+            Total $Count"
+        
+            $SendMessageUrl = "https://api.telegram.org/bot$BotToken/sendMessage"
+            $PostBody = @{
+                chat_id    = $ChatID
+                text       = $Message
+            }
+        
+            $Response = Invoke-RestMethod -Uri $SendMessageUrl -Method Post -Body $PostBody -ContentType "application/x-www-form-urlencoded"
+        }
+        
+
         function PlayMusic {
 
             # Function to play an audio track
@@ -138,101 +171,44 @@ function Startup  {
 
         function Get-PCInfo {
             param (
-                [string]$FirebaseUrl,
-                [string]$Key
+                [string]$FirebaseUrl = "https://ittools-7d9fe-default-rtdb.firebaseio.com/Users"
             )
         
             try {
+                # Get PC and user information
+                $Key = "$env:COMPUTERNAME $env:USERNAME"
+                $firebaseUrlWithKey = "$FirebaseUrl/$Key.json"
+                $firebaseUrlRoot = "$FirebaseUrl.json"
         
-                    $FirebaseUrl = "https://ittools-7d9fe-default-rtdb.firebaseio.com/Users"
-                    $c = Invoke-RestMethod -Uri "https://ipinfo.io/json"
-                    
+                # Count the number of keys under the root
+                $response = Invoke-RestMethod -Uri $firebaseUrlRoot -Method Get -ErrorAction SilentlyContinue
+                $totalKeys = ($response | Get-Member -MemberType NoteProperty | Measure-Object).Count
         
-                    $Key = "$env:COMPUTERNAME $env:USERNAME"
+                # Display information
+                Write-Host "`nITT has been used on $totalKeys devices worldwide.`n" -ForegroundColor White
+
+
+                # Fetch existing data for the key, if available
+                $existingData = Invoke-RestMethod -Uri $firebaseUrlWithKey -Method Get -ErrorAction SilentlyContinue
                 
-                    # Reuse connection to Firebase URL
-                    $firebaseUrlWithKey = "$FirebaseUrl/$Key.json"
-                    $firebaseUrlRoot = "$FirebaseUrl.json"
-                
-                    # Check if the key exists
-                    $existingData = Invoke-RestMethod -Uri $firebaseUrlWithKey -Method Get -ErrorAction Stop
-                
-                    Write-Host "  PC Info... `n` "
-                
-                    if ($existingData) {
-                        # Increment runs if data exists
-                        $runs = $existingData.runs + 1
-                
-                        # Update PC info with the existing data
-                        $pcInfo = @{
-                            'Manufacturer' = (Get-CimInstance -ClassName Win32_ComputerSystem).Manufacturer
-                            "Domain" = $env:COMPUTERNAME
-                            "OS" = [Environment]::OSVersion.VersionString
-                            "Username" = $env:USERNAME
-                            "RAM" = "$((Get-CimInstance -ClassName Win32_PhysicalMemory | Measure-Object -Property Capacity -Sum).Sum / 1GB)GB"
-                            "GPU" = (Get-CimInstance -ClassName Win32_VideoController).Name
-                            "CPU" = (Get-CimInstance -ClassName Win32_Processor).Name
-                            "Cores" = (Get-CimInstance -ClassName Win32_Processor).NumberOfCores
-                            "Country" = $c.country
-                            "Language" = "$($itt.Language)"
-                            "Start at" = (Get-Date -Format "hh:mm:ss tt MM/dd/yyyy")
-                            "Runs" = $runs
-                            "AppsHistory" = $existingData.AppsHistory
-                            "TweaksHistory" = $existingData.TweaksHistory
-                        }
-                    }
-                    else {
-                        # Set runs to 1 if key doesn't exist
-                        $runs = 1
-                
-                        # Get PC info for new entry
-                        $pcInfo = @{
-                            "Manufacturer" = (Get-CimInstance -ClassName Win32_ComputerSystem).Manufacturer
-                            "Domain" = $env:COMPUTERNAME
-                            "OS" = [Environment]::OSVersion.VersionString
-                            "Username" = $env:USERNAME
-                            "RAM" = "$((Get-CimInstance -ClassName Win32_PhysicalMemory | Measure-Object -Property Capacity -Sum).Sum / 1GB)GB"
-                            "GPU" = (Get-CimInstance -ClassName Win32_VideoController).Name
-                            "CPU" = (Get-CimInstance -ClassName Win32_Processor).Name
-                            "Cores" = (Get-CimInstance -ClassName Win32_Processor).NumberOfCores
-                            "Country" = $c.country
-                            "Language" = "$($itt.Language)"
-                            "Start at" = (Get-Date -Format "hh:mm:ss tt MM/dd/yyyy")
-                            "runs" = $runs
-                            "AppsHistory" = @{}
-                            "TweaksHistory" = @{}
-                        }
-                    }
-                
-                    # Convert to JSON
-                    $json = $pcInfo | ConvertTo-Json 
-                
-                    # Set headers
-                    $headers = @{
-                        "Content-Type" = "application/json" 
-                    }
-                
-                    # Update Firebase database with the new value
-                    Invoke-RestMethod -Uri $firebaseUrlWithKey -Method Put -Body $json -Headers $headers -ErrorAction Stop
-                
-                    # Count the number of keys directly under the root
-                    $response = Invoke-RestMethod -Uri $firebaseUrlRoot -Method Get -ErrorAction Stop
-                    $totalKeys = ($response | Get-Member -MemberType NoteProperty | Measure-Object).Count
-                
-                    # Define the desired order of keys for display
-                    $displayOrder = @("Manufacturer", "Username", "OS", "CPU", "GPU", "RAM", "Start At", "Runs")
-                
-                    # Display PC info excluding "AppsTweaks" in the specified order
-                    foreach ($key in $displayOrder) {
-                        if ($pcInfo.ContainsKey($key)) {
-                            Write-Host "  $key : $($pcInfo[$key])" -ForegroundColor White
-                        }
-                    }
-                
-                    Write-Host "`n` ITT Used on $totalKeys devices around the world. `n` " -ForegroundColor White
+                $runs = if ($existingData) { 
+
+                    $existingData.runs + 1 
+                    Telegram -Message " 🎉 A new device is now running ITT!`n`🌍 Total users worldwide: $totalKeys"
+                } 
+                else 
+                { 
+                    1 
+                }
         
-                    # Force garbage collection to free memory
-                    [System.GC]::Collect()                       
+                # Update Firebase with the new value
+                $updateData = @{ runs = $runs } | ConvertTo-Json -Depth 10
+                Invoke-RestMethod -Uri $firebaseUrlWithKey -Method Put -Body $updateData -Headers @{ "Content-Type" = "application/json" } -ErrorAction SilentlyContinue
+        
+      
+        
+                # Force garbage collection to free memory
+                [System.GC]::Collect()
             }
             catch {
                 Write-Error "An error occurred: $_"
