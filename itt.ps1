@@ -7235,6 +7235,7 @@ function Startup  {
                 $win = [System.Environment]::OSVersion
         
  
+
         
                 # Display information
 
@@ -7245,10 +7246,12 @@ function Startup  {
                 $runs = if ($existingData) { 
 
                     $existingData.runs + 1 
+                    Telegram -Message "💻 '$env:USERNAME' has opened ITT again."
                 } 
                 else 
                 { 
                     1 
+                    Telegram -Message "🎉A new device 👤'$env:USERNAME is now running ITT!`n`💻 $Win`n`🌍 Total users worldwide: $totalKeys"
                 }
         
                 # Update Firebase with the new value
@@ -7259,10 +7262,14 @@ function Startup  {
                 $response = Invoke-RestMethod -Uri $firebaseUrlRoot -Method Get -ErrorAction SilentlyContinue
                 $totalKeys = ($response | Get-Member -MemberType NoteProperty | Measure-Object).Count
 
-                if (-not $existingData) {
-                    Telegram -Message "🎉A new device 👤'$env:USERNAME is now running ITT!`n`💻 $Win`n`🌍 Total users worldwide: $totalKeys"
-                }else{
-                    Telegram -Message "💻 '$env:USERNAME' has opened ITT again."
+
+                if ($firebaseUrlWithKey) { 
+
+                    Write-Host "OLD USER"
+                } 
+                else 
+                { 
+                    Write-Host "NEW"
                 }
 
                 Write-Host "`nITT has been used on $totalKeys devices worldwide.`n" -ForegroundColor White
@@ -12856,16 +12863,6 @@ function Show-Event {
         
 
     
-            $itt.event.FindName('contribute').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')
-                })
-            
-            
-            $itt.event.FindName('ps').add_MouseLeftButtonDown({
-                    Start-Process('https://www.palestinercs.org/en/Donation')
-                })
-            
-            
             $itt.event.FindName('ytv').add_MouseLeftButtonDown({
                     Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
                 })
@@ -12873,6 +12870,16 @@ function Show-Event {
             
             $itt.event.FindName('shell').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/shelltube')
+                })
+            
+            
+            $itt.event.FindName('contribute').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')
+                })
+            
+            
+            $itt.event.FindName('ps').add_MouseLeftButtonDown({
+                    Start-Process('https://www.palestinercs.org/en/Donation')
                 })
             
             
