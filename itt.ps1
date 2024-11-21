@@ -7258,7 +7258,7 @@ function Startup  {
                 Write-Host "`nITT has been used on $totalKeys devices worldwide.`n" -ForegroundColor White
 
                 # Determine run count and message
-                  if ($existingData) {
+                if ($existingData) {
                     Telegram -Message "💻 '$env:USERNAME' has opened ITT again."
                 } else {
                     Telegram -Message "🎉 A new device 👤 '$env:USERNAME' is now running ITT!`n`🌍 Total users worldwide: $totalKeys"
