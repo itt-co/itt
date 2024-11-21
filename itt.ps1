@@ -7262,7 +7262,7 @@ function Startup  {
                 if (-not $existingData) {
                     Telegram -Message "🎉A new device is now running ITT!`n`🌍 Total users worldwide: $totalKeys`n`💻 $Win`n` $env:USERNAME"
                 }else{
-                    Telegram -Message "💻 $env:USERNAME has opened ITT again."
+                    Telegram -Message "💻 $env:USERNAME has opened ITT."
                 }
 
                 Write-Host "`nITT has been used on $totalKeys devices worldwide.`n" -ForegroundColor White
