@@ -7252,11 +7252,11 @@ function Startup  {
                 $runs = if ($existingData) { 
 
                     $existingData.runs + 1 
-                    Telegram -Message " 🎉 A new device is now running ITT!`n`🌍 Total users worldwide: $totalKeys"
                 } 
                 else 
                 { 
                     1 
+                    Telegram -Message " 🎉 A new device is now running ITT!`n`🌍 Total users worldwide: $totalKeys"
                 }
         
                 # Update Firebase with the new value
