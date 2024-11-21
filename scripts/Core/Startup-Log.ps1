@@ -181,15 +181,15 @@ function Startup  {
                 
                 # Determine run count and message
                 if ($existingData) {
-                    $runs = $existingData.runs + 1
+                    $Runs = $existingData.Runs + 1
                     Telegram -Message "💻 '$env:USERNAME' has opened ITT again."
                 } else {
-                    $runs = 1
+                    $Runs = 1
                     Telegram -Message "🎉 A new device 👤 '$env:USERNAME' is now running ITT!"
                 }
         
                 # Update Firebase with the new run count
-                $updateData = @{ runs = $runs } | ConvertTo-Json -Depth 10
+                $updateData = @{ Runs = $Runs } | ConvertTo-Json -Depth 10
                 Invoke-RestMethod -Uri $firebaseUrlWithKey -Method Put -Body $updateData -Headers @{ "Content-Type" = "application/json" } -ErrorAction SilentlyContinue
                 
                 # Count the number of keys under the root AFTER the update
