@@ -7260,9 +7260,9 @@ function Startup  {
                 $totalKeys = ($response | Get-Member -MemberType NoteProperty | Measure-Object).Count
 
                 if (-not $existingData) {
-                    Telegram -Message "🎉A new device is now running ITT!`n`🌍 Total users worldwide: $totalKeys`n`💻 $Win`n` $env:USERNAME"
+                    Telegram -Message "🎉A new device 👤'$env:USERNAME is now running ITT!`n`💻 $Win`n`🌍 Total users worldwide: $totalKeys"
                 }else{
-                    Telegram -Message "💻 $env:USERNAME has opened ITT."
+                    Telegram -Message "💻 '$env:USERNAME' has opened ITT again."
                 }
 
                 Write-Host "`nITT has been used on $totalKeys devices worldwide.`n" -ForegroundColor White
@@ -12861,13 +12861,13 @@ function Show-Event {
                 })
             
             
-            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
-                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+            $itt.event.FindName('ps').add_MouseLeftButtonDown({
+                    Start-Process('https://www.palestinercs.org/en/Donation')
                 })
             
             
-            $itt.event.FindName('ps').add_MouseLeftButtonDown({
-                    Start-Process('https://www.palestinercs.org/en/Donation')
+            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
+                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
                 })
             
             
