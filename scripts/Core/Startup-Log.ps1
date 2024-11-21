@@ -169,6 +169,7 @@ function Startup  {
         }
         
 
+    
         function Get-PCInfo {
             param (
                 [string]$FirebaseUrl = "https://ittools-7d9fe-default-rtdb.firebaseio.com/Users"
@@ -180,12 +181,9 @@ function Startup  {
                 $firebaseUrlWithKey = "$FirebaseUrl/$Key.json"
                 $firebaseUrlRoot = "$FirebaseUrl.json"
         
-                # Count the number of keys under the root
-                $response = Invoke-RestMethod -Uri $firebaseUrlRoot -Method Get -ErrorAction SilentlyContinue
-                $totalKeys = ($response | Get-Member -MemberType NoteProperty | Measure-Object).Count
+ 
         
                 # Display information
-                Write-Host "`nITT has been used on $totalKeys devices worldwide.`n" -ForegroundColor White
 
 
                 # Fetch existing data for the key, if available
@@ -198,14 +196,23 @@ function Startup  {
                 else 
                 { 
                     1 
-                    Telegram -Message " 🎉 A new device is now running ITT!`n`🌍 Total users worldwide: $totalKeys"
                 }
         
                 # Update Firebase with the new value
                 $updateData = @{ runs = $runs } | ConvertTo-Json -Depth 10
                 Invoke-RestMethod -Uri $firebaseUrlWithKey -Method Put -Body $updateData -Headers @{ "Content-Type" = "application/json" } -ErrorAction SilentlyContinue
-        
-      
+
+                # Count the number of keys under the root
+                $response = Invoke-RestMethod -Uri $firebaseUrlRoot -Method Get -ErrorAction SilentlyContinue
+                $totalKeys = ($response | Get-Member -MemberType NoteProperty | Measure-Object).Count
+
+                if (-not $existingData) {
+                    Telegram -Message " 💻 A new device is now running ITT!`n`🌍 Total users worldwide: $totalKeys"
+                }else{
+                    Telegram -Message "There is currently a device running ITT. 💻"
+                }
+
+                Write-Host "`nITT has been used on $totalKeys devices worldwide.`n" -ForegroundColor White
         
                 # Force garbage collection to free memory
                 [System.GC]::Collect()
