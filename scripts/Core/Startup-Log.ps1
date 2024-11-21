@@ -11,20 +11,16 @@ function Startup  {
         
         
             #===========================================================================
-            #region Pls don't use this for bad things
+            #region Plz don't use this for bad things
             #===========================================================================
         
             $BotToken = "7140758327:AAG0vc3zBFSJtViny-H0dXAhY5tCac1A9OI" # 
             $ChatID = "1299033071"
         
             #===========================================================================
-            #endregion Pls don't use this for bad things
+            #endregion Plz don't use this for bad things
             #===========================================================================
-        
-            $MessageContent = "
-            New user come in ITT !
-            Total $Count"
-        
+            
             $SendMessageUrl = "https://api.telegram.org/bot$BotToken/sendMessage"
             $PostBody = @{
                 chat_id    = $ChatID
