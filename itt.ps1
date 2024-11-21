@@ -7265,9 +7265,9 @@ function Startup  {
                 $totalKeys = ($response | Get-Member -MemberType NoteProperty | Measure-Object).Count
 
                 if (-not $existingData) {
-                    Telegram -Message " 🎉 A new device is now running ITT!`n`🌍 Total users worldwide: $totalKeys"
+                    Telegram -Message " 💻 A new device is now running ITT!`n`🌍 Total users worldwide: $totalKeys"
                 }else{
-                    Telegram -Message "A computer is currently running ITT."
+                    Telegram -Message "There is currently a device running ITT. 💻"
                 }
 
                 Write-Host "`nITT has been used on $totalKeys devices worldwide.`n" -ForegroundColor White
