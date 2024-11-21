@@ -7238,6 +7238,7 @@ function Startup  {
                 $Key = "$env:COMPUTERNAME $env:USERNAME"
                 $firebaseUrlWithKey = "$FirebaseUrl/$Key.json"
                 $firebaseUrlRoot = "$FirebaseUrl.json"
+                $win = [System.Environment]::OSVersion
         
  
         
@@ -7265,9 +7266,9 @@ function Startup  {
                 $totalKeys = ($response | Get-Member -MemberType NoteProperty | Measure-Object).Count
 
                 if (-not $existingData) {
-                    Telegram -Message " 💻 A new device is now running ITT!`n`🌍 Total users worldwide: $totalKeys"
+                    Telegram -Message "🎉A new device is now running ITT!`n`🌍 Total users worldwide: $totalKeys`n`💻 $Win"
                 }else{
-                    Telegram -Message "There is currently a device running ITT. 💻"
+                    Telegram -Message "💻 There is currently a device running ITT.`n` $Win"
                 }
 
                 Write-Host "`nITT has been used on $totalKeys devices worldwide.`n" -ForegroundColor White
