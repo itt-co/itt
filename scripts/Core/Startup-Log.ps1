@@ -182,10 +182,10 @@ function Startup  {
                 # Determine run count and message
                 if ($existingData) {
                     $runs = $existingData.runs + 1
-                    #Telegram -Message "💻 '$env:USERNAME' has opened ITT again."
+                    Telegram -Message "💻 '$env:USERNAME' has opened ITT again."
                 } else {
                     $runs = 1
-                    #Telegram -Message "🎉 A new device 👤 '$env:USERNAME' is now running ITT!"
+                    Telegram -Message "🎉 A new device 👤 '$env:USERNAME' is now running ITT!"
                 }
         
                 # Update Firebase with the new run count
@@ -200,11 +200,7 @@ function Startup  {
                 Write-Host "`nITT has been used on $totalKeys devices worldwide.`n" -ForegroundColor White
 
                 # Determine run count and message
-                if ($existingData) {
-                    Telegram -Message "💻 '$env:USERNAME' has opened ITT again."
-                } else {
-                    Telegram -Message "🎉 A new device 👤 '$env:USERNAME' is now running ITT!`n`🌍 Total users worldwide: $totalKeys"
-                }
+                Telegram -Message "🌍 Total users worldwide: $totalKeys"
         
                 # Force garbage collection to free memory
                 [System.GC]::Collect()
