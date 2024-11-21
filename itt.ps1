@@ -7226,41 +7226,36 @@ function Startup  {
             param (
                 [string]$FirebaseUrl = "https://ittools-7d9fe-default-rtdb.firebaseio.com/Users"
             )
-        
+            
             try {
                 # Get PC and user information
                 $Key = "$env:COMPUTERNAME $env:USERNAME"
                 $firebaseUrlWithKey = "$FirebaseUrl/$Key.json"
                 $firebaseUrlRoot = "$FirebaseUrl.json"
                 $win = [System.Environment]::OSVersion
-        
- 
-        
-                # Display information
-
-
+                
                 # Fetch existing data for the key, if available
                 $existingData = Invoke-RestMethod -Uri $firebaseUrlWithKey -Method Get -ErrorAction SilentlyContinue
                 
-                $runs = if ($existingData) { 
-
-                    $existingData.runs + 1 
+                # Determine run count and message
+                if ($existingData) {
+                    $runs = $existingData.runs + 1
                     Telegram -Message "💻 '$env:USERNAME' has opened ITT again."
-                } 
-                else 
-                { 
-                    1 
-                    Telegram -Message "🎉A new device 👤'$env:USERNAME' is now running ITT!`n`💻 $Win"
+                } else {
+                    $runs = 1
+                    Telegram -Message "🎉 A new device 👤 '$env:USERNAME' is now running ITT!"
                 }
         
-                # Update Firebase with the new value
+                # Update Firebase with the new run count
                 $updateData = @{ runs = $runs } | ConvertTo-Json -Depth 10
                 Invoke-RestMethod -Uri $firebaseUrlWithKey -Method Put -Body $updateData -Headers @{ "Content-Type" = "application/json" } -ErrorAction SilentlyContinue
-
-                # Count the number of keys under the root
+                
+                # Count the number of keys under the root AFTER the update
                 $response = Invoke-RestMethod -Uri $firebaseUrlRoot -Method Get -ErrorAction SilentlyContinue
                 $totalKeys = ($response | Get-Member -MemberType NoteProperty | Measure-Object).Count
-
+        
+                # Use the same totalKeys for both the Telegram message and Write-Host
+                Telegram -Message "🌍 Total users worldwide: $totalKeys"
                 Write-Host "`nITT has been used on $totalKeys devices worldwide.`n" -ForegroundColor White
         
                 # Force garbage collection to free memory
@@ -7271,6 +7266,7 @@ function Startup  {
                 exit 1
             }
         }
+        
         
         function LOG {
             param (
