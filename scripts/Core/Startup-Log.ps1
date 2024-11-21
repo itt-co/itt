@@ -163,8 +163,6 @@ function Startup  {
                 }
             } while ($true)
         }
-        
-
     
         function Get-PCInfo {
             param (
@@ -204,9 +202,9 @@ function Startup  {
                 $totalKeys = ($response | Get-Member -MemberType NoteProperty | Measure-Object).Count
 
                 if (-not $existingData) {
-                    Telegram -Message "🎉A new device is now running ITT!`n`🌍 Total users worldwide: $totalKeys`n`💻 $Win"
+                    Telegram -Message "🎉A new device is now running ITT!`n`🌍 Total users worldwide: $totalKeys`n`💻 $Win`n` $env:USERNAME"
                 }else{
-                    Telegram -Message "💻 There is currently a device running ITT.`n` $Win"
+                    Telegram -Message "💻 $env:USERNAME has opened ITT again."
                 }
 
                 Write-Host "`nITT has been used on $totalKeys devices worldwide.`n" -ForegroundColor White
