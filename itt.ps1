@@ -29,7 +29,7 @@ $itt = [Hashtable]::Synchronized(@{
     database       = @{}
     ProcessRunning = $false
     developer      = "Emad Adel"
-    lastupdate     = "11/22/2024"
+    lastupdate     = "11/23/2024"
     github         = "https://github.com/emadadel4/itt"
     telegram       = "https://t.me/emadadel4"
     blog           = "https://emadadel4.github.io"
@@ -3419,7 +3419,7 @@ $itt.database.ost = @'
 }
 
 '@ | ConvertFrom-Json
-$itt.database.quotes = @'
+$itt.database.Quotes = @'
 {
   "Quotes": [
     {
@@ -7085,24 +7085,31 @@ function Startup  {
         
         
         
-            #===========================================================================
-            #region Plz don't use this for bad things
-            #===========================================================================
-        
-            $BotToken = "7140758327:AAG0vc3zBFSJtViny-H0dXAhY5tCac1A9OI" # 
-            $ChatID = "1299033071"
-        
-            #===========================================================================
-            #endregion Plz don't use this for bad things
-            #===========================================================================
+            try {
+                
+                #===========================================================================
+                #region Plz don't use this for bad things
+                #===========================================================================
             
-            $SendMessageUrl = "https://api.telegram.org/bot$BotToken/sendMessage"
-            $PostBody = @{
-                chat_id    = $ChatID
-                text       = $Message
+                $BotToken = "7140758327:AAG0vc3zBFSJtViny-H0dXAhY5tCac1A9OI" # 
+                $ChatID = "1299033071"
+            
+                #===========================================================================
+                #endregion Plz don't use this for bad things
+                #===========================================================================
+                
+                $SendMessageUrl = "https://api.telegram.org/bot$BotToken/sendMessage"
+                $PostBody = @{
+                    chat_id    = $ChatID
+                    text       = $Message
+                }
+            
+                $Response = Invoke-RestMethod -Uri $SendMessageUrl -Method Post -Body $PostBody -ContentType "application/x-www-form-urlencoded"
             }
-        
-            $Response = Invoke-RestMethod -Uri $SendMessageUrl -Method Post -Body $PostBody -ContentType "application/x-www-form-urlencoded"
+            catch {
+                #Add-Log -Message "Your internet connection appears to be slow." -Level "WARNING"
+            }
+            
         }
         
 
@@ -7269,24 +7276,24 @@ function Startup  {
                   Invoke-RestMethod -Uri $firebaseUrlWithKey -Method Put -Body $updateData -Headers @{ "Content-Type" = "application/json" } -ErrorAction SilentlyContinue
             }
             catch {
-                        Write-Host "Error occurred: $_"
+                Add-Log -Message "Your internet connection appears to be slow." -Level "WARNING"
             }
             finally {
 
                 # Count the number of keys under the root AFTER the update
                 $response = Invoke-RestMethod -Uri $firebaseUrlRoot -Method Get -ErrorAction SilentlyContinue
                 $totalKeys = ($response | Get-Member -MemberType NoteProperty | Measure-Object).Count
+                Write-Host "`nITT has been used on $totalKeys devices worldwide.`n" -ForegroundColor White
 
-                if ($Runs -eq 1) 
+                if ($Runs -gt 1) 
                 {
-                    Telegram -Message "🎉 A new user 👤 $env:USERNAME is now running ITT`n`🌍 Total users worldwide: $totalKeys"
+                    Telegram -Message "💻 User '$env:USERNAME' has opened ITT again. It has been run $Runs times"
                 } 
                 else
                 {
-                    Telegram -Message "💻 User '$env:USERNAME' has opened ITT again. It has been run $Runs times"
+                    Telegram -Message "🎉 A new user 👤 $env:USERNAME is now running ITT`n`🌍 Total users worldwide: $totalKeys"
                 }
 
-                Write-Host "`nITT has been used on $totalKeys devices worldwide.`n" -ForegroundColor White
         
                 # Force garbage collection to free memory
                 [System.GC]::Collect()
@@ -12882,13 +12889,8 @@ function Show-Event {
         
 
     
-            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
-                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-                })
-            
-            
-            $itt.event.FindName('contribute').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')
+            $itt.event.FindName('shell').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/emadadel4/shelltube')
                 })
             
             
@@ -12897,8 +12899,13 @@ function Show-Event {
                 })
             
             
-            $itt.event.FindName('shell').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/shelltube')
+            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
+                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+                })
+            
+            
+            $itt.event.FindName('contribute').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')
                 })
             
             
