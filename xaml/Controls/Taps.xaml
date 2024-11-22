@@ -10,7 +10,7 @@
                     </DataTemplate>
             </TabItem.HeaderTemplate>
                 <TabItem.Content>
-                    <ListView Name="appslist" Margin="0" ScrollViewer.VerticalScrollBarVisibility="Auto" Width="Auto" Height="Auto" BorderBrush="{x:Null}" Background="{x:Null}" >
+                    <ListView Name="appslist" Margin="0" Width="Auto" Height="Auto" BorderBrush="{x:Null}" Background="{x:Null}" >
                         {{Apps}}
                     </ListView>
                 </TabItem.Content>
