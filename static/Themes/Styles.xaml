@@ -392,6 +392,14 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style TargetType="ScrollViewer">
+        <Setter Property="CanContentScroll" Value="False"/>
+        <Setter Property="IsDeferredScrollingEnabled" Value="False"/>
+        <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="HorizontalScrollBarVisibility" Value="Hidden"/>
+    </Style>
+
 <!--End Scrollbar Thumbs-->
 
 <!--TabControl Style-->
