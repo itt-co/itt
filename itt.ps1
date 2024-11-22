@@ -7249,14 +7249,14 @@ function Startup  {
                 # Fetch existing data for the key, if available
                 $existingData = Invoke-RestMethod -Uri $firebaseUrlWithKey -Method Get -ErrorAction SilentlyContinue
                 
-                # Determine run count and message
+                # if username is not exists
                 if (-not $existingData) {
-                    Telegram -Message "🎉 A new device 👤 '$env:USERNAME' is now running ITT!"
+                    #Telegram -Message "🎉 A new user 👤 $env:USERNAME is now running ITT"
                     $Runs = 1
                 } 
                 else
                 {
-                    Telegram -Message "💻 '$env:USERNAME' has opened ITT again."
+                    #Telegram -Message "💻 User '$env:USERNAME' has opened ITT again. It has been run $Runs times"
                     $Runs = $existingData.Runs + 1
                 }
         
@@ -7271,8 +7271,11 @@ function Startup  {
                 # Use the same totalKeys for both the Telegram message and Write-Host
                 Write-Host "`nITT has been used on $totalKeys devices worldwide.`n" -ForegroundColor White
 
-                # Determine run count and message
-                Telegram -Message "🌍 Total users worldwide: $totalKeys"
+                if ($Runs -eq 1) {
+                    Telegram -Message "🎉 A new user 👤 $env:USERNAME is now running ITT`n`🌍 Total users worldwide: $totalKeys"
+                } else {
+                    Telegram -Message "💻 User '$env:USERNAME' has opened ITT again. It has been run $Runs times"
+                }
         
                 # Force garbage collection to free memory
                 [System.GC]::Collect()
@@ -12864,6 +12867,11 @@ function Show-Event {
         
 
     
+            $itt.event.FindName('ps').add_MouseLeftButtonDown({
+                    Start-Process('https://www.palestinercs.org/en/Donation')
+                })
+            
+            
             $itt.event.FindName('ytv').add_MouseLeftButtonDown({
                     Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
                 })
@@ -12871,11 +12879,6 @@ function Show-Event {
             
             $itt.event.FindName('contribute').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')
-                })
-            
-            
-            $itt.event.FindName('ps').add_MouseLeftButtonDown({
-                    Start-Process('https://www.palestinercs.org/en/Donation')
                 })
             
             
