@@ -7249,7 +7249,7 @@ function Startup  {
                 }
         
                 # Update Firebase with the new run count
-                $updateData = @{ Runs = $Runs } | ConvertTo-Json -Depth 10
+                $updateData = @{ Runs = $Runs } | ConvertTo-Json
                 Invoke-RestMethod -Uri $firebaseUrlWithKey -Method Put -Body $updateData -Headers @{ "Content-Type" = "application/json" } -ErrorAction SilentlyContinue
                 
                 # Count the number of keys under the root AFTER the update
