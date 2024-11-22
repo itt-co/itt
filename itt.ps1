@@ -79,8 +79,7 @@ Start-Transcript -Path "$logdir\logs\log_$timestamp.log" -Append -NoClobber | Ou
 #===========================================================================
 #region Begin Database /APPS/TWEEAKS/Quotes/OST/Settings
 #===========================================================================
-$itt.database.applications = @'
-[
+$itt.database.Applications = '[
   {
     "Name": "Mozilla Firefox",
     "Description": "A widely-used open-source web browser known for its speed, privacy features, and customization options",
@@ -119,7 +118,7 @@ $itt.database.applications = @'
   },
   {
     "Name": "Microsoft Edge",
-    "Description": "Microsoft's web browser built for fast and secure internet surfing, integrating seamlessly with Windows ecosystem",
+    "Description": "Microsoft''s web browser built for fast and secure internet surfing, integrating seamlessly with Windows ecosystem",
     "winget": "Microsoft.Edge",
     "choco": "microsoft-edge",
     "default": [],
@@ -560,7 +559,7 @@ $itt.database.applications = @'
   },
   {
     "Name": "NVIDIA GeForce Experience",
-    "Description": "A cloud-based gaming service provided by NVIDIA that allows users to play video games on supported devices via a remote gaming PC hosted on NVIDIA's servers",
+    "Description": "A cloud-based gaming service provided by NVIDIA that allows users to play video games on supported devices via a remote gaming PC hosted on NVIDIA''s servers",
     "winget": "Nvidia.GeForceExperience",
     "choco": "geforce-experience",
     "default": [],
@@ -596,7 +595,7 @@ $itt.database.applications = @'
   },
   {
     "Name": "Ubisoft Connect",
-    "Description": "A digital distribution, digital rights management, multiplayer, and communications service developed by Ubisoft, providing access to Ubisoft's games, rewards, and social features",
+    "Description": "A digital distribution, digital rights management, multiplayer, and communications service developed by Ubisoft, providing access to Ubisoft''s games, rewards, and social features",
     "winget": "Ubisoft.Connect",
     "choco": "ubisoft-connect",
     "default": [],
@@ -677,7 +676,7 @@ $itt.database.applications = @'
   },
   {
     "Name": "Driver Easy",
-    "Description": "A driver update tool that automatically detects, downloads, and installs device drivers for the user's computer hardware",
+    "Description": "A driver update tool that automatically detects, downloads, and installs device drivers for the user''s computer hardware",
     "winget": "Easeware.DriverEasy",
     "choco": "drivereasyfree",
     "default": [],
@@ -1118,7 +1117,7 @@ $itt.database.applications = @'
   },
   {
     "Name": "Vim",
-    "Description": "Vim is an advanced text editor that seeks to provide the power of the de-facto Unix editor 'Vi', with a more complete feature set. It's us... Keep Reading",
+    "Description": "Vim is an advanced text editor that seeks to provide the power of the de-facto Unix editor ''Vi'', with a more complete feature set. It''s us... Keep Reading",
     "winget": "vim.vim",
     "choco": "vim",
     "default": [],
@@ -1136,7 +1135,7 @@ $itt.database.applications = @'
   },
   {
     "Name": "Atom",
-    "Description": "Atom is a text editor that's modern, approachable, yet hackable to the core—a tool you can customize to do anything but also use productively without ever touching a config file",
+    "Description": "Atom is a text editor that''s modern, approachable, yet hackable to the core—a tool you can customize to do anything but also use productively without ever touching a config file",
     "winget": "GitHub.Atom",
     "choco": "atom",
     "default": [],
@@ -1181,7 +1180,7 @@ $itt.database.applications = @'
   },
   {
     "Name": "Node.js LTS",
-    "Description": "Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. LTS (Long Term Support) releases are supported for an extended period and provide stability for production environments",
+    "Description": "Node.js is a JavaScript runtime built on Chrome''s V8 JavaScript engine. LTS (Long Term Support) releases are supported for an extended period and provide stability for production environments",
     "winget": "OpenJS.NodeJS.LTS",
     "choco": "nodejs-lts",
     "default": [],
@@ -1307,7 +1306,7 @@ $itt.database.applications = @'
   },
   {
     "Name": "Docker Compose",
-    "Description": "Docker Compose is a tool for defining and running multi-container Docker applications. It allows you to use a YAML file to configure your application's services, networks, and volumes",
+    "Description": "Docker Compose is a tool for defining and running multi-container Docker applications. It allows you to use a YAML file to configure your application''s services, networks, and volumes",
     "winget": "Docker.DockerCompose",
     "choco": "docker-compose",
     "default": [],
@@ -1415,7 +1414,7 @@ $itt.database.applications = @'
   },
   {
     "Name": "Java SE Runtime Environment 8.0.411",
-    "Description": "Java allows you to play online games, chat with people around the world, calculate your mortgage interest, and view images in 3D, just to name a few. It's also integral to the intranet applications and other e-business solutions that are the foundation of corporate computing. Please note you now need a Java License from Oracle to use unless installed for Personal Use and Development Use",
+    "Description": "Java allows you to play online games, chat with people around the world, calculate your mortgage interest, and view images in 3D, just to name a few. It''s also integral to the intranet applications and other e-business solutions that are the foundation of corporate computing. Please note you now need a Java License from Oracle to use unless installed for Personal Use and Development Use",
     "winget": "none",
     "choco": "jre8",
     "default": [],
@@ -1532,7 +1531,7 @@ $itt.database.applications = @'
   },
   {
     "Name": "Skype",
-    "Description": "Skype - Install Skype, add your friends as contacts, then call, video call and instant message with them for free. Call people who aren't on Skype too, at really low rates",
+    "Description": "Skype - Install Skype, add your friends as contacts, then call, video call and instant message with them for free. Call people who aren''t on Skype too, at really low rates",
     "winget": "Microsoft.Skype",
     "choco": "skype",
     "default": [],
@@ -1658,7 +1657,7 @@ $itt.database.applications = @'
   },
   {
     "Name": "Android Studio",
-    "Description": "Android Studio is the official integrated development environment for Google's Android operating system, built on JetBrains IntelliJ IDEA software and designed specifically for Android development",
+    "Description": "Android Studio is the official integrated development environment for Google''s Android operating system, built on JetBrains IntelliJ IDEA software and designed specifically for Android development",
     "winget": "Google.AndroidStudio",
     "choco": "androidstudio",
     "default": [],
@@ -1694,7 +1693,7 @@ $itt.database.applications = @'
   },
   {
     "Name": "AdGuard Home",
-    "Description": "AdGuard Home is a network-wide software for blocking ads and tracking. After you set it up, it'll cover ALL your home devices, and you don't need any client-side software for that",
+    "Description": "AdGuard Home is a network-wide software for blocking ads and tracking. After you set it up, it''ll cover ALL your home devices, and you don''t need any client-side software for that",
     "winget": "AdGuard.AdGuardHome",
     "choco": "adguardhome",
     "default": [],
@@ -1703,7 +1702,7 @@ $itt.database.applications = @'
   },
   {
     "Name": "Burp Suite Community Edition",
-    "Description": "Burp Suite is an integrated platform for performing security testing of web applications. Its various tools work seamlessly together to support the entire testing process, from initial mapping and analysis of an application's attack surface, through to finding and exploiting security vulnerabilities.",
+    "Description": "Burp Suite is an integrated platform for performing security testing of web applications. Its various tools work seamlessly together to support the entire testing process, from initial mapping and analysis of an application''s attack surface, through to finding and exploiting security vulnerabilities.",
     "winget": "PortSwigger.BurpSuite.Community",
     "choco": "burp-suite-free-edition",
     "default": [],
@@ -1775,7 +1774,7 @@ $itt.database.applications = @'
   },
   {
     "Name": "TeraCopy",
-    "Description": "TeraCopy is designed to copy and move files at the maximum possible speed. It skips bad files during the copying process, and then displays them at the end of the transfer so that you can see which ones need attention. TeraCopy can automatically check the copied files for errors by calculating their CRC checksum values. It also provides a lot more information about the files being copied than its Windows counterpart. TeraCopy integrates with Windows Explorer's right-click menu and can be set as the default copy handler",
+    "Description": "TeraCopy is designed to copy and move files at the maximum possible speed. It skips bad files during the copying process, and then displays them at the end of the transfer so that you can see which ones need attention. TeraCopy can automatically check the copied files for errors by calculating their CRC checksum values. It also provides a lot more information about the files being copied than its Windows counterpart. TeraCopy integrates with Windows Explorer''s right-click menu and can be set as the default copy handler",
     "winget": "CodeSector.TeraCopy",
     "choco": "teracopy",
     "default": [],
@@ -2270,7 +2269,7 @@ $itt.database.applications = @'
   },
   {
     "Name": "Dropbox",
-    "Description": "Organize all your team's content, tune out distractions, and get everyone coordinated with the world's first smart workspace",
+    "Description": "Organize all your team''s content, tune out distractions, and get everyone coordinated with the world''s first smart workspace",
     "winget": "Dropbox.Dropbox",
     "choco": "dropbox",
     "default": [],
@@ -2395,7 +2394,7 @@ $itt.database.applications = @'
     "check": "false"
   },
   {
-    "Name": "Key'n'Stroke",
+    "Name": "Key''n''Stroke",
     "Description": "KeynStroke makes it easy for your audience to follow your actions on the screen",
     "winget": "none",
     "choco": "key-n-stroke",
@@ -2425,7 +2424,7 @@ $itt.database.applications = @'
     "Name": "Ryujinx",
     "Description": "Ryujinx is an opensource Nintendo Switch emulator created by gdkchan and written in C This emulator aims at providing excellent accuracy and performance a userfriendly interface and consistent builds",
     "winget": "none",
-    "choco": "ryujinx --params '/DesktopShortcut'",
+    "choco": "ryujinx --params ''/DesktopShortcut''",
     "default": [],
     "category": "Gaming",
     "check": "false"
@@ -3286,14 +3285,10 @@ $itt.database.applications = @'
     "check": "false"
   }
 ]
-
-'@ | ConvertFrom-Json
-$itt.database.locales = @'
-{"Controls":{"ar":{"name":"عربي","Welcome":"توفر هذه الأداة تسهيلات كبيرة في عملية تثبيت البرامج وتحسين الاداء. انضم إلينا لتساهم في تطويرها وجعلها أكثر اكتمالًا","sysinfo":"معلومات النظام","PowerOptions":"خيارات الطاقة","devicemgr":"إدارة الأجهزة","services":"خدمات","networks":"شبكات","appsfeatures":"التطبيقات و الميزات","taskmgr":"مدير المهام","diskmgr":"إدارة القرص","InstallBtn":"تثبيت","applyBtn":"تطبيق","downloading":"جارٍ التثبيت","about":"عن المطور","thirdparty":"روابط خارجية","preferences":"التفضيلات","management":"إدارة الجهاز","apps":"تطبيقات","tweaks":"تحسينات","settings":"إعدادات","saveapps":"حفظ البرامج","loadapps":"أسترجاع البرامج","music":"الموسيقى","on":"تشغيل ","off":"كتم","Dark":"ليلا","Light":"نهارا","defaultTheme":"استخدم إعدادات النظام","ittlink":"أنشاء أختصار على سطح المكتب","reset":"الوضع الافتراضي","reopen":"يرجى اعادة فتح الاداة مرة اخرى","theme":"المظهر","language":"اللغة","mas":"تفعيل الويندوز","winoffice":"تنزيل ويندوز / أوفيس","idm":"تفعيل الدون لود مانجر","extensions":"أضافات المتصفحات","all":"الكل","search":"بحث","restorepoint":"إنشاء نقطة الاستعادة","chocoloc":"مجلد التنزيلات المحمولة","InstallMessage":"هل تريد تثبيت البرامج التالية","ApplyMessage":"هل تريد تطبيق التحسينات التالية","Applying":"جارٍي التطبيق","Pleasewait":"يرجى الانتظار، يوجد عملية في الخلفية","choseapp":"اختر على الأقل تطبيقًا لتثبيته","chosetweak":"اختار على الاقل تحسين واحد لتطبيقه","lastupdate":"آخر تحديث","sourcecode":"الشفرة المصدرية","devby":"صنع بـ ♥ من قبل عماد عادل","exit":"هل أنت متأكد من رغبتك في إغلاق البرنامج؟ إذا كان هناك أي تثبيتات، فسيتم إيقافها.","watchdemo":"مرحبا بك","happybirthday":"!عيد ميلاد سعيد عماد","myplaylist":"انه عيد ميلادي و قائمة الموسيقى الخاصة بي","OneAppReq":"يرجى اختيار تطبيق واحد على الاقل لحفظه","syslang":"استخدم لغة النظام"},"de":{"name":"Deutsch","Welcome":"Sparen Sie Zeit indem Sie mehrere Programme gleichzeitig installieren und die Leistung Ihres Windows steigern. Schließen Sie sich uns an um dieses Tool zu verbessern und noch besser zu machen. Sie können auch Ihre Lieblings-Musik-Apps und Anpassungen hinzufügen.","installBtn":"Installieren","applyBtn":"Anwenden","downloading":"Herunterladen...","about":"Über","thirdparty":"Drittanbieter","preferences":"Einstellungen","management":"Verwaltung","apps":"Apps","tweaks":"Optimierungen","settings":"Einstellungen","saveapps":"Speichern","loadapps":"Wiederherstellen","music":"Musik","on":"Ein ","off":"Aus","diskmgr":"Datenträgerverwaltung","taskmgr":"Task-Manager","appsfeatures":"Apps-Funktionen","networks":"Netzwerke","services":"Dienste","devicemgr":"Geräte-Manager","PowerOptions":"Energieoptionen","sysinfo":"Systeminfo","defaultTheme":"Systemeinstellungen verwenden","ittlink":"Desktop-Verknüpfung erstellen","reset":"Einstellungen zurücksetzen","reopen":"Bitte ITT erneut öffnen.","theme":"Thema","language":"Sprache","mas":"Microsoft Aktivierungsskripte (MAS)","winoffice":"Windows / Office ISO herunterladen","idm":"IDM-Aktivierung","extensions":"Browser-Erweiterungen","all":"Alle","search":"Suchen","restorepoint":"Wiederherstellungspunkt erstellen","chocoloc":"Ordner für tragbare Downloads","InstallMessage":"Sind Sie sicher  dass Sie die folgenden Anwendungen installieren möchten?","ApplyMessage":"Sind Sie sicher dass Sie die folgenden Anpassungen anwenden möchten?","Applying":"Anwenden...","choseapp":"Wählen Sie mindestens eine App zur Installation aus.","chosetweak":"Wählen Sie mindestens eine Optimierung zur Anwendung aus.","pleasewait":"Bitte warten ein Prozess läuft im Hintergrund.","lastupdate":"Letztes Update","sourcecode":"Quellcode","devby":"Mit ♥ gemacht von Emad Adel","exit":"Sind Sie sicher dass Sie das Programm schließen möchten? Alle Installationen werden abgebrochen.","watchdemo":"Willkommen","happybirthday":"Alles Gute zum Geburtstag mir!","myplaylist":"Es ist mein Geburtstag und meine Playlist ♪","OneAppReq":"Wählen Sie mindestens eine App zum Speichern aus.","contributors":"Mitwirkende","syslang":"Systemsprache"},"en":{"name":"English","Welcome":"Save time by installing multiple programs at once and boost your Windows performance. Join us in improving this tool and making it better. You can also add your favorite music  apps  and tweaks.","installBtn":"Install","applyBtn":"Apply","downloading":"Downloading...","about":"About","thirdparty":"Third-party","preferences":"Preferences","management":"Management","apps":"Apps","tweaks":"Tweaks","settings":"Settings","saveapps":"Save","loadapps":"Restore","music":"Music","on":"On ","off":"Off","diskmgr":"Disk Managment","taskmgr":"Task Manager","appsfeatures":"Apps-Features","networks":"Networks","services":"Services","devicemgr":"Device Manager","PowerOptions":"Power Options","sysinfo":"System Info","defaultTheme":"Use system setting","ittlink":"Create desktop shortcut","reset":"Reset Preferences","reopen":"Please reopen ITT again.","theme":"Theme","language":"Language","mas":"Microsoft Activation Scripts (MAS)","winoffice":"Download Windows / Office ISO","idm":"IDM Activation","extensions":"Browsers Extensions","all":"All","search":"Search","restorepoint":"Create a restore point","chocoloc":"Portable Downloads Folder","InstallMessage":"Are you sure you want to install the following applications","ApplyMessage":"Are you sure you want to apply the following tweaks","Applying":"Applying...","choseapp":"Please select at least one app to install.","chosetweak":"Please select at least one tweak to apply.","pleasewait":"Please wait  a process is running in the background","lastupdate":"Last update","sourcecode":"Source Code","devby":"Made with ♥ by Emad Adel","exit":"Are you sure you want to close the program? If there are any installations they will be terminated.","watchdemo":"Welcome","happybirthday":"Happy Birthday to me!","myplaylist":"It's my Birthday and My Playlist ♪","OneAppReq":"Choose at least one app to save it","syslang":"System language"},"es":{"name":"Español","Welcome":"Ahorra tiempo instalando varios programas a la vez y mejora el rendimiento de tu Windows. Únete a nosotros para mejorar esta herramienta y hacerla aún mejor. También puedes agregar tus aplicaciones musicales y ajustes favoritos.","installBtn":"Instalar","applyBtn":"Aplicar","downloading":"Descargando...","about":"Acerca de","thirdparty":"Terceros","preferences":"Preferencias","management":"Gestión","apps":"Aplicaciones","tweaks":"Ajustes","settings":"Configuración","saveapps":"Guardar","loadapps":"Restaurar","music":"Música","on":"Encendido ","off":"Apagado","diskmgr":"Administración de discos","taskmgr":"Administrador de tareas","appsfeatures":"Aplicaciones-Funciones","networks":"Redes","services":"Servicios","devicemgr":"Administrador de dispositivos","PowerOptions":"Opciones de energía","sysinfo":"Información del sistema","defaultTheme":"Usar la configuración del sistema","ittlink":"Crear acceso directo en el escritorio","reset":"Restablecer preferencias","reopen":"Vuelve a abrir ITT.","theme":"Tema","language":"Idioma","mas":"Scripts de activación de Microsoft (MAS)","winoffice":"Descargar ISO de Windows / Office","idm":"Activación IDM","extensions":"Extensiones del navegador","all":"Todos","search":"Buscar","restorepoint":"Crear un punto de restauración","chocoloc":"Carpeta de descargas portátiles","InstallMessage":"¿Estás seguro de que deseas instalar las siguientes aplicaciones?","ApplyMessage":"¿Estás seguro de que deseas aplicar los siguientes ajustes?","Applying":"Aplicando...","choseapp":"Selecciona al menos una aplicación para instalar.","chosetweak":"Selecciona al menos un ajuste para aplicar.","pleasewait":"Por favorespera un proceso se está ejecutando en segundo plano.","lastupdate":"Última actualización","sourcecode":"Código fuente","devby":"Hecho con ♥ por Emad Adel","exit":"¿Estás seguro de que deseas cerrar el programa? Si hay instalaciones se interrumpirán.","watchdemo":"Bienvenido","happybirthday":"¡Feliz cumpleaños a mí!","myplaylist":"Es mi cumpleaños y mi lista de reproducción ♪","OneAppReq":"Elige al menos una aplicación para guardarla.","contributors":"Colaboradores","syslang":"Idioma del sistema"},"fr":{"name":"Français","Welcome":"Gagnez du temps en installant plusieurs programmes à la fois et améliorez les performances de votre Windows. Rejoignez-nous pour améliorer cet outil et le rendre encore meilleur. Vous pouvez également ajouter vos applications musicales et vos tweaks préférés.","installBtn":"Installer","applyBtn":"Appliquer","downloading":"Téléchargement...","about":"À propos","thirdparty":"Tiers","preferences":"Préférences","management":"Gestion","apps":"Applications","tweaks":"Optimisations","settings":"Paramètres","saveapps":"Sauvegarder","loadapps":"Restaurer","music":"Musique","on":"Activé ","off":"Désactivé","diskmgr":"Gestion des disques","taskmgr":"Gestionnaire des tâches","appsfeatures":"Applications-Fonctionnalités","networks":"Réseaux","services":"Services","devicemgr":"Gestionnaire de périphériques","PowerOptions":"Options d'alimentation","sysinfo":"Infos système","defaultTheme":"Utiliser les paramètres système","ittlink":"Créer un raccourci sur le bureau","reset":"Réinitialiser les préférences","reopen":"Veuillez rouvrir ITT.","theme":"Thème","language":"Langue","mas":"Scripts d'activation Microsoft (MAS)","winoffice":"Télécharger l'ISO Windows / Office","idm":"Activation IDM","extensions":"Extensions de navigateurs","all":"Tout","search":"Rechercher","restorepoint":"Créer un point de restauration","chocoloc":"Dossier de téléchargements portables","InstallMessage":"Êtes-vous sûr de vouloir installer les applications suivantes ?","ApplyMessage":"Êtes-vous sûr de vouloir appliquer les tweaks suivants ?","Applying":"Application...","choseapp":"Veuillez sélectionner au moins une application à installer.","chosetweak":"Veuillez sélectionner au moins un tweak à appliquer.","pleasewait":"Veuillez patienter","lastupdate":"Dernière mise à jour  un processus est en cours d'exécution en arrière-plan.","sourcecode":"Code source","devby":"Fait avec ♥ par Emad Adel","exit":"Êtes-vous sûr de vouloir fermer le programme ? Si des installations sont en cours  elles seront interrompues.","watchdemo":"Bienvenue","happybirthday":"Joyeux anniversaire à moi !","myplaylist":"C'est mon anniversaire et ma playlist ♪","OneAppReq":"Choisissez au moins une application à sauvegarder.","contributors":"Contributeurs","syslang":"Langue du système"},"ga":{"name":"Gaeilge","Welcome":"Sábháil am trí níos mó ná clár amháin a shuiteáil ag an am céanna agus feabhsaigh feidhmíocht do Windows. Bí linn ag feabhsú an uirlis seo agus ag déanamh é níos fearr. Is féidir leat do chuid apps ceoil agus feabhsúcháin is fearr leat a chur leis freisin.","installBtn":"Suiteáil","applyBtn":"Cuir i bhfeidhm","downloading":"Ag suiteáil...","about":"Faoi","thirdparty":"Tríú páirtí","preferences":"Roghanna","management":"Bainistíocht","apps":"Aplaicí","tweaks":"Feabhsúcháin","settings":"Socruithe","saveapps":"Sábháil","loadapps":"Athchóirigh","music":"Ceol","on":"Ar ","off":"Múchta","diskmgr":"Bainistíocht Diosca","taskmgr":"Bainisteoir Tascanna","appsfeatures":"Gnéithe Aipeanna","networks":"Líonraí","services":"Seirbhísí","devicemgr":"Bainisteoir Gléasanna","PowerOptions":"Roghanna Cumhachta","sysinfo":"Eolas Córas","defaultTheme":"Úsáid socrú an chórais","ittlink":"Cruthaigh gearrthagairt deisce","reset":"Athshocraigh Roghanna","reopen":"Oscail ITT arís le do thoil.","theme":"Téama","language":"Teanga","mas":"Scripteanna Gníomhachtaithe Microsoft (MAS)","winoffice":"Íoslódáil ISO Windows / Office","idm":"Gníomhachtú IDM","extensions":"Síntí Brabhsálaí","all":"Uile","search":"Cuardaigh","restorepoint":"Cruthaigh pointe athchóirithe","chocoloc":"Fillteán Íoslódálacha Inaistrithe","InstallMessage":"An bhfuil tú cinnte gur mhaith leat na feidhmchláir seo a shuiteáil","ApplyMessage":"An bhfuil tú cinnte gur mhaith leat na feabhsúcháin seo a chur i bhfeidhm","Applying":"Cur i bhfeidhm...","choseapp":"Roghnaigh ar a laghad aip amháin le suiteáil.","chosetweak":"Roghnaigh ar a laghad feabhsúchán amháin le cur i bhfeidhm.","pleasewait":"Fan le do thoil tá próiseas ag rith sa chúlra","lastupdate":"An nuashonrú deireanach","sourcecode":"Cód Foinse","devby":"Déanta le ♥ ag Emad Adel","exit":"An bhfuil tú cinnte gur mhaith leat an clár a dhúnadh? Má tá suiteálacha ar siúl beidh siad curtha ar ceal.","watchdemo":"Fáilte","happybirthday":"Breithlá Shona domsa!","myplaylist":"Is é mo Bhreithlá é agus Mo Phléaráca ♪","OneAppReq":"Roghnaigh ar a laghad aip amháin chun é a shábháil","syslang":"Teanga an chórais"},"ko":{"name":"한국어","Welcome":"여러 프로그램을 한 번에 설치하여 시간을 절약하고 Windows 성능을 향상시킵니다. 도구를 개선하고 우리와 함께 훌륭하게 만들어 보세요.","sysinfo":"시스템 정보","PowerOptions":"전원 옵션","devicemgr":"장치 관리자","services":"서비스","networks":"네트워크","appsfeatures":"앱 기능","taskmgr":"작업 관리자","diskmgr":"디스크 관리","installBtn":"설치","applyBtn":"적용","downloading":"다운로드 중","about":"정보","thirdparty":"외부","preferences":"환경 설정","management":"관리","apps":"앱","tweaks":"설정","settings":"설정","saveapps":"선택한 앱 저장","loadapps":"선택한 앱 복원","music":"음악","on":"켜기","reset":"환경 설정 초기화","off":"끄기","Dark":"다크","Light":"라이트","defaultTheme":"시스템","ittlink":"바탕화면 바로 가기 만들기","reopen":"ITT를 다시 열어주세요.","theme":"테마","language":"언어","mas":"Microsoft 활성화 스크립트 (MAS)","winoffice":"Windows / Office ISO 다운로드","idm":"IDM 활성화","extensions":"브라우저 확장 프로그램","all":"모두","restorepoint":"복원 지점 생성","chocoloc":"휴대용 다운로드 폴더","InstallMessage":"선택한 앱을 설치하시겠습니까","ApplyMessage":"선택한 조정 사항을 적용하시겠습니까","installing":"설치 중..","Applying":"적용 중..","choseapp":"설치할 적어도 하나의 앱을 선택하십시오","chosetweak":"조정 사항 적용 대기 중","pleasewait":"배경에서 프로세스가 진행 중입니다. 잠시 기다려주세요.","lastupdate":"마지막 업데이트","sourcecode":"소스 코드","devby":"Emad Adel 제작 ♥","exit":"프로그램을 종료하시겠습니까? 진행 중인 설치가 있으면 중단됩니다.","watchdemo":"환영합니다","happybirthday":"생일 축하합니다 Emad!","myplaylist":"제 생일과 제 플레이리스트 ♪","syslang":"시스템 언어"},"ru":{"name":"Русский","Welcome":"Сэкономьте время устанавливая несколько программ одновременно и улучшите производительность Windows. Присоединяйтесь к нам для улучшения этого инструмента и его совершенствования. Вы также можете добавить свои любимые музыкальные приложения и настройки.","installBtn":"Установить","applyBtn":"Применить","downloading":"Загрузка...","about":"О нас","thirdparty":"Сторонние","preferences":"Настройки","management":"Управление","apps":"Приложения","tweaks":"Настройки","settings":"Параметры","saveapps":"Сохранить","loadapps":"Восстановить","music":"Музыка","on":"Вкл ","off":"Выкл","diskmgr":"Управление дисками","taskmgr":"Диспетчер задач","appsfeatures":"Приложения-Функции","networks":"Сети","services":"Сервисы","devicemgr":"Диспетчер устройств","PowerOptions":"Энергопитание","sysinfo":"Информация о системе","defaultTheme":"Использовать системные настройки","ittlink":"Создать ярлык на рабочем столе","reset":"Сбросить настройки","reopen":"Пожалуйста перезапустите ITT.","theme":"Тема","language":"Язык","mas":"Microsoft Activation Scripts (MAS)","winoffice":"Скачать ISO Windows / Office","idm":"Активация IDM","extensions":"Расширения для браузеров","all":"Все","search":"Поиск","restorepoint":"Создать точку восстановления","chocoloc":"Папка для портативных загрузок","InstallMessage":"Вы уверены что хотите установить следующие приложения?","ApplyMessage":"Вы уверены что хотите применить следующие настройки?","Applying":"Применение...","choseapp":"Выберите хотя бы одно приложение для установки.","chosetweak":"Выберите хотя бы одну настройку для применения.","pleasewait":"Подождите выполняется фоновый процесс.","lastupdate":"Последнее обновление","sourcecode":"Исходный код","devby":"Сделано с ♥ Emad Adel","exit":"Вы уверены что хотите закрыть программу? Все установки будут прерваны.","watchdemo":"Добро пожаловать","happybirthday":"С Днем Рождения меня!","myplaylist":"Это мой день рождения и мой плейлист ♪","OneAppReq":"Выберите хотя бы одно приложение для сохранения.","contributors":"Соавторы","syslang":"Язык системы"},"tr":{"name":"Türkçe","Welcome":"Birden fazla programı aynı anda yükleyerek zaman kazanın ve Windows performansınızı artırın. Bu aracı geliştirmek ve daha da iyileştirmek için bize katılın. Ayrıca favori müzik uygulamalarınızı ve ayarlarınızı da ekleyebilirsiniz.","installBtn":"Yükle","applyBtn":"Uygula","downloading":"İndiriliyor...","about":"Hakkında","thirdparty":"Üçüncü Taraf","preferences":"Tercihler","management":"Yönetim","apps":"Uygulamalar","tweaks":"İnce Ayarlar","settings":"Ayarlar","saveapps":"Kayıt Et","loadapps":"Geri Yükle","music":"Müzik","on":"Açık ","off":"Kapalı","diskmgr":"Disk Yönetimi","taskmgr":"Görev Yöneticisi","appsfeatures":"Uygulamalar-Özellikler","networks":"Ağlar","services":"Hizmetler","devicemgr":"Aygıt Yöneticisi","PowerOptions":"Güç Seçenekleri","sysinfo":"Sistem Bilgisi","defaultTheme":"Sistem ayarlarını kullan","ittlink":"Masaüstü kısayolu oluştur","reset":"Tercihleri sıfırla","reopen":"Lütfen ITT'yi tekrar açın.","theme":"Tema","language":"Dil","mas":"Microsoft Etkinleştirme Betikleri (MAS)","winoffice":"Windows / Office ISO İndir","idm":"IDM Etkinleştirme","extensions":"Tarayıcı Eklentileri","all":"Tümü","search":"Ara","restorepoint":"Geri yükleme noktası oluştur","chocoloc":"Taşınabilir İndirilenler Klasörü","InstallMessage":"Aşağıdaki uygulamaları yüklemek istediğinizden emin misiniz?","ApplyMessage":"Aşağıdaki ayarları uygulamak istediğinizden emin misiniz?","Applying":"Uygulanıyor...","choseapp":"Lütfen yüklemek için en az bir uygulama seçin.","chosetweak":"Lütfen uygulamak için en az bir ince ayar seçin.","pleasewait":"Lütfen bekleyin arka planda bir işlem çalışıyor.","lastupdate":"Son güncelleme","sourcecode":"Kaynak Kodu","devby":"Emad Adel tarafından ♥ ile yapıldı","exit":"Programı kapatmak istediğinizden emin misiniz? Herhangi bir kurulum varsa durdurulacak.","watchdemo":"Hoş geldiniz","happybirthday":"Kendime Mutlu Yıllar!","myplaylist":"Benim Doğum Günüm ve Benim Çalma Listem ♪","OneAppReq":"Kaydetmek için en az bir uygulama seçin.","contributors":"Katkıda Bulunanlar","syslang":"Sistem dili"},"zh":{"name":"中文","Welcome":"通过一次安装多个程序节省时间并提升您的Windows性能。加入我们，改进工具，使其更加优秀。","sysinfo":"系统信息","PowerOptions":"电源选项","devicemgr":"设备管理器","services":"服务","networks":"网络","appsfeatures":"应用特性","taskmgr":"任务管理器","diskmgr":"磁盘管理","installBtn":"安装","applyBtn":"应用","downloading":"下载中","about":"关于","thirdparty":"第三方","preferences":"偏好","management":"管理","apps":"应用","tweaks":"调整","settings":"设置","saveapps":"保存选定应用","loadapps":"恢复选定应用","music":"音乐","on":"开启","off":"关闭","reset":"重置偏好设置","Dark":"深色","Light":"浅色","defaultTheme":"系统","ittlink":"创建桌面快捷方式","reopen":"请重新打开ITT。","theme":"主题","language":"语言","mas":"Microsoft 激活脚本 (MAS)","winoffice":"下载 Windows / Office ISO","idm":"IDM 激活","extensions":"浏览器扩展","all":"都","restorepoint":"创建还原点","chocoloc":"便携下载文件夹","InstallMessage":"是否要安装选定的应用","ApplyMessage":"是否要应用选定的调整","installing":"安装中..","Applying":"应用中..","choseapp":"请选择至少一款要安装的应用","chosetweak":"请等待调整应用完成","pleasewait":"请等待，后台有进程在进行中。","lastupdate":"最后更新","sourcecode":"源代码","devby":"由 Emad Adel ♥ 制作","exit":"您确定要关闭程序吗？如果有任何安装正在进行，它们将被终止。","watchdemo":"欢迎","happybirthday":"生日快乐 Emad!","myplaylist":"这是我的生日和我的播放列表 ♪","syslang":"系统语言"}}}
-
-'@ | ConvertFrom-Json
-$itt.database.ost = @'
-{
+' | ConvertFrom-Json
+$itt.database.locales = '{"Controls":{"ar":{"name":"عربي","Welcome":"توفر هذه الأداة تسهيلات كبيرة في عملية تثبيت البرامج وتحسين الاداء. انضم إلينا لتساهم في تطويرها وجعلها أكثر اكتمالًا","sysinfo":"معلومات النظام","PowerOptions":"خيارات الطاقة","devicemgr":"إدارة الأجهزة","services":"خدمات","networks":"شبكات","appsfeatures":"التطبيقات و الميزات","taskmgr":"مدير المهام","diskmgr":"إدارة القرص","InstallBtn":"تثبيت","applyBtn":"تطبيق","downloading":"جارٍ التثبيت","about":"عن المطور","thirdparty":"روابط خارجية","preferences":"التفضيلات","management":"إدارة الجهاز","apps":"تطبيقات","tweaks":"تحسينات","settings":"إعدادات","saveapps":"حفظ البرامج","loadapps":"أسترجاع البرامج","music":"الموسيقى","on":"تشغيل ","off":"كتم","Dark":"ليلا","Light":"نهارا","defaultTheme":"استخدم إعدادات النظام","ittlink":"أنشاء أختصار على سطح المكتب","reset":"الوضع الافتراضي","reopen":"يرجى اعادة فتح الاداة مرة اخرى","theme":"المظهر","language":"اللغة","mas":"تفعيل الويندوز","winoffice":"تنزيل ويندوز / أوفيس","idm":"تفعيل الدون لود مانجر","extensions":"أضافات المتصفحات","all":"الكل","search":"بحث","restorepoint":"إنشاء نقطة الاستعادة","chocoloc":"مجلد التنزيلات المحمولة","InstallMessage":"هل تريد تثبيت البرامج التالية","ApplyMessage":"هل تريد تطبيق التحسينات التالية","Applying":"جارٍي التطبيق","Pleasewait":"يرجى الانتظار، يوجد عملية في الخلفية","choseapp":"اختر على الأقل تطبيقًا لتثبيته","chosetweak":"اختار على الاقل تحسين واحد لتطبيقه","lastupdate":"آخر تحديث","sourcecode":"الشفرة المصدرية","devby":"صنع بـ ♥ من قبل عماد عادل","exit":"هل أنت متأكد من رغبتك في إغلاق البرنامج؟ إذا كان هناك أي تثبيتات، فسيتم إيقافها.","watchdemo":"مرحبا بك","happybirthday":"!عيد ميلاد سعيد عماد","myplaylist":"انه عيد ميلادي و قائمة الموسيقى الخاصة بي","OneAppReq":"يرجى اختيار تطبيق واحد على الاقل لحفظه","syslang":"استخدم لغة النظام"},"de":{"name":"Deutsch","Welcome":"Sparen Sie Zeit indem Sie mehrere Programme gleichzeitig installieren und die Leistung Ihres Windows steigern. Schließen Sie sich uns an um dieses Tool zu verbessern und noch besser zu machen. Sie können auch Ihre Lieblings-Musik-Apps und Anpassungen hinzufügen.","installBtn":"Installieren","applyBtn":"Anwenden","downloading":"Herunterladen...","about":"Über","thirdparty":"Drittanbieter","preferences":"Einstellungen","management":"Verwaltung","apps":"Apps","tweaks":"Optimierungen","settings":"Einstellungen","saveapps":"Speichern","loadapps":"Wiederherstellen","music":"Musik","on":"Ein ","off":"Aus","diskmgr":"Datenträgerverwaltung","taskmgr":"Task-Manager","appsfeatures":"Apps-Funktionen","networks":"Netzwerke","services":"Dienste","devicemgr":"Geräte-Manager","PowerOptions":"Energieoptionen","sysinfo":"Systeminfo","defaultTheme":"Systemeinstellungen verwenden","ittlink":"Desktop-Verknüpfung erstellen","reset":"Einstellungen zurücksetzen","reopen":"Bitte ITT erneut öffnen.","theme":"Thema","language":"Sprache","mas":"Microsoft Aktivierungsskripte (MAS)","winoffice":"Windows / Office ISO herunterladen","idm":"IDM-Aktivierung","extensions":"Browser-Erweiterungen","all":"Alle","search":"Suchen","restorepoint":"Wiederherstellungspunkt erstellen","chocoloc":"Ordner für tragbare Downloads","InstallMessage":"Sind Sie sicher  dass Sie die folgenden Anwendungen installieren möchten?","ApplyMessage":"Sind Sie sicher dass Sie die folgenden Anpassungen anwenden möchten?","Applying":"Anwenden...","choseapp":"Wählen Sie mindestens eine App zur Installation aus.","chosetweak":"Wählen Sie mindestens eine Optimierung zur Anwendung aus.","pleasewait":"Bitte warten ein Prozess läuft im Hintergrund.","lastupdate":"Letztes Update","sourcecode":"Quellcode","devby":"Mit ♥ gemacht von Emad Adel","exit":"Sind Sie sicher dass Sie das Programm schließen möchten? Alle Installationen werden abgebrochen.","watchdemo":"Willkommen","happybirthday":"Alles Gute zum Geburtstag mir!","myplaylist":"Es ist mein Geburtstag und meine Playlist ♪","OneAppReq":"Wählen Sie mindestens eine App zum Speichern aus.","contributors":"Mitwirkende","syslang":"Systemsprache"},"en":{"name":"English","Welcome":"Save time by installing multiple programs at once and boost your Windows performance. Join us in improving this tool and making it better. You can also add your favorite music  apps  and tweaks.","installBtn":"Install","applyBtn":"Apply","downloading":"Downloading...","about":"About","thirdparty":"Third-party","preferences":"Preferences","management":"Management","apps":"Apps","tweaks":"Tweaks","settings":"Settings","saveapps":"Save","loadapps":"Restore","music":"Music","on":"On ","off":"Off","diskmgr":"Disk Managment","taskmgr":"Task Manager","appsfeatures":"Apps-Features","networks":"Networks","services":"Services","devicemgr":"Device Manager","PowerOptions":"Power Options","sysinfo":"System Info","defaultTheme":"Use system setting","ittlink":"Create desktop shortcut","reset":"Reset Preferences","reopen":"Please reopen ITT again.","theme":"Theme","language":"Language","mas":"Microsoft Activation Scripts (MAS)","winoffice":"Download Windows / Office ISO","idm":"IDM Activation","extensions":"Browsers Extensions","all":"All","search":"Search","restorepoint":"Create a restore point","chocoloc":"Portable Downloads Folder","InstallMessage":"Are you sure you want to install the following applications","ApplyMessage":"Are you sure you want to apply the following tweaks","Applying":"Applying...","choseapp":"Please select at least one app to install.","chosetweak":"Please select at least one tweak to apply.","pleasewait":"Please wait  a process is running in the background","lastupdate":"Last update","sourcecode":"Source Code","devby":"Made with ♥ by Emad Adel","exit":"Are you sure you want to close the program? If there are any installations they will be terminated.","watchdemo":"Welcome","happybirthday":"Happy Birthday to me!","myplaylist":"It''s my Birthday and My Playlist ♪","OneAppReq":"Choose at least one app to save it","syslang":"System language"},"es":{"name":"Español","Welcome":"Ahorra tiempo instalando varios programas a la vez y mejora el rendimiento de tu Windows. Únete a nosotros para mejorar esta herramienta y hacerla aún mejor. También puedes agregar tus aplicaciones musicales y ajustes favoritos.","installBtn":"Instalar","applyBtn":"Aplicar","downloading":"Descargando...","about":"Acerca de","thirdparty":"Terceros","preferences":"Preferencias","management":"Gestión","apps":"Aplicaciones","tweaks":"Ajustes","settings":"Configuración","saveapps":"Guardar","loadapps":"Restaurar","music":"Música","on":"Encendido ","off":"Apagado","diskmgr":"Administración de discos","taskmgr":"Administrador de tareas","appsfeatures":"Aplicaciones-Funciones","networks":"Redes","services":"Servicios","devicemgr":"Administrador de dispositivos","PowerOptions":"Opciones de energía","sysinfo":"Información del sistema","defaultTheme":"Usar la configuración del sistema","ittlink":"Crear acceso directo en el escritorio","reset":"Restablecer preferencias","reopen":"Vuelve a abrir ITT.","theme":"Tema","language":"Idioma","mas":"Scripts de activación de Microsoft (MAS)","winoffice":"Descargar ISO de Windows / Office","idm":"Activación IDM","extensions":"Extensiones del navegador","all":"Todos","search":"Buscar","restorepoint":"Crear un punto de restauración","chocoloc":"Carpeta de descargas portátiles","InstallMessage":"¿Estás seguro de que deseas instalar las siguientes aplicaciones?","ApplyMessage":"¿Estás seguro de que deseas aplicar los siguientes ajustes?","Applying":"Aplicando...","choseapp":"Selecciona al menos una aplicación para instalar.","chosetweak":"Selecciona al menos un ajuste para aplicar.","pleasewait":"Por favorespera un proceso se está ejecutando en segundo plano.","lastupdate":"Última actualización","sourcecode":"Código fuente","devby":"Hecho con ♥ por Emad Adel","exit":"¿Estás seguro de que deseas cerrar el programa? Si hay instalaciones se interrumpirán.","watchdemo":"Bienvenido","happybirthday":"¡Feliz cumpleaños a mí!","myplaylist":"Es mi cumpleaños y mi lista de reproducción ♪","OneAppReq":"Elige al menos una aplicación para guardarla.","contributors":"Colaboradores","syslang":"Idioma del sistema"},"fr":{"name":"Français","Welcome":"Gagnez du temps en installant plusieurs programmes à la fois et améliorez les performances de votre Windows. Rejoignez-nous pour améliorer cet outil et le rendre encore meilleur. Vous pouvez également ajouter vos applications musicales et vos tweaks préférés.","installBtn":"Installer","applyBtn":"Appliquer","downloading":"Téléchargement...","about":"À propos","thirdparty":"Tiers","preferences":"Préférences","management":"Gestion","apps":"Applications","tweaks":"Optimisations","settings":"Paramètres","saveapps":"Sauvegarder","loadapps":"Restaurer","music":"Musique","on":"Activé ","off":"Désactivé","diskmgr":"Gestion des disques","taskmgr":"Gestionnaire des tâches","appsfeatures":"Applications-Fonctionnalités","networks":"Réseaux","services":"Services","devicemgr":"Gestionnaire de périphériques","PowerOptions":"Options d''alimentation","sysinfo":"Infos système","defaultTheme":"Utiliser les paramètres système","ittlink":"Créer un raccourci sur le bureau","reset":"Réinitialiser les préférences","reopen":"Veuillez rouvrir ITT.","theme":"Thème","language":"Langue","mas":"Scripts d''activation Microsoft (MAS)","winoffice":"Télécharger l''ISO Windows / Office","idm":"Activation IDM","extensions":"Extensions de navigateurs","all":"Tout","search":"Rechercher","restorepoint":"Créer un point de restauration","chocoloc":"Dossier de téléchargements portables","InstallMessage":"Êtes-vous sûr de vouloir installer les applications suivantes ?","ApplyMessage":"Êtes-vous sûr de vouloir appliquer les tweaks suivants ?","Applying":"Application...","choseapp":"Veuillez sélectionner au moins une application à installer.","chosetweak":"Veuillez sélectionner au moins un tweak à appliquer.","pleasewait":"Veuillez patienter","lastupdate":"Dernière mise à jour  un processus est en cours d''exécution en arrière-plan.","sourcecode":"Code source","devby":"Fait avec ♥ par Emad Adel","exit":"Êtes-vous sûr de vouloir fermer le programme ? Si des installations sont en cours  elles seront interrompues.","watchdemo":"Bienvenue","happybirthday":"Joyeux anniversaire à moi !","myplaylist":"C''est mon anniversaire et ma playlist ♪","OneAppReq":"Choisissez au moins une application à sauvegarder.","contributors":"Contributeurs","syslang":"Langue du système"},"ga":{"name":"Gaeilge","Welcome":"Sábháil am trí níos mó ná clár amháin a shuiteáil ag an am céanna agus feabhsaigh feidhmíocht do Windows. Bí linn ag feabhsú an uirlis seo agus ag déanamh é níos fearr. Is féidir leat do chuid apps ceoil agus feabhsúcháin is fearr leat a chur leis freisin.","installBtn":"Suiteáil","applyBtn":"Cuir i bhfeidhm","downloading":"Ag suiteáil...","about":"Faoi","thirdparty":"Tríú páirtí","preferences":"Roghanna","management":"Bainistíocht","apps":"Aplaicí","tweaks":"Feabhsúcháin","settings":"Socruithe","saveapps":"Sábháil","loadapps":"Athchóirigh","music":"Ceol","on":"Ar ","off":"Múchta","diskmgr":"Bainistíocht Diosca","taskmgr":"Bainisteoir Tascanna","appsfeatures":"Gnéithe Aipeanna","networks":"Líonraí","services":"Seirbhísí","devicemgr":"Bainisteoir Gléasanna","PowerOptions":"Roghanna Cumhachta","sysinfo":"Eolas Córas","defaultTheme":"Úsáid socrú an chórais","ittlink":"Cruthaigh gearrthagairt deisce","reset":"Athshocraigh Roghanna","reopen":"Oscail ITT arís le do thoil.","theme":"Téama","language":"Teanga","mas":"Scripteanna Gníomhachtaithe Microsoft (MAS)","winoffice":"Íoslódáil ISO Windows / Office","idm":"Gníomhachtú IDM","extensions":"Síntí Brabhsálaí","all":"Uile","search":"Cuardaigh","restorepoint":"Cruthaigh pointe athchóirithe","chocoloc":"Fillteán Íoslódálacha Inaistrithe","InstallMessage":"An bhfuil tú cinnte gur mhaith leat na feidhmchláir seo a shuiteáil","ApplyMessage":"An bhfuil tú cinnte gur mhaith leat na feabhsúcháin seo a chur i bhfeidhm","Applying":"Cur i bhfeidhm...","choseapp":"Roghnaigh ar a laghad aip amháin le suiteáil.","chosetweak":"Roghnaigh ar a laghad feabhsúchán amháin le cur i bhfeidhm.","pleasewait":"Fan le do thoil tá próiseas ag rith sa chúlra","lastupdate":"An nuashonrú deireanach","sourcecode":"Cód Foinse","devby":"Déanta le ♥ ag Emad Adel","exit":"An bhfuil tú cinnte gur mhaith leat an clár a dhúnadh? Má tá suiteálacha ar siúl beidh siad curtha ar ceal.","watchdemo":"Fáilte","happybirthday":"Breithlá Shona domsa!","myplaylist":"Is é mo Bhreithlá é agus Mo Phléaráca ♪","OneAppReq":"Roghnaigh ar a laghad aip amháin chun é a shábháil","syslang":"Teanga an chórais"},"ko":{"name":"한국어","Welcome":"여러 프로그램을 한 번에 설치하여 시간을 절약하고 Windows 성능을 향상시킵니다. 도구를 개선하고 우리와 함께 훌륭하게 만들어 보세요.","sysinfo":"시스템 정보","PowerOptions":"전원 옵션","devicemgr":"장치 관리자","services":"서비스","networks":"네트워크","appsfeatures":"앱 기능","taskmgr":"작업 관리자","diskmgr":"디스크 관리","installBtn":"설치","applyBtn":"적용","downloading":"다운로드 중","about":"정보","thirdparty":"외부","preferences":"환경 설정","management":"관리","apps":"앱","tweaks":"설정","settings":"설정","saveapps":"선택한 앱 저장","loadapps":"선택한 앱 복원","music":"음악","on":"켜기","reset":"환경 설정 초기화","off":"끄기","Dark":"다크","Light":"라이트","defaultTheme":"시스템","ittlink":"바탕화면 바로 가기 만들기","reopen":"ITT를 다시 열어주세요.","theme":"테마","language":"언어","mas":"Microsoft 활성화 스크립트 (MAS)","winoffice":"Windows / Office ISO 다운로드","idm":"IDM 활성화","extensions":"브라우저 확장 프로그램","all":"모두","restorepoint":"복원 지점 생성","chocoloc":"휴대용 다운로드 폴더","InstallMessage":"선택한 앱을 설치하시겠습니까","ApplyMessage":"선택한 조정 사항을 적용하시겠습니까","installing":"설치 중..","Applying":"적용 중..","choseapp":"설치할 적어도 하나의 앱을 선택하십시오","chosetweak":"조정 사항 적용 대기 중","pleasewait":"배경에서 프로세스가 진행 중입니다. 잠시 기다려주세요.","lastupdate":"마지막 업데이트","sourcecode":"소스 코드","devby":"Emad Adel 제작 ♥","exit":"프로그램을 종료하시겠습니까? 진행 중인 설치가 있으면 중단됩니다.","watchdemo":"환영합니다","happybirthday":"생일 축하합니다 Emad!","myplaylist":"제 생일과 제 플레이리스트 ♪","syslang":"시스템 언어"},"ru":{"name":"Русский","Welcome":"Сэкономьте время устанавливая несколько программ одновременно и улучшите производительность Windows. Присоединяйтесь к нам для улучшения этого инструмента и его совершенствования. Вы также можете добавить свои любимые музыкальные приложения и настройки.","installBtn":"Установить","applyBtn":"Применить","downloading":"Загрузка...","about":"О нас","thirdparty":"Сторонние","preferences":"Настройки","management":"Управление","apps":"Приложения","tweaks":"Настройки","settings":"Параметры","saveapps":"Сохранить","loadapps":"Восстановить","music":"Музыка","on":"Вкл ","off":"Выкл","diskmgr":"Управление дисками","taskmgr":"Диспетчер задач","appsfeatures":"Приложения-Функции","networks":"Сети","services":"Сервисы","devicemgr":"Диспетчер устройств","PowerOptions":"Энергопитание","sysinfo":"Информация о системе","defaultTheme":"Использовать системные настройки","ittlink":"Создать ярлык на рабочем столе","reset":"Сбросить настройки","reopen":"Пожалуйста перезапустите ITT.","theme":"Тема","language":"Язык","mas":"Microsoft Activation Scripts (MAS)","winoffice":"Скачать ISO Windows / Office","idm":"Активация IDM","extensions":"Расширения для браузеров","all":"Все","search":"Поиск","restorepoint":"Создать точку восстановления","chocoloc":"Папка для портативных загрузок","InstallMessage":"Вы уверены что хотите установить следующие приложения?","ApplyMessage":"Вы уверены что хотите применить следующие настройки?","Applying":"Применение...","choseapp":"Выберите хотя бы одно приложение для установки.","chosetweak":"Выберите хотя бы одну настройку для применения.","pleasewait":"Подождите выполняется фоновый процесс.","lastupdate":"Последнее обновление","sourcecode":"Исходный код","devby":"Сделано с ♥ Emad Adel","exit":"Вы уверены что хотите закрыть программу? Все установки будут прерваны.","watchdemo":"Добро пожаловать","happybirthday":"С Днем Рождения меня!","myplaylist":"Это мой день рождения и мой плейлист ♪","OneAppReq":"Выберите хотя бы одно приложение для сохранения.","contributors":"Соавторы","syslang":"Язык системы"},"tr":{"name":"Türkçe","Welcome":"Birden fazla programı aynı anda yükleyerek zaman kazanın ve Windows performansınızı artırın. Bu aracı geliştirmek ve daha da iyileştirmek için bize katılın. Ayrıca favori müzik uygulamalarınızı ve ayarlarınızı da ekleyebilirsiniz.","installBtn":"Yükle","applyBtn":"Uygula","downloading":"İndiriliyor...","about":"Hakkında","thirdparty":"Üçüncü Taraf","preferences":"Tercihler","management":"Yönetim","apps":"Uygulamalar","tweaks":"İnce Ayarlar","settings":"Ayarlar","saveapps":"Kayıt Et","loadapps":"Geri Yükle","music":"Müzik","on":"Açık ","off":"Kapalı","diskmgr":"Disk Yönetimi","taskmgr":"Görev Yöneticisi","appsfeatures":"Uygulamalar-Özellikler","networks":"Ağlar","services":"Hizmetler","devicemgr":"Aygıt Yöneticisi","PowerOptions":"Güç Seçenekleri","sysinfo":"Sistem Bilgisi","defaultTheme":"Sistem ayarlarını kullan","ittlink":"Masaüstü kısayolu oluştur","reset":"Tercihleri sıfırla","reopen":"Lütfen ITT''yi tekrar açın.","theme":"Tema","language":"Dil","mas":"Microsoft Etkinleştirme Betikleri (MAS)","winoffice":"Windows / Office ISO İndir","idm":"IDM Etkinleştirme","extensions":"Tarayıcı Eklentileri","all":"Tümü","search":"Ara","restorepoint":"Geri yükleme noktası oluştur","chocoloc":"Taşınabilir İndirilenler Klasörü","InstallMessage":"Aşağıdaki uygulamaları yüklemek istediğinizden emin misiniz?","ApplyMessage":"Aşağıdaki ayarları uygulamak istediğinizden emin misiniz?","Applying":"Uygulanıyor...","choseapp":"Lütfen yüklemek için en az bir uygulama seçin.","chosetweak":"Lütfen uygulamak için en az bir ince ayar seçin.","pleasewait":"Lütfen bekleyin arka planda bir işlem çalışıyor.","lastupdate":"Son güncelleme","sourcecode":"Kaynak Kodu","devby":"Emad Adel tarafından ♥ ile yapıldı","exit":"Programı kapatmak istediğinizden emin misiniz? Herhangi bir kurulum varsa durdurulacak.","watchdemo":"Hoş geldiniz","happybirthday":"Kendime Mutlu Yıllar!","myplaylist":"Benim Doğum Günüm ve Benim Çalma Listem ♪","OneAppReq":"Kaydetmek için en az bir uygulama seçin.","contributors":"Katkıda Bulunanlar","syslang":"Sistem dili"},"zh":{"name":"中文","Welcome":"通过一次安装多个程序节省时间并提升您的Windows性能。加入我们，改进工具，使其更加优秀。","sysinfo":"系统信息","PowerOptions":"电源选项","devicemgr":"设备管理器","services":"服务","networks":"网络","appsfeatures":"应用特性","taskmgr":"任务管理器","diskmgr":"磁盘管理","installBtn":"安装","applyBtn":"应用","downloading":"下载中","about":"关于","thirdparty":"第三方","preferences":"偏好","management":"管理","apps":"应用","tweaks":"调整","settings":"设置","saveapps":"保存选定应用","loadapps":"恢复选定应用","music":"音乐","on":"开启","off":"关闭","reset":"重置偏好设置","Dark":"深色","Light":"浅色","defaultTheme":"系统","ittlink":"创建桌面快捷方式","reopen":"请重新打开ITT。","theme":"主题","language":"语言","mas":"Microsoft 激活脚本 (MAS)","winoffice":"下载 Windows / Office ISO","idm":"IDM 激活","extensions":"浏览器扩展","all":"都","restorepoint":"创建还原点","chocoloc":"便携下载文件夹","InstallMessage":"是否要安装选定的应用","ApplyMessage":"是否要应用选定的调整","installing":"安装中..","Applying":"应用中..","choseapp":"请选择至少一款要安装的应用","chosetweak":"请等待调整应用完成","pleasewait":"请等待，后台有进程在进行中。","lastupdate":"最后更新","sourcecode":"源代码","devby":"由 Emad Adel ♥ 制作","exit":"您确定要关闭程序吗？如果有任何安装正在进行，它们将被终止。","watchdemo":"欢迎","happybirthday":"生日快乐 Emad!","myplaylist":"这是我的生日和我的播放列表 ♪","syslang":"系统语言"}}}
+' | ConvertFrom-Json
+$itt.database.OST = '{
   "Tracks": [
     {
       "name": "Further - Far cry-3",
@@ -3348,8 +3343,8 @@ $itt.database.ost = @'
       "url": "https://eta.vgmtreasurechest.com/soundtracks/cyberpunk-2077-original-game-score/zalnnwrhwh/1-03%20The%20Rebel%20Path.mp3"
     },
     {
-      "name": "Assassin Creed II - Ezio's Family",
-      "url": "https://emadadel4.github.io/sounds/Jesper Kyd, Assassin's Creed - Ezio's Family.mp3"
+      "name": "Assassin Creed II - Ezio''s Family",
+      "url": "https://emadadel4.github.io/sounds/Jesper Kyd, Assassin''s Creed - Ezio''s Family.mp3"
     },
     {
       "name": "تلك قضية - كايروكي",
@@ -3417,10 +3412,8 @@ $itt.database.ost = @'
    }
   ]
 }
-
-'@ | ConvertFrom-Json
-$itt.database.quotes = @'
-{
+' | ConvertFrom-Json
+$itt.database.Quotes = '{
   "Quotes": [
     {
       "name": "Rajeen ",
@@ -3718,7 +3711,7 @@ $itt.database.quotes = @'
     },
     {
       "type": "quote",
-      "text": "We're Thieves In A World That Don't Want Us No More",
+      "text": "We''re Thieves In A World That Don''t Want Us No More",
       "name": "Arthur Morgan"
     },
     {
@@ -3743,12 +3736,12 @@ $itt.database.quotes = @'
     },
     {
       "type": "quote",
-      "text": "They need you right now, but when they don't, they'll cast you out",
+      "text": "They need you right now, but when they don''t, they''ll cast you out",
       "name": "The dark knight"
     },
     {
       "type": "quote",
-      "text": "I Believe That Whatever Doesn't Kill You, Simply Makes You Stranger",
+      "text": "I Believe That Whatever Doesn''t Kill You, Simply Makes You Stranger",
       "name": "The dark knight"
     },
     {
@@ -3768,7 +3761,7 @@ $itt.database.quotes = @'
     },
     {
       "type": "quote",
-      "text": "If you can't lift the injustice, at least tell everyone about it"
+      "text": "If you can''t lift the injustice, at least tell everyone about it"
     },
     {
       "type": "quote",
@@ -3838,10 +3831,8 @@ $itt.database.quotes = @'
     }
   ]
 }
-
-'@ | ConvertFrom-Json
-$itt.database.settings = @'
-[
+' | ConvertFrom-Json
+$itt.database.Settings = '[
   {
       "Content": "Show file extensions",
       "Name":"ToggleShowExt",
@@ -3908,10 +3899,8 @@ $itt.database.settings = @'
     "description": "Changing the default opening location of File Explorer in Windows allows it to open directly to This PC instead of Quick Access, making it easier to quickly access main drives and system folders",
     "category": "Accessibility"
   }
-]
-'@ | ConvertFrom-Json
-$itt.database.tweaks = @'
-[
+]' | ConvertFrom-Json
+$itt.database.Tweaks = '[
   {
     "Name": "Disk cleanup",
     "Description": "Clean temporary files that are not necessary",
@@ -4799,7 +4788,7 @@ $itt.database.tweaks = @'
   },
   {
     "Name": "Disable Recall Snapshots in Windows 11 24H",
-    "Description": "Recall is an upcoming preview experience exclusive to Copilot+ PCs that will help you easily find and remember things you've seen using natural language",
+    "Description": "Recall is an upcoming preview experience exclusive to Copilot+ PCs that will help you easily find and remember things you''ve seen using natural language",
     "Category": "Privacy",
     "Check": "false",
     "Refresh": "true",
@@ -4942,7 +4931,7 @@ $itt.database.tweaks = @'
     "Check": "false",
     "Refresh": "true",
     "Script": [
-      "Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Application Experience\\Microsoft Compatibility Appraiser' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Application Experience\\ProgramDataUpdater' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Autochk\\Proxy' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Customer Experience Improvement Program\\Consolidator' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Customer Experience Improvement Program\\UsbCeip' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\DiskDiagnostic\\Microsoft-Windows-DiskDiagnosticDataCollector' | Out-Null"
+      "Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\Application Experience\\Microsoft Compatibility Appraiser'' | Out-Null; Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\Application Experience\\ProgramDataUpdater'' | Out-Null; Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\Autochk\\Proxy'' | Out-Null; Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\Customer Experience Improvement Program\\Consolidator'' | Out-Null; Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\Customer Experience Improvement Program\\UsbCeip'' | Out-Null; Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\DiskDiagnostic\\Microsoft-Windows-DiskDiagnosticDataCollector'' | Out-Null"
     ],
     "UndoScript": [],
     "ScheduledTask": [],
@@ -5356,7 +5345,7 @@ $itt.database.tweaks = @'
   },
   {
     "Name": "Set Wallpaper desktop Quality to 100%",
-    "Description": "It's Microsoft, what should I say!",
+    "Description": "It''s Microsoft, what should I say!",
     "Category": "Personalization",
     "Check": "false",
     "Refresh": "false",
@@ -5377,7 +5366,7 @@ $itt.database.tweaks = @'
   },
   {
     "Name": "Disable Windows Transparency",
-    "Description": "It's Microsoft, what should I say!",
+    "Description": "It''s Microsoft, what should I say!",
     "Category": "Performance",
     "Check": "false",
     "Refresh": "true",
@@ -5403,7 +5392,7 @@ $itt.database.tweaks = @'
     "Check": "false",
     "Refresh": "false",
     "Script": [
-      "Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Defrag\\ScheduledDefrag' | Out-Null"
+      "Disable-ScheduledTask -TaskName ''Microsoft\\Windows\\Defrag\\ScheduledDefrag'' | Out-Null"
     ],
     "UndoScript": [],
     "ScheduledTask": [],
@@ -5538,7 +5527,7 @@ $itt.database.tweaks = @'
     "Check": "false",
     "Refresh": "true",
     "Script": [
-      "winget uninstall 'windows web experience pack' --silent"
+      "winget uninstall ''windows web experience pack'' --silent"
     ],
     "UndoScript": [],
     "ScheduledTask": [],
@@ -5561,7 +5550,7 @@ $itt.database.tweaks = @'
     "Check": "false",
     "Refresh": "false",
     "Script": [
-      "Rename-Computer -NewName 'Unknown'"
+      "Rename-Computer -NewName ''Unknown''"
     ],
     "UndoScript": [],
     "ScheduledTask": [],
@@ -5576,7 +5565,7 @@ $itt.database.tweaks = @'
     "Check": "false",
     "Refresh": "false",
     "Script": [
-      "Set-WinSystemLocale -SystemLocale 'ar-EG'"
+      "Set-WinSystemLocale -SystemLocale ''ar-EG''"
     ],
     "UndoScript": [],
     "ScheduledTask": [],
@@ -5585,8 +5574,7 @@ $itt.database.tweaks = @'
     "Registry": []
   }
 ]
-
-'@ | ConvertFrom-Json
+' | ConvertFrom-Json
 #===========================================================================
 #endregion End Database /APPS/TWEEAKS/Quotes/OST/Settings
 #===========================================================================
@@ -10400,7 +10388,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <CheckBox Content="AMD Ryzen Chipset Drivers" Tag="Drivers" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
             </StackPanel>
-            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Supports AMD Ryzen Threadripper PRO Processor AMD Ryzen 8000/7040/7000 Series Desktop  Mobile Processors AMD Ryzen 5000/3rd Gen/2nd Gen Desktop  Threadripper Processors AMD Ryzen Desktop Processor with Radeon Graphics  Mobile Processor with Radeon Graphics 7thGen AMD ASeries Processors AMD X670E/X670/B650E/B650/B350/A320/X370/X399/B450/X470/X570/B550/A520/A620/TRX40/TRX50/WRX80/WRX90 Chipsets."/>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Supports AMD Ryzen Threadripper PRO Processor AMD Ryzen 800070407000 Series Desktop  Mobile Processors AMD Ryzen 50003rd Gen2nd Gen Desktop  Threadripper Processors AMD Ryzen Desktop Processor with Radeon Graphics  Mobile Processor with Radeon Graphics 7thGen AMD ASeries Processors AMD X670EX670B650EB650B350A320X370X399B450X470X570B550A520A620TRX40TRX50WRX80WRX90 Chipsets."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="NVidia Display Driver" Tag="Drivers" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -10466,7 +10454,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <CheckBox Content="OBS Studio" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
             </StackPanel>
-            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A free and opensource software for video recording and live streaming. It offers high performance realtime video/audio capturing and mixing."/>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A free and opensource software for video recording and live streaming. It offers high performance realtime videoaudio capturing and mixing."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="Logitech Gaming Software" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -10550,7 +10538,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <CheckBox Content="AOMEI Partition Assistant Standard" Tag="Disk Tools" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Disk Tools"/>
             </StackPanel>
-            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="AOMEI Partition Assistant Standard allows you to realize disk upgrade/replacement partition style conversion OS migration and other disk managements without any difficulties."/>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="AOMEI Partition Assistant Standard allows you to realize disk upgradereplacement partition style conversion OS migration and other disk managements without any difficulties."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="AOMEI Backupper Standard" Tag="Disk Tools" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -10634,7 +10622,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <CheckBox Content="ImgBurn" Tag="Development" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
             </StackPanel>
-            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Lightweight CD / DVD burning application."/>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Lightweight CD  DVD burning application."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="Virtual CloneDrive" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -10700,13 +10688,13 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <CheckBox Content="Airdroid" Tag="File Sharing" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
             </StackPanel>
-            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="AirDroid is a free and fast Android device manager app that allows you to access Android phone/tablet from computer remotely and securely. Manage SMS files photos and videos WhatsApp Line WeChat and more on computer."/>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="AirDroid is a free and fast Android device manager app that allows you to access Android phonetablet from computer remotely and securely. Manage SMS files photos and videos WhatsApp Line WeChat and more on computer."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="UltraViewer" Tag="File Sharing" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
             </StackPanel>
-            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Remote control to support your clients / partners from everywhere."/>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Remote control to support your clients  partners from everywhere."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="Wireless Network Watcher Portable" Tag="Portable" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -10862,13 +10850,13 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <CheckBox Content="Powershell 7" Tag="Development" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
             </StackPanel>
-            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="PowerShell Core is a crossplatform Windows Linux and macOS automation and configuration tool/framework that works well with your existing tools and is optimized for dealing with structured data e.g. JSON CSV XML etc. REST APIs and object models."/>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="PowerShell Core is a crossplatform Windows Linux and macOS automation and configuration toolframework that works well with your existing tools and is optimized for dealing with structured data e.g. JSON CSV XML etc. REST APIs and object models."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="x64dbg Portable" Tag="Portable" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Portable"/>
             </StackPanel>
-            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="An opensource x64/x32 debugger for windows."/>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="An opensource x64x32 debugger for windows."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="dnSpy" Tag="Development" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -11054,7 +11042,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <CheckBox Content="Subtitle Edit" Tag="Development" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
             </StackPanel>
-            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="With SE you can easily adjust a subtitle if it is out of sync with the video in several different ways. You can also use SE for making new subtitles from scratch do use the timeline/waveform/spectrogram or translating subtitles."/>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="With SE you can easily adjust a subtitle if it is out of sync with the video in several different ways. You can also use SE for making new subtitles from scratch do use the timelinewaveformspectrogram or translating subtitles."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="Skype" Tag="Communication" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -11633,7 +11621,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="By using Microsoft Visio 2016 Viewer Visio users can freely distribute Visio drawings files with a vsdx vsdm vsd vdx vdw vstx vstm vst or vtx extension to team members partners customers or others even if the recipients do not have Visio installed on their computer."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
-                <CheckBox Content="Key'n'Stroke" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <CheckBox Content="Key''n''Stroke" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="KeynStroke makes it easy for your audience to follow your actions on the screen."/>
@@ -12176,7 +12164,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <CheckBox Content="VLC Skins" Tag="Media Tools" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
             </StackPanel>
-            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Put the downloaded VLT files in the following folder On Windows the skins folder in the VLC installation directory e.g. CProgram FilesVideoLANVLCskins On Linux/Unix /.local/share/vlc/skins2."/>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Put the downloaded VLT files in the following folder On Windows the skins folder in the VLC installation directory e.g. CProgram FilesVideoLANVLCskins On LinuxUnix .localsharevlcskins2."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="GrepWin" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -12208,13 +12196,13 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <CheckBox Content="System File Checker" Tag="Fixer" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Fixer"/>
             </StackPanel>
-            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="sfc /scannow Use the System File Checker tool to repair missing or corrupted system files."/>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="sfc scannow Use the System File Checker tool to repair missing or corrupted system files."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="Clean Taskbar" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
             </StackPanel>
-            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Disable the News and interests and People icon Show Search icon only for Windows 10/11."/>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Disable the News and interests and People icon Show Search icon only for Windows 1011."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="Remove Windows 10/11 Bloatware" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -12864,11 +12852,6 @@ function Show-Event {
         
 
     
-            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
-                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-                })
-            
-            
             $itt.event.FindName('contribute').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')
                 })
@@ -12876,6 +12859,11 @@ function Show-Event {
             
             $itt.event.FindName('ps').add_MouseLeftButtonDown({
                     Start-Process('https://www.palestinercs.org/en/Donation')
+                })
+            
+            
+            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
+                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
                 })
             
             
