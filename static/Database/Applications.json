@@ -2313,7 +2313,7 @@
     "check": "false"
   },
   {
-    "Name": "Key'n'Stroke",
+    "Name": "Keyn Stroke",
     "Description": "KeynStroke makes it easy for your audience to follow your actions on the screen",
     "winget": "none",
     "choco": "key-n-stroke",
