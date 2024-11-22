@@ -9,9 +9,11 @@
 
 <h1 align="center">🔻 ITT (Install Tweaks Tool) 🔻 </h1>
 
-<h3 align="center">
-   Launch Anytime, Anywhere!
-</h3>
+<h4 align="center">
+
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=26&pause=1000&width=435&lines=Launch+Anytime%2C+Anywhere!)](https://git.io/typing-svg)
+
+</h4>
 <br>
 <div align="center">
 
@@ -94,7 +96,7 @@
 - **Developer-Friendly**: Easy-to-use and clear documentation  to add a new app or tweaks as you like, you can create a new method to download apps. Be creative. <a href="#-how-to-contribute">How to Add a New App</a>
 - **Soundtracks**: Enjoy listening to the best music from games and movies while downloading your programs.
 
-<h2>🚀 Usage</h2>
+<h2>⚡ Usage</h2>
 
 <h3>On Windows 10/11:</h3>
 <ol>
@@ -183,17 +185,18 @@ Edit CSV file using [edit-csv extension ](https://marketplace.visualstudio.com/i
 </code></pre>
 
 
-
 <p><em>Remember to test your changes before committing.</em></p>
 
 
-## 👨‍💻 Contributors
+<hr>
 
-[![Contributors](https://contrib.rocks/image?repo=emadadel4/itt)](https://github.com/emadadel4/itt/graphs/contributors)
+<br>
+<br>
 
 
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=35&pause=1000&width=435&lines=Support+Palestine)](https://git.io/typing-svg)
 
-## Support Palestine - أدعم فلسطين
+
 
 ![luisricardo](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmY0ZWE5cnd5djVoaG12OHVteWI0Nm1zMzlpZGtxM2JwZmNwdG9iMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iUNO3pXpfqiZ8JQ1Jo/giphy.gif)
 
