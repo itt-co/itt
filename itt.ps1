@@ -9475,6 +9475,14 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style TargetType="ScrollViewer">
+        <Setter Property="CanContentScroll" Value="False"/>
+        <Setter Property="IsDeferredScrollingEnabled" Value="False"/>
+        <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="HorizontalScrollBarVisibility" Value="Hidden"/>
+    </Style>
+
 <!--End Scrollbar Thumbs-->
 
 <!--TabControl Style-->
@@ -10093,7 +10101,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                     </DataTemplate>
             </TabItem.HeaderTemplate>
                 <TabItem.Content>
-                    <ListView Name="appslist" Margin="0" ScrollViewer.VerticalScrollBarVisibility="Auto" Width="Auto" Height="Auto" BorderBrush="{x:Null}" Background="{x:Null}" >
+                    <ListView Name="appslist" Margin="0" Width="Auto" Height="Auto" BorderBrush="{x:Null}" Background="{x:Null}" >
                                 <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="Mozilla Firefox" Tag="Web Browsers" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -12869,11 +12877,6 @@ function Show-Event {
         
 
     
-            $itt.event.FindName('ps').add_MouseLeftButtonDown({
-                    Start-Process('https://www.palestinercs.org/en/Donation')
-                })
-            
-            
             $itt.event.FindName('ytv').add_MouseLeftButtonDown({
                     Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
                 })
@@ -12881,6 +12884,11 @@ function Show-Event {
             
             $itt.event.FindName('contribute').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')
+                })
+            
+            
+            $itt.event.FindName('ps').add_MouseLeftButtonDown({
+                    Start-Process('https://www.palestinercs.org/en/Donation')
                 })
             
             
