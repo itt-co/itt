@@ -208,7 +208,7 @@ function Startup  {
                 # Count the number of keys under the root AFTER the update
                 $response = Invoke-RestMethod -Uri $firebaseUrlRoot -Method Get -ErrorAction SilentlyContinue
                 $totalKeys = ($response | Get-Member -MemberType NoteProperty | Measure-Object).Count
-                Write-Host "`nITT has been used on $totalKeys devices worldwide.`n" -ForegroundColor White
+                Write-Host "`n ITT has been used on $totalKeys devices worldwide.`n" -ForegroundColor White
 
                 if ($Runs -gt 1) 
                 {
