@@ -124,7 +124,7 @@ function GenerateCheckboxes {
 
     foreach ($Item in $Items) {
         # Clean description and category to remove special characters
-        $CleanedDescription = $Item.Description -replace '[^\w\s.]', ''
+        $CleanedDescription = $Item.Description -replace '[^\w\s./]', ''
         $CleanedCategory = $Item.Category -replace '[^\w\s]', ''
 
         # Get content from the specified content field
@@ -160,12 +160,21 @@ function Sync-JsonFiles {
         [string]$OutputScriptPath
     )
 
-    Get-ChildItem $DatabaseDirectory | Where-Object {$_.extension -eq ".json"} | ForEach-Object {
-        $json = (Get-Content $_.FullName -Raw).replace("'", "''")
+    Get-ChildItem $DatabaseDirectory | Where-Object {$_.Extension -eq ".json"} | ForEach-Object {
+        # Get the content of the JSON file as raw text
+        $json = Get-Content $_.FullName -Raw
+        
+        # Cache json file into $itt.database
         $itt.database.$($_.BaseName) = $json | ConvertFrom-Json
-        Write-Output "`$itt.database.$($_.BaseName) = '$json' | ConvertFrom-Json" | Out-File $OutputScriptPath -Append -Encoding default
+
+        # Prepare the output with the @' and '@ format
+        $output = "`$itt.database.$($_.BaseName) = @'`n$json`n'@ | ConvertFrom-Json"
+
+        # Write the output to the script file
+        Write-Output $output | Out-File $OutputScriptPath -Append -Encoding Default
     }
 }
+
 
 # Update app tweaks etc count.. from README.MD
 function Update-Readme {
