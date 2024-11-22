@@ -7246,7 +7246,7 @@ function Startup  {
             } while ($true)
         }
     
-        function Get-PCInfo {
+        function Get-UsersCount {
             param (
                 [string]$FirebaseUrl = "https://ittools-7d9fe-default-rtdb.firebaseio.com/Users"
             )
@@ -7300,27 +7300,22 @@ function Startup  {
             }
         }
         
-        
         function LOG {
             param (
                 $message,
                 $color
             )
             
-            Write-Host " +==============================================================================+" 
-            Write-Host " |   ___ _____ _____   _____ __  __    _    ____       _    ____  _____ _       |" 
-            Write-Host " |  |_ _|_   _|_   _| | ____|  \/  |  / \  |  _ \     / \  |  _ \| ____| |      |" 
-            Write-Host " |   | |  | |   | |   |  _| | |\/| | / _ \ | | | |   / _ \ | | | |  _| | |      |" 
-            Write-Host " |   | |  | |   | |   | |___| |  | |/ ___ \| |_| |  / ___ \| |_| | |___| |___   |" 
-            Write-Host " |  |___| |_|   |_|   |_____|_|  |_/_/   \_\____/  /_/   \_\____/|_____|_____|  |" 
-            Write-Host " |                       Made with ♥ By Emad Adel                               |" 
-            Write-Host " |                          #StandWithPalestine                                 |" 
-            Write-Host " +==============================================================================+" 
+            Write-Host "`n` #StandWithPalestine"
+            Write-Host " ___ _____ _____   _____ __  __    _    ____       _    ____  _____ _"
+            Write-Host "|_ _|_   _|_   _| | ____|  \/  |  / \  |  _ \     / \  |  _ \| ____| |"
+            Write-Host " | |  | |   | |   |  _| | |\/| | / _ \ | | | |   / _ \ | | | |  _| | |"
+            Write-Host " | |  | |   | |   | |___| |  | |/ ___ \| |_| |  / ___ \| |_| | |___| |___"
+            Write-Host "|___| |_|   |_|   |_____|_|  |_/_/   \_\____/  /_/   \_\____/|_____|_____|"
             Write-Host " Launch Anytime, Anywhere! `n` " 
             Write-Host " Telegram: https://t.me/bacave" 
             Write-Host " Discord: https://discord.gg/63m34EE6mX `n` "
-        
-            Get-PCInfo
+            Get-UsersCount
         
         }
 
@@ -12889,23 +12884,23 @@ function Show-Event {
         
 
     
-            $itt.event.FindName('shell').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/shelltube')
-                })
-            
-            
             $itt.event.FindName('ps').add_MouseLeftButtonDown({
                     Start-Process('https://www.palestinercs.org/en/Donation')
                 })
             
             
-            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
-                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+            $itt.event.FindName('contribute').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')
                 })
             
             
-            $itt.event.FindName('contribute').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')
+            $itt.event.FindName('shell').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/emadadel4/shelltube')
+                })
+            
+            
+            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
+                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
                 })
             
             
