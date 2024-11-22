@@ -7238,12 +7238,14 @@ function Startup  {
                 $existingData = Invoke-RestMethod -Uri $firebaseUrlWithKey -Method Get -ErrorAction SilentlyContinue
                 
                 # Determine run count and message
-                if ($existingData) {
-                    $Runs = $existingData.Runs + 1
-                    Telegram -Message "💻 '$env:USERNAME' has opened ITT again."
-                } else {
-                    $Runs = 1
+                if (-not $existingData) {
                     Telegram -Message "🎉 A new device 👤 '$env:USERNAME' is now running ITT!"
+                    $Runs = 1
+                } 
+                else
+                {
+                    Telegram -Message "💻 '$env:USERNAME' has opened ITT again."
+                    $Runs = $existingData.Runs + 1
                 }
         
                 # Update Firebase with the new run count
