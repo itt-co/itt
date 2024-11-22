@@ -169,50 +169,52 @@ function Startup  {
                 [string]$FirebaseUrl = "https://ittools-7d9fe-default-rtdb.firebaseio.com/Users"
             )
             
+
+            $Key = "$env:COMPUTERNAME $env:USERNAME"
+            $firebaseUrlWithKey = "$FirebaseUrl/$Key.json"
+            $firebaseUrlRoot = "$FirebaseUrl.json"
+            $win = [System.Environment]::OSVersion
+
             try {
-                # Get PC and user information
-                $Key = "$env:COMPUTERNAME $env:USERNAME"
-                $firebaseUrlWithKey = "$FirebaseUrl/$Key.json"
-                $firebaseUrlRoot = "$FirebaseUrl.json"
-                $win = [System.Environment]::OSVersion
-                
-                # Fetch existing data for the key, if available
                 $existingData = Invoke-RestMethod -Uri $firebaseUrlWithKey -Method Get -ErrorAction SilentlyContinue
-                
-                # if username is not exists
+
                 if (-not $existingData) {
-                    #Telegram -Message "🎉 A new user 👤 $env:USERNAME is now running ITT"
+
                     $Runs = 1
+                    #Telegram -Message "🎉 A new user 👤 $env:USERNAME is now running ITT`n`🌍 Total users worldwide: $totalKeys"
                 } 
                 else
                 {
                     #Telegram -Message "💻 User '$env:USERNAME' has opened ITT again. It has been run $Runs times"
                     $Runs = $existingData.Runs + 1
                 }
-        
-                # Update Firebase with the new run count
-                $updateData = @{ Runs = $Runs } | ConvertTo-Json
-                Invoke-RestMethod -Uri $firebaseUrlWithKey -Method Put -Body $updateData -Headers @{ "Content-Type" = "application/json" } -ErrorAction SilentlyContinue
-                
+
+                  # Update Firebase with the new run count
+                  $updateData = @{ Runs = $Runs } | ConvertTo-Json
+                  Invoke-RestMethod -Uri $firebaseUrlWithKey -Method Put -Body $updateData -Headers @{ "Content-Type" = "application/json" } -ErrorAction SilentlyContinue
+            }
+            catch {
+                        Write-Host "Error occurred: $_"
+            }
+            finally {
+
                 # Count the number of keys under the root AFTER the update
                 $response = Invoke-RestMethod -Uri $firebaseUrlRoot -Method Get -ErrorAction SilentlyContinue
                 $totalKeys = ($response | Get-Member -MemberType NoteProperty | Measure-Object).Count
-        
-                # Use the same totalKeys for both the Telegram message and Write-Host
-                Write-Host "`nITT has been used on $totalKeys devices worldwide.`n" -ForegroundColor White
 
-                if ($Runs -eq 1) {
+                if ($Runs -eq 1) 
+                {
                     Telegram -Message "🎉 A new user 👤 $env:USERNAME is now running ITT`n`🌍 Total users worldwide: $totalKeys"
-                } else {
+                } 
+                else
+                {
                     Telegram -Message "💻 User '$env:USERNAME' has opened ITT again. It has been run $Runs times"
                 }
+
+                Write-Host "`nITT has been used on $totalKeys devices worldwide.`n" -ForegroundColor White
         
                 # Force garbage collection to free memory
                 [System.GC]::Collect()
-            }
-            catch {
-                Write-Error "An error occurred: $_"
-                exit 1
             }
         }
         
