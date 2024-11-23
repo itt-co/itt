@@ -1648,7 +1648,8 @@
     "Check": "false",
     "Refresh": "false",
     "Script": [
-      "Rename-Computer -NewName 'Unknown'"
+      "Rename-Computer -NewName 'Unknown'",
+      "$currentUsername = $env:USERNAME; Rename-LocalUser -Name $currentUsername -NewName 'Unknown'"
     ],
     "UndoScript": [],
     "ScheduledTask": [],
