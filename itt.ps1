@@ -7315,9 +7315,7 @@ function Startup  {
             Write-Host " Telegram: https://t.me/bacave" 
             Write-Host " Discord: https://discord.gg/63m34EE6mX `n` "
             Get-UsersCount
-        
         }
-
         LOG
         PlayMusic
         Quotes
