@@ -7271,14 +7271,10 @@ function Startup  {
                     $Runs = $existingData.Runs + 1
                 }
 
-                  # Update Firebase with the new run count
-                  $updateData = @{ Runs = $Runs } | ConvertTo-Json
-                  Invoke-RestMethod -Uri $firebaseUrlWithKey -Method Put -Body $updateData -Headers @{ "Content-Type" = "application/json" } -ErrorAction SilentlyContinue
-            }
-            catch {
-                Add-Log -Message "Your internet connection appears to be slow." -Level "WARNING"
-            }
-            finally {
+                # Update Firebase with the new run count
+                $updateData = @{ Runs = $Runs } | ConvertTo-Json
+                Invoke-RestMethod -Uri $firebaseUrlWithKey -Method Put -Body $updateData -Headers @{ "Content-Type" = "application/json" } -ErrorAction SilentlyContinue
+
 
                 # Count the number of keys under the root AFTER the update
                 $response = Invoke-RestMethod -Uri $firebaseUrlRoot -Method Get -ErrorAction SilentlyContinue
@@ -7294,9 +7290,12 @@ function Startup  {
                     Telegram -Message "🎉 A new user 👤 $env:USERNAME is now running ITT`n`🌍 Total users worldwide: $totalKeys"
                 }
 
-        
                 # Force garbage collection to free memory
                 [System.GC]::Collect()
+
+            }
+            catch {
+                Add-Log -Message "Your internet connection appears to be slow." -Level "WARNING"
             }
         }
         
@@ -12884,11 +12883,6 @@ function Show-Event {
         
 
     
-            $itt.event.FindName('ps').add_MouseLeftButtonDown({
-                    Start-Process('https://www.palestinercs.org/en/Donation')
-                })
-            
-            
             $itt.event.FindName('contribute').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')
                 })
@@ -12896,6 +12890,11 @@ function Show-Event {
             
             $itt.event.FindName('shell').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/shelltube')
+                })
+            
+            
+            $itt.event.FindName('ps').add_MouseLeftButtonDown({
+                    Start-Process('https://www.palestinercs.org/en/Donation')
                 })
             
             
