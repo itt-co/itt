@@ -5582,7 +5582,8 @@ $itt.database.tweaks = @'
     "Check": "false",
     "Refresh": "false",
     "Script": [
-      "Rename-Computer -NewName 'Unknown'"
+      "Rename-Computer -NewName 'Unknown'",
+      "$currentUsername = $env:USERNAME; Rename-LocalUser -Name $currentUsername -NewName 'Unknown'"
     ],
     "UndoScript": [],
     "ScheduledTask": [],
@@ -12907,13 +12908,13 @@ function Show-Event {
                 })
             
             
-            $itt.event.FindName('ps').add_MouseLeftButtonDown({
-                    Start-Process('https://www.palestinercs.org/en/Donation')
+            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
+                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
                 })
             
             
-            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
-                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+            $itt.event.FindName('ps').add_MouseLeftButtonDown({
+                    Start-Process('https://www.palestinercs.org/en/Donation')
                 })
             
             
