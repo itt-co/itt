@@ -3130,7 +3130,7 @@
   },
   {
     "Name": "Visual-C-Runtimes All in One Oct 2024",
-    "Description": "This archive contains the latest version (Oct 2024) of all VCRedist Visual Studio C++ runtimes, installable with a single click by running the included batch file installer.",
+    "Description": "This archive contains the latest version (Oct 2024) of all VCRedist Visual Studio C++ runtimes, installable with a single click by running the included batch file installer",
     "winget": "none",
     "choco": "none",
     "default": [
@@ -3155,7 +3155,7 @@
   },
   {
     "Name": "MemTest86",
-    "Description": "MemTest86 boots from a USB flash drive and tests the RAM in your computer for faults using a series of comprehensive algorithms and test patterns.",
+    "Description": "MemTest86 boots from a USB flash drive and tests the RAM in your computer for faults using a series of comprehensive algorithms and test patterns",
     "winget": "none",
     "choco": "none",
     "default": [
@@ -3171,7 +3171,7 @@
   },
   {
     "Name": "Memtest86+",
-    "Description": "Memtest86+ v6 is a unified, free, open-source memory testing tool, released under GNU GPL v2.0. The new v6 code base (originally called PCMemTest) was provided by Martin Whitaker, based on Memtest86+ v5, developed by Sam Demeulemeester. Both are now working on Memtest86+.",
+    "Description": "Memtest86+ v6 is a unified, free, open-source memory testing tool, released under GNU GPL v2.0. The new v6 code base (originally called PCMemTest) was provided by Martin Whitaker, based on Memtest86+ v5, developed by Sam Demeulemeester. Both are now working on Memtest86+",
     "winget": "none",
     "choco": "none",
     "default": [
@@ -3196,11 +3196,29 @@
   },
   {
     "Name": "GrepWin",
-    "Description": "Regular expression search and replace for Windows.",
+    "Description": "Regular expression search and replace for Windows",
     "winget": "StefansTools.grepWin",
     "choco": "grepwin",
     "default": [],
     "category": "Utilities",
+    "check": "false"
+  },
+  {
+    "Name": "NICE DCV Server",
+    "Description": "NICE DCV is a remote display protocol that securely streams desktops and apps from cloud or data centers to any device, enabling graphics-intensive applications on Amazon EC2. It's used for HPC workloads and by services like Appstream 2.0 and AWS RoboMaker",
+    "winget": "none",
+    "choco": "nice-dcv-server",
+    "default": [],
+    "category": "Utilities",
+    "check": "false"
+  },
+  {
+    "Name": "NTag",
+    "Description": "NTag is a cross platform-graphical tag editor focused on everyday life use cases",
+    "winget": "nrittsti.NTag",
+    "choco": "ntag",
+    "default": [],
+    "category": "Media Tools",
     "check": "false"
   }
 ]
