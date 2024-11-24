@@ -7300,7 +7300,7 @@ function Startup  {
 
                 if ($Runs -gt 1) 
                 {
-                    Telegram -Message "💻 User '$env:USERNAME' has opened ITT again. It has been run $Runs times"
+                    Telegram -Message "👤 User '$env:USERNAME' has opened ITT again.`n`⚙️It has been run $Runs times`n`🎶 Music is $($itt.Music)%"
                 } 
                 else
                 {
