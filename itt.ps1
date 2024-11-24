@@ -3212,7 +3212,7 @@ $itt.database.Applications = @'
   },
   {
     "Name": "Visual-C-Runtimes All in One Oct 2024",
-    "Description": "This archive contains the latest version (Oct 2024) of all VCRedist Visual Studio C++ runtimes, installable with a single click by running the included batch file installer.",
+    "Description": "This archive contains the latest version (Oct 2024) of all VCRedist Visual Studio C++ runtimes, installable with a single click by running the included batch file installer",
     "winget": "none",
     "choco": "none",
     "default": [
@@ -3237,7 +3237,7 @@ $itt.database.Applications = @'
   },
   {
     "Name": "MemTest86",
-    "Description": "MemTest86 boots from a USB flash drive and tests the RAM in your computer for faults using a series of comprehensive algorithms and test patterns.",
+    "Description": "MemTest86 boots from a USB flash drive and tests the RAM in your computer for faults using a series of comprehensive algorithms and test patterns",
     "winget": "none",
     "choco": "none",
     "default": [
@@ -3253,7 +3253,7 @@ $itt.database.Applications = @'
   },
   {
     "Name": "Memtest86+",
-    "Description": "Memtest86+ v6 is a unified, free, open-source memory testing tool, released under GNU GPL v2.0. The new v6 code base (originally called PCMemTest) was provided by Martin Whitaker, based on Memtest86+ v5, developed by Sam Demeulemeester. Both are now working on Memtest86+.",
+    "Description": "Memtest86+ v6 is a unified, free, open-source memory testing tool, released under GNU GPL v2.0. The new v6 code base (originally called PCMemTest) was provided by Martin Whitaker, based on Memtest86+ v5, developed by Sam Demeulemeester. Both are now working on Memtest86+",
     "winget": "none",
     "choco": "none",
     "default": [
@@ -3278,11 +3278,29 @@ $itt.database.Applications = @'
   },
   {
     "Name": "GrepWin",
-    "Description": "Regular expression search and replace for Windows.",
+    "Description": "Regular expression search and replace for Windows",
     "winget": "StefansTools.grepWin",
     "choco": "grepwin",
     "default": [],
     "category": "Utilities",
+    "check": "false"
+  },
+  {
+    "Name": "NICE DCV Server",
+    "Description": "NICE DCV is a remote display protocol that securely streams desktops and apps from cloud or data centers to any device, enabling graphics-intensive applications on Amazon EC2. It's used for HPC workloads and by services like Appstream 2.0 and AWS RoboMaker",
+    "winget": "none",
+    "choco": "nice-dcv-server",
+    "default": [],
+    "category": "Utilities",
+    "check": "false"
+  },
+  {
+    "Name": "NTag",
+    "Description": "NTag is a cross platform-graphical tag editor focused on everyday life use cases",
+    "winget": "nrittsti.NTag",
+    "choco": "ntag",
+    "default": [],
+    "category": "Media Tools",
     "check": "false"
   }
 ]
@@ -12186,7 +12204,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <CheckBox Content="Visual-C-Runtimes All in One Oct 2024" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
             </StackPanel>
-            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="This archive contains the latest version Oct 2024 of all VCRedist Visual Studio C runtimes installable with a single click by running the included batch file installer.."/>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="This archive contains the latest version Oct 2024 of all VCRedist Visual Studio C runtimes installable with a single click by running the included batch file installer."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="GPU-Z" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -12198,13 +12216,13 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <CheckBox Content="MemTest86" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
             </StackPanel>
-            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="MemTest86 boots from a USB flash drive and tests the RAM in your computer for faults using a series of comprehensive algorithms and test patterns.."/>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="MemTest86 boots from a USB flash drive and tests the RAM in your computer for faults using a series of comprehensive algorithms and test patterns."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="Memtest86+" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
             </StackPanel>
-            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Memtest86 v6 is a unified free opensource memory testing tool released under GNU GPL v2.0. The new v6 code base originally called PCMemTest was provided by Martin Whitaker based on Memtest86 v5 developed by Sam Demeulemeester. Both are now working on Memtest86.."/>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Memtest86 v6 is a unified free opensource memory testing tool released under GNU GPL v2.0. The new v6 code base originally called PCMemTest was provided by Martin Whitaker based on Memtest86 v5 developed by Sam Demeulemeester. Both are now working on Memtest86."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="VLC Skins" Tag="Media Tools" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -12216,7 +12234,19 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <CheckBox Content="GrepWin" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
             </StackPanel>
-            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Regular expression search and replace for Windows.."/>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Regular expression search and replace for Windows."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="NICE DCV Server" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
+            </StackPanel>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="NICE DCV is a remote display protocol that securely streams desktops and apps from cloud or data centers to any device enabling graphicsintensive applications on Amazon EC2. Its used for HPC workloads and by services like Appstream 2.0 and AWS RoboMaker."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="NTag" Tag="Media Tools" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
+            </StackPanel>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="NTag is a cross platformgraphical tag editor focused on everyday life use cases."/>
         </StackPanel>
                     </ListView>
                 </TabItem.Content>
