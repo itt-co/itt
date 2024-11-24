@@ -3188,7 +3188,7 @@
   {
     "Name": "VLC Skins",
     "Description": "Put the downloaded VLT files in the following folder: On Windows: the skins folder in the VLC installation directory (e.g. C:\\Program Files\\VideoLAN\\VLC\\skins) On Linux/Unix: ~/.local/share/vlc/skins2",
-    "winget": "",
+    "winget": "none",
     "choco": "vlc-skins",
     "default": [],
     "category": "Media Tools",
