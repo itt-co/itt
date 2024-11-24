@@ -112,6 +112,7 @@ function Download-Mthoed {
             $choco  = Read-Host "Enter Chocolatey package name"
             $choco = ($choco -replace "choco install", "" -replace ",,", ",").Trim()
             if ($choco -eq "") { $choco = "none" }  # Set default value if empty
+            Check -choco $choco
 
             # Prompt the user for input
             $winget = Read-Host "Enter winget package"
@@ -119,6 +120,8 @@ function Download-Mthoed {
 
             # Remove the string 'winget install -e --id' and any spaces from the input
             $cleanedWinget = $winget -replace "winget install -e --id", "" -replace "\s+", ""
+            Check -winget $cleanedWinget
+
 
             return @{
                 winget    = $cleanedWinget
