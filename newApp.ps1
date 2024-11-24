@@ -108,17 +108,17 @@ function Download-Mthoed {
 
         "API [Choco/Winget] Recommended" {
 
-            $choco  = Read-Host "Enter choco package"
-            
-            #Check -choco $choco
+            # Prompt the user for input
+            $choco  = Read-Host "Enter Chocolatey package name"
+            $choco = ($choco -replace "choco install", "" -replace ",,", ",").Trim()
 
+            # Prompt the user for input
             $winget = Read-Host "Enter winget package"
-
-            #Check -winget $winget
-
+            # Remove the string 'winget install -e --id' and any spaces from the input
+            $cleanedWinget = $winget -replace "winget install -e --id", "" -replace "\s+", ""
 
             return @{
-                winget    = $winget
+                winget    = $cleanedWinget
                 choco     = $choco
                 defaultEntry = $null
             }
@@ -251,7 +251,7 @@ function Category {
         # Write the ordered JSON to the file
         $jsonOutput | ConvertTo-Json -Depth 20 | Out-File -FilePath $applications -Encoding utf8
 
-        Write-Host "Added successfully to existing JSON file. Don't forget to build and test it before commit" -ForegroundColor Green
+        Write-Host "Added successfully, Don't forget to build and test it before push commit" -ForegroundColor Green
     } 
     else
     {
