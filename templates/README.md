@@ -208,7 +208,7 @@ Do not be afraid to express your opinions, for words are the tools through which
 
 Together, we can be the voice for those who have no voice and work toward a fairer world. Let us unite and raise our voices in support of Palestine and to revive hope in the hearts of those who need it.
 
-### لا تتردد في استخدام كلمتك، وشارك في الحديث عن فلسطين، فصوتك قادر على إحداث التغيير.
+### لا تتردد في قول كلمتك، وشارك في الحديث عن فلسطين، فصوتك قادر على إحداث التغيير.
 
 في هذا العصر، حيث تتداخل الأصوات وتتزايد القضايا الإنسانية، يبرز دور كل واحد منا كناشط مؤثر. كل منشور يمكن أن يصل إلى شخص يحتاج إلى سماع هذه الحقيقة. كل رسالة يمكن أن تكون مصدر إلهام أو توعية لشخص آخر.
 
