@@ -4044,8 +4044,6 @@ $itt.database.tweaks = @'
       "Microsoft.BingNews",
       "Microsoft.WindowsCamera",
       "Microsoft.Getstarted",
-      "Microsoft.MicrosoftEdge.Stable",
-      "Microsoft.MicrosoftEdgeDevToolsClient",
       "Microsoft.BingWeather_1.0.6.0_x64__8wekyb3d8bbwe",
       "MicrosoftWindows.Client.WebExperience_cw5n1h2txyewy",
       "Microsoft.GetHelp",
