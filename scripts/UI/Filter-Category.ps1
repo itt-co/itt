@@ -94,7 +94,8 @@ function FilterByCat {
         "Personalization",
         "Power",
         "Protection",
-        "Classic"
+        "Classic",
+        "GPU Drivers"
     )
 
     # Update DataContext
