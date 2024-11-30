@@ -201,6 +201,7 @@ function Category {
         14 = "Runtimes"
         15 = "Portable"
         16 = "Security"
+        17 = "GPU Drivers"
     }
 
     # Prompt user to choose category
