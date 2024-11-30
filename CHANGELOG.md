@@ -1,4 +1,4 @@
-###### 11/16/2024
+###### 11/30/2024
 
 ## Changelog
 
@@ -22,10 +22,10 @@
 - Shift + I: ITT Shortcut.
 - Ctrl + G: Closes the application.
 
-### How to Contribute:
-![itt.xName:contribute [https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute]](https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/customtheme.jpg)
+### GPU Category:
+![itt.xName:gpu [https://github.com/user-attachments/assets/9651da4b-c69b-441d-a912-fb6213de73fb]](https://github.com/user-attachments/assets/9651da4b-c69b-441d-a912-fb6213de73fb)
 
-#### Contribute and create your own theme, add your native language. favorite apps and music and more. Click on the image to see how to contribute.
+#### In the future, the most popular GPU drivers will be added.
 
 ### Download any Youtube video:
 ![itt.xName:shell [https://github.com/emadadel4/shelltube]](https://raw.githubusercontent.com/emadadel4/ShellTube/main/demo.jpg)
