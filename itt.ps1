@@ -12967,18 +12967,13 @@ function Show-Event {
     $CloseBtn = $itt.event.FindName('closebtn')
 
     
-        $itt.event.FindName('title').text = 'Changelog'.Trim()  # Set the title text
+        $itt.event.FindName('title').text = 'NEW GPU DRVIERS'.Trim()  # Set the title text
         $itt.event.FindName('date').text = '11/30/2024'.Trim()  # Set the Date text
         
 
     
             $itt.event.FindName('shell').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/shelltube')
-                })
-            
-            
-            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
-                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
                 })
             
             
@@ -12989,6 +12984,11 @@ function Show-Event {
             
             $itt.event.FindName('ps').add_MouseLeftButtonDown({
                     Start-Process('https://www.palestinercs.org/en/Donation')
+                })
+            
+            
+            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
+                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
                 })
             
             
