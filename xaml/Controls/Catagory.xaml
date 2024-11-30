@@ -8,6 +8,7 @@
     Width="auto">
 
       <ComboBoxItem Content="{Binding all}"/>
+      <ComboBoxItem Content="GPU Drivers"/>
       <ComboBoxItem Content="Web Browsers"/>
       <ComboBoxItem Content="Media"/>
       <ComboBoxItem Content="Media Tools"/>
