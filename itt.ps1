@@ -3334,6 +3334,22 @@ $itt.database.Applications = @'
     ],
     "category": "GPU Drivers",
     "check": "false"
+  },
+  {
+    "Name": "Visual C++ Redistributable Runtimes AIO Repack",
+    "Description": "Visual C++ Redistributable Runtimes AIO Repack is all the latest Microsoft Visual C++ Redistributable Runtimes, without the original setup bloat payload",
+    "winget": "none",
+    "choco": "none",
+    "default": [
+      {
+        "portable": "false",
+        "launcher": "VisualCppRedist_AIO_x86_x64.exe",
+        "url": "https://www.majorgeeks.com/index.php?ct=files&action=download&",
+        "args": "/SILENT"
+      }
+    ],
+    "category": "Runtimes",
+    "check": "false"
   }
 ]
 
@@ -12291,6 +12307,12 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="GPU Drivers"/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="RX 580 Adrenalin 24.9.1 WHQL Recommended."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Visual C++ Redistributable Runtimes AIO Repack" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
+            </StackPanel>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Visual C Redistributable Runtimes AIO Repack is all the latest Microsoft Visual C Redistributable Runtimes without the original setup bloat payload."/>
         </StackPanel>
                     </ListView>
                 </TabItem.Content>
@@ -12972,6 +12994,11 @@ function Show-Event {
         
 
     
+            $itt.event.FindName('ps').add_MouseLeftButtonDown({
+                    Start-Process('https://www.palestinercs.org/en/Donation')
+                })
+            
+            
             $itt.event.FindName('shell').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/shelltube')
                 })
@@ -12979,11 +13006,6 @@ function Show-Event {
             
             $itt.event.FindName('gpu').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/user-attachments/assets/9651da4b-c69b-441d-a912-fb6213de73fb')
-                })
-            
-            
-            $itt.event.FindName('ps').add_MouseLeftButtonDown({
-                    Start-Process('https://www.palestinercs.org/en/Donation')
                 })
             
             
