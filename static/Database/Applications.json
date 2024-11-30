@@ -3220,5 +3220,37 @@
     "default": [],
     "category": "Media Tools",
     "check": "false"
+  },
+  {
+    "Name": "Radeon™ RX 570 Adrenalin Edition Windows 10",
+    "Description": "RX 570 Driver Adrenalin 24.3.1 (WHQL Recommended)",
+    "winget": "none",
+    "choco": "none",
+    "default": [
+      {
+        "url": "https://drivers.amd.com/drivers/whql-amd-software-adrenalin-edition-24.3.1-win10-win11-mar20-vega-polaris.exe",
+        "args": "/SILENT",
+        "launcher": "whql-amd-software-adrenalin-edition-24.3.1-win10-win11-mar20-vega-polaris.exe",
+        "portable": "false"
+      }
+    ],
+    "category": "GPU Drivers",
+    "check": "false"
+  },
+  {
+    "Name": "Radeon™ RX 580 Adrenalin Edition Windows 10",
+    "Description": "RX 580 Adrenalin 24.9.1 (WHQL Recommended)",
+    "winget": "none",
+    "choco": "none",
+    "default": [
+      {
+        "url": "https://drivers.amd.com/drivers/whql-amd-software-adrenalin-edition-24.9.1-win10-win11-vega-polaris.exe",
+        "args": "/SILENT",
+        "launcher": "whql-amd-software-adrenalin-edition-24.9.1-win10-win11-vega-polaris.exe",
+        "portable": "false"
+      }
+    ],
+    "category": "GPU Drivers",
+    "check": "false"
   }
 ]
