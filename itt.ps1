@@ -29,7 +29,7 @@ $itt = [Hashtable]::Synchronized(@{
     database       = @{}
     ProcessRunning = $false
     developer      = "Emad Adel"
-    lastupdate     = "11/26/2024"
+    lastupdate     = "11/30/2024"
     github         = "https://github.com/emadadel4/itt"
     telegram       = "https://t.me/emadadel4"
     blog           = "https://emadadel4.github.io"
@@ -3301,6 +3301,38 @@ $itt.database.Applications = @'
     "choco": "ntag",
     "default": [],
     "category": "Media Tools",
+    "check": "false"
+  },
+  {
+    "Name": "Radeon™ RX 570 Adrenalin Edition Windows 10",
+    "Description": "RX 570 Driver Adrenalin 24.3.1 (WHQL Recommended)",
+    "winget": "none",
+    "choco": "none",
+    "default": [
+      {
+        "url": "https://drivers.amd.com/drivers/whql-amd-software-adrenalin-edition-24.3.1-win10-win11-mar20-vega-polaris.exe",
+        "args": "/SILENT",
+        "launcher": "whql-amd-software-adrenalin-edition-24.3.1-win10-win11-mar20-vega-polaris.exe",
+        "portable": "false"
+      }
+    ],
+    "category": "GPU Drivers",
+    "check": "false"
+  },
+  {
+    "Name": "Radeon™ RX 580 Adrenalin Edition Windows 10",
+    "Description": "RX 580 Adrenalin 24.9.1 (WHQL Recommended)",
+    "winget": "none",
+    "choco": "none",
+    "default": [
+      {
+        "url": "https://drivers.amd.com/drivers/whql-amd-software-adrenalin-edition-24.9.1-win10-win11-vega-polaris.exe",
+        "args": "/SILENT",
+        "launcher": "whql-amd-software-adrenalin-edition-24.9.1-win10-win11-vega-polaris.exe",
+        "portable": "false"
+      }
+    ],
+    "category": "GPU Drivers",
     "check": "false"
   }
 ]
@@ -8515,7 +8547,8 @@ function FilterByCat {
         "Personalization",
         "Power",
         "Protection",
-        "Classic"
+        "Classic",
+        "GPU Drivers"
     )
 
     # Update DataContext
@@ -10058,6 +10091,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
     Width="auto">
 
       <ComboBoxItem Content="{Binding all}"/>
+      <ComboBoxItem Content="GPU Drivers"/>
       <ComboBoxItem Content="Web Browsers"/>
       <ComboBoxItem Content="Media"/>
       <ComboBoxItem Content="Media Tools"/>
@@ -12245,6 +12279,18 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="NTag is a cross platformgraphical tag editor focused on everyday life use cases."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Radeon™ RX 570 Adrenalin Edition Windows 10" Tag="GPU Drivers" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="GPU Drivers"/>
+            </StackPanel>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="RX 570 Driver Adrenalin 24.3.1 WHQL Recommended."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Radeon™ RX 580 Adrenalin Edition Windows 10" Tag="GPU Drivers" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="GPU Drivers"/>
+            </StackPanel>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="RX 580 Adrenalin 24.9.1 WHQL Recommended."/>
         </StackPanel>
                     </ListView>
                 </TabItem.Content>
@@ -12931,11 +12977,6 @@ function Show-Event {
                 })
             
             
-            $itt.event.FindName('ps').add_MouseLeftButtonDown({
-                    Start-Process('https://www.palestinercs.org/en/Donation')
-                })
-            
-            
             $itt.event.FindName('shell').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/shelltube')
                 })
@@ -12943,6 +12984,11 @@ function Show-Event {
             
             $itt.event.FindName('contribute').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/itt?tab=readme-ov-file#-how-to-contribute')
+                })
+            
+            
+            $itt.event.FindName('ps').add_MouseLeftButtonDown({
+                    Start-Process('https://www.palestinercs.org/en/Donation')
                 })
             
             
