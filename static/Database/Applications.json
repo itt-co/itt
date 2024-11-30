@@ -3252,5 +3252,21 @@
     ],
     "category": "GPU Drivers",
     "check": "false"
+  },
+  {
+    "Name": "Visual C++ Redistributable Runtimes AIO Repack",
+    "Description": "Visual C++ Redistributable Runtimes AIO Repack is all the latest Microsoft Visual C++ Redistributable Runtimes, without the original setup bloat payload",
+    "winget": "none",
+    "choco": "none",
+    "default": [
+      {
+        "portable": "false",
+        "launcher": "VisualCppRedist_AIO_x86_x64.exe",
+        "url": "https://www.majorgeeks.com/index.php?ct=files&action=download&",
+        "args": "/SILENT"
+      }
+    ],
+    "category": "Runtimes",
+    "check": "false"
   }
 ]
