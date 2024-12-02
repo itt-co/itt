@@ -17,31 +17,31 @@
 <br>
 <div align="center">
 
-  <a href="/docs/README.ar.md">
+  <a href="/locales/ar.csv">
     <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/ps.png"  Height="30" width="auto" alt="ar">
   </a>
-   <a href="/docs/README.ar.md">
+   <a href="/locales/ga.csv">
     <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/ie.png" Height="30" width="auto" alt="ir">
   </a>
-  <a href="/docs/README.fr.md">
+  <a href="/locales/fr.csv">
     <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/fr.png"  Height="30" width="auto" alt="fr">
   </a>
-  <a href="/docs/README.tr.md">
+  <a href="/locales/tr.csv">
     <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/tr.png" Height="30" width="auto" alt="tr">
   </a>
-  <a href="/docs/README.cn.md">
+  <a href="/locales/zh.csv">
     <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/cn.png" Height="30" width="auto" alt="cn">
   </a>
-  <a href="/docs/README.ko.md">
+  <a href="/locales/ko.csv">
     <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/kr.png" Height="30" width="auto"  alt="kr">
   </a>
-  <a href="/docs/README.de.md">
+  <a href="/locales/de.csv">
     <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/de.png" Height="30" width="auto" alt="de">
   </a>
-  <a href="/docs/README.ru.md">
+  <a href="/locales/ru.csv">
     <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/ru.png" Height="30" width="auto" alt="ru">
   </a>
-  <a href="/docs/README.es.md">
+  <a href="/locales/es.csv">
     <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/es.png" Height="30" width="auto" alt="es">
   </a>
 </div>
