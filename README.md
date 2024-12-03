@@ -17,31 +17,31 @@
 <br>
 <div align="center">
 
-  <a href="/locales/ar.csv">
+  <a href="/docs/README.ar.md">
     <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/ps.png"  Height="30" width="auto" alt="ar">
   </a>
-   <a href="/locales/ga.csv">
+   <a href="/docs/README.ar.md">
     <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/ie.png" Height="30" width="auto" alt="ir">
   </a>
-  <a href="/locales/fr.csv">
+  <a href="/docs/README.fr.md">
     <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/fr.png"  Height="30" width="auto" alt="fr">
   </a>
-  <a href="/locales/tr.csv">
+  <a href="/docs/README.tr.md">
     <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/tr.png" Height="30" width="auto" alt="tr">
   </a>
-  <a href="/locales/zh.csv">
+  <a href="/docs/README.cn.md">
     <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/cn.png" Height="30" width="auto" alt="cn">
   </a>
-  <a href="/locales/ko.csv">
+  <a href="/docs/README.ko.md">
     <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/kr.png" Height="30" width="auto"  alt="kr">
   </a>
-  <a href="/locales/de.csv">
+  <a href="/docs/README.de.md">
     <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/de.png" Height="30" width="auto" alt="de">
   </a>
-  <a href="/locales/ru.csv">
+  <a href="/docs/README.ru.md">
     <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/ru.png" Height="30" width="auto" alt="ru">
   </a>
-  <a href="/locales/es.csv">
+  <a href="/docs/README.es.md">
     <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/es.png" Height="30" width="auto" alt="es">
   </a>
 </div>
@@ -68,11 +68,11 @@
 </p>
 
 <div align="center">
-  <h5> 354 App |  39 Tweaks | 11 Settings | 100 Quote |  19 Soundtrack | 10 Localization </h5>
+  <h5> 355 App |  39 Tweaks | 11 Settings | 100 Quote |  19 Soundtrack | 10 Localization </h5>
 </div>
 
 <p align="center">
-  <a  href="#" rel="nofollow"><img src="https://img.shields.io/badge/Latest Update-11/30/2024-blue?style=for-the-badge"></a>
+  <a  href="#" rel="nofollow"><img src="https://img.shields.io/badge/Latest Update-12/03/2024-blue?style=for-the-badge"></a>
 </p>
 
 
@@ -258,5 +258,5 @@ English
 
 <h2>🔑 Keywords</h2>
 
-`itt, Install Tweaks Tool, windows10debloater, windows11debloater, windows-optimization, Application Installation, System Optimization, Windows Tools, Automation, System Customization, Software Updates, Silent Installers, PowerShell Scripts, Developer Tools, Game-engine, godotengine, godot, Windows Applications, windows-tweaks, disable-windows-updates, Open-Source, activator-windows, windows-optimization-tool, tweaks, tweaker, Privacy, StandWithPalestine, Security, privacy-policy, choco, winget, download, emadadel, emadadel4, MIT`
+`itt, Install Tweaks Tool, windows10debloater, windows11debloater, windows-optimization, Application Installation, System Optimization, Windows Tools, Automation, System Customization, Software Updates, Silent Installers, PowerShell Scripts, Developer Tools, Game-engine, godotengine, godot, Windows Applications, windows-tweaks, disable-windows-updates, Open-Source, activator-windows, windows-optimization-tool, tweaks, tweaker, Privacy, StandWithPalestine, Security, privacy-policy, choco, winget, download, emadadel, emadadel4`
 
