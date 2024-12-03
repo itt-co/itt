@@ -3268,5 +3268,14 @@
     ],
     "category": "Runtimes",
     "check": "false"
+  },
+  {
+    "Name": "Volume2",
+    "Description": "Advanced Windows volume control",
+    "winget": "irzyxa.Volume2Portable",
+    "choco": "volume2",
+    "default": [],
+    "category": "Media Tools",
+    "check": "false"
   }
 ]
