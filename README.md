@@ -68,7 +68,7 @@
 </p>
 
 <div align="center">
-  <h5> 355 App |  41 Tweaks | 11 Settings | 100 Quote |  19 Soundtrack | 10 Localization </h5>
+  <h5> 355 App |  40 Tweaks | 11 Settings | 100 Quote |  19 Soundtrack | 10 Localization </h5>
 </div>
 
 <p align="center">
