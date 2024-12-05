@@ -4024,6 +4024,21 @@ $itt.database.Tweaks = @'
     "Registry": []
   },
   {
+    "Name": "Restore All Windows Services to Default",
+    "Description": "Restore All Windows Services to Default\" resets all Windows services to their original default settings as they were when the system was first installed. This helps resolve issues caused by unintended changes or misconfigured services",
+    "Category": "Fixer",
+    "Check": "false",
+    "Refresh": "false",
+    "Script": [
+      "irm https://raw.githubusercontent.com/emadadel4/WindowsTweaks/refs/heads/main/restore.bat | iex"
+    ],
+    "UndoScript": [],
+    "ScheduledTask": [],
+    "AppxPackage": [],
+    "Services": [],
+    "Registry": []
+  },
+  {
     "Name": "System File Checker",
     "Description": "sfc /scannow Use the System File Checker tool to repair missing or corrupted system files",
     "Category": "Fixer",
@@ -4174,6 +4189,21 @@ $itt.database.Tweaks = @'
       "TikTok",
       "Microsoft.NetworkSpeedTest"
     ],
+    "Services": [],
+    "Registry": []
+  },
+  {
+    "Name": "Fix Stutter in games",
+    "Description": "Fix Stutter in Games (Disable GameBarPresenceWriter). Windows 10/11",
+    "Category": "Performance",
+    "Check": "false",
+    "Refresh": "false",
+    "Script": [
+      "irm https://raw.githubusercontent.com/emadadel4/Fix-Stutter-in-Games/main/fix.ps1 | iex "
+    ],
+    "UndoScript": [],
+    "ScheduledTask": [],
+    "AppxPackage": [],
     "Services": [],
     "Registry": []
   },
@@ -5665,9 +5695,9 @@ $itt.database.Tweaks = @'
     "Registry": []
   },
   {
-    "Name": "Fix arabic encoding",
+    "Name": "Fix Arabic encoding",
     "Description": "Fix issues related to strange symbols appearing in Arabic text",
-    "Category": "",
+    "Category": "Fixer",
     "Check": "false",
     "Refresh": "false",
     "Script": [
@@ -12350,6 +12380,12 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Clean temporary files that are not necessary."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Restore All Windows Services to Default" Tag="Fixer" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Fixer"/>
+            </StackPanel>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Restore All Windows Services to Default resets all Windows services to their original default settings as they were when the system was first installed. This helps resolve issues caused by unintended changes or misconfigured services."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
+            <StackPanel Orientation="Horizontal">
                 <CheckBox Content="System File Checker" Tag="Fixer" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Fixer"/>
             </StackPanel>
@@ -12366,6 +12402,12 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A selection of preinstalled apps including productivity tools games communication apps and entertainment software like Xbox Microsoft News TikTok and more will be removed.."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Fix Stutter in games" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
+            </StackPanel>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Fix Stutter in Games Disable GameBarPresenceWriter. Windows 10/11."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="Enable the Ultimate Performance Power Plan" Tag="Power" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -12572,8 +12614,8 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Rename Computer name and Username to Unknown. The changes will take effect after you restart the computer."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
-                <CheckBox Content="Fix arabic encoding" Tag="" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content=""/>
+                <CheckBox Content="Fix Arabic encoding" Tag="Fixer" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Fixer"/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Fix issues related to strange symbols appearing in Arabic text."/>
         </StackPanel>
@@ -13009,11 +13051,6 @@ function Show-Event {
         
 
     
-            $itt.event.FindName('shell').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/shelltube')
-                })
-            
-            
             $itt.event.FindName('ps').add_MouseLeftButtonDown({
                     Start-Process('https://www.palestinercs.org/en/Donation')
                 })
@@ -13026,6 +13063,11 @@ function Show-Event {
             
             $itt.event.FindName('ytv').add_MouseLeftButtonDown({
                     Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+                })
+            
+            
+            $itt.event.FindName('shell').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/emadadel4/shelltube')
                 })
             
             
