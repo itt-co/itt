@@ -15,21 +15,6 @@
     "Registry": []
   },
   {
-    "Name": "Restore All Windows Services to Default",
-    "Description": "Restore All Windows Services to Default\" resets all Windows services to their original default settings as they were when the system was first installed. This helps resolve issues caused by unintended changes or misconfigured services",
-    "Category": "Fixer",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [
-      "irm https://raw.githubusercontent.com/emadadel4/WindowsTweaks/refs/heads/main/restore.bat | iex"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
-  },
-  {
     "Name": "System File Checker",
     "Description": "sfc /scannow Use the System File Checker tool to repair missing or corrupted system files",
     "Category": "Fixer",
