@@ -3277,5 +3277,14 @@
     "default": [],
     "category": "Media Tools",
     "check": "false"
+  },
+  {
+    "Name": "qBittorrent Enhanced Edition",
+    "Description": "[Unofficial] qBittorrent Enhanced, based on qBittorrent",
+    "winget": "wingetinstallc0re100.qBittorrent-Enhanced-Edition",
+    "choco": "qbittorrent-enhanced",
+    "default": [],
+    "category": "File Sharing",
+    "check": "false"
   }
 ]
