@@ -15,6 +15,21 @@
     "Registry": []
   },
   {
+    "Name": "Restore All Windows Services to Default",
+    "Description": "Restore All Windows Services to Default\" resets all Windows services to their original default settings as they were when the system was first installed. This helps resolve issues caused by unintended changes or misconfigured services",
+    "Category": "Fixer",
+    "Check": "false",
+    "Refresh": "false",
+    "Script": [
+      "irm https://raw.githubusercontent.com/emadadel4/WindowsTweaks/refs/heads/main/restore.bat | iex"
+    ],
+    "UndoScript": [],
+    "ScheduledTask": [],
+    "AppxPackage": [],
+    "Services": [],
+    "Registry": []
+  },
+  {
     "Name": "System File Checker",
     "Description": "sfc /scannow Use the System File Checker tool to repair missing or corrupted system files",
     "Category": "Fixer",
@@ -165,6 +180,21 @@
       "TikTok",
       "Microsoft.NetworkSpeedTest"
     ],
+    "Services": [],
+    "Registry": []
+  },
+  {
+    "Name": "Fix Stutter in games",
+    "Description": "Fix Stutter in Games (Disable GameBarPresenceWriter). Windows 10/11",
+    "Category": "Performance",
+    "Check": "false",
+    "Refresh": "false",
+    "Script": [
+      "irm https://raw.githubusercontent.com/emadadel4/Fix-Stutter-in-Games/main/fix.ps1 | iex "
+    ],
+    "UndoScript": [],
+    "ScheduledTask": [],
+    "AppxPackage": [],
     "Services": [],
     "Registry": []
   },
@@ -1656,9 +1686,9 @@
     "Registry": []
   },
   {
-    "Name": "Fix arabic encoding",
+    "Name": "Fix Arabic encoding",
     "Description": "Fix issues related to strange symbols appearing in Arabic text",
-    "Category": "",
+    "Category": "Fixer",
     "Check": "false",
     "Refresh": "false",
     "Script": [
