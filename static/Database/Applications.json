@@ -3286,5 +3286,21 @@
     "default": [],
     "category": "File Sharing",
     "check": "false"
+  },
+  {
+    "Name": "Aspia",
+    "Description": "Remote desktop and file transfer tool",
+    "winget": "none",
+    "choco": "none",
+    "default": [
+      {
+        "url": "https://github.com/dchapyshev/aspia/releases/download/v2.7.0/aspia-host-2.7.0-x86_64.msi",
+        "launcher": "aspia-host-2.7.0-x86_64.msi",
+        "args": "/silent",
+        "portable": "false"
+      }
+    ],
+    "category": "File Sharing",
+    "check": "false"
   }
 ]
