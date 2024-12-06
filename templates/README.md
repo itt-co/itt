@@ -133,7 +133,7 @@ or
 
 2. **Fork the repository and clone it using [Github desktop](https://desktop.github.com/download/). is available on ITT**
 
-3. **Open the ITT directory in PowerShell run as administrator:**
+3. **Open the ITT directory in PowerShell 7 run as administrator:**
 
 <pre><code>Set-Location "C:\Users\$env:USERNAME\Documents\Github\ITT"
 </code></pre>
