@@ -7397,7 +7397,7 @@ function Startup  {
 
                 if ($Runs -gt 1) 
                 {
-                    Telegram -Message "👤 User '$env:USERNAME' has opened ITT again.`n`⚙️ It has been run $Runs times`n`🎶 Music is $($itt.Music)%`n`🎨 Theme $($itt.CurretTheme)"
+                    Telegram -Message "👤 User <<$env:USERNAME>> has opened ITT again.`n`⚙️ Runs $Runs times`n`🎶 Music is $($itt.Music)%`n`🎨 Theme $($itt.CurretTheme)`n`🌐 Language $($itt.Language)"
                 } 
                 else
                 {
@@ -13045,13 +13045,8 @@ function Show-Event {
         
 
     
-            $itt.event.FindName('gpu').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/user-attachments/assets/9651da4b-c69b-441d-a912-fb6213de73fb')
-                })
-            
-            
-            $itt.event.FindName('ps').add_MouseLeftButtonDown({
-                    Start-Process('https://www.palestinercs.org/en/Donation')
+            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
+                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
                 })
             
             
@@ -13060,8 +13055,13 @@ function Show-Event {
                 })
             
             
-            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
-                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+            $itt.event.FindName('gpu').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/user-attachments/assets/9651da4b-c69b-441d-a912-fb6213de73fb')
+                })
+            
+            
+            $itt.event.FindName('ps').add_MouseLeftButtonDown({
+                    Start-Process('https://www.palestinercs.org/en/Donation')
                 })
             
             
