@@ -193,7 +193,7 @@ Edit CSV file using [edit-csv extension ](https://marketplace.visualstudio.com/i
 <br>
 
 
-# Resistance: Struggling for Justice in an Authoritarian World
+# Resistance Struggling for Justice in an Authoritarian World
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=35&pause=1000&width=435&lines=Support+Palestine)](https://git.io/typing-svg)
 
 
