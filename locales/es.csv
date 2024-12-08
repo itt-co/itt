@@ -1,56 +1,56 @@
 Key,Text
 name,Español
-Welcome,Ahorra tiempo instalando varios programas a la vez y mejora el rendimiento de tu Windows. Únete a nosotros para mejorar esta herramienta y hacerla aún mejor. También puedes agregar tus aplicaciones musicales y ajustes favoritos.
-installBtn,Instalar
-applyBtn,Aplicar
-downloading,Descargando...
-about,Acerca de
-thirdparty,Terceros
-preferences,Preferencias
-management,Gestión
-apps,Aplicaciones
-tweaks,Ajustes
-settings,Configuración
-saveapps,Guardar
-loadapps,Restaurar
-music,Música
-on,"Encendido "
-off,Apagado
-diskmgr,Administración de discos
-taskmgr,Administrador de tareas
-appsfeatures,Aplicaciones-Funciones
-networks,Redes
-services,Servicios
-devicemgr,Administrador de dispositivos
-PowerOptions,Opciones de energía
-sysinfo,Información del sistema
-defaultTheme,Usar la configuración del sistema
-ittlink,Crear acceso directo en el escritorio
-reset,Restablecer preferencias
-reopen,Vuelve a abrir ITT.
-theme,Tema
-language,Idioma
-mas,Scripts de activación de Microsoft (MAS)
-winoffice,Descargar ISO de Windows / Office
-idm,Activación IDM
-extensions,Extensiones del navegador
-all,Todos
-search,Buscar
-restorepoint,Crear un punto de restauración
-chocoloc,Carpeta de descargas portátiles
-InstallMessage,¿Estás seguro de que deseas instalar las siguientes aplicaciones?
-ApplyMessage,¿Estás seguro de que deseas aplicar los siguientes ajustes?
+Welcome,Ahorra tiempo instalando varios prograMAS a la vez y mejora el rendimiento de tu Windows. Únete a nosotros para mejorar esta herramienta y hacerla aún mejor. También puedes agregar tus aplicaciOnes Musicales y ajustes favoritos.
+Install,Instalar
+Apply,Aplicar
+Downloading,Descargando...
+About,Acerca de
+Third_party,Terceros
+Preferences,Preferencias
+Management,Gestión
+Apps,AplicaciOnes
+Tweaks,Ajustes
+Settings,COnfiguración
+Save,Guardar
+Restore,Restaurar
+Music,Música
+On,"Encendido "
+Off,Apagado
+Disk_Managment,Administración de discos
+Task_Manager,Administrador de tareas
+Apps_features,AplicaciOnes-FunciOnes
+Networks,Redes
+Services,Servicios
+Device_Manager,Administrador de dispositivos
+Power_Options,OpciOnes de energía
+System_Info,Información del sistema
+Use_system_setting,Usar la cOnfiguración del sistema
+Create_desktop_shortcut,Crear acceso directo en el escritorio
+Reset_preferences,Restablecer preferencias
+Please_reopen_itt_again.,Vuelve a abrir ITT.
+Theme,Tema
+Language,Idioma
+MAS,Scripts de activación de Microsoft (MAS)
+Win_Office,Descargar ISO de Windows / Office
+IDM,Activación IDM
+Browsers_extensions,ExtensiOnes del navegador
+All,Todos
+Search,Buscar
+Create_restore_point,Crear un punto de restauración
+Portable_Downloads_Folder,Carpeta de descargas portátiles
+Install_msg,¿Estás seguro de que deseas instalar las siguientes aplicaciOnes?
+Apply_msg,¿Estás seguro de que deseas aplicar los siguientes ajustes?
 Applying,Aplicando...
-choseapp,Selecciona al menos una aplicación para instalar.
-chosetweak,Selecciona al menos un ajuste para aplicar.
-pleasewait,Por favorespera un proceso se está ejecutando en segundo plano.
-lastupdate,Última actualización
+App_empty_select,SelecciOna al menos una aplicación para instalar.
+Tweak_empty_select,SelecciOna al menos un ajuste para aplicar.
+Please_wait,Por favorespera un proceso se está ejecutando en segundo plano.
+Last_update,Última actualización
 sourcecode,Código fuente
-devby,Hecho con ♥ por Emad Adel
-exit,¿Estás seguro de que deseas cerrar el programa? Si hay instalaciones se interrumpirán.
+Developed_By,Hecho cOn ♥ por Emad Adel
+Exit_msg,¿Estás seguro de que deseas cerrar el programa? Si hay instalaciOnes se interrumpirán.
 watchdemo,Bienvenido
-happybirthday,¡Feliz cumpleaños a mí!
-myplaylist,Es mi cumpleaños y mi lista de reproducción ♪
-OneAppReq,Elige al menos una aplicación para guardarla.
-contributors,Colaboradores
+Happy_birthday,¡Feliz cumpleaños a mí!
+My_playlist,Es mi cumpleaños y mi lista de reproducción ♪
+Empty_save_msg,Elige al menos una aplicación para guardarla.
+cOntributors,Colaboradores
 syslang,Idioma del sistema

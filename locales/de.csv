@@ -1,56 +1,56 @@
 Key,Text
 name,Deutsch
-Welcome,Sparen Sie Zeit indem Sie mehrere Programme gleichzeitig installieren und die Leistung Ihres Windows steigern. Schließen Sie sich uns an um dieses Tool zu verbessern und noch besser zu machen. Sie können auch Ihre Lieblings-Musik-Apps und Anpassungen hinzufügen.
-installBtn,Installieren
-applyBtn,Anwenden
-downloading,Herunterladen...
-about,Über
-thirdparty,Drittanbieter
-preferences,Einstellungen
-management,Verwaltung
-apps,Apps
-tweaks,Optimierungen
-settings,Einstellungen
-saveapps,Speichern
-loadapps,Wiederherstellen
-music,Musik
-on,"Ein "
-off,Aus
-diskmgr,Datenträgerverwaltung
-taskmgr,Task-Manager
-appsfeatures,Apps-Funktionen
-networks,Netzwerke
-services,Dienste
-devicemgr,Geräte-Manager
-PowerOptions,Energieoptionen
-sysinfo,Systeminfo
-defaultTheme,Systemeinstellungen verwenden
-ittlink,Desktop-Verknüpfung erstellen
-reset,Einstellungen zurücksetzen
-reopen,Bitte ITT erneut öffnen.
-theme,Thema
-language,Sprache
-mas,Microsoft Aktivierungsskripte (MAS)
-winoffice,Windows / Office ISO herunterladen
-idm,IDM-Aktivierung
-extensions,Browser-Erweiterungen
-all,Alle
-search,Suchen
-restorepoint,Wiederherstellungspunkt erstellen
-chocoloc,Ordner für tragbare Downloads
-InstallMessage,Sind Sie sicher  dass Sie die folgenden Anwendungen installieren möchten?
-ApplyMessage,Sind Sie sicher dass Sie die folgenden Anpassungen anwenden möchten?
+Welcome,Sparen Sie Zeit indem Sie mehrere Programme gleichzeitig instAllieren und die Leistung Ihres Windows steigern. Schließen Sie sich uns an um dieses Tool zu verbessern und noch besser zu machen. Sie können auch Ihre Lieblings-Musik-Apps und Anpassungen hinzufügen.
+Install,InstAllieren
+Apply,Anwenden
+Downloading,Herunterladen...
+About,Über
+Third_party,Drittanbieter
+Preferences,Einstellungen
+Management,Verwaltung
+Apps,Apps
+Tweaks,Optimierungen
+Settings,Einstellungen
+Save,Speichern
+Restore,Wiederherstellen
+Music,Musik
+On,"Ein "
+Off,Aus
+Disk_Managment,Datenträgerverwaltung
+Task_Manager,Task-Manager
+Apps_features,Apps-FunktiOnen
+Networks,Netzwerke
+Services,Dienste
+Device_Manager,Geräte-Manager
+Power_Options,EnergieoptiOnen
+System_Info,Systeminfo
+Use_system_setting,Systemeinstellungen verwenden
+Create_desktop_shortcut,Desktop-Verknüpfung erstellen
+Reset_preferences,Einstellungen zurücksetzen
+Please_reopen_itt_again.,Bitte ITT erneut öffnen.
+Theme,Thema
+Language,Sprache
+MAS,Microsoft Aktivierungsskripte (MAS)
+Win_Office,Windows / Office ISO herunterladen
+IDM,IDM-Aktivierung
+Browsers_extensions,Browser-Erweiterungen
+All,Alle
+Search,Suchen
+Create_restore_point,Wiederherstellungspunkt erstellen
+Portable_Downloads_Folder,Ordner für tragbare Downloads
+Install_msg,Sind Sie sicher  dass Sie die folgenden Anwendungen instAllieren möchten?
+Apply_msg,Sind Sie sicher dass Sie die folgenden Anpassungen anwenden möchten?
 Applying,Anwenden...
-choseapp,Wählen Sie mindestens eine App zur Installation aus.
-chosetweak,Wählen Sie mindestens eine Optimierung zur Anwendung aus.
-pleasewait,Bitte warten ein Prozess läuft im Hintergrund.
-lastupdate,Letztes Update
+App_empty_select,Wählen Sie mindestens eine App zur InstAllatiOn aus.
+Tweak_empty_select,Wählen Sie mindestens eine Optimierung zur Anwendung aus.
+Please_wait,Bitte warten ein Prozess läuft im Hintergrund.
+Last_update,Letztes Update
 sourcecode,Quellcode
-devby,Mit ♥ gemacht von Emad Adel
-exit,Sind Sie sicher dass Sie das Programm schließen möchten? Alle Installationen werden abgebrochen.
+Developed_By,Mit ♥ gemacht vOn Emad Adel
+Exit_msg,Sind Sie sicher dass Sie das Programm schließen möchten? Alle InstAllatiOnen werden abgebrochen.
 watchdemo,Willkommen
-happybirthday,Alles Gute zum Geburtstag mir!
-myplaylist,Es ist mein Geburtstag und meine Playlist ♪
-OneAppReq,Wählen Sie mindestens eine App zum Speichern aus.
-contributors,Mitwirkende
+Happy_birthday,Alles Gute zum Geburtstag mir!
+My_playlist,Es ist mein Geburtstag und meine Playlist ♪
+Empty_save_msg,Wählen Sie mindestens eine App zum Speichern aus.
+cOntributors,Mitwirkende
 syslang,Systemsprache

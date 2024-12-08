@@ -1,57 +1,57 @@
 Key,Text
 name,عربي
 Welcome,توفر هذه الأداة تسهيلات كبيرة في عملية تثبيت البرامج وتحسين الاداء. انضم إلينا لتساهم في تطويرها وجعلها أكثر اكتمالًا
-sysinfo,معلومات النظام
-PowerOptions,خيارات الطاقة
-devicemgr,إدارة الأجهزة
-services,خدمات
-networks,شبكات
-appsfeatures,التطبيقات و الميزات
-taskmgr,مدير المهام
-diskmgr,إدارة القرص
-InstallBtn,تثبيت
-applyBtn,تطبيق
-downloading,جارٍ التثبيت
-about,عن المطور
-thirdparty,روابط خارجية
-preferences,التفضيلات
-management,إدارة الجهاز
-apps,تطبيقات
-tweaks,تحسينات
-settings,إعدادات
-saveapps,حفظ البرامج
-loadapps,أسترجاع البرامج
-music,الموسيقى
-on,"تشغيل "
-off,كتم
+System_Info,معلومات النظام
+Power_Options,خيارات الطاقة
+Device_Manager,إدارة الأجهزة
+Services,خدمات
+Networks,شبكات
+Apps_features,التطبيقات و الميزات
+Task_Manager,مدير المهام
+Disk_Managment,إدارة القرص
+Install,تثبيت
+Apply,تطبيق
+Downloading,جارٍ التثبيت
+About,عن المطور
+Third_party,روابط خارجية
+Preferences,التفضيلات
+Management,إدارة الجهاز
+Apps,تطبيقات
+Tweaks,تحسينات
+Settings,إعدادات
+Save,حفظ البرامج
+Restore,أسترجاع البرامج
+Music,الموسيقى
+On,"تشغيل "
+Off,كتم
 Dark,ليلا
 Light,نهارا
-defaultTheme,استخدم إعدادات النظام
-ittlink,أنشاء أختصار على سطح المكتب
-reset,الوضع الافتراضي
-reopen,يرجى اعادة فتح الاداة مرة اخرى
-theme,المظهر
-language,اللغة
-mas,تفعيل الويندوز
-winoffice,تنزيل ويندوز / أوفيس
-idm,تفعيل الدون لود مانجر
-extensions,أضافات المتصفحات
-all,الكل
-search,بحث
-restorepoint,إنشاء نقطة الاستعادة
-chocoloc,مجلد التنزيلات المحمولة
-InstallMessage,هل تريد تثبيت البرامج التالية
-ApplyMessage,هل تريد تطبيق التحسينات التالية
+Use_system_setting,استخدم إعدادات النظام
+Create_desktop_shortcut,أنشاء أختصار على سطح المكتب
+Reset_preferences,الوضع الافتراضي
+Please_reopen_itt_again.,يرجى اعادة فتح الاداة مرة اخرى
+Theme,المظهر
+Language,اللغة
+MAS,تفعيل الويندوز
+Win_Office,تنزيل ويندوز / أوفيس
+IDM,تفعيل الدون لود مانجر
+Browsers_extensions,أضافات المتصفحات
+All,الكل
+Search,بحث
+Create_restore_point,إنشاء نقطة الاستعادة
+Portable_Downloads_Folder,مجلد التنزيلات المحمولة
+Install_msg,هل تريد تثبيت البرامج التالية
+Apply_msg,هل تريد تطبيق التحسينات التالية
 Applying,جارٍي التطبيق
-Pleasewait,يرجى الانتظار، يوجد عملية في الخلفية
-choseapp,اختر على الأقل تطبيقًا لتثبيته
-chosetweak,اختار على الاقل تحسين واحد لتطبيقه
-lastupdate,آخر تحديث
+Please_wait,يرجى الانتظار، يوجد عملية في الخلفية
+App_empty_select,اختر على الأقل تطبيقًا لتثبيته
+Tweak_empty_select,اختار على الاقل تحسين واحد لتطبيقه
+Last_update,آخر تحديث
 sourcecode,الشفرة المصدرية
-devby,صنع بـ ♥ من قبل عماد عادل
-exit,هل أنت متأكد من رغبتك في إغلاق البرنامج؟ إذا كان هناك أي تثبيتات، فسيتم إيقافها.
+Developed_By,صنع بـ ♥ من قبل عماد عادل
+Exit_msg,هل أنت متأكد من رغبتك في إغلاق البرنامج؟ إذا كان هناك أي تثبيتات، فسيتم إيقافها.
 watchdemo,مرحبا بك
-happybirthday,!عيد ميلاد سعيد عماد
-myplaylist,انه عيد ميلادي و قائمة الموسيقى الخاصة بي
-OneAppReq,يرجى اختيار تطبيق واحد على الاقل لحفظه
+Happy_birthday,!عيد ميلاد سعيد عماد
+My_playlist,انه عيد ميلادي و قائمة الموسيقى الخاصة بي
+Empty_save_msg,يرجى اختيار تطبيق واحد على الاقل لحفظه
 syslang,استخدم لغة النظام

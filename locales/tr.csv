@@ -1,56 +1,56 @@
 Key,Text
 name,Türkçe
 Welcome,Birden fazla programı aynı anda yükleyerek zaman kazanın ve Windows performansınızı artırın. Bu aracı geliştirmek ve daha da iyileştirmek için bize katılın. Ayrıca favori müzik uygulamalarınızı ve ayarlarınızı da ekleyebilirsiniz.
-installBtn,Yükle
-applyBtn,Uygula
-downloading,İndiriliyor...
-about,Hakkında
-thirdparty,Üçüncü Taraf
-preferences,Tercihler
-management,Yönetim
-apps,Uygulamalar
-tweaks,İnce Ayarlar
-settings,Ayarlar
-saveapps,Kayıt Et
-loadapps,Geri Yükle
-music,Müzik
-on,"Açık "
-off,Kapalı
-diskmgr,Disk Yönetimi
-taskmgr,Görev Yöneticisi
-appsfeatures,Uygulamalar-Özellikler
-networks,Ağlar
-services,Hizmetler
-devicemgr,Aygıt Yöneticisi
-PowerOptions,Güç Seçenekleri
-sysinfo,Sistem Bilgisi
-defaultTheme,Sistem ayarlarını kullan
-ittlink,Masaüstü kısayolu oluştur
-reset,Tercihleri sıfırla
-reopen,Lütfen ITT'yi tekrar açın.
-theme,Tema
-language,Dil
-mas,Microsoft Etkinleştirme Betikleri (MAS)
-winoffice,Windows / Office ISO İndir
-idm,IDM Etkinleştirme
-extensions,Tarayıcı Eklentileri
-all,Tümü
-search,Ara
-restorepoint,Geri yükleme noktası oluştur
-chocoloc,Taşınabilir İndirilenler Klasörü
-InstallMessage,Aşağıdaki uygulamaları yüklemek istediğinizden emin misiniz?
-ApplyMessage,Aşağıdaki ayarları uygulamak istediğinizden emin misiniz?
+Install,Yükle
+Apply,Uygula
+Downloading,İndiriliyor...
+About,Hakkında
+Third_party,Üçüncü Taraf
+Preferences,Tercihler
+Management,Yönetim
+Apps,Uygulamalar
+Tweaks,İnce Ayarlar
+Settings,Ayarlar
+Save,Kayıt Et
+Restore,Geri Yükle
+Music,Müzik
+On,"Açık "
+Off,Kapalı
+Disk_Managment,Disk Yönetimi
+Task_Manager,Görev Yöneticisi
+Apps_features,Uygulamalar-Özellikler
+Networks,Ağlar
+Services,Hizmetler
+Device_Manager,Aygıt Yöneticisi
+Power_Options,Güç Seçenekleri
+System_Info,Sistem Bilgisi
+Use_system_setting,Sistem ayarlarını kullan
+Create_desktop_shortcut,MASaüstü kısayolu oluştur
+Reset_preferences,Tercihleri sıfırla
+Please_reopen_itt_again.,Lütfen ITT'yi tekrar açın.
+Theme,Tema
+Language,Dil
+MAS,Microsoft Etkinleştirme Betikleri (MAS)
+Win_Office,Windows / Office ISO İndir
+IDM,IDM Etkinleştirme
+Browsers_extensions,Tarayıcı Eklentileri
+All,Tümü
+Search,Ara
+Create_restore_point,Geri yükleme noktası oluştur
+Portable_Downloads_Folder,Taşınabilir İndirilenler Klasörü
+Install_msg,Aşağıdaki uygulamaları yüklemek istediğinizden emin misiniz?
+Apply_msg,Aşağıdaki ayarları uygulamak istediğinizden emin misiniz?
 Applying,Uygulanıyor...
-choseapp,Lütfen yüklemek için en az bir uygulama seçin.
-chosetweak,Lütfen uygulamak için en az bir ince ayar seçin.
-pleasewait,Lütfen bekleyin arka planda bir işlem çalışıyor.
-lastupdate,Son güncelleme
+App_empty_select,Lütfen yüklemek için en az bir uygulama seçin.
+Tweak_empty_select,Lütfen uygulamak için en az bir ince ayar seçin.
+Please_wait,Lütfen bekleyin arka planda bir işlem çalışıyor.
+Last_update,SOn güncelleme
 sourcecode,Kaynak Kodu
-devby,Emad Adel tarafından ♥ ile yapıldı
-exit,Programı kapatmak istediğinizden emin misiniz? Herhangi bir kurulum varsa durdurulacak.
+Developed_By,Emad Adel tarafından ♥ ile yapıldı
+Exit_msg,Programı kapatmak istediğinizden emin misiniz? Herhangi bir kurulum varsa durdurulacak.
 watchdemo,Hoş geldiniz
-happybirthday,Kendime Mutlu Yıllar!
-myplaylist,Benim Doğum Günüm ve Benim Çalma Listem ♪
-OneAppReq,Kaydetmek için en az bir uygulama seçin.
-contributors,Katkıda Bulunanlar
+Happy_birthday,Kendime Mutlu Yıllar!
+My_playlist,Benim Doğum Günüm ve Benim Çalma Listem ♪
+Empty_save_msg,Kaydetmek için en az bir uygulama seçin.
+cOntributors,Katkıda Bulunanlar
 syslang,Sistem dili

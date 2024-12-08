@@ -1,57 +1,57 @@
 Key,Text
 name,Français
-Welcome,Gagnez du temps en installant plusieurs programmes à la fois et améliorez les performances de votre Windows. Rejoignez-nous pour améliorer cet outil et le rendre encore meilleur. Vous pouvez également ajouter vos applications musicales et vos tweaks préférés.
-installBtn,Installer
-applyBtn,Appliquer
-downloading,Téléchargement...
-about,À propos
-thirdparty,Tiers
-preferences,Préférences
-management,Gestion
-apps,Applications
-tweaks,Optimisations
-settings,Paramètres
-saveapps,Sauvegarder
-loadapps,Restaurer
-music,Musique
-on,"Activé "
-off,Désactivé
-diskmgr,Gestion des disques
-taskmgr,Gestionnaire des tâches
-appsfeatures,Applications-Fonctionnalités
-networks,Réseaux
-services,Services
-devicemgr,Gestionnaire de périphériques
-PowerOptions,Options d'alimentation
-sysinfo,Infos système
-defaultTheme,Utiliser les paramètres système
-ittlink,Créer un raccourci sur le bureau
-reset,Réinitialiser les préférences
-reopen,Veuillez rouvrir ITT.
-theme,Thème
-language,Langue
-mas,Scripts d'activation Microsoft (MAS)
-winoffice,Télécharger l'ISO Windows / Office
-idm,Activation IDM
-extensions,Extensions de navigateurs
-all,Tout
-search,Rechercher
-restorepoint,Créer un point de restauration
-chocoloc,Dossier de téléchargements portables
-InstallMessage,Êtes-vous sûr de vouloir installer les applications suivantes ?
-ApplyMessage,Êtes-vous sûr de vouloir appliquer les tweaks suivants ?
-Applying,Application...
-choseapp,Veuillez sélectionner au moins une application à installer.
-chosetweak,Veuillez sélectionner au moins un tweak à appliquer.
-pleasewait,Veuillez patienter
-lastupdate,Dernière mise à jour  un processus est en cours d'exécution en arrière-plan.
+Welcome,Gagnez du temps en instAllant plusieurs programmes à la fois et améliorez les performances de votre Windows. Rejoignez-nous pour améliorer cet outil et le rendre encore meilleur. Vous pouvez également ajouter vos applicatiOns Musicales et vos Tweaks préférés.
+Install,InstAller
+Apply,Appliquer
+Downloading,Téléchargement...
+About,À propos
+Third_party,Tiers
+Preferences,Préférences
+Management,GestiOn
+Apps,ApplicatiOns
+Tweaks,OptimisatiOns
+Settings,Paramètres
+Save,Sauvegarder
+Restore,Restaurer
+Music,Musique
+On,"Activé "
+Off,Désactivé
+Disk_Managment,GestiOn des disques
+Task_Manager,GestiOnnaire des tâches
+Apps_features,ApplicatiOns-FOnctiOnnalités
+Networks,Réseaux
+Services,Services
+Device_Manager,GestiOnnaire de périphériques
+Power_Options,OptiOns d'alimentatiOn
+System_Info,Infos système
+Use_system_setting,Utiliser les paramètres système
+Create_desktop_shortcut,Créer un raccourci sur le bureau
+Reset_preferences,Réinitialiser les préférences
+Please_reopen_itt_again.,Veuillez rouvrir ITT.
+Theme,Thème
+Language,Langue
+MAS,Scripts d'activatiOn Microsoft (MAS)
+Win_Office,Télécharger l'ISO Windows / Office
+IDM,ActivatiOn IDM
+Browsers_extensions,Browsers_extensions de navigateurs
+All,Tout
+Search,Rechercher
+Create_restore_point,Créer un point de restauratiOn
+Portable_Downloads_Folder,Dossier de téléchargements portables
+Install_msg,Êtes-vous sûr de vouloir instAller les applicatiOns suivantes ?
+Apply_msg,Êtes-vous sûr de vouloir appliquer les Tweaks suivants ?
+Applying,ApplicatiOn...
+App_empty_select,Veuillez sélectiOnner au moins une applicatiOn à instAller.
+Tweak_empty_select,Veuillez sélectiOnner au moins un tweak à appliquer.
+Please_wait,Veuillez patienter
+Last_update,Dernière mise à jour  un processus est en cours d'exécutiOn en arrière-plan.
 sourcecode,Code source
-devby,Fait avec ♥ par Emad Adel
-exit,Êtes-vous sûr de vouloir fermer le programme ? Si des installations sont en cours  elles seront interrompues.
+Developed_By,Fait avec ♥ par Emad Adel
+Exit_msg,Êtes-vous sûr de vouloir fermer le programme ? Si des instAllatiOns sOnt en cours  elles serOnt interrompues.
 watchdemo,Bienvenue
-happybirthday,Joyeux anniversaire à moi !
-myplaylist,C'est mon anniversaire et ma playlist ♪
-OneAppReq,Choisissez au moins une application à sauvegarder.
-contributors,Contributeurs
+Happy_birthday,Joyeux anniversaire à moi !
+My_playlist,C'est mOn anniversaire et ma playlist ♪
+Empty_save_msg,Choisissez au moins une applicatiOn à sauvegarder.
+cOntributors,COntributeurs
 syslang,Langue du système
 

@@ -1,55 +1,52 @@
 Key,Text
 name,English
-Welcome,Save time by installing multiple programs at once and boost your Windows performance. Join us in improving this tool and making it better. You can also add your favorite music  apps  and tweaks.
-installBtn,Install
-applyBtn,Apply
-downloading,Downloading...
-about,About
-thirdparty,Third-party
-preferences,Preferences
-management,Management
-apps,Apps
-tweaks,Tweaks
-settings,Settings
-saveapps,Save
-loadapps,Restore
-music,Music
-on,"On "
-off,Off
-diskmgr,Disk Managment
-taskmgr,Task Manager
-appsfeatures,Apps-Features
-networks,Networks
-services,Services
-devicemgr,Device Manager
-PowerOptions,Power Options
-sysinfo,System Info
-defaultTheme,Use system setting
-ittlink,Create desktop shortcut
-reset,Reset Preferences
-reopen,Please reopen ITT again.
-theme,Theme
-language,Language
-mas,Microsoft Activation Scripts (MAS)
-winoffice,Download Windows / Office ISO
-idm,IDM Activation
-extensions,Browsers Extensions
-all,All
-search,Search
-restorepoint,Create a restore point
-chocoloc,Portable Downloads Folder
-InstallMessage,Are you sure you want to install the following applications
-ApplyMessage,Are you sure you want to apply the following tweaks
+Welcome,Save time by instAlling multiple programs at Once and boost your Windows performance. Join us in improving this tool and making it better. You can also add your favorite Music  Apps  and Tweaks.
+Install,Install
+Apply,Apply
+Downloading,Downloading...
+About,About
+Third_party,Third-party
+Preferences,Preferences
+Management,Management
+Apps,Apps
+Tweaks,Tweaks
+Settings,Settings
+Save,Save
+Restore,Restore
+Music,Music
+On,"On "
+Off,Off
+Disk_Managment,Disk Managment
+Task_Manager,Task Manager
+Apps_features,Apps-Features
+Networks,Networks
+Services,Services
+Device_Manager,Device Manager
+Power_Options,Power OptiOns
+System_Info,System Info
+Use_system_setting,Use system setting
+Create_desktop_shortcut,Create desktop shortcut
+Reset_preferences,Reset_preferences Preferences
+Please_reopen_itt_again.,Please Please_reopen_itt_again. ITT again.
+Theme,Theme
+Language,Language
+MAS,Microsoft ActivatiOn Scripts (MAS)
+Win_Office,Download Windows / Office ISO
+IDM,IDM ActivatiOn
+Browsers_extensions,Browsers Browsers_extensions
+All,All
+Search,Search
+Create_restore_point,Create a restore point
+Portable_Downloads_Folder,Portable Downloads Folder
+Install_msg,Are you sure you want to install the following app(s)
+Apply_msg,Are you sure you want to apply the following Tweaks
 Applying,Applying...
-choseapp,Please select at least one app to install.
-chosetweak,Please select at least one tweak to apply.
-pleasewait,Please wait  a process is running in the background
-lastupdate,Last update
-sourcecode,Source Code
-devby,Made with ♥ by Emad Adel
-exit,Are you sure you want to close the program? If there are any installations they will be terminated.
-watchdemo,Welcome
-happybirthday,Happy Birthday to me!
-myplaylist,It's my Birthday and My Playlist ♪
-OneAppReq,Choose at least one app to save it
-syslang,System language
+App_empty_select,Please select at least One app to instAll.
+Tweak_empty_select,Please select at least One tweak to apply.
+Please_wait,Please wait  a process is running in the background
+Last_update,Last update
+Developed_By,Made with ♥ by Emad Adel
+Exit_msg,Are you sure you want to close the program? If there are any instAllatiOns they will be terminated.
+Happy_birthday,Happy Birthday to me!
+My_playlist,It's my Birthday and My Playlist ♪
+Empty_save_msg,Choose at least One app to save

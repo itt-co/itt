@@ -1,56 +1,56 @@
 Key,Text
 name,Русский
 Welcome,Сэкономьте время устанавливая несколько программ одновременно и улучшите производительность Windows. Присоединяйтесь к нам для улучшения этого инструмента и его совершенствования. Вы также можете добавить свои любимые музыкальные приложения и настройки.
-installBtn,Установить
-applyBtn,Применить
-downloading,Загрузка...
-about,О нас
-thirdparty,Сторонние
-preferences,Настройки
-management,Управление
-apps,Приложения
-tweaks,Настройки
-settings,Параметры
-saveapps,Сохранить
-loadapps,Восстановить
-music,Музыка
-on,"Вкл "
-off,Выкл
-diskmgr,Управление дисками
-taskmgr,Диспетчер задач
-appsfeatures,Приложения-Функции
-networks,Сети
-services,Сервисы
-devicemgr,Диспетчер устройств
-PowerOptions,Энергопитание
-sysinfo,Информация о системе
-defaultTheme,Использовать системные настройки
-ittlink,Создать ярлык на рабочем столе
-reset,Сбросить настройки
-reopen,Пожалуйста перезапустите ITT.
-theme,Тема
-language,Язык
-mas,Microsoft Activation Scripts (MAS)
-winoffice,Скачать ISO Windows / Office
-idm,Активация IDM
-extensions,Расширения для браузеров
-all,Все
-search,Поиск
-restorepoint,Создать точку восстановления
-chocoloc,Папка для портативных загрузок
-InstallMessage,Вы уверены что хотите установить следующие приложения?
-ApplyMessage,Вы уверены что хотите применить следующие настройки?
+Install,Установить
+Apply,Применить
+Downloading,Загрузка...
+About,О нас
+Third_party,Сторонние
+Preferences,Настройки
+Management,Управление
+Apps,Приложения
+Tweaks,Настройки
+Settings,Параметры
+Save,Сохранить
+Restore,Восстановить
+Music,Музыка
+On,"Вкл "
+Off,Выкл
+Disk_Managment,Управление дисками
+Task_Manager,Диспетчер задач
+Apps_features,Приложения-Функции
+Networks,Сети
+Services,Сервисы
+Device_Manager,Диспетчер устройств
+Power_Options,Энергопитание
+System_Info,Информация о системе
+Use_system_setting,Использовать системные настройки
+Create_desktop_shortcut,Создать ярлык на рабочем столе
+Reset_preferences,Сбросить настройки
+Please_reopen_itt_again.,Пожалуйста перезапустите ITT.
+Theme,Тема
+Language,Язык
+MAS,Microsoft ActivatiOn Scripts (MAS)
+Win_Office,Скачать ISO Windows / Office
+IDM,Активация IDM
+Browsers_extensions,Расширения для браузеров
+All,Все
+Search,Поиск
+Create_restore_point,Создать точку восстановления
+Portable_Downloads_Folder,Папка для портативных загрузок
+Install_msg,Вы уверены что хотите установить следующие приложения?
+Apply_msg,Вы уверены что хотите применить следующие настройки?
 Applying,Применение...
-choseapp,Выберите хотя бы одно приложение для установки.
-chosetweak,Выберите хотя бы одну настройку для применения.
-pleasewait,Подождите выполняется фоновый процесс.
-lastupdate,Последнее обновление
+App_empty_select,Выберите хотя бы одно приложение для установки.
+Tweak_empty_select,Выберите хотя бы одну настройку для применения.
+Please_wait,Подождите выполняется фоновый процесс.
+Last_update,Последнее обновление
 sourcecode,Исходный код
-devby,Сделано с ♥ Emad Adel
-exit,Вы уверены что хотите закрыть программу? Все установки будут прерваны.
+Developed_By,Сделано с ♥ Emad Adel
+Exit_msg,Вы уверены что хотите закрыть программу? Все установки будут прерваны.
 watchdemo,Добро пожаловать
-happybirthday,С Днем Рождения меня!
-myplaylist,Это мой день рождения и мой плейлист ♪
-OneAppReq,Выберите хотя бы одно приложение для сохранения.
-contributors,Соавторы
+Happy_birthday,С Днем Рождения меня!
+My_playlist,Это мой день рождения и мой плейлист ♪
+Empty_save_msg,Выберите хотя бы одно приложение для сохранения.
+cOntributors,Соавторы
 syslang,Язык системы
