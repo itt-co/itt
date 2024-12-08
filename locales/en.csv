@@ -27,7 +27,7 @@ System_Info,System Info
 Use_system_setting,Use system setting
 Create_desktop_shortcut,Create desktop shortcut
 Reset_preferences,Reset_preferences Preferences
-Please_reopen_itt_again.,Please Please_reopen_itt_again. ITT again.
+Reopen_itt_again.,Please Please_reopen_itt_again. ITT again.
 Theme,Theme
 Language,Language
 MAS,Microsoft ActivatiOn Scripts (MAS)
@@ -38,15 +38,14 @@ All,All
 Search,Search
 Create_restore_point,Create a restore point
 Portable_Downloads_Folder,Portable Downloads Folder
-Install_msg,Are you sure you want to install the following app(s)
-Apply_msg,Are you sure you want to apply the following Tweaks
+Install_msg,Are you sure you want to install the following App(s)
+Apply_msg,Are you sure you want to apply the following Tweak(s)
 Applying,Applying...
-App_empty_select,Please select at least One app to instAll.
+App_empty_select,Please select at least One app to install.
 Tweak_empty_select,Please select at least One tweak to apply.
 Please_wait,Please wait  a process is running in the background
 Last_update,Last update
-Developed_By,Made with ♥ by Emad Adel
 Exit_msg,Are you sure you want to close the program? If there are any instAllatiOns they will be terminated.
 Happy_birthday,Happy Birthday to me!
 My_playlist,It's my Birthday and My Playlist ♪
-Empty_save_msg,Choose at least One app to save
+Empty_save_msg,Choose at least One app to save it

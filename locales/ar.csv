@@ -29,7 +29,7 @@ Light,نهارا
 Use_system_setting,استخدم إعدادات النظام
 Create_desktop_shortcut,أنشاء أختصار على سطح المكتب
 Reset_preferences,الوضع الافتراضي
-Please_reopen_itt_again.,يرجى اعادة فتح الاداة مرة اخرى
+reopen_itt_again.,يرجى اعادة فتح الاداة مرة اخرى
 Theme,المظهر
 Language,اللغة
 MAS,تفعيل الويندوز
@@ -47,11 +47,7 @@ Please_wait,يرجى الانتظار، يوجد عملية في الخلفية
 App_empty_select,اختر على الأقل تطبيقًا لتثبيته
 Tweak_empty_select,اختار على الاقل تحسين واحد لتطبيقه
 Last_update,آخر تحديث
-sourcecode,الشفرة المصدرية
-Developed_By,صنع بـ ♥ من قبل عماد عادل
 Exit_msg,هل أنت متأكد من رغبتك في إغلاق البرنامج؟ إذا كان هناك أي تثبيتات، فسيتم إيقافها.
-watchdemo,مرحبا بك
 Happy_birthday,!عيد ميلاد سعيد عماد
 My_playlist,انه عيد ميلادي و قائمة الموسيقى الخاصة بي
 Empty_save_msg,يرجى اختيار تطبيق واحد على الاقل لحفظه
-syslang,استخدم لغة النظام
