@@ -23,7 +23,7 @@ function Get-CheckBoxesFromStackPanel {
 # Function to load JSON data and update the UI
 function LoadJson {
     if ($itt.ProcessRunning) {
-        Message -key "Pleasewait" -icon "Warning" -action "OK"
+        Message -key "Please_wait" -icon "Warning" -action "OK"
         return
     }
 
@@ -65,7 +65,7 @@ function LoadJson {
 function SaveItemsToJson {
     if ($itt.ProcessRunning) {
         $msg = $itt.database.locales.Controls.$($itt.Language).Pleasewait
-        Message -key "Pleasewait" -icon "warning" -action "OK"
+        Message -key "Please_wait" -icon "warning" -action "OK"
         return
     }
 
@@ -118,7 +118,7 @@ function SaveItemsToJson {
 
         
     } else {
-        Message -key "OneAppReq" -icon "Information" -action "OK"
+        Message -key "Empty_save_msg" -icon "Information" -action "OK"
     }
 
     # Clear Search input
