@@ -40,12 +40,12 @@ function Finish {
     switch($ListView)
     {
         "AppsListView" {
-            UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "InstallBtn" -TextIcon "installIcon" -Icon "  " -Width "140"
+            UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "Install" -TextIcon "installIcon" -Icon "  " -Width "140"
             Add-Log -Message "ALL INSTALLATIONS COMPLETED SUCCESSFULLY." -Level "INFO"
         }
 
         "TweaksListView" {
-            UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "applyBtn" -TextIcon "applyIcon" -Icon "  " -Width "140"
+            UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Apply" -TextIcon "applyIcon" -Icon "  " -Width "140"
             Add-Log -Message "ALL TWEAKS HAVE BEEN APPLIED SUCCESSFULLY. PLEASE NOTE: SOME CHANGES WILL TAKE EFFECT AFTER A RESTART." -Level "INFO"
         }
     }
