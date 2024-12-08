@@ -26,7 +26,7 @@
 
           <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
               <TextBlock Name="installText" 
-              Text="{Binding installBtn}" 
+              Text="{Binding Install}" 
               Foreground="White" 
               Margin="0" 
               VerticalAlignment="Center"/>
@@ -59,7 +59,7 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
 
                 <TextBlock Name="applyText" 
-                Text="{Binding applyBtn}" 
+                Text="{Binding Apply}" 
                 Foreground="White" 
                 Margin="0" 
                 VerticalAlignment="Center"/>
