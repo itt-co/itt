@@ -22,7 +22,7 @@ Apps_features,Apps-Features
 Networks,Networks
 Services,Services
 Device_Manager,Device Manager
-Power_Options,Power OptiOns
+Power_Options,Power options
 System_Info,System Info
 Use_system_setting,Use system setting
 Create_desktop_shortcut,Create desktop shortcut
@@ -41,8 +41,8 @@ Portable_Downloads_Folder,Portable Downloads Folder
 Install_msg,Are you sure you want to install the following App(s)
 Apply_msg,Are you sure you want to apply the following Tweak(s)
 Applying,Applying...
-App_empty_select,Please select at least One app to install.
-Tweak_empty_select,Please select at least One tweak to apply.
+App_empty_select,Please select at least one app to install.
+Tweak_empty_select,Please select at least one tweak to apply.
 Please_wait,Please wait  a process is running in the background
 Last_update,Last update
 Exit_msg,Are you sure you want to close the program? If there are any instAllatiOns they will be terminated.
