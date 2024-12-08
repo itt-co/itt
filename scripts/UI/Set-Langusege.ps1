@@ -1,44 +1,46 @@
+function System-Default {
+    
+    $fullCulture = Get-ItemPropertyValue -Path "HKCU:\Control Panel\International" -Name "LocaleName"
+    $shortCulture = $fullCulture.Split('-')[0]
+
+    switch($shortCulture)
+    {
+        
+        "ar" { $locale = "ar" }
+        "en" { $locale = "en" }
+        "fr" { $locale = "fr" }
+        "tr" { $locale = "tr" }
+        "zh" { $locale = "zh" }
+        "ko" { $locale = "ko" }
+        "de" { $locale = "de" }
+        "ru" { $locale = "ru" }
+        "es" { $locale = "es" }
+        "ga" { $locale = "ga" }
+        default { $locale = "en" }
+    }
+
+    Set-ItemProperty -Path $itt.registryPath  -Name "locales" -Value "default" -Force
+    $itt["window"].DataContext = $itt.database.locales.Controls.$locale
+    $itt.Language = $locale
+
+}
+
 function Set-Language {
 
-    <#
-        .SYNOPSIS
-        Sets the application's language and updates the registry with the selected language.
-
-        .DESCRIPTION
-        The `Set-Language` function updates the application's language settings by changing the `DataContext` of the main window to the specified language. 
-        It also saves the selected language to the registry to ensure that the language preference is preserved across sessions.
-
-        .PARAMETER lang
-        A string representing the language code to set. This code should correspond to a valid language entry in the application's locale database. For example, "en" for English, "fr" for French, etc.
-
-        .EXAMPLE
-        Set-Language -lang "en"
-        Sets the application's language to English and updates the registry to reflect this choice.
-
-        .EXAMPLE
-        Set-Language -lang "fr"
-        Changes the application's language to French and saves this preference in the registry.
-
-        .NOTES
-        - Ensure that the specified language code exists in `$itt.database.locales.Controls`.
-        - The registry path for saving the language setting is defined by `$itt.registryPath`.
-    #>
-
     param (
-        [string]$lang  # Parameter for the language to set
+        [string]$lang
     )
-
-    # Set DataContext of the window to the specified language
-
 
     if($lang -eq "default")
     {
-        Set-ItemProperty -Path $itt.registryPath  -Name "locales" -Value "default" -Force
-    }else {
+        System-Default
+    }
+    else
+    {
         # Set registry value for the language
-        $itt["window"].DataContext = $itt.database.locales.Controls.$($lang)
+        $itt.Language = $lang
         Set-ItemProperty -Path $itt.registryPath  -Name "locales" -Value "$lang" -Force
+        $itt["window"].DataContext = $itt.database.locales.Controls.$($itt.Language)
     }
 
-    Message -key "reopen" -icon "Information" -action "OK"
 }
