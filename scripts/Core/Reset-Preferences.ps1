@@ -27,5 +27,5 @@ function Reset-Preferences {
 
     SwitchToSystem
 
-    Message -key "reopen" -icon "Information" -action "OK"
+    Message -key "Reopen_itt_again" -icon "Information" -action "OK"
 }
