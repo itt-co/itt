@@ -134,6 +134,17 @@
                 <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/logo.png" 
                 Height="70" Width="Auto" HorizontalAlignment="Center" Margin="0,5,0,5"/>
 
+                <TextBlock  Text="Made with ♥ by Emad Adel"
+                    TextWrapping="Wrap" 
+                    HorizontalAlignment="Center" 
+                    Margin="0,5,0,5" 
+                    Width="355" 
+                    Padding="8" 
+                    Foreground="{DynamicResource TextColorSecondaryColor2}" 
+                    FontSize="14" 
+                    TextAlignment="Center"/>
+
+
                 <TextBlock 
                 Name="ver" 
                 Text="9/1/1998" 
@@ -142,12 +153,18 @@
                 Foreground="{DynamicResource TextColorSecondaryColor2}" />
 
                 <!-- Description Section -->
-                <TextBlock  Text="ITT was created to simplify software installation and Windows tweaks, making it easier for others to use their computers. It is an open-source project, and you can contribute to make it better by adding your favorite apps and more."
+                <TextBlock  Text="ITT created to simplify software installation and Windows tweaks, making it easier for others to use their computers. It is an open-source project, and you can contribute to make it better by adding your favorite apps and more."
                             TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,5,0,5" Width="355" Padding="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="14" TextAlignment="Center"/>
+
+
+
 
             </StackPanel>
         </Grid>
       <!-- Logo Section -->
+
+        
+
       <!-- Contribute Names Section -->
         <Grid Grid.Row="1">
                   
