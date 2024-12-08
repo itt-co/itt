@@ -52,11 +52,11 @@ function Invoke-Install {
     else
     {
         # Show Message
-        Message -key "choseapp" -icon "info" -action "OK"
+        Message -key "App_empty_select" -icon "info" -action "OK"
         return
     }
     
-    $result = Message -key "InstallMessage" -icon "ask" -action "YesNo"
+    $result = Message -key "Install_msg" -icon "ask" -action "YesNo"
 
    if($result -eq "no") {
         Show-Selected -ListView "AppsListView" -Mode "Default"
@@ -69,7 +69,7 @@ function Invoke-Install {
         param($selectedApps ,$debug)
 
         $itt.ProcessRunning = $true
-        UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "downloading" -TextIcon "installIcon" -Icon "  " -Width "auto"
+        UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "Downloading" -TextIcon "installIcon" -Icon "  " -Width "auto"
         $itt["window"].Dispatcher.Invoke([action]{ Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
 
         $selectedApps | ForEach-Object {
@@ -149,14 +149,14 @@ function Invoke-Apply {
     $selectedTweaks = Get-SelectedItems -Mode "Tweaks"
 
     if($itt.ProcessRunning) {
-        Message -key "Pleasewait" -icon "Warning" -action "OK"
+        Message -key "Please_wait" -icon "Warning" -action "OK"
         return
     }
 
 
     if($selectedTweaks.Count -eq 0)
     {
-        Message -key "chosetweak" -icon "info" -action "OK"
+        Message -key "Tweak_empty_select" -icon "info" -action "OK"
         return
     }
     else
@@ -164,7 +164,7 @@ function Invoke-Apply {
         Show-Selected -ListView "TweaksListView" -Mode "Filter"
     }
 
-    $result = Message -key "ApplyMessage" -icon "ask" -action "YesNo"
+    $result = Message -key "Apply_msg" -icon "ask" -action "YesNo"
 
    if($result -eq "no") 
     {
