@@ -32,7 +32,6 @@ function Finish {
     param (
        [string]$ListView,
        [string]$title = "ITT Emad Adel",
-       [string]$msg = "ALL INSTALLATIONS COMPLETED SUCCESSFULLY",
        [string]$icon = "Info"
     )
 
@@ -41,17 +40,18 @@ function Finish {
     {
         "AppsListView" {
             UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "Install" -TextIcon "installIcon" -Icon "  " -Width "140"
+            Notify -title "$title" -msg "ALL INSTALLATIONS COMPLETED SUCCESSFULLY." -icon "Info" -time 30000
             Add-Log -Message "ALL INSTALLATIONS COMPLETED SUCCESSFULLY." -Level "INFO"
         }
 
         "TweaksListView" {
             UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Apply" -TextIcon "applyIcon" -Icon "  " -Width "140"
             Add-Log -Message "ALL TWEAKS HAVE BEEN APPLIED SUCCESSFULLY. PLEASE NOTE: SOME CHANGES WILL TAKE EFFECT AFTER A RESTART." -Level "INFO"
+            Notify -title "$title" -msg "ALL TWEAKS HAVE BEEN APPLIED SUCCESSFULLY." -icon "Info" -time 30000
         }
     }
 
     $itt["window"].Dispatcher.Invoke([action]{ Set-Taskbar -progress "None" -value 0.01 -icon "done" })
-    Notify -title "$title" -msg "$msg" -icon "Info" -time 30000
 
     # Clear 
     $itt.$ListView.Dispatcher.Invoke([Action]{
