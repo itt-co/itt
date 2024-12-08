@@ -47,7 +47,7 @@ $xaml.SelectNodes("//*[@Name]") | ForEach-Object {
 $onClosingEvent = {
     param($s, $c)
 
-    $exitDialog = $itt.database.locales.Controls.$($itt.Language).exit
+    $exitDialog = $itt.database.locales.Controls.$($itt.Language).Exit_msg
 
     # Show confirmation message box
     $result = [System.Windows.MessageBox]::Show($exitDialog, "Confirmation", [System.Windows.MessageBoxButton]::YesNo, [System.Windows.MessageBoxImage]::Question)
