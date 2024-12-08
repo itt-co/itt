@@ -30,6 +30,7 @@ function Install-App {
 
     Install-Choco
             
+    UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Applying" -TextIcon "applyIcon" -Icon "  " -Width "auto"
     $chocoResult = $(Start-Process -FilePath "choco" -ArgumentList "install $appChoco --confirm --acceptlicense -q -r --ignore-http-cache --allowemptychecksumsecure --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests --limitoutput" -Wait -NoNewWindow -PassThru).ExitCode
 
     if ($chocoResult -ne 0) {
@@ -56,5 +57,6 @@ function Install-App {
     else
     {
         Add-Log -Message "($appName) Successfully Installed Using Chocolatey." -Level "Installed"
+        UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Apply" -TextIcon "applyIcon" -Icon "  " -Width "140"
     }
 }
