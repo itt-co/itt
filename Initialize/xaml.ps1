@@ -36,7 +36,7 @@ foreach ($function in $functions) {
     $initialSessionState.Commands.Add($functionEntry)
 
     # debug
-    if ($Debug) { Write-Output "Added function: $($function.Name)" }
+    #if ($Debug) { Write-Output "Added function: $($function.Name)" }
 }
 
 
