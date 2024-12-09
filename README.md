@@ -105,19 +105,12 @@
 
 > [!CAUTION]  
 Run the script using official commands from this repository. It's not a portable script, so avoid download it from any sites.
-
 <pre><code>irm bit.ly/ittea | iex</code></pre>
-
 <pre><code>irm bit.ly/emadadel | iex</code></pre>
-
 <pre><code>irm cutt.ly/ittea | iex</code></pre>
-
-or
-
-<p>To run it directly from GitHub:</p>
-
-<pre><code>irm https://raw.githubusercontent.com/emadadel4/ITT/main/itt.ps1 | iex
-</code></pre>
+ <p>or to run it directly from GitHub If URL blocked from your region:</p>
+<pre><code>irm emadadel4.github.io/ittea.ps1 | iex</code></pre>
+<pre><code>irm https://raw.githubusercontent.com/emadadel4/ITT/main/itt.ps1 | iex</code></pre>
 
 <div align="center">
   
