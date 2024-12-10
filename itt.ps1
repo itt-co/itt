@@ -7425,7 +7425,7 @@ function Startup  {
                 } 
                 else
                 {
-                    Telegram -Message "🎉 👤 A new user <<$env:USERNAME>> is now running ITT`n`🌍 Total users worldwide:$($$totalKeys)`n`🌐 Language $($itt.Language)"
+                    Telegram -Message "🎉 👤 A new user <<$env:USERNAME>> is now running ITT`n`🌍 Total users worldwide:$($totalKeys)`n`🌐 Language $($itt.Language)"
                 }
 
                 # Force garbage collection to free memory
