@@ -92,7 +92,7 @@
 
 - **Automated Installation**: Say goodbye to manual software installations. ITT automates the process, saving you time and effort.
 - **System Tweaks**: Customize your Windows environment with ease. ITT provides scripts to apply system tweaks for enhanced performance and usability.
-- **Developer-Friendly**: Easy-to-use and clear documentation  to add a new app or tweaks as you like, you can create a new method to download apps. Be creative. <a href="#-how-to-contribute">How to Add a New App</a>
+- **Developer-Friendly**: Easy-to-use and clear documentation  to add a new app or tweaks as you like, you can create a new method to download apps. Be creative. <a href="#-how-to-contribute">How to Contribute</a>
 - **Soundtracks**: Enjoy listening to the best music from games and movies while downloading your programs.
 
 <h2>⚡ Usage</h2>
@@ -110,7 +110,7 @@ Run the script using official commands from this repository. It's not a portable
 <pre><code>irm cutt.ly/ittea | iex</code></pre>
  <p>or to run it directly from GitHub If URL blocked from your region:</p>
 <pre><code>irm emadadel4.github.io/itt.ps1 | iex</code></pre>
-<pre><code>irm https://raw.githubusercontent.com/emadadel4/ITT/main/itt.ps1 | iex</code></pre>
+<pre><code>irm raw.githubusercontent.com/emadadel4/ITT/main/itt.ps1 | iex</code></pre>
 
 <div align="center">
   
