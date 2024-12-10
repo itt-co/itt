@@ -29,7 +29,7 @@ $itt = [Hashtable]::Synchronized(@{
     database       = @{}
     ProcessRunning = $false
     developer      = "Emad Adel"
-    lastupdate     = "12/09/2024"
+    lastupdate     = "12/10/2024"
     github         = "https://github.com/emadadel4/itt"
     telegram       = "https://t.me/emadadel4"
     blog           = "https://emadadel4.github.io"
@@ -7425,7 +7425,7 @@ function Startup  {
                 } 
                 else
                 {
-                    Telegram -Message "🎉 A new user 👤 $env:USERNAME is now running ITT`n`🌍 Total users worldwide: $totalKeys"
+                    Telegram -Message "🎉 👤 A new user <<$env:USERNAME>> is now running ITT`n`🌍 Total users worldwide:$($$totalKeys)`n`🌐 Language $($itt.Language)"
                 }
 
                 # Force garbage collection to free memory
@@ -13101,23 +13101,23 @@ function Show-Event {
         
 
     
-            $itt.event.FindName('ps').add_MouseLeftButtonDown({
-                    Start-Process('https://www.palestinercs.org/en/Donation')
-                })
-            
-            
             $itt.event.FindName('ytv').add_MouseLeftButtonDown({
                     Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
                 })
             
             
-            $itt.event.FindName('shell').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/shelltube')
+            $itt.event.FindName('gpu').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/user-attachments/assets/9651da4b-c69b-441d-a912-fb6213de73fb')
                 })
             
             
-            $itt.event.FindName('gpu').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/user-attachments/assets/9651da4b-c69b-441d-a912-fb6213de73fb')
+            $itt.event.FindName('ps').add_MouseLeftButtonDown({
+                    Start-Process('https://www.palestinercs.org/en/Donation')
+                })
+            
+            
+            $itt.event.FindName('shell').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/emadadel4/shelltube')
                 })
             
             
