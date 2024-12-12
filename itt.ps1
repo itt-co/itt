@@ -59,7 +59,7 @@ try {
     $Host.UI.RawUI.WindowTitle = "ITT - #StandWithPalestine"
 }
 catch {
-    Write-Warning "Media player not loaded because you're using Windows Lite or have disabled it."
+    Write-Warning "Media player not loaded because you're using Windows Lite or have disabled."
 }
 
 if (-not (Test-Path -Path $itt.ittDir)) {
