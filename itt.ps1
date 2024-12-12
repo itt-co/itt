@@ -54,6 +54,8 @@ if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
     exit
 }
 
+Write-Host "Starting..."
+
 try {
     $itt.mediaPlayer = New-Object -ComObject WMPlayer.OCX
     $Host.UI.RawUI.WindowTitle = "ITT - #StandWithPalestine"
@@ -70,6 +72,7 @@ if (-not (Test-Path -Path $itt.ittDir)) {
 $logdir = $itt.ittDir
 $timestamp = Get-Date -Format "yyyy-MM-dd"
 Start-Transcript -Path "$logdir\logs\log_$timestamp.log" -Append -NoClobber | Out-Null
+clear-host
 #===========================================================================
 #endregion End Start
 #===========================================================================
