@@ -47,11 +47,8 @@ $itt = [Hashtable]::Synchronized(@{
 
 })
 
-$currentPid = [System.Security.Principal.WindowsIdentity]::GetCurrent()
-$principal = [System.Security.Principal.WindowsPrincipal]$currentPid
-$administrator = [System.Security.Principal.WindowsBuiltInRole]::Administrator
-
-if (-not $principal.IsInRole($administrator))
+# Ask user
+if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator))
 {
     $newProcess = Start-Process -FilePath "PowerShell" -ArgumentList "-ExecutionPolicy Bypass -NoProfile -Command `"$($MyInvocation.MyCommand.Definition)`"" -Verb RunAs
     exit
