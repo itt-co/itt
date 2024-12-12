@@ -38,7 +38,7 @@ $administrator = [System.Security.Principal.WindowsBuiltInRole]::Administrator
 
 if (-not $principal.IsInRole($administrator))
 {
-    $newProcess = Start-Process -FilePath "PowerShell" -ArgumentList $myInvocation.MyCommand.Definition -Verb "runas"
+    $newProcess = Start-Process -FilePath "PowerShell" -ArgumentList "-ExecutionPolicy Bypass -NoProfile -Command `"$($MyInvocation.MyCommand.Definition)`"" -Verb RunAs
     exit
 }
 
