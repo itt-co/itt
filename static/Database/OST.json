@@ -81,9 +81,25 @@
       "url": "https://emadadel4.github.io/sounds/Cold.mp3"
      },
      {
-      "name": "Doom - Jorge Méndez",
-      "url": "https://emadadel4.github.io/sounds/Doom.mp3"
-     }
+      "name": "Doom",
+      "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Doom_Imagine.mp3"
+     },
+     {
+       "name": "Can't Fight City Halloween",
+       "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Can't%20Fight%20City%20Halloween.mp3"
+     },
+     {
+      "name": "Dona Nobis Pacem 2",
+      "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Dona%20Nobis%20Pacem%202.mp3"
+    },
+    {
+      "name": "Cold",
+      "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Inner%20Demon.mp3"
+    },
+    {
+      "name": "Inner Demon",
+      "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Cold.mp3"
+    }
   ],
   "Favorite": [
     {
