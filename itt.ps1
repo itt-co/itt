@@ -3470,6 +3470,14 @@ $itt.database.OST = @'
     {
       "name": "تلك قضية - كايروكي",
       "url": "https://emadadel4.github.io/sounds/Telk Qadeya.mp3"
+     },
+     {
+      "name": "Cold - Imagine Music",
+      "url": "https://emadadel4.github.io/sounds/Cold.mp3"
+     },
+     {
+      "name": "Doom - Jorge Méndez",
+      "url": "https://emadadel4.github.io/sounds/Doom.mp3"
      }
   ],
   "Favorite": [
@@ -13098,8 +13106,8 @@ function Show-Event {
         
 
     
-            $itt.event.FindName('ps').add_MouseLeftButtonDown({
-                    Start-Process('https://www.palestinercs.org/en/Donation')
+            $itt.event.FindName('gpu').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/user-attachments/assets/9651da4b-c69b-441d-a912-fb6213de73fb')
                 })
             
             
@@ -13113,8 +13121,8 @@ function Show-Event {
                 })
             
             
-            $itt.event.FindName('gpu').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/user-attachments/assets/9651da4b-c69b-441d-a912-fb6213de73fb')
+            $itt.event.FindName('ps').add_MouseLeftButtonDown({
+                    Start-Process('https://www.palestinercs.org/en/Donation')
                 })
             
             
