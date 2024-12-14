@@ -180,11 +180,13 @@ Edit CSV file using [edit-csv extension ](https://marketplace.visualstudio.com/i
 <p><em>Remember to test your changes before committing.</em></p>
 
 
-<hr>
+### Additional Repositories (Late Update)
+
+[![GitLab](https://img.shields.io/badge/GitLab-%23FCA121?logo=gitlab&logoColor=white)](https://gitlab.com/emadadel/itt)
+[![Codeberg](https://img.shields.io/badge/Codeberg-%230073B7?logo=codeberg&logoColor=white)](https://codeberg.org/emadadel/itt)
 
 <br>
 <br>
-
 
 # Resistance Struggling for Justice in an Authoritarian World
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=35&pause=1000&width=435&lines=Support+Palestine)](https://git.io/typing-svg)
