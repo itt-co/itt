@@ -16,6 +16,9 @@ function System-Default {
         "ru" { $locale = "ru" }
         "es" { $locale = "es" }
         "ga" { $locale = "ga" }
+        "hi" { $locale = "hi" }
+        "it" { $locale = "it" }
+        # new lang
         default { $locale = "en" }
     }
 

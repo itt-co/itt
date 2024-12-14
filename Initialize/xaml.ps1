@@ -119,9 +119,9 @@ try {
                         "ru" { $locale = "ru" }
                         "es" { $locale = "es" }
                         "ga" { $locale = "ga" }
-
+                        "hi" { $locale = "hi" }
+                        "it" { $locale = "it" }
                         default { $locale = "en" }
-                    
                     }
     
                 }
@@ -135,6 +135,8 @@ try {
                 "ru" { $locale = "ru" }
                 "es" { $locale = "es" }
                 "ga" { $locale = "ga" }
+                "hi" { $locale = "hi" }
+                "it" { $locale = "it" }
                 default { $locale = "en" }
             }
             $itt["window"].DataContext = $itt.database.locales.Controls.$locale

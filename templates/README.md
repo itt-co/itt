@@ -43,10 +43,13 @@
   <a href="/locales/es.csv">
     <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/es.png" Height="30" width="auto" alt="es">
   </a>
+  <a href="/locales/it.csv">
+    <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/it.png" Height="30" width="auto" alt="it">
+  </a>
+    <a href="/locales/hi.csv">
+    <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/in.png" Height="30" width="auto" alt="in">
+  </a>
 </div>
-
-
-
 
 <p align="center">
   <a href="https://www.youtube.com/@emadadel4" target="_blank" style="margin-right: 0px;">
