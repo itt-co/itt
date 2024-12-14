@@ -249,6 +249,17 @@ English
 </h3>
 
 
+## Additional Repositories (Late Updated)
+
+
+[![GitLab](https://img.shields.io/badge/GitLab-%23FCA121?logo=gitlab&logoColor=white)](https://gitlab.com/emadadel/itt)
+[![Codeberg](https://img.shields.io/badge/Codeberg-%230073B7?logo=codeberg&logoColor=white)](https://codeberg.org)
+
+
+
+
+
+
 <h2>🔑 Keywords</h2>
 
 `itt, Install Tweaks Tool, windows10debloater, windows11debloater, windows-optimization, Application Installation, System Optimization, Windows Tools, Automation, System Customization, Software Updates, Silent Installers, PowerShell Scripts, Developer Tools, Game-engine, godotengine, godot, Windows Applications, windows-tweaks, disable-windows-updates, Open-Source, activator-windows, windows-optimization-tool, tweaks, tweaker, Privacy, StandWithPalestine, Security, privacy-policy, fmhy, choco, winget, download, emadadel, emadadel4`
