@@ -1,51 +1,51 @@
-Key,Text
-name,Italiano
-Welcome,Risparmia tempo installando più programmi contemporaneamente e migliora le prestazioni di Windows. Unisciti a noi per migliorare questo strumento e renderlo migliore. Puoi anche aggiungere le tue app musicali preferite e le personalizzazioni.
-Install,Installa
-Apply,Applica
-Downloading,Download in corso...
-About,Informazioni
-Third_party,Terze parti
-Preferences,Preferenze
-Management,Gestione
-Apps,App
-Tweaks,Personalizzazioni
-Settings,Impostazioni
-Save,Salva
-Restore,Ripristina
-Music,Musica
-On,"Acceso "
-Off,Spento
-Disk_Managment,Gestione disco
-Task_Manager,Gestore attività
-Apps_features,App-Funzionalità
-Networks,Reti
-Services,Servizi
-Device_Manager,Gestore dispositivi
-Power_Options,Opzioni risparmio energia
-System_Info,Informazioni di sistema
-Use_system_setting,Usa impostazioni di sistema
-Create_desktop_shortcut,Crea collegamento sul desktop
-Reset_preferences,Reimposta preferenze
-Reopen_itt_again,Per favore riapri di nuovo.
-Theme,Tema
-Language,Lingua
-MAS,Microsoft Activation Scripts (MAS)
-Win_Office,Windows / Office ISO (MAS)
-IDM,Attivazione IDM (WindowsAddict)
-Browsers_extensions,Estensioni per browser
-All,Tutti
-Search,Cerca
-Create_restore_point,Crea un punto di ripristino
-Portable_Downloads_Folder,Cartella download portatile
-Install_msg,Sei sicuro di voler installare le seguenti app?
-Apply_msg,Sei sicuro di voler applicare le seguenti personalizzazioni?
-Applying,Applicazione in corso...
-App_empty_select,Seleziona almeno un'app da installare.
-Tweak_empty_select,Seleziona almeno una personalizzazione da applicare.
-Please_wait,Attendere, un processo è in corso in background
-Last_update,Ultimo aggiornamento
-Exit_msg,Sei sicuro di voler chiudere il programma? Se ci sono installazioni in corso, verranno terminate.
-Happy_birthday,Buon compleanno a me!
-My_playlist,È il mio compleanno e la mia playlist ♪
-Empty_save_msg,Scegli almeno un'app per salvarla.
+Key,Text,
+name,Italiano,
+Welcome,Risparmia tempo installando più programmi contemporaneamente e migliora le prestazioni di Windows. Unisciti a noi per migliorare questo strumento e renderlo migliore. Puoi anche aggiungere le tue app musicali preferite e le personalizzazioni.,
+Install,Installa,
+Apply,Applica,
+Downloading,Download in corso...,
+About,Informazioni,
+Third_party,Terze parti,
+Preferences,Preferenze,
+Management,Gestione,
+Apps,App,
+Tweaks,Personalizzazioni,
+Settings,Impostazioni,
+Save,Salva,
+Restore,Ripristina,
+Music,Musica,
+On,"Acceso ",
+Off,Spento,
+Disk_Managment,Gestione disco,
+Task_Manager,Gestore attività,
+Apps_features,App-Funzionalità,
+Networks,Reti,
+Services,Servizi,
+Device_Manager,Gestore dispositivi,
+Power_Options,Opzioni risparmio energia,
+System_Info,Informazioni di sistema,
+Use_system_setting,Usa impostazioni di sistema,
+Create_desktop_shortcut,Crea collegamento sul desktop,
+Reset_preferences,Reimposta preferenze,
+Reopen_itt_again,Per favore riapri di nuovo.,
+Theme,Tema,
+Language,Lingua,
+MAS,Microsoft Activation Scripts (MAS),
+Win_Office,Windows / Office ISO (MAS),
+IDM,Attivazione IDM (WindowsAddict),
+Browsers_extensions,Estensioni per browser,
+All,Tutti,
+Search,Cerca,
+Create_restore_point,Crea un punto di ripristino,
+Portable_Downloads_Folder,Cartella download portatile,
+Install_msg,Sei sicuro di voler installare le seguenti app?,
+Apply_msg,Sei sicuro di voler applicare le seguenti personalizzazioni?,
+Applying,Applicazione in corso...,
+App_empty_select,Seleziona almeno un'app da installare.,
+Tweak_empty_select,Seleziona almeno una personalizzazione da applicare.,
+Please_wait,Attendere un processo è in corso in background,
+Last_update,Ultimo aggiornamento,
+Exit_msg,Sei sicuro di voler chiudere il programma? Se ci sono installazioni in corso verranno terminate.,
+Happy_birthday,Buon compleanno a me!,
+My_playlist,È il mio compleanno e la mia playlist ♪,
+Empty_save_msg,Scegli almeno un'app per salvarla.,
