@@ -229,7 +229,7 @@ function NewCONTRIBUTOR {
   
     # Define paths
     $gitFolder = ".git"
-    $contribFile = "CONTRIBUTORS.md"
+    $contribFile = "CONTRIBUTING.md"
     $xamlFile = "Templates\about.xaml"
     $updatedXamlFile = "xaml\views\AboutWindow.xaml" 
 
