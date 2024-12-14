@@ -29,7 +29,7 @@ $itt = [Hashtable]::Synchronized(@{
     database       = @{}
     ProcessRunning = $false
     developer      = "Emad Adel"
-    lastupdate     = "12/14/2024"
+    lastupdate     = "12/15/2024"
     github         = "https://github.com/emadadel4/itt"
     telegram       = "https://t.me/emadadel4"
     blog           = "https://emadadel4.github.io"
@@ -3476,9 +3476,25 @@ $itt.database.OST = @'
       "url": "https://emadadel4.github.io/sounds/Cold.mp3"
      },
      {
-      "name": "Doom - Jorge Méndez",
-      "url": "https://emadadel4.github.io/sounds/Doom.mp3"
-     }
+      "name": "Doom",
+      "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Doom_Imagine.mp3"
+     },
+     {
+       "name": "Can't Fight City Halloween",
+       "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Can't%20Fight%20City%20Halloween.mp3"
+     },
+     {
+      "name": "Dona Nobis Pacem 2",
+      "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Dona%20Nobis%20Pacem%202.mp3"
+    },
+    {
+      "name": "Cold",
+      "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Inner%20Demon.mp3"
+    },
+    {
+      "name": "Inner Demon",
+      "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Cold.mp3"
+    }
   ],
   "Favorite": [
     {
@@ -13106,8 +13122,8 @@ function Show-Event {
         
 
     
-            $itt.event.FindName('gpu').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/user-attachments/assets/9651da4b-c69b-441d-a912-fb6213de73fb')
+            $itt.event.FindName('ps').add_MouseLeftButtonDown({
+                    Start-Process('https://www.palestinercs.org/en/Donation')
                 })
             
             
@@ -13116,13 +13132,13 @@ function Show-Event {
                 })
             
             
-            $itt.event.FindName('shell').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/shelltube')
+            $itt.event.FindName('gpu').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/user-attachments/assets/9651da4b-c69b-441d-a912-fb6213de73fb')
                 })
             
             
-            $itt.event.FindName('ps').add_MouseLeftButtonDown({
-                    Start-Process('https://www.palestinercs.org/en/Donation')
+            $itt.event.FindName('shell').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/emadadel4/shelltube')
                 })
             
             
