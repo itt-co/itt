@@ -3456,10 +3456,6 @@ $itt.database.OST = @'
       "url": "https://emadadel4.github.io/sounds/Little Nightmares II (Main Theme).mp3"
     },
     {
-      "name": "Imagine Music - Doom",
-      "url": "https://emadadel4.github.io/sounds/Imagine Music - Doom.mp3"
-    },
-    {
       "name": "The Leftovers  The Departure Suite",
       "url": "https://emadadel4.github.io/sounds/The Leftovers  The Departure Suite.mp3"
     },
@@ -3470,10 +3466,6 @@ $itt.database.OST = @'
     {
       "name": "تلك قضية - كايروكي",
       "url": "https://emadadel4.github.io/sounds/Telk Qadeya.mp3"
-     },
-     {
-      "name": "Cold - Imagine Music",
-      "url": "https://emadadel4.github.io/sounds/Cold.mp3"
      },
      {
       "name": "Doom",
