@@ -9255,6 +9255,8 @@ MinHeight="600"
 MinWidth="800" 
 Topmost="False"  
 ShowInTaskbar = "True" 
+TextOptions.TextFormattingMode="Ideal"
+TextOptions.TextRenderingMode="Auto"
 Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico">
 
 <Window.Resources>
@@ -9460,6 +9462,8 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
 <!--TextBlock Style-->
     <Style TargetType="TextBlock">
         <Setter Property="Foreground" Value="{DynamicResource TextColorPrimary}"/>
+        <Setter Property="TextOptions.TextFormattingMode" Value="Ideal" />
+        <Setter Property="TextOptions.TextRenderingMode" Value="ClearType" />
     </Style>
 <!--End TextBlock Style-->
 
