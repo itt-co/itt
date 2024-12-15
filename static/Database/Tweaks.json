@@ -985,7 +985,7 @@
   {
     "Name": "Disable Homegroup",
     "Description": "Disables HomeGroup  HomeGroup is a passwordprotected home networking service that lets you share your stuff with other PCs that are currently running and connected to your network",
-    "Category": "",
+    "Category": "Privacy",
     "Check": "false",
     "Refresh": "false",
     "Script": [],
@@ -1514,7 +1514,7 @@
   {
     "Name": "Enable NET 3.5",
     "Description": "Some old games and applications require .NET Framework 3.5",
-    "Category": "",
+    "Category": "Classic",
     "Check": "false",
     "Refresh": "false",
     "Script": [
