@@ -8722,10 +8722,7 @@ $KeyEvents = {
             replace Ctrl With you latter you want
 
         .EXAMPLE
-            if (($_.Key -eq "A" -and $_.KeyboardDevice.Modifiers -eq "Ctrl")) {
-
-                # your code here
-            }      
+            if (($_.Key -eq "A" -and $_.KeyboardDevice.Modifiers -eq "Ctrl")) {# your code here}      
     #>
 
     if ($itt.ProcessRunning -eq $true) {
@@ -8744,6 +8741,7 @@ $KeyEvents = {
         }
     }
 
+    # Installing & Applying
     if (($_.Key -eq "S" -and $_.KeyboardDevice.Modifiers -eq "Ctrl")) {
 
         switch ($itt.currentList) {
@@ -8756,7 +8754,7 @@ $KeyEvents = {
         }
     }
 
-     # Quit from applaction
+    # Quit from applaction
      if (($_.Key -eq "G" -and $_.KeyboardDevice.Modifiers -eq "Ctrl")) {
         $this.Close()
     }
@@ -8771,6 +8769,18 @@ $KeyEvents = {
         $itt.SearchInput.MoveFocus([System.Windows.Input.TraversalRequest]::New([System.Windows.Input.FocusNavigationDirection]::Next))
         $itt.SearchInput.Text = ""
     }
+
+    # Easter Egg: Uncomment to enable the key press functionality
+    
+    # Next Music (Ctrl + N)
+    # if ($_.Key -eq "N" -and $_.KeyboardDevice.Modifiers -eq "Ctrl") {
+    #     $itt.mediaPlayer.controls.next()
+    # }
+
+    # Previous Music (Ctrl + B)
+    # if ($_.Key -eq "B" -and $_.KeyboardDevice.Modifiers -eq "Ctrl") {
+    #     $itt.mediaPlayer.controls.previous()
+    # }
 
     # Swtich to Apps tap
     if ($_.Key -eq "Q" -and $_.KeyboardDevice.Modifiers -eq "Ctrl") {
@@ -8802,13 +8812,13 @@ $KeyEvents = {
         LoadJson
     }
 
-    # Mute
+    # Music off
     if ($_.Key -eq "M" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
         MuteMusic -Value 0
 
     }
 
-    # Music ON 
+    # Music on 
     if ($_.Key -eq "F" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
         UnmuteMusic -Value 100
     }
@@ -8828,8 +8838,6 @@ $KeyEvents = {
         ITTShortcut
     }
 }
-
-
 function Message {
 
     <#
