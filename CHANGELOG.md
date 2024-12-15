@@ -23,7 +23,7 @@
 - Ctrl + G: Closes the application.
 
 ### A Secret Feature Awaits – Unlock It:
-![itt.xName:esg [https://github.com/user-attachments/assets/9651da4b-c69b-441d-a912-fb6213de73fb]](https://github.com/user-attachments/assets/487224f5-688b-4c96-9552-7f3343eb60df)
+![itt.xName:esg [https://github.com/user-attachments/assets/9651da4b-c69b-441d-a912-fb6213de73fb]](https://github.com/user-attachments/assets/edb67270-d9d2-4e94-8873-1c822c3afe2f)
 
 #### Can You Find the Hidden Easter Egg, Open source code and found the Easter Egg!
 
