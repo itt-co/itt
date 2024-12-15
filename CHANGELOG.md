@@ -22,10 +22,10 @@
 - Shift + I: ITT Shortcut.
 - Ctrl + G: Closes the application.
 
-### GPU Category:
-![itt.xName:gpu [https://github.com/user-attachments/assets/9651da4b-c69b-441d-a912-fb6213de73fb]](https://github.com/user-attachments/assets/9651da4b-c69b-441d-a912-fb6213de73fb)
+### A Secret Feature Awaits – Unlock It:
+![itt.xName:esg [https://github.com/user-attachments/assets/9651da4b-c69b-441d-a912-fb6213de73fb]](https://github.com/user-attachments/assets/487224f5-688b-4c96-9552-7f3343eb60df)
 
-#### In the future, the most popular GPU drivers will be added.
+#### Can You Find the Hidden Easter Egg, Open source code and found the Easter Egg!
 
 ### Download any Youtube video:
 ![itt.xName:shell [https://github.com/emadadel4/shelltube]](https://raw.githubusercontent.com/emadadel4/ShellTube/main/demo.jpg)
