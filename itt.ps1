@@ -3486,6 +3486,19 @@ $itt.database.OST = @'
     {
       "name": "Inner Demon",
       "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Cold.mp3"
+    },
+    {
+      "name": "Interstellar - Organ Variation",
+      "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Organ%20Variation.mp3"
+    },{
+      "name": "Red dead redemption - Triggernometry",
+      "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Triggernometry.mp3"
+    },{
+      "name": "God, Please (Disco Elysium)",
+      "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/God,%20Please%20(Disco%20Elysium).mp3"
+    },{
+      "name": "Rocky Eye of the Tiger - Instrumental Version",
+      "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Rocky_%20Eye%20of%20the%20Tiger%20-%20Instrumental%20Version.mp3"
     }
   ],
   "Favorite": [
@@ -13139,23 +13152,23 @@ function Show-Event {
         
 
     
-            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
-                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-                })
-            
-            
             $itt.event.FindName('ps').add_MouseLeftButtonDown({
                     Start-Process('https://www.palestinercs.org/en/Donation')
                 })
             
             
-            $itt.event.FindName('shell').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/shelltube')
+            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
+                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
                 })
             
             
             $itt.event.FindName('esg').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/itt')
+                })
+            
+            
+            $itt.event.FindName('shell').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/emadadel4/shelltube')
                 })
             
             
