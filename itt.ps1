@@ -29,7 +29,7 @@ $itt = [Hashtable]::Synchronized(@{
     database       = @{}
     ProcessRunning = $false
     developer      = "Emad Adel"
-    lastupdate     = "12/15/2024"
+    lastupdate     = "12/16/2024"
     github         = "https://github.com/emadadel4/itt"
     telegram       = "https://t.me/emadadel4"
     blog           = "https://emadadel4.github.io"
@@ -5048,7 +5048,7 @@ $itt.database.Tweaks = @'
   {
     "Name": "Disable Homegroup",
     "Description": "Disables HomeGroup  HomeGroup is a passwordprotected home networking service that lets you share your stuff with other PCs that are currently running and connected to your network",
-    "Category": "",
+    "Category": "Privacy",
     "Check": "false",
     "Refresh": "false",
     "Script": [],
@@ -5577,7 +5577,7 @@ $itt.database.Tweaks = @'
   {
     "Name": "Enable NET 3.5",
     "Description": "Some old games and applications require .NET Framework 3.5",
-    "Category": "",
+    "Category": "Classic",
     "Check": "false",
     "Refresh": "false",
     "Script": [
@@ -12608,8 +12608,8 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Toggle key sounds in Windows are audio cues that play when you press the Caps Lock Num Lock or Scroll Lock keys. These sounds help users identify when these keys are activated or deactivated."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
-                <CheckBox Content="Disable Homegroup" Tag="" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content=""/>
+                <CheckBox Content="Disable Homegroup" Tag="Privacy" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Disables HomeGroup  HomeGroup is a passwordprotected home networking service that lets you share your stuff with other PCs that are currently running and connected to your network."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
@@ -12674,8 +12674,8 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Defragmentation in Windows optimizes disk performance by reorganizing fragmented data improving access times and system efficiency."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
             <StackPanel Orientation="Horizontal">
-                <CheckBox Content="Enable NET 3.5" Tag="" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content=""/>
+                <CheckBox Content="Enable NET 3.5" Tag="Classic" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Classic"/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Some old games and applications require .NET Framework 3.5."/>
         </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
@@ -13152,13 +13152,8 @@ function Show-Event {
         
 
     
-            $itt.event.FindName('esg').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/itt')
-                })
-            
-            
-            $itt.event.FindName('ps').add_MouseLeftButtonDown({
-                    Start-Process('https://www.palestinercs.org/en/Donation')
+            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
+                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
                 })
             
             
@@ -13167,8 +13162,13 @@ function Show-Event {
                 })
             
             
-            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
-                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+            $itt.event.FindName('ps').add_MouseLeftButtonDown({
+                    Start-Process('https://www.palestinercs.org/en/Donation')
+                })
+            
+            
+            $itt.event.FindName('esg').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/emadadel4/itt')
                 })
             
             
