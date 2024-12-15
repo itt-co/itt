@@ -16,13 +16,14 @@ try {
     
     $name = Read-Host "Language name"
     $locales = Read-Host "Locales code e.g ar"
+    $Author = Read-Host "Author name"
     
     $csvFilePath = "$locales"
 
 # Define the cOntent in the desired format
 $table = @"
 Key,Text
-author,"NAME OF THE AUTHOR(S) OF THIS TRANSLATION",
+author,"$Author",
 name,"$name",
 Welcome,
 System_Info,
