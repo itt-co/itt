@@ -14,9 +14,9 @@ Write-Host "[!] Before adding your locale, first check if it exists in the local
 
 try {
     
-    $name = Read-Host "Language name"
-    $locales = Read-Host "Locales code e.g ar"
-    $Author = Read-Host "Author name"
+    $name = Read-Host "Language Display name (e.g., English)"
+    $locales = Read-Host "Locales code (e.g., en)"
+    $Author = Read-Host "Enter author name (e.g., Emad Adel)"
     
     $csvFilePath = "$locales"
 
