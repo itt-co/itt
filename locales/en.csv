@@ -45,7 +45,7 @@ App_empty_select,Please select at least one app to install.
 Tweak_empty_select,Please select at least one tweak to apply.
 Please_wait,Please wait  a process is running in the background
 Last_update,Last update
-Exit_msg,Are you sure you want to close the program? If there are any instAllatiOns they will be terminated.
+Exit_msg,Are you sure you want to close the program? Any ongoing installations will be canceled.
 Happy_birthday,Happy Birthday to me!
 My_playlist,It's my Birthday and My Playlist ♪
 Empty_save_msg,Choose at least One app to save it
