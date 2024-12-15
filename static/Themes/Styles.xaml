@@ -200,6 +200,8 @@
 <!--TextBlock Style-->
     <Style TargetType="TextBlock">
         <Setter Property="Foreground" Value="{DynamicResource TextColorPrimary}"/>
+        <Setter Property="TextOptions.TextFormattingMode" Value="Ideal" />
+        <Setter Property="TextOptions.TextRenderingMode" Value="ClearType" />
     </Style>
 <!--End TextBlock Style-->
 
