@@ -234,7 +234,7 @@ function Startup  {
             Write-Host " | |  | |   | |   | |___| |  | |/ ___ \| |_| |  / ___ \| |_| | |___| |___"
             Write-Host "|___| |_|   |_|   |_____|_|  |_/_/   \_\____/  /_/   \_\____/|_____|_____|"
             Write-Host " Launch Anytime, Anywhere! `n` " 
-            Write-Host " Telegram: https://t.me/bacave" 
+            Write-Host " Telegram: https://t.me/ittemadadel_bot" 
             Write-Host " Discord: https://discord.gg/63m34EE6mX `n` "
             Get-UsersCount
         }
