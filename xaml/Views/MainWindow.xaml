@@ -10,6 +10,8 @@ MinHeight="600"
 MinWidth="800" 
 Topmost="False"  
 ShowInTaskbar = "True" 
+TextOptions.TextFormattingMode="Ideal"
+TextOptions.TextRenderingMode="Auto"
 Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico">
 
 <Window.Resources>
