@@ -945,6 +945,15 @@
     "check": "false"
   },
   {
+    "Name": "WirelessNetView",
+    "Description": "Wireless Network Watcher is a small utility that scans your wireless network and displays the list of all computers and devices that are currently connected to your network",
+    "winget": "none",
+    "choco": "wirelessnetview",
+    "default": [],
+    "category": "Utilities",
+    "check": "false"
+  },
+  {
     "Name": "qBittorrent",
     "Description": "A free and open-source BitTorrent client for downloading and uploading files via the BitTorrent protocol, providing users with a lightweight and feature-rich torrenting experience",
     "winget": "qBittorrent.qBittorrent",
@@ -3300,6 +3309,33 @@
         "portable": "false"
       }
     ],
+    "category": "File Sharing",
+    "check": "false"
+  },
+  {
+    "Name": "SimpleTransfer Desktop",
+    "Description": "Simple Transfer is the easiest way of transferring your Photos and Videos to computer and other iOS devices wirelessly or USB. No need for cable, iTunes or extra softwares on your computer!",
+    "winget": "Rambax.SimpleTransfer",
+    "choco": "simpletransfer",
+    "default": [],
+    "category": "File Sharing",
+    "check": "false"
+  },
+  {
+    "Name": "Twitch Desktop App",
+    "Description": "Servers - A virtual home for your community to chat, watch, and play with fully customizable text and voice rooms",
+    "winget": "none",
+    "choco": "twitch",
+    "default": [],
+    "category": "Gaming",
+    "check": "false"
+  },
+  {
+    "Name": "Remote Desktop Manager",
+    "Description": "Remote Connections & Passwords. Everywhere!",
+    "winget": "Devolutions.RemoteDesktopManager",
+    "choco": "rdm",
+    "default": [],
     "category": "File Sharing",
     "check": "false"
   }
