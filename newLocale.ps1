@@ -14,8 +14,8 @@ Write-Host "[!] Check the locales directory before adding a new Language." -Fore
 
 try {
     
-    $name = Read-Host "Enter Language Display name (e.g. English)"
-    $locales = Read-Host "Enter Language code (e.g. en)"
+    $name = Read-Host "Enter language Display name (e.g. English)"
+    $locales = Read-Host "Enter language code (e.g. en)"
     $Author = Read-Host "Enter author name (e.g. Emad Adel)"
     
     $csvFilePath = "$locales"
