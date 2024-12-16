@@ -29,7 +29,7 @@ $itt = [Hashtable]::Synchronized(@{
     database       = @{}
     ProcessRunning = $false
     developer      = "Emad Adel"
-    lastupdate     = "12/16/2024"
+    lastupdate     = "12/17/2024"
     github         = "https://github.com/emadadel4/itt"
     telegram       = "https://t.me/emadadel4"
     blog           = "https://emadadel4.github.io"
@@ -7586,7 +7586,7 @@ function Startup  {
 
                 if ($Runs -gt 1) 
                 {
-                    Telegram -Message "👤 User <<$env:USERNAME>> has opened ITT again.`n`⚙️ Runs $Runs times`n`🎶 Music is $($itt.Music)%`n`🎨 Theme $($itt.CurretTheme)`n`🌐 Language $($itt.Language)"
+                    Telegram -Message "👤 User <<$env:USERNAME>> has opened ITT again.`n`⚙️ Runs: $Runs times`n`🎶 Music is $($itt.Music)%`n`🎨 Theme: $($itt.CurretTheme)`n`🌐 Language: $($itt.Language)`n`📃 Popup window: $($itt.PopupWindow)"
                 } 
                 else
                 {
@@ -13366,8 +13366,8 @@ function Show-Event {
         
 
     
-            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
-                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+            $itt.event.FindName('ps').add_MouseLeftButtonDown({
+                    Start-Process('https://www.palestinercs.org/en/Donation')
                 })
             
             
@@ -13376,13 +13376,13 @@ function Show-Event {
                 })
             
             
-            $itt.event.FindName('esg').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/itt')
+            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
+                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
                 })
             
             
-            $itt.event.FindName('ps').add_MouseLeftButtonDown({
-                    Start-Process('https://www.palestinercs.org/en/Donation')
+            $itt.event.FindName('esg').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/emadadel4/itt')
                 })
             
             
