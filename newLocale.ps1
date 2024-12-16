@@ -10,13 +10,13 @@ Write-Host "
 +-------------------------------------------------------------------------+
 "
 
-Write-Host "[!] Before adding your locale, first check if it exists in the locales directory."
+Write-Host "[!] Check the locales directory before adding a new Language." -ForegroundColor Yellow
 
 try {
     
-    $name = Read-Host "Language Display name (e.g., English)"
-    $locales = Read-Host "Locales code (e.g., en)"
-    $Author = Read-Host "Enter author name (e.g., Emad Adel)"
+    $name = Read-Host "Enter Language Display name (e.g. English)"
+    $locales = Read-Host "Enter Language code (e.g. en)"
+    $Author = Read-Host "Enter author name (e.g. Emad Adel)"
     
     $csvFilePath = "$locales"
 
