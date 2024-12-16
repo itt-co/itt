@@ -3338,5 +3338,95 @@
     "default": [],
     "category": "File Sharing",
     "check": "false"
+  },
+  {
+    "Name": "Torrid",
+    "Description": "Torrid is a multi-server, multi-client, multi-tracker Remote Torrent Client which allows any number of installed torrent engines.",
+    "winget": "none",
+    "choco": "torrid",
+    "default": [],
+    "category": "Utilities",
+    "check": "false"
+  },
+  {
+    "Name": "Mediamonkey",
+    "Description": "Manage small to large collections of audio files, videos and playlists (100,000+), whether on a hard drive, network, or CDs. Rip CDs, download podcasts, lookup artwork and other missing information online, tag almost any audio or video format, and automatically rename/re-organize files on your hard drive",
+    "winget": "VentisMedia.MediaMonkey",
+    "choco": "mediamonkey",
+    "default": [],
+    "category": "Media",
+    "check": "false"
+  },
+  {
+    "Name": "MediaInfo",
+    "Description": "Convenient unified display of the most relevent technical and tag data for video and audio files",
+    "winget": "MediaArea.MediaInfo.GUI",
+    "choco": "mediainfo",
+    "default": [],
+    "category": "Media Tools",
+    "check": "false"
+  },
+  {
+    "Name": "Universal Media Server",
+    "Description": "Universal Media Server is a DLNA-compliant UPnP Media Server. It is capable of sharing video, audio and images between most modern devices",
+    "winget": "UniversalMediaServer.UniversalMediaServer",
+    "choco": "ums",
+    "default": [],
+    "category": "Media",
+    "check": "false"
+  },
+  {
+    "Name": "K-Lite Codec Pack Standard",
+    "Description": "The K-Lite Codec Pack is a collection of DirectShow filters, VFW/ACM codecs, and tools. Codecs and DirectShow filters are needed for encoding and decoding audio and video formats. The K-Lite Codec Pack is designed as a user-friendly solution for playing all your audio and movie files. With the K-Lite Codec Pack you should be able to play all the popular audio and video formats and even several less common formats",
+    "winget": "CodecGuide.K-LiteCodecPack.Standard",
+    "choco": "k-litecodecpack-standard",
+    "default": [],
+    "category": "Media",
+    "check": "false"
+  },
+  {
+    "Name": "PowerISO",
+    "Description": "PowerISO provides an all-in-one solution. You can do every thing with your ISO files and disc image files",
+    "winget": "PowerSoftware.PowerISO",
+    "choco": "poweriso",
+    "default": [],
+    "category": "Compression",
+    "check": "false"
+  },
+  {
+    "Name": "Screen To Gif",
+    "Description": "This tool allows you to record a selected area of your screen, live feed from your webcam or live drawings from a sketchboard. Afterwards, you can edit and save the animation as a gif, apng, video, psd or png images",
+    "winget": "NickeManarin.ScreenToGif",
+    "choco": "screentogif.portable",
+    "default": [],
+    "category": "Utilities",
+    "check": "false"
+  },
+  {
+    "Name": "Figma",
+    "Description": "The collaborative interface design tool Build better products as a team. Design, prototype, and gather feedback all in one place with Figma",
+    "winget": "Figma.Figma",
+    "choco": "figma",
+    "default": [],
+    "category": "Development",
+    "check": "false"
+  },
+  {
+    "Name": "EarTrumpet",
+    "Description": "EarTrumpet is a powerful volume control app for Windows",
+    "winget": "File-New-Project.EarTrumpet",
+    "choco": "eartrumpet",
+    "default": [],
+    "category": "Utilities",
+    "check": "false"
+  },
+  {
+    "Name": "Visual Studio Code Insiders",
+    "Description": "Microsoft Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications. Microsoft Visual Studio Code is free and available on your favorite platform - Linux, macOS, and Windows",
+    "winget": "Microsoft.VisualStudioCode.Insiders",
+    "choco": "vscode-insiders",
+    "default": [],
+    "category": "Development",
+    "check": "false"
   }
 ]
