@@ -3420,6 +3420,96 @@ $itt.database.Applications = @'
     "default": [],
     "category": "File Sharing",
     "check": "false"
+  },
+  {
+    "Name": "Torrid",
+    "Description": "Torrid is a multi-server, multi-client, multi-tracker Remote Torrent Client which allows any number of installed torrent engines.",
+    "winget": "none",
+    "choco": "torrid",
+    "default": [],
+    "category": "Utilities",
+    "check": "false"
+  },
+  {
+    "Name": "Mediamonkey",
+    "Description": "Manage small to large collections of audio files, videos and playlists (100,000+), whether on a hard drive, network, or CDs. Rip CDs, download podcasts, lookup artwork and other missing information online, tag almost any audio or video format, and automatically rename/re-organize files on your hard drive",
+    "winget": "VentisMedia.MediaMonkey",
+    "choco": "mediamonkey",
+    "default": [],
+    "category": "Media",
+    "check": "false"
+  },
+  {
+    "Name": "MediaInfo",
+    "Description": "Convenient unified display of the most relevent technical and tag data for video and audio files",
+    "winget": "MediaArea.MediaInfo.GUI",
+    "choco": "mediainfo",
+    "default": [],
+    "category": "Media Tools",
+    "check": "false"
+  },
+  {
+    "Name": "Universal Media Server",
+    "Description": "Universal Media Server is a DLNA-compliant UPnP Media Server. It is capable of sharing video, audio and images between most modern devices",
+    "winget": "UniversalMediaServer.UniversalMediaServer",
+    "choco": "ums",
+    "default": [],
+    "category": "Media",
+    "check": "false"
+  },
+  {
+    "Name": "K-Lite Codec Pack Standard",
+    "Description": "The K-Lite Codec Pack is a collection of DirectShow filters, VFW/ACM codecs, and tools. Codecs and DirectShow filters are needed for encoding and decoding audio and video formats. The K-Lite Codec Pack is designed as a user-friendly solution for playing all your audio and movie files. With the K-Lite Codec Pack you should be able to play all the popular audio and video formats and even several less common formats",
+    "winget": "CodecGuide.K-LiteCodecPack.Standard",
+    "choco": "k-litecodecpack-standard",
+    "default": [],
+    "category": "Media",
+    "check": "false"
+  },
+  {
+    "Name": "PowerISO",
+    "Description": "PowerISO provides an all-in-one solution. You can do every thing with your ISO files and disc image files",
+    "winget": "PowerSoftware.PowerISO",
+    "choco": "poweriso",
+    "default": [],
+    "category": "Compression",
+    "check": "false"
+  },
+  {
+    "Name": "Screen To Gif",
+    "Description": "This tool allows you to record a selected area of your screen, live feed from your webcam or live drawings from a sketchboard. Afterwards, you can edit and save the animation as a gif, apng, video, psd or png images",
+    "winget": "NickeManarin.ScreenToGif",
+    "choco": "screentogif.portable",
+    "default": [],
+    "category": "Utilities",
+    "check": "false"
+  },
+  {
+    "Name": "Figma",
+    "Description": "The collaborative interface design tool Build better products as a team. Design, prototype, and gather feedback all in one place with Figma",
+    "winget": "Figma.Figma",
+    "choco": "figma",
+    "default": [],
+    "category": "Development",
+    "check": "false"
+  },
+  {
+    "Name": "EarTrumpet",
+    "Description": "EarTrumpet is a powerful volume control app for Windows",
+    "winget": "File-New-Project.EarTrumpet",
+    "choco": "eartrumpet",
+    "default": [],
+    "category": "Utilities",
+    "check": "false"
+  },
+  {
+    "Name": "Visual Studio Code Insiders",
+    "Description": "Microsoft Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications. Microsoft Visual Studio Code is free and available on your favorite platform - Linux, macOS, and Windows",
+    "winget": "Microsoft.VisualStudioCode.Insiders",
+    "choco": "vscode-insiders",
+    "default": [],
+    "category": "Development",
+    "check": "false"
   }
 ]
 
@@ -12508,6 +12598,66 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
             </StackPanel>
             <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Remote Connections  Passwords. Everywhere."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Torrid" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
+            </StackPanel>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Torrid is a multiserver multiclient multitracker Remote Torrent Client which allows any number of installed torrent engines.."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Mediamonkey" Tag="Media" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media"/>
+            </StackPanel>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Manage small to large collections of audio files videos and playlists 100000 whether on a hard drive network or CDs. Rip CDs download podcasts lookup artwork and other missing information online tag almost any audio or video format and automatically rename/reorganize files on your hard drive."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="MediaInfo" Tag="Media Tools" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
+            </StackPanel>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Convenient unified display of the most relevent technical and tag data for video and audio files."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Universal Media Server" Tag="Media" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media"/>
+            </StackPanel>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Universal Media Server is a DLNAcompliant UPnP Media Server. It is capable of sharing video audio and images between most modern devices."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="K-Lite Codec Pack Standard" Tag="Media" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media"/>
+            </StackPanel>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The KLite Codec Pack is a collection of DirectShow filters VFW/ACM codecs and tools. Codecs and DirectShow filters are needed for encoding and decoding audio and video formats. The KLite Codec Pack is designed as a userfriendly solution for playing all your audio and movie files. With the KLite Codec Pack you should be able to play all the popular audio and video formats and even several less common formats."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="PowerISO" Tag="Compression" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Compression"/>
+            </StackPanel>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="PowerISO provides an allinone solution. You can do every thing with your ISO files and disc image files."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Screen To Gif" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
+            </StackPanel>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="This tool allows you to record a selected area of your screen live feed from your webcam or live drawings from a sketchboard. Afterwards you can edit and save the animation as a gif apng video psd or png images."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Figma" Tag="Development" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
+            </StackPanel>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The collaborative interface design tool Build better products as a team. Design prototype and gather feedback all in one place with Figma."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="EarTrumpet" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
+            </StackPanel>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="EarTrumpet is a powerful volume control app for Windows."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Width="auto" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Visual Studio Code Insiders" Tag="Development" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
+            </StackPanel>
+            <TextBlock Width="555" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Microsoft Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications. Microsoft Visual Studio Code is free and available on your favorite platform  Linux macOS and Windows."/>
         </StackPanel>
                     </ListView>
                 </TabItem.Content>
