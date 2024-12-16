@@ -6154,7 +6154,11 @@ function Invoke-Button {
             Start-Process ("https://fmhy.net/")
             Debug-Message $action
         }
+        "webtor"{
 
+            Start-Process ("https://webtor.io/")
+            Debug-Message $action
+        }
         Default {
             Write-Host "Unknown action: $action"
         }
