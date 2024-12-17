@@ -54,9 +54,11 @@ $KeyEvents = {
     }
 
     # Lost Foucs on Search box
-    if ($_.Key -eq "Escape") {
+    if ($_.Key -eq "Escape") 
+    {
         $itt.SearchInput.MoveFocus([System.Windows.Input.TraversalRequest]::New([System.Windows.Input.FocusNavigationDirection]::Next))
-        $itt.SearchInput.Text = ""
+        $itt.SearchInput.Text = $null
+        $itt["window"].FindName("search_placeholder").Visibility = "Visible";
     }
 
     # Easter Egg: Uncomment to enable the key press functionality
