@@ -8,7 +8,7 @@ function Native-Downloader {
     )
 
         # Define the destination directory
-        $Destination_Directory = Join-Path -Path "$env:ProgramData\ITT\Downloads" -ChildPath $name
+        $Destination_Directory = Join-Path -Path "$env:ProgramData\itt\Downloads" -ChildPath $name
 
         # Ensure destination directory exists
         if (-not (Test-Path -Path $Destination_Directory)) {
