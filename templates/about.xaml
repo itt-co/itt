@@ -115,9 +115,9 @@
           </Style.Triggers>
         </Style>
       <!--End Button Style-->
-  </Window.Resources>
+    </Window.Resources>
 
-  <Grid Margin="10">
+  <Grid Margin="8">
 
       <!-- Define rows and columns for layout -->
         <Grid.RowDefinitions>
@@ -132,9 +132,10 @@
             <StackPanel Orientation="Vertical">
 
                 <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/logo.png" 
-                Height="70" Width="Auto" HorizontalAlignment="Center" Margin="0,5,0,5"/>
+                Height="90" Width="Auto" HorizontalAlignment="Center" Margin="0"/>
 
-                <TextBlock  Text="Made with ♥ by Emad Adel"
+                <TextBlock  
+                    Text="Made with ♥ by Emad Adel"
                     TextWrapping="Wrap" 
                     HorizontalAlignment="Center" 
                     Margin="0,5,0,5" 
@@ -142,70 +143,68 @@
                     Padding="8" 
                     Foreground="{DynamicResource TextColorSecondaryColor2}" 
                     FontSize="14" 
-                    TextAlignment="Center"/>
-
+                    TextAlignment="Center"
+                />
 
                 <TextBlock 
-                Name="ver" 
-                Text="9/1/1998" 
-                FontSize="14" 
-                TextAlignment="Center" 
-                Foreground="{DynamicResource TextColorSecondaryColor2}" />
+                    Name="ver" 
+                    Text="9/1/1998" 
+                    FontSize="14" 
+                    TextAlignment="Center" 
+                    Foreground="{DynamicResource TextColorSecondaryColor2}" 
+                />
 
                 <!-- Description Section -->
-                <TextBlock  Text="ITT created to simplify software installation and Windows tweaks, making it easier for others to use their computers. It is an open-source project, and you can contribute to make it better by adding your favorite apps and more."
-                            TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,5,0,5" Width="355" Padding="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="14" TextAlignment="Center"/>
-
-
-
+                <TextBlock  
+                    Text="ITT created to simplify software installation and Windows tweaks, making it easier for others to use their computers. It is an open-source project, and you can contribute to make it better by adding your favorite apps and more."
+                    TextWrapping="Wrap" 
+                    HorizontalAlignment="Center" 
+                    Margin="0,2,0,2" 
+                    Width="355" Padding="8" 
+                    Foreground="{DynamicResource TextColorSecondaryColor2}" 
+                    FontSize="14" 
+                    TextAlignment="Center"
+                />
 
             </StackPanel>
         </Grid>
-      <!-- Logo Section -->
-
-        
+      <!-- Logo Section End -->
 
       <!-- Contribute Names Section -->
         <Grid Grid.Row="1">
-                  
           <StackPanel Orientation="Vertical">
-      
               <!-- Contribute Names Section -->
               <TextBlock Text="Contributors"
               TextWrapping="Wrap" HorizontalAlignment="Center" Foreground="{DynamicResource TextColorSecondaryColor2}" Margin="0,5,0,5" FontSize="12" FontStyle="Italic" TextAlignment="Center"/>
-
-
-              <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" Height="155">
-      
-                <StackPanel Margin="25">
+              <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" Height="103">
+                <StackPanel Margin="20,0,0,0">
                   #{names}
                 </StackPanel>
-
                 </ScrollViewer>
-
           </StackPanel>
-
         </Grid>
-      <!-- Contribute Names Section -->
+
+      <!-- Contribute Names Section End -->
+
       <!-- Social Media Icons Section -->
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5">
-            <Button Width="40" Name="github" Cursor="Hand" Height="40" Margin="5">
+        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,20,0,0">
+            <Button Width="38" Height="38" Name="github" Cursor="Hand" Margin="5">
                 <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/github.png"/>
             </Button>
-            <Button Width="40" Name="telegram" Cursor="Hand" Height="40" Margin="5">
+            <Button Width="38" Height="38" Name="telegram" Cursor="Hand" Margin="5">
               <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/telegram.png"/>
           </Button>
-            <Button Width="40"  Cursor="Hand" Name="yt" Height="40" Margin="5">
+            <Button Width="38" Height="38"  Cursor="Hand" Name="yt" Margin="5">
                 <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/youtube.png"/>
             </Button>
-            <Button Width="40" Name="blog" Cursor="Hand" Height="40" Margin="5">
+            <Button Width="38" Height="38" Name="blog" Cursor="Hand" Margin="5">
                 <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/blog.png"/>
             </Button>
-            <Button Width="40" Name="coffee" Cursor="Hand" Height="40" Margin="5">
+            <Button Width="38" Height="38" Name="coffee" Cursor="Hand" Margin="5">
               <Image Source="https://cdn.buymeacoffee.com/assets/homepage/meta/apple-icon-120x120.png"/>
           </Button>
         </StackPanel>
-      <!--  Icons Section -->
+      <!-- Social Icons Section End -->
 
   </Grid>
 </Window>
