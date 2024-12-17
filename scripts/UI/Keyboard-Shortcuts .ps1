@@ -111,19 +111,24 @@ $KeyEvents = {
     if ($_.Key -eq "F" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
         UnmuteMusic -Value 100
     }
-
-    # Choco Folder
-    if ($_.Key -eq "P" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
-        Start-Process explorer.exe "C:\ProgramData\chocolatey\lib"
-    }
-
+  
     # Restore point 
     if ($_.Key -eq "Q" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
         RestorePoint
     }
 
+    # Choco Shortcut Folder
+    if ($_.Key -eq "C" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
+        Start-Process explorer.exe "C:\ProgramData\chocolatey\lib"
+    }
+
     # ITT Shortcut 
-    if ($_.Key -eq "I" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
+    if ($_.Key -eq "T" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
+        ITTShortcut
+    }
+
+     # ITT Shortcut 
+     if ($_.Key -eq "I" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
         ITTShortcut
     }
 }

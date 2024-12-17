@@ -18,8 +18,8 @@ function ITTShortcut {
     $iconUrl = $itt.icon
     
     # Determine the path in AppData\Roaming
-    $appDataPath = [Environment]::GetFolderPath('ApplicationData')
-    $localIconPath = Join-Path -Path $appDataPath -ChildPath "ITTIcon.ico"
+    $appDataPath = "$env:ProgramData/itt"
+    $localIconPath = Join-Path -Path $appDataPath -ChildPath "itt.ico"
     
     # Download the icon file
     Invoke-WebRequest -Uri $iconUrl -OutFile $localIconPath
@@ -29,7 +29,7 @@ function ITTShortcut {
     
     # Set the target path to PowerShell with your command
     $Shortcut.TargetPath = "$env:SystemRoot\System32\WindowsPowerShell\v1.0\powershell.exe"
-    $Shortcut.Arguments = "-ExecutionPolicy Bypass -Command ""irm bit.ly/emadadel | iex"""
+    $Shortcut.Arguments = "-ExecutionPolicy Bypass -Command ""irm bit.ly/ittea | iex"""
     
     # Set the icon path to the downloaded icon file in AppData\Roaming
     $Shortcut.IconLocation = "$localIconPath"
