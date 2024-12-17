@@ -66,13 +66,12 @@ $itt["window"].Add_ContentRendered({
     Show-Event
 })
 
-$itt.SearchInput.Add_TextChanged({
-    if (![string]::IsNullOrEmpty($itt.SearchInput.Text)) {
-        $itt.SearchIcon.Text = "" 
-    }else{
-        $itt.SearchIcon.Text = ""
-    }
+$itt.SearchInput.Add_GotFocus({
+    $itt["window"].FindName("search_placeholder").Visibility = "Hidden"
 })
+$itt.SearchInput.Add_LostFocus({
+    $itt["window"].FindName("search_placeholder").Visibility = "Visible";
+});
 
 # Close Event handler
 $itt["window"].add_Closing($onClosingEvent)
