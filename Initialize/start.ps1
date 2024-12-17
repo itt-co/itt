@@ -28,7 +28,7 @@ $itt = [Hashtable]::Synchronized(@{
     Music          = "100"
     PopupWindow    = "On"
     Language       = "default"
-    ittDir         = "$env:localappdata\itt\"
+    ittDir         = "$env:ProgramData\itt\"
 
 })
 
