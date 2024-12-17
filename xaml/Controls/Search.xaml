@@ -3,11 +3,11 @@
 
 
     <TextBox Padding="8"
-            Width="120"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Left"
-            Style="{StaticResource SearchBox}"
-            Name="searchInput" />
+        Width="120"
+        VerticalAlignment="Center"
+        HorizontalAlignment="Left"
+        Style="{StaticResource SearchBox}"
+        Name="searchInput" />
 
     <Grid Name="search_placeholder">
 
