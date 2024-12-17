@@ -74,7 +74,7 @@
 </div>
 
 <p align="center">
-  <a  href="#" rel="nofollow"><img src="#{last}"></a>
+  <a  href="#-usage" rel="nofollow"><img src="#{last}"></a>
 </p>
 
 
