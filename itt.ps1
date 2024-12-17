@@ -29,7 +29,7 @@ $itt = [Hashtable]::Synchronized(@{
     database       = @{}
     ProcessRunning = $false
     developer      = "Emad Adel"
-    lastupdate     = "12/17/2024"
+    lastupdate     = "12/18/2024"
     github         = "https://github.com/emadadel4/itt"
     telegram       = "https://t.me/emadadel4"
     blog           = "https://emadadel4.github.io"
@@ -8923,9 +8923,11 @@ $KeyEvents = {
     }
 
     # Lost Foucs on Search box
-    if ($_.Key -eq "Escape") {
+    if ($_.Key -eq "Escape") 
+    {
         $itt.SearchInput.MoveFocus([System.Windows.Input.TraversalRequest]::New([System.Windows.Input.FocusNavigationDirection]::Next))
-        $itt.SearchInput.Text = ""
+        $itt.SearchInput.Text = $null
+        $itt["window"].FindName("search_placeholder").Visibility = "Visible";
     }
 
     # Easter Egg: Uncomment to enable the key press functionality
@@ -10428,11 +10430,11 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
 
 
     <TextBox Padding="8"
-            Width="120"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Left"
-            Style="{StaticResource SearchBox}"
-            Name="searchInput" />
+        Width="120"
+        VerticalAlignment="Center"
+        HorizontalAlignment="Left"
+        Style="{StaticResource SearchBox}"
+        Name="searchInput" />
 
     <Grid Name="search_placeholder">
 
@@ -13412,16 +13414,6 @@ function Show-Event {
         
 
     
-            $itt.event.FindName('shell').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/shelltube')
-                })
-            
-            
-            $itt.event.FindName('esg').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/itt')
-                })
-            
-            
             $itt.event.FindName('ps').add_MouseLeftButtonDown({
                     Start-Process('https://www.palestinercs.org/en/Donation')
                 })
@@ -13429,6 +13421,16 @@ function Show-Event {
             
             $itt.event.FindName('ytv').add_MouseLeftButtonDown({
                     Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+                })
+            
+            
+            $itt.event.FindName('shell').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/emadadel4/shelltube')
+                })
+            
+            
+            $itt.event.FindName('esg').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/emadadel4/itt')
                 })
             
             
@@ -14089,7 +14091,13 @@ $itt.SearchInput.Add_GotFocus({
     $itt["window"].FindName("search_placeholder").Visibility = "Hidden"
 })
 $itt.SearchInput.Add_LostFocus({
-    $itt["window"].FindName("search_placeholder").Visibility = "Visible";
+
+    if ([string]::IsNullOrEmpty($itt.SearchInput.Text)) 
+    {
+        $itt["window"].FindName("search_placeholder").Visibility = "Visible";
+        $itt.SearchIcon.Text = "" 
+    }
+
 });
 
 # Close Event handler
