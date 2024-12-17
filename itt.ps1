@@ -43,7 +43,7 @@ $itt = [Hashtable]::Synchronized(@{
     Music          = "100"
     PopupWindow    = "On"
     Language       = "default"
-    ittDir         = "$env:localappdata\itt\"
+    ittDir         = "$env:ProgramData\itt\"
 
 })
 
@@ -6076,8 +6076,14 @@ function Invoke-Button {
 
 
         # chocoloc
-         "chocoloc" {
+        "chocoloc" {
             Start-Process explorer.exe "C:\ProgramData\chocolatey\lib"
+            Debug-Message $action
+        }
+
+        # itt Dir
+        "itt" {
+            Start-Process explorer.exe $env:ProgramData\itt
             Debug-Message $action
         }
 
@@ -8677,8 +8683,8 @@ function ITTShortcut {
     $iconUrl = $itt.icon
     
     # Determine the path in AppData\Roaming
-    $appDataPath = [Environment]::GetFolderPath('ApplicationData')
-    $localIconPath = Join-Path -Path $appDataPath -ChildPath "ITTIcon.ico"
+    $appDataPath = "$env:ProgramData/itt"
+    $localIconPath = Join-Path -Path $appDataPath -ChildPath "itt.ico"
     
     # Download the icon file
     Invoke-WebRequest -Uri $iconUrl -OutFile $localIconPath
@@ -8688,7 +8694,7 @@ function ITTShortcut {
     
     # Set the target path to PowerShell with your command
     $Shortcut.TargetPath = "$env:SystemRoot\System32\WindowsPowerShell\v1.0\powershell.exe"
-    $Shortcut.Arguments = "-ExecutionPolicy Bypass -Command ""irm bit.ly/emadadel | iex"""
+    $Shortcut.Arguments = "-ExecutionPolicy Bypass -Command ""irm bit.ly/ittea | iex"""
     
     # Set the icon path to the downloaded icon file in AppData\Roaming
     $Shortcut.IconLocation = "$localIconPath"
@@ -8974,19 +8980,24 @@ $KeyEvents = {
     if ($_.Key -eq "F" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
         UnmuteMusic -Value 100
     }
-
-    # Choco Folder
-    if ($_.Key -eq "P" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
-        Start-Process explorer.exe "C:\ProgramData\chocolatey\lib"
-    }
-
+  
     # Restore point 
     if ($_.Key -eq "Q" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
         RestorePoint
     }
 
+    # Choco Shortcut Folder
+    if ($_.Key -eq "C" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
+        Start-Process explorer.exe "C:\ProgramData\chocolatey\lib"
+    }
+
     # ITT Shortcut 
-    if ($_.Key -eq "I" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
+    if ($_.Key -eq "T" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
+        ITTShortcut
+    }
+
+     # ITT Shortcut 
+     if ($_.Key -eq "I" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
         ITTShortcut
     }
 }
@@ -10183,10 +10194,23 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 </MenuItem.Icon>
             </MenuItem>
 
-            <MenuItem Name="chocoloc" Header="{Binding Portable_Downloads_Folder}" InputGestureText="Shift+P">
+            <MenuItem Header="{Binding Portable_Downloads_Folder}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
+
+                <MenuItem Name="chocoloc" Header="Choco" InputGestureText="Shift+C">
+                    <MenuItem.Icon>
+                        <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Name="itt" Header="ITT" InputGestureText="Shift+T">
+                    <MenuItem.Icon>
+                        <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
             </MenuItem>
 
             <MenuItem Name="save" ToolTip="Save selected apps" InputGestureText="Shift+S" Header="{Binding Save}">
@@ -10245,7 +10269,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
 <MenuItem Name="zh" Header="中文"/>
             </MenuItem>
 
-
             <MenuItem Name="ittshortcut" Header="{Binding Create_desktop_shortcut}" InputGestureText="Shift+I">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
@@ -10258,11 +10281,8 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 </MenuItem.Icon>
             </MenuItem>
 
-
-
         </MenuItem>
-
-
+        
         <MenuItem Header="{Binding Third_party}" FontFamily="arial" FontSize="13"  BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Center">
             <MenuItem.Icon>
                 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
@@ -10335,14 +10355,11 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
             </MenuItem>
             
         </MenuItem>
-
-
         <MenuItem Name="dev" Header="{Binding About}" FontFamily="arial" FontSize="13"  BorderBrush="Transparent" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Center">
             <MenuItem.Icon>
                 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
             </MenuItem.Icon>
         </MenuItem>
-
 
     </Menu>
 <!--End Menu-->
@@ -13380,6 +13397,11 @@ function Show-Event {
         
 
     
+            $itt.event.FindName('shell').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/emadadel4/shelltube')
+                })
+            
+            
             $itt.event.FindName('esg').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/itt')
                 })
@@ -13387,11 +13409,6 @@ function Show-Event {
             
             $itt.event.FindName('ps').add_MouseLeftButtonDown({
                     Start-Process('https://www.palestinercs.org/en/Donation')
-                })
-            
-            
-            $itt.event.FindName('shell').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/shelltube')
                 })
             
             
@@ -13649,7 +13666,14 @@ $EventWindowXaml = '<Window
 
                 
                 <StackPanel Orientation=''Vertical''>
-                    <TextBlock Text=''• Shift + P: Open Choco folder in File Explorer.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
+                    <TextBlock Text=''• Shift + C: Open Choco folder in File Explorer.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
+                </StackPanel>
+                
+                
+
+                
+                <StackPanel Orientation=''Vertical''>
+                    <TextBlock Text=''• Shift + T: Open ITT folder in File Explorer.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
                 </StackPanel>
                 
                 
