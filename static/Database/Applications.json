@@ -1125,7 +1125,7 @@
     "check": "false"
   },
   {
-    "Name": "Electrum-LTS",
+    "Name": "Electrum LTS",
     "Description": "Electrum is a lightweight Bitcoin wallet focused on speed and simplicity, with support for hardware wallets and multisig functionality. LTS (Long Term Support) releases provide stability and security updates for an extended period",
     "winget": "Electrum.Electrum",
     "choco": "electronim",
