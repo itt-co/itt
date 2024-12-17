@@ -1116,6 +1116,15 @@
     "check": "false"
   },
   {
+    "Name": "Electron",
+    "Description": "Electron, framework lets you write cross-platform desktop applications using JavaScript, HTML and CSS. It is based on io.js and Chromium and is used in the Atom editor",
+    "winget": "none",
+    "choco": "electron",
+    "default": [],
+    "category": "Development",
+    "check": "false"
+  },
+  {
     "Name": "Electrum-LTS",
     "Description": "Electrum is a lightweight Bitcoin wallet focused on speed and simplicity, with support for hardware wallets and multisig functionality. LTS (Long Term Support) releases provide stability and security updates for an extended period",
     "winget": "Electrum.Electrum",
@@ -3425,15 +3434,6 @@
     "Description": "Microsoft Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications. Microsoft Visual Studio Code is free and available on your favorite platform - Linux, macOS, and Windows",
     "winget": "Microsoft.VisualStudioCode.Insiders",
     "choco": "vscode-insiders",
-    "default": [],
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Electron",
-    "Description": "Electron, framework lets you write cross-platform desktop applications using JavaScript, HTML and CSS. It is based on io.js and Chromium and is used in the Atom editor",
-    "winget": "none",
-    "choco": "electron",
     "default": [],
     "category": "Development",
     "check": "false"
