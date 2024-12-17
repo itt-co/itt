@@ -1107,7 +1107,7 @@
     "check": "false"
   },
   {
-    "Name": "Node.js LTS",
+    "Name": "NodeJs LTS",
     "Description": "Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. LTS (Long Term Support) releases are supported for an extended period and provide stability for production environments",
     "winget": "OpenJS.NodeJS.LTS",
     "choco": "nodejs-lts",
