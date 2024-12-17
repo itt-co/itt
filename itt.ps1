@@ -10424,22 +10424,37 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
 <!--End TwaeksCategory-->
 
                 <!--Search -->
-<Grid HorizontalAlignment="Right" Grid.Column="1" VerticalAlignment="Center">
+<Grid HorizontalAlignment="Left" Grid.Column="1" VerticalAlignment="Center">
+
+
     <TextBox Padding="8"
-            Width="100"
+            Width="120"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
             Style="{StaticResource SearchBox}"
             Name="searchInput" />
 
-            <TextBlock x:Name="SearchIcon" Text="" 
+    <Grid Name="search_placeholder">
+
+        <TextBlock 
+                Text="" 
                 FontSize="15" 
                 Foreground="Gray" 
                 VerticalAlignment="Center" 
                 FontFamily="Segoe MDL2 Assets"
-                Background="Transparent"
                 HorizontalAlignment="Left" 
-                Margin="9,0,0,0" />
+                IsHitTestVisible="False"
+                Margin="8,0,0,0" />
+
+        <TextBlock 
+                Text="Control + F" 
+                Foreground="Gray" 
+                VerticalAlignment="Center" 
+                HorizontalAlignment="Left" 
+                IsHitTestVisible="False"
+                Margin="30,0,0,0" />
+
+    </Grid>
 
 </Grid>
 <!--End Search-->
@@ -14070,13 +14085,12 @@ $itt["window"].Add_ContentRendered({
     Show-Event
 })
 
-$itt.SearchInput.Add_TextChanged({
-    if (![string]::IsNullOrEmpty($itt.SearchInput.Text)) {
-        $itt.SearchIcon.Text = "" 
-    }else{
-        $itt.SearchIcon.Text = ""
-    }
+$itt.SearchInput.Add_GotFocus({
+    $itt["window"].FindName("search_placeholder").Visibility = "Hidden"
 })
+$itt.SearchInput.Add_LostFocus({
+    $itt["window"].FindName("search_placeholder").Visibility = "Visible";
+});
 
 # Close Event handler
 $itt["window"].add_Closing($onClosingEvent)
