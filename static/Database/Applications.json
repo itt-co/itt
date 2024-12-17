@@ -3428,5 +3428,14 @@
     "default": [],
     "category": "Development",
     "check": "false"
+  },
+  {
+    "Name": "Electron",
+    "Description": "Electron, framework lets you write cross-platform desktop applications using JavaScript, HTML and CSS. It is based on io.js and Chromium and is used in the Atom editor",
+    "winget": "none",
+    "choco": "electron",
+    "default": [],
+    "category": "Development",
+    "check": "false"
   }
 ]
