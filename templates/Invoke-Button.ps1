@@ -124,8 +124,14 @@ function Invoke-Button {
 
 
         # chocoloc
-         "chocoloc" {
+        "chocoloc" {
             Start-Process explorer.exe "C:\ProgramData\chocolatey\lib"
+            Debug-Message $action
+        }
+
+        # itt Dir
+        "itt" {
+            Start-Process explorer.exe $env:ProgramData\itt
             Debug-Message $action
         }
 
