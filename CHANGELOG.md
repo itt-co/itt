@@ -17,7 +17,8 @@
 - Shift + D: Load items save file.
 - Shift + M: Mute music.
 - Shift + F: Play music.
-- Shift + P: Open Choco folder in File Explorer.
+- Shift + C: Open Choco folder in File Explorer.
+- Shift + T: Open ITT folder in File Explorer.
 - Shift + Q: Restore point.
 - Shift + I: ITT Shortcut.
 - Ctrl + G: Closes the application.
