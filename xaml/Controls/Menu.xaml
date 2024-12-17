@@ -66,10 +66,23 @@
                 </MenuItem.Icon>
             </MenuItem>
 
-            <MenuItem Name="chocoloc" Header="{Binding Portable_Downloads_Folder}" InputGestureText="Shift+P">
+            <MenuItem Header="{Binding Portable_Downloads_Folder}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
+
+                <MenuItem Name="chocoloc" Header="Choco" InputGestureText="Shift+C">
+                    <MenuItem.Icon>
+                        <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Name="itt" Header="ITT" InputGestureText="Shift+T">
+                    <MenuItem.Icon>
+                        <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
             </MenuItem>
 
             <MenuItem Name="save" ToolTip="Save selected apps" InputGestureText="Shift+S" Header="{Binding Save}">
@@ -115,7 +128,6 @@
                        {{LocalesKeys}}
             </MenuItem>
 
-
             <MenuItem Name="ittshortcut" Header="{Binding Create_desktop_shortcut}" InputGestureText="Shift+I">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
@@ -128,11 +140,8 @@
                 </MenuItem.Icon>
             </MenuItem>
 
-
-
         </MenuItem>
-
-
+        
         <MenuItem Header="{Binding Third_party}" FontFamily="arial" FontSize="13"  BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Center">
             <MenuItem.Icon>
                 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
@@ -205,14 +214,11 @@
             </MenuItem>
             
         </MenuItem>
-
-
         <MenuItem Name="dev" Header="{Binding About}" FontFamily="arial" FontSize="13"  BorderBrush="Transparent" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Center">
             <MenuItem.Icon>
                 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
             </MenuItem.Icon>
         </MenuItem>
-
 
     </Menu>
 <!--End Menu-->
