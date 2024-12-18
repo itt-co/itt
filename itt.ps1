@@ -10453,6 +10453,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
     <Grid Name="search_placeholder">
 
         <TextBlock 
+                Name="SearchIcon"
                 Text="" 
                 FontSize="15" 
                 Foreground="Gray" 
@@ -13476,11 +13477,6 @@ function Show-Event {
                 })
             
             
-            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
-                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-                })
-            
-            
             $itt.event.FindName('ps').add_MouseLeftButtonDown({
                     Start-Process('https://www.palestinercs.org/en/Donation')
                 })
@@ -13488,6 +13484,11 @@ function Show-Event {
             
             $itt.event.FindName('shell').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/shelltube')
+                })
+            
+            
+            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
+                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
                 })
             
             
@@ -14059,7 +14060,6 @@ $itt.Quotes = $itt["window"].FindName("quotes")
 $itt.InstallBtn = $itt["window"].FindName("installBtn")
 $itt.ApplyBtn = $itt["window"].FindName("applyBtn")
 $itt.SearchInput = $itt["window"].FindName("searchInput")
-$itt.SearchIcon = $itt["window"].FindName("SearchIcon")
 $itt.installText = $itt["window"].FindName("installText")
 $itt.installIcon = $itt["window"].FindName("installIcon")
 $itt.applyText = $itt["window"].FindName("applyText")
@@ -14152,7 +14152,6 @@ $itt.SearchInput.Add_LostFocus({
     if ([string]::IsNullOrEmpty($itt.SearchInput.Text)) 
     {
         $itt["window"].FindName("search_placeholder").Visibility = "Visible";
-        $itt.SearchIcon.Text = "" 
     }
 
 });
