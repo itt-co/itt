@@ -37,6 +37,7 @@
           <Button
             Name="applyBtn"
             FontSize="14" 
+            Visibility="Hidden"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             HorizontalContentAlignment="Center"
