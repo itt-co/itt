@@ -174,9 +174,14 @@ Edit CSV file using [edit-csv extension ](https://marketplace.visualstudio.com/i
 <pre><code>.\newQuote.ps1
 </code></pre>
 
-<h3>🏃 Build and run</h3>
+<h3>🏃 Build and debug</h3>
 
-<pre><code>.\build.ps1 -debug
+<pre><code>.\build.ps1 -Debug
+</code></pre>
+
+<h3>🧹 Realsee </h3>
+
+<pre><code>.\build.ps1 -Realsee
 </code></pre>
 
 
