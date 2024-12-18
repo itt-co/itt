@@ -3437,5 +3437,14 @@
     "default": [],
     "category": "Development",
     "check": "false"
+  },
+  {
+    "Name": "AyuGramDesktop",
+    "Description": " Desktop Telegram client with good customization and Ghost mode",
+    "winget": "wingetinstallRadolynLabs.AyuGramDesktop",
+    "choco": "none",
+    "default": [],
+    "category": "Communication",
+    "check": "false"
   }
 ]
