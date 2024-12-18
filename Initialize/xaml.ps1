@@ -42,7 +42,7 @@ $reader = [System.Xml.XmlNodeReader] $xaml
 try {
     $itt["window"] = [Windows.Markup.XamlReader]::Load($reader)
 }catch{
-    Write-Host $_.Exception.Message # Capture the error message
+    Write-Host $_.Exception.Message
 }
 try {
     #===========================================================================

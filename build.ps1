@@ -11,7 +11,7 @@ param (
     [string]$LoadXamlScript = ".\Initialize\xaml.ps1",
     [string]$Themes = "themes",
     [switch]$Debug,
-    [switch]$code,
+    [switch]$Realsee,
     [string]$ProjectDir = $PSScriptRoot,
     [string]$localNodePath = "CHANGELOG.md",
     [string]$NoteUrl = "https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/CHANGELOG.md"
@@ -355,8 +355,8 @@ function GenerateClickEventHandlers {
         }
         # Create the event title assignment using the extracted content
         $EventTitle = "
-        `$itt.event.FindName('title').text = '$global:TitleContent'`.Trim()  # Set the title text
-        `$itt.event.FindName('date').text = '$global:DateContent'`.Trim()  # Set the Date text
+        `$itt.event.FindName('title').text = '$global:TitleContent'`.Trim()
+        `$itt.event.FindName('date').text = '$global:DateContent'`.Trim()
         "
         # Replace placeholders in the event window script with actual event handlers and title
         $EventWindowScript = $EventWindowScript -replace '#{contorlshandler}', $EventHandler
@@ -384,8 +384,10 @@ function GenerateInvokeButtons {
             $Key = $filename -replace '[^\w]', ''
             @"
             "$Key" {
-                Set-Theme -Theme `$action # Call the Set-Theme function with the selected theme
-                Debug-Message # debug
+                Set-Theme -Theme `$action
+                # debug start
+                Debug-Message
+                # debug end
             }
 "@
         }
@@ -398,7 +400,9 @@ function GenerateInvokeButtons {
             @"
             "$Key" {
                 Set-Language -lang "$Key"
-                `Debug-Message
+                # debug start
+                `Debug-Message $action
+                # debug end
             }
 "@
         }
@@ -452,6 +456,27 @@ function Convert-Locales {
     } else {
         Write-Host "No changes detected. JSON file not updated." -ForegroundColor Yellow
     }
+}
+
+# comparison itt.ps1 remove all comments and space
+function Realsee {
+  
+    try {
+        Write-Host "Removing all debug comments and unnecessary content..." -ForegroundColor Yellow
+        $FilePath = $OutputScript
+        $Content = Get-Content -Path $FilePath -Raw
+        $Content = $Content -replace '(#\s*debug start[\s\S]*?#\s*debug end)', ''
+        $Content = $Content -replace '<#[\s\S]*?#>', ''
+        $Content = ($Content -split "`r?`n" | ForEach-Object {
+            ($_ -replace '^\s*#.*$', '').Trim()
+        }) -join "`n"
+        $Content = $Content -replace '(\r?\n){2,}', "`n"
+        Set-Content -Path $FilePath -Value $Content
+    }
+    catch {
+        Write-Error "An error occurred: $_" -ForegroundColor Red
+    }
+
 }
 # Write script header
 function WriteHeader {
@@ -644,8 +669,11 @@ WriteToScript -Content @"
 #endregion End Main
 #===========================================================================
 "@
-Update-Readme
-Write-Host " `n`Build successfully" -ForegroundColor Green
+
+if($Realsee){
+    Realsee
+}
+
 if($Debug)
 {
     Write-Host " `n`Debug mode..." -ForegroundColor Green
@@ -653,7 +681,11 @@ if($Debug)
     $pwsh = if (Get-Command pwsh -ErrorAction SilentlyContinue) { "pwsh" } else { "powershell" }
     $wt = if (Get-Command wt.exe -ErrorAction SilentlyContinue) { "wt.exe" } else { $pwsh }
     Start-Process $wt -ArgumentList "$pwsh -NoProfile -Command $script -Debug"
+
 }
+
+    Update-Readme
+    Write-Host " `n`Build successfully" -ForegroundColor Green
 }
 catch {
     Write-Error "An error occurred: $_"

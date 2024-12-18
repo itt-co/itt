@@ -20,14 +20,11 @@ $xaml.SelectNodes("//*[@Name]") | ForEach-Object {
                 $element.Add_TextChanged({ Invoke-Button $args[0].Name })
                 $element.Add_GotFocus({ Invoke-Button $args[0].Name })
             }
-            "Ellipse" {
-                $element.add_MouseLeftButtonDown({ Invoke-Button $args[0].Name })
-            }
             "ComboBox" {
-                $element.add_SelectionChanged({ Invoke-Button $args[0].Name })
+                $element.add_SelectionChanged({ Invoke-Button $args[0].Name $args[0].SelectedItem.Content })
             }
             "TabControl" {
-                $element.add_SelectionChanged({ Invoke-Button $args[0].Name })
+                $element.add_SelectionChanged({ Invoke-Button $args[0].Name $args[0].SelectedItem.Name })
             }
             "CheckBox" {
                 $element.IsChecked = Get-ToggleStatus -ToggleSwitch $name

@@ -43,10 +43,7 @@ function ChangeTap {
             $itt['window'].FindName('applyBtn').Visibility = $settings['applyBtn']
             $itt['window'].FindName('AppsCategory').Visibility = $settings['installBtn']
             $itt['window'].FindName('TwaeksCategory').Visibility = $settings['applyBtn']
-            # Debug
-            if($Debug) { Add-Log -Message $settings['CurrentList'] -Level "debug"}
-            if($Debug) { Add-Log -Message $settings['CurrentCategory'] -Level "debug"}
-            break # Exit the loop once the matching tab is found
+            break
         }
     }
 }

@@ -26,7 +26,7 @@ Function Get-ToggleStatus {
         - Ensure that you have appropriate permissions to access the registry paths used by this function.
         - The function includes error handling to return `$false` if the registry values do not match the expected criteria for the toggle switches.
     #>
-    Param($ToggleSwitch) # Parameter to specify which toggle switch status to check
+    Param($ToggleSwitch)
     # Check status of "ToggleDarkMode"
     if($ToggleSwitch -eq "ToggleDarkMode"){
         $app = (Get-ItemProperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize').AppsUseLightTheme

@@ -1,21 +1,21 @@
 # Function to get all CheckBoxes from a StackPanel
 function Get-CheckBoxesFromStackPanel {
     param (
-        [System.Windows.Controls.StackPanel]$item  # The StackPanel to search
+        [System.Windows.Controls.StackPanel]$item
     )
-    $checkBoxes = @()  # Initialize an empty array to store CheckBoxes
+    $checkBoxes = @()
     if ($item -is [System.Windows.Controls.StackPanel]) {
         foreach ($child in $item.Children) {
             if ($child -is [System.Windows.Controls.StackPanel]) {
                 foreach ($innerChild in $child.Children) {
                     if ($innerChild -is [System.Windows.Controls.CheckBox]) {
-                        $checkBoxes += $innerChild  # Add each CheckBox to the array
+                        $checkBoxes += $innerChild
                     }
                 }
             }
         }
     }
-    return $checkBoxes  # Return the array of CheckBoxes
+    return $checkBoxes
 }
 # Function to load JSON data and update the UI
 function LoadJson {
@@ -94,7 +94,7 @@ function SaveItemsToJson {
             foreach ($item in $itt.AppsListView.Items) {
                 $checkBoxes = Get-CheckBoxesFromStackPanel -item $item
                 if ($checkBoxes.IsChecked) {
-                    $checkBoxes.IsChecked = $false  # Uncheck all CheckBoxes after saving
+                    $checkBoxes.IsChecked = $false
                 }
             }
         }

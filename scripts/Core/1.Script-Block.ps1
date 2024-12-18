@@ -17,24 +17,24 @@ function Invoke-ScriptBlock {
         - Garbage collection is explicitly invoked to free up memory after execution.
     #>
     param(
-        [scriptblock]$ScriptBlock,  # The script block to invoke
+        [scriptblock]$ScriptBlock,
         [array]$ArgumentList,
         $Debug   
     )
-    $script:powershell = [powershell]::Create()  # Create a new PowerShell instance
+    $script:powershell = [powershell]::Create()
     # Add the script block and arguments to the runspace
     $script:powershell.AddScript($ScriptBlock)
     $script:powershell.AddArgument($ArgumentList)
     $script:powershell.AddArgument($Debug)
-    $script:powershell.RunspacePool = $itt.runspace  # Set the runspace pool
+    $script:powershell.RunspacePool = $itt.runspace
     # Begin running the script block asynchronously
     $script:handle = $script:powershell.BeginInvoke()
     # If the script has completed, clean up resources
     if ($script:handle.IsCompleted) {
-        $script:powershell.EndInvoke($script:handle)  # End the invocation
-        $script:powershell.Dispose()                  # Dispose of the PowerShell instance
-        $itt.runspace.Dispose()                      # Dispose of the runspace
-        $itt.runspace.Close()                        # Close the runspace
-        [System.GC]::Collect()                        # Force garbage collection to free memory
+        $script:powershell.EndInvoke($script:handle)  
+        $script:powershell.Dispose()
+        $itt.runspace.Dispose()
+        $itt.runspace.Close()            
+        [System.GC]::Collect()
     }
 }

@@ -36,7 +36,7 @@ function Notify {
     $notification.BalloonTipText = $msg
     $notification.BalloonTipTitle = $title
     $notification.Visible = $true
-    $notification.ShowBalloonTip($time)  # Display for specified time
+    $notification.ShowBalloonTip($time)
     # Clean up resources
     $notification.Dispose()
 }

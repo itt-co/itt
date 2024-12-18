@@ -1,7 +1,7 @@
 function Add-Log {
     param (
-        [string]$Message, # Content of Message
-        [string]$Level = "INFO" # Message Level [INFO] [ERROR] [WARNING],
+        [string]$Message,
+        [string]$Level = "INFO"
     )
     # Determine the color based on the log level
     switch ($Level.ToUpper()) {
