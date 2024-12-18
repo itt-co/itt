@@ -26,7 +26,7 @@ $itt = [Hashtable]::Synchronized(@{
     database       = @{}
     ProcessRunning = $false
     developer      = "Emad Adel"
-    lastupdate     = "12/18/2024"
+    lastupdate     = "12/19/2024"
     github         = "https://github.com/emadadel4/itt"
     telegram       = "https://t.me/emadadel4"
     blog           = "https://emadadel4.github.io"
@@ -5919,7 +5919,7 @@ function Invoke-Button {
     Param ([string]$action,[string]$Content)
     # Helper function for debugging
     function Debug-Message {
-        if($Debug) {  Add-Log "Name:$action Content:$Content" -Level "debug"  }
+        if($Debug) {  Add-Log "$action,$Content" -Level "Debug"  }
     }
     # Switch block to handle different actions
     Switch -Wildcard ($action) {
@@ -5930,216 +5930,322 @@ function Invoke-Button {
         }
         "applyBtn" {
             Invoke-Apply
-            Debug-Message 
-        }
-        "taps" {
-            ChangeTap
+            # debug start
+            Debug-Message $action
+            # debug end
         }
         "$($itt.CurrentCategory)" {
             FilterByCat($itt["window"].FindName($itt.CurrentCategory).SelectedItem.Content)
+            # debug start
             Debug-Message $action
+            # debug end
+
         }
         "searchInput" {
             Search
-            Debug-Message
+            # debug start
+            Debug-Message 
+            # debug end
         }
         # Menu items
         "systemlang" {
             Set-Language -lang "default"
-            Debug-Message
+            # debug start
+            Debug-Message $action
+            # debug end
         }
                     "ar" {
                 Set-Language -lang "ar"
-                Debug-Message
+                # debug start
+                Debug-Message 
+                # debug end
             }
             "de" {
                 Set-Language -lang "de"
-                Debug-Message
+                # debug start
+                Debug-Message 
+                # debug end
             }
             "en" {
                 Set-Language -lang "en"
-                Debug-Message
+                # debug start
+                Debug-Message 
+                # debug end
             }
             "es" {
                 Set-Language -lang "es"
-                Debug-Message
+                # debug start
+                Debug-Message 
+                # debug end
             }
             "fr" {
                 Set-Language -lang "fr"
-                Debug-Message
+                # debug start
+                Debug-Message 
+                # debug end
             }
             "ga" {
                 Set-Language -lang "ga"
-                Debug-Message
+                # debug start
+                Debug-Message 
+                # debug end
             }
             "hi" {
                 Set-Language -lang "hi"
-                Debug-Message
+                # debug start
+                Debug-Message 
+                # debug end
             }
             "it" {
                 Set-Language -lang "it"
-                Debug-Message
+                # debug start
+                Debug-Message 
+                # debug end
             }
             "ko" {
                 Set-Language -lang "ko"
-                Debug-Message
+                # debug start
+                Debug-Message 
+                # debug end
             }
             "ru" {
                 Set-Language -lang "ru"
-                Debug-Message
+                # debug start
+                Debug-Message 
+                # debug end
             }
             "tr" {
                 Set-Language -lang "tr"
-                Debug-Message
+                # debug start
+                Debug-Message 
+                # debug end
             }
             "zh" {
                 Set-Language -lang "zh"
-                Debug-Message
+                # debug start
+                Debug-Message 
+                # debug end
             }
         "save" {
             SaveItemsToJson
-            Debug-Message
+            # debug start
+            Debug-Message $action
+            # debug end
         }
         "load" {
             LoadJson
-            Debug-Message
+            # debug start
+            Debug-Message $action
+            # debug end
         }
         # Device Management
         "deviceManager" {
             Start-Process devmgmt.msc 
-            Debug-Message
+            # debug start
+            Debug-Message $action
+            # debug end
         }
         "appsfeatures" {
             Start-Process appwiz.cpl 
-            Debug-Message
+            # debug start
+            Debug-Message $action
+            # debug end
         }
         "sysinfo" {
             Start-Process msinfo32.exe
             Start-Process dxdiag.exe 
-            Debug-Message
+            # debug start
+            Debug-Message $action
+            # debug end
         }
         "poweroption" {
             Start-Process powercfg.cpl 
+            # debug start
             Debug-Message $action
+            # debug end
         }
         "services" {
             Start-Process services.msc 
+            # debug start
             Debug-Message $action
+            # debug end
         }
         "network" {
             Start-Process ncpa.cpl
+            # debug start
             Debug-Message $action
+            # debug end
+
         }
         "taskmgr" {
-            Start-Process taskmgr.exe 
+            Start-Process taskmgr.exe
+            # debug start
             Debug-Message $action
+            # debug end
         }
         "diskmgmt" {
             Start-Process diskmgmt.msc
+            # debug start
             Debug-Message $action
+            # debug end
         }
         "systheme" {
             SwitchToSystem 
-            Debug-Message
+            # debug start
+            Debug-Message $action
+            # debug end
         }
                     "Dark" {
-                Set-Theme -Theme $action # Call the Set-Theme function with the selected theme
-                Debug-Message # debug
+                Set-Theme -Theme $action
+                # debug start
+                Debug-Message
+                # debug end
             }
             "Light" {
-                Set-Theme -Theme $action # Call the Set-Theme function with the selected theme
-                Debug-Message # debug
+                Set-Theme -Theme $action
+                # debug start
+                Debug-Message
+                # debug end
             }
             "Palestine" {
-                Set-Theme -Theme $action # Call the Set-Theme function with the selected theme
-                Debug-Message # debug
+                Set-Theme -Theme $action
+                # debug start
+                Debug-Message
+                # debug end
             }
         # chocoloc
         "chocoloc" {
             Start-Process explorer.exe "C:\ProgramData\chocolatey\lib"
+            # debug start
             Debug-Message $action
+            # debug end
         }
         # itt Dir
         "itt" {
             Start-Process explorer.exe $env:ProgramData\itt
+            # debug start
             Debug-Message $action
+            # debug end
+
         }
         # restore point
         "restorepoint" {
             RestorePoint
+            # debug start
             Debug-Message $action
+            # debug end
         }
         # Music
         "moff" {
             MuteMusic -Value 0
+            # debug end
             Debug-Message $action
+            # debug start
         }
         "mon" {
             UnmuteMusic -Value 100
+            # debug start
             Debug-Message $action
+            # debug end
         }
         # Mirror Links
         "unhook" {
             Start-Process "https://unhook.app/" 
+            # debug start
             Debug-Message $action
+            # debug end
         }
         "uBlock" {
             Start-Process "https://ublockorigin.com/" 
+            # debug start
             Debug-Message $action
+            # debug end
         }
         "mas" {
             Start-Process "https://github.com/massgravel/Microsoft-Activation-Scripts"
+            # debug start
             Debug-Message $action
+            # debug end
         }
         "idm" {
             Start-Process "https://github.com/WindowsAddict/IDM-Activation-Script"
+            # debug start
             Debug-Message $action
+            # debug end
         }
         "neat" {
             Start-Process "https://addons.mozilla.org/en-US/firefox/addon/neatdownloadmanager-extension/" 
+            # debug start
             Debug-Message $action
+            # debug end
         }
         "winoffice" {
             Start-Process "https://massgrave.dev/genuine-installation-media" 
+            # debug start
             Debug-Message $action
+            # debug end
         }
         "sordum" {
             Start-Process "https://www.sordum.org/" 
+            # debug start
             Debug-Message $action
+            # debug end
         }
         "majorgeeks" {
             Start-Process "https://www.majorgeeks.com/" 
+            # debug start
             Debug-Message $action
+            # debug end
         }
         "techpowerup" {
-            Start-Process "https://www.techpowerup.com/download/" 
+            Start-Process "https://www.techpowerup.com/download/"
+            # debug start
             Debug-Message $action
+            # debug end
         }
         # Other actions
         "ittshortcut" {
             ITTShortcut $action
+            # debug start
             Debug-Message $action
+            # debug end
         }
         "dev" {
             About
+            # debug start
             Debug-Message $action
+            # debug end
         }
         # Reset-Preferences
         "reset"{
             Reset-Preferences
+            # debug start
             Debug-Message $action
+            # debug end
         }
         "shelltube"{
             Start-Process -FilePath "powershell" -ArgumentList "irm https://github.com/emadadel4/shelltube/releases/latest/download/st.ps1 | iex"
+            # debug start
             Debug-Message $action
+            # debug end
         }
         "fmhy"{
             Start-Process ("https://fmhy.net/")
+            # debug start
             Debug-Message $action
+            # debug end
         }
         "webtor"{
             Start-Process ("https://webtor.io/")
+            # debug start
             Debug-Message $action
+            # debug end
+        }
+        "taps"{
+            ChangeTap
+            # debug start
+            Debug-Message $action
+            # debug end
         }
         Default {
             Write-Host "Unknown action: $action"
@@ -7137,7 +7243,8 @@ function Set-Taskbar {
     }
 }
 function Startup  {
-    Invoke-ScriptBlock -ScriptBlock {
+    Invoke-ScriptBlock -ArgumentList $Debug -ScriptBlock {
+        param($Debug)
         function Telegram {
                 param (
                 [string]$Message
@@ -7168,9 +7275,11 @@ function Startup  {
                 $mediaItem = $itt.mediaPlayer.newMedia($track)
                 $itt.mediaPlayer.currentPlaylist.appendItem($mediaItem)
                 $itt.mediaPlayer.controls.play()
-                # debug
-                #$currentFileName = $itt.mediaPlayer.currentMedia.name
-                #Write-Host "Currently playing: $currentFileName"
+                
+                # debug start
+                    #$currentFileName = $itt.mediaPlayer.currentMedia.name
+                    #Write-Host "Currently playing: $currentFileName"
+                # debug end
             }
             # Shuffle the playlist and create a new playlist
             function GetShuffledTracks {
@@ -7329,6 +7438,7 @@ function Startup  {
             Write-Host " Discord: https://discord.gg/63m34EE6mX `n` "
             Get-UsersCount
         }
+        if($Debug){return}
         LOG
         PlayMusic
         Quotes
@@ -7379,10 +7489,7 @@ function ChangeTap {
             $itt['window'].FindName('applyBtn').Visibility = $settings['applyBtn']
             $itt['window'].FindName('AppsCategory').Visibility = $settings['installBtn']
             $itt['window'].FindName('TwaeksCategory').Visibility = $settings['applyBtn']
-            # Debug
-            if($Debug) { Add-Log -Message $settings['CurrentList'] -Level "debug"}
-            if($Debug) { Add-Log -Message $settings['CurrentCategory'] -Level "debug"}
-            break # Exit the loop once the matching tab is found
+            break
         }
     }
 }
@@ -8590,20 +8697,20 @@ function UnmuteMusic {
 }
 # Stop the music and clean up resources
 function StopMusic {
-    $itt.mediaPlayer.controls.stop()    # Stop the media player
-    $itt.mediaPlayer = $null            # Clear the media player object
-    $script:powershell.Dispose()         # Dispose of the PowerShell object
-    $itt.runspace.Dispose()             # Dispose of the runspace
-    $itt.runspace.Close()               # Close the runspace
+    $itt.mediaPlayer.controls.stop()   
+    $itt.mediaPlayer = $null
+    $script:powershell.Dispose()
+    $itt.runspace.Dispose()
+    $itt.runspace.Close()
 }
 # Stop all runspaces, stop the music, and exit the process
 function StopAllRunspace {
-    $script:powershell.Dispose()         # Dispose of the PowerShell object
-    $itt.runspace.Dispose()             # Dispose of the runspace
-    $itt.runspace.Close()               # Close the runspace
-    $script:powershell.Stop()            # Stop the PowerShell script
-    StopMusic                            # Stop the music and clean up resources
-    $newProcess.exit                     # Exit the process
+    $script:powershell.Dispose()
+    $itt.runspace.Dispose()
+    $itt.runspace.Close()      
+    $script:powershell.Stop()
+    StopMusic
+    $newProcess.exit
 }
 function System-Default {
     $fullCulture = Get-ItemPropertyValue -Path "HKCU:\Control Panel\International" -Name "LocaleName"
@@ -12427,6 +12534,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
           <Button
             Name="applyBtn"
             FontSize="14" 
+            Visibility="Hidden"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             HorizontalContentAlignment="Center"
@@ -12705,16 +12813,6 @@ function Show-Event {
         $itt.event.FindName('date').text = '11/30/2024'.Trim()  # Set the Date text
         
     
-            $itt.event.FindName('esg').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/itt')
-                })
-            
-            
-            $itt.event.FindName('ps').add_MouseLeftButtonDown({
-                    Start-Process('https://www.palestinercs.org/en/Donation')
-                })
-            
-            
             $itt.event.FindName('shell').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/shelltube')
                 })
@@ -12722,6 +12820,16 @@ function Show-Event {
             
             $itt.event.FindName('ytv').add_MouseLeftButtonDown({
                     Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+                })
+            
+            
+            $itt.event.FindName('esg').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/emadadel4/itt')
+                })
+            
+            
+            $itt.event.FindName('ps').add_MouseLeftButtonDown({
+                    Start-Process('https://www.palestinercs.org/en/Donation')
                 })
             
             
@@ -13230,14 +13338,11 @@ $xaml.SelectNodes("//*[@Name]") | ForEach-Object {
                 $element.Add_TextChanged({ Invoke-Button $args[0].Name })
                 $element.Add_GotFocus({ Invoke-Button $args[0].Name })
             }
-            "Ellipse" {
-                $element.add_MouseLeftButtonDown({ Invoke-Button $args[0].Name })
-            }
             "ComboBox" {
-                $element.add_SelectionChanged({ Invoke-Button $args[0].Name })
+                $element.add_SelectionChanged({ Invoke-Button $args[0].Name $args[0].SelectedItem.Content })
             }
             "TabControl" {
-                $element.add_SelectionChanged({ Invoke-Button $args[0].Name })
+                $element.add_SelectionChanged({ Invoke-Button $args[0].Name $args[0].SelectedItem.Name })
             }
             "CheckBox" {
                 $element.IsChecked = Get-ToggleStatus -ToggleSwitch $name
