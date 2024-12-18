@@ -3519,6 +3519,15 @@ $itt.database.Applications = @'
     "default": [],
     "category": "Development",
     "check": "false"
+  },
+  {
+    "Name": "AyuGramDesktop",
+    "Description": " Desktop Telegram client with good customization and Ghost mode",
+    "winget": "wingetinstallRadolynLabs.AyuGramDesktop",
+    "choco": "none",
+    "default": [],
+    "category": "Communication",
+    "check": "false"
   }
 ]
 
@@ -12728,6 +12737,12 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
             </StackPanel>
             <TextBlock Width="800" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Microsoft Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications. Microsoft Visual Studio Code is free and available on your favorite platform  Linux macOS and Windows."/>
+        </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="AyuGramDesktop" Tag="Communication" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Communication"/>
+            </StackPanel>
+            <TextBlock Width="800" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text=" Desktop Telegram client with good customization and Ghost mode."/>
         </StackPanel>
                     </ListView>
 
@@ -13456,8 +13471,8 @@ function Show-Event {
         
 
     
-            $itt.event.FindName('shell').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/shelltube')
+            $itt.event.FindName('esg').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/emadadel4/itt')
                 })
             
             
@@ -13466,13 +13481,13 @@ function Show-Event {
                 })
             
             
-            $itt.event.FindName('esg').add_MouseLeftButtonDown({
-                    Start-Process('https://github.com/emadadel4/itt')
+            $itt.event.FindName('ps').add_MouseLeftButtonDown({
+                    Start-Process('https://www.palestinercs.org/en/Donation')
                 })
             
             
-            $itt.event.FindName('ps').add_MouseLeftButtonDown({
-                    Start-Process('https://www.palestinercs.org/en/Donation')
+            $itt.event.FindName('shell').add_MouseLeftButtonDown({
+                    Start-Process('https://github.com/emadadel4/shelltube')
                 })
             
             
