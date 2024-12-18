@@ -74,41 +74,34 @@ function Finish {
     })
 }
 function Show-Selected {
-
     param (
         [string]$ListView,
         [string]$mode
-     )
+    )
 
     switch ($mode) {
-
-        "Filter"{
-
+        "Filter" {
             $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.$ListView.Items)
 
             $filterPredicate = {
                 param($item)
-        
+
                 if ($item -is [System.Windows.Controls.StackPanel]) {
                     foreach ($child in $item.Children) {
                         if ($child -is [System.Windows.Controls.StackPanel]) {
                             foreach ($innerChild in $child.Children) {
                                 if ($innerChild -is [System.Windows.Controls.CheckBox]) {
-                                    # Check if the CheckBox is checked
-                                    $itemTag = $innerChild.IsChecked
-                                    return $itemTag
+                                    return $innerChild.IsChecked -eq $true
                                 }
                             }
                         }
                     }
                 }
-        
-                # Return $true if no CheckBox found (to include all items)
+
                 return $true
             }
-        
-            $collectionView.Filter = $filterPredicate
 
+            $collectionView.Filter = $filterPredicate
         }
         Default {
             $itt.$ListView.Clear()

@@ -10,9 +10,22 @@
                     </DataTemplate>
             </TabItem.HeaderTemplate>
                 <TabItem.Content>
-                    <ListView Name="appslist" Margin="0" Width="Auto" Height="Auto" BorderBrush="{x:Null}" Background="{x:Null}" >
+                   <ListView Name="appslist" 
+                        BorderBrush="{x:Null}" 
+                        Background="{x:Null}"
+                        SelectionMode="Single"
+                        SnapsToDevicePixels="True"
+                        VirtualizingStackPanel.IsVirtualizing="True"
+                        VirtualizingStackPanel.VirtualizationMode="Recycling"
+                        ScrollViewer.CanContentScroll="True">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <VirtualizingStackPanel />
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
                         {{Apps}}
                     </ListView>
+
                 </TabItem.Content>
             </TabItem>
             <TabItem x:Name="tweeksTab" Header="{Binding tweaks}" BorderBrush="{x:Null}" Background="{x:Null}">
@@ -24,7 +37,19 @@
                             </StackPanel>
                         </DataTemplate>
                 </TabItem.HeaderTemplate>
-                    <ListView Name="tweakslist"  Margin="0" ScrollViewer.VerticalScrollBarVisibility="Auto" Width="Auto" Height="Auto" BorderBrush="{x:Null}" Background="{x:Null}">
+                   <ListView Name="tweakslist" 
+                        BorderBrush="{x:Null}" 
+                        Background="{x:Null}"
+                        SelectionMode="Single"
+                        SnapsToDevicePixels="True"
+                        VirtualizingStackPanel.IsVirtualizing="True"
+                        VirtualizingStackPanel.VirtualizationMode="Recycling"
+                        ScrollViewer.CanContentScroll="True">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <VirtualizingStackPanel />
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
                         {{Tweaks}}
                     </ListView>
             </TabItem>
@@ -37,7 +62,19 @@
                             </StackPanel>
                         </DataTemplate>
                 </TabItem.HeaderTemplate>
-                    <ListView Name="SettingsList"  Margin="0" ScrollViewer.VerticalScrollBarVisibility="Auto" Width="Auto" Height="Auto" BorderBrush="{x:Null}" Background="{x:Null}">
+                    <ListView Name="SettingsList" 
+                        BorderBrush="{x:Null}" 
+                        Background="{x:Null}"
+                        SelectionMode="Single"
+                        SnapsToDevicePixels="True"
+                        VirtualizingStackPanel.IsVirtualizing="True"
+                        VirtualizingStackPanel.VirtualizationMode="Recycling"
+                        ScrollViewer.CanContentScroll="True">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <VirtualizingStackPanel />
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
                         {{Settings}}
                     </ListView>
             </TabItem>
