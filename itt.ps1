@@ -7327,7 +7327,7 @@ function Startup  {
             Write-Host " Launch Anytime, Anywhere! `n` " 
             Write-Host " Telegram: https://t.me/ittemadadel_bot" 
             Write-Host " Discord: https://discord.gg/63m34EE6mX `n` "
-            #Get-UsersCount
+            Get-UsersCount
         }
         LOG
         PlayMusic
