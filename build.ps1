@@ -384,8 +384,10 @@ function GenerateInvokeButtons {
             $Key = $filename -replace '[^\w]', ''
             @"
             "$Key" {
-                Set-Theme -Theme `$action # Call the Set-Theme function with the selected theme
-                Debug-Message # debug
+                Set-Theme -Theme `$action
+                # debug start
+                Debug-Message
+                # debug end
             }
 "@
         }
@@ -398,7 +400,9 @@ function GenerateInvokeButtons {
             @"
             "$Key" {
                 Set-Language -lang "$Key"
-                `Debug-Message
+                # debug start
+                `Debug-Message $action
+                # debug end
             }
 "@
         }
