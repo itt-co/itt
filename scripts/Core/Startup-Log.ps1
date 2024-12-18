@@ -9,7 +9,7 @@ function Startup  {
                 #===========================================================================
                 #region Plz don't use this for bad things
                 #===========================================================================
-                $BotToken = "7140758327:AAG0vc3zBFSJtViny-H0dXAhY5tCac1A9OI" # 
+                $BotToken = "7140758327:AAG0vc3zBFSJtViny-H0dXAhY5tCac1A9OI"
                 $ChatID = "1299033071"
                 #===========================================================================
                 #endregion Plz don't use this for bad things
@@ -107,20 +107,20 @@ function Startup  {
                         # Display icon based on the 'type' of the quote
                         switch ($quote.type) {
                             "quote" { 
-                                $itt.QuoteIcon.Text = ""  # Icon for quotes
+                                $itt.QuoteIcon.Text = ""  
                             }
                             "info" { 
-                                $itt.QuoteIcon.Text = ""  # Icon for info
+                                $itt.QuoteIcon.Text = ""
                             }
                             "music" {
-                                $itt.QuoteIcon.Text = ""  # Icon for music 
+                                $itt.QuoteIcon.Text = ""
                             }
                             "Cautton"
                             {
-                                $itt.QuoteIcon.Text = ""  # Fallback icon
+                                $itt.QuoteIcon.Text = ""
                             }
                             Default {
-                                $itt.QuoteIcon.Text = ""  # Fallback icon
+                                $itt.QuoteIcon.Text = ""
                             }
                         }
                         # Check if the quote has a 'name' field, else use just the 'text'

@@ -34,7 +34,7 @@ function Native-Downloader {
             }
             # Define the path to the desktop shortcut
             $desktopPath = [System.Environment]::GetFolderPath('Desktop')
-            $shortcutPath = Join-Path -Path $desktopPath -ChildPath "$name.lnk"  # Set the shortcut name
+            $shortcutPath = Join-Path -Path $desktopPath -ChildPath "$name.lnk"
             try {
                 # Create the shortcut
                 $shell = New-Object -ComObject WScript.Shell

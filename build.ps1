@@ -355,8 +355,8 @@ function GenerateClickEventHandlers {
         }
         # Create the event title assignment using the extracted content
         $EventTitle = "
-        `$itt.event.FindName('title').text = '$global:TitleContent'`.Trim()  # Set the title text
-        `$itt.event.FindName('date').text = '$global:DateContent'`.Trim()  # Set the Date text
+        `$itt.event.FindName('title').text = '$global:TitleContent'`.Trim()
+        `$itt.event.FindName('date').text = '$global:DateContent'`.Trim()
         "
         # Replace placeholders in the event window script with actual event handlers and title
         $EventWindowScript = $EventWindowScript -replace '#{contorlshandler}', $EventHandler

@@ -32,7 +32,7 @@ function Search {
             }
             return $false
         }
-        return $true  # Non-StackPanel items are always included
+        return $true
     }
 }
 function FilterByCat {
