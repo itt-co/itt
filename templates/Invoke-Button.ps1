@@ -260,7 +260,7 @@ function Invoke-Button {
             # debug end
         }
         "taps"{
-            ChangeTap($Content)
+            ChangeTap
             # debug start
             Debug-Message $action
             # debug end
