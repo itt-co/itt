@@ -9,17 +9,12 @@ Write-Host "
 |    Made with ♥  By Emad Adel                                            |
 +-------------------------------------------------------------------------+
 "
-
 Write-Host "[!] Check the locales directory before adding a new Language." -ForegroundColor Yellow
-
 try {
-    
     $name = Read-Host "Enter language display name (e.g. English)"
     $locales = Read-Host "Enter language code (e.g. en)"
     $Author = Read-Host "Enter author name (e.g. Emad Adel)"
-    
     $csvFilePath = "$locales"
-
 # Define the cOntent in the desired format
 $table = @"
 Key,Text
@@ -75,10 +70,8 @@ Happy_birthday,
 My_playlist,
 Empty_save_msg,
 "@
-
     # Write the cOntent to the CSV file
     $csvFilePath = "locales/$csvFilePath.csv"
-
     Set-COntent -Path $csvFilePath -Value $table -Encoding UTF8
     Write-Host "Template saved at "$csvFilePath". You can edit the file using any CSV editor such as Excel, or Notepad++."
 }

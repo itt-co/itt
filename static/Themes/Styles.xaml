@@ -5,7 +5,6 @@
             From="0" To="1" Duration="0:0:0.1" />
     </Storyboard>
 <!--Listview Fade in-->
-
 <!--Logo Fade in-->
     <Storyboard x:Key="Logo" RepeatBehavior="Forever">
         <!-- Fade Out -->
@@ -13,7 +12,6 @@
             Storyboard.TargetProperty="Opacity"
             From="0.0" To="1.0"
             Duration="0:0:01" /> <!-- Fade out duration -->
-        
         <!-- Fade In -->
         <DoubleAnimation
             Storyboard.TargetProperty="Opacity"
@@ -22,7 +20,6 @@
             BeginTime="0:0:05" /> <!-- Start fade in after 21 seconds -->
     </Storyboard>
 <!--Logo Fade in-->
-
 <!-- Define the FadeOut and FadeIn animations with looping -->
     <Storyboard x:Key="FadeOutInLoopStoryboard">
         <!-- Fade Out Animation -->
@@ -40,7 +37,6 @@
             BeginTime="0:0:1" />
     </Storyboard>
 <!-- Define the FadeOut and FadeIn animations with looping -->
-
 <!--Image Style-->
     <Style TargetType="Image">
         <Style.Triggers>
@@ -50,7 +46,6 @@
         </Style.Triggers>
     </Style>
 <!--End Image Style-->
-
 <!--Button Style-->
     <Style TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource PrimaryButtonForeground}"/>
@@ -61,7 +56,6 @@
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="Cursor" Value="Hand"/>
-
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -76,7 +70,6 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{DynamicResource HighlightColor}"/>
@@ -89,7 +82,6 @@
         </Style.Triggers>
     </Style>
 <!--End Button Style-->
-
 <!--ListViewItem Style-->
     <Style TargetType="ListViewItem">
         <Setter Property="Margin" Value="3"/>
@@ -123,7 +115,6 @@
         </Style.Triggers>
     </Style>
 <!--End ListViewItem Style-->
-
 <!--CheckBox Style-->
     <Style TargetType="CheckBox">
         <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor}"/>
@@ -148,7 +139,6 @@
                             <Setter TargetName="CheckMark" Property="Visibility" Value="Visible"/>
                             <Setter Property="Background" Value="{DynamicResource HighlightColor}"/>
                             <Setter Property="BorderBrush" Value="{DynamicResource HighlightColor}"/>
-
                         </Trigger>
                         <Trigger Property="IsChecked" Value="False">
                             <Setter Property="Background" Value="White"/>
@@ -163,7 +153,6 @@
         </Setter>
     </Style>
 <!--End CheckBox Style-->
-
 <!--SearchBox Style-->
     <Style x:Key="SearchBox" TargetType="TextBox">
         <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
@@ -187,7 +176,6 @@
         </Setter>
     </Style>
 <!--End SearchBox Style-->
-
 <!--Label Style-->
   <Style TargetType="Label">
     <Setter Property="Background" Value="Transparent"/>
@@ -208,7 +196,6 @@
     </Setter>
   </Style>
 <!--End Label Style-->
-
 <!--TextBlock Style-->
     <Style TargetType="TextBlock">
         <Setter Property="Foreground" Value="{DynamicResource TextColorPrimary}"/>
@@ -216,7 +203,6 @@
         <Setter Property="TextOptions.TextRenderingMode" Value="ClearType" />
     </Style>
 <!--End TextBlock Style-->
-
 <!-- Menu Style -->
     <Style TargetType="Menu">
         <Setter Property="Background" Value="#FFFFFF"/>
@@ -240,7 +226,6 @@
             </EventTrigger>
         </Style.Triggers>
     </Style>
-
     <Style TargetType="MenuItem">
         <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
         <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor}"/>
@@ -252,7 +237,6 @@
             <Setter.Value>
                 <ControlTemplate TargetType="MenuItem">
                     <Border x:Name="Border"
-
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Padding="8"
@@ -263,14 +247,12 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
-    
                             <!-- Icon -->
                             <ContentPresenter Grid.Column="0" 
                                               ContentSource="Icon"
                                               HorizontalAlignment="Left"
                                               VerticalAlignment="Center"
                                               Margin="0,0,4,0"/>
-    
                             <!-- Text (MenuItem Header) -->
                             <TextBlock x:Name="TextBlock"
                                        Grid.Column="1"
@@ -278,7 +260,6 @@
                                        Foreground="{TemplateBinding BorderThickness}"
                                        VerticalAlignment="Center"
                                        Margin="0"/>
-    
                             <!-- Shortcut Key (InputGestureText) -->
                             <TextBlock x:Name="ShortcutText"
                                        Grid.Column="2"
@@ -287,7 +268,6 @@
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Right"
                                        Margin="5,0"/>
-    
                             <!-- Arrow Down Indicator for Submenus -->
                             <Path x:Name="Arrow"
                                   Grid.Column="2"
@@ -297,7 +277,6 @@
                                   VerticalAlignment="Center"
                                   Visibility="Collapsed"
                                   Margin="4,0,0,0"/>
-    
                             <!-- Popup for Submenu -->
                             <Popup Name="PART_Popup" 
                                    Placement="Right" 
@@ -330,7 +309,6 @@
         </Setter>
     </Style>
 <!-- End Menu Style -->
-
 <!--Scrollbar Thumbs-->
     <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
         <Setter Property="Template">
@@ -406,16 +384,13 @@
             </Setter.Value>
         </Setter>
     </Style>
-
     <Style TargetType="ScrollViewer">
         <Setter Property="CanContentScroll" Value="False"/>
         <Setter Property="IsDeferredScrollingEnabled" Value="False"/>
         <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
         <Setter Property="HorizontalScrollBarVisibility" Value="Hidden"/>
     </Style>
-
 <!--End Scrollbar Thumbs-->
-
 <!--TabControl Style-->
     <Style TargetType="TabItem">
         <Setter Property="Template">
@@ -443,7 +418,6 @@
         </Setter>
     </Style>
 <!--End TabControl Style-->
-
 <!--ComboBox Style-->
     <Style TargetType="ComboBox">
         <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
@@ -536,7 +510,6 @@
         </Setter>
     </Style>
 <!--End ComboBox Style-->
-
 <!--ToggleSwitchStyle Style-->
     <Style x:Key="ToggleSwitchStyle" TargetType="CheckBox">
         <Setter Property="Template">
@@ -609,7 +582,6 @@
                             </Trigger.ExitActions>
                             <Setter TargetName="ToggleSwitchButton" Property="Background" Value="{DynamicResource ToggleSwitchEnableColor}"/>
                             <Setter TargetName="emad" Property="Background" Value="{DynamicResource HighlightColor}"/>
-
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="ToggleSwitchButton" Property="Width" Value="13"/>
@@ -619,6 +591,5 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-
     </Style>
 <!--End ToggleSwitchStyle Style-->

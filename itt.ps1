@@ -16,14 +16,11 @@
 param (
     [switch]$Debug
 )
-
-
 # Load DLLs
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName PresentationFramework
 Add-Type -AssemblyName PresentationCore
 Add-Type -AssemblyName WindowsBase
-
 # Synchronized Hashtable for shared variables
 $itt = [Hashtable]::Synchronized(@{
     database       = @{}
@@ -44,18 +41,14 @@ $itt = [Hashtable]::Synchronized(@{
     PopupWindow    = "On"
     Language       = "default"
     ittDir         = "$env:ProgramData\itt\"
-
 })
-
 # Ask user
 if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator))
 {
     $newProcess = Start-Process -FilePath "PowerShell" -ArgumentList "-ExecutionPolicy Bypass -NoProfile -Command `"$($MyInvocation.MyCommand.Definition)`"" -Verb RunAs
     exit
 }
-
 Write-Host "Starting..."
-
 try {
     $itt.mediaPlayer = New-Object -ComObject WMPlayer.OCX
     $Host.UI.RawUI.WindowTitle = "ITT - #StandWithPalestine"
@@ -63,11 +56,9 @@ try {
 catch {
     Write-Warning "Media player not loaded because you're using Windows Lite or have disabled."
 }
-
 if (-not (Test-Path -Path $itt.ittDir)) {
     New-Item -ItemType Directory -Path $itt.ittDir -Force | Out-Null
 }
-
 # trace the script 
 $logdir = $itt.ittDir
 $timestamp = Get-Date -Format "yyyy-MM-dd"
@@ -5902,26 +5893,19 @@ $itt.database.Tweaks = @'
 #region Begin Main Functions
 #===========================================================================
 function Invoke-Button {
-
     <#
         .SYNOPSIS
         Handles various button actions and commands based on the specified action parameter.
-
         .DESCRIPTION
         The `Invoke-Button` function executes different actions depending on the input parameter. It manages operations such as installing apps, applying tweaks, changing themes, opening system utilities, and managing language settings. This function is designed to be used with UI elements where each button triggers a specific action.
-
         .PARAMETER action
         A string specifying the action to perform. The action can be one of several predefined values representing different operations, such as installing apps, applying tweaks, opening system utilities, changing themes, or managing language settings.
-
         .EXAMPLE
         Invoke-Button -action "installBtn"
-
         .EXAMPLE
         Invoke-Button -action "Dark"
-
         .EXAMPLE
         Invoke-Button -action "sysinfo"
-
         .NOTES
         - The function uses a `Switch` statement to handle different actions based on the `$action` parameter.
         - For UI-related actions, such as installing apps or applying tweaks, it calls `Invoke-Install` or `Invoke-Apply`.
@@ -5932,17 +5916,13 @@ function Invoke-Button {
         - For opening URLs related to tools or scripts, it uses `Start-Process` with the URL as an argument.
         - The `Debug-Message` function is used for internal debugging and can be uncommented for logging purposes.
     #>
-
     Param ([string]$action,[string]$Content)
-
     # Helper function for debugging
     function Debug-Message {
         if($Debug) {  Add-Log "Name:$action Content:$Content" -Level "debug"  }
     }
-
     # Switch block to handle different actions
     Switch -Wildcard ($action) {
-
         "installBtn" {
             $itt.SearchInput.Text = $null
             Invoke-Install
@@ -5963,14 +5943,11 @@ function Invoke-Button {
             Search
             Debug-Message
         }
-
         # Menu items
-
         "systemlang" {
             Set-Language -lang "default"
             Debug-Message
         }
-        
                     "ar" {
                 Set-Language -lang "ar"
                 Debug-Message
@@ -6019,7 +5996,6 @@ function Invoke-Button {
                 Set-Language -lang "zh"
                 Debug-Message
             }
-
         "save" {
             SaveItemsToJson
             Debug-Message
@@ -6028,7 +6004,6 @@ function Invoke-Button {
             LoadJson
             Debug-Message
         }
-
         # Device Management
         "deviceManager" {
             Start-Process devmgmt.msc 
@@ -6063,12 +6038,10 @@ function Invoke-Button {
             Start-Process diskmgmt.msc
             Debug-Message $action
         }
-
         "systheme" {
             SwitchToSystem 
             Debug-Message
         }
-
                     "Dark" {
                 Set-Theme -Theme $action # Call the Set-Theme function with the selected theme
                 Debug-Message # debug
@@ -6081,27 +6054,21 @@ function Invoke-Button {
                 Set-Theme -Theme $action # Call the Set-Theme function with the selected theme
                 Debug-Message # debug
             }
-
-
-
         # chocoloc
         "chocoloc" {
             Start-Process explorer.exe "C:\ProgramData\chocolatey\lib"
             Debug-Message $action
         }
-
         # itt Dir
         "itt" {
             Start-Process explorer.exe $env:ProgramData\itt
             Debug-Message $action
         }
-
         # restore point
         "restorepoint" {
             RestorePoint
             Debug-Message $action
         }
-
         # Music
         "moff" {
             MuteMusic -Value 0
@@ -6111,7 +6078,6 @@ function Invoke-Button {
             UnmuteMusic -Value 100
             Debug-Message $action
         }
-
         # Mirror Links
         "unhook" {
             Start-Process "https://unhook.app/" 
@@ -6133,7 +6099,6 @@ function Invoke-Button {
             Start-Process "https://addons.mozilla.org/en-US/firefox/addon/neatdownloadmanager-extension/" 
             Debug-Message $action
         }
-
         "winoffice" {
             Start-Process "https://massgrave.dev/genuine-installation-media" 
             Debug-Message $action
@@ -6146,12 +6111,10 @@ function Invoke-Button {
             Start-Process "https://www.majorgeeks.com/" 
             Debug-Message $action
         }
-
         "techpowerup" {
             Start-Process "https://www.techpowerup.com/download/" 
             Debug-Message $action
         }
-
         # Other actions
         "ittshortcut" {
             ITTShortcut $action
@@ -6162,24 +6125,19 @@ function Invoke-Button {
             Debug-Message $action
         }
         # Reset-Preferences
-
         "reset"{
             Reset-Preferences
             Debug-Message $action
         }
-
         "shelltube"{
             Start-Process -FilePath "powershell" -ArgumentList "irm https://github.com/emadadel4/shelltube/releases/latest/download/st.ps1 | iex"
             Debug-Message $action
         }
-
         "fmhy"{
-
             Start-Process ("https://fmhy.net/")
             Debug-Message $action
         }
         "webtor"{
-
             Start-Process ("https://webtor.io/")
             Debug-Message $action
         }
@@ -6192,43 +6150,33 @@ function Invoke-ScriptBlock {
     <#
         .SYNOPSIS
         Executes a given script block asynchronously within a specified runspace.
-
         .DESCRIPTION
         This function creates a new PowerShell instance to execute a provided script block asynchronously. It accepts an optional array of arguments to pass to the script block and manages the runspace and PowerShell instance resources. The function ensures that resources are properly disposed of after the script block completes execution.
-
         .PARAMETER ScriptBlock
         The script block to be executed. This parameter is mandatory and must be of type `[scriptblock]`.
-
         .PARAMETER ArgumentList
         An optional array of arguments to be passed to the script block. This parameter allows for dynamic input to the script block.
-
         .EXAMPLE
         Invoke-ScriptBlock -ScriptBlock { param($arg1) Write-Output $arg1 } -ArgumentList @("Hello, World!")
         Executes the script block that outputs the provided argument "Hello, World!" asynchronously.
-
         .NOTES
         - The function uses a custom runspace (`$itt.runspace`) for execution. Ensure that this runspace is correctly configured and available in the script's context.
         - Proper disposal of the PowerShell instance and runspace is handled to prevent resource leaks.
         - Garbage collection is explicitly invoked to free up memory after execution.
     #>
-
     param(
         [scriptblock]$ScriptBlock,  # The script block to invoke
         [array]$ArgumentList,
         $Debug   
     )
-
     $script:powershell = [powershell]::Create()  # Create a new PowerShell instance
-
     # Add the script block and arguments to the runspace
     $script:powershell.AddScript($ScriptBlock)
     $script:powershell.AddArgument($ArgumentList)
     $script:powershell.AddArgument($Debug)
     $script:powershell.RunspacePool = $itt.runspace  # Set the runspace pool
-
     # Begin running the script block asynchronously
     $script:handle = $script:powershell.BeginInvoke()
-
     # If the script has completed, clean up resources
     if ($script:handle.IsCompleted) {
         $script:powershell.EndInvoke($script:handle)  # End the invocation
@@ -6240,21 +6188,16 @@ function Invoke-ScriptBlock {
 }
 
 function RestorePoint {
-
     <#
         .SYNOPSIS
         Creates a system restore point on the local computer.
-
         .DESCRIPTION
         This function creates a system restore point using the Checkpoint-Computer cmdlet. It logs the process of creating the restore point and handles any errors that occur during the creation. If the restore point creation fails, an error message is displayed.
-
         .EXAMPLE
         RestorePoint
         Creates a restore point and logs the success or failure of the operation.
     #>
-
     Invoke-ScriptBlock -ScriptBlock {
-
         Try {
             Add-Log -Message "Creating Restore point..." -Level "INFO"
             Start-Process powershell.exe -ArgumentList "-NoExit", "-Command `"Enable-ComputerRestore -Drive '$env:SystemDrive'; Checkpoint-Computer -Description 'ITT' -RestorePointType 'MODIFY_SETTINGS'; exit`"" -Wait -Verb RunAs
@@ -6266,12 +6209,10 @@ function RestorePoint {
 }
 
 function Add-Log {
-
     param (
         [string]$Message, # Content of Message
         [string]$Level = "INFO" # Message Level [INFO] [ERROR] [WARNING],
     )
-
     # Determine the color based on the log level
     switch ($Level.ToUpper()) {
         "INFO" { $color = "White" }
@@ -6282,7 +6223,6 @@ function Add-Log {
         "debug" { $color = "Yello" }
         default { $color = "White" }
     }
-
     switch ($Level.ToUpper()) {
         "INFO" { $icon = "i" }
         "WARNING" { $icon = "!" }
@@ -6294,40 +6234,28 @@ function Add-Log {
         "debug" { $icon = "debug" }
         default { $icon = "i" }
     }
-
     # Construct the log message
     $logMessage =  "[$icon] $Message"
-
     # Write the log message to the console with the specified color
     Write-Host " $logMessage" -ForegroundColor $color
-
 }
 function Disable-Service {
-    
     <#
         .SYNOPSIS
         Disables a specified service by changing its startup type and stopping it.
-
         .DESCRIPTION
         This function disables a Windows service by first changing its startup type to the specified value, then stopping the service if it is running. The function logs the outcome of the operation, including whether the service was found and successfully disabled or if an error occurred.
-
         .PARAMETER ServiceName
         The name of the service to be disabled. This is a required parameter.
-
         .PARAMETER StartupType
         The desired startup type for the service. Common values include 'Disabled', 'Manual', and 'Automatic'. This is a required parameter.
-
         .EXAMPLE
         Disable-Service -ServiceName "wuauserv" -StartupType "Disabled"
     #>
-
     param(
         [array]$tweak
     )
-
-
     foreach ($serv in $tweak) {
-        
         try {
             Add-Log  -Message "Setting Service $($serv.Name)" -Level "info"
             $service = Get-Service -Name $serv.Name -ErrorAction Stop
@@ -6340,79 +6268,59 @@ function Disable-Service {
     }
 }
 function ExecuteCommand {
-    
     <#
     .SYNOPSIS
     Executes a PowerShell command in a new process.
-
     .DESCRIPTION
     This function starts a new PowerShell process to execute the specified command. It waits for the command to complete before returning control to the caller. The function handles any errors that occur during the execution of the command and outputs an error message if needed.
-
     .PARAMETER Name
     An optional name or identifier for the command being executed. This parameter is currently not used in the function but could be used for logging or tracking purposes.
-
     .PARAMETER Command
     The PowerShell command to be executed. This parameter is required.
-
     .EXAMPLE
     ExecuteCommand -Name "Greeting" -Command "Write-Output 'Welcome to ITT'"
     Executes the PowerShell command `Write-Output 'Welcome to ITT'` in a new PowerShell process.
     #>
-
     param (
         [array]$tweak
     )
-
     try {
-
         foreach ($cmd in $tweak) {
             Add-Log -Message "Executing script in the background; please wait..."
             $script = [scriptblock]::Create($cmd)
             Invoke-Command  $script -ErrorAction Stop
         }
-
     } catch  {
         Add-Log -Message "The specified command was not found." -Level "WARNING"
     }
 }
 function Finish {
-
     <#
         .SYNOPSIS
         Clears checkboxes in a specified ListView and displays a notification.
-
         .DESCRIPTION
         This function iterates through the items in a specified ListView, unchecks any CheckBox controls within it, and clears the ListView. After clearing the ListView, it uses the `Notify` function to display a notification with a given title, message, and icon.
-
         .PARAMETER ListView
         The name of the ListView control within the `$itt` object that needs to be processed. This parameter is required.
-
         .PARAMETER title
         The title for the notification message. Defaults to "ITT Emad Adel" if not specified.
-
         .PARAMETER msg
         The message content for the notification. Defaults to "Installed successfully" if not specified.
-
         .PARAMETER icon
         The icon to be used in the notification. Defaults to "Info" if not specified.
-
         .EXAMPLE
         Finish -ListView "myListView" -title "Process Completed" -msg "All items have been processed" -icon "Success"
         Clears all checkboxes in the ListView named "myListView" and displays a notification with the title "Process Completed", message "All items have been processed", and icon "Success".
-
         .NOTES
         - Ensure that the `Notify` function is implemented and available in your script to handle notification display.
         - The function assumes the `$itt` object and its `ListView` are properly initialized and accessible.
         - The notification duration is set to 30 seconds (`30000` milliseconds).
     #>
-
     param (
        [string]$ListView,
        [string]$title = "ITT Emad Adel",
        [string]$icon = "Info"
     )
-
-    
     switch($ListView)
     {
         "AppsListView" {
@@ -6420,16 +6328,13 @@ function Finish {
             Notify -title "$title" -msg "ALL INSTALLATIONS COMPLETED SUCCESSFULLY." -icon "Info" -time 30000
             Add-Log -Message "ALL INSTALLATIONS COMPLETED SUCCESSFULLY." -Level "INFO"
         }
-
         "TweaksListView" {
             UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Apply" -TextIcon "applyIcon" -Icon "  " -Width "140"
             Add-Log -Message "ALL TWEAKS HAVE BEEN APPLIED SUCCESSFULLY. PLEASE NOTE: SOME CHANGES WILL TAKE EFFECT AFTER A RESTART." -Level "INFO"
             Notify -title "$title" -msg "ALL TWEAKS HAVE BEEN APPLIED SUCCESSFULLY." -icon "Info" -time 30000
         }
     }
-
     $itt["window"].Dispatcher.Invoke([action]{ Set-Taskbar -progress "None" -value 0.01 -icon "done" })
-
     # Clear 
     $itt.$ListView.Dispatcher.Invoke([Action]{
         foreach ($item in $itt.$ListView.Items)
@@ -6438,7 +6343,6 @@ function Finish {
                 if ($child -is [System.Windows.Controls.StackPanel]) {
                     foreach ($innerChild in $child.Children) {
                         if ($innerChild -is [System.Windows.Controls.CheckBox]) {
-
                             $innerChild.IsChecked = $false
                             $itt.$ListView.Clear()
                             $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.$ListView.Items)
@@ -6455,14 +6359,11 @@ function Show-Selected {
         [string]$ListView,
         [string]$mode
     )
-
     switch ($mode) {
         "Filter" {
             $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.$ListView.Items)
-
             $filterPredicate = {
                 param($item)
-
                 if ($item -is [System.Windows.Controls.StackPanel]) {
                     foreach ($child in $item.Children) {
                         if ($child -is [System.Windows.Controls.StackPanel]) {
@@ -6474,10 +6375,8 @@ function Show-Selected {
                         }
                     }
                 }
-
                 return $true
             }
-
             $collectionView.Filter = $filterPredicate
         }
         Default {
@@ -6488,31 +6387,24 @@ function Show-Selected {
     }
 }
 function Clear-Item {
-
     <#
         .SYNOPSIS
         Unchecks all checkboxes in a specified ListView and clears the ListView.
-
         .DESCRIPTION
         This function iterates through all items in a specified ListView, unchecking any CheckBox controls within those items. After unchecking the checkboxes, it clears the ListView and removes any applied filters. It also resets the category selection to the first item.
-
         .PARAMETER ListView
         The name of the ListView control within the `$itt` object that needs to be processed. This parameter is required.
-
         .EXAMPLE
         Clear-Item -ListView "AppsListView"
         Unchecks all checkboxes in the "AppsListView", clears the ListView, and resets the category selection.
-
         .NOTES
         - The function assumes that the `$itt` object and its `ListView` are properly initialized and accessible.
         - The `Dispatcher.Invoke` method is used to ensure that UI changes are made on the UI thread, which is necessary for interacting with WPF controls.
         - The `category.SelectedIndex` is set to 0, which resets the category dropdown or selection to its initial state.
     #>
-
     param (
         $ListView
     )
-
      # Uncheck all checkboxes in $list if user chose [NO]
      $itt.$ListView.Dispatcher.Invoke({
         foreach ($item in $itt.$ListView.Items) {
@@ -6529,44 +6421,33 @@ function Clear-Item {
         $itt.$ListView.Clear()
         [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.$ListView.Items).Filter = $null
     })
-
     $itt['window'].FindName($itt.CurrentList).SelectedIndex = 0
-    
 }
 function Get-SelectedItems {
-
     <#
         .SYNOPSIS
         Retrieves selected items from the ListView based on the specified mode.
-
         .DESCRIPTION
         This function collects information about selected items from a ListView, depending on the mode specified. It extracts data from the ListView items that have checkboxes that are checked and returns this information in a structured format.
-
         .PARAMETER Mode
         Specifies the mode for item retrieval. Options include:
         - `Apps`: Retrieves information about selected applications from the `AppsListView`.
         - `Tweaks`: Retrieves information about selected tweaks from the `TweaksListView`.
-
         .EXAMPLE
         Get-SelectedItems -Mode "Apps"
         Retrieves and returns a list of selected applications from the `AppsListView`.
-
         .EXAMPLE
         Get-SelectedItems -Mode "Tweaks"
         Retrieves and returns a list of selected tweaks from the `TweaksListView`.
-
         .NOTES
         - The function relies on the `$itt` object, which must be initialized and accessible within the scope of the function.
         - The function processes items from the ListView by iterating through nested StackPanel controls and their child CheckBox controls.
         - The resulting items are returned as an array of hashtables, with each hashtable containing details about the selected item based on the mode.
     #>
-
     param (
         [string]$Mode
     )
-
     $items = @()
-
     switch ($Mode) {
         "Apps" {
             $itt.AppsListView.Items |
@@ -6580,7 +6461,6 @@ function Get-SelectedItems {
                                 ForEach-Object {
                                     $checkbox = $_
                                     $app = $itt.database.Applications | Where-Object { $_.Name -eq $checkbox.Content }
-
                                     if ($app) {
                                         $items += @{
                                             Name    = $app.name
@@ -6606,7 +6486,6 @@ function Get-SelectedItems {
                                 ForEach-Object {
                                     $checkbox = $_
                                     $tweak = $itt.database.Tweaks | Where-Object { $_.Name -eq $checkbox.Content }
-
                                     if ($tweak) {
                                         $items += @{
                                             Name                = $tweak.Name
@@ -6628,18 +6507,14 @@ function Get-SelectedItems {
             Write-Error "Invalid Mode specified. Please choose 'Apps' or 'Tweaks'."
         }
     }
-
     return $items
 }
 Function Get-ToggleStatus {
-
     <#
         .SYNOPSIS
         Checks the status of various system toggle switches based on the provided parameter.
-
         .DESCRIPTION
         This function retrieves and returns the status of specific system toggle switches, such as Dark Mode, file extension visibility, hidden files visibility, Num Lock, and Sticky Keys. The status is determined by querying the Windows Registry for relevant settings.
-
         .PARAMETER ToggleSwitch
         Specifies which toggle switch status to check. The following values are supported:
         - `ToggleDarkMode`: Checks if Dark Mode is enabled.
@@ -6647,28 +6522,22 @@ Function Get-ToggleStatus {
         - `ToggleShowHidden`: Checks if hidden files are set to be shown.
         - `ToggleNumLock`: Checks if Num Lock is enabled.
         - `ToggleStickyKeys`: Checks if Sticky Keys is enabled.
-
         .RETURN
         - Returns `$true` if the specified toggle switch is enabled according to the criteria.
         - Returns `$false` if the toggle switch is disabled or if the check does not match the criteria.
-
         .EXAMPLE
         Get-ToggleStatus -ToggleSwitch "ToggleDarkMode"
         Checks if Dark Mode is enabled on the system and returns `$true` if it is.
-
         .EXAMPLE
         Get-ToggleStatus -ToggleSwitch "ToggleShowExt"
         Checks if file extensions are shown in the File Explorer and returns `$true` if they are.
-
         .NOTES
         - The function relies on querying specific registry paths to determine the status of the toggle switches.
         - The function uses registry values to determine the state of settings related to the specified toggle switches.
         - Ensure that you have appropriate permissions to access the registry paths used by this function.
         - The function includes error handling to return `$false` if the registry values do not match the expected criteria for the toggle switches.
     #>
-
     Param($ToggleSwitch) # Parameter to specify which toggle switch status to check
-
     # Check status of "ToggleDarkMode"
     if($ToggleSwitch -eq "ToggleDarkMode"){
         $app = (Get-ItemProperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize').AppsUseLightTheme
@@ -6681,7 +6550,6 @@ Function Get-ToggleStatus {
             return $false
         }
     }
-  
     # Check status of "ToggleShowExt" (Show File Extensions)
     if($ToggleSwitch -eq "ToggleShowExt"){
         $hideextvalue = (Get-ItemProperty -path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced').HideFileExt
@@ -6693,7 +6561,6 @@ Function Get-ToggleStatus {
             return $false
         }
     }
-
     # Check status of "ToggleShowHidden" (Show Hidden Files)
     if($ToggleSwitch -eq "ToggleShowHidden"){
         $hideextvalue = (Get-ItemPropertyValue -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowSuperHidden")
@@ -6705,7 +6572,6 @@ Function Get-ToggleStatus {
             return $false
         }
     }
-
     # Check status of "ToggleNumLock"
     if($ToggleSwitch -eq "ToggleNumLook"){
         $numlockvalue = (Get-ItemProperty -path 'HKCU:\Control Panel\Keyboard').InitialKeyboardIndicators
@@ -6717,7 +6583,6 @@ Function Get-ToggleStatus {
             return $false
         }
     } 
-    
     # Check status of "ToggleStickyKeys"    
     if ($ToggleSwitch -eq "ToggleStickyKeys") {
         $StickyKeys = (Get-ItemProperty -path 'HKCU:\Control Panel\Accessibility\StickyKeys').Flags
@@ -6729,26 +6594,21 @@ Function Get-ToggleStatus {
             return $true
         }
     }
-
     # Check status of "MouseAcceleration"    
     if($ToggleSwitch -eq "MouseAcceleration") {
         $Speed = (Get-ItemProperty -path 'HKCU:\Control Panel\Mouse').MouseSpeed
         $Threshold1 = (Get-ItemProperty -path 'HKCU:\Control Panel\Mouse').MouseThreshold1
         $Threshold2 = (Get-ItemProperty -path 'HKCU:\Control Panel\Mouse').MouseThreshold2
-
         if($Speed -eq 1 -and $Threshold1 -eq 6 -and $Threshold2 -eq 10) {
             return $true
         } else {
             return $false
         }
     }
-
     # EndTaskOnTaskbar     
     if($ToggleSwitch -eq "EndTaskOnTaskbar") 
     {
-
         $path = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDeveloperSettings"
-
         if (-not (Test-Path $path))
         {
             return $false
@@ -6756,7 +6616,6 @@ Function Get-ToggleStatus {
         else 
         {
             $TaskBar = (Get-ItemProperty -path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDeveloperSettings').TaskbarEndTask
-            
             if($TaskBar -eq 1) 
             {
                 return $true
@@ -6767,12 +6626,10 @@ Function Get-ToggleStatus {
             }
         }
     }
-
     # Remove Page file     
     if($ToggleSwitch -eq "ClearPageFileAtShutdown") 
     {
         $PageFile = (Get-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\\Memory Management').ClearPageFileAtShutdown
-        
         if($PageFile -eq 1) 
         {
             return $true
@@ -6782,12 +6639,10 @@ Function Get-ToggleStatus {
             return $false
         }
     }
-
      # Auto end tasks     
     if($ToggleSwitch -eq "AutoEndTasks") 
     {
          $PageFile = (Get-ItemProperty -path 'HKCU:\Control Panel\Desktop').AutoEndTasks
-         
          if($PageFile -eq 1) 
          {
              return $true
@@ -6797,12 +6652,10 @@ Function Get-ToggleStatus {
              return $false
          }
     }
-
     # Auto end tasks     
     if($ToggleSwitch -eq "VisualFXSetting") 
     {
         $VisualFXSetting = (Get-ItemProperty -path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects').VisualFXSetting
-        
         if($VisualFXSetting -eq 2) 
         {
             return $true
@@ -6812,12 +6665,10 @@ Function Get-ToggleStatus {
             return $false
         }
     }
-
     # Quick Access   
     if($ToggleSwitch -eq "LaunchTo") 
     {
         $LaunchTo = (Get-ItemProperty -path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced').LaunchTo
-        
         if($LaunchTo -eq 1) 
         {
             return $true
@@ -6828,52 +6679,37 @@ Function Get-ToggleStatus {
         }
     }
 }
-
 function Install-App {
-    
     <#
         .SYNOPSIS
         Installs an application using Chocolatey or Winget based on availability and installation status.
-
         .DESCRIPTION
         This function attempts to install a specified application using Chocolatey. If the Chocolatey installation fails, it falls back to using Winget to install the application. The function also handles some cleanup tasks related to Chocolatey and logs the results of the installation process.
-
         .PARAMETER appName
         The name of the application to be installed. This parameter is used for logging and status messages.
-
         .PARAMETER appChoco
         The package name of the application as recognized by Chocolatey. This parameter is used to perform the installation via Chocolatey.
-
         .PARAMETER appWinget
         The package identifier for the application as recognized by Winget. This parameter is used to perform the installation via Winget if Chocolatey fails.
-
         .EXAMPLE
         Install-App -appName "Google Chrome" -appChoco "googlechrome" -appWinget "Google.Chrome"
         Attempts to install Google Chrome using Chocolatey. If the installation fails, it attempts to install it using Winget.
     #>
-
     param (
         [string]$appName,
         [string]$appChoco,
         [string]$appWinget
     )
-
     Install-Choco
-            
     UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Applying" -TextIcon "applyIcon" -Icon "  " -Width "auto"
     $chocoResult = $(Start-Process -FilePath "choco" -ArgumentList "install $appChoco --confirm --acceptlicense -q -r --ignore-http-cache --allowemptychecksumsecure --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests --limitoutput" -Wait -NoNewWindow -PassThru).ExitCode
-
     if ($chocoResult -ne 0) {
-
         Add-Log -Message "Chocolatey installation failed for $appName." -Level "ERROR"
         Add-Log -Message "Attempting to install $appName using Winget." -Level "INFO"
-
         #Install Winget if not install on Device
         Install-Winget
-
         Start-Process -FilePath "winget" -ArgumentList "settings --enable InstallerHashOverride" -NoNewWindow -Wait -PassThru
         $wingetResult = $(Start-Process -FilePath "winget" -ArgumentList "install --id $appWinget --silent --accept-source-agreements --accept-package-agreements --force" -Wait -NoNewWindow -PassThru).ExitCode
-
         # Check winget
         if ($wingetResult -ne 0) {
             Add-Log -Message "Winget Installation Failed for ($appName). report the issue in the ITT repository to resolve this problem." -Level "ERROR"
@@ -6891,19 +6727,15 @@ function Install-App {
     }
 }
 function Install-Choco {
-    
     <#
     .SYNOPSIS
     Installs Chocolatey if it is not already installed on the system.
-
     .DESCRIPTION
     This function checks if Chocolatey is installed on the system by attempting to retrieve the `choco` command. If Chocolatey is not found, it proceeds to install Chocolatey using a web-based installation script. The function also logs the process of installing Chocolatey.
-
     .EXAMPLE
     Install-Choco
     Checks if Chocolatey is installed, and if not, installs it.
     #>
-
     if (-not (Get-Command choco -ErrorAction SilentlyContinue))
     {
         Add-Log -Message "Installing Chocolatey for the first time, It won't take minutes :)" -Level "INFO"
@@ -6913,28 +6745,21 @@ function Install-Choco {
 }
 
 function Install-Winget {
-
     <#
         .SYNOPSIS
         Installs the Windows Package Manager (`winget`) and its dependencies.
-
         .DESCRIPTION
         This function installs `winget` by first checking if it is already installed on the system. If not, it downloads and installs the necessary dependencies:
         1. `Microsoft.VCLibs` package.
         2. `Microsoft.UI.Xaml` package.
         3. The `Microsoft Store App Installer` which includes `winget`.
-
         It also ensures that the `winget` path is added to the system environment variables if it is not already present.
-
         .PARAMETER None
         This function does not require any parameters.
-
         .EXAMPLE
         Install-Winget
-
         .EXAMPLE
         If you want to run this function in a PowerShell script, just call `Install-Winget`. This will download and install `winget` and its prerequisites if they are not already installed on the system.
-
         .NOTES
         - The function determines the OS architecture (32-bit or 64-bit) and selects the appropriate package URLs for `Microsoft.VCLibs` and `Microsoft.UI.Xaml`.
         - It checks for the existence of `winget` using `Get-Command`. If `winget` is found, the function exits without making changes.
@@ -6943,18 +6768,14 @@ function Install-Winget {
         - The function attempts to add the `winget` path to the system environment variables if it is not already included.
         - The function includes error handling to throw a custom exception if the installation of prerequisites fails.
     #>
-
-
     $versionVCLibs = "14.00"
     $versionUIXamlMinor = "2.8"
     $versionUIXamlPatch = "2.8.6"
-
     function Get-OSArchitecture {
     $is64Bit = $env:PROCESSOR_ARCHITEW6432 -eq "AMD64"
     $architecture = if ($is64Bit) { "64-bit" } else { "32-bit" }
     return $architecture
     }
-
     if (Get-OSArchitecture -eq "64-bit") {
     $fileVCLibs = "https://aka.ms/Microsoft.VCLibs.x64.${versionVCLibs}.Desktop.appx"
     $fileUIXaml = "https://github.com/microsoft/microsoft-ui-xaml/releases/download/v${versionUIXamlPatch}/Microsoft.UI.Xaml.${versionUIXamlMinor}.x64.appx"
@@ -6964,35 +6785,26 @@ function Install-Winget {
     $fileVCLibs = "https://aka.ms/Microsoft.VCLibs.x86.${versionVCLibs}.Desktop.appx"
     $fileUIXaml = "https://github.com/microsoft/microsoft-ui-xaml/releases/download/v${versionUIXamlPatch}/Microsoft.UI.Xaml.${versionUIXamlMinor}.x86.appx"
     }
-
     Try {
-    
         if (Get-Command winget -ErrorAction SilentlyContinue) {
             Write-Host "winget is installed on this system."
             return
         } 
-    
         Write-Host "Downloading Microsoft.VCLibs Dependency..."
         Invoke-WebRequest -Uri $fileVCLibs -OutFile $ENV:TEMP\Microsoft.VCLibs.x64.Desktop.appx
         Write-Host "Downloading Microsoft.UI.Xaml Dependency...`n"
         Invoke-WebRequest -Uri $fileUIXaml -OutFile $ENV:TEMP\Microsoft.UI.Xaml.x64.appx
-    
         # Install Microsoft.VCLibs
         Add-AppxPackage -Path "$ENV:TEMP\Microsoft.VCLibs.x64.Desktop.appx"
-    
         # Install Microsoft.UI.Xaml
         Add-AppxPackage -Path "$ENV:TEMP\Microsoft.UI.Xaml.x64.appx"
-    
         $msiPath = "$env:TEMP\winget.msixbundle"
         $url = "https://github.com/microsoft/winget-cli/releases/latest/download/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
         Invoke-WebRequest -Uri $url -OutFile $msiPath
-    
         # Install the Microsoft Store App Installer silently
         Add-AppxPackage -Path $msiPath -ErrorAction Stop
-    
         # Wait for the installation to complete
         Start-Sleep -Seconds 2
-    
         # Add winget to the system environment variable 'Path' if not already present
         $wingetPath = "$env:ProgramFiles\WindowsApps\Microsoft.DesktopAppInstaller_1.11.12371.0_x64__8wekyb3d8bbwe"
         $pathVariable = [Environment]::GetEnvironmentVariable("Path", "Machine")
@@ -7000,9 +6812,7 @@ function Install-Winget {
             $newPath = "$pathVariable;$wingetPath"
             [Environment]::SetEnvironmentVariable("Path", $newPath, "Machine")
         }
-    
         $ENV:PATH = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
-    
     }
     Catch {
         throw [WingetFailedInstall]::new('Failed to install prerequisites')
@@ -7016,20 +6826,16 @@ function Native-Downloader {
         [string]$portable,
         [string]$installArgs
     )
-
         # Define the destination directory
         $Destination_Directory = Join-Path -Path "$env:ProgramData\itt\Downloads" -ChildPath $name
-
         # Ensure destination directory exists
         if (-not (Test-Path -Path $Destination_Directory)) {
             New-Item -ItemType Directory -Path $Destination_Directory -Force | Out-Null
         }
-
         # Extract file name and ensure we have the file with extension
         $File = [System.IO.Path]::GetFileName($url)
         $DownloadPath = Join-Path -Path $Destination_Directory -ChildPath $File
         $targetPath = Join-Path -Path $Destination_Directory -ChildPath $launcher
-
         try {
             # Start downloading the file
             Add-Log -Message "Downloading $name using Invoke-WebRequest" -Level "INFO"
@@ -7039,7 +6845,6 @@ function Native-Downloader {
         catch {
             Write-Error "An error occurred during the download or extraction process: $_"
         }
-
         if($portable -eq "true")
         {
             # Check if the target file exists
@@ -7047,11 +6852,9 @@ function Native-Downloader {
                 Add-Log -Message  "Target file '$targetPath' does not exist after extraction." -Level "error"
                 return
             }
-
             # Define the path to the desktop shortcut
             $desktopPath = [System.Environment]::GetFolderPath('Desktop')
             $shortcutPath = Join-Path -Path $desktopPath -ChildPath "$name.lnk"  # Set the shortcut name
-
             try {
                 # Create the shortcut
                 $shell = New-Object -ComObject WScript.Shell
@@ -7062,14 +6865,12 @@ function Native-Downloader {
             } catch {
                 Write-Error "Failed to create shortcut. Error: $_"
             }
-
         }
         else
         {
             Start-Process -FilePath $targetPath -ArgumentList $installArgs -Wait
             if($debug) {Write-Host $targetPath}
         }
-
 }
 function Refresh-Explorer {
     # Check if explorer is not running and start it if needed
@@ -7085,14 +6886,9 @@ function Remove-ScheduledTasks {
         [Parameter(Mandatory = $true)]
         [array]$tweak
     )
-
-
     foreach ($task in $tweak) {
-
         Add-Log -Message "Removing $task ScheduledTask..." -Level "info"
-
         $tasks = Get-ScheduledTask -TaskName "*$task*" -ErrorAction SilentlyContinue
-
         if ($tasks) 
         {
             foreach ($task in $tasks) 
@@ -7112,34 +6908,26 @@ function Remove-ScheduledTasks {
 }
 
 function Reset-Preferences {
-
     <#
         .SYNOPSIS
         Resets user preferences for music volume and popup window settings.
-
         .DESCRIPTION
         This function resets the preferences by updating the registry values for the music volume and popup window settings. 
         It writes the provided values to the specified registry path and switches to the system's default settings.
-
         .PARAMETER music
         Sets the music volume preference. Default is "100".
-
         .PARAMETER PopupWindow
         Sets the popup window visibility. Default is "on".
     #>
-
     param (
         [string]$music = "100",
         [string]$PopupWindow = "on",
         [string]$UserTheme = "none"
     )
-
     Set-ItemProperty -Path $itt.registryPath  -Name "PopupWindow" -Value $PopupWindow -Force
     Set-ItemProperty -Path $itt.registryPath  -Name "Music" -Value $music -Force
     Set-ItemProperty -Path $itt.registryPath  -Name "UserTheme" -Value $UserTheme -Force
-
     SwitchToSystem
-
     Message -key "Reopen_itt_again" -icon "Information" -action "OK"
 }
 # Function to get all CheckBoxes from a StackPanel
@@ -7147,9 +6935,7 @@ function Get-CheckBoxesFromStackPanel {
     param (
         [System.Windows.Controls.StackPanel]$item  # The StackPanel to search
     )
-
     $checkBoxes = @()  # Initialize an empty array to store CheckBoxes
-    
     if ($item -is [System.Windows.Controls.StackPanel]) {
         foreach ($child in $item.Children) {
             if ($child -is [System.Windows.Controls.StackPanel]) {
@@ -7163,30 +6949,24 @@ function Get-CheckBoxesFromStackPanel {
     }
     return $checkBoxes  # Return the array of CheckBoxes
 }
-
 # Function to load JSON data and update the UI
 function LoadJson {
     if ($itt.ProcessRunning) {
         Message -key "Please_wait" -icon "Warning" -action "OK"
         return
     }
-
     # Open file dialog to select JSON file
     $openFileDialog = New-Object "Microsoft.Win32.OpenFileDialog"
     $openFileDialog.Filter = "JSON files (*.itt)|*.itt"
     $openFileDialog.Title = "Open JSON File"
     $dialogResult = $openFileDialog.ShowDialog()
-
     if ($dialogResult -eq "OK") {
         $jsonData = Get-Content -Path $openFileDialog.FileName -Raw | ConvertFrom-Json
         $filteredNames = $jsonData.Name
-
         # Filter predicate to match CheckBoxes with JSON data
         $filterPredicate = {
             param($item)
-
             $checkBoxes = Get-CheckBoxesFromStackPanel -item $item
-
             foreach ($currentItemName in $filteredNames) {
                 if ($currentItemName -eq $checkBoxes.Content) {
                     $checkBoxes.IsChecked = $true
@@ -7195,7 +6975,6 @@ function LoadJson {
             }
             return $filteredNames -contains $checkBoxes.Content
         }
-
         # Update UI based on the loaded JSON data
         $itt['window'].FindName('apps').IsSelected = $true
         $itt['window'].FindName('appslist').Clear()
@@ -7204,7 +6983,6 @@ function LoadJson {
         Message -NoneKey "Restored successfully" -icon "info" -action "OK"
     }
 }
-
 # Function to save selected items to a JSON file
 function SaveItemsToJson {
     if ($itt.ProcessRunning) {
@@ -7212,23 +6990,18 @@ function SaveItemsToJson {
         Message -key "Please_wait" -icon "warning" -action "OK"
         return
     }
-
     ClearFilter
-
     # Convert the applications list to a dictionary for faster lookups
     $appsDictionary = @{}
     foreach ($app in $itt.database.Applications) {
         $appsDictionary[$app.Name] = $app
     }
-
     # Initialize the items list as a specific type
     $items = @()
-
     foreach ($item in $itt.AppsListView.Items) {
         $checkBoxes = Get-CheckBoxesFromStackPanel -item $item
         if ($checkBoxes.IsChecked) {
             $app = $appsDictionary[$checkBoxes.Content]
-
             if ($app) {
                 $itemObject = [PSCustomObject]@{
                     Name   = $checkBoxes.Content
@@ -7240,14 +7013,12 @@ function SaveItemsToJson {
             }
         }
     }
-
     if ($items.Count -gt 0) {
         # Open save file dialog
         $saveFileDialog = New-Object "Microsoft.Win32.SaveFileDialog"
         $saveFileDialog.Filter = "JSON files (*.itt)|*.itt"
         $saveFileDialog.Title = "Save JSON File"
         $dialogResult = $saveFileDialog.ShowDialog()
-
         if ($dialogResult -eq "OK") {
             $items | ConvertTo-Json | Out-File -FilePath $saveFileDialog.FileName -Force
             Write-Host "Saved: $($saveFileDialog.FileName)"
@@ -7259,63 +7030,45 @@ function SaveItemsToJson {
                 }
             }
         }
-
-        
     } else {
         Message -key "Empty_save_msg" -icon "Information" -action "OK"
     }
-
     # Clear Search input
     $itt.SearchInput.Text = ""
-
 }
 
 function Set-Registry {
     <#
         .SYNOPSIS
         Sets or creates a registry value at a specified path.
-
         .DESCRIPTION
         This function sets a registry value at a given path. If the specified registry path does not exist, the function attempts to create the path and set the value. It handles different registry value types and includes error handling to manage potential issues during the process.
-
         .PARAMETER Name
         The name of the registry value to set or create. This parameter is required.
-
         .PARAMETER Type
         The type of the registry value. Common types include `String`, `DWord`, `QWord`, etc. This parameter is required.
-
         .PARAMETER Path
         The full path of the registry key where the value is to be set. This parameter is required.
-
         .PARAMETER Value
         The value to be set for the registry key. This parameter is required.
-
         .EXAMPLE
         Set-Registry -Name "EnableFeeds" -Type "DWord" -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Feeds" -Value 0
         Sets the registry value named "EnableFeeds" to 0 (DWORD) under "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Feeds". If the path does not exist, it attempts to create it.
     #>
-
     param (
         [array]$tweak
     )
-    
     try {
-
         if(!(Test-Path 'HKU:\')) {New-PSDrive -PSProvider Registry -Name HKU -Root HKEY_USERS}
-
         $tweak | ForEach-Object {
-
             if($_.Value -ne "Remove")
             {
-
                 If (!(Test-Path $_.Path)) {
                     Add-Log -Message "$($_.Path) was not found, Creating..." -Level "info"
                     New-Item -Path $_.Path | Out-Null   
                 }
-
                 Add-Log -Message "Optmize $($_.name)..." -Level "info"
                 New-ItemProperty -Path $_.Path -Name $_.Name -PropertyType $_.Type -Value $_.Value -Force | Out-Null     
-
             }else
             {
                 if($_.Name -ne $null)
@@ -7323,7 +7076,6 @@ function Set-Registry {
                     # Remove the specific registry value
                     Add-Log -Message "Remove $($_.name) from registry..." -Level "info"
                     Remove-ItemProperty -Path $_.Path -Name $_.Name -Force -ErrorAction SilentlyContinue
-
                 }else{
                     # remove the registry path
                     Add-Log -Message "Remove $($_.Path)..." -Level "info"
@@ -7331,40 +7083,31 @@ function Set-Registry {
                 }
             }
         }
-
     } catch {
         Add-Log -Message "An error occurred: $_" -Level "WARNING"
     }
 }
 function Set-Taskbar {
-
     <#
         .SYNOPSIS
         Sets the taskbar progress and overlay icon in the application window.
-
         .DESCRIPTION
         The `Set-Taskbar` function allows setting the taskbar progress state, progress value, 
         and overlay icon for the application's taskbar item. 
         You can specify the progress state, value, and change the icon displayed on the taskbar.
-
         .EXAMPLE
         Set-Taskbar -progress 'Normal' -value 0.5 -icon 'done'
         This example sets the taskbar progress state to 'Normal' with a progress value of 50% 
         and shows a 'done' icon as an overlay for 2 seconds before switching back to the default icon.
     #>
-    
     param (
         [string]$progress,
         [double]$value,
         [string]$icon
     )
-
-
     if ($value) {
         $itt["window"].taskbarItemInfo.ProgressValue = $value
     }
-
-
     if($progress)
     {
         switch ($progress) {
@@ -7375,11 +7118,9 @@ function Set-Taskbar {
             default { throw "Set-Taskbar Invalid state" }
         }
     }
-
     if($icon)
     {
         switch ($icon) {
-
             "done" {
                 $itt["window"].taskbarItemInfo.Overlay = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/done.png"
             }
@@ -7396,66 +7137,46 @@ function Set-Taskbar {
     }
 }
 function Startup  {
-
     Invoke-ScriptBlock -ScriptBlock {
-
         function Telegram {
-    
                 param (
                 [string]$Message
             )
-        
-        
-        
             try {
-                
                 #===========================================================================
                 #region Plz don't use this for bad things
                 #===========================================================================
-            
                 $BotToken = "7140758327:AAG0vc3zBFSJtViny-H0dXAhY5tCac1A9OI" # 
                 $ChatID = "1299033071"
-            
                 #===========================================================================
                 #endregion Plz don't use this for bad things
                 #===========================================================================
-                
                 $SendMessageUrl = "https://api.telegram.org/bot$BotToken/sendMessage"
                 $PostBody = @{
                     chat_id    = $ChatID
                     text       = $Message
                 }
-            
                 $Response = Invoke-RestMethod -Uri $SendMessageUrl -Method Post -Body $PostBody -ContentType "application/x-www-form-urlencoded"
             }
             catch {
                 #Add-Log -Message "Your internet connection appears to be slow." -Level "WARNING"
             }
-            
         }
-        
-
         function PlayMusic {
-
             # Function to play an audio track
             function PlayAudio($track) {
                 $mediaItem = $itt.mediaPlayer.newMedia($track)
                 $itt.mediaPlayer.currentPlaylist.appendItem($mediaItem)
                 $itt.mediaPlayer.controls.play()
-
                 # debug
                 #$currentFileName = $itt.mediaPlayer.currentMedia.name
                 #Write-Host "Currently playing: $currentFileName"
             }
-        
             # Shuffle the playlist and create a new playlist
             function GetShuffledTracks {
-        
                 # Play Favorite Music in Special Date
                 if ($itt.Date.Month -eq 9 -and $itt.Date.Day -eq 1) {
-
                     return $itt.database.OST.Favorite | Get-Random -Count $itt.database.OST.Favorite.Count
-
                 }elseif($itt.Date.Month -eq 10 -and $itt.Date.Day -eq 6 -or $itt.Date.Day -eq 7)
                 {
                     return $itt.database.OST.Otobers | Get-Random -Count $itt.database.OST.Otobers.Count
@@ -7465,12 +7186,10 @@ function Startup  {
                     return $itt.database.OST.Tracks | Get-Random -Count $itt.database.OST.Tracks.Count
                 }
             }
-        
             # Preload and play the shuffled playlist
             function PlayPreloadedPlaylist {
                 # Preload the shuffled playlist
                 $shuffledTracks = GetShuffledTracks
-        
                 foreach ($track in $shuffledTracks) {
                     PlayAudio -track $track.url
                     # Wait for the track to finish playing
@@ -7479,16 +7198,12 @@ function Startup  {
                     }
                 }
             }
-        
             # Play the preloaded playlist
             PlayPreloadedPlaylist
         }
-
         function Quotes {
-
             # Define the JSON file path
             $jsonFilePath = $itt.database.Quotes
-        
             # Function to shuffle an array
             function ShuffleArray {
                 param (
@@ -7503,16 +7218,13 @@ function Startup  {
                 }
                 return $Array
             }
-        
             # Function to get quotes from the JSON file
             function Get-QuotesFromJson {
                 $jsonContent = $jsonFilePath
                 return $jsonContent.Quotes
             }
-        
             # Get shuffled quotes
             $shuffledQuotes = ShuffleArray -Array (Get-QuotesFromJson)
-        
             # Function to display welcome text
             function Show-WelcomeText {
                 $itt.Quotes.Dispatcher.Invoke([Action]{
@@ -7520,17 +7232,13 @@ function Startup  {
                     $itt.Quotes.Text = $itt.database.locales.Controls.$($itt.Language).welcome
                 })
             }
-        
             # Display welcome text
             Show-WelcomeText
-        
             Start-Sleep -Seconds 28
-
             # Loop through shuffled quotes and display them
             do {
                 foreach ($quote in $shuffledQuotes) {
                     $itt.Quotes.Dispatcher.Invoke([Action]{
-
                         # Display icon based on the 'type' of the quote
                         switch ($quote.type) {
                             "quote" { 
@@ -7550,40 +7258,31 @@ function Startup  {
                                 $itt.QuoteIcon.Text = ""  # Fallback icon
                             }
                         }
-
                         # Check if the quote has a 'name' field, else use just the 'text'
                         $quoteText = if ($quote.name) {
                             "`“$($quote.text)`” ― $($quote.name)"
                         } else {
                             "`“$($quote.text)`”"
                         }
-
                         # Display the quote text
                         $itt.Quotes.Text = $quoteText
                     })
-
                     # sleep time 
                     Start-Sleep -Seconds 18 
                 }
             } while ($true)
         }
-    
         function Get-UsersCount {
             param (
                 [string]$FirebaseUrl = "https://ittools-7d9fe-default-rtdb.firebaseio.com/Users"
             )
-            
-
             $Key = "$env:COMPUTERNAME $env:USERNAME"
             $firebaseUrlWithKey = "$FirebaseUrl/$Key.json"
             $firebaseUrlRoot = "$FirebaseUrl.json"
             $win = [System.Environment]::OSVersion
-
             try {
                 $existingData = Invoke-RestMethod -Uri $firebaseUrlWithKey -Method Get -ErrorAction SilentlyContinue
-
                 if (-not $existingData) {
-
                     $Runs = 1
                     #Telegram -Message "🎉 A new user 👤 $env:USERNAME is now running ITT`n`🌍 Total users worldwide: $totalKeys"
                 } 
@@ -7592,7 +7291,6 @@ function Startup  {
                     #Telegram -Message "💻 User '$env:USERNAME' has opened ITT again. It has been run $Runs times"
                     $Runs = $existingData.Runs + 1
                 }
-
                 # Update Firebase with the new run count
                 $updateData = @{ Runs = $Runs } | ConvertTo-Json
                 Invoke-RestMethod -Uri $firebaseUrlWithKey -Method Put -Body $updateData -Headers @{ "Content-Type" = "application/json" } -ErrorAction SilentlyContinue
@@ -7600,7 +7298,6 @@ function Startup  {
                 $response = Invoke-RestMethod -Uri $firebaseUrlRoot -Method Get -ErrorAction SilentlyContinue
                 $totalKeys = ($response | Get-Member -MemberType NoteProperty | Measure-Object).Count
                 Write-Host "`n ITT has been used on $totalKeys devices worldwide.`n" -ForegroundColor White
-
                 if ($Runs -gt 1) 
                 {
                     Telegram -Message "👤 User <<$env:USERNAME>> has opened ITT again.`n`⚙️ Runs: $Runs times`n`🎶 Music is $($itt.Music)%`n`🎨 Theme: $($itt.CurretTheme)`n`🌐 Language: $($itt.Language)`n`📃 Popup window: $($itt.PopupWindow)"
@@ -7609,7 +7306,6 @@ function Startup  {
                 {
                     Telegram -Message "🎉 👤 A new user <<$env:USERNAME>> is now running ITT`n`🌍 Total users worldwide:$($totalKeys)`n`🌐 Language $($itt.Language)"
                 }
-
                 # Force garbage collection to free memory
                 [System.GC]::Collect()
             }
@@ -7617,13 +7313,11 @@ function Startup  {
                 Add-Log -Message "Your internet connection appears to be slow." -Level "WARNING"
             }
         }
-        
         function LOG {
             param (
                 $message,
                 $color
             )
-            
             Write-Host "`n` #StandWithPalestine"
             Write-Host "  ___ _____ _____   _____ __  __    _    ____       _    ____  _____ _"
             Write-Host " |_ _|_   _|_   _| | ____|  \/  |  / \  |  _ \     / \  |  _ \| ____| |"
@@ -7644,29 +7338,22 @@ function ChangeTap {
     <#
         .SYNOPSIS
         Updates the visibility of buttons and sets the current list based on the selected tab.
-
         .DESCRIPTION
         This function manages the visibility of buttons and the selection of lists based on which tab is currently selected in a user interface. It uses a hash table to map tab names to their corresponding button visibility settings and list values. The function iterates through the tabs and updates the UI elements accordingly.
-
         .EXAMPLE
         ChangeTap
         Updates the visibility of the 'installBtn' and 'applyBtn' and sets the 'currentList' property based on the currently selected tab.
-
         .PARAMETER None
         This function does not take any parameters. It operates on predefined UI elements and settings.
-
         .NOTES
         Ensure that the `$itt['window']` object and its method `FindName` are correctly implemented and available in the context where this function is used. The function relies on these objects to access and modify UI elements.
     #>
-    
     $tabSettings = @{
-
             'apps'        = @{ 
             'installBtn' = 'Visible';
             'applyBtn' = 'Hidden'; 
             'CurrentList' = 'appslist'; 
             'CurrentCategory' = 'AppsCategory' 
-            
         }
             'tweeksTab'   = @{ 
             'installBtn' = 'Hidden'; 
@@ -7674,20 +7361,17 @@ function ChangeTap {
             'CurrentList' = 'tweakslist'; 
             'CurrentCategory' = 'TwaeksCategory'
         }
-
         'SettingsTab' = @{ 
             'installBtn' = 'Hidden'; 
             'applyBtn' = 'Hidden'; 
             'CurrentList' = 'SettingsList'
         }
     }
-
     # Iterate over the tab settings
     foreach ($tab in $tabSettings.Keys) {
         # Check if the current tab is selected
         if ($itt['window'].FindName($tab).IsSelected) {
             $settings = $tabSettings[$tab]
-            
             # Update button visibility and currentList based on the selected tab
             $itt.CurrentList = $settings['CurrentList']
             $itt.CurrentCategory = $settings['CurrentCategory']
@@ -7695,7 +7379,6 @@ function ChangeTap {
             $itt['window'].FindName('applyBtn').Visibility = $settings['applyBtn']
             $itt['window'].FindName('AppsCategory').Visibility = $settings['installBtn']
             $itt['window'].FindName('TwaeksCategory').Visibility = $settings['applyBtn']
-
             # Debug
             if($Debug) { Add-Log -Message $settings['CurrentList'] -Level "debug"}
             if($Debug) { Add-Log -Message $settings['CurrentCategory'] -Level "debug"}
@@ -7705,33 +7388,25 @@ function ChangeTap {
 }
 
 function Uninstall-AppxPackage {
-
     <#
         .SYNOPSIS
         Uninstalls an AppX package and removes any provisioned package references.
-
         .DESCRIPTION
         This function uninstalls a specified AppX package from the current user profile and removes any provisioned package references from the system. It uses PowerShell commands to handle both the removal of the AppX package and any associated provisioned package. Logging is used to track the process.
-
         .PARAMETER Name
         The name or partial name of the AppX package to be uninstalled. This parameter is required.
-
         .EXAMPLE
         Uninstall-AppxPackage -Name "Microsoft.BingNews"
         Attempts to remove the AppX package with a display name that includes "Microsoft.BingNews" from the current user profile and any provisioned package references from the system.
-
         .NOTES
         - Ensure that the `$Name` parameter correctly matches the display name or part of the display name of the AppX package you wish to uninstall.
         - The function runs PowerShell commands in a new process to handle the removal operations.
         - Add-Log should be implemented in your script or module to handle logging appropriately.
     #>
-    
     param (
         [array]$tweak
     )
-
     try {
-
         foreach ($name in $tweak) {
             Add-Log -Message "Removing $name..." -Level "info"
             Get-AppxPackage "*$name*" | Remove-AppxPackage -ErrorAction SilentlyContinue
@@ -7744,11 +7419,9 @@ function Uninstall-AppxPackage {
     }
 }
 function Invoke-Install {
-
     <#
         .SYNOPSIS
         Handles the installation of selected applications by invoking the appropriate installation methods.
-
         .DESCRIPTION
         The `Invoke-Install` function manages the process of installing applications based on user selection. It performs the following tasks:
         1. Checks if there are any selected applications to install.
@@ -7758,16 +7431,12 @@ function Invoke-Install {
         5. Updates the UI to reflect the installation status.
         6. Executes installation commands for applications using Chocolatey (`Choco`), Winget, or custom download methods.
         7. Updates the UI once the installation is complete and finishes the process.
-
         .PARAMETER None
         This function does not require any parameters.
-
         .EXAMPLE
         Invoke-Install
-
         .EXAMPLE
         To use this function in your script, simply call `Invoke-Install`. This will process the selected items for installation, check user confirmation, and execute the appropriate installation commands based on the type of application.
-
         .NOTES
         - The function starts by checking the count of selected applications using `Get-SelectedItems` with mode "Apps".
         - It uses a message box to confirm if the user wants to proceed with the installation.
@@ -7779,16 +7448,13 @@ function Invoke-Install {
         - The function handles UI updates and cleanup operations post-installation using `UpdateUI` and `Finish`.
         - The `Invoke-ScriptBlock` function is used to execute the installation commands asynchronously.
     #>
-
     if($itt.ProcessRunning) {
         Message -key "Pleasewait" -icon "Warning" -action "OK"
         return
     }
-
     # Get Selected apps
     $itt['window'].FindName("AppsCategory").SelectedIndex = 0
     $selectedApps = Get-SelectedItems -Mode "Apps"
-
     if($selectedApps.Count -gt 0)
     {
         # Show only selected item
@@ -7800,42 +7466,31 @@ function Invoke-Install {
         Message -key "App_empty_select" -icon "info" -action "OK"
         return
     }
-    
     $result = Message -key "Install_msg" -icon "ask" -action "YesNo"
-
    if($result -eq "no") {
         Show-Selected -ListView "AppsListView" -Mode "Default"
         Clear-Item -ListView "AppsListView"
         return
     }
-
     Invoke-ScriptBlock -ArgumentList $selectedApps -debug $debug -ScriptBlock {
-
         param($selectedApps ,$debug)
-
         $itt.ProcessRunning = $true
         UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "Downloading" -TextIcon "installIcon" -Icon "  " -Width "auto"
         $itt["window"].Dispatcher.Invoke([action]{ Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
-
         $selectedApps | ForEach-Object {
-
             if ($_.Winget -ne "none" -or $_.Choco -ne "none")
             {
-
                 # Some packages won't install until the package folder is removed.
                 $chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($_.Choco)"
                 Remove-Item -Path "$chocoFolder" -Recurse -Force
                 Remove-Item -Path "$chocoFolder.install" -Recurse -Force
                 Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
-
                 # Debug
                 if($debug){Add-Log -Message $_.Name -Level "debug"}
                 Install-App -appName $_.Name -appWinget $_.Winget -appChoco $_.Choco
-
             }
             else
             {
-             
                 Native-Downloader `
                 -name           $_.name `
                 -url            $_.default.url `
@@ -7844,18 +7499,14 @@ function Invoke-Install {
                 -installArgs    $_.default.args
             }
         }
-        
         Finish -ListView "AppsListView"
         $itt.ProcessRunning = $false
     }
 }
-
 function Invoke-Apply {
-
     <#
         .SYNOPSIS
         Handles the application of selected tweaks by executing the relevant commands, registry modifications, and other operations.
-
         .DESCRIPTION
         The `Invoke-Apply` function manages the process of applying selected tweaks based on user selection. It performs the following tasks:
         1. Retrieves the list of selected tweaks using `Get-SelectedItems` with mode "Tweaks".
@@ -7865,16 +7516,12 @@ function Invoke-Apply {
         5. Executes the appropriate tweak operations based on the type of tweak (e.g., commands, registry modifications, Appx package removal, service management).
         6. Updates the UI to reflect the progress and completion of the tweak application.
         7. Finishes the process and logs a message indicating that some tweaks may require a restart.
-
         .PARAMETER None
         This function does not require any parameters.
-
         .EXAMPLE
         Invoke-Apply
-
         .EXAMPLE
         To use this function in your script, call `Invoke-Apply`. This will process the selected tweaks, ask for confirmation, and apply them according to their type.
-
         .NOTES
         - The function starts by checking the count of selected tweaks using `Get-SelectedItems` with mode "Tweaks".
         - It uses a message box to confirm if the user wants to proceed with applying the tweaks.
@@ -7888,17 +7535,12 @@ function Invoke-Apply {
         - The `Invoke-ScriptBlock` function is used to execute the tweak application commands asynchronously.
         - Additional logging is performed to track the status of the operation and provide feedback.
     #>
-
-    
     $itt['window'].FindName("TwaeksCategory").SelectedIndex = 0
     $selectedTweaks = Get-SelectedItems -Mode "Tweaks"
-
     if($itt.ProcessRunning) {
         Message -key "Please_wait" -icon "Warning" -action "OK"
         return
     }
-
-
     if($selectedTweaks.Count -eq 0)
     {
         Message -key "Tweak_empty_select" -icon "info" -action "OK"
@@ -7908,31 +7550,21 @@ function Invoke-Apply {
     {
         Show-Selected -ListView "TweaksListView" -Mode "Filter"
     }
-
     $result = Message -key "Apply_msg" -icon "ask" -action "YesNo"
-
    if($result -eq "no") 
     {
         Show-Selected -ListView "TweaksListView" -Mode "Default"
         Clear-Item -ListView "TweaksListView"
         return
     }
-
     Invoke-ScriptBlock -ArgumentList $selectedTweaks -debug $debug -ScriptBlock {
-
         param($selectedTweaks,$debug)
-
         $itt.ProcessRunning = $true
-        
         UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Applying" -TextIcon "applyIcon" -Icon "  " -Width "auto"
         $itt["window"].Dispatcher.Invoke([action]{ Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
-
         foreach ($tweak in $selectedTweaks) {
-
             Add-Log -Message "::::$($tweak.Name)::::" -Level "info"
-
             $tweak | ForEach-Object {
-        
                 if ($_.Script -and $_.Script.Count -gt 0) {
                     ExecuteCommand -tweak $tweak.Script
                     if($_.Refresh -eq $true)
@@ -7940,7 +7572,6 @@ function Invoke-Apply {
                         Refresh-Explorer
                     }
                 } 
-
                 if ($_.Registry -and $_.Registry.Count -gt 0) {
                   Set-Registry -tweak $tweak.Registry
                   if($_.Refresh -eq $true)
@@ -7948,7 +7579,6 @@ function Invoke-Apply {
                         Refresh-Explorer
                     }
                 } 
-
                 if ($_.AppxPackage -and $_.AppxPackage.Count -gt 0) {
                     Uninstall-AppxPackage -tweak $tweak.AppxPackage
                     if($_.Refresh -eq $true)
@@ -7956,7 +7586,6 @@ function Invoke-Apply {
                         Refresh-Explorer
                     }
                 } 
-
                 if ($_.ScheduledTask -and $_.ScheduledTask.Count -gt 0) {
                     Remove-ScheduledTasks -tweak $tweak.ScheduledTask
                     if($_.Refresh -eq $true)
@@ -7964,7 +7593,6 @@ function Invoke-Apply {
                         Refresh-Explorer
                     }
                 } 
-
                 if ($_.Services -and $_.Services.Count -gt 0) {
                     Disable-Service -tweak $tweak.Services
                     if($_.Refresh -eq $true)
@@ -7973,45 +7601,33 @@ function Invoke-Apply {
                     }
                 } 
             }
-
         }
-
         $itt.ProcessRunning = $false
         Finish -ListView "TweaksListView"
     }
 }
 function Invoke-Toogle {
-
     <#
         .SYNOPSIS
         Toggles various system settings based on the specified debug parameter.
-
         .DESCRIPTION
         The `Invoke-Toogle` function manages system settings such as showing file extensions, toggling dark mode, showing hidden files, and managing keyboard settings. It determines the current state of the setting and invokes the appropriate functions to toggle or apply the changes.
-
         .PARAMETER debug
         A string specifying the setting to toggle. The value should match one of the predefined toggle names, such as "ToggleShowExt" or "ToggleDarkMode". The function uses this parameter to determine which setting to check and change.
-
         .EXAMPLE
         Invoke-Toogle -debug "ToggleShowExt"
-
         .EXAMPLE
         Invoke-Toogle -debug "ToggleDarkMode"
-
         .NOTES
         - The function uses a `Switch` statement to handle different toggle actions based on the `$debug` parameter.
         - It calls `Get-ToggleStatus` to retrieve the current state of the specified setting and then calls the corresponding function to apply the toggle.
         - The `Invoke-ShowFile-Extensions`, `Invoke-DarkMode`, `Invoke-ShowFile`, `Invoke-NumLock`, and `Invoke-StickyKeys` functions are used to modify the respective settings.
         - The debug parameter is primarily used for testing and development purposes. Uncommenting the `Write-Host` line can provide additional output for debugging.
     #>
-
     Param ([string]$debug)
-
     # debug
     #Write-Host $debug
-
     Switch -Wildcard ($debug){
-
         "ToggleShowExt" {Invoke-ShowFile-Extensions $(Get-ToggleStatus ToggleShowExt)}
         "ToggleDarkMode" {Invoke-DarkMode $(Get-ToggleStatus ToggleDarkMode)}
         "ToggleShowHidden" {Invoke-ShowFile $(Get-ToggleStatus ToggleShowHidden)}
@@ -8023,44 +7639,34 @@ function Invoke-Toogle {
         "AutoEndTasks" {Invoke-AutoEndTasks $(Get-ToggleStatus AutoEndTasks)}
         "VisualFXSetting" {Invoke-PerformanceOptions $(Get-ToggleStatus VisualFXSetting)}
         "LaunchTo" {Invoke-LaunchTo $(Get-ToggleStatus LaunchTo)}
-
     }
 }
 function Invoke-AutoEndTasks {
-
     <#
         .SYNOPSIS
         Toggles the visibility of file extensions in Windows Explorer.
-
         .DESCRIPTION
         The `Invoke-ShowFile-Extensions` function updates the Windows registry to show or hide file extensions for known file types in Windows Explorer based on the `$Enabled` parameter.
         - If `$Enabled` is `$true`, file extensions are shown.
         - If `$Enabled` is `$false`, file extensions are hidden.
-
         .PARAMETER Enabled
         A boolean value that determines whether file extensions should be shown (`$true`) or hidden (`$false`).
-
         .EXAMPLE
             Invoke-ShowFile-Extensions -Enabled $true
         This example makes file extensions visible in Windows Explorer.
-
         .EXAMPLE
             Invoke-ShowFile-Extensions -Enabled $false
         This example hides file extensions in Windows Explorer.
-
         .NOTES
         - The function requires restarting Windows Explorer to apply the changes.
         - Administrative privileges might be required depending on system configuration.
     #>
-   
     Param(
         $Enabled,
         [string]$Path = "HKCU:\Control Panel\Desktop",
         [string]$name = "AutoEndTasks"
     )
-
         Try{
-
             if ($Enabled -eq $false){
                 $value = 1
                 Add-Log -Message "Enabled auto end tasks" -Level "Apply"
@@ -8069,9 +7675,7 @@ function Invoke-AutoEndTasks {
                 $value = 0
                 Add-Log -Message "Disabled auto end tasks" -Level "Disabled"
             }
-
         Set-ItemProperty -Path $Path -Name $name -Value $value -ErrorAction Stop
-
         }
         Catch [System.Security.SecurityException] {
             Write-Warning "Unable to set $Path\$Name to $Value due to a Security Exception"
@@ -8085,16 +7689,12 @@ function Invoke-AutoEndTasks {
         }
 }
 function Invoke-LaunchTo {
-
-   
     Param(
         $Enabled,
         [string]$Path = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
         [string]$name = "LaunchTo"
     )
-
         Try{
-
             if ($Enabled -eq $false){
                 $value = 1
                 Add-Log -Message "Launch to This PC" -Level "Apply"
@@ -8103,10 +7703,8 @@ function Invoke-LaunchTo {
                 $value = 2
                 Add-Log -Message "Launch to Quick Access" -Level "Disabled"
             }
-
         Set-ItemProperty -Path $Path -Name $name -Value $value -ErrorAction Stop
         Refresh-Explorer
-
         }
         Catch [System.Security.SecurityException] {
             Write-Warning "Unable to set $Path\$Name to $Value due to a Security Exception"
@@ -8120,40 +7718,31 @@ function Invoke-LaunchTo {
         }
 }
 function Invoke-ClearPageFile {
-
     <#
         .SYNOPSIS
         Toggles the visibility of file extensions in Windows Explorer.
-
         .DESCRIPTION
         The `Invoke-ShowFile-Extensions` function updates the Windows registry to show or hide file extensions for known file types in Windows Explorer based on the `$Enabled` parameter.
         - If `$Enabled` is `$true`, file extensions are shown.
         - If `$Enabled` is `$false`, file extensions are hidden.
-
         .PARAMETER Enabled
         A boolean value that determines whether file extensions should be shown (`$true`) or hidden (`$false`).
-
         .EXAMPLE
             Invoke-ShowFile-Extensions -Enabled $true
         This example makes file extensions visible in Windows Explorer.
-
         .EXAMPLE
             Invoke-ShowFile-Extensions -Enabled $false
         This example hides file extensions in Windows Explorer.
-
         .NOTES
         - The function requires restarting Windows Explorer to apply the changes.
         - Administrative privileges might be required depending on system configuration.
     #>
-   
     Param(
         $Enabled,
         [string]$Path = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\\Memory Management",
         [string]$name = "ClearPageFileAtShutdown"
     )
-
         Try{
-
             if ($Enabled -eq $false){
                 $value = 1
                 Add-Log -Message "Show End Task on taskbar" -Level "Apply"
@@ -8162,9 +7751,7 @@ function Invoke-ClearPageFile {
                 $value = 0
                 Add-Log -Message "Disable End Task on taskbar" -Level "Disabled"
             }
-
         Set-ItemProperty -Path $Path -Name $name -Value $value -ErrorAction Stop
-
         }
         Catch [System.Security.SecurityException] {
             Write-Warning "Unable to set $Path\$Name to $Value due to a Security Exception"
@@ -8178,39 +7765,30 @@ function Invoke-ClearPageFile {
         }
 }
 Function Invoke-DarkMode {
-
     <#
         .SYNOPSIS
         Toggles the Windows theme between Dark Mode and Light Mode based on the provided setting.
-
         .DESCRIPTION
         The `Invoke-DarkMode` function enables or disables Dark Mode for Windows based on the `$DarkModeEnabled` parameter.
         - If `$DarkModeEnabled` is `$true`, it sets the system to Dark Mode.
         - If `$DarkModeEnabled` is `$false`, it sets the system to Light Mode.
         The function updates the application's theme resources accordingly and restarts the Windows Explorer process to apply the changes.
-
         .PARAMETER DarkModeEnabled
         A boolean value indicating whether Dark Mode should be enabled (`$true`) or Light Mode should be enabled (`$false`).
-
         .EXAMPLE
             Invoke-DarkMode -DarkModeEnabled $true
         This example sets the Windows theme to Dark Mode.
-
         .EXAMPLE
             Invoke-DarkMode -DarkModeEnabled $false
         This example sets the Windows theme to Light Mode.
-
         .NOTES
         - The function modifies registry settings related to Windows themes.
         - It restarts Windows Explorer to apply the theme changes.
         - Error handling is included for security exceptions and item not found exceptions.
     #>
-
     Param($DarkMoveEnabled)
     Try{
-
         $Theme = (Get-ItemProperty -Path $itt.registryPath -Name "Theme").Theme
-
         if ($DarkMoveEnabled -eq $false){
             $DarkMoveValue = 0
             Add-Log -Message "Dark Mode" -Level "Apply"
@@ -8227,7 +7805,6 @@ Function Invoke-DarkMode {
                 $itt['window'].Resources.MergedDictionaries.Add($itt['window'].FindResource("Light"))
             }
         }
-
         $Path = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize"
         Set-ItemProperty -Path $Path -Name AppsUseLightTheme -Value $DarkMoveValue
         Set-ItemProperty -Path $Path -Name SystemUsesLightTheme -Value $DarkMoveValue
@@ -8244,31 +7821,24 @@ Function Invoke-DarkMode {
     }
 }
 function Invoke-MouseAcceleration {
-
     <#
         .SYNOPSIS
         Toggles mouse acceleration settings on or off.
-
         .DESCRIPTION
         This function allows you to enable or disable mouse acceleration by adjusting the related registry settings. 
         If the `$Mouse` parameter is set to `$false`, mouse acceleration is enabled with default values. 
         If it is set to `$true`, mouse acceleration is disabled. Additionally, you can specify custom values for 
         `MouseSpeed`, `Threshold1`, and `Threshold2`.
-
         .EXAMPLE
         # Disables mouse acceleration
         MouseAcceleration -Mouse $true
-
         # Enables mouse acceleration with default values
         MouseAcceleration -Mouse $false
-
         # Enables mouse acceleration with custom values
         MouseAcceleration -Mouse $false -MouseSpeed 1 -Threshold1 4 -Threshold2 8
-
         # Disables mouse acceleration and logs actions
         MouseAcceleration -Mouse $true -Path "HKCU:\Control Panel\Mouse"
     #>
-
     param (
         $Mouse,
         $Speed = 0,
@@ -8276,7 +7846,6 @@ function Invoke-MouseAcceleration {
         $Threshold2  = 0,
         [string]$Path = "HKCU:\Control Panel\Mouse"
     )
-
     try {
         if($Mouse -eq $false)
         {
@@ -8290,7 +7859,6 @@ function Invoke-MouseAcceleration {
             $Threshold2 = 0
             Add-Log -Message "Mouse Acceleration" -LEVEL "Disabled"
         }
-
         Set-ItemProperty -Path $Path -Name MouseSpeed -Value $Speed
         Set-ItemProperty -Path $Path -Name MouseThreshold1 -Value $Threshold1
         Set-ItemProperty -Path $Path -Name MouseThreshold2 -Value $Threshold2
@@ -8300,38 +7868,30 @@ function Invoke-MouseAcceleration {
     }
 }
 function Invoke-NumLock {
-
     <#
         .SYNOPSIS
         Toggles the Num Lock state on the system by modifying registry settings.
-
         .DESCRIPTION
         The `Invoke-NumLock` function sets the state of the Num Lock key based on the `$Enabled` parameter.
         - If `$Enabled` is `$true`, Num Lock is enabled.
         - If `$Enabled` is `$false`, Num Lock is disabled.
         The function modifies the registry settings under `HKU\.Default\Control Panel\Keyboard` to achieve this.
-
         .PARAMETER Enabled
         A boolean value that determines whether Num Lock should be enabled (`$true`) or disabled (`$false`).
-
         .EXAMPLE
         Invoke-NumLock -Enabled $true
         This example enables Num Lock.
-
         .EXAMPLE
         Invoke-NumLock -Enabled $false
         This example disables Num Lock.
-
         .NOTES
         - Requires administrative privileges to modify registry settings.
         - The registry path used is for the default user profile and may not affect the currently logged-in user.
     #>
-
     param(
         [Parameter(Mandatory = $true)]
         [bool]$Enabled
     )
-
     try {
         if ($Enabled -eq $false)
         { 
@@ -8343,7 +7903,6 @@ function Invoke-NumLock {
             Add-Log -Message "Numlock Disabled" -Level "Disabled"
              $value = 0
         }
-
         New-PSDrive -PSProvider Registry -Name HKU -Root HKEY_USERS -ErrorAction Stop
         $Path = "HKU:\.Default\Control Panel\Keyboard"
         $Path2 = "HKCU:\Control Panel\Keyboard"
@@ -8356,40 +7915,31 @@ function Invoke-NumLock {
 }
 
 function Invoke-PerformanceOptions {
-
     <#
         .SYNOPSIS
         Toggles the visibility of file extensions in Windows Explorer.
-
         .DESCRIPTION
         The `Invoke-ShowFile-Extensions` function updates the Windows registry to show or hide file extensions for known file types in Windows Explorer based on the `$Enabled` parameter.
         - If `$Enabled` is `$true`, file extensions are shown.
         - If `$Enabled` is `$false`, file extensions are hidden.
-
         .PARAMETER Enabled
         A boolean value that determines whether file extensions should be shown (`$true`) or hidden (`$false`).
-
         .EXAMPLE
             Invoke-ShowFile-Extensions -Enabled $true
         This example makes file extensions visible in Windows Explorer.
-
         .EXAMPLE
             Invoke-ShowFile-Extensions -Enabled $false
         This example hides file extensions in Windows Explorer.
-
         .NOTES
         - The function requires restarting Windows Explorer to apply the changes.
         - Administrative privileges might be required depending on system configuration.
     #>
-   
     Param(
         $Enabled,
         [string]$Path = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects",
         [string]$name = "VisualFXSetting"
     )
-
         Try{
-
             if ($Enabled -eq $false){
                 $value = 2
                 Add-Log -Message "Enabled auto end tasks" -Level "Apply"
@@ -8398,10 +7948,8 @@ function Invoke-PerformanceOptions {
                 $value = 0
                 Add-Log -Message "Disabled auto end tasks" -Level "Disabled"
             }
-
         Set-ItemProperty -Path $Path -Name $name -Value $value -ErrorAction Stop
         Refresh-Explorer
-
         }
         Catch [System.Security.SecurityException] {
             Write-Warning "Unable to set $Path\$Name to $Value due to a Security Exception"
@@ -8415,32 +7963,25 @@ function Invoke-PerformanceOptions {
         }
 }
 function Invoke-ShowFile {
-
     <#
         .SYNOPSIS
         Toggles the visibility of hidden files and folders in Windows Explorer.
-
         .DESCRIPTION
         The `Invoke-ShowFile` function updates the Windows registry to show or hide hidden files and folders in Windows Explorer based on the `$Enabled` parameter.
         - If `$Enabled` is `$true`, hidden items and super-hidden items (e.g., system files) are shown.
         - If `$Enabled` is `$false`, these items are hidden.
-
         .PARAMETER Enabled
         A boolean value that determines whether hidden files and folders should be shown (`$true`) or hidden (`$false`).
-
         .EXAMPLE
             Invoke-ShowFile -Enabled $true
         This example makes hidden files and folders visible in Windows Explorer.
-
         .EXAMPLE
             Invoke-ShowFile -Enabled $false
         This example hides hidden files and folders in Windows Explorer.
-
         .NOTES
         - The function requires restarting Windows Explorer to apply the changes.
         - Administrative privileges might be required depending on system configuration.
     #>
-
     Param($Enabled)
     Try {
         if ($Enabled -eq $false)
@@ -8453,9 +7994,7 @@ function Invoke-ShowFile {
             $value = 2
             Add-Log -Message "Don't Show hidden files , folders etc.." -Level "Disabled"
         }
-
         $hiddenItemsKey = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"
-        
         # Set registry values to show or hide hidden items
         Set-ItemProperty -Path $hiddenItemsKey -Name Hidden -Value $value
         Set-ItemProperty -Path $hiddenItemsKey -Name ShowSuperHidden -Value $value
@@ -8473,32 +8012,25 @@ function Invoke-ShowFile {
     }
 }
 function Invoke-ShowFile-Extensions {
-
     <#
         .SYNOPSIS
         Toggles the visibility of file extensions in Windows Explorer.
-
         .DESCRIPTION
         The `Invoke-ShowFile-Extensions` function updates the Windows registry to show or hide file extensions for known file types in Windows Explorer based on the `$Enabled` parameter.
         - If `$Enabled` is `$true`, file extensions are shown.
         - If `$Enabled` is `$false`, file extensions are hidden.
-
         .PARAMETER Enabled
         A boolean value that determines whether file extensions should be shown (`$true`) or hidden (`$false`).
-
         .EXAMPLE
             Invoke-ShowFile-Extensions -Enabled $true
         This example makes file extensions visible in Windows Explorer.
-
         .EXAMPLE
             Invoke-ShowFile-Extensions -Enabled $false
         This example hides file extensions in Windows Explorer.
-
         .NOTES
         - The function requires restarting Windows Explorer to apply the changes.
         - Administrative privileges might be required depending on system configuration.
     #>
-   
     Param($Enabled)
     Try{
         if ($Enabled -eq $false){
@@ -8525,32 +8057,25 @@ function Invoke-ShowFile-Extensions {
     }
 }
 function Invoke-TaskbarEnd {
-
     <#
         .SYNOPSIS
         Toggles the visibility of file extensions in Windows Explorer.
-
         .DESCRIPTION
         The `Invoke-ShowFile-Extensions` function updates the Windows registry to show or hide file extensions for known file types in Windows Explorer based on the `$Enabled` parameter.
         - If `$Enabled` is `$true`, file extensions are shown.
         - If `$Enabled` is `$false`, file extensions are hidden.
-
         .PARAMETER Enabled
         A boolean value that determines whether file extensions should be shown (`$true`) or hidden (`$false`).
-
         .EXAMPLE
             Invoke-ShowFile-Extensions -Enabled $true
         This example makes file extensions visible in Windows Explorer.
-
         .EXAMPLE
             Invoke-ShowFile-Extensions -Enabled $false
         This example hides file extensions in Windows Explorer.
-
         .NOTES
         - The function requires restarting Windows Explorer to apply the changes.
         - Administrative privileges might be required depending on system configuration.
     #>
-   
     Param($Enabled)
     Try{
         if ($Enabled -eq $false){
@@ -8561,10 +8086,8 @@ function Invoke-TaskbarEnd {
             $value = 0
             Add-Log -Message "Disable End Task on taskbar" -Level "Disabled"
         }
-
         $Path = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDeveloperSettings\"
         $name = "TaskbarEndTask"
-
         if (-not (Test-Path $path)) {
             New-Item -Path $path -Force | Out-Null
             New-ItemProperty -Path $path -Name $name -PropertyType DWord -Value $value -Force | Out-Null
@@ -8573,7 +8096,6 @@ function Invoke-TaskbarEnd {
             Refresh-Explorer
             Add-Log -Message "This Setting require a restart" -Level "INFO"
         }
-
     }
     Catch [System.Security.SecurityException] {
         Write-Warning "Unable to set $Path\$Name to $Value due to a Security Exception"
@@ -8587,33 +8109,26 @@ function Invoke-TaskbarEnd {
     }
 }
 Function Invoke-StickyKeys {
-
      <#
         .SYNOPSIS
         Toggles Sticky Keys functionality in Windows.
-
         .DESCRIPTION
         The `Invoke-StickyKeys` function updates the Windows registry settings to enable or disable Sticky Keys based on the `$Enabled` parameter.
         - If `$Enabled` is `$true`, Sticky Keys is enabled with a specific configuration.
         - If `$Enabled` is `$false`, Sticky Keys is disabled with a different configuration.
         - Note: Enabling Sticky Keys may require restarting Windows Explorer.
-
         .PARAMETER Enabled
         A boolean value that determines whether Sticky Keys should be enabled (`$true`) or disabled (`$false`).
-
         .EXAMPLE
             Invoke-StickyKeys -Enabled $true
         This example enables Sticky Keys with the specified configuration and prompts for a restart of Windows Explorer.
-
         .EXAMPLE
             Invoke-StickyKeys -Enabled $false
         This example disables Sticky Keys with the specified configuration and prompts for a restart of Windows Explorer.
-
         .NOTES
         - The function requires restarting Windows Explorer to apply the changes.
         - Administrative privileges might be required depending on system configuration.
     #>
-
     Param($Enabled)
     Try {
         if ($Enabled -eq $false){
@@ -8639,18 +8154,14 @@ Function Invoke-StickyKeys {
     Catch{
         Write-Warning "Unable to set $Name due to unhandled exception"
     }
-
 }
 function About {
-
     # init child window
     [xml]$about = $AboutWindowXaml
     $childWindowReader = (New-Object System.Xml.XmlNodeReader $about)
     $itt.about = [Windows.Markup.XamlReader]::Load($childWindowReader)
-
     # Get main style theme
     $itt["about"].Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.CurretTheme))
-
     # # Set Events on Click
     $itt.about.FindName('ver').Text = "Last update $($itt.lastupdate)"
     $itt.about.FindName("telegram").Add_Click({Start-Process($itt.telegram)})
@@ -8658,65 +8169,49 @@ function About {
     $itt.about.FindName("blog").Add_Click({Start-Process($itt.blog)})
     $itt.about.FindName("yt").Add_Click({Start-Process($itt.youtube)})
     $itt.about.FindName("coffee").Add_Click({Start-Process($itt.buymeacoffee)})
-    
     # Set data context language
     $itt.about.DataContext = $itt.database.locales.Controls.en
-
     # Show window
     $itt.about.ShowDialog() | Out-Null
 }
 function ITTShortcut {
-
     <#
         .SYNOPSIS
         Creates a desktop shortcut for launching a PowerShell script with a custom icon.
-
         .DESCRIPTION
         The `ITTShortcut` function creates a shortcut on the user's desktop that points to a PowerShell executable with a specified command.
         It downloads a custom icon from a specified URL, saves it to the `AppData\Roaming` folder, and sets this icon for the shortcut.
         The PowerShell script specified in the shortcut executes a command to run a script from a provided URL.
-
         .NOTES
         - Ensure that you have internet access to download the icon.
         - The command executed by the shortcut should be valid and accessible.
     #>
-
     # URL of the icon file
     $iconUrl = $itt.icon
-    
     # Determine the path in AppData\Roaming
     $appDataPath = "$env:ProgramData/itt"
     $localIconPath = Join-Path -Path $appDataPath -ChildPath "itt.ico"
-    
     # Download the icon file
     Invoke-WebRequest -Uri $iconUrl -OutFile $localIconPath
-    
     # Create a shortcut object
     $Shortcut = (New-Object -ComObject WScript.Shell).CreateShortcut("$([Environment]::GetFolderPath('Desktop'))\ITT Emad Adel.lnk")
-    
     # Set the target path to PowerShell with your command
     $Shortcut.TargetPath = "$env:SystemRoot\System32\WindowsPowerShell\v1.0\powershell.exe"
     $Shortcut.Arguments = "-ExecutionPolicy Bypass -Command ""irm bit.ly/ittea | iex"""
-    
     # Set the icon path to the downloaded icon file in AppData\Roaming
     $Shortcut.IconLocation = "$localIconPath"
-    
     # Save the shortcut
     $Shortcut.Save()
 }
 
 function Search {
-
     <#
         .SYNOPSIS
         Filters items in the current list view based on the search input.
-
         .DESCRIPTION
         The `Search` function retrieves the text from the search input, converts it to lowercase, and removes any non-alphanumeric characters. It then applies a filter to the items in the currently displayed list view based on the search input. The filter checks if the search input matches any checkbox content within stack panels in the list view.
-
         .EXAMPLE
         Search
-
         .NOTES
         - The function operates on the `searchInput` property of the `$itt` object, which is expected to be a text input control where users enter their search query.
         - The function uses the `CollectionViewSource` class to get the default view of the items in the current list view and applies a filter to it.
@@ -8724,13 +8219,9 @@ function Search {
         - Non-`StackPanel` items are always included in the filtered view.
         - This function relies on the `$itt.currentList` property to determine which list view to filter. Ensure that `$itt.currentList` correctly references the ID of the current list view control.
     #>
-
-
     # Retrieves the search input, converts it to lowercase, and filters the list based on the input
     $filter = $itt.searchInput.Text.ToLower() -replace '[^\p{L}\p{N}]', ''
-
     $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt['window'].FindName($itt.currentList).Items)
-    
     $collectionView.Filter = {
         param($item)
         if ($item -is [System.Windows.Controls.StackPanel]) {
@@ -8751,20 +8242,15 @@ function Search {
     }
 }
 function FilterByCat {
-
     <#
         .SYNOPSIS
         Filters the items in the Apps list view based on the selected category.
-
         .DESCRIPTION
         The `FilterByCat` function filters the items displayed in the Apps list view based on a specified category. It updates the view to show only those items that match the selected category. If the selected category is not valid, it clears the filter and displays all items. The function also ensures that the Apps tab is selected and scrolls to the top of the list view after applying the filter.
-
         .PARAMETER Cat
         The category to filter by. Must be one of the predefined valid categories.
-
         .EXAMPLE
         FilterByCat -Cat "Media"
-
         .NOTES
         - The function operates on the `AppsListView` control within the `$itt` object.
         - The `validCategories` array contains the list of categories that the function recognizes as valid. If the provided category does not match one of these, the filter is cleared.
@@ -8772,10 +8258,7 @@ function FilterByCat {
         - If the selected category is valid, the function applies the filter to the `CollectionView` of the `AppsListView`. If not, it removes the filter and shows all items.
         - The `ScrollIntoView` method is used to ensure that the list view scrolls to the top after applying the filter.
     #>
-
-
     param ($Cat)
-
     # Define the list of valid categories
     $validCategories = @(
         "Web Browsers",
@@ -8804,18 +8287,14 @@ function FilterByCat {
         "Classic",
         "GPU Drivers"
     )
-
     # Update DataContext
     #$itt["window"].DataContext = $itt.database.locales.Controls.$($itt.Language)
-
     # if user is on another tab, return to the apps list
     #$itt['window'].FindName('apps').IsSelected = $true
     $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt['window'].FindName($itt.CurrentList).Items)
-
     # Define the filter predicate
     $filterPredicate = {
         param($item)
-        
         if ($item -is [System.Windows.Controls.StackPanel]) {
             foreach ($child in $item.Children) {
                 if ($child -is [System.Windows.Controls.StackPanel]) {
@@ -8832,7 +8311,6 @@ function FilterByCat {
             }
         }
     }
-
     if ($validCategories -contains $Cat) {
         # Apply the filter to the collection view
         $itt['window'].FindName($itt.CurrentList).Clear()
@@ -8843,54 +8321,41 @@ function FilterByCat {
         $itt['window'].FindName($itt.CurrentList).Clear()
         $collectionView.Filter = $null
     }
-    
     # Scroll to the top
     $itt.AppsListView.ScrollIntoView($itt['window'].FindName($itt.CurrentList).Items[0])
 }
 function ClearFilter {
-
     <#
         .SYNOPSIS
         Clears the filter applied to the Apps list view.
-
         .DESCRIPTION
         The `ClearFilter` function removes any filtering that has been applied to the items in the Apps list view. It clears the list view and resets the filter, making all items in the list view visible. This function is typically used when you want to display all items without any filtering constraints.
-
         .EXAMPLE
         ClearFilter
-
         .NOTES
         - The function operates on the `AppsListView` control within the `$itt` object.
         - The `Clear()` method is called on the `AppsListView` to remove any items currently displayed. This is followed by resetting the `Filter` property of the `CollectionView` associated with the `AppsListView` to `$null`, effectively removing any applied filter and showing all items.
         - This function is useful for resetting the view to its default state, especially after applying a category filter or other types of filters.
     #>
-
     $itt.AppsListView.Clear()
     $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.AppsListView.Items)
     $collectionView.Filter = $null
 }
 $KeyEvents = {
-
     <#
         .DESCRIPTION
             How to add a new shortcut
-
         .PARAMETER A
             replace A With you latter you want
-
         .PARAMETER Ctrl
             replace Ctrl With you latter you want
-
         .EXAMPLE
             if (($_.Key -eq "A" -and $_.KeyboardDevice.Modifiers -eq "Ctrl")) {# your code here}      
     #>
-
     if ($itt.ProcessRunning -eq $true) {
         return
     }
-
     if (($_.Key -eq "Enter")) {
-
         switch ($itt.currentList) {
             "appslist" {
                 Invoke-Install                
@@ -8900,10 +8365,8 @@ $KeyEvents = {
             }
         }
     }
-
     # Installing & Applying
     if (($_.Key -eq "S" -and $_.KeyboardDevice.Modifiers -eq "Ctrl")) {
-
         switch ($itt.currentList) {
             "appslist" {
                 Invoke-Install                
@@ -8913,17 +8376,14 @@ $KeyEvents = {
             }
         }
     }
-
     # Quit from applaction
      if (($_.Key -eq "G" -and $_.KeyboardDevice.Modifiers -eq "Ctrl")) {
         $this.Close()
     }
-
     # Foucs on Search box
     if (($_.Key -eq "F" -and $_.KeyboardDevice.Modifiers -eq "Ctrl")) {
         $itt.SearchInput.Focus()
     }
-
     # Lost Foucs on Search box
     if ($_.Key -eq "Escape") 
     {
@@ -8931,120 +8391,95 @@ $KeyEvents = {
         $itt.SearchInput.Text = $null
         $itt["window"].FindName("search_placeholder").Visibility = "Visible";
     }
-
     # Easter Egg: Uncomment to enable the key press functionality
-    
     # Next Music (Ctrl + N)
     # if ($_.Key -eq "N" -and $_.KeyboardDevice.Modifiers -eq "Ctrl") {
     #     $itt.mediaPlayer.controls.next()
     # }
-
     # Previous Music (Ctrl + B)
     # if ($_.Key -eq "B" -and $_.KeyboardDevice.Modifiers -eq "Ctrl") {
     #     $itt.mediaPlayer.controls.previous()
     # }
-
     # Swtich to Apps tap
     if ($_.Key -eq "Q" -and $_.KeyboardDevice.Modifiers -eq "Ctrl") {
         $itt.TabControl.SelectedItem = $itt.TabControl.Items | Where-Object { $_.Name -eq "apps" }
     }
-
     # Swtich to tweaks tap
     if ($_.Key -eq "W" -and $_.KeyboardDevice.Modifiers -eq "Ctrl") {
         $itt.TabControl.SelectedItem = $itt.TabControl.Items | Where-Object { $_.Name -eq "tweeksTab" }
     }
-
     # Swtich to settings tap
     if ($_.Key -eq "E" -and $_.KeyboardDevice.Modifiers -eq "Ctrl") {
         $itt.TabControl.SelectedItem = $itt.TabControl.Items | Where-Object { $_.Name -eq "SettingsTab" }
     }
-
     # Swtich to settings tap
     if ($_.Key -eq "I" -and $_.KeyboardDevice.Modifiers -eq "Ctrl") {
         About
     }
-
     # SaveItemsToJson
     if ($_.Key -eq "S" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
         SaveItemsToJson
     }
-
     # LoadJson
     if ($_.Key -eq "D" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
         LoadJson
     }
-
     # Music off
     if ($_.Key -eq "M" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
         MuteMusic -Value 0
-
     }
-
     # Music on 
     if ($_.Key -eq "F" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
         UnmuteMusic -Value 100
     }
-  
     # Restore point 
     if ($_.Key -eq "Q" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
         RestorePoint
     }
-
     # Choco Shortcut Folder
     if ($_.Key -eq "C" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
         Start-Process explorer.exe "C:\ProgramData\chocolatey\lib"
     }
-
     # ITT Shortcut 
     if ($_.Key -eq "T" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
         ITTShortcut
     }
-
      # ITT Shortcut 
      if ($_.Key -eq "I" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
         ITTShortcut
     }
 }
 function Message {
-
     <#
         .SYNOPSIS
             Displays a localized message box to the user with a specified icon.
-
         .DESCRIPTION
             The `Message` function shows a message box with a localized message based on the provided key and icon type.
             It retrieves the message text from a localization database and displays it using the Windows MessageBox class.
             The icon type determines the visual representation of the message box, which can be "Warning" or "Question".
-
         .PARAMETER key
             The key used to retrieve the localized message from the `itt.database.locales.Controls` object.
             This key should correspond to a valid entry in the localization database for the current language.
-
         .PARAMETER icon
             The type of icon to be displayed in the message box. Valid values are:
             - "Warning" for a warning icon
             - "Question" for a question icon
             - "Information" for Information icon
-
         .EXAMPLE
             Message -key "Welcome" -icon "Warning"
             Displays a message box with the message associated with the "Welcome" key and a warning icon.
-
         .EXAMPLE
             Message -key "ConfirmAction" -icon "Question"
             Displays a message box with the message associated with the "ConfirmAction" key and a question icon.
-
         .NOTES
             Ensure that the `itt.database.locales.Controls` object is properly populated with localization data and that the specified keys exist for the current language.
     #>
-    
     param(
         [string]$key,
         [string]$NoneKey,
         [string]$icon,
         [string]$action
     )
-    
     # Use switch to determine the correct MessageBoxImage
     switch ($icon.ToLower()) {
         "info" { $icon = [System.Windows.MessageBoxImage]::Information }
@@ -9052,7 +8487,6 @@ function Message {
         "warning" { $icon = [System.Windows.MessageBoxImage]::Warning }
         Default { $icon = [System.Windows.MessageBoxImage]::Question }
     }
-
     switch ($action.ToLower()) {
         "YesNo" 
         { 
@@ -9066,7 +8500,6 @@ function Message {
             $icon = [System.Windows.MessageBoxButton]::OK 
         }
     }
-    
     if ([string]::IsNullOrWhiteSpace($key)) {
         # Show message with NoneKey if key is empty or null
         [System.Windows.MessageBox]::Show($NoneKey, "ITT", [System.Windows.MessageBoxButton]::$action, $icon)
@@ -9078,97 +8511,75 @@ function Message {
     }
 }    
 function Notify {
-
     <#
         .SYNOPSIS
         Displays a balloon tip notification in the system tray with a customizable title, message, icon, and duration.
-
         .DESCRIPTION
         The `Notify` function creates a balloon tip notification using the system tray's notification area. 
         This function is useful for displaying temporary alerts or messages to the user. 
         It allows you to specify the notification's title, message, icon type, and how long the balloon tip should be displayed.
-
         .PARAMETER title
         The title of the notification balloon. This appears as the header of the balloon tip.
-
         .PARAMETER msg
         The main message text of the notification balloon.
-
         .PARAMETER icon
         The icon to be displayed in the notification balloon. Should be one of the standard `System.Windows.Forms.NotifyIcon` icon types such as "Information", "Warning", or "Error".
-
         .PARAMETER time
         The duration (in milliseconds) for which the balloon tip will be displayed.
-
         .EXAMPLE
         Notify -title "ITT" -msg "Hello world!" -icon "Information" -time 3000
         Displays a notification balloon with the title "ITT" and the message "Hello world!" with an informational icon for 3 seconds.
-
         .EXAMPLE
         Notify -title "Warning" -msg "Please check your settings." -icon "Warning" -time 5000
         Displays a notification balloon with the title "Warning" and the message "Please check your settings." with a warning icon for 5 seconds.
-
         .NOTES
         - The `icon` parameter should match one of the standard `System.Windows.Forms.NotifyIcon` types.
         - The `notification` object is disposed of after showing the balloon tip to free up system resources.
     #>
-
     param(
         [string]$title,
         [string]$msg,
         [string]$icon,
         [Int32]$time
     )
-
     $notification = New-Object System.Windows.Forms.NotifyIcon
     $notification.Icon = [System.Drawing.SystemIcons]::Information
     $notification.BalloonTipIcon = $icon
     $notification.BalloonTipText = $msg
     $notification.BalloonTipTitle = $title
     $notification.Visible = $true
-
     $notification.ShowBalloonTip($time)  # Display for specified time
-
     # Clean up resources
     $notification.Dispose()
 }
 # Mute the music by setting the volume to the specified value
 function MuteMusic {
-
     <#
         .SYNOPSIS
         Adjusts the volume of the media player and saves the setting for persistence.
-
         .DESCRIPTION
         The `MuteMusic` function sets the volume of the media player to a specified level and saves this volume setting to the registry. 
         This ensures that the volume level is persisted even after restarting the application or the system. 
         The function also updates the window's title to indicate the current state.
-
         .PARAMETER value
         The volume level to set. It should be an integer value between 0 (muted) and 100 (full volume). The function uses this value to adjust the media player's volume and to store the setting in the registry.
-
         .EXAMPLE
         MuteMusic -value 0
         Sets the media player's volume to 0 (muted) and updates the window title to indicate the volume level.
-
         .EXAMPLE
         MuteMusic -value 50
         Sets the media player's volume to 50% and updates the window title to indicate the current volume level.
-
         .NOTES
         - The volume value should be an integer between 0 and 100.
         - The volume setting is saved to the registry at the path specified by `$itt.registryPath` under the "Music" key.
         - Ensure that `$itt.mediaPlayer.settings.volume` and `$itt.registryPath` are properly initialized in your environment.
     #>
-
     param($value)
     $itt.mediaPlayer.settings.volume = $value
     # Save the volume setting to the registry for persistence
     Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value "$value" -Force
     $itt["window"].title = "Install Tweaks Tool #StandWithPalestine 🔈"
-
 }
-
 # Unmute the music by setting the volume to the specified value
 function UnmuteMusic {
     param($value)
@@ -9176,9 +8587,7 @@ function UnmuteMusic {
     # Save the volume setting to the registry for persistence
     Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value "$value" -Force
     $itt["window"].title = "Install Tweaks Tool #StandWithPalestine 🔊"
-
 }
-
 # Stop the music and clean up resources
 function StopMusic {
     $itt.mediaPlayer.controls.stop()    # Stop the media player
@@ -9187,7 +8596,6 @@ function StopMusic {
     $itt.runspace.Dispose()             # Dispose of the runspace
     $itt.runspace.Close()               # Close the runspace
 }
-
 # Stop all runspaces, stop the music, and exit the process
 function StopAllRunspace {
     $script:powershell.Dispose()         # Dispose of the PowerShell object
@@ -9198,13 +8606,10 @@ function StopAllRunspace {
     $newProcess.exit                     # Exit the process
 }
 function System-Default {
-    
     $fullCulture = Get-ItemPropertyValue -Path "HKCU:\Control Panel\International" -Name "LocaleName"
     $shortCulture = $fullCulture.Split('-')[0]
-
     switch($shortCulture)
     {
-        
         "ar" { $locale = "ar" }
         "en" { $locale = "en" }
         "fr" { $locale = "fr" }
@@ -9220,19 +8625,14 @@ function System-Default {
         # new lang
         default { $locale = "en" }
     }
-
     Set-ItemProperty -Path $itt.registryPath  -Name "locales" -Value "default" -Force
     $itt["window"].DataContext = $itt.database.locales.Controls.$locale
     $itt.Language = $locale
-
 }
-
 function Set-Language {
-
     param (
         [string]$lang
     )
-
     if($lang -eq "default")
     {
         System-Default
@@ -9244,22 +8644,17 @@ function Set-Language {
         Set-ItemProperty -Path $itt.registryPath  -Name "locales" -Value "$lang" -Force
         $itt["window"].DataContext = $itt.database.locales.Controls.$($itt.Language)
     }
-
 }
 function ToggleTheme {
-
     <#
         .SYNOPSIS
         Toggles the application's theme between dark and light modes based on the state of the `themeText` checkbox control.
-
         .DESCRIPTION
         The `ToggleTheme` function checks the state of a UI checkbox named `themeText` to determine whether the application should be switched to dark or light mode. 
         If the checkbox is checked, the function activates dark mode; if unchecked, it activates light mode. 
         The checkbox state is then updated to reflect the new theme setting. Error handling is included to manage and report any issues that occur during the theme switching process.
     #>
-    
     try {
-
         if ($itt.searchInput = $itt['window'].FindName('themeText').IsChecked -eq $true)
         {
             Switch-ToDarkMode
@@ -9268,18 +8663,14 @@ function ToggleTheme {
         {
             Switch-ToLightMode
         }
-        
     }
     catch {
         Write-Host "Error toggling theme: $_"
     }
-
     $itt['window'].FindName('themeText').IsChecked = -not $itt['window'].FindName('themeText').IsChecked
-
 }
 function Switch-ToDarkMode {
     try {
-
         $theme = $itt['window'].FindResource("Dark")
         Update-Theme $theme "true"
     } catch {
@@ -9298,16 +8689,11 @@ function Update-Theme ($theme) {
     $itt['window'].Resources.MergedDictionaries.Clear()
     $itt['window'].Resources.MergedDictionaries.Add($theme)
     Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "$theme" -Force
-
 }
 function SwitchToSystem {
-
     try {
-
         Set-ItemProperty -Path $itt.registryPath  -Name "Theme" -Value "default" -Force
-
         $AppsTheme = (Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name "AppsUseLightTheme")
-
         switch ($AppsTheme) {
             "0" {
                 $itt['window'].Resources.MergedDictionaries.Add($itt['window'].FindResource("Dark"))
@@ -9324,12 +8710,10 @@ function SwitchToSystem {
         Write-Host "Error occurred: $_"
     }
 }
-
 function Set-Theme {
     param (
         [string]$Theme
     )
-
     Switch($Theme)
     {
         "Light"{
@@ -9348,41 +8732,30 @@ function Set-Theme {
     }
 }
 function UpdateUI {
-
     <#
         .SYNOPSIS
         Updates the user interface elements, including a button's width, text, and associated icons.
-
         .DESCRIPTION
         The `UpdateUI` function is designed to modify various UI components within the application. 
         It updates the width and text of a specified button, changes the text of a related text block, and sets the icon for another text block. 
         This function is typically used to reflect different states of the application, such as during installations or other processes.
-
         .PARAMETER Button
         Specifies the name of the button element to be updated.
-
         .PARAMETER ButtonText
         Specifies the name of the text block associated with the button whose text will be updated.
-
         .PARAMETER Icon
         Specifies the icon to be set in the text block.
-
         .PARAMETER Content
         Specifies the content to be displayed as button text. This content is localized based on the application's current language setting.
-
         .PARAMETER TextIcon
         Specifies the name of the text block where the icon will be displayed.
-
         .PARAMETER Width
         Specifies the width to set for the button. The default value is "100".
-
         .EXAMPLE
             UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "downloading" -TextIcon "installIcon" -Icon "  " -Width "150"
         This example updates the UI by setting the width of the "InstallBtn" button to 150, changing the text of the "installText" text block to "downloading", 
         and setting the icon for the "installIcon" text block to "  ".
     #>
-
-
     param(
         [string]$Button,
         [string]$ButtonText,
@@ -9391,15 +8764,11 @@ function UpdateUI {
         [string]$TextIcon,
         [string]$Width = "100"
     )
-
     $applyBtn = $itt.database.locales.Controls.$($itt.Language).$Content
-
     $itt['window'].Dispatcher.Invoke([Action]{
-
         # Button and Button Text
         $itt.$Button.Width = $Width
         $itt.$ButtonText.Text = "$applyBtn"
-
         # Textblock as Icon
         $itt.$TextIcon.Text = "$icon"
     })
@@ -9410,8 +8779,7 @@ function UpdateUI {
 #===========================================================================
 #region Begin WPF Main Window
 #===========================================================================
-$MainWindowXaml = '
-<!--Main Window-->
+$MainWindowXaml = '<!--Main Window-->
 <Window
 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -9425,7 +8793,6 @@ ShowInTaskbar = "True"
 TextOptions.TextFormattingMode="Ideal"
 TextOptions.TextRenderingMode="Auto"
 Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico">
-
 <Window.Resources>
     <!--Listview Fade in-->
     <Storyboard x:Key="FadeOutStoryboard">
@@ -9434,7 +8801,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
             From="0" To="1" Duration="0:0:0.1" />
     </Storyboard>
 <!--Listview Fade in-->
-
 <!--Logo Fade in-->
     <Storyboard x:Key="Logo" RepeatBehavior="Forever">
         <!-- Fade Out -->
@@ -9442,7 +8808,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
             Storyboard.TargetProperty="Opacity"
             From="0.0" To="1.0"
             Duration="0:0:01" /> <!-- Fade out duration -->
-        
         <!-- Fade In -->
         <DoubleAnimation
             Storyboard.TargetProperty="Opacity"
@@ -9451,7 +8816,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
             BeginTime="0:0:05" /> <!-- Start fade in after 21 seconds -->
     </Storyboard>
 <!--Logo Fade in-->
-
 <!-- Define the FadeOut and FadeIn animations with looping -->
     <Storyboard x:Key="FadeOutInLoopStoryboard">
         <!-- Fade Out Animation -->
@@ -9469,7 +8833,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
             BeginTime="0:0:1" />
     </Storyboard>
 <!-- Define the FadeOut and FadeIn animations with looping -->
-
 <!--Image Style-->
     <Style TargetType="Image">
         <Style.Triggers>
@@ -9479,7 +8842,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
         </Style.Triggers>
     </Style>
 <!--End Image Style-->
-
 <!--Button Style-->
     <Style TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource PrimaryButtonForeground}"/>
@@ -9490,7 +8852,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="Cursor" Value="Hand"/>
-
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -9505,7 +8866,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{DynamicResource HighlightColor}"/>
@@ -9518,7 +8878,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
         </Style.Triggers>
     </Style>
 <!--End Button Style-->
-
 <!--ListViewItem Style-->
     <Style TargetType="ListViewItem">
         <Setter Property="Margin" Value="3"/>
@@ -9552,7 +8911,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
         </Style.Triggers>
     </Style>
 <!--End ListViewItem Style-->
-
 <!--CheckBox Style-->
     <Style TargetType="CheckBox">
         <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor}"/>
@@ -9577,7 +8935,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                             <Setter TargetName="CheckMark" Property="Visibility" Value="Visible"/>
                             <Setter Property="Background" Value="{DynamicResource HighlightColor}"/>
                             <Setter Property="BorderBrush" Value="{DynamicResource HighlightColor}"/>
-
                         </Trigger>
                         <Trigger Property="IsChecked" Value="False">
                             <Setter Property="Background" Value="White"/>
@@ -9592,7 +8949,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
         </Setter>
     </Style>
 <!--End CheckBox Style-->
-
 <!--SearchBox Style-->
     <Style x:Key="SearchBox" TargetType="TextBox">
         <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
@@ -9616,7 +8972,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
         </Setter>
     </Style>
 <!--End SearchBox Style-->
-
 <!--Label Style-->
   <Style TargetType="Label">
     <Setter Property="Background" Value="Transparent"/>
@@ -9637,7 +8992,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
     </Setter>
   </Style>
 <!--End Label Style-->
-
 <!--TextBlock Style-->
     <Style TargetType="TextBlock">
         <Setter Property="Foreground" Value="{DynamicResource TextColorPrimary}"/>
@@ -9645,7 +8999,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
         <Setter Property="TextOptions.TextRenderingMode" Value="ClearType" />
     </Style>
 <!--End TextBlock Style-->
-
 <!-- Menu Style -->
     <Style TargetType="Menu">
         <Setter Property="Background" Value="#FFFFFF"/>
@@ -9669,7 +9022,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
             </EventTrigger>
         </Style.Triggers>
     </Style>
-
     <Style TargetType="MenuItem">
         <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
         <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor}"/>
@@ -9681,7 +9033,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
             <Setter.Value>
                 <ControlTemplate TargetType="MenuItem">
                     <Border x:Name="Border"
-
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Padding="8"
@@ -9692,14 +9043,12 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
-    
                             <!-- Icon -->
                             <ContentPresenter Grid.Column="0" 
                                               ContentSource="Icon"
                                               HorizontalAlignment="Left"
                                               VerticalAlignment="Center"
                                               Margin="0,0,4,0"/>
-    
                             <!-- Text (MenuItem Header) -->
                             <TextBlock x:Name="TextBlock"
                                        Grid.Column="1"
@@ -9707,7 +9056,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                                        Foreground="{TemplateBinding BorderThickness}"
                                        VerticalAlignment="Center"
                                        Margin="0"/>
-    
                             <!-- Shortcut Key (InputGestureText) -->
                             <TextBlock x:Name="ShortcutText"
                                        Grid.Column="2"
@@ -9716,7 +9064,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Right"
                                        Margin="5,0"/>
-    
                             <!-- Arrow Down Indicator for Submenus -->
                             <Path x:Name="Arrow"
                                   Grid.Column="2"
@@ -9726,7 +9073,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                                   VerticalAlignment="Center"
                                   Visibility="Collapsed"
                                   Margin="4,0,0,0"/>
-    
                             <!-- Popup for Submenu -->
                             <Popup Name="PART_Popup" 
                                    Placement="Right" 
@@ -9759,7 +9105,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
         </Setter>
     </Style>
 <!-- End Menu Style -->
-
 <!--Scrollbar Thumbs-->
     <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
         <Setter Property="Template">
@@ -9835,16 +9180,13 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
             </Setter.Value>
         </Setter>
     </Style>
-
     <Style TargetType="ScrollViewer">
         <Setter Property="CanContentScroll" Value="False"/>
         <Setter Property="IsDeferredScrollingEnabled" Value="False"/>
         <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
         <Setter Property="HorizontalScrollBarVisibility" Value="Hidden"/>
     </Style>
-
 <!--End Scrollbar Thumbs-->
-
 <!--TabControl Style-->
     <Style TargetType="TabItem">
         <Setter Property="Template">
@@ -9872,7 +9214,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
         </Setter>
     </Style>
 <!--End TabControl Style-->
-
 <!--ComboBox Style-->
     <Style TargetType="ComboBox">
         <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
@@ -9965,7 +9306,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
         </Setter>
     </Style>
 <!--End ComboBox Style-->
-
 <!--ToggleSwitchStyle Style-->
     <Style x:Key="ToggleSwitchStyle" TargetType="CheckBox">
         <Setter Property="Template">
@@ -10038,7 +9378,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                             </Trigger.ExitActions>
                             <Setter TargetName="ToggleSwitchButton" Property="Background" Value="{DynamicResource ToggleSwitchEnableColor}"/>
                             <Setter TargetName="emad" Property="Background" Value="{DynamicResource HighlightColor}"/>
-
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="ToggleSwitchButton" Property="Width" Value="13"/>
@@ -10048,11 +9387,9 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-
     </Style>
 <!--End ToggleSwitchStyle Style-->
     <!-- Generated from build dont play here -->
-
         <!-- {Dark} -->
 <!-- by {emadadel} -->
         <ResourceDictionary x:Key="Dark">
@@ -10122,35 +9459,28 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
 </ResourceDictionary>
 <!-- Name {Palestine} -->
 
-
 <!-- Generated from build dont play here -->
 
-
 </Window.Resources>
-
 <Grid>
     <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
     </Grid.RowDefinitions>
-
     <!--Header Section-->
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-
                  <!--Menu-->
     <Menu Grid.Row="0" Grid.Column="0" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Left" BorderThickness="0">
-                                    
         <MenuItem Background="Transparent" BorderBrush="Transparent" BorderThickness="0" IsEnabled="False" ToolTip="Emad Adel">
             <MenuItem.Icon>
                 <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/logo.png" Width="70" Height="Auto" Margin="5,5,0,0"></Image>
             </MenuItem.Icon>
         </MenuItem>
-
         <MenuItem Header="{Binding Management}" FontFamily="arial" FontSize="13"  Margin="10,0,0,0" BorderBrush="Transparent" BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Left">
             <MenuItem.Icon>
                 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
@@ -10160,13 +9490,11 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
-
             <MenuItem Name="poweroption" Header="{Binding Power_Options}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
-
             <MenuItem Name="deviceManager" Header="{Binding Device_Manager}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
@@ -10198,37 +9526,30 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 </MenuItem.Icon>
             </MenuItem>
         </MenuItem>
-
         <MenuItem Header="{Binding Preferences}" FontFamily="arial" FontSize="13"  BorderBrush="Transparent" BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Left">
             <MenuItem.Icon>
                 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Text=""/>
             </MenuItem.Icon>
-
             <MenuItem Name="restorepoint" InputGestureText="Shift+Q" Header="{Binding Create_restore_point}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
-
             <MenuItem Header="{Binding Portable_Downloads_Folder}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
-
                 <MenuItem Name="chocoloc" Header="Choco" InputGestureText="Shift+C">
                     <MenuItem.Icon>
                         <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                     </MenuItem.Icon>
                 </MenuItem>
-
                 <MenuItem Name="itt" Header="ITT" InputGestureText="Shift+T">
                     <MenuItem.Icon>
                         <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                     </MenuItem.Icon>
                 </MenuItem>
-
             </MenuItem>
-
             <MenuItem Name="save" ToolTip="Save selected apps" InputGestureText="Shift+S" Header="{Binding Save}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
@@ -10239,7 +9560,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
-
             <MenuItem Header="{Binding Theme}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
@@ -10249,7 +9569,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
 <MenuItem Name="Light" Header="Light"/>
 <MenuItem Name="palestine" Header="Palestine"/>
             </MenuItem>
-
             <MenuItem Header="{Binding Music}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
@@ -10265,7 +9584,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
-
             <MenuItem Header="{Binding Language}">
                     <MenuItem.Icon>
                         <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
@@ -10284,27 +9602,21 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
 <MenuItem Name="tr" Header="Türkçe"/>
 <MenuItem Name="zh" Header="中文"/>
             </MenuItem>
-
             <MenuItem Name="ittshortcut" Header="{Binding Create_desktop_shortcut}" InputGestureText="Shift+I">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
-
              <MenuItem Name="reset" Header="{Binding Reset_preferences}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
-
         </MenuItem>
-        
         <MenuItem Header="{Binding Third_party}" FontFamily="arial" FontSize="13"  BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Center">
             <MenuItem.Icon>
                 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
             </MenuItem.Icon>
-
-
             <MenuItem Name="mas" ToolTip="Windows activation " Header="{Binding MAS}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
@@ -10315,77 +9627,62 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
-
             <MenuItem Name="winoffice" ToolTip="Windows and Office Orginal ISO" Header="{Binding Win_Office}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
-
-
             <MenuItem Header="{Binding Browsers_extensions}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
-                
                 <MenuItem Name="uBlock" Header="uBlock Origin"/>
                 <MenuItem Name="unhook" Header="Unhook: Customize youtube."/>
                 <MenuItem Name="neat" Header="Neat Download Manager"/>
             </MenuItem>
-
             <MenuItem Name="sordum" ToolTip="Collection of free utilities designed to enhance or control various aspects of the Windows operating system" Header="Sordum tools">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
-
             <MenuItem Name="techpowerup" Header="TechPowerUp" ToolTip="Collection of free TechPowerUp utilities.">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
-
             <MenuItem Name="majorgeeks" ToolTip="website that provides trusted, safe, and curated software downloads for Windows users. It focuses on high-quality tools." Header="Major Geeks">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
-
             <MenuItem Name="webtor" ToolTip="Web-based platform that allows users to stream torrent files directly in their browser without needing to download them." Header="Webtor">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
-
-            
             <MenuItem Name="fmhy" ToolTip="The largest collection of free stuff on the internet!" Header="fmhy">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
-
             <MenuItem Name="shelltube" ToolTip="Download youtube video easily" Header="ShellTube">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
-            
         </MenuItem>
         <MenuItem Name="dev" Header="{Binding About}" FontFamily="arial" FontSize="13"  BorderBrush="Transparent" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Center">
             <MenuItem.Icon>
                 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
             </MenuItem.Icon>
         </MenuItem>
-
     </Menu>
 <!--End Menu-->
-
             <Grid Grid.Column="1"  HorizontalAlignment="Right" Margin="0,0,20,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-                    
                 <!--AppsCategory-->
   <ComboBox 
     SelectedIndex="0" 
@@ -10394,7 +9691,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
     VerticalAlignment="Center" 
     HorizontalAlignment="Center" 
     Width="auto">
-
       <ComboBoxItem Content="{Binding all}"/>
       <ComboBoxItem Content="GPU Drivers"/>
       <ComboBoxItem Content="Web Browsers"/>
@@ -10415,10 +9711,8 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
       <ComboBoxItem Content="Drivers"/>
     </ComboBox>
 <!--End AppsCategory-->
-
 <!--TwaeksCategory-->
   <ComboBox 
-
       SelectedIndex="0" 
       Name="TwaeksCategory" 
       Grid.Column="0" 
@@ -10426,7 +9720,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
       HorizontalAlignment="Center" 
       Visibility="Hidden"
       Width="auto">
-
       <ComboBoxItem Content="{Binding all}"/>
       <ComboBoxItem Content="Privacy"/>
       <ComboBoxItem Content="Fixer"/>
@@ -10435,23 +9728,17 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
       <ComboBoxItem Content="Power"/>
       <ComboBoxItem Content="Protection"/>
       <ComboBoxItem Content="Classic"/>
-
   </ComboBox>
 <!--End TwaeksCategory-->
-
                 <!--Search -->
 <Grid HorizontalAlignment="Left" Grid.Column="1" VerticalAlignment="Center">
-
-
     <TextBox Padding="8"
         Width="120"
         VerticalAlignment="Center"
         HorizontalAlignment="Left"
         Style="{StaticResource SearchBox}"
         Name="searchInput" />
-
     <Grid Name="search_placeholder">
-
         <TextBlock 
                 Name="SearchIcon"
                 Text="" 
@@ -10462,7 +9749,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 HorizontalAlignment="Left" 
                 IsHitTestVisible="False"
                 Margin="10,0,0,0" />
-
         <TextBlock 
                 Text="Control + F" 
                 Foreground="Gray" 
@@ -10470,17 +9756,13 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 HorizontalAlignment="Left" 
                 IsHitTestVisible="False"
                 Margin="30,0,0,0" />
-
     </Grid>
-
 </Grid>
 <!--End Search-->
-
 
             </Grid>
         </Grid>
     <!--Header Section-->
-
         <!--TabControl-->
     <TabControl Name="taps" TabStripPlacement="Left" Grid.Row="1"  BorderBrush="Transparent" Height="Auto" Width="Auto" Foreground="White" Background="Transparent">
             <TabItem Name="apps" Header="{Binding apps}" BorderBrush="{x:Null}" >
@@ -12746,7 +12028,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
             <TextBlock Width="800" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text=" Desktop Telegram client with good customization and Ghost mode."/>
         </StackPanel>
                     </ListView>
-
                 </TabItem.Content>
             </TabItem>
             <TabItem x:Name="tweeksTab" Header="{Binding tweaks}" BorderBrush="{x:Null}" Background="{x:Null}">
@@ -13107,19 +12388,13 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
             </TabItem>
     </TabControl>
 <!--End TabControl-->
-        
-
-<Grid Row="2">
-
+        <Grid Row="2">
   <Grid.ColumnDefinitions>
     <ColumnDefinition Width="*"/>
     <ColumnDefinition Width="auto"/>
   </Grid.ColumnDefinitions>
-
-
   <!-- Buttons -->
      <Grid Column="1" Background="Transparent">
-      
       <!--Install Button-->
         <Button
           Name="installBtn"
@@ -13132,14 +12407,12 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
           Width="140" 
           Height="45" 
           Margin="20">
-
           <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
               <TextBlock Name="installText" 
               Text="{Binding Install}" 
               Foreground="White" 
               Margin="0" 
               VerticalAlignment="Center"/>
-
               <TextBlock Name="installIcon"
               Text=" &#xE930;" 
               Foreground="White" 
@@ -13150,10 +12423,8 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
           </StackPanel>
         </Button>
       <!--End Install Button-->
-
       <!--Apply Button-->
           <Button
-
             Name="applyBtn"
             FontSize="14" 
             HorizontalAlignment="Center"
@@ -13164,34 +12435,26 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
             Width="140" 
             Height="45" 
             Margin="20">
-            
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-
                 <TextBlock Name="applyText" 
                 Text="{Binding Apply}" 
                 Foreground="White" 
                 Margin="0" 
                 VerticalAlignment="Center"/>
-
                 <TextBlock Name="applyIcon" 
                 Text=" &#xE930;" Foreground="White" 
                 FontFamily="Segoe MDL2 Assets" 
                 FontSize="14" 
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"/>
-
             </StackPanel>
-
           </Button>
       <!--End Apply Button-->
-
     </Grid>
   <!-- Buttons -->
-
   <!-- Quote Text & Icon -->
     <Grid Column="0" Background="Transparent">
       <StackPanel Orientation="Horizontal">
-
         <TextBlock
           Text="&#xEFA9;"
           Name="QuoteIcon"
@@ -13202,7 +12465,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
           VerticalAlignment="Center"
           FontFamily="Segoe MDL2 Assets"
         />
-
         <TextBlock Name="quotes"
           HorizontalAlignment="Left"
           VerticalAlignment="Center" 
@@ -13213,19 +12475,13 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
           FlowDirection="LeftToRight"
           Width="611"
         />
-
       </StackPanel>
     </Grid>
   <!-- Quote Text & Icon -->
-
 </Grid>
-
 </Grid>
 </Window>
 <!--End Main Window-->
-
-
-
 '
 #===========================================================================
 #endregion End WPF Main Window
@@ -13233,7 +12489,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
 #===========================================================================
 #region Begin WPF About Window
 #===========================================================================
-
 $AboutWindowXaml = '<Window
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -13247,7 +12502,6 @@ $AboutWindowXaml = '<Window
     MinWidth="455"
     ResizeMode="NoResize"
     Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/icon.ico">
-
     <Window.Resources>
       <!--Scrollbar Thumbs-->
           <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
@@ -13331,14 +12585,12 @@ $AboutWindowXaml = '<Window
           <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor2}"/>
           <Setter Property="BorderBrush" Value="Transparent"/>
           <Setter Property="BorderThickness" Value="1"/>
-          
           <Setter Property="Template">
               <Setter.Value>
                   <ControlTemplate TargetType="Button">
                       <Border CornerRadius="20" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
                           <ContentPresenter HorizontalAlignment="Center"
                                               VerticalAlignment="Center"/>
-                          
                       </Border>
                   </ControlTemplate>
               </Setter.Value>
@@ -13352,9 +12604,7 @@ $AboutWindowXaml = '<Window
         </Style>
       <!--End Button Style-->
     </Window.Resources>
-
   <Grid Margin="8">
-
       <!-- Define rows and columns for layout -->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/> <!-- Logo -->
@@ -13362,14 +12612,11 @@ $AboutWindowXaml = '<Window
             <RowDefinition Height="Auto"/> <!-- Icons -->
         </Grid.RowDefinitions>
       <!-- Define rows and columns for layout -->
-
       <!-- Logo Section -->
         <Grid Grid.Row="0">
             <StackPanel Orientation="Vertical">
-
                 <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/logo.png" 
                 Height="90" Width="Auto" HorizontalAlignment="Center" Margin="0"/>
-
                 <TextBlock  
                     Text="Made with ♥ by Emad Adel"
                     TextWrapping="Wrap" 
@@ -13381,7 +12628,6 @@ $AboutWindowXaml = '<Window
                     FontSize="14" 
                     TextAlignment="Center"
                 />
-
                 <TextBlock 
                     Name="ver" 
                     Text="9/1/1998" 
@@ -13389,7 +12635,6 @@ $AboutWindowXaml = '<Window
                     TextAlignment="Center" 
                     Foreground="{DynamicResource TextColorSecondaryColor2}" 
                 />
-
                 <!-- Description Section -->
                 <TextBlock  
                     Text="ITT created to simplify software installation and Windows tweaks, making it easier for others to use their computers. It is an open-source project, and you can contribute to make it better by adding your favorite apps and more."
@@ -13401,11 +12646,9 @@ $AboutWindowXaml = '<Window
                     FontSize="14" 
                     TextAlignment="Center"
                 />
-
             </StackPanel>
         </Grid>
       <!-- Logo Section End -->
-
       <!-- Contribute Names Section -->
         <Grid Grid.Row="1">
           <StackPanel Orientation="Vertical">
@@ -13421,9 +12664,7 @@ $AboutWindowXaml = '<Window
                 </ScrollViewer>
           </StackPanel>
         </Grid>
-
       <!-- Contribute Names Section End -->
-
       <!-- Social Media Icons Section -->
         <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,20,0,0">
             <Button Width="38" Height="38" Name="github" Cursor="Hand" Margin="5">
@@ -13443,7 +12684,6 @@ $AboutWindowXaml = '<Window
           </Button>
         </StackPanel>
       <!-- Social Icons Section End -->
-
   </Grid>
 </Window>
 
@@ -13454,23 +12694,16 @@ $AboutWindowXaml = '<Window
 #===========================================================================
 #region Begin WPF Event Window
 #===========================================================================
-
 function Show-Event {
-
-
     [xml]$event = $EventWindowXaml
     $EventWindowReader = (New-Object System.Xml.XmlNodeReader $event)
     $itt.event = [Windows.Markup.XamlReader]::Load($EventWindowReader)
     $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.CurretTheme))
-
-
     $CloseBtn = $itt.event.FindName('closebtn')
-
     
         $itt.event.FindName('title').text = 'CHANGELOG'.Trim()  # Set the title text
         $itt.event.FindName('date').text = '11/30/2024'.Trim()  # Set the Date text
         
-
     
             $itt.event.FindName('esg').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/itt')
@@ -13492,21 +12725,17 @@ function Show-Event {
                 })
             
             
-
     $CloseBtn.add_MouseLeftButtonDown({
         $itt.event.Close()
     })
-
     $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({
         DisablePopup
         $itt.event.Close()
     })
-
     # Show dialog
     if($itt.PopupWindow -eq "off") {return}   
     $itt.event.ShowDialog() | Out-Null
 }
-
 function DisablePopup {
     Set-ItemProperty -Path $itt.registryPath  -Name "PopupWindow" -Value "off" -Force
 }
@@ -13522,7 +12751,6 @@ $EventWindowXaml = '<Window
     ShowInTaskbar = "False"
     Topmost="True"
     Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/icon.ico">
-
     <Window.Resources>
         <!--Scrollbar Thumbs-->
             <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
@@ -13601,7 +12829,6 @@ $EventWindowXaml = '<Window
             </Style>
         <!--End Scrollbar Thumbs-->
     </Window.Resources>
-
     <Window.Triggers>
         <EventTrigger RoutedEvent="Window.Loaded">
             <BeginStoryboard>
@@ -13611,24 +12838,16 @@ $EventWindowXaml = '<Window
             </BeginStoryboard>
         </EventTrigger>
     </Window.Triggers>
-
-
     <Border Background="{DynamicResource PrimaryBackgroundColor}" BorderBrush="{DynamicResource SecondaryPrimaryBackgroundColor}" BorderThickness="4" CornerRadius="10">
-
     <Grid>
-
-
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-
             <StackPanel x:Name="MainStackPanel" Height="Auto" Background="Transparent" Orientation="Vertical" Margin="20">
-            
                 <!-- Title -->
                     <Grid Row="0" Background="Transparent">
-                                
                         <TextBlock Text="&#10006;" 
                         Name="closebtn"
                         HorizontalAlignment="Right" 
@@ -13636,10 +12855,7 @@ $EventWindowXaml = '<Window
                         Margin="0"
                         Cursor="Hand"
                         Foreground="red" />
-
-
                         <StackPanel Orientation="Vertical" Margin="0">
-
                             <TextBlock 
                             Name="title"
                             Height="Auto"
@@ -13651,7 +12867,6 @@ $EventWindowXaml = '<Window
                             TextWrapping="Wrap"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left" />
-        
                             <TextBlock
                             Name="date" 
                             Height="Auto"
@@ -13661,14 +12876,10 @@ $EventWindowXaml = '<Window
                             TextWrapping="Wrap"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left" />
-        
                         </StackPanel>
-
                     </Grid>
                 <!-- End Title -->
-
             </StackPanel>
-
         <Grid Row="1" Background="Transparent" Margin="20">
             <ScrollViewer Name="ScrollViewer" VerticalScrollBarVisibility="Auto" Height="Auto">
                 <StackPanel Orientation="Vertical">
@@ -13676,102 +12887,74 @@ $EventWindowXaml = '<Window
 <Image x:Name=''ytv'' Source=''https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/thumbnail.jpg'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''/>
 <TextBlock Text='' • Keyboard Shortcuts:'' FontSize=''20'' Margin=''0,18,0,18'' Foreground=''{DynamicResource PrimaryButtonForeground}'' FontWeight=''bold'' TextWrapping=''Wrap''/>
 
-                
                 <StackPanel Orientation=''Vertical''>
                     <TextBlock Text=''• Ctrl + F: Enter search mode. Press ESC to exit.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
                 </StackPanel>
                 
-                
 
-                
                 <StackPanel Orientation=''Vertical''>
                     <TextBlock Text=''• Ctrl + Q: Switch to the apps tab.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
                 </StackPanel>
                 
-                
 
-                
                 <StackPanel Orientation=''Vertical''>
                     <TextBlock Text=''• Ctrl + W: Switch to the Tweaks tab.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
                 </StackPanel>
                 
-                
 
-                
                 <StackPanel Orientation=''Vertical''>
                     <TextBlock Text=''• Ctrl + E: Switch to the Settings tab.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
                 </StackPanel>
                 
-                
 
-                
                 <StackPanel Orientation=''Vertical''>
                     <TextBlock Text=''• Ctrl + S: Install selected apps also apply selected tweaks.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
                 </StackPanel>
                 
-                
 
-                
                 <StackPanel Orientation=''Vertical''>
                     <TextBlock Text=''• Shift + S: Save items to JSON file.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
                 </StackPanel>
                 
-                
 
-                
                 <StackPanel Orientation=''Vertical''>
                     <TextBlock Text=''• Shift + D: Load items save file.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
                 </StackPanel>
                 
-                
 
-                
                 <StackPanel Orientation=''Vertical''>
                     <TextBlock Text=''• Shift + M: Mute music.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
                 </StackPanel>
                 
-                
 
-                
                 <StackPanel Orientation=''Vertical''>
                     <TextBlock Text=''• Shift + F: Play music.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
                 </StackPanel>
                 
-                
 
-                
                 <StackPanel Orientation=''Vertical''>
                     <TextBlock Text=''• Shift + C: Open Choco folder in File Explorer.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
                 </StackPanel>
                 
-                
 
-                
                 <StackPanel Orientation=''Vertical''>
                     <TextBlock Text=''• Shift + T: Open ITT folder in File Explorer.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
                 </StackPanel>
                 
-                
 
-                
                 <StackPanel Orientation=''Vertical''>
                     <TextBlock Text=''• Shift + Q: Restore point.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
                 </StackPanel>
                 
-                
 
-                
                 <StackPanel Orientation=''Vertical''>
                     <TextBlock Text=''• Shift + I: ITT Shortcut.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
                 </StackPanel>
                 
-                
 
-                
                 <StackPanel Orientation=''Vertical''>
                     <TextBlock Text=''• Ctrl + G: Closes the application.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
                 </StackPanel>
-                
                 
 <TextBlock Text=''A Secret Feature Awaits – Unlock It:'' FontSize=''20'' Margin=''0,18,0,18'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
 <Image x:Name=''esg'' Source=''https://github.com/user-attachments/assets/edb67270-d9d2-4e94-8873-1c822c3afe2f'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''/>
@@ -13787,7 +12970,6 @@ $EventWindowXaml = '<Window
                 </StackPanel>
             </ScrollViewer>
         </Grid>
-
         <Grid Row="2" Background="Transparent">
                 <TextBlock 
                 Name="DisablePopup" 
@@ -13803,11 +12985,8 @@ $EventWindowXaml = '<Window
                 />
         </Grid>
     </Grid>
-
-
     </Border>
 </Window>
-
 '
 #===========================================================================
 #endregion End WPF Event Window
@@ -13817,14 +12996,11 @@ $EventWindowXaml = '<Window
 #===========================================================================
 # Set the maximum number of threads for the RunspacePool to the number of threads on the machine
 $maxthreads = [int]$env:NUMBER_OF_PROCESSORS
-
 # Create a new session state for parsing variables into our runspace
 $hashVars = New-object System.Management.Automation.Runspaces.SessionStateVariableEntry -ArgumentList 'itt',$itt,$Null
 $InitialSessionState = [System.Management.Automation.Runspaces.InitialSessionState]::CreateDefault()
-
 # Add the variable to the session state
 $InitialSessionState.Variables.Add($hashVars)
-
 $desiredFunctions = @(
 'Install-App' , 
 'InvokeCommand' ,
@@ -13844,44 +13020,33 @@ $desiredFunctions = @(
 'Refresh-Explorer',
 'Remove-ScheduledTasks'
 )
-
 $functions = Get-ChildItem function:\ | Where-Object { $_.Name -in $desiredFunctions }
 foreach ($function in $functions) {
     # Directly retrieve the function definition
     $functionDefinition = (Get-Command $function.Name).ScriptBlock.ToString()
     $functionEntry = New-Object System.Management.Automation.Runspaces.SessionStateFunctionEntry -ArgumentList $($function.Name), $functionDefinition
     $initialSessionState.Commands.Add($functionEntry)
-
     # debug
     #if ($Debug) { Write-Output "Added function: $($function.Name)" }
 }
-
-
 # Create and open the runspace pool
 $itt.runspace = [runspacefactory]::CreateRunspacePool(1, $maxthreads, $InitialSessionState, $Host)
 $itt.runspace.Open()
-
 [xml]$XAML = $MainWindowXaml
-
 # Read the XAML file
 $reader = [System.Xml.XmlNodeReader] $xaml
-
 try {
     $itt["window"] = [Windows.Markup.XamlReader]::Load($reader)
 }catch{
     Write-Host $_.Exception.Message # Capture the error message
 }
-
 try {
-    
     #===========================================================================
     #region Create default keys 
     #===========================================================================
-    
         $appsTheme = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name "AppsUseLightTheme"
         $fullCulture = Get-ItemPropertyValue -Path "HKCU:\Control Panel\International" -Name "LocaleName"
         $shortCulture = $fullCulture.Split('-')[0]
-
         # Ensure registry key exists and set defaults if necessary
         if (-not (Test-Path $itt.registryPath)) {
             New-Item -Path $itt.registryPath -Force | Out-Null
@@ -13891,7 +13056,6 @@ try {
             Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value "100" -Force
             Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value "On" -Force
         }
-
         try {
             # Attempt to get existing registry values
             $itt.Theme = (Get-ItemProperty -Path $itt.registryPath -Name "Theme" -ErrorAction Stop).Theme
@@ -13909,21 +13073,15 @@ try {
             New-ItemProperty -Path $itt.registryPath -Name "Music" -Value "100" -PropertyType String -Force *> $Null
             New-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value "On" -PropertyType String -Force *> $Null
         }
-
     #===========================================================================
     #endregion Create default keys 
     #===========================================================================
-
     #===========================================================================
     #region Set Language based on culture
     #===========================================================================
-        
         try {
-            
             switch ($itt.Locales) {
-
                 "default" {
-                    
                     switch($shortCulture)
                     {
                         "ar" { $locale = "ar" }
@@ -13940,7 +13098,6 @@ try {
                         "it" { $locale = "it" }
                         default { $locale = "en" }
                     }
-    
                 }
                 "ar" { $locale = "ar" }
                 "en" { $locale = "en" }
@@ -13960,21 +13117,16 @@ try {
             $itt.Language = $locale
         }
         catch {
-
             # fallbak to en lang
             $itt["window"].DataContext = $itt.database.locales.Controls.en
         }
-
     #===========================================================================
     #endregion Set Language based on culture
     #===========================================================================
-
     #===========================================================================
     #region Check theme settings
     #===========================================================================
-
         try {
-
             $themeResource = switch($itt.Theme)
             {
                 "Light"{
@@ -13985,19 +13137,15 @@ try {
                 }
                 "Custom"{
                     $itt.CurretTheme
-
                 }
                 default{
-
                     switch ($appsTheme) 
                     {
                         "0" { "Dark" }
                         "1" { "Light" }
                     }
-
                 }
             }
-
             $itt["window"].Resources.MergedDictionaries.Add($itt["window"].FindResource($themeResource))
             $itt.CurretTheme = $themeResource
         }
@@ -14008,32 +13156,26 @@ try {
                 "0" { "Dark" }
                 "1" { "Light" }
             }
-
             Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -Force
             Set-ItemProperty -Path $itt.registryPath -Name "UserTheme" -Value "none" -Force
             $itt["window"].Resources.MergedDictionaries.Add($itt["window"].FindResource($fallback))
             $itt.CurretTheme = $fallback
         }
-
     #===========================================================================
     #endregion Check theme settings
     #===========================================================================
-
     #===========================================================================
     #region Get user Settings from registry
     #===========================================================================
     $itt.mediaPlayer.settings.volume = "$($itt.Music)"
-
     switch($itt.Music){
         "100" { $itt["window"].title = "Install Tweaks Tool #StandWithPalestine 🔊"}
         "0" {$itt["window"].title = "Install Tweaks Tool #StandWithPalestine 🔈"}
     }
-
     $itt.PopupWindow = (Get-ItemProperty -Path $itt.registryPath -Name "PopupWindow").PopupWindow
     #===========================================================================
     #endregion Get user Settings from registry
     #===========================================================================
-    
     # init taskbar icon
     $itt["window"].TaskbarItemInfo = New-Object System.Windows.Shell.TaskbarItemInfo
     Set-Taskbar -progress "None" -icon "logo"
@@ -14041,19 +13183,13 @@ try {
 catch {
     Write-Host "Error: $_"
 }
-
 # List Views
-
-
 $itt.CurrentList
 $itt.CurrentCategory
-
-
 $itt.TabControl = $itt["window"].FindName("taps")
 $itt.AppsListView = $itt["window"].FindName("appslist")
 $itt.TweaksListView = $itt["window"].FindName("tweakslist")
 $itt.SettingsListView = $itt["window"].FindName("SettingsList")
-
 # Buttons and Inputs
 $itt.Description = $itt["window"].FindName("description")
 $itt.Quotes = $itt["window"].FindName("quotes")
@@ -14065,10 +13201,6 @@ $itt.installIcon = $itt["window"].FindName("installIcon")
 $itt.applyText = $itt["window"].FindName("applyText")
 $itt.applyIcon = $itt["window"].FindName("applyIcon")
 $itt.QuoteIcon = $itt["window"].FindName("QuoteIcon")
-
-
-
-
 
 #===========================================================================
 #endregion End loadXmal
@@ -14082,10 +13214,8 @@ $itt.QuoteIcon = $itt["window"].FindName("QuoteIcon")
 $xaml.SelectNodes("//*[@Name]") | ForEach-Object {
     $name = $_.Name
     $element = $itt["window"].FindName($name)
-
     if ($element) {
         $itt[$name] = $element
-
         # Add event handlers based on element type
         switch ($element.GetType().Name) {
             "Button" {
@@ -14096,7 +13226,6 @@ $xaml.SelectNodes("//*[@Name]") | ForEach-Object {
                     Invoke-Button $args[0].Name -Content $args[0].Header
                 })
             }
-
             "TextBox" {
                 $element.Add_TextChanged({ Invoke-Button $args[0].Name })
                 $element.Add_GotFocus({ Invoke-Button $args[0].Name })
@@ -14120,16 +13249,12 @@ $xaml.SelectNodes("//*[@Name]") | ForEach-Object {
 #===========================================================================
 #endregion Select elements with a Name attribute using XPath and iterate over them
 #===========================================================================
-
 # Define OnClosing event handler
 $onClosingEvent = {
     param($s, $c)
-
     $exitDialog = $itt.database.locales.Controls.$($itt.Language).Exit_msg
-
     # Show confirmation message box
     $result = [System.Windows.MessageBox]::Show($exitDialog, "Confirmation", [System.Windows.MessageBoxButton]::YesNo, [System.Windows.MessageBoxImage]::Question)
-
     # Check user's choice
     if ($result -eq [System.Windows.MessageBoxResult]::Yes) {
         StopAllRunspace
@@ -14137,34 +13262,26 @@ $onClosingEvent = {
         $c.Cancel = $true
     }
 }
-
 # Handle the Loaded event
 $itt["window"].Add_ContentRendered({
     Startup
     Show-Event
 })
-
 $itt.SearchInput.Add_GotFocus({
     $itt["window"].FindName("search_placeholder").Visibility = "Hidden"
 })
 $itt.SearchInput.Add_LostFocus({
-
     if ([string]::IsNullOrEmpty($itt.SearchInput.Text)) 
     {
         $itt["window"].FindName("search_placeholder").Visibility = "Visible";
     }
-
 });
-
 # Close Event handler
 $itt["window"].add_Closing($onClosingEvent)
-
 # Keyboard shortcut
 $itt["window"].Add_PreViewKeyDown($KeyEvents)
-
 # Show Window
 $itt["window"].ShowDialog() | Out-Null
-
 $script:powershell.Dispose()        
 $itt.runspace.Dispose()             
 $itt.runspace.Close()          

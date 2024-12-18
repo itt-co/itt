@@ -1,24 +1,17 @@
 function Invoke-Button {
-
     <#
         .SYNOPSIS
         Handles various button actions and commands based on the specified action parameter.
-
         .DESCRIPTION
         The `Invoke-Button` function executes different actions depending on the input parameter. It manages operations such as installing apps, applying tweaks, changing themes, opening system utilities, and managing language settings. This function is designed to be used with UI elements where each button triggers a specific action.
-
         .PARAMETER action
         A string specifying the action to perform. The action can be one of several predefined values representing different operations, such as installing apps, applying tweaks, opening system utilities, changing themes, or managing language settings.
-
         .EXAMPLE
         Invoke-Button -action "installBtn"
-
         .EXAMPLE
         Invoke-Button -action "Dark"
-
         .EXAMPLE
         Invoke-Button -action "sysinfo"
-
         .NOTES
         - The function uses a `Switch` statement to handle different actions based on the `$action` parameter.
         - For UI-related actions, such as installing apps or applying tweaks, it calls `Invoke-Install` or `Invoke-Apply`.
@@ -29,17 +22,13 @@ function Invoke-Button {
         - For opening URLs related to tools or scripts, it uses `Start-Process` with the URL as an argument.
         - The `Debug-Message` function is used for internal debugging and can be uncommented for logging purposes.
     #>
-
     Param ([string]$action,[string]$Content)
-
     # Helper function for debugging
     function Debug-Message {
         if($Debug) {  Add-Log "Name:$action Content:$Content" -Level "debug"  }
     }
-
     # Switch block to handle different actions
     Switch -Wildcard ($action) {
-
         "installBtn" {
             $itt.SearchInput.Text = $null
             Invoke-Install
@@ -60,16 +49,12 @@ function Invoke-Button {
             Search
             Debug-Message
         }
-
         # Menu items
-
         "systemlang" {
             Set-Language -lang "default"
             Debug-Message
         }
-        
         #{locales}
-
         "save" {
             SaveItemsToJson
             Debug-Message
@@ -78,7 +63,6 @@ function Invoke-Button {
             LoadJson
             Debug-Message
         }
-
         # Device Management
         "deviceManager" {
             Start-Process devmgmt.msc 
@@ -113,34 +97,26 @@ function Invoke-Button {
             Start-Process diskmgmt.msc
             Debug-Message $action
         }
-
         "systheme" {
             SwitchToSystem 
             Debug-Message
         }
-
         #{themes}
-
-
-
         # chocoloc
         "chocoloc" {
             Start-Process explorer.exe "C:\ProgramData\chocolatey\lib"
             Debug-Message $action
         }
-
         # itt Dir
         "itt" {
             Start-Process explorer.exe $env:ProgramData\itt
             Debug-Message $action
         }
-
         # restore point
         "restorepoint" {
             RestorePoint
             Debug-Message $action
         }
-
         # Music
         "moff" {
             MuteMusic -Value 0
@@ -150,7 +126,6 @@ function Invoke-Button {
             UnmuteMusic -Value 100
             Debug-Message $action
         }
-
         # Mirror Links
         "unhook" {
             Start-Process "https://unhook.app/" 
@@ -172,7 +147,6 @@ function Invoke-Button {
             Start-Process "https://addons.mozilla.org/en-US/firefox/addon/neatdownloadmanager-extension/" 
             Debug-Message $action
         }
-
         "winoffice" {
             Start-Process "https://massgrave.dev/genuine-installation-media" 
             Debug-Message $action
@@ -185,12 +159,10 @@ function Invoke-Button {
             Start-Process "https://www.majorgeeks.com/" 
             Debug-Message $action
         }
-
         "techpowerup" {
             Start-Process "https://www.techpowerup.com/download/" 
             Debug-Message $action
         }
-
         # Other actions
         "ittshortcut" {
             ITTShortcut $action
@@ -201,24 +173,19 @@ function Invoke-Button {
             Debug-Message $action
         }
         # Reset-Preferences
-
         "reset"{
             Reset-Preferences
             Debug-Message $action
         }
-
         "shelltube"{
             Start-Process -FilePath "powershell" -ArgumentList "irm https://github.com/emadadel4/shelltube/releases/latest/download/st.ps1 | iex"
             Debug-Message $action
         }
-
         "fmhy"{
-
             Start-Process ("https://fmhy.net/")
             Debug-Message $action
         }
         "webtor"{
-
             Start-Process ("https://webtor.io/")
             Debug-Message $action
         }

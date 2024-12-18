@@ -6,9 +6,7 @@
 # https://github.com/microsoft/action-psscriptanalyzer
 # For more information on PSScriptAnalyzer in general, see
 # https://github.com/PowerShell/PSScriptAnalyzer
-
 name: PSScriptAnalyzer
-
 on:
   push:
     branches: [ "main", "rules" ]
@@ -16,10 +14,8 @@ on:
     branches: [ "main" ]
   schedule:
     - cron: '35 17 * * 1'
-
 permissions:
   contents: read
-
 jobs:
   build:
     permissions:
@@ -30,7 +26,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - name: Run PSScriptAnalyzer
         uses: microsoft/psscriptanalyzer-action@6b2948b1944407914a58661c49941824d149734f
         with:
@@ -41,7 +36,6 @@ jobs:
           # Include your own basic security rules. Removing this option will run all the rules
           includeRule: '"PSAvoidGlobalAliases", "PSAvoidUsingConvertToSecureStringWithPlainText"'
           output: results.sarif
-
       # Upload the SARIF file generated in the previous step
       - name: Upload SARIF results file
         uses: github/codeql-action/upload-sarif@v2

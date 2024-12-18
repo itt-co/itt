@@ -1,4 +1,3 @@
-
 <!--Main Window-->
 <Window
 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -13,48 +12,35 @@ ShowInTaskbar = "True"
 TextOptions.TextFormattingMode="Ideal"
 TextOptions.TextRenderingMode="Auto"
 Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico">
-
 <Window.Resources>
     {{Style}}
     {{Colors}}
 </Window.Resources>
-
 <Grid>
     <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
     </Grid.RowDefinitions>
-
     <!--Header Section-->
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-
                 {{menu}}
-
             <Grid Grid.Column="1"  HorizontalAlignment="Right" Margin="0,0,20,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-                    
                 {{Catagory}}
-
                 {{search}}
-
             </Grid>
         </Grid>
     <!--Header Section-->
-
         {{Taps}}
         {{buttons}}
-
 </Grid>
 </Window>
 <!--End Main Window-->
-
-
-

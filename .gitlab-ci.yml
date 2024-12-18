@@ -1,6 +1,5 @@
 stages:
   - mirror
-
 mirror:
   stage: mirror
   script:

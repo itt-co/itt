@@ -1,16 +1,12 @@
 <!--Search -->
 <Grid HorizontalAlignment="Left" Grid.Column="1" VerticalAlignment="Center">
-
-
     <TextBox Padding="8"
         Width="120"
         VerticalAlignment="Center"
         HorizontalAlignment="Left"
         Style="{StaticResource SearchBox}"
         Name="searchInput" />
-
     <Grid Name="search_placeholder">
-
         <TextBlock 
                 Name="SearchIcon"
                 Text="" 
@@ -21,7 +17,6 @@
                 HorizontalAlignment="Left" 
                 IsHitTestVisible="False"
                 Margin="10,0,0,0" />
-
         <TextBlock 
                 Text="Control + F" 
                 Foreground="Gray" 
@@ -29,8 +24,6 @@
                 HorizontalAlignment="Left" 
                 IsHitTestVisible="False"
                 Margin="30,0,0,0" />
-
     </Grid>
-
 </Grid>
 <!--End Search-->

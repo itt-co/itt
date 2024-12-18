@@ -25,7 +25,6 @@
                         </ListView.ItemsPanel>
                         {{Apps}}
                     </ListView>
-
                 </TabItem.Content>
             </TabItem>
             <TabItem x:Name="tweeksTab" Header="{Binding tweaks}" BorderBrush="{x:Null}" Background="{x:Null}">

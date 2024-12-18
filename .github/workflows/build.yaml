@@ -1,9 +1,7 @@
 name: Build
-
 permissions:
   contents: write
   actions: read
-
 on:
   workflow_dispatch:
   push:
@@ -11,15 +9,12 @@ on:
       - CHANGELOG.md
     branches:
       - main  
-
 jobs:
   build-runspace:
     runs-on: windows-latest
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-
       - name: Build project
         shell: pwsh
         run: |
@@ -27,7 +22,6 @@ jobs:
         continue-on-error: false 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Commit 'itt' file
         run: |
           git config --global user.name "emadadel4"

@@ -1,5 +1,4 @@
 Write-Host "
-
 +-------------------------------------------------------------------------+
 |    ___ _____ _____   ____    _  _____  _    ____    _    ____  _____    |
 |   |_ _|_   _|_   _| |  _ \  / \|_   _|/ \  | __ )  / \  / ___|| ____|   |
@@ -8,28 +7,20 @@ Write-Host "
 |   |___| |_|   |_|   |____/_/   \_\_/_/   \_\____/_/   \_\____/|_____|   |
 |    Made with ♥  By Emad Adel                                            |
 +-------------------------------------------------------------------------+
-
 "
-
 try {
-  
   # Prompt the user for the name and author
   $themeName = Read-Host -Prompt "Enter theme name (e.g., The Dark Knight)"
   $authorName = Read-Host -Prompt "Enter author name (e.g., Emad Adel)"
-
   $Key = $themeName -replace , '[^\w]', ''
-
   # Define the path for the Theme folder
   $themeFolderPath = "themes"
-
   # Create the Theme folder if it doesn't exist
   if (-not (Test-Path -Path $themeFolderPath)) {
       New-Item -ItemType Directory -Path $themeFolderPath | Out-Null
   }
-
   # Define the file name based on the theme name
   $fileName = "$themeFolderPath\$($themeName -replace '_', '' -replace ' ', '' -replace '[^\w]', '').xaml"
-
   # Generate the ResourceDictionary content
   $resourceDictionary = @"
   <!-- {$themeName} -->
@@ -55,14 +46,11 @@ try {
   </ResourceDictionary>
   <!-- Name {$themeName} -->
 "@
-
   # Save the ResourceDictionary content to a file
   Set-Content -Path $fileName -Value $resourceDictionary
-
   # Output the location of the saved file
   Write-Output "The theme has been successfully generated and saved to: $fileName" -ForegroundColor Green
   Write-Output "Now, feel free to customize the colors and create your own cool theme!"
-
 }
 catch {
     Write-Host "An error occurred: $_"

@@ -1,14 +1,10 @@
 function Invoke-LaunchTo {
-
-   
     Param(
         $Enabled,
         [string]$Path = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced",
         [string]$name = "LaunchTo"
     )
-
         Try{
-
             if ($Enabled -eq $false){
                 $value = 1
                 Add-Log -Message "Launch to This PC" -Level "Apply"
@@ -17,10 +13,8 @@ function Invoke-LaunchTo {
                 $value = 2
                 Add-Log -Message "Launch to Quick Access" -Level "Disabled"
             }
-
         Set-ItemProperty -Path $Path -Name $name -Value $value -ErrorAction Stop
         Refresh-Explorer
-
         }
         Catch [System.Security.SecurityException] {
             Write-Warning "Unable to set $Path\$Name to $Value due to a Security Exception"

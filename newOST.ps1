@@ -1,7 +1,6 @@
 param (
     [string]$json = "./static/Database/OST.json"
 )
-
 Write-Host "
 +-------------------------------------------------------------------------+
 |    ___ _____ _____   ____    _  _____  _    ____    _    ____  _____    |
@@ -12,26 +11,20 @@ Write-Host "
 |    Made with ♥  By Emad Adel                                            |
 +-------------------------------------------------------------------------+
 "
-
 try {
-    
     # Read existing JSON file
     $jsonFilePath = $json
     $existingData = Get-Content $json -Raw -ErrorAction Stop | ConvertFrom-Json
-
     # Prompt for input
     $name = Read-Host "Enter the track name"
     $url = Read-Host "Enter the URL (Example: www.eprojects.orgfree.com/ezio_family.mp3)"
-
     # Store input
     $newTrack = @{
         name = $name
         url  = $url
     }
-
     # Add new object to existing array
     $existingData.Tracks += $newTrack
-
     # Write updated JSON to file
     $existingData | ConvertTo-Json -Depth 10 | Set-Content $jsonFilePath -ErrorAction Stop
 }

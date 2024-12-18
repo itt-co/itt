@@ -11,7 +11,6 @@
     MinWidth="455"
     ResizeMode="NoResize"
     Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/icon.ico">
-
     <Window.Resources>
       <!--Scrollbar Thumbs-->
           <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
@@ -95,14 +94,12 @@
           <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor2}"/>
           <Setter Property="BorderBrush" Value="Transparent"/>
           <Setter Property="BorderThickness" Value="1"/>
-          
           <Setter Property="Template">
               <Setter.Value>
                   <ControlTemplate TargetType="Button">
                       <Border CornerRadius="20" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
                           <ContentPresenter HorizontalAlignment="Center"
                                               VerticalAlignment="Center"/>
-                          
                       </Border>
                   </ControlTemplate>
               </Setter.Value>
@@ -116,9 +113,7 @@
         </Style>
       <!--End Button Style-->
     </Window.Resources>
-
   <Grid Margin="8">
-
       <!-- Define rows and columns for layout -->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/> <!-- Logo -->
@@ -126,14 +121,11 @@
             <RowDefinition Height="Auto"/> <!-- Icons -->
         </Grid.RowDefinitions>
       <!-- Define rows and columns for layout -->
-
       <!-- Logo Section -->
         <Grid Grid.Row="0">
             <StackPanel Orientation="Vertical">
-
                 <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/logo.png" 
                 Height="90" Width="Auto" HorizontalAlignment="Center" Margin="0"/>
-
                 <TextBlock  
                     Text="Made with ♥ by Emad Adel"
                     TextWrapping="Wrap" 
@@ -145,7 +137,6 @@
                     FontSize="14" 
                     TextAlignment="Center"
                 />
-
                 <TextBlock 
                     Name="ver" 
                     Text="9/1/1998" 
@@ -153,7 +144,6 @@
                     TextAlignment="Center" 
                     Foreground="{DynamicResource TextColorSecondaryColor2}" 
                 />
-
                 <!-- Description Section -->
                 <TextBlock  
                     Text="ITT created to simplify software installation and Windows tweaks, making it easier for others to use their computers. It is an open-source project, and you can contribute to make it better by adding your favorite apps and more."
@@ -165,11 +155,9 @@
                     FontSize="14" 
                     TextAlignment="Center"
                 />
-
             </StackPanel>
         </Grid>
       <!-- Logo Section End -->
-
       <!-- Contribute Names Section -->
         <Grid Grid.Row="1">
           <StackPanel Orientation="Vertical">
@@ -183,9 +171,7 @@
                 </ScrollViewer>
           </StackPanel>
         </Grid>
-
       <!-- Contribute Names Section End -->
-
       <!-- Social Media Icons Section -->
         <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,20,0,0">
             <Button Width="38" Height="38" Name="github" Cursor="Hand" Margin="5">
@@ -205,6 +191,5 @@
           </Button>
         </StackPanel>
       <!-- Social Icons Section End -->
-
   </Grid>
 </Window>
