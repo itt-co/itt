@@ -669,7 +669,6 @@ WriteToScript -Content @"
 #endregion End Main
 #===========================================================================
 "@
-Update-Readme
 
 if($Realsee){
     Realsee
@@ -684,6 +683,8 @@ if($Debug)
     Start-Process $wt -ArgumentList "$pwsh -NoProfile -Command $script -Debug"
 
 }
+
+    Update-Readme
     Write-Host " `n`Build successfully" -ForegroundColor Green
 }
 catch {
