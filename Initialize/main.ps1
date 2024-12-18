@@ -21,7 +21,7 @@ $xaml.SelectNodes("//*[@Name]") | ForEach-Object {
                 $element.Add_GotFocus({ Invoke-Button $args[0].Name })
             }
             "ComboBox" {
-                $element.add_SelectionChanged({ Invoke-Button $args[0].Name })
+                $element.add_SelectionChanged({ Invoke-Button $args[0].Name $args[0].SelectedItem.Content })
             }
             "TabControl" {
                 $element.add_SelectionChanged({ Invoke-Button $args[0].Name $args[0].SelectedItem.Name })
