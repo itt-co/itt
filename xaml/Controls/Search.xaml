@@ -12,6 +12,7 @@
     <Grid Name="search_placeholder">
 
         <TextBlock 
+                Name="SearchIcon"
                 Text="" 
                 FontSize="15" 
                 Foreground="Gray" 

@@ -74,7 +74,6 @@ $itt.SearchInput.Add_LostFocus({
     if ([string]::IsNullOrEmpty($itt.SearchInput.Text)) 
     {
         $itt["window"].FindName("search_placeholder").Visibility = "Visible";
-        $itt.SearchIcon.Text = "" 
     }
 
 });
