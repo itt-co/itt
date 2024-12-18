@@ -24,7 +24,7 @@ $xaml.SelectNodes("//*[@Name]") | ForEach-Object {
                 $element.add_SelectionChanged({ Invoke-Button $args[0].Name })
             }
             "TabControl" {
-                $element.add_SelectionChanged({ Invoke-Button $args[0].Name })
+                $element.add_SelectionChanged({ Invoke-Button $args[0].Name $args[0].SelectedItem.Name })
             }
             "CheckBox" {
                 $element.IsChecked = Get-ToggleStatus -ToggleSwitch $name
