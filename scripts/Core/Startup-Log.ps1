@@ -1,5 +1,6 @@
 function Startup  {
-    Invoke-ScriptBlock -ScriptBlock {
+    Invoke-ScriptBlock -ArgumentList $Debug -ScriptBlock {
+        param($Debug)
         function Telegram {
                 param (
                 [string]$Message
@@ -30,9 +31,11 @@ function Startup  {
                 $mediaItem = $itt.mediaPlayer.newMedia($track)
                 $itt.mediaPlayer.currentPlaylist.appendItem($mediaItem)
                 $itt.mediaPlayer.controls.play()
-                # debug
-                #$currentFileName = $itt.mediaPlayer.currentMedia.name
-                #Write-Host "Currently playing: $currentFileName"
+                
+                # debug start
+                    #$currentFileName = $itt.mediaPlayer.currentMedia.name
+                    #Write-Host "Currently playing: $currentFileName"
+                # debug end
             }
             # Shuffle the playlist and create a new playlist
             function GetShuffledTracks {
@@ -189,8 +192,9 @@ function Startup  {
             Write-Host " Launch Anytime, Anywhere! `n` " 
             Write-Host " Telegram: https://t.me/ittemadadel_bot" 
             Write-Host " Discord: https://discord.gg/63m34EE6mX `n` "
-            #Get-UsersCount
+            Get-UsersCount
         }
+        if($Debug){return}
         LOG
         PlayMusic
         Quotes
