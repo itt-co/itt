@@ -36,18 +36,18 @@ function UnmuteMusic {
 }
 # Stop the music and clean up resources
 function StopMusic {
-    $itt.mediaPlayer.controls.stop()    # Stop the media player
-    $itt.mediaPlayer = $null            # Clear the media player object
-    $script:powershell.Dispose()         # Dispose of the PowerShell object
-    $itt.runspace.Dispose()             # Dispose of the runspace
-    $itt.runspace.Close()               # Close the runspace
+    $itt.mediaPlayer.controls.stop()   
+    $itt.mediaPlayer = $null
+    $script:powershell.Dispose()
+    $itt.runspace.Dispose()
+    $itt.runspace.Close()
 }
 # Stop all runspaces, stop the music, and exit the process
 function StopAllRunspace {
-    $script:powershell.Dispose()         # Dispose of the PowerShell object
-    $itt.runspace.Dispose()             # Dispose of the runspace
-    $itt.runspace.Close()               # Close the runspace
-    $script:powershell.Stop()            # Stop the PowerShell script
-    StopMusic                            # Stop the music and clean up resources
-    $newProcess.exit                     # Exit the process
+    $script:powershell.Dispose()
+    $itt.runspace.Dispose()
+    $itt.runspace.Close()      
+    $script:powershell.Stop()
+    StopMusic
+    $newProcess.exit
 }
