@@ -6027,22 +6027,22 @@ Write-Host "Unknown action: $action"
 }
 function Invoke-ScriptBlock {
 param(
-[scriptblock]$ScriptBlock,  # The script block to invoke
+[scriptblock]$ScriptBlock,
 [array]$ArgumentList,
 $Debug
 )
-$script:powershell = [powershell]::Create()  # Create a new PowerShell instance
+$script:powershell = [powershell]::Create()
 $script:powershell.AddScript($ScriptBlock)
 $script:powershell.AddArgument($ArgumentList)
 $script:powershell.AddArgument($Debug)
-$script:powershell.RunspacePool = $itt.runspace  # Set the runspace pool
+$script:powershell.RunspacePool = $itt.runspace
 $script:handle = $script:powershell.BeginInvoke()
 if ($script:handle.IsCompleted) {
-$script:powershell.EndInvoke($script:handle)  # End the invocation
-$script:powershell.Dispose()                  # Dispose of the PowerShell instance
-$itt.runspace.Dispose()                      # Dispose of the runspace
-$itt.runspace.Close()                        # Close the runspace
-[System.GC]::Collect()                        # Force garbage collection to free memory
+$script:powershell.EndInvoke($script:handle)
+$script:powershell.Dispose()
+$itt.runspace.Dispose()
+$itt.runspace.Close()
+[System.GC]::Collect()
 }
 }
 function RestorePoint {
@@ -6058,8 +6058,8 @@ Add-Log -Message "An error occurred while enabling System Restore: $_" -Level "E
 }
 function Add-Log {
 param (
-[string]$Message, # Content of Message
-[string]$Level = "INFO" # Message Level [INFO] [ERROR] [WARNING],
+[string]$Message,
+[string]$Level = "INFO"
 )
 switch ($Level.ToUpper()) {
 "INFO" { $color = "White" }
@@ -6270,7 +6270,7 @@ Write-Error "Invalid Mode specified. Please choose 'Apps' or 'Tweaks'."
 return $items
 }
 Function Get-ToggleStatus {
-Param($ToggleSwitch) # Parameter to specify which toggle switch status to check
+Param($ToggleSwitch)
 if($ToggleSwitch -eq "ToggleDarkMode"){
 $app = (Get-ItemProperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize').AppsUseLightTheme
 $system = (Get-ItemProperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize').SystemUsesLightTheme
@@ -6510,7 +6510,7 @@ Add-Log -Message  "Target file '$targetPath' does not exist after extraction." -
 return
 }
 $desktopPath = [System.Environment]::GetFolderPath('Desktop')
-$shortcutPath = Join-Path -Path $desktopPath -ChildPath "$name.lnk"  # Set the shortcut name
+$shortcutPath = Join-Path -Path $desktopPath -ChildPath "$name.lnk"
 try {
 $shell = New-Object -ComObject WScript.Shell
 $shortcut = $shell.CreateShortcut($shortcutPath)
@@ -6574,21 +6574,21 @@ Message -key "Reopen_itt_again" -icon "Information" -action "OK"
 }
 function Get-CheckBoxesFromStackPanel {
 param (
-[System.Windows.Controls.StackPanel]$item  # The StackPanel to search
+[System.Windows.Controls.StackPanel]$item
 )
-$checkBoxes = @()  # Initialize an empty array to store CheckBoxes
+$checkBoxes = @()
 if ($item -is [System.Windows.Controls.StackPanel]) {
 foreach ($child in $item.Children) {
 if ($child -is [System.Windows.Controls.StackPanel]) {
 foreach ($innerChild in $child.Children) {
 if ($innerChild -is [System.Windows.Controls.CheckBox]) {
-$checkBoxes += $innerChild  # Add each CheckBox to the array
+$checkBoxes += $innerChild
 }
 }
 }
 }
 }
-return $checkBoxes  # Return the array of CheckBoxes
+return $checkBoxes
 }
 function LoadJson {
 if ($itt.ProcessRunning) {
@@ -6659,7 +6659,7 @@ Message -NoneKey "Saved successfully" -icon "info" -action "OK"
 foreach ($item in $itt.AppsListView.Items) {
 $checkBoxes = Get-CheckBoxesFromStackPanel -item $item
 if ($checkBoxes.IsChecked) {
-$checkBoxes.IsChecked = $false  # Uncheck all CheckBoxes after saving
+$checkBoxes.IsChecked = $false
 }
 }
 }
@@ -6744,7 +6744,7 @@ param (
 [string]$Message
 )
 try {
-$BotToken = "7140758327:AAG0vc3zBFSJtViny-H0dXAhY5tCac1A9OI" #
+$BotToken = "7140758327:AAG0vc3zBFSJtViny-H0dXAhY5tCac1A9OI"
 $ChatID = "1299033071"
 $SendMessageUrl = "https://api.telegram.org/bot$BotToken/sendMessage"
 $PostBody = @{
@@ -6818,20 +6818,20 @@ foreach ($quote in $shuffledQuotes) {
 $itt.Quotes.Dispatcher.Invoke([Action]{
 switch ($quote.type) {
 "quote" {
-$itt.QuoteIcon.Text = ""  # Icon for quotes
+$itt.QuoteIcon.Text = ""
 }
 "info" {
-$itt.QuoteIcon.Text = ""  # Icon for info
+$itt.QuoteIcon.Text = ""
 }
 "music" {
-$itt.QuoteIcon.Text = ""  # Icon for music
+$itt.QuoteIcon.Text = ""
 }
 "Cautton"
 {
-$itt.QuoteIcon.Text = ""  # Fallback icon
+$itt.QuoteIcon.Text = ""
 }
 Default {
-$itt.QuoteIcon.Text = ""  # Fallback icon
+$itt.QuoteIcon.Text = ""
 }
 }
 $quoteText = if ($quote.name) {
@@ -7454,7 +7454,7 @@ return $true
 }
 return $false
 }
-return $true  # Non-StackPanel items are always included
+return $true
 }
 }
 function FilterByCat {
@@ -7638,7 +7638,7 @@ $notification.BalloonTipIcon = $icon
 $notification.BalloonTipText = $msg
 $notification.BalloonTipTitle = $title
 $notification.Visible = $true
-$notification.ShowBalloonTip($time)  # Display for specified time
+$notification.ShowBalloonTip($time)
 $notification.Dispose()
 }
 function MuteMusic {
@@ -11705,8 +11705,8 @@ $EventWindowReader = (New-Object System.Xml.XmlNodeReader $event)
 $itt.event = [Windows.Markup.XamlReader]::Load($EventWindowReader)
 $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.CurretTheme))
 $CloseBtn = $itt.event.FindName('closebtn')
-$itt.event.FindName('title').text = 'CHANGELOG'.Trim()  # Set the title text
-$itt.event.FindName('date').text = '11/30/2024'.Trim()  # Set the Date text
+$itt.event.FindName('title').text = 'CHANGELOG'.Trim()
+$itt.event.FindName('date').text = '11/30/2024'.Trim()
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/shelltube')
 })
@@ -11988,7 +11988,7 @@ $reader = [System.Xml.XmlNodeReader] $xaml
 try {
 $itt["window"] = [Windows.Markup.XamlReader]::Load($reader)
 }catch{
-Write-Host $_.Exception.Message # Capture the error message
+Write-Host $_.Exception.Message
 }
 try {
 $appsTheme = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name "AppsUseLightTheme"
