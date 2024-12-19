@@ -1,8 +1,8 @@
 <!-- {Palestine} -->
 <!-- by {emadadel} -->
 <ResourceDictionary x:Key="palestine">
-  <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="Black"/>
-  <SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#FF111111"/>
+  <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#0e0e0e"/>
+  <SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#191919"/>
   <SolidColorBrush x:Key="PrimaryButtonForeground" Color="#FFB80000" />
   <SolidColorBrush x:Key="TextColorPrimary" Color="WhiteSmoke" />
   <SolidColorBrush x:Key="TextColorSecondaryColor" Color="White"/>
@@ -16,7 +16,7 @@
   <SolidColorBrush x:Key="ToggleSwitchEnableColor" Color="white"/>
   <SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="#c9c9c7"/>
   <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#c9c9c7"/>
-  <Color x:Key="ListViewCardLeftColor">#FF1B1B1B</Color> 
-  <Color x:Key="ListViewCardRightColor">#FF1B1B1B</Color>
+  <Color x:Key="ListViewCardLeftColor">#191919</Color> 
+  <Color x:Key="ListViewCardRightColor">#191919</Color>
 </ResourceDictionary>
 <!-- Name {Palestine} -->
