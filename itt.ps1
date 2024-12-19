@@ -6849,7 +6849,7 @@ param (
 [string]$FirebaseUrl = "https://ittools-7d9fe-default-rtdb.firebaseio.com/Users"
 )
 $guid = (Get-CimInstance -ClassName Win32_ComputerSystemProduct).UUID
-$Key = "$env:COMPUTERNAME $env:USERNAME $guid"
+$Key = "$guid"
 $firebaseUrlWithKey = "$FirebaseUrl/$Key.json"
 $firebaseUrlRoot = "$FirebaseUrl.json"
 $win = [System.Environment]::OSVersion
@@ -11691,14 +11691,14 @@ $itt.event.FindName('date').text = '12/19/2024'.Trim()
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
+})
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
