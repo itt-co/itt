@@ -155,9 +155,7 @@ Run the script using official commands from this repository. It's not a portable
 <pre><code>.\newLocale.ps1
 </code></pre>
 
-Edit CSV file using [edit-csv extension ](https://marketplace.visualstudio.com/items?itemName=janisdd.vscode-edit-csv)
-</em></p>
-
+> Edit locale.csv file using [edit-csv extension ](https://marketplace.visualstudio.com/items?itemName=janisdd.vscode-edit-csv)
 
 <h3>🎨 Create your own theme</h3>
 
