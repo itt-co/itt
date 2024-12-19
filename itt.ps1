@@ -1,7 +1,3 @@
-
-param (
-[switch]$Debug
-)
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName PresentationFramework
 Add-Type -AssemblyName PresentationCore
@@ -5859,14 +5855,10 @@ $itt.database.Tweaks = @'
 '@ | ConvertFrom-Json
 function Invoke-Button {
 Param ([string]$action,[string]$Content)
-function Debug-Message {
-if($Debug) {  Add-Log "$action,$Content" -Level "Debug"  }
-}
 Switch -Wildcard ($action) {
 "installBtn" {
 $itt.SearchInput.Text = $null
 Invoke-Install
-Debug-Message
 }
 "applyBtn" {
 Invoke-Apply
@@ -6524,7 +6516,6 @@ Write-Error "Failed to create shortcut. Error: $_"
 else
 {
 Start-Process -FilePath $targetPath -ArgumentList $installArgs -Wait
-if($debug) {Write-Host $targetPath}
 }
 }
 function Refresh-Explorer {
@@ -6985,7 +6976,6 @@ $chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($_.Choco)"
 Remove-Item -Path "$chocoFolder" -Recurse -Force
 Remove-Item -Path "$chocoFolder.install" -Recurse -Force
 Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
-if($debug){Add-Log -Message $_.Name -Level "debug"}
 Install-App -appName $_.Name -appWinget $_.Winget -appChoco $_.Choco
 }
 else
@@ -7704,22 +7694,6 @@ $itt.Language = $lang
 Set-ItemProperty -Path $itt.registryPath  -Name "locales" -Value "$lang" -Force
 $itt["window"].DataContext = $itt.database.locales.Controls.$($itt.Language)
 }
-}
-function ToggleTheme {
-try {
-if ($itt.searchInput = $itt['window'].FindName('themeText').IsChecked -eq $true)
-{
-Switch-ToDarkMode
-}
-else
-{
-Switch-ToLightMode
-}
-}
-catch {
-Write-Host "Error toggling theme: $_"
-}
-$itt['window'].FindName('themeText').IsChecked = -not $itt['window'].FindName('themeText').IsChecked
 }
 function Switch-ToDarkMode {
 try {
@@ -11705,6 +11679,9 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'CHANGELOG'.Trim()
 $itt.event.FindName('date').text = '11/30/2024'.Trim()
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/shelltube')
 })
@@ -11713,9 +11690,6 @@ Start-Process('https://www.palestinercs.org/en/Donation')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
@@ -12008,7 +11982,6 @@ $itt.Music = (Get-ItemProperty -Path $itt.registryPath -Name "Music" -ErrorActio
 $itt.PopupWindow = (Get-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -ErrorAction Stop).PopupWindow
 }
 catch {
-if($Debug) {Add-Log -Message "An error occurred. Creating missing registry keys..." -Level "debug"}
 New-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -PropertyType String -Force *> $Null
 New-ItemProperty -Path $itt.registryPath -Name "UserTheme" -Value "none" -PropertyType String -Force *> $Null
 New-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -PropertyType String -Force *> $Null
@@ -12181,4 +12154,3 @@ $itt.runspace.Close()
 $script:powershell.Stop()
 $newProcess.exit
 Stop-Transcript
-
