@@ -6528,7 +6528,7 @@ if($debug) {Write-Host $targetPath}
 }
 }
 function Refresh-Explorer {
-Add-Log -Message "Restart explorer." -Level "info"
+Add-Log -Message "Restart explorer." -Level "Apply"
 Stop-Process -Name explorer -Force
 Start-Sleep -Seconds 1
 if (-not (Get-Process -Name explorer -ErrorAction SilentlyContinue)) {
@@ -8781,7 +8781,7 @@ Margin="30,0,0,0" />
 </Grid>
 <!--Header Section-->
 <!--TabControl-->
-<TabControl Name="taps" TabStripPlacement="Left" Grid.Row="1"  BorderBrush="Transparent" Height="Auto" Width="Auto" Foreground="White" Background="Transparent">
+<TabControl Name="taps" TabStripPlacement="Left" Grid.Row="1" BorderBrush="Transparent" Foreground="White" Background="Transparent">
 <TabItem Name="apps" Header="{Binding apps}" BorderBrush="{x:Null}" >
 <TabItem.HeaderTemplate>
 <DataTemplate>
@@ -11706,8 +11706,8 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'CHANGELOG'.Trim()
 $itt.event.FindName('date').text = '11/30/2024'.Trim()
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
+$itt.event.FindName('ps').add_MouseLeftButtonDown({
+Start-Process('https://www.palestinercs.org/en/Donation')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
@@ -11715,8 +11715,8 @@ Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/shelltube')
 })
-$itt.event.FindName('ps').add_MouseLeftButtonDown({
-Start-Process('https://www.palestinercs.org/en/Donation')
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
