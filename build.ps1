@@ -470,14 +470,21 @@ function Realsee {
         $Content = ($Content -split "`r?`n" | ForEach-Object {
             ($_ -replace '^\s*#.*$', '').Trim()
         }) -join "`n"
-        #$Content = $Content -replace '(\r?\n){2,}', "`n"
         $Content = ($Content -split "`r?`n" | Where-Object { $_ -notmatch '^\s*$' }) -join "`n"
-        Set-Content -Path $FilePath -Value $Content
+        $streamWriter = $null
+        try {
+            $streamWriter = [System.IO.StreamWriter]::new($FilePath, $false)
+            $streamWriter.Write($Content)
+        }
+        finally {
+            if ($null -ne $streamWriter) {
+                $streamWriter.Dispose()
+            }
+        }
     }
     catch {
         Write-Error "An error occurred: $_" -ForegroundColor Red
     }
-
 }
 # Write script header
 function WriteHeader {
