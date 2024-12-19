@@ -15,7 +15,7 @@
           VerticalContentAlignment="Center"
           Cursor="Hand"
           Width="140" 
-          Height="45" 
+          Height="50" 
           Margin="20">
           <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
               <TextBlock Name="installText" 
@@ -44,7 +44,7 @@
             VerticalContentAlignment="Center"
             Cursor="Hand"
             Width="140" 
-            Height="45" 
+            Height="50" 
             Margin="20">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock Name="applyText" 
