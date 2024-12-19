@@ -11678,7 +11678,7 @@ $itt.event = [Windows.Markup.XamlReader]::Load($EventWindowReader)
 $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.CurretTheme))
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'CHANGELOG'.Trim()
-$itt.event.FindName('date').text = '11/30/2024'.Trim()
+$itt.event.FindName('date').text = '12/19/2024'.Trim()
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
