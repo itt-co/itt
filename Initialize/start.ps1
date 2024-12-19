@@ -1,6 +1,8 @@
-param (
-    [switch]$Debug
-)
+# debug start
+    param (
+        [switch]$Debug
+    )
+# debug end
 # Load DLLs
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName PresentationFramework

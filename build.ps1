@@ -470,7 +470,8 @@ function Realsee {
         $Content = ($Content -split "`r?`n" | ForEach-Object {
             ($_ -replace '^\s*#.*$', '').Trim()
         }) -join "`n"
-        $Content = $Content -replace '(\r?\n){2,}', "`n"
+        #$Content = $Content -replace '(\r?\n){2,}', "`n"
+        $Content = ($Content -split "`r?`n" | Where-Object { $_ -notmatch '^\s*$' }) -join "`n"
         Set-Content -Path $FilePath -Value $Content
     }
     catch {
