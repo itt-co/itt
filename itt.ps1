@@ -11422,7 +11422,7 @@ HorizontalContentAlignment="Center"
 VerticalContentAlignment="Center"
 Cursor="Hand"
 Width="140"
-Height="45"
+Height="50"
 Margin="20">
 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
 <TextBlock Name="installText"
@@ -11451,7 +11451,7 @@ HorizontalContentAlignment="Center"
 VerticalContentAlignment="Center"
 Cursor="Hand"
 Width="140"
-Height="45"
+Height="50"
 Margin="20">
 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
 <TextBlock Name="applyText"
@@ -11706,11 +11706,11 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'CHANGELOG'.Trim()
 $itt.event.FindName('date').text = '11/30/2024'.Trim()
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/shelltube')
