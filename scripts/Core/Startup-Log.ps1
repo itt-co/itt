@@ -194,7 +194,9 @@ function Startup  {
             Write-Host " Discord: https://discord.gg/63m34EE6mX `n` "
             Get-UsersCount
         }
+        # debug start
         if($Debug){return}
+        # debug end
         LOG
         PlayMusic
         Quotes
