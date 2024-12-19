@@ -8781,7 +8781,7 @@ Margin="30,0,0,0" />
 </Grid>
 <!--Header Section-->
 <!--TabControl-->
-<TabControl Name="taps" TabStripPlacement="Left" Grid.Row="1"  BorderBrush="Transparent" Height="Auto" Width="Auto" Foreground="White" Background="Transparent">
+<TabControl Name="taps" TabStripPlacement="Left" Grid.Row="1" BorderBrush="Transparent" Foreground="White" Background="Transparent">
 <TabItem Name="apps" Header="{Binding apps}" BorderBrush="{x:Null}" >
 <TabItem.HeaderTemplate>
 <DataTemplate>
