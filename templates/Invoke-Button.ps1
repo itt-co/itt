@@ -23,111 +23,115 @@ function Invoke-Button {
         - The `Debug-Message` function is used for internal debugging and can be uncommented for logging purposes.
     #>
     Param ([string]$action,[string]$Content)
-    # Helper function for debugging
-    function Debug-Message {
-        if($Debug) {  Add-Log "$action,$Content" -Level "Debug"  }
-    }
+    # debug start
+        function Debug-Message {
+                if($Debug) {  Add-Log "$action,$Content" -Level "Debug"  }
+        }
+    # debug end
+
     # Switch block to handle different actions
     Switch -Wildcard ($action) {
         "installBtn" {
             $itt.SearchInput.Text = $null
             Invoke-Install
-            Debug-Message
+            # debug start
+                Debug-Message
+            # debug end
         }
         "applyBtn" {
             Invoke-Apply
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         "$($itt.CurrentCategory)" {
             FilterByCat($itt["window"].FindName($itt.CurrentCategory).SelectedItem.Content)
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
 
         }
         "searchInput" {
             Search
             # debug start
-            Debug-Message 
+                Debug-Message 
             # debug end
         }
         # Menu items
         "systemlang" {
             Set-Language -lang "default"
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         #{locales}
         "save" {
             SaveItemsToJson
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         "load" {
             LoadJson
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         # Device Management
         "deviceManager" {
             Start-Process devmgmt.msc 
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         "appsfeatures" {
             Start-Process appwiz.cpl 
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         "sysinfo" {
             Start-Process msinfo32.exe
             Start-Process dxdiag.exe 
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         "poweroption" {
             Start-Process powercfg.cpl 
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         "services" {
             Start-Process services.msc 
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         "network" {
             Start-Process ncpa.cpl
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
 
         }
         "taskmgr" {
             Start-Process taskmgr.exe
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         "diskmgmt" {
             Start-Process diskmgmt.msc
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         "systheme" {
             SwitchToSystem 
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         #{themes}
@@ -135,14 +139,14 @@ function Invoke-Button {
         "chocoloc" {
             Start-Process explorer.exe "C:\ProgramData\chocolatey\lib"
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         # itt Dir
         "itt" {
             Start-Process explorer.exe $env:ProgramData\itt
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
 
         }
@@ -150,119 +154,119 @@ function Invoke-Button {
         "restorepoint" {
             RestorePoint
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         # Music
         "moff" {
             MuteMusic -Value 0
             # debug end
-            Debug-Message $action
+                Debug-Message $action
             # debug start
         }
         "mon" {
             UnmuteMusic -Value 100
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         # Mirror Links
         "unhook" {
             Start-Process "https://unhook.app/" 
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         "uBlock" {
             Start-Process "https://ublockorigin.com/" 
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         "mas" {
             Start-Process "https://github.com/massgravel/Microsoft-Activation-Scripts"
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         "idm" {
             Start-Process "https://github.com/WindowsAddict/IDM-Activation-Script"
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         "neat" {
             Start-Process "https://addons.mozilla.org/en-US/firefox/addon/neatdownloadmanager-extension/" 
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         "winoffice" {
             Start-Process "https://massgrave.dev/genuine-installation-media" 
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         "sordum" {
             Start-Process "https://www.sordum.org/" 
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         "majorgeeks" {
             Start-Process "https://www.majorgeeks.com/" 
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         "techpowerup" {
             Start-Process "https://www.techpowerup.com/download/"
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         # Other actions
         "ittshortcut" {
             ITTShortcut $action
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         "dev" {
             About
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         # Reset-Preferences
         "reset"{
             Reset-Preferences
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         "shelltube"{
             Start-Process -FilePath "powershell" -ArgumentList "irm https://github.com/emadadel4/shelltube/releases/latest/download/st.ps1 | iex"
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         "fmhy"{
             Start-Process ("https://fmhy.net/")
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         "webtor"{
             Start-Process ("https://webtor.io/")
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         "taps"{
             ChangeTap
             # debug start
-            Debug-Message $action
+                Debug-Message $action
             # debug end
         }
         Default {

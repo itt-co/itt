@@ -195,7 +195,7 @@ function Startup  {
             Get-UsersCount
         }
         # debug start
-        if($Debug){return}
+            if($Debug){return}
         # debug end
         LOG
         PlayMusic

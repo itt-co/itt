@@ -49,6 +49,8 @@ function Native-Downloader {
         else
         {
             Start-Process -FilePath $targetPath -ArgumentList $installArgs -Wait
-            if($debug) {Write-Host $targetPath}
+            # debug start
+                if($debug) {Write-Host $targetPath}
+            # debug end
         }
 }

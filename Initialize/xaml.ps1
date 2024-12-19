@@ -30,8 +30,9 @@ foreach ($function in $functions) {
     $functionDefinition = (Get-Command $function.Name).ScriptBlock.ToString()
     $functionEntry = New-Object System.Management.Automation.Runspaces.SessionStateFunctionEntry -ArgumentList $($function.Name), $functionDefinition
     $initialSessionState.Commands.Add($functionEntry)
-    # debug
+    # debug start
     #if ($Debug) { Write-Output "Added function: $($function.Name)" }
+    # debug end
 }
 # Create and open the runspace pool
 $itt.runspace = [runspacefactory]::CreateRunspacePool(1, $maxthreads, $InitialSessionState, $Host)
@@ -70,7 +71,9 @@ try {
         }
         catch {
             # Creating missing registry keys
-            if($Debug) {Add-Log -Message "An error occurred. Creating missing registry keys..." -Level "debug"}
+            # debug start
+                if($Debug) {Add-Log -Message "An error occurred. Creating missing registry keys..." -Level "debug"}
+            # debug end
             New-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -PropertyType String -Force *> $Null
             New-ItemProperty -Path $itt.registryPath -Name "UserTheme" -Value "none" -PropertyType String -Force *> $Null
             New-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -PropertyType String -Force *> $Null
