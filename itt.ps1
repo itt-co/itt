@@ -6849,7 +6849,7 @@ param (
 [string]$FirebaseUrl = "https://ittools-7d9fe-default-rtdb.firebaseio.com/Users"
 )
 $guid = (Get-CimInstance -ClassName Win32_ComputerSystemProduct).UUID
-$Key = "$guid"
+$Key = "$env:COMPUTERNAME $env:USERNAME $guid"
 $firebaseUrlWithKey = "$FirebaseUrl/$Key.json"
 $firebaseUrlRoot = "$FirebaseUrl.json"
 $win = [System.Environment]::OSVersion
