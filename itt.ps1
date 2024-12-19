@@ -4089,6 +4089,10 @@ $itt.database.Quotes = @'
 "text": "بدأت اتغير وانا في نص الرحلة فهمت نفسي وانا في قلب الوحدة",
 "name": "البوصلة ضاعت",
 "type": "music"
+},
+{
+"text": "Can You Find the Hidden Easter Egg? Open the source code and uncover the secret features waiting for you!",
+"type": "info"
 }
 ]
 }
