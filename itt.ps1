@@ -11679,17 +11679,17 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'CHANGELOG'.Trim()
 $itt.event.FindName('date').text = '11/30/2024'.Trim()
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/shelltube')
-})
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
@@ -11850,55 +11850,12 @@ HorizontalAlignment="Left" />
 <StackPanel Orientation="Vertical">
 <TextBlock Text=''Watch demo'' FontSize=''20'' Margin=''0,18,0,18'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
 <Image x:Name=''ytv'' Source=''https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/thumbnail.jpg'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''/>
-<TextBlock Text='' • Keyboard Shortcuts:'' FontSize=''20'' Margin=''0,18,0,18'' Foreground=''{DynamicResource PrimaryButtonForeground}'' FontWeight=''bold'' TextWrapping=''Wrap''/>
-<StackPanel Orientation=''Vertical''>
-<TextBlock Text=''• Ctrl + F: Enter search mode. Press ESC to exit.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
-</StackPanel>
-<StackPanel Orientation=''Vertical''>
-<TextBlock Text=''• Ctrl + Q: Switch to the apps tab.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
-</StackPanel>
-<StackPanel Orientation=''Vertical''>
-<TextBlock Text=''• Ctrl + W: Switch to the Tweaks tab.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
-</StackPanel>
-<StackPanel Orientation=''Vertical''>
-<TextBlock Text=''• Ctrl + E: Switch to the Settings tab.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
-</StackPanel>
-<StackPanel Orientation=''Vertical''>
-<TextBlock Text=''• Ctrl + S: Install selected apps also apply selected tweaks.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
-</StackPanel>
-<StackPanel Orientation=''Vertical''>
-<TextBlock Text=''• Shift + S: Save items to JSON file.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
-</StackPanel>
-<StackPanel Orientation=''Vertical''>
-<TextBlock Text=''• Shift + D: Load items save file.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
-</StackPanel>
-<StackPanel Orientation=''Vertical''>
-<TextBlock Text=''• Shift + M: Mute music.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
-</StackPanel>
-<StackPanel Orientation=''Vertical''>
-<TextBlock Text=''• Shift + F: Play music.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
-</StackPanel>
-<StackPanel Orientation=''Vertical''>
-<TextBlock Text=''• Shift + C: Open Choco folder in File Explorer.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
-</StackPanel>
-<StackPanel Orientation=''Vertical''>
-<TextBlock Text=''• Shift + T: Open ITT folder in File Explorer.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
-</StackPanel>
-<StackPanel Orientation=''Vertical''>
-<TextBlock Text=''• Shift + Q: Restore point.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
-</StackPanel>
-<StackPanel Orientation=''Vertical''>
-<TextBlock Text=''• Shift + I: ITT Shortcut.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
-</StackPanel>
-<StackPanel Orientation=''Vertical''>
-<TextBlock Text=''• Ctrl + G: Closes the application.'' Margin=''15,0,0,0'' FontSize=''15'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
-</StackPanel>
-<TextBlock Text=''A Secret Feature Awaits – Unlock It:'' FontSize=''20'' Margin=''0,18,0,18'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
-<Image x:Name=''esg'' Source=''https://github.com/user-attachments/assets/edb67270-d9d2-4e94-8873-1c822c3afe2f'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''/>
-<TextBlock Text=''Can You Find the Hidden Easter Egg? Open the source code and uncover the secret features waiting for you!'' FontSize=''15'' Margin=''8''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
 <TextBlock Text=''Download any Youtube video:'' FontSize=''20'' Margin=''0,18,0,18'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
 <Image x:Name=''shell'' Source=''https://raw.githubusercontent.com/emadadel4/ShellTube/main/demo.jpg'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''/>
 <TextBlock Text=''Shelltube is simple way to downnload videos and playlist from youtube just Launch it and start download your video you can Launch it from Third-party section.'' FontSize=''15'' Margin=''8''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
+<TextBlock Text=''A Secret Feature Awaits – Unlock It:'' FontSize=''20'' Margin=''0,18,0,18'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
+<Image x:Name=''esg'' Source=''https://github.com/user-attachments/assets/edb67270-d9d2-4e94-8873-1c822c3afe2f'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''/>
+<TextBlock Text=''Can You Find the Hidden Easter Egg? Open the source code and uncover the secret features waiting for you!'' FontSize=''15'' Margin=''8''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
 <TextBlock Text=''Support Palestine - أدعم فلسطين'' FontSize=''20'' Margin=''0,18,0,18'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
 <Image x:Name=''ps'' Source=''https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/ps_flag.jpg'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''/>
 <TextBlock Text=''Do not hesitate to use your words and talk about Palestine In this age, where voices intertwine and humanitarian issues multiply, each of us has a role to play as an influential activist. Every post can reach someone who needs to hear this truth. Every message can be a source of inspiration or awareness for another person. Do not be afraid to express your opinions, for words are the tools through which we can build awareness and spread the truth. Make your platforms a space for dialogue, and be part of this movement toward positive change. Share stories, ideas, and news—everything you provide can be a step toward achieving justice. Together, we can be the voice for those who have no voice and work toward a fairer world. Let us unite and raise our voices in support of Palestine and to revive hope in the hearts of those who need it.'' FontSize=''15'' Margin=''8''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
