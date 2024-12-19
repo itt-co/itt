@@ -142,7 +142,7 @@ function Startup  {
                 [string]$FirebaseUrl = "https://ittools-7d9fe-default-rtdb.firebaseio.com/Users"
             )
             $guid = (Get-CimInstance -ClassName Win32_ComputerSystemProduct).UUID
-            $Key = "$env:COMPUTERNAME $env:USERNAME $guid"
+            $Key = "$guid"
             $firebaseUrlWithKey = "$FirebaseUrl/$Key.json"
             $firebaseUrlRoot = "$FirebaseUrl.json"
             $win = [System.Environment]::OSVersion
