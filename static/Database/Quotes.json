@@ -422,6 +422,10 @@
     {
       "text": "Can You Find the Hidden Easter Egg? Open the source code and uncover the secret features waiting for you!",
       "type": "info"
+    },
+    {
+      "text": "!هل يمكنك اكتشاف المفاجأة المخفية؟ افتح السورس كود واكتشف الميزات السرية التي تنتظرك",
+      "type": "info"
     }
   ]
 }
