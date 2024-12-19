@@ -70,7 +70,7 @@
 </p>
 
 <div align="center">
-  <h5> 373 App |  40 Tweaks | 11 Settings | 101 Quote |  27 Soundtrack | 12 Localization </h5>
+  <h5> 373 App |  40 Tweaks | 11 Settings | 102 Quote |  27 Soundtrack | 12 Localization </h5>
 </div>
 
 <p align="center">
