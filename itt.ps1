@@ -28,13 +28,8 @@ $newProcess = Start-Process -FilePath "PowerShell" -ArgumentList "-ExecutionPoli
 exit
 }
 Write-Host "Starting..."
-try {
 $itt.mediaPlayer = New-Object -ComObject WMPlayer.OCX
 $Host.UI.RawUI.WindowTitle = "ITT - #StandWithPalestine"
-}
-catch {
-Write-Warning "Media player not loaded because you're using Windows Lite or have disabled."
-}
 if (-not (Test-Path -Path $itt.ittDir)) {
 New-Item -ItemType Directory -Path $itt.ittDir -Force | Out-Null
 }
@@ -6106,7 +6101,7 @@ param (
 )
 try {
 foreach ($cmd in $tweak) {
-Add-Log -Message "Executing script in the background; please wait..."
+Add-Log -Message "Please wait..."
 $script = [scriptblock]::Create($cmd)
 Invoke-Command  $script -ErrorAction Stop
 }
@@ -6129,7 +6124,7 @@ Add-Log -Message "ALL INSTALLATIONS COMPLETED SUCCESSFULLY." -Level "INFO"
 }
 "TweaksListView" {
 UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Apply" -TextIcon "applyIcon" -Icon "  " -Width "140"
-Add-Log -Message "ALL TWEAKS HAVE BEEN APPLIED SUCCESSFULLY. PLEASE NOTE: SOME CHANGES WILL TAKE EFFECT AFTER A RESTART." -Level "INFO"
+Add-Log -Message "ALL TWEAKS HAVE BEEN APPLIED SUCCESSFULLY." -Level "INFO"
 Notify -title "$title" -msg "ALL TWEAKS HAVE BEEN APPLIED SUCCESSFULLY." -icon "Info" -time 30000
 }
 }
@@ -6269,7 +6264,7 @@ Write-Error "Invalid Mode specified. Please choose 'Apps' or 'Tweaks'."
 }
 return $items
 }
-Function Get-ToggleStatus {
+function Get-ToggleStatus {
 Param($ToggleSwitch)
 if($ToggleSwitch -eq "ToggleDarkMode"){
 $app = (Get-ItemProperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize').AppsUseLightTheme
@@ -6618,6 +6613,8 @@ $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($it
 $collectionView.Filter = $filterPredicate
 Message -NoneKey "Restored successfully" -icon "info" -action "OK"
 }
+$itt.Search_placeholder.Visibility = "Visible"
+$itt.SearchInput.Text = $null
 }
 function SaveItemsToJson {
 if ($itt.ProcessRunning) {
@@ -6639,8 +6636,6 @@ if ($app) {
 $itemObject = [PSCustomObject]@{
 Name   = $checkBoxes.Content
 check  = "true"
-choco  = $app.choco
-winget = $app.winget
 }
 $items += $itemObject
 }
@@ -6652,7 +6647,7 @@ $saveFileDialog.Filter = "JSON files (*.itt)|*.itt"
 $saveFileDialog.Title = "Save JSON File"
 $dialogResult = $saveFileDialog.ShowDialog()
 if ($dialogResult -eq "OK") {
-$items | ConvertTo-Json | Out-File -FilePath $saveFileDialog.FileName -Force
+$items | ConvertTo-Json -Compress | Out-File -FilePath $saveFileDialog.FileName -Force
 Write-Host "Saved: $($saveFileDialog.FileName)"
 Message -NoneKey "Saved successfully" -icon "info" -action "OK"
 foreach ($item in $itt.AppsListView.Items) {
@@ -6665,7 +6660,8 @@ $checkBoxes.IsChecked = $false
 } else {
 Message -key "Empty_save_msg" -icon "Information" -action "OK"
 }
-$itt.SearchInput.Text = ""
+$itt.Search_placeholder.Visibility = "Visible"
+$itt.SearchInput.Text = $null
 }
 function Set-Registry {
 param (
@@ -7174,7 +7170,7 @@ Write-Warning "Unable to set $Name due to unhandled exception"
 Write-Warning $psitem.Exception.StackTrace
 }
 }
-Function Invoke-DarkMode {
+function Invoke-DarkMode {
 Param($DarkMoveEnabled)
 Try{
 $Theme = (Get-ItemProperty -Path $itt.registryPath -Name "Theme").Theme
@@ -7381,7 +7377,7 @@ Write-Warning "Unable to set $Name due to unhandled exception"
 Write-Warning $psitem.Exception.StackTrace
 }
 }
-Function Invoke-StickyKeys {
+function Invoke-StickyKeys {
 Param($Enabled)
 Try {
 if ($Enabled -eq $false){
@@ -7782,11 +7778,13 @@ $itt.$ButtonText.Text = "$applyBtn"
 $itt.$TextIcon.Text = "$icon"
 })
 }
-$MainWindowXaml = '<!--Main Window-->
+$MainWindowXaml = '
 <Window
 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-x:Name="Window" Title="Install Tweak Tool #StandWithPalestine" WindowStartupLocation = "CenterScreen"
+x:Name="Window"
+Title="Install Tweak Tool #StandWithPalestine"
+WindowStartupLocation = "CenterScreen"
 Background="{DynamicResource PrimaryBackgroundColor}"
 Height="700" Width="1000"
 MinHeight="600"
@@ -7797,37 +7795,28 @@ TextOptions.TextFormattingMode="Ideal"
 TextOptions.TextRenderingMode="Auto"
 Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico">
 <Window.Resources>
-<!--Listview Fade in-->
 <Storyboard x:Key="FadeOutStoryboard">
 <DoubleAnimation
 Storyboard.TargetProperty="Opacity"
 From="0" To="1" Duration="0:0:0.1" />
 </Storyboard>
-<!--Listview Fade in-->
-<!--Logo Fade in-->
 <Storyboard x:Key="Logo" RepeatBehavior="Forever">
-<!-- Fade Out -->
 <DoubleAnimation
 Storyboard.TargetProperty="Opacity"
 From="0.0" To="1.0"
-Duration="0:0:01" /> <!-- Fade out duration -->
-<!-- Fade In -->
+Duration="0:0:01" />
 <DoubleAnimation
 Storyboard.TargetProperty="Opacity"
 From="1.0" To="0.0"
 Duration="0:0:0.9"
-BeginTime="0:0:05" /> <!-- Start fade in after 21 seconds -->
+BeginTime="0:0:05" />
 </Storyboard>
-<!--Logo Fade in-->
-<!-- Define the FadeOut and FadeIn animations with looping -->
 <Storyboard x:Key="FadeOutInLoopStoryboard">
-<!-- Fade Out Animation -->
 <DoubleAnimation
 Storyboard.TargetProperty="Opacity"
 From="1.0"
 To="0.0"
 Duration="0:0:1" />
-<!-- Fade In Animation -->
 <DoubleAnimation
 Storyboard.TargetProperty="Opacity"
 From="0.0"
@@ -7835,8 +7824,6 @@ To="1.0"
 Duration="0:0:1"
 BeginTime="0:0:1" />
 </Storyboard>
-<!-- Define the FadeOut and FadeIn animations with looping -->
-<!--Image Style-->
 <Style TargetType="Image">
 <Style.Triggers>
 <EventTrigger RoutedEvent="FrameworkElement.Loaded">
@@ -7844,8 +7831,6 @@ BeginTime="0:0:1" />
 </EventTrigger>
 </Style.Triggers>
 </Style>
-<!--End Image Style-->
-<!--Button Style-->
 <Style TargetType="Button">
 <Setter Property="Background" Value="{DynamicResource PrimaryButtonForeground}"/>
 <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor2}"/>
@@ -7879,8 +7864,6 @@ RecognizesAccessKey="True"/>
 </Trigger>
 </Style.Triggers>
 </Style>
-<!--End Button Style-->
-<!--ListViewItem Style-->
 <Style TargetType="ListViewItem">
 <Setter Property="Margin" Value="3"/>
 <Setter Property="BorderThickness" Value="0"/>
@@ -7912,8 +7895,6 @@ ContentSource="Content"/>
 </EventTrigger>
 </Style.Triggers>
 </Style>
-<!--End ListViewItem Style-->
-<!--CheckBox Style-->
 <Style TargetType="CheckBox">
 <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor}"/>
 <Setter Property="Margin" Value="0"/>
@@ -7924,12 +7905,9 @@ ContentSource="Content"/>
 <Setter.Value>
 <ControlTemplate TargetType="CheckBox">
 <StackPanel Orientation="Horizontal">
-<!-- Checkbox box -->
 <Border Name="CheckRadius" Width="18" Height="18" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="20" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
-<!-- Checkmark arrow inside the box -->
 <Path x:Name="CheckMark" Width="13" Height="13" Stretch="Uniform" Stroke="WhiteSmoke" StrokeThickness="3" Data="M 0 5 L 4 8 L 10 0" Visibility="Collapsed"/>
 </Border>
-<!-- Content beside the checkbox -->
 <ContentPresenter Margin="4,0,0,0" VerticalAlignment="Center"/>
 </StackPanel>
 <ControlTemplate.Triggers>
@@ -7950,8 +7928,6 @@ ContentSource="Content"/>
 </Setter.Value>
 </Setter>
 </Style>
-<!--End CheckBox Style-->
-<!--SearchBox Style-->
 <Style x:Key="SearchBox" TargetType="TextBox">
 <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
 <Setter Property="Foreground" Value="{DynamicResource TextColorPrimary}"/>
@@ -7973,8 +7949,6 @@ Background="Transparent"/>
 </Setter.Value>
 </Setter>
 </Style>
-<!--End SearchBox Style-->
-<!--Label Style-->
 <Style TargetType="Label">
 <Setter Property="Background" Value="Transparent"/>
 <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor}"/>
@@ -7993,15 +7967,11 @@ VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
 </Setter.Value>
 </Setter>
 </Style>
-<!--End Label Style-->
-<!--TextBlock Style-->
 <Style TargetType="TextBlock">
 <Setter Property="Foreground" Value="{DynamicResource TextColorPrimary}"/>
 <Setter Property="TextOptions.TextFormattingMode" Value="Ideal" />
 <Setter Property="TextOptions.TextRenderingMode" Value="ClearType" />
 </Style>
-<!--End TextBlock Style-->
-<!-- Menu Style -->
 <Style TargetType="Menu">
 <Setter Property="Background" Value="#FFFFFF"/>
 <Setter Property="Foreground" Value="#000000"/>
@@ -8020,7 +7990,6 @@ CornerRadius="8">
 </Setter>
 <Style.Triggers>
 <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-<!-- <BeginStoryboard Storyboard="{StaticResource FadeIn}" /> -->
 </EventTrigger>
 </Style.Triggers>
 </Style>
@@ -8045,20 +8014,17 @@ CornerRadius="0">
 <ColumnDefinition Width="*"/>
 <ColumnDefinition Width="Auto"/>
 </Grid.ColumnDefinitions>
-<!-- Icon -->
 <ContentPresenter Grid.Column="0"
 ContentSource="Icon"
 HorizontalAlignment="Left"
 VerticalAlignment="Center"
 Margin="0,0,4,0"/>
-<!-- Text (MenuItem Header) -->
 <TextBlock x:Name="TextBlock"
 Grid.Column="1"
 Text="{TemplateBinding Header}"
 Foreground="{TemplateBinding BorderThickness}"
 VerticalAlignment="Center"
 Margin="0"/>
-<!-- Shortcut Key (InputGestureText) -->
 <TextBlock x:Name="ShortcutText"
 Grid.Column="2"
 Text="{TemplateBinding InputGestureText}"
@@ -8066,7 +8032,6 @@ Foreground="{DynamicResource TextColorSecondaryColor}"
 VerticalAlignment="Center"
 HorizontalAlignment="Right"
 Margin="5,0"/>
-<!-- Arrow Down Indicator for Submenus -->
 <Path x:Name="Arrow"
 Grid.Column="2"
 Data="M0,0 L4,4 L8,0 Z"
@@ -8075,7 +8040,6 @@ HorizontalAlignment="Center"
 VerticalAlignment="Center"
 Visibility="Collapsed"
 Margin="4,0,0,0"/>
-<!-- Popup for Submenu -->
 <Popup Name="PART_Popup"
 Placement="Right"
 IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}"                                   AllowsTransparency="True"
@@ -8106,8 +8070,6 @@ KeyboardNavigation.DirectionalNavigation="Continue"/>
 </Setter.Value>
 </Setter>
 </Style>
-<!-- End Menu Style -->
-<!--Scrollbar Thumbs-->
 <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
 <Setter Property="Template">
 <Setter.Value>
@@ -8188,8 +8150,6 @@ KeyboardNavigation.DirectionalNavigation="Continue"/>
 <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
 <Setter Property="HorizontalScrollBarVisibility" Value="Hidden"/>
 </Style>
-<!--End Scrollbar Thumbs-->
-<!--TabControl Style-->
 <Style TargetType="TabItem">
 <Setter Property="Template">
 <Setter.Value>
@@ -8215,8 +8175,6 @@ ContentSource="Header"
 </Setter.Value>
 </Setter>
 </Style>
-<!--End TabControl Style-->
-<!--ComboBox Style-->
 <Style TargetType="ComboBox">
 <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
 <Setter Property="BorderBrush" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
@@ -8307,8 +8265,6 @@ BorderThickness="1"/>
 </Setter.Value>
 </Setter>
 </Style>
-<!--End ComboBox Style-->
-<!--ToggleSwitchStyle Style-->
 <Style x:Key="ToggleSwitchStyle" TargetType="CheckBox">
 <Setter Property="Template">
 <Setter.Value>
@@ -8390,10 +8346,6 @@ To="5,0,0,0">
 </Setter.Value>
 </Setter>
 </Style>
-<!--End ToggleSwitchStyle Style-->
-<!-- Generated from build dont play here -->
-<!-- {Dark} -->
-<!-- by {emadadel} -->
 <ResourceDictionary x:Key="Dark">
 <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#2b2d31"/>
 <SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#3c3f44"/>
@@ -8414,9 +8366,6 @@ To="5,0,0,0">
 <Color x:Key="ListViewCardLeftColor">#3c3f44</Color>
 <Color x:Key="ListViewCardRightColor">#2b2d31</Color>
 </ResourceDictionary>
-<!--{Dark}-->
-<!-- {Light} -->
-<!-- by {emadadel} -->
 <ResourceDictionary x:Key="Light">
 <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="White"/>
 <SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="WhiteSmoke"/>
@@ -8437,9 +8386,6 @@ To="5,0,0,0">
 <Color x:Key="ListViewCardLeftColor">#f0f0f0</Color>
 <Color x:Key="ListViewCardRightColor">#ffffff</Color>
 </ResourceDictionary>
-<!-- {Light} -->
-<!-- {Palestine} -->
-<!-- by {emadadel} -->
 <ResourceDictionary x:Key="palestine">
 <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#0e0e0e"/>
 <SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#191919"/>
@@ -8459,8 +8405,6 @@ To="5,0,0,0">
 <Color x:Key="ListViewCardLeftColor">#191919</Color>
 <Color x:Key="ListViewCardRightColor">#191919</Color>
 </ResourceDictionary>
-<!-- Name {Palestine} -->
-<!-- Generated from build dont play here -->
 </Window.Resources>
 <Grid>
 <Grid.RowDefinitions>
@@ -8468,13 +8412,11 @@ To="5,0,0,0">
 <RowDefinition Height="*"/>
 <RowDefinition Height="Auto"/>
 </Grid.RowDefinitions>
-<!--Header Section-->
 <Grid>
 <Grid.ColumnDefinitions>
 <ColumnDefinition Width="Auto"/>
 <ColumnDefinition Width="*"/>
 </Grid.ColumnDefinitions>
-<!--Menu-->
 <Menu Grid.Row="0" Grid.Column="0" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Left" BorderThickness="0">
 <MenuItem Background="Transparent" BorderBrush="Transparent" BorderThickness="0" IsEnabled="False" ToolTip="Emad Adel">
 <MenuItem.Icon>
@@ -8677,13 +8619,11 @@ To="5,0,0,0">
 </MenuItem.Icon>
 </MenuItem>
 </Menu>
-<!--End Menu-->
 <Grid Grid.Column="1"  HorizontalAlignment="Right" Margin="0,0,20,0">
 <Grid.ColumnDefinitions>
 <ColumnDefinition Width="Auto"/>
 <ColumnDefinition Width="Auto"/>
 </Grid.ColumnDefinitions>
-<!--AppsCategory-->
 <ComboBox
 SelectedIndex="0"
 Name="AppsCategory"
@@ -8710,8 +8650,6 @@ Width="auto">
 <ComboBoxItem Content="Runtimes"/>
 <ComboBoxItem Content="Drivers"/>
 </ComboBox>
-<!--End AppsCategory-->
-<!--TwaeksCategory-->
 <ComboBox
 SelectedIndex="0"
 Name="TwaeksCategory"
@@ -8729,8 +8667,6 @@ Width="auto">
 <ComboBoxItem Content="Protection"/>
 <ComboBoxItem Content="Classic"/>
 </ComboBox>
-<!--End TwaeksCategory-->
-<!--Search -->
 <Grid HorizontalAlignment="Left" Grid.Column="1" VerticalAlignment="Center">
 <TextBox Padding="8"
 Width="120"
@@ -8758,11 +8694,8 @@ IsHitTestVisible="False"
 Margin="30,0,0,0" />
 </Grid>
 </Grid>
-<!--End Search-->
 </Grid>
 </Grid>
-<!--Header Section-->
-<!--TabControl-->
 <TabControl Name="taps" TabStripPlacement="Left" Grid.Row="1" BorderBrush="Transparent" Foreground="White" Background="Transparent">
 <TabItem Name="apps" Header="{Binding apps}" BorderBrush="{x:Null}" >
 <TabItem.HeaderTemplate>
@@ -11386,15 +11319,12 @@ ScrollViewer.CanContentScroll="True">
 </ListView>
 </TabItem>
 </TabControl>
-<!--End TabControl-->
 <Grid Row="2">
 <Grid.ColumnDefinitions>
 <ColumnDefinition Width="*"/>
 <ColumnDefinition Width="auto"/>
 </Grid.ColumnDefinitions>
-<!-- Buttons -->
 <Grid Column="1" Background="Transparent">
-<!--Install Button-->
 <Button
 Name="installBtn"
 FontSize="14"
@@ -11421,8 +11351,6 @@ HorizontalAlignment="Center"
 VerticalAlignment="Center"/>
 </StackPanel>
 </Button>
-<!--End Install Button-->
-<!--Apply Button-->
 <Button
 Name="applyBtn"
 FontSize="14"
@@ -11449,10 +11377,7 @@ HorizontalAlignment="Center"
 VerticalAlignment="Center"/>
 </StackPanel>
 </Button>
-<!--End Apply Button-->
 </Grid>
-<!-- Buttons -->
-<!-- Quote Text & Icon -->
 <Grid Column="0" Background="Transparent">
 <StackPanel Orientation="Horizontal">
 <TextBlock
@@ -11477,11 +11402,9 @@ Width="611"
 />
 </StackPanel>
 </Grid>
-<!-- Quote Text & Icon -->
 </Grid>
 </Grid>
 </Window>
-<!--End Main Window-->
 '
 $AboutWindowXaml = '<Window
 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -11497,7 +11420,6 @@ MinWidth="455"
 ResizeMode="NoResize"
 Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/icon.ico">
 <Window.Resources>
-<!--Scrollbar Thumbs-->
 <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
 <Setter Property="Template">
 <Setter.Value>
@@ -11572,8 +11494,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/icon.ico">
 </Setter.Value>
 </Setter>
 </Style>
-<!--End Scrollbar Thumbs-->
-<!--Button Style-->
 <Style TargetType="Button">
 <Setter Property="Background" Value="{DynamicResource PrimaryButtonForeground}"/>
 <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor2}"/>
@@ -11596,17 +11516,13 @@ VerticalAlignment="Center"/>
 </Trigger>
 </Style.Triggers>
 </Style>
-<!--End Button Style-->
 </Window.Resources>
 <Grid Margin="8">
-<!-- Define rows and columns for layout -->
 <Grid.RowDefinitions>
-<RowDefinition Height="Auto"/> <!-- Logo -->
-<RowDefinition Height="Auto"/> <!-- Contribute Names -->
-<RowDefinition Height="Auto"/> <!-- Icons -->
+<RowDefinition Height="Auto"/>
+<RowDefinition Height="Auto"/>
+<RowDefinition Height="Auto"/>
 </Grid.RowDefinitions>
-<!-- Define rows and columns for layout -->
-<!-- Logo Section -->
 <Grid Grid.Row="0">
 <StackPanel Orientation="Vertical">
 <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/logo.png"
@@ -11629,7 +11545,6 @@ FontSize="14"
 TextAlignment="Center"
 Foreground="{DynamicResource TextColorSecondaryColor2}"
 />
-<!-- Description Section -->
 <TextBlock
 Text="ITT created to simplify software installation and Windows tweaks, making it easier for others to use their computers. It is an open-source project, and you can contribute to make it better by adding your favorite apps and more."
 TextWrapping="Wrap"
@@ -11642,11 +11557,8 @@ TextAlignment="Center"
 />
 </StackPanel>
 </Grid>
-<!-- Logo Section End -->
-<!-- Contribute Names Section -->
 <Grid Grid.Row="1">
 <StackPanel Orientation="Vertical">
-<!-- Contribute Names Section -->
 <TextBlock Text="Contributors"
 TextWrapping="Wrap" HorizontalAlignment="Center" Foreground="{DynamicResource TextColorSecondaryColor2}" Margin="0,5,0,5" FontSize="12" FontStyle="Italic" TextAlignment="Center"/>
 <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" Height="103">
@@ -11657,8 +11569,6 @@ TextWrapping="Wrap" HorizontalAlignment="Center" Foreground="{DynamicResource Te
 </ScrollViewer>
 </StackPanel>
 </Grid>
-<!-- Contribute Names Section End -->
-<!-- Social Media Icons Section -->
 <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,20,0,0">
 <Button Width="38" Height="38" Name="github" Cursor="Hand" Margin="5">
 <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/github.png"/>
@@ -11676,26 +11586,26 @@ TextWrapping="Wrap" HorizontalAlignment="Center" Foreground="{DynamicResource Te
 <Image Source="https://cdn.buymeacoffee.com/assets/homepage/meta/apple-icon-120x120.png"/>
 </Button>
 </StackPanel>
-<!-- Social Icons Section End -->
 </Grid>
 </Window>
 '
 function Show-Event {
+if($itt.PopupWindow -eq "off") {return}
 [xml]$event = $EventWindowXaml
 $EventWindowReader = (New-Object System.Xml.XmlNodeReader $event)
 $itt.event = [Windows.Markup.XamlReader]::Load($EventWindowReader)
 $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.CurretTheme))
 $CloseBtn = $itt.event.FindName('closebtn')
-$itt.event.FindName('title').text = 'CHANGELOG'.Trim()
-$itt.event.FindName('date').text = '12/19/2024'.Trim()
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
+$itt.event.FindName('title').text = 'Changlog'.Trim()
+$itt.event.FindName('date').text = '12/20/2024'.Trim()
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
@@ -11707,7 +11617,12 @@ $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({
 DisablePopup
 $itt.event.Close()
 })
-if($itt.PopupWindow -eq "off") {return}
+$KeyEvents = {
+if ($_.Key -eq "Escape") {
+$itt.event.Close()
+}
+}
+$itt.event.Add_PreViewKeyDown($KeyEvents)
 $itt.event.ShowDialog() | Out-Null
 }
 function DisablePopup {
@@ -11726,7 +11641,6 @@ ShowInTaskbar = "False"
 Topmost="True"
 Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/icon.ico">
 <Window.Resources>
-<!--Scrollbar Thumbs-->
 <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
 <Setter Property="Template">
 <Setter.Value>
@@ -11801,7 +11715,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/icon.ico">
 </Setter.Value>
 </Setter>
 </Style>
-<!--End Scrollbar Thumbs-->
 </Window.Resources>
 <Window.Triggers>
 <EventTrigger RoutedEvent="Window.Loaded">
@@ -11820,7 +11733,6 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/icon.ico">
 <RowDefinition Height="auto"/>
 </Grid.RowDefinitions>
 <StackPanel x:Name="MainStackPanel" Height="Auto" Background="Transparent" Orientation="Vertical" Margin="20">
-<!-- Title -->
 <Grid Row="0" Background="Transparent">
 <TextBlock Text="&#10006;"
 Name="closebtn"
@@ -11852,7 +11764,6 @@ VerticalAlignment="Center"
 HorizontalAlignment="Left" />
 </StackPanel>
 </Grid>
-<!-- End Title -->
 </StackPanel>
 <Grid Row="1" Background="Transparent" Margin="20">
 <ScrollViewer Name="ScrollViewer" VerticalScrollBarVisibility="Auto" Height="Auto">
@@ -11865,7 +11776,7 @@ HorizontalAlignment="Left" />
 <TextBlock Text=''A Secret Feature Awaits – Unlock It:'' FontSize=''20'' Margin=''0,18,0,18'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
 <Image x:Name=''esg'' Source=''https://github.com/user-attachments/assets/edb67270-d9d2-4e94-8873-1c822c3afe2f'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''/>
 <TextBlock Text=''Can You Find the Hidden Easter Egg? Open the source code and uncover the secret features waiting for you!'' FontSize=''15'' Margin=''8''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
-<TextBlock Text=''Support Palestine - أدعم فلسطين'' FontSize=''20'' Margin=''0,18,0,18'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
+<TextBlock Text=''Support Palestine - دعم فلسطين'' FontSize=''20'' Margin=''0,18,0,18'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
 <Image x:Name=''ps'' Source=''https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/ps_flag.jpg'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''/>
 <TextBlock Text=''Do not hesitate to use your words and talk about Palestine In this age, where voices intertwine and humanitarian issues multiply, each of us has a role to play as an influential activist. Every post can reach someone who needs to hear this truth. Every message can be a source of inspiration or awareness for another person. Do not be afraid to express your opinions, for words are the tools through which we can build awareness and spread the truth. Make your platforms a space for dialogue, and be part of this movement toward positive change. Share stories, ideas, and news—everything you provide can be a step toward achieving justice. Together, we can be the voice for those who have no voice and work toward a fairer world. Let us unite and raise our voices in support of Palestine and to revive hope in the hearts of those who need it.'' FontSize=''15'' Margin=''8''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
 <TextBlock Text=''لا تتردد في استخدام كلمتك، وشارك في الحديث عن فلسطين، فصوتك قادر على إحداث التغيير  في هذا العصر، حيث تتداخل الأصوات وتتزايد القضايا الإنسانية، يبرز دور كل واحد منا كناشط مؤثر. كل منشور يمكن أن يصل إلى شخص يحتاج إلى سماع هذه الحقيقة. كل رسالة يمكن أن تكون مصدر إلهام أو توعية لشخص آخر. لا تخف من التعبير عن آرائك، فالكلمات هي الأداة التي نستطيع من خلالها بناء الوعي ونشر الحقائق. اجعل منصاتك مساحة للحوار، وكن جزءًا من هذه الحركة نحو التغيير الإيجابي. شارك قصصًا، وأفكارًا، وأخبارًا، فكل ما تقدمه يمكن أن يكون خطوة نحو تحقيق العدالة. معًا، يمكننا أن نكون صوتًا لمن لا صوت لهم، وأن نعمل من أجل عالم أكثر عدلاً. فلنتحد ونرفع أصواتنا لنصرة فلسطين ولإحياء الأمل في قلوب من يحتاجونه.'' FontSize=''15'' Margin=''8''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
@@ -12035,13 +11946,14 @@ switch($itt.Music){
 }
 $itt.PopupWindow = (Get-ItemProperty -Path $itt.registryPath -Name "PopupWindow").PopupWindow
 $itt["window"].TaskbarItemInfo = New-Object System.Windows.Shell.TaskbarItemInfo
-Set-Taskbar -progress "None" -icon "logo"
+if(-not $Debug){Set-Taskbar -progress "None" -icon "logo"}
 }
 catch {
 Write-Host "Error: $_"
 }
 $itt.CurrentList
 $itt.CurrentCategory
+$itt.Search_placeholder = $itt["window"].FindName("search_placeholder")
 $itt.TabControl = $itt["window"].FindName("taps")
 $itt.AppsListView = $itt["window"].FindName("appslist")
 $itt.TweaksListView = $itt["window"].FindName("tweakslist")
@@ -12089,9 +12001,8 @@ $element.Add_Click({ Invoke-Toogle $args[0].Name })
 }
 $onClosingEvent = {
 param($s, $c)
-$exitDialog = $itt.database.locales.Controls.$($itt.Language).Exit_msg
-$result = [System.Windows.MessageBox]::Show($exitDialog, "Confirmation", [System.Windows.MessageBoxButton]::YesNo, [System.Windows.MessageBoxImage]::Question)
-if ($result -eq [System.Windows.MessageBoxResult]::Yes) {
+$result = Message -key "Exit_msg" -icon "ask" -action "YesNo"
+if ($result -eq "Yes") {
 StopAllRunspace
 } else {
 $c.Cancel = $true
