@@ -1,4 +1,4 @@
-Function Invoke-DarkMode {
+function Invoke-DarkMode {
     <#
         .SYNOPSIS
         Toggles the Windows theme between Dark Mode and Light Mode based on the provided setting.
