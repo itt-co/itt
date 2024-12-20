@@ -39,17 +39,14 @@ $xaml.SelectNodes("//*[@Name]") | ForEach-Object {
 # Define OnClosing event handler
 $onClosingEvent = {
     param($s, $c)
-    $exitDialog = $itt.database.locales.Controls.$($itt.Language).Exit_msg
     # Show confirmation message box
-    $result = [System.Windows.MessageBox]::Show($exitDialog, "Confirmation", [System.Windows.MessageBoxButton]::YesNo, [System.Windows.MessageBoxImage]::Question)
-    # Check user's choice
-    if ($result -eq [System.Windows.MessageBoxResult]::Yes) {
+    $result = Message -key "Exit_msg" -icon "ask" -action "YesNo"
+    if ($result -eq "Yes") {
         StopAllRunspace
     } else {
         $c.Cancel = $true
     }
 }
-# Handle the Loaded event
 $itt["window"].Add_ContentRendered({
     Startup
     Show-Event
