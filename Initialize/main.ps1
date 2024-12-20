@@ -52,12 +52,12 @@ $itt["window"].Add_ContentRendered({
     Show-Event
 })
 $itt.SearchInput.Add_GotFocus({
-    $itt["window"].FindName("search_placeholder").Visibility = "Hidden"
+    $itt.Search_placeholder.Visibility = "Hidden"
 })
 $itt.SearchInput.Add_LostFocus({
     if ([string]::IsNullOrEmpty($itt.SearchInput.Text)) 
     {
-        $itt["window"].FindName("search_placeholder").Visibility = "Visible";
+        $itt.Search_placeholder.Visibility = "Visible";
     }
 });
 # Close Event handler
