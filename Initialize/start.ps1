@@ -36,13 +36,8 @@ if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
     exit
 }
 Write-Host "Starting..."
-try {
-    $itt.mediaPlayer = New-Object -ComObject WMPlayer.OCX
-    $Host.UI.RawUI.WindowTitle = "ITT - #StandWithPalestine"
-}
-catch {
-    Write-Warning "Media player not loaded because you're using Windows Lite or have disabled."
-}
+$itt.mediaPlayer = New-Object -ComObject WMPlayer.OCX
+$Host.UI.RawUI.WindowTitle = "ITT - #StandWithPalestine"
 if (-not (Test-Path -Path $itt.ittDir)) {
     New-Item -ItemType Directory -Path $itt.ittDir -Force | Out-Null
 }
