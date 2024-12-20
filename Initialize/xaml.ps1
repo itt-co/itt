@@ -26,12 +26,11 @@ $desiredFunctions = @(
 )
 $functions = Get-ChildItem function:\ | Where-Object { $_.Name -in $desiredFunctions }
 foreach ($function in $functions) {
-    # Directly retrieve the function definition
     $functionDefinition = (Get-Command $function.Name).ScriptBlock.ToString()
     $functionEntry = New-Object System.Management.Automation.Runspaces.SessionStateFunctionEntry -ArgumentList $($function.Name), $functionDefinition
     $initialSessionState.Commands.Add($functionEntry)
     # debug start
-    #if ($Debug) { Write-Output "Added function: $($function.Name)" }
+        if ($Debug) { Write-Output "Added function: $($function.Name)" }
     # debug end
 }
 # Create and open the runspace pool
@@ -185,7 +184,7 @@ try {
     #===========================================================================
     # init taskbar icon
     $itt["window"].TaskbarItemInfo = New-Object System.Windows.Shell.TaskbarItemInfo
-    Set-Taskbar -progress "None" -icon "logo"
+    if(-not $Debug){Set-Taskbar -progress "None" -icon "logo"}
 }
 catch {
     Write-Host "Error: $_"
@@ -193,6 +192,7 @@ catch {
 # List Views
 $itt.CurrentList
 $itt.CurrentCategory
+$itt.Search_placeholder = $itt["window"].FindName("search_placeholder")
 $itt.TabControl = $itt["window"].FindName("taps")
 $itt.AppsListView = $itt["window"].FindName("appslist")
 $itt.TweaksListView = $itt["window"].FindName("tweakslist")
