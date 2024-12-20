@@ -1,4 +1,4 @@
-Function Get-ToggleStatus {
+function Get-ToggleStatus {
     <#
         .SYNOPSIS
         Checks the status of various system toggle switches based on the provided parameter.
