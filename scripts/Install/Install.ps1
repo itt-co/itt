@@ -67,7 +67,7 @@ function Invoke-Install {
                 Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
                 Install-App -appName $_.Name -appWinget $_.Winget -appChoco $_.Choco
                 # debug start
-                    if($debug){Add-Log -Message $_.Name -Level "debug"}
+                    if($debug){Add-Log -Message $_.Choco -Level "debug"}
                 # debug end
             }
             else
@@ -78,6 +78,9 @@ function Invoke-Install {
                 -launcher       $_.default.launcher `
                 -portable       $_.default.portable `
                 -installArgs    $_.default.args
+                # debug start
+                    if($debug){Add-Log -Message $_.name $_.default.url -Level "debug"}
+                 # debug end
             }
         }
         Finish -ListView "AppsListView"
