@@ -58,7 +58,7 @@ function ReplaceTextInFile {
         [string]$TextToReplace,
         [string]$ReplacementText
     )
-    Write-Host "Replace Placeholder" -ForegroundColor Yellow
+    Write-Host "[i] Replace Placeholder"
     Update-Progress "$($MyInvocation.MyCommand.Name)" 30
     # Read the content of the file
     $content = Get-Content $FilePath
@@ -97,7 +97,7 @@ function GenerateCheckboxes {
         [string]$ToggleField = "",
         [string]$NameField = ""
     )
-    Write-Host "Generate Checkboxes..." -ForegroundColor Yellow
+    Write-Host "[i] Generate Checkboxes..."
     $Checkboxes = ""
     foreach ($Item in $Items) {
         # Clean description and category to remove special characters
@@ -149,7 +149,7 @@ function Update-Readme {
         [string]$OriginalReadmePath = "Templates\README.md",
         [string]$NewReadmePath = "README.md"
     )
-    Write-Host "Update Readme..." -ForegroundColor Yellow
+    Write-Host "[i] Update Readme..."
     # Read the content of the original README.md file
     $readmeContent = Get-Content -Path $OriginalReadmePath -Raw
     $badgeUrl = "https://img.shields.io/badge/Latest Update-$(Get-Date -Format 'MM/dd/yyy')-blue?style=for-the-badge"
@@ -179,7 +179,7 @@ function Update-Readme {
     Set-Content -Path $NewReadmePath -Value $updatedContent -Encoding UTF8
     Write-Host `n`
     # Output the counts to the console in one go
-    Write-Host "Apps $applicationsCount`nTweaks $tweaksCount`nQuotes $quotesCount`nTracks $tracksCount`nSettings $settingsCount`nLocales $localesCount" -ForegroundColor Yellow
+    Write-Host "[i] Apps $applicationsCount`n[i] Tweaks $tweaksCount`n[i] Quotes $quotesCount`n[i] Tracks $tracksCount`n[i] Settings $settingsCount`n[i] Locales $localesCount"
 }
 # Add New Contributor to Contributor.md and show his name in about window
 function NewCONTRIBUTOR {
@@ -237,7 +237,7 @@ function ConvertTo-Xaml {
         [string]$HeadlineFontSize = 20,
         [string]$DescriptionFontSize = 15
     )
-    Write-Host "Generate Events Window Content..." -ForegroundColor Yellow
+    Write-Host "[i] Generate Events Window Content..."
     # Initialize XAML as an empty string
     $xaml = ""
     # Process each line of the input text
@@ -284,7 +284,7 @@ function GenerateThemesKeys {
     param (
         [string]$ThemesPath = "themes"
     )
-    Write-Host "Generate Themes Keys..." -ForegroundColor Yellow
+    Write-Host "[i] Generate Themes Keys..."
     # Validate the path
     if (-Not (Test-Path $ThemesPath)) {
         Write-Host "The specified path does not exist: $ThemesPath"
@@ -309,7 +309,7 @@ function GenerateLocalesKeys {
     param (
         [string]$localesPath = "locales"
     )
-    Write-Host "Generate Locales Keys..." -ForegroundColor Yellow
+    Write-Host "[i] Generate Locales Keys..."
     # Validate the path
     if (-Not (Test-Path $localesPath)) {
         Write-Host "The specified path does not exist: $ThemesPath"
@@ -329,7 +329,7 @@ function GenerateLocalesKeys {
     return $stringBuilder.ToString().TrimEnd("`n".ToCharArray())  # Remove the trailing newline
 }
 function GenerateClickEventHandlers {
-    Write-Host "Generate Click Event Handlers..." -ForegroundColor Yellow
+    Write-Host "[i] Generate Click Event Handlers..."
     try {
         # Define file paths for scripts and templates
         $FilePaths = @{
@@ -370,7 +370,7 @@ function GenerateClickEventHandlers {
 }
 # Generate GenerateInvokeButtons
 function GenerateInvokeButtons {
-    Write-Host "Generate InvokeButtons..." -ForegroundColor Yellow
+    Write-Host "[i] Generate InvokeButtons..."
     # Define file paths for the Invoke button template
     $FilePaths = @{
         "Invoke" = Join-Path -Path "templates" -ChildPath "Invoke-Button.ps1"
@@ -422,7 +422,7 @@ function Convert-Locales {
         [string]$csvFolderPath = "locales", 
         [string]$jsonOutputPath = "static/Database/locales.json"
     )
-    Write-Host "Convert Locales CSV Files..." -ForegroundColor Yellow
+    Write-Host "[i] Convert Locales CSV Files..."
     # Initialize an OrderedDictionary to store the "Controls" object
     $locales = @{
         "Controls" = [System.Collections.Specialized.OrderedDictionary]@{}
@@ -454,19 +454,20 @@ function Convert-Locales {
         Set-Content -Path $jsonOutputPath -Value $jsonOutput -Encoding UTF8
         Write-Host "JSON file updated." -ForegroundColor Green
     } else {
-        Write-Host "No changes detected. JSON file not updated." -ForegroundColor Yellow
+        Write-Host "[i] No changes detected. JSON file not updated." 
     }
 }
 
 # comparison itt.ps1 remove all comments and space
-function Realsee {
+function RemoveAllComments {
   
     try {
-        Write-Host "Removing all debug comments and unnecessary content..." -ForegroundColor Yellow
+        Write-Host "[i] Removing all debug comments and unnecessary content..."
         $FilePath = $OutputScript
         $Content = Get-Content -Path $FilePath -Raw
         $Content = $Content -replace '(#\s*debug start[\s\S]*?#\s*debug end)', ''
         $Content = $Content -replace '<#[\s\S]*?#>', ''
+        $Content = $Content -replace '<!.*', ''
         $Content = ($Content -split "`r?`n" | ForEach-Object {
             ($_ -replace '^\s*#.*$', '').Trim()
         }) -join "`n"
@@ -677,23 +678,25 @@ WriteToScript -Content @"
 #endregion End Main
 #===========================================================================
 "@
-
-if($Realsee){
-    Realsee
-}
-
-if($Debug)
-{
-    Write-Host " `n`Debug mode..." -ForegroundColor Green
+Update-Readme
+Write-Host "[i] Build successfully" -ForegroundColor Yellow
+function Run {
+    param ($Version)
     $script = "& '$ProjectDir\$OutputScript'"
     $pwsh = if (Get-Command pwsh -ErrorAction SilentlyContinue) { "pwsh" } else { "powershell" }
     $wt = if (Get-Command wt.exe -ErrorAction SilentlyContinue) { "wt.exe" } else { $pwsh }
-    Start-Process $wt -ArgumentList "$pwsh -NoProfile -Command $script -Debug"
-
+    Start-Process $wt -ArgumentList "$pwsh -NoProfile -Command $script -$Version"
 }
-
-    Update-Readme
-    Write-Host " `n`Build successfully" -ForegroundColor Green
+if($Realsee){
+    RemoveAllComments
+    Run -Version "Realsee"
+    Write-Host "[i] Starting Realsee mode..." -ForegroundColor Yellow
+}
+if($Debug)
+{
+    Run -Version "debug"
+    Write-Host "[i] Starting Debug mode..." -ForegroundColor Yellow
+}
 }
 catch {
     Write-Error "An error occurred: $_"
