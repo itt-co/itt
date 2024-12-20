@@ -50,6 +50,9 @@ function LoadJson {
         $collectionView.Filter = $filterPredicate
         Message -NoneKey "Restored successfully" -icon "info" -action "OK"
     }
+    # Clear Search input
+    $itt.Search_placeholder.Visibility = "Visible"
+    $itt.SearchInput.Text = $null
 }
 # Function to save selected items to a JSON file
 function SaveItemsToJson {
@@ -74,8 +77,6 @@ function SaveItemsToJson {
                 $itemObject = [PSCustomObject]@{
                     Name   = $checkBoxes.Content
                     check  = "true"
-                    choco  = $app.choco
-                    winget = $app.winget
                 }
                 $items += $itemObject
             }
@@ -88,7 +89,7 @@ function SaveItemsToJson {
         $saveFileDialog.Title = "Save JSON File"
         $dialogResult = $saveFileDialog.ShowDialog()
         if ($dialogResult -eq "OK") {
-            $items | ConvertTo-Json | Out-File -FilePath $saveFileDialog.FileName -Force
+            $items | ConvertTo-Json -Compress | Out-File -FilePath $saveFileDialog.FileName -Force
             Write-Host "Saved: $($saveFileDialog.FileName)"
             Message -NoneKey "Saved successfully" -icon "info" -action "OK"
             foreach ($item in $itt.AppsListView.Items) {
@@ -102,5 +103,6 @@ function SaveItemsToJson {
         Message -key "Empty_save_msg" -icon "Information" -action "OK"
     }
     # Clear Search input
-    $itt.SearchInput.Text = ""
+    $itt.Search_placeholder.Visibility = "Visible"
+    $itt.SearchInput.Text = $null
 }
