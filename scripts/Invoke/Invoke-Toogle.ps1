@@ -17,8 +17,6 @@ function Invoke-Toogle {
         - The debug parameter is primarily used for testing and development purposes. Uncommenting the `Write-Host` line can provide additional output for debugging.
     #>
     Param ([string]$debug)
-    # debug
-    #Write-Host $debug
     Switch -Wildcard ($debug){
         "ToggleShowExt" {Invoke-ShowFile-Extensions $(Get-ToggleStatus ToggleShowExt)}
         "ToggleDarkMode" {Invoke-DarkMode $(Get-ToggleStatus ToggleDarkMode)}
@@ -32,4 +30,7 @@ function Invoke-Toogle {
         "VisualFXSetting" {Invoke-PerformanceOptions $(Get-ToggleStatus VisualFXSetting)}
         "LaunchTo" {Invoke-LaunchTo $(Get-ToggleStatus LaunchTo)}
     }
+    # debug start
+        Add-Log -Message $debug -Level "debug"
+    # debug end
 }
