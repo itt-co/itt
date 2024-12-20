@@ -6,7 +6,7 @@ $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
 developer      = "Emad Adel"
-lastupdate     = "12/20/2024"
+lastupdate     = "12/21/2024"
 github         = "https://github.com/emadadel4/itt"
 telegram       = "https://t.me/emadadel4"
 blog           = "https://emadadel4.github.io"
@@ -12013,12 +12013,12 @@ Startup
 Show-Event
 })
 $itt.SearchInput.Add_GotFocus({
-$itt["window"].FindName("search_placeholder").Visibility = "Hidden"
+$itt.Search_placeholder.Visibility = "Hidden"
 })
 $itt.SearchInput.Add_LostFocus({
 if ([string]::IsNullOrEmpty($itt.SearchInput.Text))
 {
-$itt["window"].FindName("search_placeholder").Visibility = "Visible";
+$itt.Search_placeholder.Visibility = "Visible";
 }
 });
 $itt["window"].add_Closing($onClosingEvent)
