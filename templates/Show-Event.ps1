@@ -1,4 +1,5 @@
 function Show-Event {
+    if($itt.PopupWindow -eq "off") {return}   
     [xml]$event = $EventWindowXaml
     $EventWindowReader = (New-Object System.Xml.XmlNodeReader $event)
     $itt.event = [Windows.Markup.XamlReader]::Load($EventWindowReader)
@@ -13,8 +14,14 @@ function Show-Event {
         DisablePopup
         $itt.event.Close()
     })
+    # Escape to Close window
+    $KeyEvents = {
+        if ($_.Key -eq "Escape") {
+            $itt.event.Close()
+        }
+    }
+    $itt.event.Add_PreViewKeyDown($KeyEvents)
     # Show dialog
-    if($itt.PopupWindow -eq "off") {return}   
     $itt.event.ShowDialog() | Out-Null
 }
 function DisablePopup {

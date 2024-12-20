@@ -1,4 +1,7 @@
-$KeyEvents = {
+#===========================================================================
+#region Keyboard-Shortcuts 
+#===========================================================================
+
     <#
         .DESCRIPTION
             How to add a new shortcut
@@ -9,6 +12,9 @@ $KeyEvents = {
         .EXAMPLE
             if (($_.Key -eq "A" -and $_.KeyboardDevice.Modifiers -eq "Ctrl")) {# your code here}      
     #>
+
+$KeyEvents = {
+   
     if ($itt.ProcessRunning -eq $true) {
         return
     }
@@ -106,3 +112,6 @@ $KeyEvents = {
         ITTShortcut
     }
 }
+#===========================================================================
+#endregion Keyboard-Shortcuts 
+#===========================================================================
