@@ -6,7 +6,7 @@ $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
 developer      = "Emad Adel"
-lastupdate     = "12/21/2024"
+lastupdate     = "12/24/2024"
 github         = "https://github.com/emadadel4/itt"
 telegram       = "https://t.me/emadadel4"
 blog           = "https://emadadel4.github.io"
@@ -3485,6 +3485,42 @@ $itt.database.Applications = @'
 "choco": "none",
 "default": [],
 "category": "Communication",
+"check": "false"
+},
+{
+"Name": "Zettlr",
+"Description": "Zettlr is a supercharged markdown editor that combines many writing editor features and collect them in one application. It aims at speeding up your workflow and help you write without any interruptions",
+"winget": "Zettlr.Zettlr",
+"choco": "zettlr",
+"default": [],
+"category": "Documents",
+"check": "false"
+},
+{
+"Name": "RustDesk",
+"Description": "An open-source remote desktop software, works out of the box, no configuration required, written in Rust",
+"winget": "RustDesk.RustDesk",
+"choco": "rustdesk",
+"default": [],
+"category": "File Sharing",
+"check": "false"
+},
+{
+"Name": "Ente Auth",
+"Description": "An end-to-end encrypted, cross platform and free app for storing your 2FA codes with cloud backups",
+"winget": "none",
+"choco": "ente-auth",
+"default": [],
+"category": "Security",
+"check": "false"
+},
+{
+"Name": "SQLiteStudio",
+"Description": "SQLiteStudio is desktop application for browsing and editing SQLite database files. It is aimed for people, who know what SQLite is, or what relational databases are in general",
+"winget": "sqlitestudio.pl.SQLiteStudio",
+"choco": "sqlitestudio",
+"default": [],
+"category": "Development",
 "check": "false"
 }
 ]
@@ -10958,6 +10994,30 @@ ScrollViewer.CanContentScroll="True">
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
 <TextBlock Width="800" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text=" Desktop Telegram client with good customization and Ghost mode."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Zettlr" Tag="Documents" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Documents"/>
+</StackPanel>
+<TextBlock Width="800" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Zettlr is a supercharged markdown editor that combines many writing editor features and collect them in one application. It aims at speeding up your workflow and help you write without any interruptions."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="RustDesk" Tag="File Sharing" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
+</StackPanel>
+<TextBlock Width="800" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="An opensource remote desktop software works out of the box no configuration required written in Rust."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Ente Auth" Tag="Security" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Security"/>
+</StackPanel>
+<TextBlock Width="800" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="An endtoend encrypted cross platform and free app for storing your 2FA codes with cloud backups."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="SQLiteStudio" Tag="Development" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
+</StackPanel>
+<TextBlock Width="800" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="SQLiteStudio is desktop application for browsing and editing SQLite database files. It is aimed for people who know what SQLite is or what relational databases are in general."/>
 </StackPanel>
 </ListView>
 </TabItem.Content>
@@ -11598,17 +11658,17 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changlog'.Trim()
 $itt.event.FindName('date').text = '12/20/2024'.Trim()
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
-})
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
