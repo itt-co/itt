@@ -3446,5 +3446,41 @@
     "default": [],
     "category": "Communication",
     "check": "false"
+  },
+  {
+    "Name": "Zettlr",
+    "Description": "Zettlr is a supercharged markdown editor that combines many writing editor features and collect them in one application. It aims at speeding up your workflow and help you write without any interruptions",
+    "winget": "Zettlr.Zettlr",
+    "choco": "zettlr",
+    "default": [],
+    "category": "Documents",
+    "check": "false"
+  },
+  {
+    "Name": "RustDesk",
+    "Description": "An open-source remote desktop software, works out of the box, no configuration required, written in Rust",
+    "winget": "RustDesk.RustDesk",
+    "choco": "rustdesk",
+    "default": [],
+    "category": "File Sharing",
+    "check": "false"
+  },
+  {
+    "Name": "Ente Auth",
+    "Description": "An end-to-end encrypted, cross platform and free app for storing your 2FA codes with cloud backups",
+    "winget": "none",
+    "choco": "ente-auth",
+    "default": [],
+    "category": "Security",
+    "check": "false"
+  },
+  {
+    "Name": "SQLiteStudio",
+    "Description": "SQLiteStudio is desktop application for browsing and editing SQLite database files. It is aimed for people, who know what SQLite is, or what relational databases are in general",
+    "winget": "sqlitestudio.pl.SQLiteStudio",
+    "choco": "sqlitestudio",
+    "default": [],
+    "category": "Development",
+    "check": "false"
   }
 ]
