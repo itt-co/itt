@@ -70,11 +70,11 @@
 </p>
 
 <div align="center">
-  <h5> 373 App |  40 Tweaks | 11 Settings | 102 Quote |  27 Soundtrack | 12 Localization </h5>
+  <h5> 377 App |  40 Tweaks | 11 Settings | 102 Quote |  27 Soundtrack | 12 Localization </h5>
 </div>
 
 <p align="center">
-  <a  href="#-usage" rel="nofollow"><img src="https://img.shields.io/badge/Latest Update-12/21/2024-blue?style=for-the-badge"></a>
+  <a  href="#-usage" rel="nofollow"><img src="https://img.shields.io/badge/Latest Update-12/24/2024-blue?style=for-the-badge"></a>
 </p>
 
 
