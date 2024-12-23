@@ -257,6 +257,12 @@ function Invoke-Button {
                 Debug-Message $action
             # debug end
         }
+        "rapidos"{
+            Start-Process ("https://github.com/rapid-community/RapidOS")
+            # debug start
+                Debug-Message $action
+            # debug end
+        }
         "webtor"{
             Start-Process ("https://webtor.io/")
             # debug start
