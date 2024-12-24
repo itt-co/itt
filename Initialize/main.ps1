@@ -1,7 +1,7 @@
 #===========================================================================
 #region Select elements with a Name attribute using XPath and iterate over them
 #===========================================================================
-$xaml.SelectNodes("//*[@Name]") | ForEach-Object {
+$MainXaml.SelectNodes("//*[@Name]") | ForEach-Object {
     $name = $_.Name
     $element = $itt["window"].FindName($name)
     if ($element) {
