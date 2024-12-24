@@ -7623,6 +7623,9 @@ ITTShortcut
 if ($_.Key -eq "I" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
 ITTShortcut
 }
+if ($_.Key -eq "A" -and $_.KeyboardDevice.Modifiers -eq "Ctrl") {
+$itt["window"].FindName($itt.CurrentCategory).SelectedIndex = 0
+}
 }
 function Message {
 param(
@@ -11666,11 +11669,11 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changlog'.Trim()
 $itt.event.FindName('date').text = '12/20/2024'.Trim()
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
