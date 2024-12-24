@@ -150,7 +150,7 @@
                 <TextBlock 
                 Name="DisablePopup" 
                 Foreground="{DynamicResource TextColorSecondaryColor2}"
-                Text="Don't show again"
+                Text="Show on update"
                 Background="Transparent"
                 TextAlignment="Center"
                 Cursor="Hand"
