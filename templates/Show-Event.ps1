@@ -1,5 +1,5 @@
 function Show-Event {
-    if($itt.PopupWindow -eq "off") {return}   
+    #if($itt.PopupWindow -eq "off") {return}   
     [xml]$event = $EventWindowXaml
     $EventWindowReader = (New-Object System.Xml.XmlNodeReader $event)
     $itt.event = [Windows.Markup.XamlReader]::Load($EventWindowReader)
@@ -21,8 +21,15 @@ function Show-Event {
         }
     }
     $itt.event.Add_PreViewKeyDown($KeyEvents)
-    # Show dialog
-    $itt.event.ShowDialog() | Out-Null
+    # Calculate timestamp
+    $storedDateStr = $itt.event.FindName('date').text
+    $storedDate = [datetime]::ParseExact($storedDateStr, 'MM/dd/yyyy', $null)
+    $currentDate = Get-Date
+    $daysElapsed = ($currentDate - $storedDate).Days
+    # show popup on update events
+    if ($daysElapsed -lt 2 -or $itt.PopupWindow -eq "on") {
+        $itt.event.ShowDialog() | Out-Null
+    }
 }
 function DisablePopup {
     Set-ItemProperty -Path $itt.registryPath  -Name "PopupWindow" -Value "off" -Force
