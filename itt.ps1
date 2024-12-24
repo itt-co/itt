@@ -11661,7 +11661,6 @@ TextWrapping="Wrap" HorizontalAlignment="Center" Foreground="{DynamicResource Te
 </Window>
 '
 function Show-Event {
-if($itt.PopupWindow -eq "off") {return}
 [xml]$event = $EventWindowXaml
 $EventWindowReader = (New-Object System.Xml.XmlNodeReader $event)
 $itt.event = [Windows.Markup.XamlReader]::Load($EventWindowReader)
@@ -11672,14 +11671,14 @@ $itt.event.FindName('date').text = '12/20/2024'.Trim()
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
-})
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
@@ -11694,7 +11693,13 @@ $itt.event.Close()
 }
 }
 $itt.event.Add_PreViewKeyDown($KeyEvents)
+$storedDateStr = $itt.event.FindName('date').text
+$storedDate = [datetime]::ParseExact($storedDateStr, 'MM/dd/yyyy', $null)
+$currentDate = Get-Date
+$daysElapsed = ($currentDate - $storedDate).Days
+if ($daysElapsed -lt 2 -or $itt.PopupWindow -eq "on") {
 $itt.event.ShowDialog() | Out-Null
+}
 }
 function DisablePopup {
 Set-ItemProperty -Path $itt.registryPath  -Name "PopupWindow" -Value "off" -Force
@@ -11858,7 +11863,7 @@ HorizontalAlignment="Left" />
 <TextBlock
 Name="DisablePopup"
 Foreground="{DynamicResource TextColorSecondaryColor2}"
-Text="Don''t show again"
+Text="Show on update"
 Background="Transparent"
 TextAlignment="Center"
 Cursor="Hand"
