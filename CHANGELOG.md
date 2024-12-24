@@ -1,7 +1,22 @@
-###### 12/20/2024
+###### 12/25/2024
 ## Changlog
 ### Watch demo
 ![itt.xName:ytv [https://www.youtube.com/watch?v=QmO82OTsU5c]](https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/thumbnail.jpg)
+##### Keyboard Shortcuts:
+- Ctrl + A: Clear category filter.
+- Ctrl + F: Enter search mode. Press ESC to exit.
+- Ctrl + Q: Switch to the apps tab.
+- Ctrl + W: Switch to the Tweaks tab.
+- Ctrl + E: Switch to the Settings tab.
+- Ctrl + S: Install selected apps also apply selected tweaks.
+- Shift + S: Save items to JSON file.
+- Shift + D: Load items save file.
+- Shift + M: Mute music.
+- Shift + F: Play music.
+- Shift + P: Open Choco folder in File Explorer.
+- Shift + Q: Restore point.
+- Shift + I: ITT Shortcut.
+- Ctrl + G: Closes the application.
 ### Download any Youtube video:
 ![itt.xName:shell [https://www.youtube.com/watch?v=nI7rUhWeOrA]](https://raw.githubusercontent.com/emadadel4/ShellTube/main/demo.jpg)
 #### Shelltube is simple way to downnload videos and playlist from youtube just Launch it and start download your video you can Launch it from Third-party section.
