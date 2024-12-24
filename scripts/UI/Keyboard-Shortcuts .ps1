@@ -111,6 +111,11 @@ $KeyEvents = {
      if ($_.Key -eq "I" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
         ITTShortcut
     }
+
+    # Clear category filter
+    if ($_.Key -eq "A" -and $_.KeyboardDevice.Modifiers -eq "Ctrl") {
+        $itt["window"].FindName($itt.CurrentCategory).SelectedIndex = 0
+    }
 }
 #===========================================================================
 #endregion Keyboard-Shortcuts 
