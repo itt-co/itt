@@ -5998,7 +5998,9 @@ RestorePoint
 }
 "moff" {
 MuteMusic -Value 0
-Debug-Message $action
+}
+"mon" {
+UnmuteMusic -Value 100
 }
 "unhook" {
 Start-Process "https://unhook.app/"
