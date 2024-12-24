@@ -24,25 +24,24 @@ $desiredFunctions = @(
 'Refresh-Explorer',
 'Remove-ScheduledTasks'
 )
-$functions = Get-ChildItem function:\ | Where-Object { $_.Name -in $desiredFunctions }
-foreach ($function in $functions) {
-    $functionDefinition = (Get-Command $function.Name).ScriptBlock.ToString()
-    $functionEntry = New-Object System.Management.Automation.Runspaces.SessionStateFunctionEntry -ArgumentList $($function.Name), $functionDefinition
-    $initialSessionState.Commands.Add($functionEntry)
-    # debug start
-        if ($Debug) { Write-Output "Added function: $($function.Name)" }
-    # debug end
+$functions = Get-ChildItem function:\ | Where-Object { $desiredFunctions -contains $_.Name }
+$functionEntries = $functions | ForEach-Object {
+    $functionDefinition = (Get-Command $_.Name).ScriptBlock.ToString()
+    New-Object System.Management.Automation.Runspaces.SessionStateFunctionEntry -ArgumentList $_.Name, $functionDefinition
 }
+$functionEntries | ForEach-Object { $initialSessionState.Commands.Add($_) }
+# debug start
+    if ($Debug) {$functions | ForEach-Object { Write-Output "Added function: $($_.Name)" }}
+# debug end
 # Create and open the runspace pool
 $itt.runspace = [runspacefactory]::CreateRunspacePool(1, $maxthreads, $InitialSessionState, $Host)
 $itt.runspace.Open()
-[xml]$XAML = $MainWindowXaml
-# Read the XAML file
-$reader = [System.Xml.XmlNodeReader] $xaml
+# Initialize Main window
 try {
-    $itt["window"] = [Windows.Markup.XamlReader]::Load($reader)
-}catch{
-    Write-Host $_.Exception.Message
+    [xml]$MainXaml = $MainWindowXaml
+    $itt["window"] = [Windows.Markup.XamlReader]::Load([System.Xml.XmlNodeReader]$MainXaml)
+} catch {
+    Write-Host "Error: $($_.Exception.Message)"
 }
 try {
     #===========================================================================
