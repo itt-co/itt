@@ -4133,69 +4133,75 @@ $itt.database.Settings = @'
 [
 {
 "Content": "Show file extensions",
-"Name":"ToggleShowExt",
+"Name": "ToggleShowExt",
 "description": "Show file extensions in Windows displays the suffix at the end of file names (like .txt, .jpg, .exe), indicating file types and helping users identify which programs can open them, simplifying file management and differentiation",
 "category": "Protection"
 },
 {
 "Content": "Show Super Hidden",
-"Name":"ToggleShowHidden",
+"Name": "ToggleShowHidden",
 "description": "Show Super Hidden displays files and folders in Windows that are hidden beyond standard hidden files, often system files to prevent accidental changes",
 "category": "Protection"
 },
 {
 "Content": "Dark Mode",
-"Name":"ToggleDarkMode",
+"Name": "ToggleDarkMode",
 "description": "Dark Mode is a setting that changes the screen to darker colors, reducing eye strain and saving battery life on OLED screens",
 "category": "Personalize"
 },
 {
 "Content": "NumLook",
-"Name":"ToggleNumLook",
+"Name": "ToggleNumLook",
 "description": "Toggle the Num Lock key state when your computer starts",
 "category": "Protection"
 },
 {
 "Content": "Sticky Keys",
-"Name":"ToggleStickyKeys",
+"Name": "ToggleStickyKeys",
 "description": "Sticky keys is an accessibility feature of some graphical user interfaces which assists users who have physical disabilities or help users reduce repetitive strain injury",
 "category": "Accessibility"
 },
 {
 "Content": "Mouse Acceleration",
-"Name":"MouseAcceleration",
+"Name": "MouseAcceleration",
 "description": "Cursor movement is affected by the speed of your physical mouse movements",
 "category": "Accessibility"
 },
 {
 "Content": "End Task On Taskbar Windows 11",
-"Name":"EndTaskOnTaskbar",
+"Name": "EndTaskOnTaskbar",
 "description": "Option to end task when right clicking a program in the taskbar",
 "category": "Accessibility"
 },
 {
 "Content": "Clear Page File At Shutdown",
-"Name":"ClearPageFileAtShutdown",
+"Name": "ClearPageFileAtShutdown",
 "description": "Page file in Windows removes sensitive data stored in virtual memory when the system shuts down. This enhances security by ensuring that the data in the page file (which may contain passwords, encryption keys, or other sensitive information) is wiped out and cannot be accessed after rebooting. However, it can increase shutdown time",
 "category": "Storage "
 },
 {
 "Content": "Auto End Tasks",
-"Name":"AutoEndTasks",
+"Name": "AutoEndTasks",
 "description": "Automatically end tasks that are not responding",
 "category": "Performance"
 },
 {
 "Content": "Performance Options",
-"Name":"VisualFXSetting",
+"Name": "VisualFXSetting",
 "description": "Adjust for best performance",
 "category": "Performance"
 },
 {
 "Content": "Launch To This PC",
-"Name":"LaunchTo",
+"Name": "LaunchTo",
 "description": "Changing the default opening location of File Explorer in Windows allows it to open directly to This PC instead of Quick Access, making it easier to quickly access main drives and system folders",
 "category": "Accessibility"
+},
+{
+"Content": "Disable Automatic Driver Installation",
+"Name": "DisableDriver",
+"description": "Stopping Windows from automatically downloading and installing drivers",
+"category": "Drivers"
 }
 ]
 '@ | ConvertFrom-Json
@@ -6428,6 +6434,18 @@ else
 return $false
 }
 }
+if($ToggleSwitch -eq "DisableDriver")
+{
+$aaa = (Get-ItemProperty -path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching').SearchOrderConfig
+if($aaa -eq 1)
+{
+return $true
+}
+else
+{
+return $false
+}
+}
 }
 function Install-App {
 param (
@@ -7121,6 +7139,7 @@ Switch -Wildcard ($debug){
 "AutoEndTasks" {Invoke-AutoEndTasks $(Get-ToggleStatus AutoEndTasks)}
 "VisualFXSetting" {Invoke-PerformanceOptions $(Get-ToggleStatus VisualFXSetting)}
 "LaunchTo" {Invoke-LaunchTo $(Get-ToggleStatus LaunchTo)}
+"DisableDriver" {Invoke-DisableAutoDrivers $(Get-ToggleStatus DisableDriver)}
 }
 }
 function Invoke-AutoEndTasks {
@@ -7231,6 +7250,34 @@ $itt['window'].Resources.MergedDictionaries.Add($itt['window'].FindResource("Lig
 $Path = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize"
 Set-ItemProperty -Path $Path -Name AppsUseLightTheme -Value $DarkMoveValue
 Set-ItemProperty -Path $Path -Name SystemUsesLightTheme -Value $DarkMoveValue
+}
+Catch [System.Security.SecurityException] {
+Write-Warning "Unable to set $Path\$Name to $Value due to a Security Exception"
+}
+Catch [System.Management.Automation.ItemNotFoundException] {
+Write-Warning $psitem.Exception.ErrorRecord
+}
+Catch{
+Write-Warning "Unable to set $Name due to unhandled exception"
+Write-Warning $psitem.Exception.StackTrace
+}
+}
+function Invoke-DisableAutoDrivers {
+Param(
+$Enabled,
+[string]$Path = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching",
+[string]$name = "SearchOrderConfig"
+)
+Try{
+if ($Enabled -eq $false){
+$value = 1
+Add-Log -Message "Enabled auto drivers update" -Level "Apply"
+}
+else {
+$value = 0
+Add-Log -Message "Disabled auto drivers update" -Level "Disabled"
+}
+Set-ItemProperty -Path $Path -Name $name -Value $value -ErrorAction Stop
 }
 Catch [System.Security.SecurityException] {
 Write-Warning "Unable to set $Path\$Name to $Value due to a Security Exception"
@@ -11382,6 +11429,12 @@ ScrollViewer.CanContentScroll="True">
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Accessibility"/>
 </StackPanel>
 <TextBlock Width="800" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Changing the default opening location of File Explorer in Windows allows it to open directly to This PC instead of Quick Access making it easier to quickly access main drives and system folders."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Disable Automatic Driver Installation" Tag=""  Style="{StaticResource ToggleSwitchStyle}" Name="DisableDriver"  FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
+</StackPanel>
+<TextBlock Width="800" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Stopping Windows from automatically downloading and installing drivers."/>
 </StackPanel>
 </ListView>
 </TabItem>
@@ -11664,17 +11717,17 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changlog'.Trim()
 $itt.event.FindName('date').text = '12/25/2024'.Trim()
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('ps').add_MouseLeftButtonDown({
-Start-Process('https://www.palestinercs.org/en/Donation')
-})
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
+$itt.event.FindName('ps').add_MouseLeftButtonDown({
+Start-Process('https://www.palestinercs.org/en/Donation')
+})
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
