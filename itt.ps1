@@ -4310,6 +4310,10 @@ $itt.database.Tweaks = @'
 "Microsoft.BingHealthAndFitness",
 "Microsoft.BingTravel",
 "Microsoft.MinecraftUWP",
+"PowerAutomate",
+"MicrosoftTeams",
+"Microsoft.Todos",
+"Microsoft.AsyncTextService",
 "Microsoft.GamingServices",
 "Microsoft.BingFoodAndDrink",
 "Microsoft.BingWeather",
@@ -4323,6 +4327,7 @@ $itt.database.Tweaks = @'
 "Microsoft.Office.Lens",
 "Microsoft.Office.OneNote",
 "Microsoft.Office.Sway",
+"Microsoft.OutlookForWindows",
 "Microsoft.OneConnect",
 "Microsoft.People",
 "Microsoft.Print3D",
@@ -4367,6 +4372,8 @@ $itt.database.Tweaks = @'
 "Minecraft",
 "Royal Revolt",
 "Sway",
+"Disney.37853FC22B2CE",
+"disney",
 "Microsoft.549981",
 "Microsoft.MicrosoftStickyNotes",
 "TikTok.TikTok_8wekyb3d8bbwe",
@@ -11717,14 +11724,14 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changlog'.Trim()
 $itt.event.FindName('date').text = '12/25/2024'.Trim()
+$itt.event.FindName('ps').add_MouseLeftButtonDown({
+Start-Process('https://www.palestinercs.org/en/Donation')
+})
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('ps').add_MouseLeftButtonDown({
-Start-Process('https://www.palestinercs.org/en/Donation')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
