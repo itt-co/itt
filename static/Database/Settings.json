@@ -1,68 +1,74 @@
 [
   {
-      "Content": "Show file extensions",
-      "Name":"ToggleShowExt",
-      "description": "Show file extensions in Windows displays the suffix at the end of file names (like .txt, .jpg, .exe), indicating file types and helping users identify which programs can open them, simplifying file management and differentiation",
-      "category": "Protection"
+    "Content": "Show file extensions",
+    "Name": "ToggleShowExt",
+    "description": "Show file extensions in Windows displays the suffix at the end of file names (like .txt, .jpg, .exe), indicating file types and helping users identify which programs can open them, simplifying file management and differentiation",
+    "category": "Protection"
   },
   {
     "Content": "Show Super Hidden",
-    "Name":"ToggleShowHidden",
+    "Name": "ToggleShowHidden",
     "description": "Show Super Hidden displays files and folders in Windows that are hidden beyond standard hidden files, often system files to prevent accidental changes",
     "category": "Protection"
   },
   {
     "Content": "Dark Mode",
-    "Name":"ToggleDarkMode",
+    "Name": "ToggleDarkMode",
     "description": "Dark Mode is a setting that changes the screen to darker colors, reducing eye strain and saving battery life on OLED screens",
     "category": "Personalize"
   },
   {
     "Content": "NumLook",
-    "Name":"ToggleNumLook",
+    "Name": "ToggleNumLook",
     "description": "Toggle the Num Lock key state when your computer starts",
     "category": "Protection"
   },
   {
     "Content": "Sticky Keys",
-    "Name":"ToggleStickyKeys",
+    "Name": "ToggleStickyKeys",
     "description": "Sticky keys is an accessibility feature of some graphical user interfaces which assists users who have physical disabilities or help users reduce repetitive strain injury",
     "category": "Accessibility"
   },
   {
     "Content": "Mouse Acceleration",
-    "Name":"MouseAcceleration",
+    "Name": "MouseAcceleration",
     "description": "Cursor movement is affected by the speed of your physical mouse movements",
     "category": "Accessibility"
   },
   {
     "Content": "End Task On Taskbar Windows 11",
-    "Name":"EndTaskOnTaskbar",
+    "Name": "EndTaskOnTaskbar",
     "description": "Option to end task when right clicking a program in the taskbar",
     "category": "Accessibility"
   },
   {
     "Content": "Clear Page File At Shutdown",
-    "Name":"ClearPageFileAtShutdown",
+    "Name": "ClearPageFileAtShutdown",
     "description": "Page file in Windows removes sensitive data stored in virtual memory when the system shuts down. This enhances security by ensuring that the data in the page file (which may contain passwords, encryption keys, or other sensitive information) is wiped out and cannot be accessed after rebooting. However, it can increase shutdown time",
     "category": "Storage "
   },
   {
     "Content": "Auto End Tasks",
-    "Name":"AutoEndTasks",
+    "Name": "AutoEndTasks",
     "description": "Automatically end tasks that are not responding",
     "category": "Performance"
   },
   {
     "Content": "Performance Options",
-    "Name":"VisualFXSetting",
+    "Name": "VisualFXSetting",
     "description": "Adjust for best performance",
     "category": "Performance"
   },
   {
     "Content": "Launch To This PC",
-    "Name":"LaunchTo",
+    "Name": "LaunchTo",
     "description": "Changing the default opening location of File Explorer in Windows allows it to open directly to This PC instead of Quick Access, making it easier to quickly access main drives and system folders",
     "category": "Accessibility"
+  },
+  {
+    "Content": "Disable Automatic Driver Installation",
+    "Name": "DisableDriver",
+    "description": "Stopping Windows from automatically downloading and installing drivers",
+    "category": "Drivers"
   }
 ]

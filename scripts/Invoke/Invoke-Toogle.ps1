@@ -29,6 +29,7 @@ function Invoke-Toogle {
         "AutoEndTasks" {Invoke-AutoEndTasks $(Get-ToggleStatus AutoEndTasks)}
         "VisualFXSetting" {Invoke-PerformanceOptions $(Get-ToggleStatus VisualFXSetting)}
         "LaunchTo" {Invoke-LaunchTo $(Get-ToggleStatus LaunchTo)}
+        "DisableDriver" {Invoke-DisableAutoDrivers $(Get-ToggleStatus DisableDriver)}
     }
     # debug start
         Add-Log -Message $debug -Level "debug"

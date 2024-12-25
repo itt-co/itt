@@ -167,4 +167,17 @@ function Get-ToggleStatus {
             return $false
         }
     }
+    # 
+    if($ToggleSwitch -eq "DisableDriver") 
+    {
+        $aaa = (Get-ItemProperty -path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching').SearchOrderConfig
+        if($aaa -eq 1) 
+        {
+            return $true
+        } 
+        else 
+        {
+            return $false
+        }
+    }
 }
