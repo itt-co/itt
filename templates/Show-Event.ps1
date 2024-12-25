@@ -27,7 +27,7 @@ function Show-Event {
     $currentDate = Get-Date
     $daysElapsed = ($currentDate - $storedDate).Days
     # show popup on update events
-    if ($daysElapsed -lt 2 -or $itt.PopupWindow -eq "on") {
+    if ($daysElapsed -lt 1 -or $itt.PopupWindow -eq "on") {
         $itt.event.ShowDialog() | Out-Null
     }
 }
