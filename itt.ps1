@@ -3,7 +3,7 @@ $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
 developer      = "Emad Adel"
-lastupdate     = "12/25/2024"
+lastupdate     = "12/26/2024"
 github         = "https://github.com/emadadel4/itt"
 telegram       = "https://t.me/emadadel4"
 blog           = "https://emadadel4.github.io"
@@ -11720,14 +11720,14 @@ $itt.event.FindName('date').text = '12/25/2024'.Trim()
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
@@ -11746,7 +11746,7 @@ $storedDateStr = $itt.event.FindName('date').text
 $storedDate = [datetime]::ParseExact($storedDateStr, 'MM/dd/yyyy', $null)
 $currentDate = Get-Date
 $daysElapsed = ($currentDate - $storedDate).Days
-if ($daysElapsed -lt 2 -or $itt.PopupWindow -eq "on") {
+if ($daysElapsed -lt 1 -or $itt.PopupWindow -eq "on") {
 $itt.event.ShowDialog() | Out-Null
 }
 }
