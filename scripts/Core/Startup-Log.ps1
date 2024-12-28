@@ -141,7 +141,7 @@ function Startup  {
             Write-Host "`n ITT is being used on devices worldwide.`n" -ForegroundColor White
 
             # Get the current value of the key
-            $currentValue = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction SilentlyContinue).$Runs
+            $currentValue = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction SilentlyContinue).Runs
 
             # Increment the value by 1
             $newValue = [int]$currentValue + 1
