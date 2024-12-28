@@ -163,7 +163,7 @@ function Startup  {
                 # Count the number of keys under the root AFTER the update
                 $response = Invoke-RestMethod -Uri $firebaseUrlRoot -Method Get -ErrorAction SilentlyContinue
                 $totalKeys = ($response | Get-Member -MemberType NoteProperty | Measure-Object).Count
-                Write-Host "`n ITT has been used on $totalKeys devices worldwide.`n" -ForegroundColor White
+                Write-Host "`n ITT has been used on devices worldwide.`n" -ForegroundColor White
                 if ($Runs -gt 1) 
                 {
                     Telegram -Message "👤 User <<$env:USERNAME>> has opened ITT again.`n`⚙️ Runs: $Runs times`n`🎶 Music is $($itt.Music)%`n`🎨 Theme: $($itt.CurretTheme)`n`🌐 Language: $($itt.Language)`n`📃 Popup window: $($itt.PopupWindow)"
