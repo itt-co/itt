@@ -31,7 +31,6 @@ function Startup  {
                 $mediaItem = $itt.mediaPlayer.newMedia($track)
                 $itt.mediaPlayer.currentPlaylist.appendItem($mediaItem)
                 $itt.mediaPlayer.controls.play()
-                
                 # debug start
                     #$currentFileName = $itt.mediaPlayer.currentMedia.name
                     #Write-Host "Currently playing: $currentFileName"
@@ -138,45 +137,21 @@ function Startup  {
             } while ($true)
         }
         function Get-UsersCount {
-            param (
-                [string]$FirebaseUrl = "https://ittools-7d9fe-default-rtdb.firebaseio.com/Users"
-            )
-            $guid = (Get-CimInstance -ClassName Win32_ComputerSystemProduct).UUID
-            $Key = "$env:COMPUTERNAME $env:USERNAME $guid"
-            $firebaseUrlWithKey = "$FirebaseUrl/$Key.json"
-            $firebaseUrlRoot = "$FirebaseUrl.json"
-            $win = [System.Environment]::OSVersion
-            try {
-                $existingData = Invoke-RestMethod -Uri $firebaseUrlWithKey -Method Get -ErrorAction SilentlyContinue
-                if (-not $existingData) {
-                    $Runs = 1
-                    #Telegram -Message "🎉 A new user 👤 $env:USERNAME is now running ITT`n`🌍 Total users worldwide: $totalKeys"
-                } 
-                else
-                {
-                    #Telegram -Message "💻 User '$env:USERNAME' has opened ITT again. It has been run $Runs times"
-                    $Runs = $existingData.Runs + 1
-                }
-                # Update Firebase with the new run count
-                $updateData = @{ Runs = $Runs } | ConvertTo-Json
-                Invoke-RestMethod -Uri $firebaseUrlWithKey -Method Put -Body $updateData -Headers @{ "Content-Type" = "application/json" } -ErrorAction SilentlyContinue
-                # Count the number of keys under the root AFTER the update
-                $response = Invoke-RestMethod -Uri $firebaseUrlRoot -Method Get -ErrorAction SilentlyContinue
-                $totalKeys = ($response | Get-Member -MemberType NoteProperty | Measure-Object).Count
-                Write-Host "`n ITT has been used on devices worldwide.`n" -ForegroundColor White
-                if ($Runs -gt 1) 
-                {
-                    Telegram -Message "👤 User <<$env:USERNAME>> has opened ITT again.`n`⚙️ Runs: $Runs times`n`🎶 Music is $($itt.Music)%`n`🎨 Theme: $($itt.CurretTheme)`n`🌐 Language: $($itt.Language)`n`📃 Popup window: $($itt.PopupWindow)"
-                } 
-                else
-                {
-                    Telegram -Message "🎉 👤 A new user <<$env:USERNAME>> is now running ITT`n`🌍 Total users worldwide:$($totalKeys)`n`🌐 Language $($itt.Language)"
-                }
-                # Force garbage collection to free memory
-                [System.GC]::Collect()
-            }
-            catch {
-                Add-Log -Message "Your internet connection appears to be slow." -Level "WARNING"
+
+            # Get the current value of the key
+            $currentValue = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction SilentlyContinue).$Runs
+
+            # Increment the value by 1
+            $newValue = [int]$currentValue + 1
+
+            # Set the new value in the registry
+            Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value $newValue
+
+            # Check if the value is greater than 1
+            if ($newValue -gt 1) {
+                Telegram -Message "👤 User <<$env:USERNAME>> has opened ITT again.`n`⚙️ Runs: $newValue times`n`🎶 Music is $($itt.Music)%`n`🎨 Theme: $($itt.CurretTheme)`n`🌐 Language: $($itt.Language)`n`📃 Popup window: $($itt.PopupWindow)"
+            } else {
+                Telegram -Message "🎉 👤 A new user <<$env:USERNAME>> is now running ITT`n`🌐 Language $($itt.Language)"
             }
         }
         function LOG {
