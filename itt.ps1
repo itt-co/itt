@@ -6905,7 +6905,7 @@ Start-Sleep -Seconds 18
 }
 function Get-UsersCount {
 Write-Host "`n ITT is being used on devices worldwide.`n" -ForegroundColor White
-$currentValue = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction SilentlyContinue).$Runs
+$currentValue = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction SilentlyContinue).Runs
 $newValue = [int]$currentValue + 1
 Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value $newValue
 if ($newValue -gt 1) {
