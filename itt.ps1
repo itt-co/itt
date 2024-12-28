@@ -3,7 +3,7 @@ $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
 developer      = "Emad Adel"
-lastupdate     = "12/28/2024"
+lastupdate     = "12/29/2024"
 github         = "https://github.com/emadadel4/itt"
 telegram       = "https://t.me/emadadel4"
 blog           = "https://emadadel4.github.io"
@@ -6904,40 +6904,14 @@ Start-Sleep -Seconds 18
 } while ($true)
 }
 function Get-UsersCount {
-param (
-[string]$FirebaseUrl = "https://ittools-7d9fe-default-rtdb.firebaseio.com/Users"
-)
-$guid = (Get-CimInstance -ClassName Win32_ComputerSystemProduct).UUID
-$Key = "$env:COMPUTERNAME $env:USERNAME $guid"
-$firebaseUrlWithKey = "$FirebaseUrl/$Key.json"
-$firebaseUrlRoot = "$FirebaseUrl.json"
-$win = [System.Environment]::OSVersion
-try {
-$existingData = Invoke-RestMethod -Uri $firebaseUrlWithKey -Method Get -ErrorAction SilentlyContinue
-if (-not $existingData) {
-$Runs = 1
-}
-else
-{
-$Runs = $existingData.Runs + 1
-}
-$updateData = @{ Runs = $Runs } | ConvertTo-Json
-Invoke-RestMethod -Uri $firebaseUrlWithKey -Method Put -Body $updateData -Headers @{ "Content-Type" = "application/json" } -ErrorAction SilentlyContinue
-$response = Invoke-RestMethod -Uri $firebaseUrlRoot -Method Get -ErrorAction SilentlyContinue
-$totalKeys = ($response | Get-Member -MemberType NoteProperty | Measure-Object).Count
-Write-Host "`n ITT has been used on devices worldwide.`n" -ForegroundColor White
-if ($Runs -gt 1)
-{
-Telegram -Message "👤 User <<$env:USERNAME>> has opened ITT again.`n`⚙️ Runs: $Runs times`n`🎶 Music is $($itt.Music)%`n`🎨 Theme: $($itt.CurretTheme)`n`🌐 Language: $($itt.Language)`n`📃 Popup window: $($itt.PopupWindow)"
-}
-else
-{
-Telegram -Message "🎉 👤 A new user <<$env:USERNAME>> is now running ITT`n`🌍 Total users worldwide:$($totalKeys)`n`🌐 Language $($itt.Language)"
-}
-[System.GC]::Collect()
-}
-catch {
-Add-Log -Message "Your internet connection appears to be slow." -Level "WARNING"
+Write-Host "`n ITT is being used on devices worldwide.`n" -ForegroundColor White
+$currentValue = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction SilentlyContinue).$Runs
+$newValue = [int]$currentValue + 1
+Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value $newValue
+if ($newValue -gt 1) {
+Telegram -Message "👤 User <<$env:USERNAME>> has opened ITT again.`n`⚙️ Runs: $newValue times`n`🎶 Music is $($itt.Music)%`n`🎨 Theme: $($itt.CurretTheme)`n`🌐 Language: $($itt.Language)`n`📃 Popup window: $($itt.PopupWindow)"
+} else {
+Telegram -Message "🎉 👤 A new user <<$env:USERNAME>> is now running ITT`n`🌐 Language $($itt.Language)"
 }
 }
 function LOG {
@@ -11724,17 +11698,17 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changlog'.Trim()
 $itt.event.FindName('date').text = '12/25/2024'.Trim()
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
-})
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
+})
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
@@ -11753,12 +11727,12 @@ $storedDateStr = $itt.event.FindName('date').text
 $storedDate = [datetime]::ParseExact($storedDateStr, 'MM/dd/yyyy', $null)
 $currentDate = Get-Date
 $daysElapsed = ($currentDate - $storedDate).Days
-if ($daysElapsed -lt 1 -or $itt.PopupWindow -eq "on") {
+if ($daysElapsed -lt 1 -or $itt.PopupWindow -eq "0") {
 $itt.event.ShowDialog() | Out-Null
 }
 }
 function DisablePopup {
-Set-ItemProperty -Path $itt.registryPath  -Name "PopupWindow" -Value "off" -Force
+Set-ItemProperty -Path $itt.registryPath  -Name "PopupWindow" -Value 1 -Force
 }
 $EventWindowXaml = '<Window
 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -12022,8 +11996,9 @@ New-Item -Path $itt.registryPath -Force | Out-Null
 Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -Force
 Set-ItemProperty -Path $itt.registryPath -Name "UserTheme" -Value "none" -Force
 Set-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -Force
-Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value "100" -Force
-Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value "On" -Force
+Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value 100 -Force
+Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -Force
+Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value 1 -Force
 }
 try {
 $itt.Theme = (Get-ItemProperty -Path $itt.registryPath -Name "Theme" -ErrorAction Stop).Theme
@@ -12031,13 +12006,15 @@ $itt.CurretTheme = (Get-ItemProperty -Path $itt.registryPath -Name "UserTheme" -
 $itt.Locales = (Get-ItemProperty -Path $itt.registryPath -Name "locales" -ErrorAction Stop).locales
 $itt.Music = (Get-ItemProperty -Path $itt.registryPath -Name "Music" -ErrorAction Stop).Music
 $itt.PopupWindow = (Get-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -ErrorAction Stop).PopupWindow
+$itt.Runs = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction Stop).Runs
 }
 catch {
 New-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -PropertyType String -Force *> $Null
 New-ItemProperty -Path $itt.registryPath -Name "UserTheme" -Value "none" -PropertyType String -Force *> $Null
 New-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -PropertyType String -Force *> $Null
-New-ItemProperty -Path $itt.registryPath -Name "Music" -Value "100" -PropertyType String -Force *> $Null
-New-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value "On" -PropertyType String -Force *> $Null
+New-ItemProperty -Path $itt.registryPath -Name "Music" -Value 100 -PropertyType DWORD -Force *> $Null
+New-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -PropertyType DWORD -Force *> $Null
+New-ItemProperty -Path $itt.registryPath -Name "Runs" -Value 1 -PropertyType DWORD -Force *> $Null
 }
 try {
 switch ($itt.Locales) {
