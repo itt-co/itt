@@ -138,6 +138,8 @@ function Startup  {
         }
         function Get-UsersCount {
 
+            Write-Host "`n ITT is being used on devices worldwide.`n" -ForegroundColor White
+
             # Get the current value of the key
             $currentValue = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction SilentlyContinue).$Runs
 
