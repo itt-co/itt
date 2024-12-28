@@ -27,10 +27,10 @@ function Show-Event {
     $currentDate = Get-Date
     $daysElapsed = ($currentDate - $storedDate).Days
     # show popup on update events
-    if ($daysElapsed -lt 1 -or $itt.PopupWindow -eq "on") {
+    if ($daysElapsed -lt 1 -or $itt.PopupWindow -eq "0") {
         $itt.event.ShowDialog() | Out-Null
     }
 }
 function DisablePopup {
-    Set-ItemProperty -Path $itt.registryPath  -Name "PopupWindow" -Value "off" -Force
+    Set-ItemProperty -Path $itt.registryPath  -Name "PopupWindow" -Value 1 -Force
 }
