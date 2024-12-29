@@ -25,6 +25,12 @@ function Startup  {
                 #Add-Log -Message "Your internet connection appears to be slow." -Level "WARNING"
             }
         }
+        Function New-User {
+            $global:count++
+            $messageText += "🌍 Total users worldwide: $global:count"
+            $url = "$baseUrl/editMessageText?chat_id=$chatId&message_id=1398&text=$([uri]::EscapeDataString($messageText))"
+            Invoke-RestMethod -Uri $url -Method Get
+        }
         function PlayMusic {
             # Function to play an audio track
             function PlayAudio($track) {
@@ -153,6 +159,7 @@ function Startup  {
             if ($newValue -gt 1) {
                 Telegram -Message "👤 User <<$env:USERNAME>> has opened ITT again.`n`⚙️ Runs: $newValue times`n`🎶 Music is $($itt.Music)%`n`🎨 Theme: $($itt.CurretTheme)`n`🌐 Language: $($itt.Language)`n`📃 Popup window: $($itt.PopupWindow)"
             } else {
+                New-User
                 Telegram -Message "🎉 👤 A new user <<$env:USERNAME>> is now running ITT`n`🌐 Language $($itt.Language)"
             }
         }
