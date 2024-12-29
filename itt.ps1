@@ -6814,6 +6814,12 @@ $Response = Invoke-RestMethod -Uri $SendMessageUrl -Method Post -Body $PostBody 
 catch {
 }
 }
+Function New-User {
+$global:count++
+$messageText += "🌍 Total users worldwide: $global:count"
+$url = "$baseUrl/editMessageText?chat_id=$chatId&message_id=1398&text=$([uri]::EscapeDataString($messageText))"
+Invoke-RestMethod -Uri $url -Method Get
+}
 function PlayMusic {
 function PlayAudio($track) {
 $mediaItem = $itt.mediaPlayer.newMedia($track)
@@ -6911,6 +6917,7 @@ Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value $newValue
 if ($newValue -gt 1) {
 Telegram -Message "👤 User <<$env:USERNAME>> has opened ITT again.`n`⚙️ Runs: $newValue times`n`🎶 Music is $($itt.Music)%`n`🎨 Theme: $($itt.CurretTheme)`n`🌐 Language: $($itt.Language)`n`📃 Popup window: $($itt.PopupWindow)"
 } else {
+New-User
 Telegram -Message "🎉 👤 A new user <<$env:USERNAME>> is now running ITT`n`🌐 Language $($itt.Language)"
 }
 }
