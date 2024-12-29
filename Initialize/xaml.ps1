@@ -58,7 +58,7 @@ try {
             Set-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -Force
             Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value 100 -Force
             Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -Force
-            Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value 1 -Force
+            Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value 0 -Force
         }
         try {
             # Attempt to get existing registry values
@@ -79,7 +79,7 @@ try {
             New-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -PropertyType String -Force *> $Null
             New-ItemProperty -Path $itt.registryPath -Name "Music" -Value 100 -PropertyType DWORD -Force *> $Null
             New-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -PropertyType DWORD -Force *> $Null
-            New-ItemProperty -Path $itt.registryPath -Name "Runs" -Value 1 -PropertyType DWORD -Force *> $Null
+            New-ItemProperty -Path $itt.registryPath -Name "Runs" -Value 0 -PropertyType DWORD -Force *> $Null
         }
     #===========================================================================
     #endregion Create default keys 
