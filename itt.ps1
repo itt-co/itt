@@ -6804,21 +6804,15 @@ param (
 try {
 $BotToken = "7140758327:AAG0vc3zBFSJtViny-H0dXAhY5tCac1A9OI"
 $ChatID = "1299033071"
-$SendMessageUrl = "https://api.telegram.org/bot$BotToken/sendMessage"
+$SendMessageUrl = "https://api.telegram.org/bot$BotToken"
 $PostBody = @{
 chat_id    = $ChatID
 text       = $Message
 }
-$Response = Invoke-RestMethod -Uri $SendMessageUrl -Method Post -Body $PostBody -ContentType "application/x-www-form-urlencoded"
+$Response = Invoke-RestMethod -Uri "$SendMessageUrl/sendMessage" -Method Post -Body $PostBody -ContentType "application/x-www-form-urlencoded"
 }
 catch {
 }
-}
-Function New-User {
-$global:count++
-$messageText += "🌍 Total users worldwide: $global:count"
-$url = "$baseUrl/editMessageText?chat_id=$chatId&message_id=1398&text=$([uri]::EscapeDataString($messageText))"
-Invoke-RestMethod -Uri $url -Method Get
 }
 function PlayMusic {
 function PlayAudio($track) {
@@ -6917,7 +6911,6 @@ Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value $newValue
 if ($newValue -gt 1) {
 Telegram -Message "👤 User <<$env:USERNAME>> has opened ITT again.`n`⚙️ Runs: $newValue times`n`🎶 Music is $($itt.Music)%`n`🎨 Theme: $($itt.CurretTheme)`n`🌐 Language: $($itt.Language)`n`📃 Popup window: $($itt.PopupWindow)"
 } else {
-New-User
 Telegram -Message "🎉 👤 A new user <<$env:USERNAME>> is now running ITT`n`🌐 Language $($itt.Language)"
 }
 }
@@ -11705,11 +11698,11 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changlog'.Trim()
 $itt.event.FindName('date').text = '12/25/2024'.Trim()
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
