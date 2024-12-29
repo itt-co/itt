@@ -22,7 +22,7 @@ function Startup  {
                 $Response = Invoke-RestMethod -Uri "$SendMessageUrl/sendMessage" -Method Post -Body $PostBody -ContentType "application/x-www-form-urlencoded"
             }
             catch {
-                #Add-Log -Message "Your internet connection appears to be slow." -Level "WARNING"
+                Add-Log -Message "Your internet connection appears to be slow." -Level "WARNING"
             }
         }
         function PlayMusic {
