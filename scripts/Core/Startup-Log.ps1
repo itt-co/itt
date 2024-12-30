@@ -25,6 +25,13 @@ function Startup  {
                 Add-Log -Message "Your internet connection appears to be slow." -Level "WARNING"
             }
         }
+        function GetCount {
+            # Fetch data using GET request
+            $response = Invoke-RestMethod -Uri $itt.PublicDatabase -Method Get
+        
+            # Output the Users count
+            return $response
+        }
         function PlayMusic {
             # Function to play an audio track
             function PlayAudio($track) {
@@ -136,9 +143,20 @@ function Startup  {
                 }
             } while ($true)
         }
-        function Get-UsersCount {
+        function NewUser {
 
-            Write-Host "`n ITT is being used on devices worldwide.`n" -ForegroundColor White
+            # Fetch current count from Firebase and increment it
+            $currentCount = (Invoke-RestMethod -Uri $itt.PublicDatabase -Method Get)
+            $Runs = $currentCount + 1
+
+            # Update the count in Firebase (no nesting, just the number)
+            Invoke-RestMethod -Uri $itt.PublicDatabase -Method Put -Body ($Runs | ConvertTo-Json) -Headers @{ "Content-Type" = "application/json" }
+
+            # Output success
+            Telegram -Message "🎉 👤 A new user <<$env:USERNAME>> is now running ITT`n`🌐 Language: $($itt.Language)`n` 🖥 Total devices: $(GetCount)"
+
+        }
+        function Welcome {
 
             # Get the current value of the key
             $currentValue = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction SilentlyContinue).Runs
@@ -153,8 +171,10 @@ function Startup  {
             if ($newValue -gt 1) {
                 Telegram -Message "👤 User <<$env:USERNAME>> has opened ITT again.`n`⚙️ Runs: $newValue times`n`🎶 Music is $($itt.Music)%`n`🎨 Theme: $($itt.CurretTheme)`n`🌐 Language: $($itt.Language)`n`📃 Popup window: $($itt.PopupWindow)"
             } else {
-                Telegram -Message "🎉 👤 A new user <<$env:USERNAME>> is now running ITT`n`🌐 Language $($itt.Language)"
+                NewUser
             }
+
+            Write-Host "`n ITT has been used on $(GetCount) devices worldwide.`n" -ForegroundColor White
         }
         function LOG {
             param (
@@ -170,7 +190,7 @@ function Startup  {
             Write-Host " Launch Anytime, Anywhere! `n` " 
             Write-Host " Telegram: https://t.me/ittemadadel_bot" 
             Write-Host " Discord: https://discord.gg/63m34EE6mX `n` "
-            Get-UsersCount
+            Welcome
         }
         # debug start
             if($Debug){return}
