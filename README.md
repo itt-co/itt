@@ -176,17 +176,14 @@ Run the script using official commands from this repository. It's not a portable
 
 <pre><code>.\build.ps1 -Debug
 </code></pre>
->[!Tip]
-> 
->Remember to test your changes before running the release and committing.
+
+> ❗ **Note**: Remember to test your changes before running the release and committing.
 
 <h3>🧹 Realsee </h3>
 <pre><code>.\build.ps1 -Realsee
 </code></pre>
 
->[!Tip]
->  
->Generate clean release version without any comments.
+> ❗ **Note**: Generate clean release version without any comments.
 
 ### Additional Repositories (Late Update)
 
