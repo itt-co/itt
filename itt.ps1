@@ -3624,15 +3624,22 @@ $itt.database.OST = @'
 {
 "name": "Interstellar - Organ Variation",
 "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Organ%20Variation.mp3"
-},{
+},
+{
 "name": "Red dead redemption - Triggernometry",
 "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Triggernometry.mp3"
-},{
+},
+{
 "name": "God, Please (Disco Elysium)",
 "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/God,%20Please%20(Disco%20Elysium).mp3"
-},{
+},
+{
 "name": "Rocky Eye of the Tiger - Instrumental Version",
 "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Rocky_%20Eye%20of%20the%20Tiger%20-%20Instrumental%20Version.mp3"
+},
+{
+"name": "Outlaws From The West",
+"url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Outlaws%20From%20The%20West.mp3"
 }
 ],
 "Favorite": [
@@ -3681,7 +3688,7 @@ $itt.database.OST = @'
 "url": "https://archive.org/download/justiceleagueflac/Danny%20Elfman%20-%20Justice%20League%20%28Original%20Motion%20Picture%20Soundtrack%29/01%20-%20Everybody%20Knows.mp3"
 }
 ],
-"Otobers":[
+"Otobers": [
 {
 "name": "محمد عساف - انا دمي فلسطيني",
 "url": "https://emadadel4.github.io/sounds/Falstiny.mp3"
@@ -11713,14 +11720,14 @@ $itt.event.FindName('date').text = '12/25/2024'.Trim()
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
