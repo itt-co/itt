@@ -19,6 +19,7 @@ $itt = [Hashtable]::Synchronized(@{
     buymeacoffee   = "https://buymeacoffee.com/emadadel"
     registryPath   = "HKCU:\Software\ITT@emadadel"
     icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
+    PublicDatabase = "https://ittools-7d9fe-default-rtdb.firebaseio.com/Count.json"
     Theme          = "default"
     CurretTheme    = "default"
     Date           = (Get-Date -Format "MM/dd/yyy")
