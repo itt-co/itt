@@ -3,7 +3,7 @@ $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
 developer      = "Emad Adel"
-lastupdate     = "12/29/2024"
+lastupdate     = "12/30/2024"
 github         = "https://github.com/emadadel4/itt"
 telegram       = "https://t.me/emadadel4"
 blog           = "https://emadadel4.github.io"
@@ -11,6 +11,7 @@ youtube        = "https://youtube.com/@emadadel4"
 buymeacoffee   = "https://buymeacoffee.com/emadadel"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
+PublicDatabase = "https://ittools-7d9fe-default-rtdb.firebaseio.com/Count.json"
 Theme          = "default"
 CurretTheme    = "default"
 Date           = (Get-Date -Format "MM/dd/yyy")
@@ -6815,6 +6816,10 @@ catch {
 Add-Log -Message "Your internet connection appears to be slow." -Level "WARNING"
 }
 }
+function GetCount {
+$response = Invoke-RestMethod -Uri $itt.PublicDatabase -Method Get
+return $response
+}
 function PlayMusic {
 function PlayAudio($track) {
 $mediaItem = $itt.mediaPlayer.newMedia($track)
@@ -6904,16 +6909,22 @@ Start-Sleep -Seconds 18
 }
 } while ($true)
 }
-function Get-UsersCount {
-Write-Host "`n ITT is being used on devices worldwide.`n" -ForegroundColor White
+function NewUser {
+$currentCount = (Invoke-RestMethod -Uri $itt.PublicDatabase -Method Get)
+$Runs = $currentCount + 1
+Invoke-RestMethod -Uri $itt.PublicDatabase -Method Put -Body ($Runs | ConvertTo-Json) -Headers @{ "Content-Type" = "application/json" }
+Telegram -Message "🎉 👤 A new user <<$env:USERNAME>> is now running ITT`n`🌐 Language: $($itt.Language)`n` 🖥 Total devices: $(GetCount)"
+}
+function Welcome {
 $currentValue = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction SilentlyContinue).Runs
 $newValue = [int]$currentValue + 1
 Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value $newValue
 if ($newValue -gt 1) {
 Telegram -Message "👤 User <<$env:USERNAME>> has opened ITT again.`n`⚙️ Runs: $newValue times`n`🎶 Music is $($itt.Music)%`n`🎨 Theme: $($itt.CurretTheme)`n`🌐 Language: $($itt.Language)`n`📃 Popup window: $($itt.PopupWindow)"
 } else {
-Telegram -Message "🎉 👤 A new user <<$env:USERNAME>> is now running ITT`n`🌐 Language $($itt.Language)"
+NewUser
 }
+Write-Host "`n ITT has been used on $(GetCount) devices worldwide.`n" -ForegroundColor White
 }
 function LOG {
 param (
@@ -6929,7 +6940,7 @@ Write-Host " |___| |_|   |_|   |_____|_|  |_/_/   \_\____/  /_/   \_\____/|_____
 Write-Host " Launch Anytime, Anywhere! `n` "
 Write-Host " Telegram: https://t.me/ittemadadel_bot"
 Write-Host " Discord: https://discord.gg/63m34EE6mX `n` "
-Get-UsersCount
+Welcome
 }
 LOG
 PlayMusic
@@ -11699,17 +11710,17 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changlog'.Trim()
 $itt.event.FindName('date').text = '12/25/2024'.Trim()
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('ps').add_MouseLeftButtonDown({
+Start-Process('https://www.palestinercs.org/en/Donation')
+})
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
-$itt.event.FindName('ps').add_MouseLeftButtonDown({
-Start-Process('https://www.palestinercs.org/en/Donation')
-})
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
