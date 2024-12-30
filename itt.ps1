@@ -8769,7 +8769,7 @@ HorizontalAlignment="Left"
 IsHitTestVisible="False"
 Margin="10,0,0,0" />
 <TextBlock
-Text="Control + F"
+Text="Ctrl + F"
 Foreground="Gray"
 VerticalAlignment="Center"
 HorizontalAlignment="Left"
@@ -11710,14 +11710,14 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changlog'.Trim()
 $itt.event.FindName('date').text = '12/25/2024'.Trim()
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
-})
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
