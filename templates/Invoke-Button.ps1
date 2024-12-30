@@ -263,6 +263,12 @@ function Invoke-Button {
                 Debug-Message $action
             # debug end
         }
+        "asustool"{
+            Start-Process ("https://github.com/codecrafting-io/asus-setup-tool")
+            # debug start
+                Debug-Message $action
+            # debug end
+        }
         "webtor"{
             Start-Process ("https://webtor.io/")
             # debug start
