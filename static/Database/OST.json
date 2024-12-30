@@ -71,16 +71,16 @@
     {
       "name": "تلك قضية - كايروكي",
       "url": "https://emadadel4.github.io/sounds/Telk Qadeya.mp3"
-     },
-     {
+    },
+    {
       "name": "Doom",
       "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Doom_Imagine.mp3"
-     },
-     {
-       "name": "Can't Fight City Halloween",
-       "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Can't%20Fight%20City%20Halloween.mp3"
-     },
-     {
+    },
+    {
+      "name": "Can't Fight City Halloween",
+      "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Can't%20Fight%20City%20Halloween.mp3"
+    },
+    {
       "name": "Dona Nobis Pacem 2",
       "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Dona%20Nobis%20Pacem%202.mp3"
     },
@@ -95,15 +95,22 @@
     {
       "name": "Interstellar - Organ Variation",
       "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Organ%20Variation.mp3"
-    },{
+    },
+    {
       "name": "Red dead redemption - Triggernometry",
       "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Triggernometry.mp3"
-    },{
+    },
+    {
       "name": "God, Please (Disco Elysium)",
       "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/God,%20Please%20(Disco%20Elysium).mp3"
-    },{
+    },
+    {
       "name": "Rocky Eye of the Tiger - Instrumental Version",
       "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Rocky_%20Eye%20of%20the%20Tiger%20-%20Instrumental%20Version.mp3"
+    },
+    {
+      "name": "Outlaws From The West",
+      "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Outlaws%20From%20The%20West.mp3"
     }
   ],
   "Favorite": [
@@ -152,18 +159,18 @@
       "url": "https://archive.org/download/justiceleagueflac/Danny%20Elfman%20-%20Justice%20League%20%28Original%20Motion%20Picture%20Soundtrack%29/01%20-%20Everybody%20Knows.mp3"
     }
   ],
-  "Otobers":[
-   {
-    "name": "محمد عساف - انا دمي فلسطيني",
-    "url": "https://emadadel4.github.io/sounds/Falstiny.mp3"
-   },
-   {
-    "name": "تلك قضية - كايروكي",
-    "url": "https://emadadel4.github.io/sounds/Telk Qadeya.mp3"
-   },
-   {
-    "name": "Rajieen",
-    "url": "https://emadadel4.github.io/sounds/Rajieen.mp3"
-   }
+  "Otobers": [
+    {
+      "name": "محمد عساف - انا دمي فلسطيني",
+      "url": "https://emadadel4.github.io/sounds/Falstiny.mp3"
+    },
+    {
+      "name": "تلك قضية - كايروكي",
+      "url": "https://emadadel4.github.io/sounds/Telk Qadeya.mp3"
+    },
+    {
+      "name": "Rajieen",
+      "url": "https://emadadel4.github.io/sounds/Rajieen.mp3"
+    }
   ]
 }
