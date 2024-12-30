@@ -176,25 +176,31 @@ Run the script using official commands from this repository. It's not a portable
 
 <pre><code>.\build.ps1 -Debug
 </code></pre>
-> Remember to test your changes before running the release and committing.
+
+> ❗ **Note**: Remember to test your changes before running the release and committing.
 
 <h3>🧹 Realsee </h3>
 <pre><code>.\build.ps1 -Realsee
 </code></pre>
 
->  Generate clean release version without any comments.
+> ❗ **Note**: Generate clean release version without any comments.
 
 ### Additional Repositories (Late Update)
 
 [![GitLab](https://img.shields.io/badge/GitLab-%23FCA121?logo=gitlab&logoColor=white)](https://gitlab.com/emadadel/itt)
 [![Codeberg](https://img.shields.io/badge/Codeberg-%230073B7?logo=codeberg&logoColor=white)](https://codeberg.org/emadadel/itt)
 
+## 🌟 Support
+
+**Love the project?** Show your support by clicking the ⭐ (top right) and joining our community of [stargazers](https://github.com/emadadel4/itt/stargazers)!
+
+[![Stargazers repo roster for @emadadel4/itt](https://reporoster.com/stars/dark/emadadel4/itt)](https://github.com/emadadel4/itt/stargazers)
+
 <br>
 <br>
 
 # Resistance Struggling for Justice in an Authoritarian World
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=35&pause=1000&width=435&lines=Support+Palestine)](https://git.io/typing-svg)
-
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=435&lines=%23StandWithPalestine)](https://git.io/typing-svg)
 
 
 ![luisricardo](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmY0ZWE5cnd5djVoaG12OHVteWI0Nm1zMzlpZGtxM2JwZmNwdG9iMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iUNO3pXpfqiZ8JQ1Jo/giphy.gif)
@@ -228,10 +234,6 @@ English
 عربي
 </a>
 </div>
-
-
-
-
 
 ### Recommended videos.
 
