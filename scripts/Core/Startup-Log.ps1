@@ -167,12 +167,8 @@ function Startup  {
             # Set the new value in the registry
             Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value $newValue
 
-            # Check if the value is greater than 1
-            if ($newValue -gt 1) {
-                Telegram -Message "👤 User <<$env:USERNAME>> has opened ITT again.`n`⚙️ Runs: $newValue times`n`🎶 Music is $($itt.Music)%`n`🎨 Theme: $($itt.CurretTheme)`n`🌐 Language: $($itt.Language)`n`📃 Popup window: $($itt.PopupWindow)"
-            } else {
-                NewUser
-            }
+            # Check if the value is equal 1
+            if ($newValue -eq 1) {NewUser}
 
             Write-Host "`n ITT has been used on $(GetCount) devices worldwide.`n" -ForegroundColor White
         }
