@@ -18,7 +18,7 @@
                 IsHitTestVisible="False"
                 Margin="10,0,0,0" />
         <TextBlock 
-                Text="Ctrl + F" 
+                Text="Ctrl+F" 
                 Foreground="Gray" 
                 VerticalAlignment="Center" 
                 HorizontalAlignment="Left" 
