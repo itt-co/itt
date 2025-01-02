@@ -25,12 +25,12 @@ $global:TitleContent = ""
 $global:DateContent = ""
 function Update-Progress {
     param (
-        [Parameter(Mandatory, position=0)]
+        [Parameter(Mandatory, position = 0)]
         [string]$Status,
-        [Parameter(Mandatory, position=1)]
-        [ValidateRange(0,100)]
+        [Parameter(Mandatory, position = 1)]
+        [ValidateRange(0, 100)]
         [int]$PercentComplete ,
-        [Parameter(position=2)]
+        [Parameter(position = 2)]
         [string]$Activity = "Building"
     )
     Write-Progress -Activity $Activity -Status $Status -PercentComplete $PercentComplete 
@@ -118,7 +118,7 @@ function GenerateCheckboxes {
                 <CheckBox Content="$Content" $Tag $IsChecked $Toggle $Name $Tips FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="$CleanedCategory"/>
             </StackPanel>
-            <TextBlock Width="800" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="$CleanedDescription."/>
+            <TextBlock Width="500" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="$CleanedDescription."/>
         </StackPanel>
 "@
     }
@@ -132,7 +132,7 @@ function Sync-JsonFiles {
         [Parameter(Mandatory = $true)]
         [string]$OutputScriptPath
     )
-    Get-ChildItem $DatabaseDirectory | Where-Object {$_.Extension -eq ".json"} | ForEach-Object {
+    Get-ChildItem $DatabaseDirectory | Where-Object { $_.Extension -eq ".json" } | ForEach-Object {
         # Get the content of the JSON file as raw text
         $json = Get-Content $_.FullName -Raw
         # Cache json file into $itt.database
@@ -162,12 +162,12 @@ function Update-Readme {
     $localesCount = ($itt.database.locales.Controls.PSObject.Properties | Measure-Object).Count
     # Create a hashtable for placeholders and their replacements
     $placeholders = @{
-        "#{a}" = $applicationsCount
-        "#{t}" = $tweaksCount
-        "#{q}" = $quotesCount
-        "#{OST}" = $tracksCount
-        "#{s}" = $settingsCount
-        "#{loc}" = $localesCount
+        "#{a}"    = $applicationsCount
+        "#{t}"    = $tweaksCount
+        "#{q}"    = $quotesCount
+        "#{OST}"  = $tracksCount
+        "#{s}"    = $settingsCount
+        "#{loc}"  = $localesCount
         "#{last}" = $badgeUrl
     }
     # Replace placeholders in a single pass
@@ -213,7 +213,8 @@ function NewCONTRIBUTOR {
             Add-Content $contribFile $username
             $contribLines += $username
         }
-    } else {
+    }
+    else {
         # Create CONTRIBUTORS.md if it doesn't exist and add the username
         Set-Content $contribFile $username
         $contribLines = @($username)
@@ -235,7 +236,7 @@ function ConvertTo-Xaml {
     param (
         [string]$text,
         [string]$HeadlineFontSize = 20,
-        [string]$DescriptionFontSize = 15
+        [string]$DescriptionFontSize = 16
     )
     Write-Host "[i] Generate Events Window Content..."
     # Initialize XAML as an empty string
@@ -243,7 +244,7 @@ function ConvertTo-Xaml {
     # Process each line of the input text
     foreach ($line in $text -split "`n") {
         switch -Regex ($line) {
-            "^###### (.+)"{
+            "^###### (.+)" {
                 $global:DateContent += $matches[1].Trim()
             }
             "!\[itt\.xName:(.+?)\s*\[(.+?)\]\]\((.+?)\)" {
@@ -252,22 +253,27 @@ function ConvertTo-Xaml {
                 $name = $matches[1].Trim()   # Extract the xName after 'tt.xName:'
                 $global:imageLinkMap[$name] = $link
             }
-            "^## (.+)" { # Event title
+            "^## (.+)" {
+                # Event title
                 $global:TitleContent += $matches[1].Trim()
             }
-            "^### (.+)" { # Headline 
+            "^### (.+)" {
+                # Headline 
                 $text = $matches[1].Trim()
                 $xaml += "<TextBlock Text=''$text'' FontSize=''$HeadlineFontSize'' Margin=''0,18,0,18'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>`n"
             }
-            "^##### (.+)" { ##### Headline
+            "^##### (.+)" {
+                ##### Headline
                 $text = $matches[1].Trim()  
-                $xaml += "<TextBlock Text='' • $text'' FontSize=''$HeadlineFontSize'' Margin=''0,18,0,18'' Foreground=''{DynamicResource PrimaryButtonForeground}'' FontWeight=''bold'' TextWrapping=''Wrap''/>`n" 
+                $xaml += "<TextBlock Text='' • $text'' FontSize=''$HeadlineFontSize'' Margin=''0,44,0,10'' Foreground=''{DynamicResource PrimaryButtonForeground}'' FontWeight=''bold'' TextWrapping=''Wrap''/>`n" 
             }
-            "^#### (.+)" { #### Description
+            "^#### (.+)" {
+                #### Description
                 $text = $matches[1].Trim()  
-                $xaml += "<TextBlock Text=''$text'' FontSize=''$DescriptionFontSize'' Margin=''8''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>`n" 
+                $xaml += "<TextBlock Text=''$text'' FontSize=''$DescriptionFontSize'' Margin=''35,0,35,0''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>`n" 
             }
-            "^- (.+)" { # - Lists
+            "^- (.+)" {
+                # - Lists
                 $text = $matches[1].Trim()  
                 $xaml += "
                 <StackPanel Orientation=''Vertical''>
@@ -336,12 +342,11 @@ function GenerateClickEventHandlers {
             "EventWindowScript" = Join-Path -Path "templates" -ChildPath "Show-Event.ps1"
         }
         # Read the content of the event window script file
-        $EventWindowScript  = Get-Content -Path $FilePaths["EventWindowScript"] -Raw
+        $EventWindowScript = Get-Content -Path $FilePaths["EventWindowScript"] -Raw
         # Initialize an empty string to hold event handler code
         $EventHandler = ""
         # Loop through each key in the global image link map
-        foreach ($name  in $global:imageLinkMap.Keys) 
-        {
+        foreach ($name  in $global:imageLinkMap.Keys) {
             # Get the URL corresponding to the current image link name
             $url = $imageLinkMap[$name]
             # Append a mouse click event handler for each image link
@@ -391,7 +396,7 @@ function GenerateInvokeButtons {
             }
 "@
         }
-         $LanguageItems = Get-ChildItem -Path "locales" -File | ForEach-Object {
+        $LanguageItems = Get-ChildItem -Path "locales" -File | ForEach-Object {
             # Get the filename without its extension
             $filename = [System.IO.Path]::GetFileNameWithoutExtension($_.Name)
             # Remove non-word characters to create a valid key
@@ -453,7 +458,8 @@ function Convert-Locales {
     if ($existingJsonOutputNormalized -ne $jsonOutputNormalized) {
         Set-Content -Path $jsonOutputPath -Value $jsonOutput -Encoding UTF8
         Write-Host "JSON file updated." -ForegroundColor Green
-    } else {
+    }
+    else {
         Write-Host "[i] No changes detected. JSON file not updated." 
     }
 }
@@ -470,7 +476,7 @@ function RemoveAllComments {
         $Content = $Content -replace '<!.*', ''
         $Content = ($Content -split "`r?`n" | ForEach-Object {
             ($_ -replace '^\s*#.*$', '').Trim()
-        }) -join "`n"
+            }) -join "`n"
         $Content = ($Content -split "`r?`n" | Where-Object { $_ -notmatch '^\s*$' }) -join "`n"
         $streamWriter = $null
         try {
@@ -547,33 +553,33 @@ try {
 #endregion End Main Functions
 #===========================================================================
 "@
-WriteToScript -Content @"
+    WriteToScript -Content @"
 #===========================================================================
 #region Begin WPF Main Window
 #===========================================================================
 "@
     # Define file paths
     $FilePaths = @{
-        "MainWindow"    = Join-Path -Path $windows -ChildPath "MainWindow.xaml"
-        "taps" = Join-Path -Path $Controls -ChildPath "taps.xaml"
-        "menu" = Join-Path -Path $Controls -ChildPath "menu.xaml"
-        "catagory" = Join-Path -Path $Controls -ChildPath "catagory.xaml"
-        "search" = Join-Path -Path $Controls -ChildPath "search.xaml"
-        "buttons" = Join-Path -Path $Controls -ChildPath "buttons.xaml"
-        "Style"   = Join-Path -Path $Assets -ChildPath "Themes/Styles.xaml"
-        "Colors"  = Join-Path -Path $Assets -ChildPath "Themes/Colors.xaml"
+        "MainWindow" = Join-Path -Path $windows -ChildPath "MainWindow.xaml"
+        "taps"       = Join-Path -Path $Controls -ChildPath "taps.xaml"
+        "menu"       = Join-Path -Path $Controls -ChildPath "menu.xaml"
+        "catagory"   = Join-Path -Path $Controls -ChildPath "catagory.xaml"
+        "search"     = Join-Path -Path $Controls -ChildPath "search.xaml"
+        "buttons"    = Join-Path -Path $Controls -ChildPath "buttons.xaml"
+        "Style"      = Join-Path -Path $Assets -ChildPath "Themes/Styles.xaml"
+        "Colors"     = Join-Path -Path $Assets -ChildPath "Themes/Colors.xaml"
     }
     # Read and replace placeholders in XAML content
     try {
         # Read content from files
-        $MainXamlContent     = (Get-Content -Path $FilePaths["MainWindow"] -Raw) -replace "'", "''"
-        $AppXamlContent  = Get-Content -Path $FilePaths["taps"] -Raw
-        $StyleXamlContent    = Get-Content -Path $FilePaths["Style"] -Raw
-        $ColorsXamlContent   = Get-Content -Path $FilePaths["Colors"] -Raw
-        $MenuXamlContent     = Get-Content -Path $FilePaths["menu"] -Raw
-        $ButtonsXamlContent  = Get-Content -Path $FilePaths["buttons"] -Raw
+        $MainXamlContent = (Get-Content -Path $FilePaths["MainWindow"] -Raw) -replace "'", "''"
+        $AppXamlContent = Get-Content -Path $FilePaths["taps"] -Raw
+        $StyleXamlContent = Get-Content -Path $FilePaths["Style"] -Raw
+        $ColorsXamlContent = Get-Content -Path $FilePaths["Colors"] -Raw
+        $MenuXamlContent = Get-Content -Path $FilePaths["menu"] -Raw
+        $ButtonsXamlContent = Get-Content -Path $FilePaths["buttons"] -Raw
         $CatagoryXamlContent = Get-Content -Path $FilePaths["catagory"] -Raw
-        $searchXamlContent   = Get-Content -Path $FilePaths["search"] -Raw
+        $searchXamlContent = Get-Content -Path $FilePaths["search"] -Raw
         # Replace placeholders with actual content
         $MainXamlContent = $MainXamlContent -replace "{{Taps}}", $AppXamlContent
         $MainXamlContent = $MainXamlContent -replace "{{Style}}", $StyleXamlContent
@@ -582,12 +588,13 @@ WriteToScript -Content @"
         $MainXamlContent = $MainXamlContent -replace "{{buttons}}", $ButtonsXamlContent
         $MainXamlContent = $MainXamlContent -replace "{{catagory}}", $CatagoryXamlContent
         $MainXamlContent = $MainXamlContent -replace "{{search}}", $searchXamlContent
-    } catch {
+    }
+    catch {
         Write-Error "An error occurred while processing the XAML content: $($_.Exception.Message)"
     }
     $AppsCheckboxes = GenerateCheckboxes -Items $itt.database.Applications -ContentField "Name" -TagField "Category" -IsCheckedField "check" -TipsField "show"
     $TweaksCheckboxes = GenerateCheckboxes -Items $itt.database.Tweaks -ContentField "Name" -TagField "Category" -IsCheckedField "check"
-    $SettingsCheckboxes = GenerateCheckboxes -Items $itt.database.Settings -ContentField "Content" -NameField "Name" -ToggleField "Style="{StaticResource ToggleSwitchStyle}""
+    $SettingsCheckboxes = GenerateCheckboxes -Items $itt.database.Settings -ContentField "Content" -NameField "Name" -ToggleField "Style=" { StaticResource ToggleSwitchStyle }""
     $MainXamlContent = $MainXamlContent -replace "{{Apps}}", $AppsCheckboxes 
     $MainXamlContent = $MainXamlContent -replace "{{Tweaks}}", $TweaksCheckboxes 
     $MainXamlContent = $MainXamlContent -replace "{{Settings}}", $SettingsCheckboxes 
@@ -607,7 +614,7 @@ WriteToScript -Content @"
 #endregion End WPF Main Window
 #===========================================================================
 "@
-WriteToScript -Content @"
+    WriteToScript -Content @"
 #===========================================================================
 #region Begin WPF About Window
 #===========================================================================
@@ -619,7 +626,8 @@ WriteToScript -Content @"
     # Read and replace placeholders in XAML content
     try {
         $AboutWindowXamlContent = (Get-Content -Path $FilePaths["about"] -Raw) -replace "'", "''"
-    } catch {
+    }
+    catch {
         Write-Error "Error: $($_.Exception.Message)"
     }
     WriteToScript -Content "`$AboutWindowXaml = '$AboutWindowXamlContent'"
@@ -628,7 +636,7 @@ WriteToScript -Content @"
 #endregion End WPF About Window
 #===========================================================================
 "@
-WriteToScript -Content @"
+    WriteToScript -Content @"
 #===========================================================================
 #region Begin WPF Event Window
 #===========================================================================
@@ -646,7 +654,8 @@ WriteToScript -Content @"
         GenerateClickEventHandlers
         $EventWindowXamlContent = $EventWindowXamlContent -replace "UpdateContent", $xamlContent
         WriteToScript -Content "`$EventWindowXaml = '$EventWindowXamlContent'"
-    } catch {
+    }
+    catch {
         Write-Error "Error: $($_.Exception.Message)"
     }
     WriteToScript -Content @"
@@ -678,25 +687,24 @@ WriteToScript -Content @"
 #endregion End Main
 #===========================================================================
 "@
-Update-Readme
-Write-Host "[i] Build successfully" -ForegroundColor Yellow
-function Run {
-    param ($Version)
-    $script = "& '$ProjectDir\$OutputScript'"
-    $pwsh = if (Get-Command pwsh -ErrorAction SilentlyContinue) { "pwsh" } else { "powershell" }
-    $wt = if (Get-Command wt.exe -ErrorAction SilentlyContinue) { "wt.exe" } else { $pwsh }
-    Start-Process $wt -ArgumentList "$pwsh -NoProfile -Command $script -$Version"
-}
-if($Realsee){
-    RemoveAllComments
-    Run -Version "Realsee"
-    Write-Host "[i] Starting Realsee mode..." -ForegroundColor Yellow
-}
-if($Debug)
-{
-    Run -Version "debug"
-    Write-Host "[i] Starting Debug mode..." -ForegroundColor Yellow
-}
+    Update-Readme
+    Write-Host "[i] Build successfully" -ForegroundColor Yellow
+    function Run {
+        param ($Version)
+        $script = "& '$ProjectDir\$OutputScript'"
+        $pwsh = if (Get-Command pwsh -ErrorAction SilentlyContinue) { "pwsh" } else { "powershell" }
+        $wt = if (Get-Command wt.exe -ErrorAction SilentlyContinue) { "wt.exe" } else { $pwsh }
+        Start-Process $wt -ArgumentList "$pwsh -NoProfile -Command $script -$Version"
+    }
+    if ($Realsee) {
+        RemoveAllComments
+        Run -Version "Realsee"
+        Write-Host "[i] Starting Realsee mode..." -ForegroundColor Yellow
+    }
+    if ($Debug) {
+        Run -Version "debug"
+        Write-Host "[i] Starting Debug mode..." -ForegroundColor Yellow
+    }
 }
 catch {
     Write-Error "An error occurred: $_"
