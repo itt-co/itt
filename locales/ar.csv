@@ -16,7 +16,7 @@ About,عن الاداة
 Third_party,روابط خارجية
 Preferences,التفضيلات
 Management,إدارة الجهاز
-Apps,تطبيقات
+Apps,برامج
 Tweaks,تحسينات
 Settings,إعدادات
 Save,حفظ البرامج
@@ -42,7 +42,7 @@ Create_restore_point,إنشاء نقطة الاستعادة
 Portable_Downloads_Folder,مجلد التنزيلات المحمولة
 Install_msg,هل تريد تثبيت البرامج التالية
 Apply_msg,هل تريد تطبيق التحسينات التالية
-Applying,جارٍي التطبيق
+Applying,...جارٍي التطبيق
 Please_wait,يرجى الانتظار، يوجد عملية في الخلفية
 App_empty_select,اختر على الأقل تطبيقًا لتثبيته
 Tweak_empty_select,اختار على الاقل تحسين واحد لتطبيقه
