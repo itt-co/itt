@@ -130,6 +130,7 @@
                             Name="date" 
                             Height="Auto"
                             Width="Auto"
+                            Margin="5,0,0,0"
                             Text="8/29/2024"
                             Foreground="{DynamicResource TextColorSecondaryColor2}"
                             TextWrapping="Wrap"
