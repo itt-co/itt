@@ -4135,11 +4135,11 @@ $itt.database.Quotes = @'
 "type": "info"
 },
 {
-"text": "Ctrl + [Q], [E], [R] to switch between tabs",
+"text": "Ctrl+[Q],[E],[R] to switch between tabs",
 "type": "info"
 },
 {
-"text": "Shift+M to toogle music",
+"text": "Shift+M Toogle music",
 "type": "info"
 },
 {
@@ -4147,19 +4147,19 @@ $itt.database.Quotes = @'
 "type": "info"
 },
 {
-"text": "Shift+D to restore your saved file",
+"text": "Shift+D restore your saved file",
 "type": "info"
 },
 {
-"text": "Ctrl+S for quick install",
+"text": "Ctrl+S Quick install",
 "type": "info"
 },
 {
-"text": "Shift+P to open portable downloads folder",
+"text": "Shift+P Open portable downloads folder",
 "type": "info"
 },
 {
-"text": "Ctrl+A to clear selected category filter",
+"text": "Ctrl+A Clear selected category filter",
 "type": "info"
 }
 ]
