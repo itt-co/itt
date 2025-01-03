@@ -86,17 +86,33 @@ $KeyEvents = {
     if ($_.Key -eq "D" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
         LoadJson
     }
+
+
+    # Initialize toggleState if it doesn't exist
+    if (-not $global:toggleState) {
+        $global:toggleState = $false
+    }
+
+
+
     if ($_.Key -eq "M" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
         # Toggle the state on Shift + M press
         $global:toggleState = -not $global:toggleState
 
         if ($global:toggleState) {
+            # Activate the feature (Mute Music to 100 and change title)
+            Write-Host "Feature is ON"
             UnmuteMusic -value 100
         }
         else {
+            # Deactivate the feature (Mute Music to 0 and change title)
+            Write-Host "Feature is OFF"
             MuteMusic -value 0
         }
     }
+
+
+
     # Restore point 
     if ($_.Key -eq "Q" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
         RestorePoint
