@@ -86,10 +86,9 @@ $KeyEvents = {
     if ($_.Key -eq "D" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
         LoadJson
     }
+    # Toggle the state on Shift + M press
     if ($_.Key -eq "M" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
-        # Toggle the state on Shift + M press
         $global:toggleState = -not $global:toggleState
-
         if ($global:toggleState) {
             UnmuteMusic -value 100
         }
