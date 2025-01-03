@@ -91,12 +91,9 @@ $KeyEvents = {
         $global:toggleState = -not $global:toggleState
 
         if ($global:toggleState) {
-            # Activate the feature (Mute Music to 100 and change title)
-            Write-Host "Feature is ON"
             UnmuteMusic -value 100
         }
         else {
-            # Deactivate the feature (Mute Music to 0 and change title)
             Write-Host "Feature is OFF"
             MuteMusic -value 0
         }
