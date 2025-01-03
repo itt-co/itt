@@ -2,7 +2,7 @@
 #region Keyboard-Shortcuts 
 #===========================================================================
 
-    <#
+<#
         .DESCRIPTION
             How to add a new shortcut
         .PARAMETER A
@@ -40,7 +40,7 @@ $KeyEvents = {
         }
     }
     # Quit from applaction
-     if (($_.Key -eq "G" -and $_.KeyboardDevice.Modifiers -eq "Ctrl")) {
+    if (($_.Key -eq "G" -and $_.KeyboardDevice.Modifiers -eq "Ctrl")) {
         $this.Close()
     }
     # Foucs on Search box
@@ -48,8 +48,7 @@ $KeyEvents = {
         $itt.SearchInput.Focus()
     }
     # Lost Foucs on Search box
-    if ($_.Key -eq "Escape") 
-    {
+    if ($_.Key -eq "Escape") {
         $itt.SearchInput.MoveFocus([System.Windows.Input.TraversalRequest]::New([System.Windows.Input.FocusNavigationDirection]::Next))
         $itt.SearchInput.Text = $null
         $itt["window"].FindName("search_placeholder").Visibility = "Visible";
@@ -87,13 +86,16 @@ $KeyEvents = {
     if ($_.Key -eq "D" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
         LoadJson
     }
-    # Music off
     if ($_.Key -eq "M" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
-        MuteMusic -Value 0
-    }
-    # Music on 
-    if ($_.Key -eq "F" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
-        UnmuteMusic -Value 100
+        # Toggle the state on Shift + M press
+        $global:toggleState = -not $global:toggleState
+
+        if ($global:toggleState) {
+            UnmuteMusic -value 100
+        }
+        else {
+            MuteMusic -value 0
+        }
     }
     # Restore point 
     if ($_.Key -eq "Q" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
@@ -107,8 +109,8 @@ $KeyEvents = {
     if ($_.Key -eq "T" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
         ITTShortcut
     }
-     # ITT Shortcut 
-     if ($_.Key -eq "I" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
+    # ITT Shortcut 
+    if ($_.Key -eq "I" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
         ITTShortcut
     }
 
