@@ -7677,12 +7677,17 @@ SaveItemsToJson
 if ($_.Key -eq "D" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
 LoadJson
 }
+if (-not $global:toggleState) {
+$global:toggleState = $false
+}
 if ($_.Key -eq "M" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
 $global:toggleState = -not $global:toggleState
 if ($global:toggleState) {
+Write-Host "Feature is ON"
 UnmuteMusic -value 100
 }
 else {
+Write-Host "Feature is OFF"
 MuteMusic -value 0
 }
 }
@@ -11752,17 +11757,17 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/03/2025'.Trim()
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
@@ -12140,7 +12145,12 @@ $itt["window"].Resources.MergedDictionaries.Add($itt["window"].FindResource($fal
 $itt.CurretTheme = $fallback
 }
 $itt.mediaPlayer.settings.volume = "$($itt.Music)"
-if ($itt.Music -eq 0) { $global:toggleState = $false }
+if ($itt.Music -eq 0) {
+$global:toggleState = $false
+}
+else {
+$global:toggleState = $true
+}
 switch ($itt.Music) {
 "100" { $itt["window"].title = "Install Tweaks Tool #StandWithPalestine 🔊" }
 "0" { $itt["window"].title = "Install Tweaks Tool #StandWithPalestine 🔈" }
