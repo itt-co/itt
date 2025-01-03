@@ -7677,9 +7677,6 @@ SaveItemsToJson
 if ($_.Key -eq "D" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
 LoadJson
 }
-if (-not $global:toggleState) {
-$global:toggleState = $false
-}
 if ($_.Key -eq "M" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
 $global:toggleState = -not $global:toggleState
 if ($global:toggleState) {
