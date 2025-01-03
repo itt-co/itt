@@ -7680,7 +7680,6 @@ LoadJson
 if ($_.Key -eq "M" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
 $global:toggleState = -not $global:toggleState
 if ($global:toggleState) {
-Write-Host "Feature is ON"
 UnmuteMusic -value 100
 }
 else {
