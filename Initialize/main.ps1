@@ -13,8 +13,8 @@ $MainXaml.SelectNodes("//*[@Name]") | ForEach-Object {
             }
             "MenuItem" {
                 $element.Add_Click({ 
-                    Invoke-Button $args[0].Name -Content $args[0].Header
-                })
+                        Invoke-Button $args[0].Name -Content $args[0].Header
+                    })
             }
             "TextBox" {
                 $element.Add_TextChanged({ Invoke-Button $args[0].Name })
@@ -40,26 +40,26 @@ $MainXaml.SelectNodes("//*[@Name]") | ForEach-Object {
 $onClosingEvent = {
     param($s, $c)
     # Show confirmation message box
-    $result = Message -key "Exit_msg" -icon "ask" -action "YesNo"
+    $result = Message -title "Are you sure" -key "Exit_msg" -icon "ask" -action "YesNo"
     if ($result -eq "Yes") {
         StopAllRunspace
-    } else {
+    }
+    else {
         $c.Cancel = $true
     }
 }
 $itt["window"].Add_ContentRendered({
-    Startup
-    Show-Event
-})
+        Startup
+        Show-Event
+    })
 $itt.SearchInput.Add_GotFocus({
-    $itt.Search_placeholder.Visibility = "Hidden"
-})
+        $itt.Search_placeholder.Visibility = "Hidden"
+    })
 $itt.SearchInput.Add_LostFocus({
-    if ([string]::IsNullOrEmpty($itt.SearchInput.Text)) 
-    {
-        $itt.Search_placeholder.Visibility = "Visible";
-    }
-});
+        if ([string]::IsNullOrEmpty($itt.SearchInput.Text)) {
+            $itt.Search_placeholder.Visibility = "Visible";
+        }
+    });
 # Close Event handler
 $itt["window"].add_Closing($onClosingEvent)
 # Keyboard shortcut
