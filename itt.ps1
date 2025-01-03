@@ -7654,8 +7654,7 @@ $this.Close()
 if (($_.Key -eq "F" -and $_.KeyboardDevice.Modifiers -eq "Ctrl")) {
 $itt.SearchInput.Focus()
 }
-if ($_.Key -eq "Escape")
-{
+if ($_.Key -eq "Escape") {
 $itt.SearchInput.MoveFocus([System.Windows.Input.TraversalRequest]::New([System.Windows.Input.FocusNavigationDirection]::Next))
 $itt.SearchInput.Text = $null
 $itt["window"].FindName("search_placeholder").Visibility = "Visible";
@@ -7679,10 +7678,13 @@ if ($_.Key -eq "D" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
 LoadJson
 }
 if ($_.Key -eq "M" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
-MuteMusic -Value 0
+$global:toggleState = -not $global:toggleState
+if ($global:toggleState) {
+UnmuteMusic -value 100
 }
-if ($_.Key -eq "F" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
-UnmuteMusic -Value 100
+else {
+MuteMusic -value 0
+}
 }
 if ($_.Key -eq "Q" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
 RestorePoint
@@ -11753,14 +11755,14 @@ $itt.event.FindName('date').text = '01/03/2025'.Trim()
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
-})
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
@@ -12004,7 +12006,7 @@ VerticalAlignment="Center"
 </Window>
 '
 $maxthreads = [int]$env:NUMBER_OF_PROCESSORS
-$hashVars = New-object System.Management.Automation.Runspaces.SessionStateVariableEntry -ArgumentList 'itt',$itt,$Null
+$hashVars = New-object System.Management.Automation.Runspaces.SessionStateVariableEntry -ArgumentList 'itt', $itt, $Null
 $InitialSessionState = [System.Management.Automation.Runspaces.InitialSessionState]::CreateDefault()
 $InitialSessionState.Variables.Add($hashVars)
 $desiredFunctions = @(
@@ -12037,7 +12039,8 @@ $itt.runspace.Open()
 try {
 [xml]$MainXaml = $MainWindowXaml
 $itt["window"] = [Windows.Markup.XamlReader]::Load([System.Xml.XmlNodeReader]$MainXaml)
-} catch {
+}
+catch {
 Write-Host "Error: $($_.Exception.Message)"
 }
 try {
@@ -12072,8 +12075,7 @@ New-ItemProperty -Path $itt.registryPath -Name "Runs" -Value 0 -PropertyType DWO
 try {
 switch ($itt.Locales) {
 "default" {
-switch($shortCulture)
-{
+switch ($shortCulture) {
 "ar" { $locale = "ar" }
 "en" { $locale = "en" }
 "fr" { $locale = "fr" }
@@ -12110,20 +12112,18 @@ catch {
 $itt["window"].DataContext = $itt.database.locales.Controls.en
 }
 try {
-$themeResource = switch($itt.Theme)
-{
-"Light"{
+$themeResource = switch ($itt.Theme) {
+"Light" {
 "Light"
 }
-"Dark"{
+"Dark" {
 "Dark"
 }
-"Custom"{
+"Custom" {
 $itt.CurretTheme
 }
-default{
-switch ($appsTheme)
-{
+default {
+switch ($appsTheme) {
 "0" { "Dark" }
 "1" { "Light" }
 }
@@ -12133,8 +12133,7 @@ $itt["window"].Resources.MergedDictionaries.Add($itt["window"].FindResource($the
 $itt.CurretTheme = $themeResource
 }
 catch {
-$fallback = switch($appsTheme)
-{
+$fallback = switch ($appsTheme) {
 "0" { "Dark" }
 "1" { "Light" }
 }
@@ -12144,13 +12143,14 @@ $itt["window"].Resources.MergedDictionaries.Add($itt["window"].FindResource($fal
 $itt.CurretTheme = $fallback
 }
 $itt.mediaPlayer.settings.volume = "$($itt.Music)"
-switch($itt.Music){
-"100" { $itt["window"].title = "Install Tweaks Tool #StandWithPalestine 🔊"}
-"0" {$itt["window"].title = "Install Tweaks Tool #StandWithPalestine 🔈"}
+if ($itt.Music -eq 0) { $global:toggleState = $false }
+switch ($itt.Music) {
+"100" { $itt["window"].title = "Install Tweaks Tool #StandWithPalestine 🔊" }
+"0" { $itt["window"].title = "Install Tweaks Tool #StandWithPalestine 🔈" }
 }
 $itt.PopupWindow = (Get-ItemProperty -Path $itt.registryPath -Name "PopupWindow").PopupWindow
 $itt["window"].TaskbarItemInfo = New-Object System.Windows.Shell.TaskbarItemInfo
-if(-not $Debug){Set-Taskbar -progress "None" -icon "logo"}
+if (-not $Debug) { Set-Taskbar -progress "None" -icon "logo" }
 }
 catch {
 Write-Host "Error: $_"
