@@ -426,6 +426,34 @@
     {
       "text": "!هل يمكنك اكتشاف المفاجأة المخفية؟ افتح السورس كود واكتشف الميزات السرية التي تنتظرك",
       "type": "info"
+    },
+    {
+      "text": "Ctrl + [Q], [E], [R] to switch between tabs",
+      "type": "info"
+    },
+    {
+      "text": "Shift+M to toogle music",
+      "type": "info"
+    },
+    {
+      "text": "Select your favorite apps and press Shift+S to save them to a file for later restore",
+      "type": "info"
+    },
+    {
+      "text": "Shift+D to restore your saved file",
+      "type": "info"
+    },
+    {
+      "text": "Ctrl+S for quick install",
+      "type": "info"
+    },
+    {
+      "text": "Shift+P to open portable downloads folder",
+      "type": "info"
+    },
+    {
+      "text": "Ctrl+A to clear selected category filter",
+      "type": "info"
     }
   ]
 }
