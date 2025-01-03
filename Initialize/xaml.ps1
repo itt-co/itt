@@ -174,7 +174,12 @@ try {
     #===========================================================================
     # Check if Music is set to 100, then reset toggle state to false
     $itt.mediaPlayer.settings.volume = "$($itt.Music)"
-    if ($itt.Music -eq 0) { $global:toggleState = $false }
+    if ($itt.Music -eq 0) { 
+        $global:toggleState = $false 
+    }
+    else {
+        $global:toggleState = $true 
+    }
     switch ($itt.Music) {
         "100" { $itt["window"].title = "Install Tweaks Tool #StandWithPalestine 🔊" }
         "0" { $itt["window"].title = "Install Tweaks Tool #StandWithPalestine 🔈" }
