@@ -11957,10 +11957,7 @@ HorizontalAlignment="Left" />
 <TextBlock Text=''• Shift+D: Load save file.'' Margin=''15,0,0,0'' FontSize=''16'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
 </StackPanel>
 <StackPanel Orientation=''Vertical''>
-<TextBlock Text=''• Shift+M: Mute music.'' Margin=''15,0,0,0'' FontSize=''16'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
-</StackPanel>
-<StackPanel Orientation=''Vertical''>
-<TextBlock Text=''• Shift+F: Play music.'' Margin=''15,0,0,0'' FontSize=''16'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
+<TextBlock Text=''• Shift+M: Toggle music.'' Margin=''15,0,0,0'' FontSize=''16'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
 </StackPanel>
 <StackPanel Orientation=''Vertical''>
 <TextBlock Text=''• Shift+P: Open Choco folder.'' Margin=''15,0,0,0'' FontSize=''16'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
