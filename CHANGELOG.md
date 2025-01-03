@@ -11,8 +11,7 @@
 - Ctrl+S: Install selected Apps/Tweaks.
 - Shift+S: Save selected.
 - Shift+D: Load save file.
-- Shift+M: Mute music.
-- Shift+F: Play music.
+- Shift+M: Toggle music.
 - Shift+P: Open Choco folder.
 - Shift+Q: Restore point.
 - Shift+I: ITT Shortcut.
