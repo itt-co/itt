@@ -1,6 +1,4 @@
-# Mute the music by setting the volume to the specified value
-function MuteMusic {
-    <#
+<#
         .SYNOPSIS
         Adjusts the volume of the media player and saves the setting for persistence.
         .DESCRIPTION
@@ -20,6 +18,9 @@ function MuteMusic {
         - The volume setting is saved to the registry at the path specified by `$itt.registryPath` under the "Music" key.
         - Ensure that `$itt.mediaPlayer.settings.volume` and `$itt.registryPath` are properly initialized in your environment.
     #>
+    
+function MuteMusic {
+
     param($value)
     $itt.mediaPlayer.settings.volume = $value
     Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value "$value" -Force
