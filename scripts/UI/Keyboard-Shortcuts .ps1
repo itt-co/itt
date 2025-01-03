@@ -94,7 +94,6 @@ $KeyEvents = {
             UnmuteMusic -value 100
         }
         else {
-            Write-Host "Feature is OFF"
             MuteMusic -value 0
         }
     }
