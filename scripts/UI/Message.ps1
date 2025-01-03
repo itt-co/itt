@@ -26,6 +26,7 @@ function Message {
     param(
         [string]$key,
         [string]$NoneKey,
+        [string]$title = "ITT",
         [string]$icon,
         [string]$action
     )
@@ -37,13 +38,11 @@ function Message {
         Default { $icon = [System.Windows.MessageBoxImage]::Question }
     }
     switch ($action.ToLower()) {
-        "YesNo" 
-        { 
+        "YesNo" { 
             $action = [System.Windows.MessageBoxButton]::YesNo 
         }
-        "OK" 
-        {
-            $action =  [System.Windows.MessageBoxButton]::OK 
+        "OK" {
+            $action = [System.Windows.MessageBoxButton]::OK 
         }
         Default { 
             $icon = [System.Windows.MessageBoxButton]::OK 
@@ -51,11 +50,12 @@ function Message {
     }
     if ([string]::IsNullOrWhiteSpace($key)) {
         # Show message with NoneKey if key is empty or null
-        [System.Windows.MessageBox]::Show($NoneKey, "ITT", [System.Windows.MessageBoxButton]::$action, $icon)
-    } else {
+        [System.Windows.MessageBox]::Show($NoneKey, $title, [System.Windows.MessageBoxButton]::$action, $icon)
+    }
+    else {
         # Retrieve localized message template and display message
         $localizedMessageTemplate = $itt.database.locales.Controls.$($itt.Language).$($key)
         $msg = "$localizedMessageTemplate"
-        [System.Windows.MessageBox]::Show($msg, "ITT", [System.Windows.MessageBoxButton]::$action, $icon)
+        [System.Windows.MessageBox]::Show($msg, $title, [System.Windows.MessageBoxButton]::$action, $icon)
     }
 }    
