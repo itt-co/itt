@@ -5,7 +5,7 @@
   </a>
 </p>
 
-[![Genocide Watch](https://hinds-banner.vercel.app/genocide-watch?variant=forest)](#support-palestine)
+[![Genocide Watch](https://hinds-banner.vercel.app/genocide-watch?variant=forest)](#resistance-struggling-for-justice-in-an-authoritarian-world)
 
 <h1 align="center">🔻 ITT (Install Tweaks Tool) 🔻 </h1>
 
