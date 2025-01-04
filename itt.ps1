@@ -3520,6 +3520,22 @@ $itt.database.Applications = @'
 "default": [],
 "category": "Development",
 "check": "false"
+},
+{
+"Name": "DuckStation",
+"Description": " Fast PlayStation 1 emulator for x86-64/AArch32/AArch64/RV64",
+"winget": "none",
+"choco": "none",
+"default": [
+{
+"url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-release.zip",
+"portable": "ture",
+"args": "/silent",
+"launcher": "duckstation-qt-x64-ReleaseLTCG"
+}
+],
+"category": "Portable",
+"check": "false"
 }
 ]
 '@ | ConvertFrom-Json
@@ -6596,12 +6612,12 @@ Expand-Archive -Path $DownloadPath -DestinationPath $Destination_Directory -Forc
 catch {
 Write-Error "An error occurred during the download or extraction process: $_"
 }
-if($portable -eq "true")
-{
+if ($portable -eq "true") {
 if (-not (Test-Path -Path $targetPath)) {
 Add-Log -Message  "Target file '$targetPath' does not exist after extraction." -Level "error"
 return
 }
+if ($launcher -ne "none" -or "") {
 $desktopPath = [System.Environment]::GetFolderPath('Desktop')
 $shortcutPath = Join-Path -Path $desktopPath -ChildPath "$name.lnk"
 try {
@@ -6610,12 +6626,13 @@ $shortcut = $shell.CreateShortcut($shortcutPath)
 $shortcut.TargetPath = $targetPath
 $shortcut.Save()
 Add-Log -Message "Shortcut created on Destkop" -Level "info"
-} catch {
+}
+catch {
 Write-Error "Failed to create shortcut. Error: $_"
 }
 }
-else
-{
+}
+else {
 Start-Process -FilePath $targetPath -ArgumentList $installArgs -Wait
 }
 }
@@ -7689,7 +7706,7 @@ if ($_.Key -eq "C" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
 Start-Process explorer.exe "C:\ProgramData\chocolatey\lib"
 }
 if ($_.Key -eq "T" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
-ITTShortcut
+Start-Process explorer.exe $env:ProgramData\itt
 }
 if ($_.Key -eq "I" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
 ITTShortcut
@@ -11103,6 +11120,12 @@ ScrollViewer.CanContentScroll="True">
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
 <TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="SQLiteStudio is desktop application for browsing and editing SQLite database files. It is aimed for people who know what SQLite is or what relational databases are in general."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="DuckStation" Tag="Portable" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Portable"/>
+</StackPanel>
+<TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text=" Fast PlayStation 1 emulator for x8664/AArch32/AArch64/RV64."/>
 </StackPanel>
 </ListView>
 </TabItem.Content>
@@ -11748,17 +11771,17 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/03/2025'.Trim()
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
-})
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
