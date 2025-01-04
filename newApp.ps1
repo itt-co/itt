@@ -17,22 +17,23 @@ Write-Host "
 #===========================================================================
 #region Begin Prompt user to choose download method
 #===========================================================================
-    $Mthoed = @{
-        1 = "API [Choco/Winget] Recommended"
-        2 = "Default [HttpClient]"
+$Mthoed = @{
+    1 = "API [Choco/Winget] Recommended"
+    2 = "Default [HttpClient]"
+}
+do {
+    Write-Host "Which method to download this app will be?:"
+    foreach ($key in $Mthoed.Keys | Sort-Object) {
+        Write-Host "$key - $($Mthoed[$key])"
     }
-    do {
-        Write-Host "Which method to download this app will be?:"
-        foreach ($key in $Mthoed.Keys | Sort-Object) {
-            Write-Host "$key - $($Mthoed[$key])"
-        }
-        $choice = Read-Host "Enter the number corresponding to the methods"
-        if ([int]$choice -in $Mthoed.Keys) {
-            $userInput = $Mthoed[[int]$choice]
-        } else {
-            Write-Host "Invalid choice. Please select a valid option."
-        }
-    } until ([int]$choice -in $Mthoed.Keys)
+    $choice = Read-Host "Enter the number corresponding to the methods"
+    if ([int]$choice -in $Mthoed.Keys) {
+        $userInput = $Mthoed[[int]$choice]
+    }
+    else {
+        Write-Host "Invalid choice. Please select a valid option."
+    }
+} until ([int]$choice -in $Mthoed.Keys)
 #===========================================================================
 #endregion end  Prompt user to choose download method
 #===========================================================================
@@ -42,14 +43,12 @@ function Check {
         [string]$winget
     )
     $jsonContent = Get-Content -Path $applications -Raw | ConvertFrom-Json
-    foreach ($item in $jsonContent) 
-    {
-        if ($item.choco -eq $choco -and $item.choco -ne "none")
-        {
+    foreach ($item in $jsonContent) {
+        if ($item.choco -eq $choco -and $item.choco -ne "none") {
             Write-Host "($choco) already exists!" -ForegroundColor Yellow
             exit
-        } elseif ($item.winget -eq $winget -and $item.winget -ne "none") 
-        {
+        }
+        elseif ($item.winget -eq $winget -and $item.winget -ne "none") {
             Write-Host "($winget) already exists!" -ForegroundColor Yellow
             exit
         }
@@ -57,7 +56,7 @@ function Check {
 }
 function Create-JsonObject {
     $Name = Read-Host "Enter app name"
-    $Description  = Read-Host "Enter app description"
+    $Description = Read-Host "Enter app description"
     # Create the base JSON object
     $jsonObject = @{
         name        = $Name
@@ -76,7 +75,7 @@ function Create-JsonObject {
     }
     # Set the winget and choco values outside of the default section
     $jsonObject.winget = $downloadMethod.winget
-    $jsonObject.choco  = $downloadMethod.choco
+    $jsonObject.choco = $downloadMethod.choco
     $jsonObject.category += Category
     return $jsonObject
 }
@@ -85,7 +84,7 @@ function Download-Mthoed {
     switch ($userInput) {
         "API [Choco/Winget] Recommended" {
             # Prompt the user for input
-            $choco  = Read-Host "Enter Chocolatey package name"
+            $choco = Read-Host "Enter Chocolatey package name"
             $choco = ($choco -replace "choco install", "" -replace ",,", ",").Trim()
             if ($choco -eq "") { $choco = "none" }  # Set default value if empty
             Check -choco $choco
@@ -96,14 +95,19 @@ function Download-Mthoed {
             $cleanedWinget = $winget -replace "winget install -e --id", "" -replace "\s+", ""
             Check -winget $cleanedWinget
             return @{
-                winget    = $cleanedWinget
-                choco     = $choco
+                winget       = $cleanedWinget
+                choco        = $choco
                 defaultEntry = $null
             }
         }
         "Default [HttpClient]" {
             $url = Read-Host "Enter url file (e.g: emadadel4.github.io/setup.exe)"  
             $launcher = Read-Host "Setup launcher (e.g: setup.exe)"
+
+            if ($launcher -eq "") {
+                $launcher = "none"
+            }
+            
             $IsPortable = @{
                 1 = "ture"
                 2 = "false"
@@ -119,15 +123,16 @@ function Download-Mthoed {
                 $choice = Read-Host "Enter the number corresponding to the methods"
                 if ([int]$choice -in $IsPortable.Keys) {
                     $Portable = $IsPortable[[int]$choice]
-                } else {
+                }
+                else {
                     Write-Host "Invalid choice. Please select a valid option."
                 }
             } until ([int]$choice -in $IsPortable.Keys)
             $arg = Read-Host "Enter ArgumentList (e.g: /silent) You can skip this if don't know setup Argument"
-            if (-not $arg -or $arg -eq '') {$arg = "/silent"}
+            if (-not $arg -or $arg -eq '') { $arg = "/silent" }
             return @{
-                winget    = "none"
-                choco     = "none"
+                winget       = "none"
+                choco        = "none"
                 defaultEntry = @{
                     url      = $url
                     launcher = $launcher
@@ -144,15 +149,15 @@ function Category {
     #===========================================================================
     # Define category options
     $validCategories = @{
-        1 = "Web Browsers"
-        2 = "Media"
-        3 = "Media Tools"
-        4 = "Documents"
-        5 = "Compression"
-        6 = "Communication"
-        7 = "Gaming"
-        8 = "Imaging"
-        9 = "Drivers"
+        1  = "Web Browsers"
+        2  = "Media"
+        3  = "Media Tools"
+        4  = "Documents"
+        5  = "Compression"
+        6  = "Communication"
+        7  = "Gaming"
+        8  = "Imaging"
+        9  = "Drivers"
         10 = "Utilities"
         11 = "Disk Tools"
         12 = "File Sharing"
@@ -171,7 +176,8 @@ function Category {
         $choice = Read-Host "Enter the number corresponding to the category"
         if ([int]$choice -in $validCategories.Keys) {
             $category = $validCategories[[int]$choice]
-        } else {
+        }
+        else {
             Write-Host "Invalid choice. Please select a valid option."
         }
     } until ([int]$choice -in $validCategories.Keys)
@@ -183,35 +189,34 @@ function Category {
 #===========================================================================
 #region Begin output json file
 #===========================================================================
-    # Check if the JSON file exists
-    if (Test-Path $applications) {
-        # Read existing JSON file
-        $existingJson = Get-Content -Path $applications -Raw | ConvertFrom-Json
-        # Create a new JSON object to add
-        $newJsonObject = Create-JsonObject
-        # Append the new object to the existing JSON structure
-        $existingJson += $newJsonObject
-        # Convert back to JSON format while maintaining the property order
-        $jsonOutput = @()
-        foreach ($item in $existingJson) {
-            $jsonOutput += [PSCustomObject]@{
-                Name               = $item.Name
-                Description        = $item.Description
-                winget             = $item.winget
-                choco              = $item.choco
-                default            = $item.default
-                category           = $item.category
-                check              = $item.check
-            }
+# Check if the JSON file exists
+if (Test-Path $applications) {
+    # Read existing JSON file
+    $existingJson = Get-Content -Path $applications -Raw | ConvertFrom-Json
+    # Create a new JSON object to add
+    $newJsonObject = Create-JsonObject
+    # Append the new object to the existing JSON structure
+    $existingJson += $newJsonObject
+    # Convert back to JSON format while maintaining the property order
+    $jsonOutput = @()
+    foreach ($item in $existingJson) {
+        $jsonOutput += [PSCustomObject]@{
+            Name        = $item.Name
+            Description = $item.Description
+            winget      = $item.winget
+            choco       = $item.choco
+            default     = $item.default
+            category    = $item.category
+            check       = $item.check
         }
-        # Write the ordered JSON to the file
-        $jsonOutput | ConvertTo-Json -Depth 20 | Out-File -FilePath $applications -Encoding utf8
-        Write-Host "Added successfully, Don't forget to build and test it before push commit" -ForegroundColor Green
-    } 
-    else
-    {
-        Write-Host "The file $applications does not exist!" -ForegroundColor Red
     }
+    # Write the ordered JSON to the file
+    $jsonOutput | ConvertTo-Json -Depth 20 | Out-File -FilePath $applications -Encoding utf8
+    Write-Host "Added successfully, Don't forget to build and test it before push commit" -ForegroundColor Green
+} 
+else {
+    Write-Host "The file $applications does not exist!" -ForegroundColor Red
+}
 #===========================================================================
 #endregion end output json file
 #===========================================================================
