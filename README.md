@@ -50,7 +50,7 @@
 </div>
 
 <div align="center">
-  <h5> 377 App |  40 Tweaks | 12 Settings | 108 Quote |  28 Soundtrack | 12 Localization </h5>
+  <h5> 378 App |  40 Tweaks | 12 Settings | 108 Quote |  28 Soundtrack | 12 Localization </h5>
 </div>
 
 <div align="center">
