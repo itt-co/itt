@@ -185,7 +185,7 @@ Run the script using official commands from this repository. It's not a portable
 
 > ❗ **Note**: Generate clean release version without any comments.
 
-### Additional Repositories (Late Update)
+### Additional Repositories (Synced)
 
 [![GitLab](https://img.shields.io/badge/GitLab-%23FCA121?logo=gitlab&logoColor=white)](https://gitlab.com/emadadel/itt)
 [![Codeberg](https://img.shields.io/badge/Codeberg-%230073B7?logo=codeberg&logoColor=white)](https://codeberg.org/emadadel/itt)
