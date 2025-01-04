@@ -1,6 +1,6 @@
 
 <p align="center">
-  <a href="tab=readme-ov-file#resistance-struggling-for-justice-in-an-authoritarian-world" rel="nofollow">
+  <a href="#resistance-struggling-for-justice-in-an-authoritarian-world" rel="nofollow">
     <img src="https://raw.githubusercontent.com/Safouene1/support-palestine-banner/master/StandWithPalestine.svg" alt="Ceasefire Now" style="width:40%;">
   </a>
 </p>
