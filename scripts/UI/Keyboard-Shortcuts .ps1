@@ -106,7 +106,7 @@ $KeyEvents = {
     }
     # ITT Shortcut 
     if ($_.Key -eq "T" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
-        ITTShortcut
+        Start-Process explorer.exe $env:ProgramData\itt
     }
     # ITT Shortcut 
     if ($_.Key -eq "I" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
