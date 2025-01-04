@@ -3482,5 +3482,21 @@
     "default": [],
     "category": "Development",
     "check": "false"
+  },
+  {
+    "Name": "DuckStation",
+    "Description": " Fast PlayStation 1 emulator for x86-64/AArch32/AArch64/RV64",
+    "winget": "none",
+    "choco": "none",
+    "default": [
+      {
+        "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-release.zip",
+        "portable": "ture",
+        "args": "/silent",
+        "launcher": "duckstation-qt-x64-ReleaseLTCG"
+      }
+    ],
+    "category": "Portable",
+    "check": "false"
   }
 ]
