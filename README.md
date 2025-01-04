@@ -31,7 +31,7 @@
 
 </div>
 
-<p align="center">
+<div align="center">
   <a href="https://www.youtube.com/@emadadel4" target="_blank" style="margin-right: 0px;">
       <img src="https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white" width="auto" alt="YouTube" height="auto">
   </a>
@@ -47,15 +47,15 @@
   <a href="https://www.reddit.com/r/ittea/" target="_blank" style="margin-right: 0px;">
     <img src="https://img.shields.io/badge/Reddit-FFf?style=flat&logo=reddit&logoColor=black" alt="reddit" height="auto">
   </a>
-</p>
+</div>
 
 <div align="center">
   <h5> 377 App |  40 Tweaks | 12 Settings | 108 Quote |  28 Soundtrack | 12 Localization </h5>
 </div>
 
-<p align="center">
+<div align="center">
   <a  href="#-usage" rel="nofollow"><img src="https://img.shields.io/badge/Latest Update-01/04/2025-blue?style=for-the-badge"></a>
-</p>
+</div>
 
 
 <p align="center" dir="auto">
