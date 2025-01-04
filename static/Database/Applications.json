@@ -3498,5 +3498,14 @@
     ],
     "category": "Portable",
     "check": "false"
+  },
+  {
+    "Name": "Authme - Simple 2FA",
+    "Description": "Simple 2FA desktop application",
+    "winget": "none",
+    "choco": "authme.portable",
+    "default": [],
+    "category": "Security",
+    "check": "false"
   }
 ]
