@@ -4093,10 +4093,6 @@ $itt.database.Quotes = @'
 },
 {
 "type": "quote",
-"text": "كل خطأ في الكود هو فرصة للتعلم والنمو، وليس مجرد فشل"
-},
-{
-"type": "quote",
 "text": "The devil is sitting on the throne with his assistants (USA)"
 },
 {
