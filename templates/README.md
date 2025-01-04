@@ -16,39 +16,19 @@
 </h4>
 <br>
 <div align="center">
-  <a href="/locales/ar.csv">
-    <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/ps.png"  Height="30" width="auto" alt="ar">
-  </a>
-    <a href="/locales/ga.csv">
-    <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/ie.png" Height="30" width="auto" alt="ir">
-  </a>
-  <a href="/locales/fr.csv">
-    <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/fr.png"  Height="30" width="auto" alt="fr">
-  </a>
-  <a href="/locales/tr.csv">
-    <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/tr.png" Height="30" width="auto" alt="tr">
-  </a>
-  <a href="/locales/zh.csv">
-    <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/cn.png" Height="30" width="auto" alt="cn">
-  </a>
-  <a href="/locales/ko.csv">
-    <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/kr.png" Height="30" width="auto"  alt="kr">
-  </a>
-  <a href="/locales/de.csv">
-    <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/de.png" Height="30" width="auto" alt="de">
-  </a>
-  <a href="/locales/ru.csv">
-    <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/ru.png" Height="30" width="auto" alt="ru">
-  </a>
-  <a href="/locales/es.csv">
-    <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/es.png" Height="30" width="auto" alt="es">
-  </a>
-  <a href="/locales/it.csv">
-    <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/it.png" Height="30" width="auto" alt="it">
-  </a>
-    <a href="/locales/hi.csv">
-    <img src="https://raw.githubusercontent.com/hampusborgos/country-flags/refs/heads/main/png100px/in.png" Height="30" width="auto" alt="in">
-  </a>
+ 
+[![Arabic](https://img.shields.io/badge/-Arabic-red)](/locales/ar.csv)
+[![Irish](https://img.shields.io/badge/-Irish-green)](/locales/ga.csv)
+[![French](https://img.shields.io/badge/-French-blue)](/locales/fr.csv)
+[![Turkish](https://img.shields.io/badge/-Turkish-red)](/locales/tr.csv)
+[![Chinese](https://img.shields.io/badge/-Chinese-red)](/locales/zh.csv)
+[![Korean](https://img.shields.io/badge/-Korean-white)](/locales/ko.csv)
+[![German](https://img.shields.io/badge/-German-red)](/locales/de.csv)
+[![Russian](https://img.shields.io/badge/-Russian-blue)](/locales/ru.csv)
+[![Spanish](https://img.shields.io/badge/-Spanish-red)](/locales/es.csv)
+[![Italian](https://img.shields.io/badge/-Italian-green)](/locales/it.csv)
+[![Hindi](https://img.shields.io/badge/-Hindi-orange)](/locales/hi.csv)
+
 </div>
 
 <p align="center">
