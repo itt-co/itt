@@ -20,6 +20,7 @@ sync_to_codeberg:
   script:
     - git clone --mirror https://gitlab.com/emadadel/itt.git repo
     - cd repo
-    - git push --mirror https://emadadel:${GITLAB_TOKEN}@codeberg.org/emadadel/itt.git
+    - git remote set-url origin https://emadadel:${GITLAB_TOKEN}@codeberg.org/emadadel/itt.git
+    - git push --mirror origin
   only:
     - main
