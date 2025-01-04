@@ -1,5 +1,7 @@
 stages:
   - mirror
+  - sync
+
 mirror:
   stage: mirror
   script:
@@ -9,3 +11,15 @@ mirror:
     - git push --mirror origin
   only:
     - triggers
+
+sync_to_codeberg:
+  stage: sync
+  image: alpine/git
+  before_script:
+    - git config --global user.name "emadadel"
+  script:
+    - git clone --mirror https://gitlab.com/emadadel/itt.git repo
+    - cd repo
+    - git push --mirror https://emadadel:${GITLAB_TOKEN}@codeberg.org/emadadel/itt.git
+  only:
+    - main
