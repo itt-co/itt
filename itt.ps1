@@ -3,7 +3,7 @@ $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
 developer      = "Emad Adel"
-lastupdate     = "01/05/2025"
+lastupdate     = "01/06/2025"
 github         = "https://github.com/emadadel4/itt"
 telegram       = "https://t.me/emadadel4"
 blog           = "https://emadadel4.github.io"
@@ -8300,8 +8300,7 @@ KeyboardNavigation.DirectionalNavigation="Continue"/>
 <Border Name="Border" CornerRadius="5" BorderThickness="0" Padding="8" BorderBrush="Transparent"  Margin="10,5">
 <ContentPresenter x:Name="ContentSite"
 VerticalAlignment="Center"
-HorizontalAlignment="Center"
-Width="100"
+HorizontalAlignment="Left"
 ContentSource="Header"
 />
 </Border>
