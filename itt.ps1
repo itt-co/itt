@@ -3,7 +3,7 @@ $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
 developer      = "Emad Adel"
-lastupdate     = "01/04/2025"
+lastupdate     = "01/05/2025"
 github         = "https://github.com/emadadel4/itt"
 telegram       = "https://t.me/emadadel4"
 blog           = "https://emadadel4.github.io"
@@ -6127,6 +6127,9 @@ Start-Process ("https://github.com/codecrafting-io/asus-setup-tool")
 "webtor"{
 Start-Process ("https://webtor.io/")
 }
+"spotifydown"{
+Start-Process ("https://spotifydown.com")
+}
 "taps"{
 ChangeTap
 }
@@ -8759,6 +8762,11 @@ To="5,0,0,0">
 </MenuItem.Icon>
 </MenuItem>
 <MenuItem Name="shelltube" ToolTip="Download youtube video easily" Header="ShellTube">
+<MenuItem.Icon>
+<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+</MenuItem.Icon>
+</MenuItem>
+<MenuItem Name="spotifydown" ToolTip="SpotifyDown allows you to download tracks, playlists and albums from Spotify instantly." Header="Spotify Downloader">
 <MenuItem.Icon>
 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
 </MenuItem.Icon>
@@ -11796,11 +11804,11 @@ Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
-})
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
