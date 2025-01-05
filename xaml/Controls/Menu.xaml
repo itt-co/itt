@@ -148,7 +148,7 @@
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
                 <MenuItem Name="uBlock" Header="uBlock Origin"/>
-                <MenuItem Name="unhook" Header="Unhook: Customize youtube."/>
+                <MenuItem Name="unhook" Header="Unhook: Customize youtube"/>
                 <MenuItem Name="neat" Header="Neat Download Manager"/>
             </MenuItem>
             <MenuItem Name="sordum" ToolTip="Collection of free utilities designed to enhance or control various aspects of the Windows operating system" Header="Sordum tools">
