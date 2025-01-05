@@ -8722,7 +8722,7 @@ To="5,0,0,0">
 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
 </MenuItem.Icon>
 <MenuItem Name="uBlock" Header="uBlock Origin"/>
-<MenuItem Name="unhook" Header="Unhook: Customize youtube."/>
+<MenuItem Name="unhook" Header="Unhook: Customize youtube"/>
 <MenuItem Name="neat" Header="Neat Download Manager"/>
 </MenuItem>
 <MenuItem Name="sordum" ToolTip="Collection of free utilities designed to enhance or control various aspects of the Windows operating system" Header="Sordum tools">
@@ -11800,11 +11800,11 @@ $itt.event.FindName('date').text = '01/03/2025'.Trim()
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
-$itt.event.FindName('ps').add_MouseLeftButtonDown({
-Start-Process('https://www.palestinercs.org/en/Donation')
-})
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('ps').add_MouseLeftButtonDown({
+Start-Process('https://www.palestinercs.org/en/Donation')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
