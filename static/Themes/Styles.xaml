@@ -395,8 +395,7 @@
                     <Border Name="Border" CornerRadius="5" BorderThickness="0" Padding="8" BorderBrush="Transparent"  Margin="10,5">
                         <ContentPresenter x:Name="ContentSite"
                         VerticalAlignment="Center"
-                        HorizontalAlignment="Center"
-                        Width="100"
+                        HorizontalAlignment="Left"
                         ContentSource="Header"
                         />
                     </Border>
