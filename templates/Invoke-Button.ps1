@@ -275,6 +275,12 @@ function Invoke-Button {
                 Debug-Message $action
             # debug end
         }
+        "spotifydown"{
+            Start-Process ("https://spotifydown.com")
+            # debug start
+                Debug-Message $action
+            # debug end
+        }
         "taps"{
             ChangeTap
             # debug start
