@@ -128,6 +128,12 @@ function Invoke-Button {
                 Debug-Message $action
             # debug end
         }
+        "msconfig" {
+            Start-Process msconfig.exe
+            # debug start
+                Debug-Message $action
+            # debug end
+        }
         "systheme" {
             SwitchToSystem 
             # debug start

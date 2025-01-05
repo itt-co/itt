@@ -49,6 +49,11 @@
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
+            <MenuItem Name="msconfig" Header="{Binding Msconfig}">
+                <MenuItem.Icon>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+                </MenuItem.Icon>
+            </MenuItem>
         </MenuItem>
         <MenuItem Header="{Binding Preferences}" FontFamily="arial" FontSize="13"  BorderBrush="Transparent" BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Left">
             <MenuItem.Icon>
