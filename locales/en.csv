@@ -14,9 +14,10 @@ Settings,Settings
 Save,Save
 Restore,Restore
 Music,Music
-On,"On "
+On,"On"
 Off,Off
 Disk_Managment,Disk Managment
+Msconfig,System Configuration
 Task_Manager,Task Manager
 Apps_features,Apps-Features
 Networks,Networks

@@ -14,9 +14,10 @@ Settings,COnfiguración
 Save,Guardar
 Restore,Restaurar
 Music,Música
-On,"Encendido "
+On,"Encendido"
 Off,Apagado
 Disk_Managment,Administración de discos
+Msconfig,Configuración del sistema
 Task_Manager,Administrador de tareas
 Apps_features,AplicaciOnes-FunciOnes
 Networks,Redes
