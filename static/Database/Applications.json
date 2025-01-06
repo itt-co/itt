@@ -3507,5 +3507,21 @@
     "default": [],
     "category": "Security",
     "check": "false"
+  },
+  {
+    "Name": "SuperCopier2",
+    "Description": "SuperCopier2 SuperCopier replaces Windows explorer file copy and adds many features",
+    "winget": "none",
+    "choco": "none",
+    "default": [
+      {
+        "url": "https://github.com/gligli/SuperCopier2/releases/download/2.2b/SuperCopier22beta.exe",
+        "portable": "false",
+        "args": "/S /LANG=en",
+        "launcher": "SuperCopier22beta.exe"
+      }
+    ],
+    "category": "Utilities",
+    "check": "false"
   }
 ]
