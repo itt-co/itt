@@ -506,7 +506,6 @@ function WriteHeader {
 #                              #StandWithPalestine                                   #
 # https://github.com/emadadel4                                                       #
 # https://t.me/emadadel4                                                             #
-# https://emadadel4.github.io/posts/itt                                              #
 ######################################################################################
 "@
 }
