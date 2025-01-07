@@ -16,7 +16,7 @@ Theme          = "default"
 CurretTheme    = "default"
 Date           = (Get-Date -Format "MM/dd/yyy")
 Music          = 100
-PopupWindow    = "On"
+PopupWindow    = "0"
 Language       = "default"
 ittDir         = "$env:ProgramData\itt\"
 })
@@ -6718,7 +6718,7 @@ param (
 [string]$PopupWindow = "on",
 [string]$UserTheme = "none"
 )
-Set-ItemProperty -Path $itt.registryPath  -Name "PopupWindow" -Value $PopupWindow -Force
+Set-ItemProperty -Path $itt.registryPath  -Name "PopupWindow" -Value 0 -Force
 Set-ItemProperty -Path $itt.registryPath  -Name "Music" -Value $music -Force
 Set-ItemProperty -Path $itt.registryPath  -Name "UserTheme" -Value $UserTheme -Force
 SwitchToSystem
