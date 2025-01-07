@@ -50,7 +50,7 @@
 </div>
 
 <div align="center">
-  <h5> #{a} App |  #{t} Tweaks | #{s} Settings | #{q} Quote |  #{OST} Soundtrack | #{loc} Localization </h5>
+  <h5>🖥️ #{a} Apps • ⚙️ #{t} Tweaks • 🔧 #{s} Settings • 💬 #{q} Quote • 🎵 #{OST} Soundtrack • 🌐 #{loc} Localization </h5>
 </div>
 
 <div align="center">
