@@ -50,7 +50,7 @@
 </div>
 
 <div align="center">
-  <h5>🖥️ 380 Apps • ⚙️ 40 Tweaks • 🔧 12 Settings • 💬 111 Quote • 🎵 29 Soundtrack • 🌐 12 Localization </h5>
+  <h5>🖥️ 380 Apps • ⚙️ 40 Tweaks • 🔧 12 Settings • 💬 112 Quote • 🎵 29 Soundtrack • 🌐 12 Localization </h5>
 </div>
 
 <div align="center">
