@@ -3,7 +3,7 @@ $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
 developer      = "Emad Adel"
-lastupdate     = "01/10/2025"
+lastupdate     = "01/17/2025"
 github         = "https://github.com/emadadel4/itt"
 telegram       = "https://t.me/emadadel4"
 blog           = "https://emadadel4.github.io"
@@ -6274,7 +6274,6 @@ switch($ListView)
 "AppsListView" {
 UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "Install" -TextIcon "installIcon" -Icon "  " -Width "140"
 Notify -title "$title" -msg "ALL INSTALLATIONS COMPLETED SUCCESSFULLY." -icon "Info" -time 30000
-Add-Log -Message "ALL INSTALLATIONS COMPLETED SUCCESSFULLY." -Level "INFO"
 }
 "TweaksListView" {
 UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Apply" -TextIcon "applyIcon" -Icon "  " -Width "140"
@@ -6559,32 +6558,47 @@ return $false
 }
 function Install-App {
 param (
-[string]$appName,
-[string]$appChoco,
-[string]$appWinget
+[string]$Name,
+[string]$Choco,
+[string]$Winget
 )
-Install-Choco
-UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Applying" -TextIcon "applyIcon" -Icon "  " -Width "auto"
-$chocoResult = $(Start-Process -FilePath "choco" -ArgumentList "install $appChoco --confirm --acceptlicense -q -r --ignore-http-cache --allowemptychecksumsecure --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests --limitoutput" -Wait -NoNewWindow -PassThru).ExitCode
-if ($chocoResult -ne 0) {
-Add-Log -Message "Chocolatey installation failed for $appName." -Level "ERROR"
-Add-Log -Message "Attempting to install $appName using Winget." -Level "INFO"
-Install-Winget
+function Install-AppWithInstaller {
+param (
+[string]$Installer,
+[string]$InstallArgs
+)
+$process = Start-Process -FilePath $Installer -ArgumentList $InstallArgs -NoNewWindow -Wait -PassThru
+return $process.ExitCode
+}
+function Log-Result {
+param (
+[string]$Installer,
+[string]$Source
+)
+if ($Installer -ne 0) {
+Add-Log -Message "$Source Installation Failed for ($Name). Please report the issue in the ITT repository." -Level "ERROR"
+} else {
+Add-Log -Message "($Name) Successfully Installed Using $Source." -Level "Installed"
+}
+}
+$wingetArgs = "install --id $Winget --silent --accept-source-agreements --accept-package-agreements --force"
+if ($Choco -eq "none" -and $Winget -ne "none") {
+Add-Log -Message "Attempting to install $Name using Winget." -Level "INFO"
 Start-Process -FilePath "winget" -ArgumentList "settings --enable InstallerHashOverride" -NoNewWindow -Wait -PassThru
-$wingetResult = $(Start-Process -FilePath "winget" -ArgumentList "install --id $appWinget --silent --accept-source-agreements --accept-package-agreements --force" -Wait -NoNewWindow -PassThru).ExitCode
-if ($wingetResult -ne 0) {
-Add-Log -Message "Winget Installation Failed for ($appName). report the issue in the ITT repository to resolve this problem." -Level "ERROR"
-$itt["window"].Dispatcher.Invoke([action]{ Set-Taskbar -progress "Error" -value 0.01 -icon "Error" })
+$wingetResult = Install-AppWithInstaller "winget" $wingetArgs
+Log-Result $wingetResult "Winget"
 }
-else
-{
-Add-Log -Message "($appName) Successfully Installed Using Winget." -Level "Installed"
+else {
+Add-Log -Message "Attempting to install $Name using Chocolatey." -Level "INFO"
+$chocoArgs = "install $Choco --confirm --acceptlicense -q -r --ignore-http-cache --allowemptychecksumsecure --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests --limitoutput"
+$chocoResult = Install-AppWithInstaller "choco" $chocoArgs
+if ($chocoResult -ne 0) {
+Add-Log -Message "Chocolatey installation failed, falling back to Winget." -Level "ERROR"
+$wingetResult = Install-AppWithInstaller "winget" $wingetArgs
+Log-Result $wingetResult "Winget"
+} else {
+Log-Result $chocoResult "Chocolatey"
 }
-}
-else
-{
-Add-Log -Message "($appName) Successfully Installed Using Chocolatey." -Level "Installed"
-UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Apply" -TextIcon "applyIcon" -Icon "  " -Width "140"
 }
 }
 function Install-Choco {
@@ -7129,7 +7143,7 @@ $chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($_.Choco)"
 Remove-Item -Path "$chocoFolder" -Recurse -Force
 Remove-Item -Path "$chocoFolder.install" -Recurse -Force
 Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
-Install-App -appName $_.Name -appWinget $_.Winget -appChoco $_.Choco
+Install-App -Name $_.Name -Winget $_.Winget -Choco $_.Choco
 }
 else
 {
@@ -11844,17 +11858,17 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/03/2025'.Trim()
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
-})
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
