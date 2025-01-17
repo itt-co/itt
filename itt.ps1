@@ -7111,6 +7111,8 @@ Add-Log -Message "PLEASE USE (WINDOWS POWERSHELL) NOT (TERMINAL POWERSHELL 7) TO
 }
 }
 function Invoke-Install {
+$itt.searchInput.text = $null
+$itt.Search_placeholder.Visibility = "Visible"
 if($itt.ProcessRunning) {
 Message -key "Please_wait" -icon "Warning" -action "OK"
 return
@@ -7127,7 +7129,7 @@ Message -key "App_empty_select" -icon "info" -action "OK"
 return
 }
 $result = Message -key "Install_msg" -icon "ask" -action "YesNo"
-if($result -eq "no") {
+if ($result -eq "no") {
 Show-Selected -ListView "AppsListView" -Mode "Default"
 Clear-Item -ListView "AppsListView"
 return
@@ -7161,13 +7163,15 @@ $itt.ProcessRunning = $false
 }
 }
 function Invoke-Apply {
+$itt.searchInput.text = $null
+$itt.Search_placeholder.Visibility = "Visible"
 $itt['window'].FindName("TwaeksCategory").SelectedIndex = 0
 $selectedTweaks = Get-SelectedItems -Mode "Tweaks"
 if($itt.ProcessRunning) {
 Message -key "Please_wait" -icon "Warning" -action "OK"
 return
 }
-if($selectedTweaks.Count -eq 0)
+if ($selectedTweaks.Count -eq 0)
 {
 Message -key "Tweak_empty_select" -icon "info" -action "OK"
 return
@@ -7177,7 +7181,7 @@ else
 Show-Selected -ListView "TweaksListView" -Mode "Filter"
 }
 $result = Message -key "Apply_msg" -icon "ask" -action "YesNo"
-if($result -eq "no")
+if ($result -eq "no")
 {
 Show-Selected -ListView "TweaksListView" -Mode "Default"
 Clear-Item -ListView "TweaksListView"
@@ -11859,17 +11863,17 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/03/2025'.Trim()
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
-$itt.event.FindName('ps').add_MouseLeftButtonDown({
-Start-Process('https://www.palestinercs.org/en/Donation')
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
+$itt.event.FindName('ps').add_MouseLeftButtonDown({
+Start-Process('https://www.palestinercs.org/en/Donation')
+})
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
@@ -12331,7 +12335,7 @@ $itt.Search_placeholder.Visibility = "Hidden"
 })
 $itt.SearchInput.Add_LostFocus({
 if ([string]::IsNullOrEmpty($itt.SearchInput.Text)) {
-$itt.Search_placeholder.Visibility = "Visible";
+$itt.Search_placeholder.Visibility = "Visible"
 }
 });
 $itt["window"].add_Closing($onClosingEvent)
