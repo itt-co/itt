@@ -51,6 +51,9 @@ function Install-App {
 
     # If Chocolatey is 'none', use Winget
     if ($Choco -eq "none" -and $Winget -ne "none") {
+
+        #Check Winget is installed
+        Install-Winget
         Add-Log -Message "Attempting to install $Name using Winget." -Level "INFO"
         Start-Process -FilePath "winget" -ArgumentList "settings --enable InstallerHashOverride" -NoNewWindow -Wait -PassThru
         $wingetResult = Install-AppWithInstaller "winget" $wingetArgs
@@ -64,6 +67,7 @@ function Install-App {
 
         # If Chocolatey fails, fallback to Winget
         if ($chocoResult -ne 0) {
+            Install-Winget
             Add-Log -Message "Chocolatey installation failed, falling back to Winget." -Level "ERROR"
             $wingetResult = Install-AppWithInstaller "winget" $wingetArgs
             Log-Result $wingetResult "Winget"
