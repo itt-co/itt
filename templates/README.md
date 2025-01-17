@@ -158,13 +158,7 @@ Run the script using official commands from this repository. It's not a portable
 <pre><code>.\build.ps1 -Debug
 </code></pre>
 
-> ❗ **Note**: Remember to test your changes before running the release and committing.
-
-<h3>🧹 Realsee </h3>
-<pre><code>.\build.ps1 -Realsee
-</code></pre>
-
-> ❗ **Note**: Generate clean release version without any comments.
+> ❗ **Note**: Remember to test your changes before commit.
 
 ### Additional Repositories (Synced)
 
