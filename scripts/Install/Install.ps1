@@ -13,6 +13,10 @@ function Invoke-Install {
         7. Updates the UI once the installation is complete and finishes the process.
     #>
     
+    # Clear Search QUery
+    $itt.searchInput.text = $null
+    $itt.Search_placeholder.Visibility = "Visible"
+    
     if($itt.ProcessRunning) {
         Message -key "Please_wait" -icon "Warning" -action "OK"
         return
@@ -20,6 +24,7 @@ function Invoke-Install {
     # Get Selected apps
     $itt['window'].FindName("AppsCategory").SelectedIndex = 0
     $selectedApps = Get-SelectedItems -Mode "Apps"
+
     if($selectedApps.Count -gt 0)
     {
         # Show only selected item
@@ -31,18 +36,27 @@ function Invoke-Install {
         Message -key "App_empty_select" -icon "info" -action "OK"
         return
     }
+
     $result = Message -key "Install_msg" -icon "ask" -action "YesNo"
-   if($result -eq "no") {
+    
+    if ($result -eq "no") {
         Show-Selected -ListView "AppsListView" -Mode "Default"
         Clear-Item -ListView "AppsListView"
         return
     }
+
     Invoke-ScriptBlock -ArgumentList $selectedApps -debug $debug -ScriptBlock {
+
         param($selectedApps ,$debug)
+
         $itt.ProcessRunning = $true
+
         UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "Downloading" -TextIcon "installIcon" -Icon "  " -Width "auto"
+
         $itt["window"].Dispatcher.Invoke([action]{ Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
+
         $selectedApps | ForEach-Object {
+
             if ($_.Winget -ne "none" -or $_.Choco -ne "none")
             {
                 # Some packages won't install until the package folder is removed.
@@ -68,11 +82,13 @@ function Invoke-Install {
                  # debug end
             }
         }
+
         Finish -ListView "AppsListView"
         $itt.ProcessRunning = $false
     }
 }
 function Invoke-Apply {
+
     <#
         .SYNOPSIS
         Handles the application of selected tweaks by executing the relevant commands, registry modifications, and other operations.
@@ -87,13 +103,20 @@ function Invoke-Apply {
         7. Finishes the process and logs a message indicating that some tweaks may require a restart.
     #>
 
+    # Clear Search QUery
+    $itt.searchInput.text = $null
+    $itt.Search_placeholder.Visibility = "Visible"
+
     $itt['window'].FindName("TwaeksCategory").SelectedIndex = 0
+
     $selectedTweaks = Get-SelectedItems -Mode "Tweaks"
+
     if($itt.ProcessRunning) {
         Message -key "Please_wait" -icon "Warning" -action "OK"
         return
     }
-    if($selectedTweaks.Count -eq 0)
+
+    if ($selectedTweaks.Count -eq 0)
     {
         Message -key "Tweak_empty_select" -icon "info" -action "OK"
         return
@@ -102,18 +125,26 @@ function Invoke-Apply {
     {
         Show-Selected -ListView "TweaksListView" -Mode "Filter"
     }
+
     $result = Message -key "Apply_msg" -icon "ask" -action "YesNo"
-   if($result -eq "no") 
+
+    if ($result -eq "no") 
     {
         Show-Selected -ListView "TweaksListView" -Mode "Default"
         Clear-Item -ListView "TweaksListView"
         return
     }
+
     Invoke-ScriptBlock -ArgumentList $selectedTweaks -debug $debug -ScriptBlock {
+
         param($selectedTweaks,$debug)
+
         $itt.ProcessRunning = $true
+
         UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Applying" -TextIcon "applyIcon" -Icon "  " -Width "auto"
+
         $itt["window"].Dispatcher.Invoke([action]{ Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
+
         foreach ($tweak in $selectedTweaks) {
             Add-Log -Message "::::$($tweak.Name)::::" -Level "info"
             $tweak | ForEach-Object {
@@ -154,6 +185,7 @@ function Invoke-Apply {
                 } 
             }
         }
+
         $itt.ProcessRunning = $false
         Finish -ListView "TweaksListView"
     }
