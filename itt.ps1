@@ -6582,6 +6582,7 @@ Add-Log -Message "($Name) Successfully Installed Using $Source." -Level "Install
 }
 $wingetArgs = "install --id $Winget --silent --accept-source-agreements --accept-package-agreements --force"
 if ($Choco -eq "none" -and $Winget -ne "none") {
+Install-Winget
 Add-Log -Message "Attempting to install $Name using Winget." -Level "INFO"
 Start-Process -FilePath "winget" -ArgumentList "settings --enable InstallerHashOverride" -NoNewWindow -Wait -PassThru
 $wingetResult = Install-AppWithInstaller "winget" $wingetArgs
@@ -6592,6 +6593,7 @@ Add-Log -Message "Attempting to install $Name using Chocolatey." -Level "INFO"
 $chocoArgs = "install $Choco --confirm --acceptlicense -q -r --ignore-http-cache --allowemptychecksumsecure --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests --limitoutput"
 $chocoResult = Install-AppWithInstaller "choco" $chocoArgs
 if ($chocoResult -ne 0) {
+Install-Winget
 Add-Log -Message "Chocolatey installation failed, falling back to Winget." -Level "ERROR"
 $wingetResult = Install-AppWithInstaller "winget" $wingetArgs
 Log-Result $wingetResult "Winget"
