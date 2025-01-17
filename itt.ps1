@@ -7110,7 +7110,7 @@ Add-Log -Message "PLEASE USE (WINDOWS POWERSHELL) NOT (TERMINAL POWERSHELL 7) TO
 }
 function Invoke-Install {
 if($itt.ProcessRunning) {
-Message -key "Pleasewait" -icon "Warning" -action "OK"
+Message -key "Please_wait" -icon "Warning" -action "OK"
 return
 }
 $itt['window'].FindName("AppsCategory").SelectedIndex = 0
