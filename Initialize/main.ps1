@@ -48,18 +48,22 @@ $onClosingEvent = {
         $c.Cancel = $true
     }
 }
+
 $itt["window"].Add_ContentRendered({
         Startup
         Show-Event
-    })
+})
+
 $itt.SearchInput.Add_GotFocus({
         $itt.Search_placeholder.Visibility = "Hidden"
-    })
+})
+
 $itt.SearchInput.Add_LostFocus({
-        if ([string]::IsNullOrEmpty($itt.SearchInput.Text)) {
-            $itt.Search_placeholder.Visibility = "Visible";
-        }
-    });
+    if ([string]::IsNullOrEmpty($itt.SearchInput.Text)) {
+        $itt.Search_placeholder.Visibility = "Visible"
+    }
+});
+
 # Close Event handler
 $itt["window"].add_Closing($onClosingEvent)
 # Keyboard shortcut
