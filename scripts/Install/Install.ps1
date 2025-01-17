@@ -65,7 +65,7 @@ function Invoke-Install {
                 Remove-Item -Path "$chocoFolder" -Recurse -Force
                 Remove-Item -Path "$chocoFolder.install" -Recurse -Force
                 Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
-                Install-App -appName $_.Name -appWinget $_.Winget -appChoco $_.Choco
+                Install-App -Name $_.Name -Winget $_.Winget -Choco $_.Choco
                 # debug start
                     if($debug){Add-Log -Message $_.Choco -Level "debug"}
                 # debug end
