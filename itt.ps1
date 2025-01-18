@@ -3,7 +3,7 @@ $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
 developer      = "Emad Adel"
-lastupdate     = "01/17/2025"
+lastupdate     = "01/18/2025"
 github         = "https://github.com/emadadel4/itt"
 telegram       = "https://t.me/emadadel4"
 blog           = "https://emadadel4.github.io"
@@ -24,7 +24,6 @@ if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
 Start-Process -FilePath "PowerShell" -ArgumentList "-ExecutionPolicy Bypass -NoProfile -Command `"$($MyInvocation.MyCommand.Definition)`"" -Verb RunAs
 exit
 }
-Write-Host "Starting..."
 $itt.mediaPlayer = New-Object -ComObject WMPlayer.OCX
 $Host.UI.RawUI.WindowTitle = "ITT - #StandWithPalestine"
 $ittDir = $itt.ittDir
@@ -3479,9 +3478,16 @@ $itt.database.Applications = @'
 {
 "Name": "AyuGramDesktop",
 "Description": " Desktop Telegram client with good customization and Ghost mode",
-"winget": "wingetinstallRadolynLabs.AyuGramDesktop",
+"winget": "none",
 "choco": "none",
-"default": [],
+"default": [
+{
+"url": "https://github.com/AyuGram/AyuGramDesktop/releases/download/v5.10.3/AyuGram.exe",
+"portable": "ture",
+"args": "none",
+"launcher": "AyuGram.exe"
+}
+],
 "category": "Communication",
 "check": "false"
 },
@@ -3530,8 +3536,8 @@ $itt.database.Applications = @'
 {
 "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-release.zip",
 "portable": "ture",
-"args": "/silent",
-"launcher": "duckstation-qt-x64-ReleaseLTCG"
+"args": "none",
+"launcher": "duckstation-qt-x64-ReleaseLTCG.exe"
 }
 ],
 "category": "Portable",
@@ -11863,11 +11869,11 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/03/2025'.Trim()
-$itt.event.FindName('ps').add_MouseLeftButtonDown({
-Start-Process('https://www.palestinercs.org/en/Donation')
-})
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
+$itt.event.FindName('ps').add_MouseLeftButtonDown({
+Start-Process('https://www.palestinercs.org/en/Donation')
 })
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
@@ -12149,7 +12155,7 @@ try {
 $itt["window"] = [Windows.Markup.XamlReader]::Load([System.Xml.XmlNodeReader]$MainXaml)
 }
 catch {
-Write-Host "Error: $($_.Exception.Message)"
+Write-Output "Error: $($_.Exception.Message)"
 }
 try {
 $appsTheme = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name "AppsUseLightTheme"
@@ -12266,7 +12272,7 @@ $itt["window"].TaskbarItemInfo = New-Object System.Windows.Shell.TaskbarItemInfo
 if (-not $Debug) { Set-Taskbar -progress "None" -icon "logo" }
 }
 catch {
-Write-Host "Error: $_"
+Write-Output "Error: $_"
 }
 $itt.CurrentList
 $itt.CurrentCategory
