@@ -1,4 +1,4 @@
-function Invoke-ScriptBlock {
+﻿function Invoke-ScriptBlock {
     <#
         .SYNOPSIS
         Executes a given script block asynchronously within a specified runspace.
@@ -19,7 +19,7 @@ function Invoke-ScriptBlock {
     param(
         [scriptblock]$ScriptBlock,
         [array]$ArgumentList,
-        $Debug   
+        $Debug
     )
     $script:powershell = [powershell]::Create()
     # Add the script block and arguments to the runspace
@@ -31,10 +31,10 @@ function Invoke-ScriptBlock {
     $script:handle = $script:powershell.BeginInvoke()
     # If the script has completed, clean up resources
     if ($script:handle.IsCompleted) {
-        $script:powershell.EndInvoke($script:handle)  
+        $script:powershell.EndInvoke($script:handle)
         $script:powershell.Dispose()
         $itt.runspace.Dispose()
-        $itt.runspace.Close()            
+        $itt.runspace.Close()
         [System.GC]::Collect()
     }
 }
