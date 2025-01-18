@@ -3441,9 +3441,16 @@
   {
     "Name": "AyuGramDesktop",
     "Description": " Desktop Telegram client with good customization and Ghost mode",
-    "winget": "wingetinstallRadolynLabs.AyuGramDesktop",
+    "winget": "none",
     "choco": "none",
-    "default": [],
+    "default": [
+      {
+        "url": "https://github.com/AyuGram/AyuGramDesktop/releases/download/v5.10.3/AyuGram.exe",
+        "portable": "ture",
+        "args": "none",
+        "launcher": "AyuGram.exe"
+      }
+    ],
     "category": "Communication",
     "check": "false"
   },
@@ -3492,8 +3499,8 @@
       {
         "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-release.zip",
         "portable": "ture",
-        "args": "/silent",
-        "launcher": "duckstation-qt-x64-ReleaseLTCG"
+        "args": "none",
+        "launcher": "duckstation-qt-x64-ReleaseLTCG.exe"
       }
     ],
     "category": "Portable",
