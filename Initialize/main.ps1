@@ -1,4 +1,4 @@
-#===========================================================================
+﻿#===========================================================================
 #region Select elements with a Name attribute using XPath and iterate over them
 #===========================================================================
 $MainXaml.SelectNodes("//*[@Name]") | ForEach-Object {
@@ -12,7 +12,7 @@ $MainXaml.SelectNodes("//*[@Name]") | ForEach-Object {
                 $element.Add_Click({ Invoke-Button $args[0].Name })
             }
             "MenuItem" {
-                $element.Add_Click({ 
+                $element.Add_Click({
                         Invoke-Button $args[0].Name -Content $args[0].Header
                     })
             }
@@ -70,10 +70,10 @@ $itt["window"].add_Closing($onClosingEvent)
 $itt["window"].Add_PreViewKeyDown($KeyEvents)
 # Show Window
 $itt["window"].ShowDialog() | Out-Null
-$script:powershell.Dispose()        
-$itt.runspace.Dispose()             
-$itt.runspace.Close()          
-[System.GC]::Collect()    
-$script:powershell.Stop()          
-$newProcess.exit 
+$script:powershell.Dispose()
+$itt.runspace.Dispose()
+$itt.runspace.Close()
+[System.GC]::Collect()
+$script:powershell.Stop()
+$newProcess.exit
 Stop-Transcript
