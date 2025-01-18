@@ -3,7 +3,7 @@ $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
 developer      = "Emad Adel"
-lastupdate     = "01/18/2025"
+lastupdate     = "01/10/2025"
 github         = "https://github.com/emadadel4/itt"
 telegram       = "https://t.me/emadadel4"
 blog           = "https://emadadel4.github.io"
@@ -24,6 +24,7 @@ if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
 Start-Process -FilePath "PowerShell" -ArgumentList "-ExecutionPolicy Bypass -NoProfile -Command `"$($MyInvocation.MyCommand.Definition)`"" -Verb RunAs
 exit
 }
+Write-Host "Starting..."
 $itt.mediaPlayer = New-Object -ComObject WMPlayer.OCX
 $Host.UI.RawUI.WindowTitle = "ITT - #StandWithPalestine"
 $ittDir = $itt.ittDir
@@ -3478,16 +3479,9 @@ $itt.database.Applications = @'
 {
 "Name": "AyuGramDesktop",
 "Description": " Desktop Telegram client with good customization and Ghost mode",
-"winget": "none",
+"winget": "wingetinstallRadolynLabs.AyuGramDesktop",
 "choco": "none",
-"default": [
-{
-"url": "https://github.com/AyuGram/AyuGramDesktop/releases/download/v5.10.3/AyuGram.exe",
-"portable": "ture",
-"args": "none",
-"launcher": "AyuGram.exe"
-}
-],
+"default": [],
 "category": "Communication",
 "check": "false"
 },
@@ -3536,8 +3530,8 @@ $itt.database.Applications = @'
 {
 "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-release.zip",
 "portable": "ture",
-"args": "none",
-"launcher": "duckstation-qt-x64-ReleaseLTCG.exe"
+"args": "/silent",
+"launcher": "duckstation-qt-x64-ReleaseLTCG"
 }
 ],
 "category": "Portable",
@@ -6280,9 +6274,11 @@ switch($ListView)
 "AppsListView" {
 UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "Install" -TextIcon "installIcon" -Icon "  " -Width "140"
 Notify -title "$title" -msg "ALL INSTALLATIONS COMPLETED SUCCESSFULLY." -icon "Info" -time 30000
+Add-Log -Message "ALL INSTALLATIONS COMPLETED SUCCESSFULLY." -Level "INFO"
 }
 "TweaksListView" {
 UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Apply" -TextIcon "applyIcon" -Icon "  " -Width "140"
+Add-Log -Message "ALL TWEAKS HAVE BEEN APPLIED SUCCESSFULLY." -Level "INFO"
 Notify -title "$title" -msg "ALL TWEAKS HAVE BEEN APPLIED SUCCESSFULLY." -icon "Info" -time 30000
 }
 }
@@ -6563,49 +6559,32 @@ return $false
 }
 function Install-App {
 param (
-[string]$Name,
-[string]$Choco,
-[string]$Winget
+[string]$appName,
+[string]$appChoco,
+[string]$appWinget
 )
-function Install-AppWithInstaller {
-param (
-[string]$Installer,
-[string]$InstallArgs
-)
-$process = Start-Process -FilePath $Installer -ArgumentList $InstallArgs -NoNewWindow -Wait -PassThru
-return $process.ExitCode
-}
-function Log-Result {
-param (
-[string]$Installer,
-[string]$Source
-)
-if ($Installer -ne 0) {
-Add-Log -Message "$Source Installation Failed for ($Name). Please report the issue in the ITT repository." -Level "ERROR"
-} else {
-Add-Log -Message "($Name) Successfully Installed Using $Source." -Level "Installed"
-}
-}
-$wingetArgs = "install --id $Winget --silent --accept-source-agreements --accept-package-agreements --force"
-if ($Choco -eq "none" -and $Winget -ne "none") {
-Install-Winget
-Add-Log -Message "Attempting to install $Name using Winget." -Level "INFO"
-Start-Process -FilePath "winget" -ArgumentList "settings --enable InstallerHashOverride" -NoNewWindow -Wait -PassThru
-$wingetResult = Install-AppWithInstaller "winget" $wingetArgs
-Log-Result $wingetResult "Winget"
-}
-else {
-Add-Log -Message "Attempting to install $Name using Chocolatey." -Level "INFO"
-$chocoArgs = "install $Choco --confirm --acceptlicense -q -r --ignore-http-cache --allowemptychecksumsecure --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests --limitoutput"
-$chocoResult = Install-AppWithInstaller "choco" $chocoArgs
+Install-Choco
+UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Applying" -TextIcon "applyIcon" -Icon "  " -Width "auto"
+$chocoResult = $(Start-Process -FilePath "choco" -ArgumentList "install $appChoco --confirm --acceptlicense -q -r --ignore-http-cache --allowemptychecksumsecure --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests --limitoutput" -Wait -NoNewWindow -PassThru).ExitCode
 if ($chocoResult -ne 0) {
+Add-Log -Message "Chocolatey installation failed for $appName." -Level "ERROR"
+Add-Log -Message "Attempting to install $appName using Winget." -Level "INFO"
 Install-Winget
-Add-Log -Message "Chocolatey installation failed, falling back to Winget." -Level "ERROR"
-$wingetResult = Install-AppWithInstaller "winget" $wingetArgs
-Log-Result $wingetResult "Winget"
-} else {
-Log-Result $chocoResult "Chocolatey"
+Start-Process -FilePath "winget" -ArgumentList "settings --enable InstallerHashOverride" -NoNewWindow -Wait -PassThru
+$wingetResult = $(Start-Process -FilePath "winget" -ArgumentList "install --id $appWinget --silent --accept-source-agreements --accept-package-agreements --force" -Wait -NoNewWindow -PassThru).ExitCode
+if ($wingetResult -ne 0) {
+Add-Log -Message "Winget Installation Failed for ($appName). report the issue in the ITT repository to resolve this problem." -Level "ERROR"
+$itt["window"].Dispatcher.Invoke([action]{ Set-Taskbar -progress "Error" -value 0.01 -icon "Error" })
 }
+else
+{
+Add-Log -Message "($appName) Successfully Installed Using Winget." -Level "Installed"
+}
+}
+else
+{
+Add-Log -Message "($appName) Successfully Installed Using Chocolatey." -Level "Installed"
+UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Apply" -TextIcon "applyIcon" -Icon "  " -Width "140"
 }
 }
 function Install-Choco {
@@ -7058,8 +7037,8 @@ Write-Host "  | |  | |   | |   |  _| | |\/| | / _ \ | | | |   / _ \ | | | |  _| 
 Write-Host "  | |  | |   | |   | |___| |  | |/ ___ \| |_| |  / ___ \| |_| | |___| |___"
 Write-Host " |___| |_|   |_|   |_____|_|  |_/_/   \_\____/  /_/   \_\____/|_____|_____|"
 Write-Host " Launch Anytime, Anywhere! `n` "
-Write-Host " Telegram: https://t.me/emadadel4"
-Write-Host " Source Code: https://github.com/emadadel4/itt"
+Write-Host " Telegram: https://t.me/ittemadadel_bot"
+Write-Host " Discord: https://discord.gg/63m34EE6mX `n` "
 Welcome
 }
 LOG
@@ -7117,10 +7096,8 @@ Add-Log -Message "PLEASE USE (WINDOWS POWERSHELL) NOT (TERMINAL POWERSHELL 7) TO
 }
 }
 function Invoke-Install {
-$itt.searchInput.text = $null
-$itt.Search_placeholder.Visibility = "Visible"
 if($itt.ProcessRunning) {
-Message -key "Please_wait" -icon "Warning" -action "OK"
+Message -key "Pleasewait" -icon "Warning" -action "OK"
 return
 }
 $itt['window'].FindName("AppsCategory").SelectedIndex = 0
@@ -7135,7 +7112,7 @@ Message -key "App_empty_select" -icon "info" -action "OK"
 return
 }
 $result = Message -key "Install_msg" -icon "ask" -action "YesNo"
-if ($result -eq "no") {
+if($result -eq "no") {
 Show-Selected -ListView "AppsListView" -Mode "Default"
 Clear-Item -ListView "AppsListView"
 return
@@ -7152,7 +7129,7 @@ $chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($_.Choco)"
 Remove-Item -Path "$chocoFolder" -Recurse -Force
 Remove-Item -Path "$chocoFolder.install" -Recurse -Force
 Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
-Install-App -Name $_.Name -Winget $_.Winget -Choco $_.Choco
+Install-App -appName $_.Name -appWinget $_.Winget -appChoco $_.Choco
 }
 else
 {
@@ -7169,15 +7146,13 @@ $itt.ProcessRunning = $false
 }
 }
 function Invoke-Apply {
-$itt.searchInput.text = $null
-$itt.Search_placeholder.Visibility = "Visible"
 $itt['window'].FindName("TwaeksCategory").SelectedIndex = 0
 $selectedTweaks = Get-SelectedItems -Mode "Tweaks"
 if($itt.ProcessRunning) {
 Message -key "Please_wait" -icon "Warning" -action "OK"
 return
 }
-if ($selectedTweaks.Count -eq 0)
+if($selectedTweaks.Count -eq 0)
 {
 Message -key "Tweak_empty_select" -icon "info" -action "OK"
 return
@@ -7187,7 +7162,7 @@ else
 Show-Selected -ListView "TweaksListView" -Mode "Filter"
 }
 $result = Message -key "Apply_msg" -icon "ask" -action "YesNo"
-if ($result -eq "no")
+if($result -eq "no")
 {
 Show-Selected -ListView "TweaksListView" -Mode "Default"
 Clear-Item -ListView "TweaksListView"
@@ -11869,14 +11844,14 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/03/2025'.Trim()
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
-})
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
@@ -12155,7 +12130,7 @@ try {
 $itt["window"] = [Windows.Markup.XamlReader]::Load([System.Xml.XmlNodeReader]$MainXaml)
 }
 catch {
-Write-Output "Error: $($_.Exception.Message)"
+Write-Host "Error: $($_.Exception.Message)"
 }
 try {
 $appsTheme = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name "AppsUseLightTheme"
@@ -12272,7 +12247,7 @@ $itt["window"].TaskbarItemInfo = New-Object System.Windows.Shell.TaskbarItemInfo
 if (-not $Debug) { Set-Taskbar -progress "None" -icon "logo" }
 }
 catch {
-Write-Output "Error: $_"
+Write-Host "Error: $_"
 }
 $itt.CurrentList
 $itt.CurrentCategory
@@ -12341,7 +12316,7 @@ $itt.Search_placeholder.Visibility = "Hidden"
 })
 $itt.SearchInput.Add_LostFocus({
 if ([string]::IsNullOrEmpty($itt.SearchInput.Text)) {
-$itt.Search_placeholder.Visibility = "Visible"
+$itt.Search_placeholder.Visibility = "Visible";
 }
 });
 $itt["window"].add_Closing($onClosingEvent)
