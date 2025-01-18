@@ -1,4 +1,4 @@
-# Set the maximum number of threads for the RunspacePool to the number of threads on the machine
+﻿# Set the maximum number of threads for the RunspacePool to the number of threads on the machine
 $maxthreads = [int]$env:NUMBER_OF_PROCESSORS
 # Create a new session state for parsing variables into our runspace
 $hashVars = New-object System.Management.Automation.Runspaces.SessionStateVariableEntry -ArgumentList 'itt', $itt, $Null
@@ -6,7 +6,7 @@ $InitialSessionState = [System.Management.Automation.Runspaces.InitialSessionSta
 # Add the variable to the session state
 $InitialSessionState.Variables.Add($hashVars)
 $desiredFunctions = @(
-    'Install-App' , 
+    'Install-App' ,
     'InvokeCommand' ,
     'Add-Log',
     'Disable-Service',
@@ -42,11 +42,11 @@ try {
     $itt["window"] = [Windows.Markup.XamlReader]::Load([System.Xml.XmlNodeReader]$MainXaml)
 }
 catch {
-    Write-Host "Error: $($_.Exception.Message)"
+    Write-Output "Error: $($_.Exception.Message)"
 }
 try {
     #===========================================================================
-    #region Create default keys 
+    #region Create default keys
     #===========================================================================
     $appsTheme = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name "AppsUseLightTheme"
     $fullCulture = Get-ItemPropertyValue -Path "HKCU:\Control Panel\International" -Name "LocaleName"
@@ -67,8 +67,8 @@ try {
         $itt.CurretTheme = (Get-ItemProperty -Path $itt.registryPath -Name "UserTheme" -ErrorAction Stop).UserTheme
         $itt.Locales = (Get-ItemProperty -Path $itt.registryPath -Name "locales" -ErrorAction Stop).locales
         $itt.Music = (Get-ItemProperty -Path $itt.registryPath -Name "Music" -ErrorAction Stop).Music
-        $itt.PopupWindow = (Get-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -ErrorAction Stop).PopupWindow 
-        $itt.Runs = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction Stop).Runs 
+        $itt.PopupWindow = (Get-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -ErrorAction Stop).PopupWindow
+        $itt.Runs = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction Stop).Runs
     }
     catch {
         # Creating missing registry keys
@@ -83,7 +83,7 @@ try {
         New-ItemProperty -Path $itt.registryPath -Name "Runs" -Value 0 -PropertyType DWORD -Force *> $Null
     }
     #===========================================================================
-    #endregion Create default keys 
+    #endregion Create default keys
     #===========================================================================
     #===========================================================================
     #region Set Language based on culture
@@ -174,11 +174,11 @@ try {
     #===========================================================================
     # Check if Music is set to 100, then reset toggle state to false
     $itt.mediaPlayer.settings.volume = "$($itt.Music)"
-    if ($itt.Music -eq 0) { 
-        $global:toggleState = $false 
+    if ($itt.Music -eq 0) {
+        $global:toggleState = $false
     }
     else {
-        $global:toggleState = $true 
+        $global:toggleState = $true
     }
     switch ($itt.Music) {
         "100" { $itt["window"].title = "Install Tweaks Tool #StandWithPalestine 🔊" }
@@ -193,7 +193,7 @@ try {
     if (-not $Debug) { Set-Taskbar -progress "None" -icon "logo" }
 }
 catch {
-    Write-Host "Error: $_"
+    Write-Output "Error: $_"
 }
 # List Views
 $itt.CurrentList
