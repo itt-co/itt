@@ -1,47 +1,86 @@
 function Install-App {
+    
     <#
         .SYNOPSIS
-        Installs an application using Chocolatey or Winget based on availability and installation status.
+        Installs an application using either Chocolatey or Winget package managers.
+
         .DESCRIPTION
-        This function attempts to install a specified application using Chocolatey. If the Chocolatey installation fails, it falls back to using Winget to install the application. The function also handles some cleanup tasks related to Chocolatey and logs the results of the installation process.
-        .PARAMETER appName
-        The name of the application to be installed. This parameter is used for logging and status messages.
-        .PARAMETER appChoco
-        The package name of the application as recognized by Chocolatey. This parameter is used to perform the installation via Chocolatey.
-        .PARAMETER appWinget
-        The package identifier for the application as recognized by Winget. This parameter is used to perform the installation via Winget if Chocolatey fails.
+        The Install-App function automates the installation of applications using Chocolatey and Winget. 
+        It first attempts to install the application with Chocolatey if provided. If Chocolatey is not 
+        available or fails, it falls back to Winget for installation. The function also logs the 
+        installation attempts, successes, and failures.
+
         .EXAMPLE
-        Install-App -appName "Google Chrome" -appChoco "googlechrome" -appWinget "Google.Chrome"
-        Attempts to install Google Chrome using Chocolatey. If the installation fails, it attempts to install it using Winget.
+        Install-App -Name "Google Chrome" -Choco "googlechrome" -Winget "Google.Chrome"
     #>
+
     param (
-        [string]$appName,
-        [string]$appChoco,
-        [string]$appWinget
+        [string]$Name,
+        [string]$Choco,
+        [string]$Winget
     )
-    Install-Choco
-    UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Applying" -TextIcon "applyIcon" -Icon "  " -Width "auto"
-    $chocoResult = $(Start-Process -FilePath "choco" -ArgumentList "install $appChoco --confirm --acceptlicense -q -r --ignore-http-cache --allowemptychecksumsecure --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests --limitoutput" -Wait -NoNewWindow -PassThru).ExitCode
-    if ($chocoResult -ne 0) {
-        Add-Log -Message "Chocolatey installation failed for $appName." -Level "ERROR"
-        Add-Log -Message "Attempting to install $appName using Winget." -Level "INFO"
-        #Install Winget if not install on Device
-        Install-Winget
-        Start-Process -FilePath "winget" -ArgumentList "settings --enable InstallerHashOverride" -NoNewWindow -Wait -PassThru
-        $wingetResult = $(Start-Process -FilePath "winget" -ArgumentList "install --id $appWinget --silent --accept-source-agreements --accept-package-agreements --force" -Wait -NoNewWindow -PassThru).ExitCode
-        # Check winget
-        if ($wingetResult -ne 0) {
-            Add-Log -Message "Winget Installation Failed for ($appName). report the issue in the ITT repository to resolve this problem." -Level "ERROR"
-            $itt["window"].Dispatcher.Invoke([action]{ Set-Taskbar -progress "Error" -value 0.01 -icon "Error" })
-        } 
-        else
-        {
-            Add-Log -Message "($appName) Successfully Installed Using Winget." -Level "Installed"
+
+    # Helper function to install an app using a specific installer
+    function Install-AppWithInstaller {
+        param (
+            [string]$Installer,
+            [string]$InstallArgs
+        )
+
+        # Try to install and return the exit code
+        $process = Start-Process -FilePath $Installer -ArgumentList $InstallArgs -NoNewWindow -Wait -PassThru
+        return $process.ExitCode
+    }
+
+    # Function to log installation result
+    function Log-Result {
+        param (
+            [string]$Installer,
+            [string]$Source
+        )
+
+        if ($Installer -ne 0) {
+            Add-Log -Message "$Source Installation Failed for ($Name). Please report the issue in the ITT repository." -Level "ERROR"
+        } else {
+            Add-Log -Message "($Name) Successfully Installed Using $Source." -Level "Installed"
         }
     }
-    else
-    {
-        Add-Log -Message "($appName) Successfully Installed Using Chocolatey." -Level "Installed"
-        UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Apply" -TextIcon "applyIcon" -Icon "  " -Width "140"
+
+    # Common Winget Arguments
+    $wingetArgs = "install --id $Winget --silent --accept-source-agreements --accept-package-agreements --force"
+
+    # If Chocolatey is 'none', use Winget
+    if ($Choco -eq "none" -and $Winget -ne "none") {
+
+        #Check Winget is installed
+        Install-Winget
+
+        Add-Log -Message "Attempting to install $Name using Winget." -Level "INFO"
+        Start-Process -FilePath "winget" -ArgumentList "settings --enable InstallerHashOverride" -NoNewWindow -Wait -PassThru
+        $wingetResult = Install-AppWithInstaller "winget" $wingetArgs
+        Log-Result $wingetResult "Winget"
+
+    }
+    else {
+
+        # Attempt Chocolatey installation first
+        Install-Choco
+        
+        Add-Log -Message "Attempting to install $Name using Chocolatey." -Level "INFO"
+        $chocoArgs = "install $Choco --confirm --acceptlicense -q -r --ignore-http-cache --allowemptychecksumsecure --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests --limitoutput"
+        $chocoResult = Install-AppWithInstaller "choco" $chocoArgs
+
+        # If Chocolatey fails, fallback to Winget
+        if ($chocoResult -ne 0) {
+
+            Install-Winget
+
+            Add-Log -Message "Chocolatey installation failed, falling back to Winget." -Level "ERROR"
+            $wingetResult = Install-AppWithInstaller "winget" $wingetArgs
+            Log-Result $wingetResult "Winget"
+
+        } else {
+            Log-Result $chocoResult "Chocolatey"
+        }
     }
 }
