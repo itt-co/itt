@@ -1,4 +1,3 @@
-
 <p align="center">
   <a href="#resistance-struggling-for-justice-in-an-authoritarian-world" rel="nofollow">
     <img src="https://raw.githubusercontent.com/Safouene1/support-palestine-banner/master/StandWithPalestine.svg" alt="Ceasefire Now" style="width:40%;">
@@ -69,14 +68,13 @@
 </div>
 </p>
 
-
 <h2>Overview</h2>
 
 <p><strong>ITT (Install and Tweak Tool)</strong></p>
 
 - **Automated Installation**: Say goodbye to manual software installations. ITT automates the process, saving you time and effort.
 - **System Tweaks**: Customize your Windows environment with ease. ITT provides scripts to apply system tweaks for enhanced performance and usability.
-- **Developer-Friendly**: Easy-to-use and clear documentation  to add a new app or tweaks as you like, you can create a new method to download apps. Be creative. <a href="#-how-to-contribute">How to Contribute</a>
+- **Developer-Friendly**: Easy-to-use and clear documentation to add a new app or tweaks as you like, you can create a new method to download apps. Be creative. <a href="#-how-to-contribute">How to Contribute</a>
 - **Soundtracks**: Enjoy listening to the best music from games and movies while downloading your programs.
 
 <h2>⚡ Usage</h2>
@@ -88,7 +86,8 @@
 </ol>
 
 > [!CAUTION]  
-Run the script using official commands from this repository. It's not a portable script, so avoid download it from any sites.
+> Run the script using official commands from this repository. It's not a portable script, so avoid download it from any sites.
+
 <pre><code>irm bit.ly/ittea | iex</code></pre>
 <pre><code>irm bit.ly/emadadel | iex</code></pre>
 <pre><code>irm cutt.ly/ittea | iex</code></pre>
@@ -100,7 +99,8 @@ Run the script using official commands from this repository. It's not a portable
   
 ## Watch Demo
 
-  [![Watch the video](https://raw.githubusercontent.com/emadadel4/itt/main/static/Images/thumbnail.jpg)](https://www.youtube.com/watch?v=QmO82OTsU5c)
+[![Watch the video](https://raw.githubusercontent.com/emadadel4/itt/main/static/Images/thumbnail.jpg)](https://www.youtube.com/watch?v=QmO82OTsU5c)
+
 </div>
 
 # 💡 How to Contribute
@@ -165,7 +165,14 @@ Run the script using official commands from this repository. It's not a portable
 [![GitLab](https://img.shields.io/badge/GitLab-%23FCA121?logo=gitlab&logoColor=white)](https://gitlab.com/emadadel/itt)
 [![Codeberg](https://img.shields.io/badge/Codeberg-%230073B7?logo=codeberg&logoColor=white)](https://codeberg.org/emadadel/itt)
 
-## 🌟 Support
+## You're not a developer?
+
+#### If you'd like to add an app, you can fill out the request form using the following link [Request form](https://docs.google.com/forms/d/e/1FAIpQLSeT_hrvfesDE4hb8p9XyvLM4vAsXAYm1csOcmN_lCrQ4OsaUA/viewform?usp=dialog)
+
+<br>
+<br>
+
+# 🌟 Support
 
 **Love the project?** Show your support by clicking the ⭐ (top right) and joining our community of [stargazers](https://github.com/emadadel4/itt/stargazers)!
 
@@ -175,8 +182,8 @@ Run the script using official commands from this repository. It's not a portable
 <br>
 
 # Resistance Struggling for Justice in an Authoritarian World
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=435&lines=%23StandWithPalestine)](https://git.io/typing-svg)
 
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=435&lines=%23StandWithPalestine)](https://git.io/typing-svg)
 
 ![luisricardo](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmY0ZWE5cnd5djVoaG12OHVteWI0Nm1zMzlpZGtxM2JwZmNwdG9iMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iUNO3pXpfqiZ8JQ1Jo/giphy.gif)
 
