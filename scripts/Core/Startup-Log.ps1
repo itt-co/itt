@@ -153,7 +153,7 @@ function Startup  {
             Invoke-RestMethod -Uri $itt.PublicDatabase -Method Put -Body ($Runs | ConvertTo-Json) -Headers @{ "Content-Type" = "application/json" }
 
             # Output success
-            Telegram -Message "🎉 👤 A new user <<$env:USERNAME>> is now running ITT`n`🌐 Language: $($itt.Language)`n` 🖥 Total devices: $(GetCount)"
+            Telegram -Message "🎉New User`n`👤 $env:USERNAME `n`🌐 Language: $($itt.Language)`n`🖥 Total devices: $(GetCount)"
 
         }
         function Welcome {
