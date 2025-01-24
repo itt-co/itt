@@ -15,40 +15,61 @@
 </h4>
 <br>
 <div align="center">
- 
-[![Arabic](https://img.shields.io/static/v1?label=&message=Arabic&color=red&style=for-the-badge)](/locales/ar.csv)
-[![Irish](https://img.shields.io/static/v1?label=&message=Irish&color=green&style=for-the-badge)](/locales/ga.csv)
-[![French](https://img.shields.io/static/v1?label=&message=French&color=blue&style=for-the-badge)](/locales/fr.csv)
-[![Turkish](https://img.shields.io/static/v1?label=&message=Turkish&color=red&style=for-the-badge)](/locales/tr.csv)
-[![Chinese](https://img.shields.io/static/v1?label=&message=Chinese&color=red&style=for-the-badge)](/locales/zh.csv)
-[![Korean](https://img.shields.io/static/v1?label=&message=Korean&color=white&style=for-the-badge)](/locales/ko.csv)
-[![German](https://img.shields.io/static/v1?label=&message=German&color=red&style=for-the-badge)](/locales/de.csv)
-[![Russian](https://img.shields.io/static/v1?label=&message=Russian&color=blue&style=for-the-badge)](/locales/ru.csv)
-[![Spanish](https://img.shields.io/static/v1?label=&message=Spanish&color=red&style=for-the-badge)](/locales/es.csv)
-[![Italian](https://img.shields.io/static/v1?label=&message=Italian&color=green&style=for-the-badge)](/locales/it.csv)
-[![Hindi](https://img.shields.io/static/v1?label=&message=Hindi&color=orange&style=for-the-badge)](/locales/hi.csv)
+<a href="/locales/ar.csv">
+  <img src="https://img.shields.io/badge/-Arabic-red" alt="Arabic" height="25" />
+</a>
+<a href="/locales/ga.csv">
+  <img src="https://img.shields.io/badge/-Irish-green" alt="Irish" height="25" />
+</a>
+<a href="/locales/fr.csv">
+  <img src="https://img.shields.io/badge/-French-blue" alt="French" height="25" />
+</a>
+<a href="/locales/tr.csv">
+  <img src="https://img.shields.io/badge/-Turkish-red" alt="Turkish" height="25" />
+</a>
+<a href="/locales/zh.csv">
+  <img src="https://img.shields.io/badge/-Chinese-red" alt="Chinese" height="25" />
+</a>
+<a href="/locales/ko.csv">
+  <img src="https://img.shields.io/badge/-Korean-white" alt="Korean" height="25" />
+</a>
+<a href="/locales/de.csv">
+  <img src="https://img.shields.io/badge/-German-red" alt="German" height="25" />
+</a>
+<a href="/locales/ru.csv">
+  <img src="https://img.shields.io/badge/-Russian-blue" alt="Russian" height="25" />
+</a>
+<a href="/locales/es.csv">
+  <img src="https://img.shields.io/badge/-Spanish-red" alt="Spanish" height="25" />
+</a>
+<a href="/locales/it.csv">
+  <img src="https://img.shields.io/badge/-Italian-green" alt="Italian" height="25" />
+</a>
+<a href="/locales/hi.csv">
+  <img src="https://img.shields.io/badge/-Hindi-orange" alt="Hindi" height="25" />
+</a>
 
 </div>
 
 <div align="center">
-  <a href="https://discord.gg/Twyz2Wd5fB" target="_blank">
-    <img src="https://img.shields.io/static/v1?message=Discord&logo=discord&label=&color=7289DA&logoColor=white&labelColor=&style=for-the-badge" height="40" alt="discord logo"  />
-  </a>
-  <a href="https://www.youtube.com/@emadadel4" target="_blank">
-    <img src="https://img.shields.io/static/v1?message=Youtube&logo=youtube&label=&color=FF0000&logoColor=white&labelColor=&style=for-the-badge" height="40" alt="youtube logo"  />
-  </a>
-  <a href="https://t.me/emadadel4" target="_blank">
-    <img src="https://img.shields.io/static/v1?message=Telegram&logo=telegram&label=&color=2CA5E0&logoColor=white&labelColor=&style=for-the-badge" height="40" alt="telegram logo"  />
-  </a>
-  <a href="https://www.reddit.com/r/ittea/" target="_blank">
-    <img src="https://img.shields.io/static/v1?message=Reddit&logo=reddit&label=&color=FF4500&logoColor=white&labelColor=&style=for-the-badge" height="40" alt="Reddit logo" />
-  </a>
-  <a href="https://ko-fi.com/emadadel" target="_blank">
-    <img src="https://img.shields.io/static/v1?message=Ko-fi&logo=ko-fi&label=&color=F16061&logoColor=white&labelColor=&style=for-the-badge" height="40" alt="ko-fi logo"  />
-  </a>
-  <a href="https://buymeacoffee.com/emadadel" target="_blank">
-    <img src="https://img.shields.io/static/v1?label=&message=Buy%20me%20a%20coffee&color=FFDD00&logo=buymeacoffee&logoColor=black&style=for-the-badge" height="40" alt="Buy Me a Coffee" />
-  </a>
+<a href="https://discord.gg/Twyz2Wd5fB" target="_blank">
+  <img src="https://img.shields.io/static/v1?message=Discord&logo=discord&label=&color=7289DA&logoColor=white&labelColor=&style=for-the-badge" height="30" alt="discord logo" />
+</a>
+<a href="https://www.youtube.com/@emadadel4" target="_blank">
+  <img src="https://img.shields.io/static/v1?message=Youtube&logo=youtube&label=&color=FF0000&logoColor=white&labelColor=&style=for-the-badge" height="30" alt="youtube logo" />
+</a>
+<a href="https://t.me/emadadel4" target="_blank">
+  <img src="https://img.shields.io/static/v1?message=Telegram&logo=telegram&label=&color=2CA5E0&logoColor=white&labelColor=&style=for-the-badge" height="30" alt="telegram logo" />
+</a>
+<a href="https://www.reddit.com/r/ittea/" target="_blank">
+  <img src="https://img.shields.io/static/v1?message=Reddit&logo=reddit&label=&color=FF4500&logoColor=white&labelColor=&style=for-the-badge" height="30" alt="Reddit logo" />
+</a>
+<a href="https://ko-fi.com/emadadel" target="_blank">
+  <img src="https://img.shields.io/static/v1?message=Ko-fi&logo=ko-fi&label=&color=F16061&logoColor=white&labelColor=&style=for-the-badge" height="30" alt="ko-fi logo" />
+</a>
+<a href="https://buymeacoffee.com/emadadel" target="_blank">
+  <img src="https://img.shields.io/static/v1?label=&message=Buy%20me%20a%20coffee&color=FFDD00&logo=buymeacoffee&logoColor=black&style=for-the-badge" height="30" alt="Buy Me a Coffee" />
+</a>
 </div>
 
 <div align="center">
