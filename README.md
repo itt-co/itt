@@ -15,39 +15,38 @@
 </h4>
 <br>
 <div align="center">
-
 <a href="/locales/ar.csv">
-  <img src="https://img.shields.io/badge/-Arabic-red" alt="Arabic" height="30" />
+  <img src="https://img.shields.io/badge/-Arabic-red" alt="Arabic" height="25" />
 </a>
 <a href="/locales/ga.csv">
-  <img src="https://img.shields.io/badge/-Irish-green" alt="Irish" height="30" />
+  <img src="https://img.shields.io/badge/-Irish-green" alt="Irish" height="25" />
 </a>
 <a href="/locales/fr.csv">
-  <img src="https://img.shields.io/badge/-French-blue" alt="French" height="30" />
+  <img src="https://img.shields.io/badge/-French-blue" alt="French" height="25" />
 </a>
 <a href="/locales/tr.csv">
-  <img src="https://img.shields.io/badge/-Turkish-red" alt="Turkish" height="30" />
+  <img src="https://img.shields.io/badge/-Turkish-red" alt="Turkish" height="25" />
 </a>
 <a href="/locales/zh.csv">
-  <img src="https://img.shields.io/badge/-Chinese-red" alt="Chinese" height="30" />
+  <img src="https://img.shields.io/badge/-Chinese-red" alt="Chinese" height="25" />
 </a>
 <a href="/locales/ko.csv">
-  <img src="https://img.shields.io/badge/-Korean-white" alt="Korean" height="30" />
+  <img src="https://img.shields.io/badge/-Korean-white" alt="Korean" height="25" />
 </a>
 <a href="/locales/de.csv">
-  <img src="https://img.shields.io/badge/-German-red" alt="German" height="30" />
+  <img src="https://img.shields.io/badge/-German-red" alt="German" height="25" />
 </a>
 <a href="/locales/ru.csv">
-  <img src="https://img.shields.io/badge/-Russian-blue" alt="Russian" height="30" />
+  <img src="https://img.shields.io/badge/-Russian-blue" alt="Russian" height="25" />
 </a>
 <a href="/locales/es.csv">
-  <img src="https://img.shields.io/badge/-Spanish-red" alt="Spanish" height="30" />
+  <img src="https://img.shields.io/badge/-Spanish-red" alt="Spanish" height="25" />
 </a>
 <a href="/locales/it.csv">
-  <img src="https://img.shields.io/badge/-Italian-green" alt="Italian" height="30" />
+  <img src="https://img.shields.io/badge/-Italian-green" alt="Italian" height="25" />
 </a>
 <a href="/locales/hi.csv">
-  <img src="https://img.shields.io/badge/-Hindi-orange" alt="Hindi" height="30" />
+  <img src="https://img.shields.io/badge/-Hindi-orange" alt="Hindi" height="25" />
 </a>
 
 </div>
