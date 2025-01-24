@@ -3,7 +3,7 @@ $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
 developer      = "Emad Adel"
-lastupdate     = "01/21/2025"
+lastupdate     = "01/24/2025"
 github         = "https://github.com/emadadel4/itt"
 telegram       = "https://t.me/emadadel4"
 blog           = "https://emadadel4.github.io"
@@ -3566,6 +3566,24 @@ $itt.database.Applications = @'
 }
 ],
 "category": "Utilities",
+"check": "false"
+},
+{
+"Name": "Octopus Deploy",
+"Description": "Octopus Deploy is a Continuous Delivery platform for complex deployments across your entire stack. Deploy with ease to Kubernetes, Linux, Windows virtual machines, Amazon Web Services, Azure, or Google Cloud. If the Octopus Tentacle agent, SSH, command line, or a web service can speak to it, Octopus can deploy to it",
+"winget": "OctopusDeploy.Tentacle",
+"choco": "octopusdeploy.tentacle",
+"default": [],
+"category": "Development",
+"check": "false"
+},
+{
+"Name": "Kindle Previewer",
+"Description": "Kindle Previewer is a graphical user interface tool that emulates how books display across Kindle devices and apps. Kindle Previewer makes it easy for publishers to preview the layout of a book and make sure its text displays properly for any orientation or font size to ensure publishers produce and submit the highest quality Kindle books",
+"winget": "none",
+"choco": "kindlepreviewer",
+"default": [],
+"category": "Documents",
 "check": "false"
 }
 ]
@@ -11224,6 +11242,18 @@ ScrollViewer.CanContentScroll="True">
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
 <TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="SuperCopier2 SuperCopier replaces Windows explorer file copy and adds many features."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Octopus Deploy" Tag="Development" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
+</StackPanel>
+<TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Octopus Deploy is a Continuous Delivery platform for complex deployments across your entire stack. Deploy with ease to Kubernetes Linux Windows virtual machines Amazon Web Services Azure or Google Cloud. If the Octopus Tentacle agent SSH command line or a web service can speak to it Octopus can deploy to it."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Kindle Previewer" Tag="Documents" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Documents"/>
+</StackPanel>
+<TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Kindle Previewer is a graphical user interface tool that emulates how books display across Kindle devices and apps. Kindle Previewer makes it easy for publishers to preview the layout of a book and make sure its text displays properly for any orientation or font size to ensure publishers produce and submit the highest quality Kindle books."/>
 </StackPanel>
 </ListView>
 </TabItem.Content>
@@ -11875,11 +11905,11 @@ Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('ps').add_MouseLeftButtonDown({
-Start-Process('https://www.palestinercs.org/en/Donation')
-})
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
+$itt.event.FindName('ps').add_MouseLeftButtonDown({
+Start-Process('https://www.palestinercs.org/en/Donation')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
@@ -12047,7 +12077,11 @@ HorizontalAlignment="Left" />
 <ScrollViewer Name="ScrollViewer" VerticalScrollBarVisibility="Auto" Height="Auto">
 <StackPanel Orientation="Vertical">
 <TextBlock Text=''Watch demo'' FontSize=''20'' Margin=''0,18,0,18'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
-<Image x:Name=''ytv'' Source=''https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/thumbnail.jpg'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''/>
+<Image x:Name=''ytv'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''>
+<Image.Source>
+<BitmapImage UriSource=''https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/thumbnail.jpg''/>
+</Image.Source>
+</Image>
 <TextBlock Text='' • Keyboard Shortcuts'' FontSize=''20'' Margin=''0,44,0,10'' Foreground=''{DynamicResource PrimaryButtonForeground}'' FontWeight=''bold'' TextWrapping=''Wrap''/>
 <StackPanel Orientation=''Vertical''>
 <TextBlock Text=''• Ctrl+A: Clear category filter.'' Margin=''35,0,0,0'' FontSize=''16'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
@@ -12089,13 +12123,25 @@ HorizontalAlignment="Left" />
 <TextBlock Text=''• Ctrl+G: Close application.'' Margin=''35,0,0,0'' FontSize=''16'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
 </StackPanel>
 <TextBlock Text='' • Download any Youtube video'' FontSize=''20'' Margin=''0,44,0,10'' Foreground=''{DynamicResource PrimaryButtonForeground}'' FontWeight=''bold'' TextWrapping=''Wrap''/>
-<Image x:Name=''shell'' Source=''https://raw.githubusercontent.com/emadadel4/ShellTube/main/demo.jpg'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''/>
+<Image x:Name=''shell'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''>
+<Image.Source>
+<BitmapImage UriSource=''https://raw.githubusercontent.com/emadadel4/ShellTube/main/demo.jpg''/>
+</Image.Source>
+</Image>
 <TextBlock Text=''Shelltube is simple way to downnload videos and playlist from youtube just Launch it and start download your video you can Launch it from Third-party section.'' FontSize=''16'' Margin=''25,25,35,0''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
 <TextBlock Text='' • A Secret Feature Awaits – Unlock It'' FontSize=''20'' Margin=''0,44,0,10'' Foreground=''{DynamicResource PrimaryButtonForeground}'' FontWeight=''bold'' TextWrapping=''Wrap''/>
-<Image x:Name=''esg'' Source=''https://github.com/user-attachments/assets/edb67270-d9d2-4e94-8873-1c822c3afe2f'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''/>
+<Image x:Name=''esg'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''>
+<Image.Source>
+<BitmapImage UriSource=''https://github.com/user-attachments/assets/edb67270-d9d2-4e94-8873-1c822c3afe2f''/>
+</Image.Source>
+</Image>
 <TextBlock Text=''Can You Find the Hidden Easter Egg? Open the source code and uncover the secret features waiting for you!'' FontSize=''16'' Margin=''25,25,35,0''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
 <TextBlock Text='' • Support Palestine - دعم فلسطين'' FontSize=''20'' Margin=''0,44,0,10'' Foreground=''{DynamicResource PrimaryButtonForeground}'' FontWeight=''bold'' TextWrapping=''Wrap''/>
-<Image x:Name=''ps'' Source=''https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/ps_flag.jpg'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''/>
+<Image x:Name=''ps'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''>
+<Image.Source>
+<BitmapImage UriSource=''https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/ps_flag.jpg''/>
+</Image.Source>
+</Image>
 <TextBlock Text=''Do not hesitate to use your words and talk about Palestine In this age, where voices intertwine and humanitarian issues multiply, each of us has a role to play as an influential activist. Every post can reach someone who needs to hear this truth. Every message can be a source of inspiration or awareness for another person. Do not be afraid to express your opinions, for words are the tools through which we can build awareness and spread the truth. Make your platforms a space for dialogue, and be part of this movement toward positive change. Share stories, ideas, and news—everything you provide can be a step toward achieving justice. Together, we can be the voice for those who have no voice and work toward a fairer world. Let us unite and raise our voices in support of Palestine and to revive hope in the hearts of those who need it.'' FontSize=''16'' Margin=''25,25,35,0''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
 <TextBlock Text=''لا تتردد في استخدام كلمتك، وشارك في الحديث عن فلسطين، فصوتك قادر على إحداث التغيير  في هذا العصر، حيث تتداخل الأصوات وتتزايد القضايا الإنسانية، يبرز دور كل واحد منا كناشط مؤثر. كل منشور يمكن أن يصل إلى شخص يحتاج إلى سماع هذه الحقيقة. كل رسالة يمكن أن تكون مصدر إلهام أو توعية لشخص آخر. لا تخف من التعبير عن آرائك، فالكلمات هي الأداة التي نستطيع من خلالها بناء الوعي ونشر الحقائق. اجعل منصاتك مساحة للحوار، وكن جزءًا من هذه الحركة نحو التغيير الإيجابي. شارك قصصًا، وأفكارًا، وأخبارًا، فكل ما تقدمه يمكن أن يكون خطوة نحو تحقيق العدالة. معًا، يمكننا أن نكون صوتًا لمن لا صوت لهم، وأن نعمل من أجل عالم أكثر عدلاً. فلنتحد ونرفع أصواتنا لنصرة فلسطين ولإحياء الأمل في قلوب من يحتاجونه.'' FontSize=''16'' Margin=''25,25,35,0''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
 </StackPanel>
