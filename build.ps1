@@ -248,10 +248,18 @@ function ConvertTo-Xaml {
                 $global:DateContent += $matches[1].Trim()
             }
             "!\[itt\.xName:(.+?)\s*\[(.+?)\]\]\((.+?)\)" {
-                $xaml += "<Image x:Name=''$($matches[1].Trim())'' Source=''$($matches[3].Trim())'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''/>`n"
+            # Image section
+                $xaml += 
+                "<Image x:Name=''$($matches[1].Trim())'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''>
+                    <Image.Source>
+                        <BitmapImage UriSource=''$($matches[3].Trim())''/>
+                    </Image.Source>
+                </Image> `n"
+
                 $link = $matches[2].Trim()   # Extract the link from inside the brackets
                 $name = $matches[1].Trim()   # Extract the xName after 'tt.xName:'
                 $global:imageLinkMap[$name] = $link
+            # Image section
             }
             "^## (.+)" {
                 # Event title
