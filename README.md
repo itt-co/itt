@@ -15,18 +15,40 @@
 </h4>
 <br>
 <div align="center">
- 
-[![Arabic](https://img.shields.io/badge/-Arabic-red)](/locales/ar.csv)
-[![Irish](https://img.shields.io/badge/-Irish-green)](/locales/ga.csv)
-[![French](https://img.shields.io/badge/-French-blue)](/locales/fr.csv)
-[![Turkish](https://img.shields.io/badge/-Turkish-red)](/locales/tr.csv)
-[![Chinese](https://img.shields.io/badge/-Chinese-red)](/locales/zh.csv)
-[![Korean](https://img.shields.io/badge/-Korean-white)](/locales/ko.csv)
-[![German](https://img.shields.io/badge/-German-red)](/locales/de.csv)
-[![Russian](https://img.shields.io/badge/-Russian-blue)](/locales/ru.csv)
-[![Spanish](https://img.shields.io/badge/-Spanish-red)](/locales/es.csv)
-[![Italian](https://img.shields.io/badge/-Italian-green)](/locales/it.csv)
-[![Hindi](https://img.shields.io/badge/-Hindi-orange)](/locales/hi.csv)
+
+<a href="/locales/ar.csv">
+  <img src="https://img.shields.io/badge/-Arabic-red" alt="Arabic" height="30" />
+</a>
+<a href="/locales/ga.csv">
+  <img src="https://img.shields.io/badge/-Irish-green" alt="Irish" height="30" />
+</a>
+<a href="/locales/fr.csv">
+  <img src="https://img.shields.io/badge/-French-blue" alt="French" height="30" />
+</a>
+<a href="/locales/tr.csv">
+  <img src="https://img.shields.io/badge/-Turkish-red" alt="Turkish" height="30" />
+</a>
+<a href="/locales/zh.csv">
+  <img src="https://img.shields.io/badge/-Chinese-red" alt="Chinese" height="30" />
+</a>
+<a href="/locales/ko.csv">
+  <img src="https://img.shields.io/badge/-Korean-white" alt="Korean" height="30" />
+</a>
+<a href="/locales/de.csv">
+  <img src="https://img.shields.io/badge/-German-red" alt="German" height="30" />
+</a>
+<a href="/locales/ru.csv">
+  <img src="https://img.shields.io/badge/-Russian-blue" alt="Russian" height="30" />
+</a>
+<a href="/locales/es.csv">
+  <img src="https://img.shields.io/badge/-Spanish-red" alt="Spanish" height="30" />
+</a>
+<a href="/locales/it.csv">
+  <img src="https://img.shields.io/badge/-Italian-green" alt="Italian" height="30" />
+</a>
+<a href="/locales/hi.csv">
+  <img src="https://img.shields.io/badge/-Hindi-orange" alt="Hindi" height="30" />
+</a>
 
 </div>
 
