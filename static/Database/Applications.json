@@ -3530,5 +3530,23 @@
     ],
     "category": "Utilities",
     "check": "false"
+  },
+  {
+    "Name": "Octopus Deploy",
+    "Description": "Octopus Deploy is a Continuous Delivery platform for complex deployments across your entire stack. Deploy with ease to Kubernetes, Linux, Windows virtual machines, Amazon Web Services, Azure, or Google Cloud. If the Octopus Tentacle agent, SSH, command line, or a web service can speak to it, Octopus can deploy to it",
+    "winget": "OctopusDeploy.Tentacle",
+    "choco": "octopusdeploy.tentacle",
+    "default": [],
+    "category": "Development",
+    "check": "false"
+  },
+  {
+    "Name": "Kindle Previewer",
+    "Description": "Kindle Previewer is a graphical user interface tool that emulates how books display across Kindle devices and apps. Kindle Previewer makes it easy for publishers to preview the layout of a book and make sure its text displays properly for any orientation or font size to ensure publishers produce and submit the highest quality Kindle books",
+    "winget": "none",
+    "choco": "kindlepreviewer",
+    "default": [],
+    "category": "Documents",
+    "check": "false"
   }
 ]
