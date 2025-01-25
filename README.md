@@ -49,7 +49,7 @@
   <img src="https://img.shields.io/badge/-Hindi-orange" alt="Hindi" height="25" />
 </a>
 <a href="https://docs.google.com/spreadsheets/d/1Muy7iJbRm-7YpJKyS5lzP_v12TrCqlxr8_MY9iTnt-0/edit?usp=sharing">
-  <img src="https://img.shields.io/badge/-Add your%20language-white" alt="Add your language" height="25" />
+  <img src="https://img.shields.io/badge/-Add%20your%20language-white" alt="Add your language" height="25" />
 </a>
 </div>
 
