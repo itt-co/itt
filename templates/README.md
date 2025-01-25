@@ -121,7 +121,7 @@
 
 <div align="center">
   
-## Watch Demo
+## 🎬 Watch Demo
 
 [![Watch the video](https://raw.githubusercontent.com/emadadel4/itt/main/static/Images/thumbnail.jpg)](https://www.youtube.com/watch?v=QmO82OTsU5c)
 
