@@ -235,13 +235,10 @@ Donate to the Palestinian Red Crescent
 </a>
 
 <div style="display: flex; gap: 5px;">
-Other way to support
-<a href="/docs/Support.md" target="blank">
-English
+<a href="https://github.com/boycott4/boycott" target="blank">
+Other way to support (Boycott)
 </a>
 <a href="/docs/Supportar.md" target="blank">
-عربي
-</a>
 </div>
 
 ### Recommended videos.
