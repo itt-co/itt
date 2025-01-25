@@ -7635,7 +7635,7 @@ $itt.about.FindName("github").Add_Click({Start-Process($itt.github)})
 $itt.about.FindName("blog").Add_Click({Start-Process($itt.blog)})
 $itt.about.FindName("yt").Add_Click({Start-Process($itt.youtube)})
 $itt.about.FindName("coffee").Add_Click({Start-Process($itt.buymeacoffee)})
-$itt.about.DataContext = $itt.database.locales.Controls.en
+$itt.about.DataContext = $itt.database.locales.Controls.$($itt.Language)
 $itt.about.ShowDialog() | Out-Null
 }
 function ITTShortcut {
@@ -11809,7 +11809,7 @@ Width="611"
 $AboutWindowXaml = '<Window
 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-Title="About | ITT"
+Title="{Binding About, TargetNullValue=About}"
 WindowStartupLocation="CenterScreen"
 Background="{DynamicResource PrimaryBackgroundColor}"
 WindowStyle="ToolWindow"
