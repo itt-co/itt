@@ -6,7 +6,7 @@
     VerticalAlignment="Center" 
     HorizontalAlignment="Center" 
     Width="auto">
-      <ComboBoxItem Content="{Binding all}"/>
+      <ComboBoxItem Content="{Binding all, TargetNullValue=All}"/>
       <ComboBoxItem Content="GPU Drivers"/>
       <ComboBoxItem Content="Web Browsers"/>
       <ComboBoxItem Content="Media"/>
@@ -35,7 +35,7 @@
       HorizontalAlignment="Center" 
       Visibility="Hidden"
       Width="auto">
-      <ComboBoxItem Content="{Binding all}"/>
+      <ComboBoxItem Content="{Binding all, TargetNullValue=All}"/>
       <ComboBoxItem Content="Privacy"/>
       <ComboBoxItem Content="Fixer"/>
       <ComboBoxItem Content="Performance"/>

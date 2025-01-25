@@ -13,7 +13,7 @@ function About {
     $itt.about.FindName("yt").Add_Click({Start-Process($itt.youtube)})
     $itt.about.FindName("coffee").Add_Click({Start-Process($itt.buymeacoffee)})
     # Set data context language
-    $itt.about.DataContext = $itt.database.locales.Controls.en
+    $itt.about.DataContext = $itt.database.locales.Controls.$($itt.Language)
     # Show window
     $itt.about.ShowDialog() | Out-Null
 }
