@@ -9037,7 +9037,7 @@ Margin="30,0,0,0" />
 </Grid>
 </Grid>
 <TabControl Name="taps" TabStripPlacement="Left" Grid.Row="1" BorderBrush="Transparent" Foreground="White" Background="Transparent">
-<TabItem Name="apps" Header="{Binding apps}" BorderBrush="{x:Null}" >
+<TabItem Name="apps" Header="{Binding apps, TargetNullValue=Apps}" BorderBrush="{x:Null}" >
 <TabItem.HeaderTemplate>
 <DataTemplate>
 <StackPanel Orientation="Horizontal">
@@ -11356,7 +11356,7 @@ ScrollViewer.CanContentScroll="True">
 </ListView>
 </TabItem.Content>
 </TabItem>
-<TabItem x:Name="tweeksTab" Header="{Binding tweaks}" BorderBrush="{x:Null}" Background="{x:Null}">
+<TabItem x:Name="tweeksTab" Header="{Binding tweaks, TargetNullValue=Tweaks}" BorderBrush="{x:Null}" Background="{x:Null}">
 <TabItem.HeaderTemplate>
 <DataTemplate>
 <StackPanel Orientation="Horizontal">
@@ -11621,7 +11621,7 @@ ScrollViewer.CanContentScroll="True">
 </StackPanel>
 </ListView>
 </TabItem>
-<TabItem x:Name="SettingsTab" Header="{Binding settings}" BorderBrush="{x:Null}" Background="{x:Null}">
+<TabItem x:Name="SettingsTab" Header="{Binding settings, TargetNullValue=Settings}" BorderBrush="{x:Null}" Background="{x:Null}">
 <TabItem.HeaderTemplate>
 <DataTemplate>
 <StackPanel Orientation="Horizontal">
