@@ -48,7 +48,9 @@
 <a href="/locales/hi.csv">
   <img src="https://img.shields.io/badge/-Hindi-orange" alt="Hindi" height="25" />
 </a>
-
+<a href="https://docs.google.com/spreadsheets/d/1Muy7iJbRm-7YpJKyS5lzP_v12TrCqlxr8_MY9iTnt-0/edit?usp=sharing">
+  <img src="https://img.shields.io/badge/-Add your language-white" alt="Hindi" height="25" />
+</a>
 </div>
 
 <div align="center">
