@@ -8971,7 +8971,7 @@ Grid.Column="0"
 VerticalAlignment="Center"
 HorizontalAlignment="Center"
 Width="auto">
-<ComboBoxItem Content="{Binding all}"/>
+<ComboBoxItem Content="{Binding all, TargetNullValue=All}"/>
 <ComboBoxItem Content="GPU Drivers"/>
 <ComboBoxItem Content="Web Browsers"/>
 <ComboBoxItem Content="Media"/>
@@ -8998,7 +8998,7 @@ VerticalAlignment="Center"
 HorizontalAlignment="Center"
 Visibility="Hidden"
 Width="auto">
-<ComboBoxItem Content="{Binding all}"/>
+<ComboBoxItem Content="{Binding all, TargetNullValue=All}"/>
 <ComboBoxItem Content="Privacy"/>
 <ComboBoxItem Content="Fixer"/>
 <ComboBoxItem Content="Performance"/>
@@ -11738,7 +11738,7 @@ Height="45"
 Margin="20">
 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
 <TextBlock Name="installText"
-Text="{Binding Install}"
+Text="{Binding Install, TargetNullValue=Install}"
 Foreground="White"
 Margin="0"
 VerticalAlignment="Center"/>
@@ -11765,7 +11765,7 @@ Height="45"
 Margin="20">
 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
 <TextBlock Name="applyText"
-Text="{Binding Apply}"
+Text="{Binding Apply, TargetNullValue=Apply}"
 Foreground="White"
 Margin="0"
 VerticalAlignment="Center"/>
