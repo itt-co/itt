@@ -1,7 +1,7 @@
 <Window
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="About | ITT"
+    Title="{Binding About, TargetNullValue=About}"
     WindowStartupLocation="CenterScreen"
     Background="{DynamicResource PrimaryBackgroundColor}"
     WindowStyle="ToolWindow"
