@@ -190,13 +190,15 @@ function Invoke-Button {
             # debug end
         }
         "mas" {
-            Start-Process "https://github.com/massgravel/Microsoft-Activation-Scripts"
+            Add-Log -Message "Microsoft Activation Scripts (MAS)" -Level "info"
+            Invoke-ScriptBlock -ScriptBlock {irm https://get.activated.win | iex}
             # debug start
                 Debug-Message $action
             # debug end
         }
         "idm" {
-            Start-Process "https://github.com/WindowsAddict/IDM-Activation-Script"
+            Add-Log -Message "IDM Activation Script (WindowsAddict)" -Level "info"
+            Invoke-ScriptBlock -ScriptBlock {irm https://massgrave.dev/ias | iex}
             # debug start
                 Debug-Message $action
             # debug end
