@@ -79,7 +79,7 @@
 </div>
 
 <div align="center">
-  <a  href="#-usage" rel="nofollow"><img src="https://img.shields.io/badge/Latest Update-01/25/2025-blue?style=for-the-badge"></a>
+  <a  href="#-usage" rel="nofollow"><img src="https://img.shields.io/badge/Latest Update-01/27/2025-blue?style=for-the-badge"></a>
 </div>
 
 <br>
