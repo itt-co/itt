@@ -8647,7 +8647,7 @@ To="5,0,0,0">
 <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/logo.png" Width="70" Height="Auto" Margin="5,5,0,0"></Image>
 </MenuItem.Icon>
 </MenuItem>
-<MenuItem VerticalAlignment="Center" HorizontalAlignment="Left">
+<MenuItem VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="Transparent">
 <MenuItem.Header>
 <Binding Path="Management" TargetNullValue="Management"/>
 </MenuItem.Header>
@@ -8727,7 +8727,7 @@ To="5,0,0,0">
 </MenuItem.Icon>
 </MenuItem>
 </MenuItem>
-<MenuItem VerticalAlignment="Center" HorizontalAlignment="Left">
+<MenuItem VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="Transparent">
 <MenuItem.Header>
 <Binding Path="Preferences" TargetNullValue="Preferences"/>
 </MenuItem.Header>
@@ -8855,7 +8855,7 @@ Shift+I
 </MenuItem.Icon>
 </MenuItem>
 </MenuItem>
-<MenuItem VerticalAlignment="Center" HorizontalAlignment="Center">
+<MenuItem VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Transparent">
 <MenuItem.Header>
 <Binding Path="Third_party" TargetNullValue="Third Party"/>
 </MenuItem.Header>
@@ -8952,7 +8952,7 @@ Shift+I
 </MenuItem.Icon>
 </MenuItem>
 </MenuItem>
-<MenuItem Name="dev" VerticalAlignment="Center" HorizontalAlignment="Center">
+<MenuItem Name="dev" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Transparent">
 <MenuItem.Header>
 <Binding Path="About" TargetNullValue="About"/>
 </MenuItem.Header>
@@ -11999,17 +11999,17 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/03/2025'.Trim()
-$itt.event.FindName('ps').add_MouseLeftButtonDown({
-Start-Process('https://www.palestinercs.org/en/Donation')
-})
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
+$itt.event.FindName('ps').add_MouseLeftButtonDown({
+Start-Process('https://www.palestinercs.org/en/Donation')
+})
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
