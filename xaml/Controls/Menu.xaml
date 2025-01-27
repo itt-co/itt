@@ -6,7 +6,7 @@
             </MenuItem.Icon>
         </MenuItem>
 
-        <MenuItem VerticalAlignment="Center" HorizontalAlignment="Left">
+        <MenuItem VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="Transparent">
             <MenuItem.Header>
                 <Binding Path="Management" TargetNullValue="Management"/>
             </MenuItem.Header>
@@ -102,7 +102,7 @@
 
         </MenuItem>
 
-        <MenuItem VerticalAlignment="Center" HorizontalAlignment="Left">
+        <MenuItem VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="Transparent">
             <MenuItem.Header>
                 <Binding Path="Preferences" TargetNullValue="Preferences"/>
             </MenuItem.Header>
@@ -243,7 +243,7 @@
 
         </MenuItem>
 
-        <MenuItem VerticalAlignment="Center" HorizontalAlignment="Center">
+        <MenuItem VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Transparent">
             <MenuItem.Header>
                 <Binding Path="Third_party" TargetNullValue="Third Party"/>
             </MenuItem.Header>
@@ -359,7 +359,7 @@
 
         </MenuItem>
 
-        <MenuItem Name="dev" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <MenuItem Name="dev" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Transparent">
             <MenuItem.Header>
                 <Binding Path="About" TargetNullValue="About"/>
             </MenuItem.Header>
