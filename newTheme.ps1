@@ -49,8 +49,8 @@ try {
   # Save the ResourceDictionary content to a file
   Set-Content -Path $fileName -Value $resourceDictionary
   # Output the location of the saved file
-  Write-Output "The theme has been successfully generated and saved to: $fileName" -ForegroundColor Green
-  Write-Output "Now, feel free to customize the colors and create your own cool theme!"
+  Write-Output "Theme has been successfully generated and saved to: $fileName" -ForegroundColor Green
+  Write-Output "Feel free to customize the colors and create your own cool theme!"
 }
 catch {
     Write-Host "An error occurred: $_"
