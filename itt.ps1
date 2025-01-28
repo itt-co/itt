@@ -3,7 +3,7 @@ $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
 developer      = "Emad Adel"
-lastupdate     = "01/27/2025"
+lastupdate     = "01/28/2025"
 github         = "https://github.com/emadadel4/itt"
 telegram       = "https://t.me/emadadel4"
 blog           = "https://emadadel4.github.io"
@@ -6632,7 +6632,7 @@ Log-Result $chocoResult "Chocolatey"
 function Install-Choco {
 if (-not (Get-Command choco -ErrorAction SilentlyContinue))
 {
-Add-Log -Message "Installing Chocolatey for the first time, It won't take minutes :)" -Level "INFO"
+Add-Log -Message "Checking dependencies This won't take a minute..." -Level "INFO"
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1')) *> $null
 }
 }
@@ -6763,14 +6763,9 @@ Add-Log -Message "No tasks matching '$task' found" -Level "debug"
 }
 }
 function Reset-Preferences {
-param (
-[string]$music = "100",
-[string]$PopupWindow = "on",
-[string]$UserTheme = "none"
-)
 Set-ItemProperty -Path $itt.registryPath  -Name "PopupWindow" -Value 0 -Force
-Set-ItemProperty -Path $itt.registryPath  -Name "Music" -Value $music -Force
-Set-ItemProperty -Path $itt.registryPath  -Name "UserTheme" -Value $UserTheme -Force
+Set-ItemProperty -Path $itt.registryPath  -Name "Music" -Value 100 -Force
+Set-ItemProperty -Path $itt.registryPath  -Name "UserTheme" -Value "none" -Force
 SwitchToSystem
 Message -key "Reopen_itt_again" -icon "Information" -action "OK"
 }
@@ -7890,8 +7885,6 @@ StopMusic
 $newProcess.exit
 }
 function System-Default {
-$fullCulture = Get-ItemPropertyValue -Path "HKCU:\Control Panel\International" -Name "LocaleName"
-$shortCulture = $fullCulture.Split('-')[0]
 switch($shortCulture)
 {
 "ar" { $locale = "ar" }
@@ -8961,7 +8954,7 @@ Shift+I
 </MenuItem.Icon>
 </MenuItem>
 </Menu>
-<Grid Grid.Column="1"  HorizontalAlignment="Right" Margin="0,0,20,0">
+<Grid Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,20,0">
 <Grid.ColumnDefinitions>
 <ColumnDefinition Width="Auto"/>
 <ColumnDefinition Width="Auto"/>
@@ -11999,17 +11992,17 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/03/2025'.Trim()
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('ps').add_MouseLeftButtonDown({
-Start-Process('https://www.palestinercs.org/en/Donation')
-})
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
+$itt.event.FindName('ps').add_MouseLeftButtonDown({
+Start-Process('https://www.palestinercs.org/en/Donation')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
