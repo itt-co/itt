@@ -47,7 +47,7 @@ Off,
 Use_system_setting,
 Create_desktop_shortcut,
 Reset_preferences,
-Reopen_itt_again.,
+Reopen_itt_again,
 Theme,
 Language,
 MAS,
@@ -73,7 +73,7 @@ Empty_save_msg,
     # Write the cOntent to the CSV file
     $csvFilePath = "locales/$csvFilePath.csv"
     Set-COntent -Path $csvFilePath -Value $table -Encoding UTF8
-    Write-Host "Template saved at "$csvFilePath". You can edit the file using any CSV editor such as Excel, or Notepad++."
+    Write-Host "Template saved at "$csvFilePath". You can edit the file using any CSV editor such as Excel, or VSCode."
 }
 catch {
     Write-Host "An error occurred: $_"
