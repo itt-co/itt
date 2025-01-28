@@ -18,6 +18,7 @@ On,"Вкл "
 Off,Выкл
 Disk_Managment,Управление дисками
 Msconfig,Конфигурация системы
+Environment_Variables,Переменные окружения
 Task_Manager,Диспетчер задач
 Apps_features,Приложения-Функции
 Networks,Сети

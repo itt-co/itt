@@ -18,6 +18,7 @@ On,"Encendido"
 Off,Apagado
 Disk_Managment,Administración de discos
 Msconfig,Configuración del sistema
+Environment_Variables,Variables de entorno
 Task_Manager,Administrador de tareas
 Apps_features,AplicaciOnes-FunciOnes
 Networks,Redes
