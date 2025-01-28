@@ -8,15 +8,10 @@
         .PARAMETER value
         The volume level to set. It should be an integer value between 0 (muted) and 100 (full volume). The function uses this value to adjust the media player's volume and to store the setting in the registry.
         .EXAMPLE
-        MuteMusic -value 0
-        Sets the media player's volume to 0 (muted) and updates the window title to indicate the volume level.
-        .EXAMPLE
         MuteMusic -value 50
         Sets the media player's volume to 50% and updates the window title to indicate the current volume level.
         .NOTES
         - The volume value should be an integer between 0 and 100.
-        - The volume setting is saved to the registry at the path specified by `$itt.registryPath` under the "Music" key.
-        - Ensure that `$itt.mediaPlayer.settings.volume` and `$itt.registryPath` are properly initialized in your environment.
     #>
     
 function MuteMusic {
