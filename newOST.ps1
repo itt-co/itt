@@ -16,8 +16,8 @@ try {
     $jsonFilePath = $json
     $existingData = Get-Content $json -Raw -ErrorAction Stop | ConvertFrom-Json
     # Prompt for input
-    $name = Read-Host "Enter the track name"
-    $url = Read-Host "Enter the URL (Example: www.eprojects.orgfree.com/ezio_family.mp3)"
+    $name = Read-Host "Enter track name"
+    $url = Read-Host "Enter URL (Example: emadadel4.github.io/ezio_family.mp3)"
     # Store input
     $newTrack = @{
         name = $name
