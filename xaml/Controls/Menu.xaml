@@ -98,6 +98,15 @@
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
+
+            <MenuItem Name="ev">
+                <MenuItem.Header>
+                    <Binding Path="Environment_Variables" TargetNullValue="Environment Variables" />
+                </MenuItem.Header>
+                <MenuItem.Icon>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text="&#xE81E;"/>
+                </MenuItem.Icon>
+            </MenuItem>
             
 
         </MenuItem>

@@ -134,6 +134,9 @@ function Invoke-Button {
                 Debug-Message $action
             # debug end
         }
+        "ev" {
+            rundll32 sysdm.cpl,EditEnvironmentVariables
+        }
         "systheme" {
             SwitchToSystem 
             # debug start
