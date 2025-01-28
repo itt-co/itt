@@ -1,6 +1,5 @@
 function System-Default {
-    $fullCulture = Get-ItemPropertyValue -Path "HKCU:\Control Panel\International" -Name "LocaleName"
-    $shortCulture = $fullCulture.Split('-')[0]
+
     switch($shortCulture)
     {
         "ar" { $locale = "ar" }
@@ -22,6 +21,7 @@ function System-Default {
     $itt["window"].DataContext = $itt.database.locales.Controls.$locale
     $itt.Language = $locale
 }
+
 function Set-Language {
     param (
         [string]$lang
