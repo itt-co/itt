@@ -19,7 +19,7 @@ Write-Host "
 #===========================================================================
 $Mthoed = @{
     1 = "API [Choco/Winget] Recommended"
-    2 = "Default [HttpClient]"
+    2 = "Default [HttpClient] Custom"
 }
 do {
     Write-Host "Which method to download this app will be?:"
@@ -100,7 +100,7 @@ function Download-Mthoed {
                 defaultEntry = $null
             }
         }
-        "Default [HttpClient]" {
+        "Default [HttpClient] Custom" {
             $url = Read-Host "Enter url file (e.g: emadadel4.github.io/setup.exe)"  
             $launcher = Read-Host "Setup launcher (e.g: setup.exe)"
 
@@ -113,10 +113,8 @@ function Download-Mthoed {
                 2 = "false"
             }
             do {
-                Write-Host "
-                If the file to be downloaded is compressed, choose 'true'
-                If the file to be is downloaded is installer exe , choose 'false'
-                "
+                Write-Host "If file is compressed choose (true)" -ForegroundColor Yellow
+                Write-Host "If file is installer choose (false)" -ForegroundColor Yellow
                 foreach ($key in $IsPortable.Keys | Sort-Object) {
                     Write-Host "$key - $($IsPortable[$key])"
                 }
