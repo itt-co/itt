@@ -31,7 +31,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
                 {{menu}}
-            <Grid Grid.Column="1"  HorizontalAlignment="Right" Margin="0,0,20,0">
+            <Grid Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,20,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
