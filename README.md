@@ -198,6 +198,8 @@
 
 ### If you'd like to add an app, you can fill out the request form using the following link [Request form](https://docs.google.com/forms/d/e/1FAIpQLSeT_hrvfesDE4hb8p9XyvLM4vAsXAYm1csOcmN_lCrQ4OsaUA/viewform?usp=dialog)
 
+### Help to translate ITT to your native language [Add your language](https://docs.google.com/spreadsheets/d/1Muy7iJbRm-7YpJKyS5lzP_v12TrCqlxr8_MY9iTnt-0/edit?usp=sharing)
+
 <br>
 <br>
 
