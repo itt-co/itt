@@ -3,7 +3,7 @@ $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
 developer      = "Emad Adel"
-lastupdate     = "01/28/2025"
+lastupdate     = "01/29/2025"
 github         = "https://github.com/emadadel4/itt"
 telegram       = "https://t.me/emadadel4"
 blog           = "https://emadadel4.github.io"
@@ -8890,6 +8890,16 @@ Shift+I
 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
 </MenuItem.Icon>
 </MenuItem>
+<MenuItem Name="shelltube" ToolTip="Download youtube video easily" Header="ShellTube">
+<MenuItem.Icon>
+<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+</MenuItem.Icon>
+</MenuItem>
+<MenuItem Name="spotifydown" ToolTip="SpotifyDown allows you to download tracks, playlists and albums from Spotify instantly." Header="Spotify Downloader">
+<MenuItem.Icon>
+<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+</MenuItem.Icon>
+</MenuItem>
 <MenuItem Header="{Binding Browsers_extensions}">
 <MenuItem.Icon>
 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
@@ -8943,16 +8953,6 @@ Shift+I
 <MenuItem Name="asustool" ToolTip="Tool that manages the setup installation for the legacy Aura Sync, LiveDash, AiSuite3" Header="ASUS Setup Tool">
 <MenuItem.Icon>
 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
-</MenuItem.Icon>
-</MenuItem>
-<MenuItem Name="shelltube" ToolTip="Download youtube video easily" Header="ShellTube">
-<MenuItem.Icon>
-<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
-</MenuItem.Icon>
-</MenuItem>
-<MenuItem Name="spotifydown" ToolTip="SpotifyDown allows you to download tracks, playlists and albums from Spotify instantly." Header="Spotify Downloader">
-<MenuItem.Icon>
-<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
 </MenuItem.Icon>
 </MenuItem>
 </MenuItem>
@@ -12006,14 +12006,14 @@ $itt.event.FindName('date').text = '01/03/2025'.Trim()
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
+$itt.event.FindName('ps').add_MouseLeftButtonDown({
+Start-Process('https://www.palestinercs.org/en/Donation')
+})
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
-$itt.event.FindName('ps').add_MouseLeftButtonDown({
-Start-Process('https://www.palestinercs.org/en/Donation')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
