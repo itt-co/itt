@@ -3709,6 +3709,10 @@ $itt.database.OST = @'
 {
 "name": "Rajieen",
 "url": "https://emadadel4.github.io/sounds/Rajieen.mp3"
+},
+{
+"name": "Death Is the Road to Awe",
+"url": "https://raw.githubusercontent.com/emadadel4/emadadel4.github.io/refs/heads/main/static/sounds/Clint Mansell, Kronos Quartet - Death Is the Road to Awe (feat. Kronos Quartet).mp3"
 }
 ],
 "Favorite": [
