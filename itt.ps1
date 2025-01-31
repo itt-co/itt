@@ -1,7 +1,6 @@
 param (
-[switch]$EnableFeature,
-[switch]$Debug,
-[string]$savefile
+[string]$f,
+[switch]$i
 )
 Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'PresentationCore', 'WindowsBase'
 $itt = [Hashtable]::Synchronized(@{
@@ -6878,6 +6877,30 @@ Message -key "Empty_save_msg" -icon "Information" -action "OK"
 $itt.Search_placeholder.Visibility = "Visible"
 $itt.SearchInput.Text = $null
 }
+function Quick-Install {
+param (
+$file
+)
+$jsonData = Get-Content -Path $file -Raw | ConvertFrom-Json
+$filteredNames = $jsonData.Name
+$filterPredicate = {
+param($item)
+$checkBoxes = Get-CheckBoxesFromStackPanel -item $item
+foreach ($currentItemName in $filteredNames) {
+if ($currentItemName -eq $checkBoxes.Content) {
+$checkBoxes.IsChecked = $true
+break
+}
+}
+return $filteredNames -contains $checkBoxes.Content
+}
+$itt['window'].FindName('apps').IsSelected = $true
+$itt['window'].FindName('appslist').Clear()
+$collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt['window'].FindName('appslist').Items)
+$collectionView.Filter = $filterPredicate
+$itt.Search_placeholder.Visibility = "Visible"
+$itt.SearchInput.Text = $null
+}
 function Set-Registry {
 param (
 [array]$tweak
@@ -7161,7 +7184,10 @@ else
 Message -key "App_empty_select" -icon "info" -action "OK"
 return
 }
+if(-not $i)
+{
 $result = Message -key "Install_msg" -icon "ask" -action "YesNo"
+}
 if ($result -eq "no") {
 Show-Selected -ListView "AppsListView" -Mode "Default"
 Clear-Item -ListView "AppsListView"
@@ -7176,9 +7202,6 @@ $selectedApps | ForEach-Object {
 if ($_.Winget -ne "none" -or $_.Choco -ne "none")
 {
 $chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($_.Choco)"
-Remove-Item -Path "$chocoFolder" -Recurse -Force
-Remove-Item -Path "$chocoFolder.install" -Recurse -Force
-Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
 Install-App -Name $_.Name -Winget $_.Winget -Choco $_.Choco
 }
 else
@@ -12012,17 +12035,17 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/03/2025'.Trim()
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+$itt.event.FindName('ps').add_MouseLeftButtonDown({
+Start-Process('https://www.palestinercs.org/en/Donation')
 })
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('ps').add_MouseLeftButtonDown({
-Start-Process('https://www.palestinercs.org/en/Donation')
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
@@ -12503,10 +12526,9 @@ if ([string]::IsNullOrEmpty($itt.SearchInput.Text)) {
 $itt.Search_placeholder.Visibility = "Visible"
 }
 });
-if ($EnableFeature) {
-Write-Host "Save file path: $savefile"
-} else {
-Write-Host "No save file specified."
+if ($i) {
+Quick-Install -file $f *> $null
+Invoke-Install *> $null
 }
 $itt["window"].add_Closing($onClosingEvent)
 $itt["window"].Add_PreViewKeyDown($KeyEvents)
