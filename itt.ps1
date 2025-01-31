@@ -6878,7 +6878,11 @@ param (
 [string]$file
 )
 try {
+if ($file -match "^https?://") {
+$jsonData = Invoke-WebRequest -Uri $file -UseBasicParsing | Select-Object -ExpandProperty Content | ConvertFrom-Json -ErrorAction Stop
+} else {
 $jsonData = Get-Content -Path $file -Raw | ConvertFrom-Json -ErrorAction Stop
+}
 } catch {
 Write-Warning "Failed to load or parse JSON file: $_"
 return
@@ -12044,20 +12048,20 @@ $itt.event.FindName('date').text = '01/31/2025'.Trim()
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
