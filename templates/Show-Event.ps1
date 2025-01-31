@@ -26,8 +26,8 @@ function Show-Event {
     $storedDate = [datetime]::ParseExact($storedDateStr, 'MM/dd/yyyy', $null)
     $currentDate = Get-Date
     $daysElapsed = ($currentDate - $storedDate).Days
-    # show popup on update events
-    if ($daysElapsed -lt 1 -or $itt.PopupWindow -eq "0") {
+    # show popup on update event, ignore popup if user launched it using -i command
+    if ($daysElapsed -lt 1 -or $itt.PopupWindow -eq "0" -and -not $i) {
         $itt.event.ShowDialog() | Out-Null
     }
 }
