@@ -1,4 +1,4 @@
-###### 01/03/2025
+###### 01/31/2025
 
 ## Changelog
 
@@ -6,7 +6,7 @@
 
 ![itt.xName:ytv [https://www.youtube.com/watch?v=QmO82OTsU5c]](https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/thumbnail.jpg)
 
-##### ⌨️ Keyboard Shortcuts
+##### Keyboard Shortcuts
 
 - Ctrl+A: Clear category filter.
 - Ctrl+F: Enter search mode.
@@ -21,6 +21,14 @@
 - Shift+Q: Restore point.
 - Shift+I: ITT Shortcut.
 - Ctrl+G: Close application.
+
+##### ⚡ Quick Install Your Saved Apps
+
+![itt.xName:preview [https://www.youtube.com/watch?v=nI7rUhWeOrA]](https://github.com/user-attachments/assets/47a321fb-6a8f-4d29-a9a4-bf69d82763a7)
+
+#### You can install your saved apps at any time using the command
+
+![itt.xName:preview2 [https://www.youtube.com/watch?v=nI7rUhWeOrA]](https://github.com/user-attachments/assets/d673c922-8bc4-43b0-98b5-9b3b14fae43a)
 
 ##### 📥 Download any Youtube video
 
