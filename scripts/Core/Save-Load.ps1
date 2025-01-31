@@ -134,7 +134,14 @@ function Quick-Install {
 
     # Load JSON data
     try {
-        $jsonData = Get-Content -Path $file -Raw | ConvertFrom-Json -ErrorAction Stop
+
+        # Get file local or remote
+        if ($file -match "^https?://") {
+            $jsonData = Invoke-WebRequest -Uri $file -UseBasicParsing | Select-Object -ExpandProperty Content | ConvertFrom-Json -ErrorAction Stop
+        } else {
+            $jsonData = Get-Content -Path $file -Raw | ConvertFrom-Json -ErrorAction Stop
+        }
+
     } catch {
         Write-Warning "Failed to load or parse JSON file: $_"
         return
