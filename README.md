@@ -79,7 +79,7 @@
 </div>
 
 <div align="center">
-  <a  href="#-usage" rel="nofollow"><img src="https://img.shields.io/badge/Latest Update-01/29/2025-blue?style=for-the-badge"></a>
+  <a  href="#-usage" rel="nofollow"><img src="https://img.shields.io/badge/Latest Update-01/31/2025-blue?style=for-the-badge"></a>
 </div>
 
 <br>
@@ -120,6 +120,10 @@
  <p>Or run it directly from GitHub if the URL is blocked in your region:</p>
 <pre><code>irm emadadel4.github.io/itt.ps1 | iex</code></pre>
 <pre><code>irm raw.githubusercontent.com/emadadel4/ITT/main/itt.ps1 | iex</code></pre>
+
+## Easily launch and install your program list with a single command.
+
+<pre><code>iex "& { $(irm bit.ly/ittea) } -i -f .\myapps.itt"</code></pre>
 
 <div align="center">
   
