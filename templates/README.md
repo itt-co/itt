@@ -121,6 +121,10 @@
 <pre><code>irm emadadel4.github.io/itt.ps1 | iex</code></pre>
 <pre><code>irm raw.githubusercontent.com/emadadel4/ITT/main/itt.ps1 | iex</code></pre>
 
+## ⚡ Quick Install Your Saved Apps
+
+<pre><code>iex "& { $(irm bit.ly/ittea) } -i -f .\myapps.itt"</code></pre>
+
 <div align="center">
   
 ## 🎬 Watch Demo

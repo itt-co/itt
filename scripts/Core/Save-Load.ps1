@@ -106,3 +106,31 @@ function SaveItemsToJson {
     $itt.Search_placeholder.Visibility = "Visible"
     $itt.SearchInput.Text = $null
 }
+
+function Quick-Install {
+    param (
+       $file
+    )
+
+    $jsonData = Get-Content -Path $file -Raw | ConvertFrom-Json
+
+    $filteredNames = $jsonData.Name
+    $filterPredicate = {
+        param($item)
+        $checkBoxes = Get-CheckBoxesFromStackPanel -item $item
+        foreach ($currentItemName in $filteredNames) {
+            if ($currentItemName -eq $checkBoxes.Content) {
+                $checkBoxes.IsChecked = $true
+                break
+            }
+        }
+        return $filteredNames -contains $checkBoxes.Content
+    }
+    $itt['window'].FindName('apps').IsSelected = $true
+    $itt['window'].FindName('appslist').Clear()
+    $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt['window'].FindName('appslist').Items)
+    $collectionView.Filter = $filterPredicate
+    # Clear Search input
+    $itt.Search_placeholder.Visibility = "Visible"
+    $itt.SearchInput.Text = $null
+}

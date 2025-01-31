@@ -1,8 +1,13 @@
-# debug start
 param (
-    [switch]$Debug
+    # debug start
+        [switch]$Debug,
+    # debug end
+    # file
+    [string]$f, 
+    # install
+    [switch]$i
 )
-# debug end
+
 # Load DLLs
 Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'PresentationCore', 'WindowsBase'
 

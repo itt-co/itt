@@ -250,12 +250,11 @@ function ConvertTo-Xaml {
             "!\[itt\.xName:(.+?)\s*\[(.+?)\]\]\((.+?)\)" {
             # Image section
                 $xaml += 
-                "<Image x:Name=''$($matches[1].Trim())'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''>
+                "<Image x:Name=''$($matches[1].Trim())'' Cursor=''Hand'' Margin=''8'' Height=''Auto'' Width=''400''>
                     <Image.Source>
                         <BitmapImage UriSource=''$($matches[3].Trim())''/>
                     </Image.Source>
                 </Image> `n"
-
                 $link = $matches[2].Trim()   # Extract the link from inside the brackets
                 $name = $matches[1].Trim()   # Extract the xName after 'tt.xName:'
                 $global:imageLinkMap[$name] = $link
@@ -268,12 +267,12 @@ function ConvertTo-Xaml {
             "^### (.+)" {
                 # Headline 
                 $text = $matches[1].Trim()
-                $xaml += "<TextBlock Text=''$text'' FontSize=''$HeadlineFontSize'' Margin=''0,18,0,18'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>`n"
+                $xaml += "<TextBlock Text=''$text'' FontSize=''$HeadlineFontSize'' Margin=''0,18,0,30'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>`n"
             }
             "^##### (.+)" {
                 ##### Headline
                 $text = $matches[1].Trim()  
-                $xaml += "<TextBlock Text='' • $text'' FontSize=''$HeadlineFontSize'' Margin=''0,44,0,10'' Foreground=''{DynamicResource PrimaryButtonForeground}'' FontWeight=''bold'' TextWrapping=''Wrap''/>`n" 
+                $xaml += "<TextBlock Text='' • $text'' FontSize=''$HeadlineFontSize'' Margin=''0,44,0,30'' Foreground=''{DynamicResource PrimaryButtonForeground}'' FontWeight=''bold'' TextWrapping=''Wrap''/>`n" 
             }
             "^#### (.+)" {
                 #### Description

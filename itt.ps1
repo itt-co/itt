@@ -1,9 +1,13 @@
+param (
+[string]$f,
+[switch]$i
+)
 Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'PresentationCore', 'WindowsBase'
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
 developer      = "Emad Adel"
-lastupdate     = "01/29/2025"
+lastupdate     = "01/31/2025"
 github         = "https://github.com/emadadel4/itt"
 telegram       = "https://t.me/emadadel4"
 blog           = "https://emadadel4.github.io"
@@ -6873,6 +6877,30 @@ Message -key "Empty_save_msg" -icon "Information" -action "OK"
 $itt.Search_placeholder.Visibility = "Visible"
 $itt.SearchInput.Text = $null
 }
+function Quick-Install {
+param (
+$file
+)
+$jsonData = Get-Content -Path $file -Raw | ConvertFrom-Json
+$filteredNames = $jsonData.Name
+$filterPredicate = {
+param($item)
+$checkBoxes = Get-CheckBoxesFromStackPanel -item $item
+foreach ($currentItemName in $filteredNames) {
+if ($currentItemName -eq $checkBoxes.Content) {
+$checkBoxes.IsChecked = $true
+break
+}
+}
+return $filteredNames -contains $checkBoxes.Content
+}
+$itt['window'].FindName('apps').IsSelected = $true
+$itt['window'].FindName('appslist').Clear()
+$collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt['window'].FindName('appslist').Items)
+$collectionView.Filter = $filterPredicate
+$itt.Search_placeholder.Visibility = "Visible"
+$itt.SearchInput.Text = $null
+}
 function Set-Registry {
 param (
 [array]$tweak
@@ -7156,7 +7184,10 @@ else
 Message -key "App_empty_select" -icon "info" -action "OK"
 return
 }
+if(-not $i)
+{
 $result = Message -key "Install_msg" -icon "ask" -action "YesNo"
+}
 if ($result -eq "no") {
 Show-Selected -ListView "AppsListView" -Mode "Default"
 Clear-Item -ListView "AppsListView"
@@ -7171,9 +7202,6 @@ $selectedApps | ForEach-Object {
 if ($_.Winget -ne "none" -or $_.Choco -ne "none")
 {
 $chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($_.Choco)"
-Remove-Item -Path "$chocoFolder" -Recurse -Force
-Remove-Item -Path "$chocoFolder.install" -Recurse -Force
-Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
 Install-App -Name $_.Name -Winget $_.Winget -Choco $_.Choco
 }
 else
@@ -12006,15 +12034,21 @@ $itt.event = [Windows.Markup.XamlReader]::Load($EventWindowReader)
 $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.CurretTheme))
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changelog'.Trim()
-$itt.event.FindName('date').text = '01/03/2025'.Trim()
+$itt.event.FindName('date').text = '01/31/2025'.Trim()
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
-})
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
@@ -12184,13 +12218,13 @@ HorizontalAlignment="Left" />
 <Grid Row="1" Background="Transparent" Margin="20">
 <ScrollViewer Name="ScrollViewer" VerticalScrollBarVisibility="Auto" Height="Auto">
 <StackPanel Orientation="Vertical">
-<TextBlock Text=''Watch demo'' FontSize=''20'' Margin=''0,18,0,18'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
-<Image x:Name=''ytv'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''>
+<TextBlock Text=''🎬 Watch demo'' FontSize=''20'' Margin=''0,18,0,30'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
+<Image x:Name=''ytv'' Cursor=''Hand'' Margin=''8'' Height=''Auto'' Width=''400''>
 <Image.Source>
 <BitmapImage UriSource=''https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/thumbnail.jpg''/>
 </Image.Source>
 </Image>
-<TextBlock Text='' • Keyboard Shortcuts'' FontSize=''20'' Margin=''0,44,0,10'' Foreground=''{DynamicResource PrimaryButtonForeground}'' FontWeight=''bold'' TextWrapping=''Wrap''/>
+<TextBlock Text='' • Keyboard Shortcuts'' FontSize=''20'' Margin=''0,44,0,30'' Foreground=''{DynamicResource PrimaryButtonForeground}'' FontWeight=''bold'' TextWrapping=''Wrap''/>
 <StackPanel Orientation=''Vertical''>
 <TextBlock Text=''• Ctrl+A: Clear category filter.'' Margin=''35,0,0,0'' FontSize=''16'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
 </StackPanel>
@@ -12230,28 +12264,40 @@ HorizontalAlignment="Left" />
 <StackPanel Orientation=''Vertical''>
 <TextBlock Text=''• Ctrl+G: Close application.'' Margin=''35,0,0,0'' FontSize=''16'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
 </StackPanel>
-<TextBlock Text='' • Download any Youtube video'' FontSize=''20'' Margin=''0,44,0,10'' Foreground=''{DynamicResource PrimaryButtonForeground}'' FontWeight=''bold'' TextWrapping=''Wrap''/>
-<Image x:Name=''shell'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''>
+<TextBlock Text='' • ⚡ Quick Install Your Saved Apps'' FontSize=''20'' Margin=''0,44,0,30'' Foreground=''{DynamicResource PrimaryButtonForeground}'' FontWeight=''bold'' TextWrapping=''Wrap''/>
+<Image x:Name=''preview'' Cursor=''Hand'' Margin=''8'' Height=''Auto'' Width=''400''>
+<Image.Source>
+<BitmapImage UriSource=''https://github.com/user-attachments/assets/47a321fb-6a8f-4d29-a9a4-bf69d82763a7''/>
+</Image.Source>
+</Image>
+<TextBlock Text=''You can install your saved apps at any time using the command'' FontSize=''16'' Margin=''25,25,35,0''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
+<Image x:Name=''preview2'' Cursor=''Hand'' Margin=''8'' Height=''Auto'' Width=''400''>
+<Image.Source>
+<BitmapImage UriSource=''https://github.com/user-attachments/assets/d673c922-8bc4-43b0-98b5-9b3b14fae43a''/>
+</Image.Source>
+</Image>
+<TextBlock Text='' • 📥 Download any Youtube video'' FontSize=''20'' Margin=''0,44,0,30'' Foreground=''{DynamicResource PrimaryButtonForeground}'' FontWeight=''bold'' TextWrapping=''Wrap''/>
+<Image x:Name=''shell'' Cursor=''Hand'' Margin=''8'' Height=''Auto'' Width=''400''>
 <Image.Source>
 <BitmapImage UriSource=''https://raw.githubusercontent.com/emadadel4/ShellTube/main/demo.jpg''/>
 </Image.Source>
 </Image>
 <TextBlock Text=''Shelltube is simple way to downnload videos and playlist from youtube just Launch it and start download your video you can Launch it from Third-party section.'' FontSize=''16'' Margin=''25,25,35,0''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
-<TextBlock Text='' • A Secret Feature Awaits – Unlock It'' FontSize=''20'' Margin=''0,44,0,10'' Foreground=''{DynamicResource PrimaryButtonForeground}'' FontWeight=''bold'' TextWrapping=''Wrap''/>
-<Image x:Name=''esg'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''>
+<TextBlock Text='' • 💡 A Secret Feature Awaits – Unlock It'' FontSize=''20'' Margin=''0,44,0,30'' Foreground=''{DynamicResource PrimaryButtonForeground}'' FontWeight=''bold'' TextWrapping=''Wrap''/>
+<Image x:Name=''esg'' Cursor=''Hand'' Margin=''8'' Height=''Auto'' Width=''400''>
 <Image.Source>
 <BitmapImage UriSource=''https://github.com/user-attachments/assets/edb67270-d9d2-4e94-8873-1c822c3afe2f''/>
 </Image.Source>
 </Image>
 <TextBlock Text=''Can You Find the Hidden Easter Egg? Open the source code and uncover the secret features waiting for you!'' FontSize=''16'' Margin=''25,25,35,0''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
-<TextBlock Text='' • Support Palestine - دعم فلسطين'' FontSize=''20'' Margin=''0,44,0,10'' Foreground=''{DynamicResource PrimaryButtonForeground}'' FontWeight=''bold'' TextWrapping=''Wrap''/>
-<Image x:Name=''ps'' Cursor=''Hand'' Margin=''0,0,0,0'' Height=''Auto'' Width=''400''>
+<TextBlock Text='' • ✊ Support Palestine - دعم فلسطين'' FontSize=''20'' Margin=''0,44,0,30'' Foreground=''{DynamicResource PrimaryButtonForeground}'' FontWeight=''bold'' TextWrapping=''Wrap''/>
+<Image x:Name=''ps'' Cursor=''Hand'' Margin=''8'' Height=''Auto'' Width=''400''>
 <Image.Source>
 <BitmapImage UriSource=''https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/ps_flag.jpg''/>
 </Image.Source>
 </Image>
 <TextBlock Text=''Do not hesitate to use your words and talk about Palestine In this age, where voices intertwine and humanitarian issues multiply, each of us has a role to play as an influential activist. Every post can reach someone who needs to hear this truth. Every message can be a source of inspiration or awareness for another person. Do not be afraid to express your opinions, for words are the tools through which we can build awareness and spread the truth. Make your platforms a space for dialogue, and be part of this movement toward positive change. Share stories, ideas, and news—everything you provide can be a step toward achieving justice. Together, we can be the voice for those who have no voice and work toward a fairer world. Let us unite and raise our voices in support of Palestine and to revive hope in the hearts of those who need it.'' FontSize=''16'' Margin=''25,25,35,0''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
-<TextBlock Text=''لا تتردد في استخدام كلمتك، وشارك في الحديث عن فلسطين، فصوتك قادر على إحداث التغيير  في هذا العصر، حيث تتداخل الأصوات وتتزايد القضايا الإنسانية، يبرز دور كل واحد منا كناشط مؤثر. كل منشور يمكن أن يصل إلى شخص يحتاج إلى سماع هذه الحقيقة. كل رسالة يمكن أن تكون مصدر إلهام أو توعية لشخص آخر. لا تخف من التعبير عن آرائك، فالكلمات هي الأداة التي نستطيع من خلالها بناء الوعي ونشر الحقائق. اجعل منصاتك مساحة للحوار، وكن جزءًا من هذه الحركة نحو التغيير الإيجابي. شارك قصصًا، وأفكارًا، وأخبارًا، فكل ما تقدمه يمكن أن يكون خطوة نحو تحقيق العدالة. معًا، يمكننا أن نكون صوتًا لمن لا صوت لهم، وأن نعمل من أجل عالم أكثر عدلاً. فلنتحد ونرفع أصواتنا لنصرة فلسطين ولإحياء الأمل في قلوب من يحتاجونه.'' FontSize=''16'' Margin=''25,25,35,0''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
+<TextBlock Text=''لا تتردد في استخدام كلمتك، وشارك في الحديث عن فلسطين، فصوتك قادر على إحداث التغيير في هذا العصر، حيث تتداخل الأصوات وتتزايد القضايا الإنسانية، يبرز دور كل واحد منا كناشط مؤثر. كل منشور يمكن أن يصل إلى شخص يحتاج إلى سماع هذه الحقيقة. كل رسالة يمكن أن تكون مصدر إلهام أو توعية لشخص آخر. لا تخف من التعبير عن آرائك، فالكلمات هي الأداة التي نستطيع من خلالها بناء الوعي ونشر الحقائق. اجعل منصاتك مساحة للحوار، وكن جزءًا من هذه الحركة نحو التغيير الإيجابي. شارك قصصًا، وأفكارًا، وأخبارًا، فكل ما تقدمه يمكن أن يكون خطوة نحو تحقيق العدالة. معًا، يمكننا أن نكون صوتًا لمن لا صوت لهم، وأن نعمل من أجل عالم أكثر عدلاً. فلنتحد ونرفع أصواتنا لنصرة فلسطين ولإحياء الأمل في قلوب من يحتاجونه.'' FontSize=''16'' Margin=''25,25,35,0''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
 </StackPanel>
 </ScrollViewer>
 </Grid>
@@ -12498,6 +12544,10 @@ if ([string]::IsNullOrEmpty($itt.SearchInput.Text)) {
 $itt.Search_placeholder.Visibility = "Visible"
 }
 });
+if ($i) {
+Quick-Install -file $f *> $null
+Invoke-Install *> $null
+}
 $itt["window"].add_Closing($onClosingEvent)
 $itt["window"].Add_PreViewKeyDown($KeyEvents)
 $itt["window"].ShowDialog() | Out-Null
