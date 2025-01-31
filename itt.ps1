@@ -6803,64 +6803,59 @@ if ($itt.ProcessRunning) {
 Message -key "Please_wait" -icon "Warning" -action "OK"
 return
 }
-$openFileDialog = New-Object "Microsoft.Win32.OpenFileDialog"
-$openFileDialog.Filter = "JSON files (*.itt)|*.itt"
-$openFileDialog.Title = "Open JSON File"
-$dialogResult = $openFileDialog.ShowDialog()
-if ($dialogResult -eq "OK") {
-$jsonData = Get-Content -Path $openFileDialog.FileName -Raw | ConvertFrom-Json
+$openFileDialog = New-Object Microsoft.Win32.OpenFileDialog -Property @{
+Filter = "JSON files (*.itt)|*.itt"
+Title  = "Open JSON File"
+}
+if ($openFileDialog.ShowDialog() -eq $true) {
+try {
+$jsonData = Get-Content -Path $openFileDialog.FileName -Raw | ConvertFrom-Json -ErrorAction Stop
 $filteredNames = $jsonData.Name
-$filterPredicate = {
+$appsList = $itt['window'].FindName('appslist')
+$collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($appsList.Items)
+$collectionView.Filter = {
 param($item)
 $checkBoxes = Get-CheckBoxesFromStackPanel -item $item
-foreach ($currentItemName in $filteredNames) {
-if ($currentItemName -eq $checkBoxes.Content) {
-$checkBoxes.IsChecked = $true
-break
-}
-}
-return $filteredNames -contains $checkBoxes.Content
+$checkBoxes.IsChecked = $filteredNames -contains $checkBoxes.Content
+return $checkBoxes.IsChecked
 }
 $itt['window'].FindName('apps').IsSelected = $true
-$itt['window'].FindName('appslist').Clear()
-$collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt['window'].FindName('appslist').Items)
-$collectionView.Filter = $filterPredicate
+$appsList.Clear()
 Message -NoneKey "Restored successfully" -icon "info" -action "OK"
+} catch {
+Write-Warning "Failed to load or parse JSON file: $_"
+Message -NoneKey "Failed to load JSON file" -icon "error" -action "OK"
+}
 }
 $itt.Search_placeholder.Visibility = "Visible"
 $itt.SearchInput.Text = $null
 }
 function SaveItemsToJson {
 if ($itt.ProcessRunning) {
-$msg = $itt.database.locales.Controls.$($itt.Language).Pleasewait
 Message -key "Please_wait" -icon "warning" -action "OK"
 return
 }
 ClearFilter
-$appsDictionary = @{}
-foreach ($app in $itt.database.Applications) {
-$appsDictionary[$app.Name] = $app
-}
-$items = @()
-foreach ($item in $itt.AppsListView.Items) {
+$appsDictionary = $itt.database.Applications | ForEach-Object { @{ $_.Name = $_ } }
+$items = foreach ($item in $itt.AppsListView.Items) {
 $checkBoxes = Get-CheckBoxesFromStackPanel -item $item
-if ($checkBoxes.IsChecked) {
-$app = $appsDictionary[$checkBoxes.Content]
-if ($app) {
-$itemObject = [PSCustomObject]@{
-Name   = $checkBoxes.Content
-check  = "true"
-}
-$items += $itemObject
+if ($checkBoxes.IsChecked -and $appsDictionary.ContainsKey($checkBoxes.Content)) {
+[PSCustomObject]@{
+Name  = $checkBoxes.Content
+Check = "true"
 }
 }
 }
-if ($items.Count -gt 0) {
-$saveFileDialog = New-Object "Microsoft.Win32.SaveFileDialog"
-$saveFileDialog.Filter = "JSON files (*.itt)|*.itt"
-$saveFileDialog.Title = "Save JSON File"
-$dialogResult = $saveFileDialog.ShowDialog()
-if ($dialogResult -eq "OK") {
+if ($items.Count -eq 0) {
+Message -key "Empty_save_msg" -icon "Information" -action "OK"
+return
+}
+$saveFileDialog = New-Object Microsoft.Win32.SaveFileDialog -Property @{
+Filter = "JSON files (*.itt)|*.itt"
+Title  = "Save JSON File"
+}
+if ($saveFileDialog.ShowDialog() -eq $true) {
+try {
 $items | ConvertTo-Json -Compress | Out-File -FilePath $saveFileDialog.FileName -Force
 Write-Host "Saved: $($saveFileDialog.FileName)"
 Message -NoneKey "Saved successfully" -icon "info" -action "OK"
@@ -6870,36 +6865,44 @@ if ($checkBoxes.IsChecked) {
 $checkBoxes.IsChecked = $false
 }
 }
+} catch {
+Write-Warning "Failed to save file: $_"
+Message -NoneKey "Failed to save file" -icon "error" -action "OK"
 }
-} else {
-Message -key "Empty_save_msg" -icon "Information" -action "OK"
 }
 $itt.Search_placeholder.Visibility = "Visible"
 $itt.SearchInput.Text = $null
 }
 function Quick-Install {
 param (
-$file
+[string]$file
 )
-$jsonData = Get-Content -Path $file -Raw | ConvertFrom-Json
+try {
+$jsonData = Get-Content -Path $file -Raw | ConvertFrom-Json -ErrorAction Stop
+} catch {
+Write-Warning "Failed to load or parse JSON file: $_"
+return
+}
+if (-not $jsonData) {
+Message -key "Empty_save_msg" -icon "Information" -action "OK"
+return
+}
 $filteredNames = $jsonData.Name
-$filterPredicate = {
+$appsList = $itt['window'].FindName('appslist')
+$collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($appsList.Items)
+$collectionView.Filter = {
 param($item)
 $checkBoxes = Get-CheckBoxesFromStackPanel -item $item
-foreach ($currentItemName in $filteredNames) {
-if ($currentItemName -eq $checkBoxes.Content) {
-$checkBoxes.IsChecked = $true
-break
-}
-}
-return $filteredNames -contains $checkBoxes.Content
+$checkBoxes.IsChecked = $filteredNames -contains $checkBoxes.Content
+return $checkBoxes.IsChecked
 }
 $itt['window'].FindName('apps').IsSelected = $true
-$itt['window'].FindName('appslist').Clear()
-$collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt['window'].FindName('appslist').Items)
-$collectionView.Filter = $filterPredicate
-$itt.Search_placeholder.Visibility = "Visible"
-$itt.SearchInput.Text = $null
+$appsList.Clear()
+try {
+Invoke-Install *> $null
+} catch {
+Write-Warning "Installation failed: $_"
+}
 }
 function Set-Registry {
 param (
@@ -12038,23 +12041,23 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/31/2025'.Trim()
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
-})
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
@@ -12549,7 +12552,6 @@ $itt.Search_placeholder.Visibility = "Visible"
 });
 if ($i) {
 Quick-Install -file $f *> $null
-Invoke-Install *> $null
 }
 $itt["window"].add_Closing($onClosingEvent)
 $itt["window"].Add_PreViewKeyDown($KeyEvents)
