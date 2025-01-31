@@ -24,11 +24,11 @@
 
 ##### ⚡ Quick Install Your Saved Apps
 
-![itt.xName:preview [https://www.youtube.com/watch?v=nI7rUhWeOrA]](https://github.com/user-attachments/assets/47a321fb-6a8f-4d29-a9a4-bf69d82763a7)
+![itt.xName:preview [https://github.com/emadadel4/itt]](https://github.com/user-attachments/assets/47a321fb-6a8f-4d29-a9a4-bf69d82763a7)
 
 #### You can install your saved apps at any time using the command
 
-![itt.xName:preview2 [https://www.youtube.com/watch?v=nI7rUhWeOrA]](https://github.com/user-attachments/assets/d673c922-8bc4-43b0-98b5-9b3b14fae43a)
+![itt.xName:preview2 [https://github.com/emadadel4/itt]](https://github.com/user-attachments/assets/d673c922-8bc4-43b0-98b5-9b3b14fae43a)
 
 ##### 📥 Download any Youtube video
 
