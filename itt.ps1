@@ -12039,6 +12039,12 @@ $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/31/2025'.Trim()
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
@@ -12048,13 +12054,7 @@ $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
-})
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
-})
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+Start-Process('https://github.com/emadadel4/itt')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
@@ -12073,7 +12073,7 @@ $storedDateStr = $itt.event.FindName('date').text
 $storedDate = [datetime]::ParseExact($storedDateStr, 'MM/dd/yyyy', $null)
 $currentDate = Get-Date
 $daysElapsed = ($currentDate - $storedDate).Days
-if ($daysElapsed -lt 1 -or $itt.PopupWindow -eq "0") {
+if ($daysElapsed -lt 1 -or $itt.PopupWindow -eq "0" -and -not $i) {
 $itt.event.ShowDialog() | Out-Null
 }
 }
