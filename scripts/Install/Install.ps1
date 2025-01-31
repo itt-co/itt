@@ -37,7 +37,10 @@ function Invoke-Install {
         return
     }
 
-    $result = Message -key "Install_msg" -icon "ask" -action "YesNo"
+    if(-not $i)
+    {
+        $result = Message -key "Install_msg" -icon "ask" -action "YesNo"
+    }
     
     if ($result -eq "no") {
         Show-Selected -ListView "AppsListView" -Mode "Default"
@@ -61,9 +64,9 @@ function Invoke-Install {
             {
                 # Some packages won't install until the package folder is removed.
                 $chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($_.Choco)"
-                Remove-Item -Path "$chocoFolder" -Recurse -Force
-                Remove-Item -Path "$chocoFolder.install" -Recurse -Force
-                Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
+                #Remove-Item -Path "$chocoFolder" -Recurse -Force
+                #Remove-Item -Path "$chocoFolder.install" -Recurse -Force
+                #Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
                 Install-App -Name $_.Name -Winget $_.Winget -Choco $_.Choco
                 # debug start
                     if($debug){Add-Log -Message $_.Choco -Level "debug"}
