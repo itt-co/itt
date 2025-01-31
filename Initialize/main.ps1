@@ -64,11 +64,11 @@ $itt.SearchInput.Add_LostFocus({
     }
 });
 
+# quick install
 if ($i) {
     Quick-Install -file $f *> $null
     Invoke-Install *> $null
 }
-
 
 # Close Event handler
 $itt["window"].add_Closing($onClosingEvent)
