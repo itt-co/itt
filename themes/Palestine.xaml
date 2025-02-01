@@ -1,22 +1,24 @@
 <!-- {Palestine} -->
 <!-- by {emadadel} -->
 <ResourceDictionary x:Key="palestine">
-  <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#0e0e0e"/>
-  <SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#191919"/>
-  <SolidColorBrush x:Key="PrimaryButtonForeground" Color="#FFB80000" />
-  <SolidColorBrush x:Key="TextColorPrimary" Color="WhiteSmoke" />
-  <SolidColorBrush x:Key="TextColorSecondaryColor" Color="White"/>
-  <SolidColorBrush x:Key="TextColorSecondaryColor2" Color="#bbbbbb"/>
-  <SolidColorBrush x:Key="BorderBrush" Color="#2b2d31" />
-  <SolidColorBrush x:Key="ButtonBorderColor" Color="#1DB954"/>
-  <SolidColorBrush x:Key="Label" Color="#3f3f3f"/>
-  <SolidColorBrush x:Key="HighlightColor" Color="#FFD10D0D"/>
-  <SolidColorBrush x:Key="ToggleSwitchBackgroundColor" Color="#282828"/>
-  <SolidColorBrush x:Key="ToggleSwitchForegroundColor" Color="#282828"/>
-  <SolidColorBrush x:Key="ToggleSwitchEnableColor" Color="white"/>
-  <SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="#c9c9c7"/>
-  <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#c9c9c7"/>
-  <Color x:Key="ListViewCardLeftColor">#191919</Color> 
-  <Color x:Key="ListViewCardRightColor">#191919</Color>
+ <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#FF1F1F1F"/>
+ <SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#2C211A"/>
+ <SolidColorBrush x:Key="PrimaryButtonForeground" Color="#FFB80000" />
+ <SolidColorBrush x:Key="PrimaryButtonHighlight" Color="White" />
+ <SolidColorBrush x:Key="TextColorPrimary" Color="WhiteSmoke" />
+ <SolidColorBrush x:Key="TextColorSecondaryColor" Color="White"/>
+ <SolidColorBrush x:Key="TextColorSecondaryColor2" Color="#bbbbbb"/>
+ <SolidColorBrush x:Key="BorderBrush" Color="#2b2d31" />
+ <SolidColorBrush x:Key="ButtonBorderColor" Color="#1DB954"/>
+ <SolidColorBrush x:Key="Label" Color="#3f3f3f"/>
+ <SolidColorBrush x:Key="HighlightColor" Color="#FFD10D0D"/>
+ <SolidColorBrush x:Key="ToggleSwitchBackgroundColor" Color="#282828"/>
+ <SolidColorBrush x:Key="ToggleSwitchForegroundColor" Color="#282828"/>
+ <SolidColorBrush x:Key="ToggleSwitchEnableColor" Color="white"/>
+ <SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="#c9c9c7"/>
+ <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#c9c9c7"/>
+ <Color x:Key="ListViewCardLeftColor">#D82C211A</Color> 
+ <Color x:Key="ListViewCardRightColor">#D82C211A</Color>
+ <ImageBrush x:Key="BackgroundImage" ImageSource="https://w.wallhaven.cc/full/2y/wallhaven-2yv5l9.jpg" Stretch="UniformToFill"/>
 </ResourceDictionary>
 <!-- Name {Palestine} -->
