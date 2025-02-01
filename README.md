@@ -85,7 +85,7 @@
 <br>
 
 <p align="center" dir="auto">
-    <a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/demo.PNG"><img src="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/demo.PNG" alt="ITT Demo" style="max-width: 100%;"></a>
+    <a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Images/themes.gif"><img src="https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Images/themes.gif" alt="ITT Demo" style="max-width: 100%;"></a>
 </p>
 
 <p>
