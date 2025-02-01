@@ -137,9 +137,21 @@ function Quick-Install {
 
         # Get file local or remote
         if ($file -match "^https?://") {
-            $jsonData = Invoke-WebRequest -Uri $file -UseBasicParsing | Select-Object -ExpandProperty Content | ConvertFrom-Json -ErrorAction Stop
+
+            $jsonData = Invoke-RestMethod -Uri $file -ErrorAction Stop
+
+            if ($jsonData -isnot [array]) {
+                Message -NoneKey "URL is valid or file has forbidden" -icon "Warning" -action "OK"
+                return
+            }
+
         } else {
-            $jsonData = Get-Content -Path $file -Raw | ConvertFrom-Json -ErrorAction Stop
+            if($file -match "\.itt$"){
+                $jsonData = Get-Content -Path $file -Raw | ConvertFrom-Json -ErrorAction Stop
+            }else{
+                Message -NoneKey "Invalid file format. Expected .itt file." -icon "Warning" -action "OK"
+                return
+            }
         }
 
     } catch {
