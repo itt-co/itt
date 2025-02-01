@@ -7,7 +7,7 @@ $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
 developer      = "Emad Adel"
-lastupdate     = "01/31/2025"
+lastupdate     = "02/01/2025"
 github         = "https://github.com/emadadel4/itt"
 telegram       = "https://t.me/emadadel4"
 blog           = "https://emadadel4.github.io"
@@ -6126,6 +6126,9 @@ SwitchToSystem
 "Dark" {
 Set-Theme -Theme $action
 }
+"DarkKnight" {
+Set-Theme -Theme $action
+}
 "Light" {
 Set-Theme -Theme $action
 }
@@ -8141,7 +8144,7 @@ BorderThickness="{TemplateBinding BorderThickness}">
 <Border.Background>
 <LinearGradientBrush StartPoint="1,5" EndPoint="5,5">
 <GradientStop Color="{DynamicResource ListViewCardLeftColor}" Offset="1"/>
-<GradientStop Color="{DynamicResource CardRight}" Offset="1"/>
+<GradientStop Color="{DynamicResource ListViewCardRightColor}" Offset="1"/>
 </LinearGradientBrush>
 </Border.Background>
 <ContentPresenter HorizontalAlignment="Left"
@@ -8627,6 +8630,28 @@ To="5,0,0,0">
 <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#c9c9c7"/>
 <Color x:Key="ListViewCardLeftColor">#3c3f44</Color>
 <Color x:Key="ListViewCardRightColor">#2b2d31</Color>
+<ImageBrush x:Key="BackgroundImage" ImageSource="{x:Null}" Stretch="UniformToFill"/>
+</ResourceDictionary>
+<ResourceDictionary x:Key="DarkKnight">
+<SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#081015"/>
+<SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#17181D"/>
+<SolidColorBrush x:Key="PrimaryButtonForeground" Color="#004D69" />
+<SolidColorBrush x:Key="PrimaryButtonHighlight" Color="White" />
+<SolidColorBrush x:Key="TextColorPrimary" Color="WhiteSmoke" />
+<SolidColorBrush x:Key="TextColorSecondaryColor" Color="White"/>
+<SolidColorBrush x:Key="TextColorSecondaryColor2" Color="#bbbbbb"/>
+<SolidColorBrush x:Key="BorderBrush" Color="#2b2d31" />
+<SolidColorBrush x:Key="ButtonBorderColor" Color="#1DB954"/>
+<SolidColorBrush x:Key="Label" Color="#3f3f3f"/>
+<SolidColorBrush x:Key="HighlightColor" Color="#066ca1"/>
+<SolidColorBrush x:Key="ToggleSwitchBackgroundColor" Color="#282828"/>
+<SolidColorBrush x:Key="ToggleSwitchForegroundColor" Color="#282828"/>
+<SolidColorBrush x:Key="ToggleSwitchEnableColor" Color="white"/>
+<SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="#c9c9c7"/>
+<SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#c9c9c7"/>
+<Color x:Key="ListViewCardLeftColor">#E117181D</Color>
+<Color x:Key="ListViewCardRightColor">#E117181D</Color>
+<ImageBrush x:Key="BackgroundImage" ImageSource="https://images.hdqwalls.com/wallpapers/the-batman-fan-made-4k-xx.jpg" Stretch="UniformToFill"/>
 </ResourceDictionary>
 <ResourceDictionary x:Key="Light">
 <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="White"/>
@@ -8647,11 +8672,13 @@ To="5,0,0,0">
 <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="black"/>
 <Color x:Key="ListViewCardLeftColor">#f0f0f0</Color>
 <Color x:Key="ListViewCardRightColor">#ffffff</Color>
+<ImageBrush x:Key="BackgroundImage" ImageSource="{x:Null}" Stretch="UniformToFill"/>
 </ResourceDictionary>
 <ResourceDictionary x:Key="palestine">
-<SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#0e0e0e"/>
-<SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#191919"/>
+<SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#FF1F1F1F"/>
+<SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#2C211A"/>
 <SolidColorBrush x:Key="PrimaryButtonForeground" Color="#FFB80000" />
+<SolidColorBrush x:Key="PrimaryButtonHighlight" Color="White" />
 <SolidColorBrush x:Key="TextColorPrimary" Color="WhiteSmoke" />
 <SolidColorBrush x:Key="TextColorSecondaryColor" Color="White"/>
 <SolidColorBrush x:Key="TextColorSecondaryColor2" Color="#bbbbbb"/>
@@ -8664,11 +8691,12 @@ To="5,0,0,0">
 <SolidColorBrush x:Key="ToggleSwitchEnableColor" Color="white"/>
 <SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="#c9c9c7"/>
 <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#c9c9c7"/>
-<Color x:Key="ListViewCardLeftColor">#191919</Color>
-<Color x:Key="ListViewCardRightColor">#191919</Color>
+<Color x:Key="ListViewCardLeftColor">#D82C211A</Color>
+<Color x:Key="ListViewCardRightColor">#D82C211A</Color>
+<ImageBrush x:Key="BackgroundImage" ImageSource="https://w.wallhaven.cc/full/2y/wallhaven-2yv5l9.jpg" Stretch="UniformToFill"/>
 </ResourceDictionary>
 </Window.Resources>
-<Grid>
+<Grid Background="{DynamicResource BackgroundImage}">
 <Grid.RowDefinitions>
 <RowDefinition Height="Auto"/>
 <RowDefinition Height="*"/>
@@ -8829,6 +8857,7 @@ To="5,0,0,0">
 </MenuItem.Header>
 </MenuItem>
 <MenuItem Name="Dark" Header="Dark"/>
+<MenuItem Name="DarkKnight" Header="Dark Knight"/>
 <MenuItem Name="Light" Header="Light"/>
 <MenuItem Name="palestine" Header="Palestine"/>
 </MenuItem>
@@ -12045,20 +12074,20 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/31/2025'.Trim()
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('ps').add_MouseLeftButtonDown({
-Start-Process('https://www.palestinercs.org/en/Donation')
-})
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
+$itt.event.FindName('ps').add_MouseLeftButtonDown({
+Start-Process('https://www.palestinercs.org/en/Donation')
+})
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
