@@ -12319,7 +12319,7 @@ HorizontalAlignment="Left" />
 <TextBlock Text=''You can install your saved apps at any time using the command'' FontSize=''16'' Margin=''25,25,35,0''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
 <Image x:Name=''preview2'' Cursor=''Hand'' Margin=''8'' Height=''Auto'' Width=''400''>
 <Image.Source>
-<BitmapImage UriSource=''https://github.com/user-attachments/assets/d673c922-8bc4-43b0-98b5-9b3b14fae43a''/>
+<BitmapImage UriSource=''https://github.com/user-attachments/assets/2a4fedc7-1d0e-419d-940c-b784edc7d1d1''/>
 </Image.Source>
 </Image>
 <TextBlock Text='' • 📥 Download any Youtube video'' FontSize=''20'' Margin=''0,44,0,30'' Foreground=''{DynamicResource PrimaryButtonForeground}'' FontWeight=''bold'' TextWrapping=''Wrap''/>
