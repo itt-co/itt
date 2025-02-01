@@ -7206,6 +7206,7 @@ $result = Message -key "Install_msg" -icon "ask" -action "YesNo"
 }
 if ($result -eq "no") {
 Show-Selected -ListView "AppsListView" -Mode "Default"
+Clear-Item -ListView "AppsListView"
 return
 }
 Invoke-ScriptBlock -ArgumentList $selectedApps $QuickInstall, $debug -debug $debug -ScriptBlock {
