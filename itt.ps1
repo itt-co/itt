@@ -1,5 +1,6 @@
 param (
-[string]$i
+[string]$i,
+[bool]$QuickInstall
 )
 Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'PresentationCore', 'WindowsBase'
 $itt = [Hashtable]::Synchronized(@{
@@ -6879,6 +6880,7 @@ function Quick-Install {
 param (
 [string]$file
 )
+$QuickInstall = $true
 try {
 if ($file -match "^https?://") {
 $jsonData = Invoke-RestMethod -Uri $file -ErrorAction Stop
@@ -6897,6 +6899,7 @@ return
 Write-Warning "Failed to load or parse JSON file: $_"
 return
 }
+if($jsonData -eq $null){return}
 $filteredNames = $jsonData.Name
 $appsList = $itt['window'].FindName('appslist')
 $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($appsList.Items)
@@ -7197,17 +7200,16 @@ else
 Message -key "App_empty_select" -icon "info" -action "OK"
 return
 }
-if(-not $i)
+if($QuickInstall -eq $false)
 {
 $result = Message -key "Install_msg" -icon "ask" -action "YesNo"
 }
 if ($result -eq "no") {
 Show-Selected -ListView "AppsListView" -Mode "Default"
-Clear-Item -ListView "AppsListView"
 return
 }
-Invoke-ScriptBlock -ArgumentList $selectedApps -debug $debug -ScriptBlock {
-param($selectedApps ,$debug)
+Invoke-ScriptBlock -ArgumentList $selectedApps $QuickInstall, $debug -debug $debug -ScriptBlock {
+param($selectedApps ,$QuickInstall ,$debug)
 $itt.ProcessRunning = $true
 UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "Downloading" -TextIcon "installIcon" -Icon "  " -Width "auto"
 $itt["window"].Dispatcher.Invoke([action]{ Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
@@ -7232,6 +7234,7 @@ Native-Downloader `
 }
 Finish -ListView "AppsListView"
 $itt.ProcessRunning = $false
+$QuickInstall = $false
 }
 }
 function Invoke-Apply {
@@ -12077,22 +12080,22 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/31/2025'.Trim()
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('ps').add_MouseLeftButtonDown({
-Start-Process('https://www.palestinercs.org/en/Donation')
-})
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
+$itt.event.FindName('ps').add_MouseLeftButtonDown({
+Start-Process('https://www.palestinercs.org/en/Donation')
+})
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $CloseBtn.add_MouseLeftButtonDown({
