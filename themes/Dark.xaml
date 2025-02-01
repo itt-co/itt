@@ -1,23 +1,24 @@
 <!-- {Dark} -->
 <!-- by {emadadel} -->
-        <ResourceDictionary x:Key="Dark">
-                <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#2b2d31"/>
-                <SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#3c3f44"/>
-                <SolidColorBrush x:Key="PrimaryButtonForeground" Color="#098fd4" />
-                <SolidColorBrush x:Key="PrimaryButtonHighlight" Color="White" />
-                <SolidColorBrush x:Key="TextColorPrimary" Color="WhiteSmoke" />
-                <SolidColorBrush x:Key="TextColorSecondaryColor" Color="White"/>
-                <SolidColorBrush x:Key="TextColorSecondaryColor2" Color="#bbbbbb"/>
-                <SolidColorBrush x:Key="BorderBrush" Color="#2b2d31" />
-                <SolidColorBrush x:Key="ButtonBorderColor" Color="#1DB954"/>
-                <SolidColorBrush x:Key="Label" Color="#3f3f3f"/>
-                <SolidColorBrush x:Key="HighlightColor" Color="#066ca1"/>
-                <SolidColorBrush x:Key="ToggleSwitchBackgroundColor" Color="#282828"/>
-                <SolidColorBrush x:Key="ToggleSwitchForegroundColor" Color="#282828"/>
-                <SolidColorBrush x:Key="ToggleSwitchEnableColor" Color="white"/>
-                <SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="#c9c9c7"/>
-                <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#c9c9c7"/>
-                <Color x:Key="ListViewCardLeftColor">#3c3f44</Color> 
-                <Color x:Key="ListViewCardRightColor">#2b2d31</Color>
-        </ResourceDictionary>
+<ResourceDictionary x:Key="Dark">
+ <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#2b2d31"/>
+ <SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#3c3f44"/>
+ <SolidColorBrush x:Key="PrimaryButtonForeground" Color="#098fd4" />
+ <SolidColorBrush x:Key="PrimaryButtonHighlight" Color="White" />
+ <SolidColorBrush x:Key="TextColorPrimary" Color="WhiteSmoke" />
+ <SolidColorBrush x:Key="TextColorSecondaryColor" Color="White"/>
+ <SolidColorBrush x:Key="TextColorSecondaryColor2" Color="#bbbbbb"/>
+ <SolidColorBrush x:Key="BorderBrush" Color="#2b2d31" />
+ <SolidColorBrush x:Key="ButtonBorderColor" Color="#1DB954"/>
+ <SolidColorBrush x:Key="Label" Color="#3f3f3f"/>
+ <SolidColorBrush x:Key="HighlightColor" Color="#066ca1"/>
+ <SolidColorBrush x:Key="ToggleSwitchBackgroundColor" Color="#282828"/>
+ <SolidColorBrush x:Key="ToggleSwitchForegroundColor" Color="#282828"/>
+ <SolidColorBrush x:Key="ToggleSwitchEnableColor" Color="white"/>
+ <SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="#c9c9c7"/>
+ <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#c9c9c7"/>
+ <Color x:Key="ListViewCardLeftColor">#3c3f44</Color> 
+ <Color x:Key="ListViewCardRightColor">#2b2d31</Color>
+ <ImageBrush x:Key="BackgroundImage" ImageSource="{x:Null}" Stretch="UniformToFill"/>
+</ResourceDictionary>
 <!--{Dark}-->
