@@ -18,7 +18,9 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
     {{Style}}
     {{Colors}}
 </Window.Resources>
-<Grid>
+
+<Grid Background="{DynamicResource BackgroundImage}">
+
     <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
