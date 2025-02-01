@@ -132,6 +132,8 @@ function Quick-Install {
         [string]$file
     )
 
+        $QuickInstall = $true
+
         try {
             # Get file local or remote
             if ($file -match "^https?://") {
@@ -157,6 +159,9 @@ function Quick-Install {
             Write-Warning "Failed to load or parse JSON file: $_"
             return
         }
+
+
+    if($jsonData -eq $null){return}
 
     # Extract names from JSON data
     $filteredNames = $jsonData.Name
