@@ -52,14 +52,14 @@ $onClosingEvent = {
 $itt["window"].Add_ContentRendered({
         Startup
         Show-Event
-})
-
-# Search input
-    $itt.SearchInput.Add_GotFocus({
-            $itt.Search_placeholder.Visibility = "Hidden"
     })
 
-    $itt.SearchInput.Add_LostFocus({
+# Search input
+$itt.SearchInput.Add_GotFocus({
+        $itt.Search_placeholder.Visibility = "Hidden"
+    })
+
+$itt.SearchInput.Add_LostFocus({
         if ([string]::IsNullOrEmpty($itt.SearchInput.Text)) {
             $itt.Search_placeholder.Visibility = "Visible"
         }
@@ -67,9 +67,9 @@ $itt["window"].Add_ContentRendered({
 # Search input
 
 # Quick install
-    if ($i) {
-        Quick-Install -file $f *> $null
-    }
+if ($i) {
+    Quick-Install -file $i *> $null
+}
 # Quick install
 
 # Close Event handler
