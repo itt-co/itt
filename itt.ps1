@@ -8711,7 +8711,7 @@ To="5,0,0,0">
 <Menu Grid.Row="0" Grid.Column="0" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Left" BorderThickness="0">
 <MenuItem Background="Transparent" BorderBrush="Transparent" BorderThickness="0" IsEnabled="False" ToolTip="Emad Adel">
 <MenuItem.Icon>
-<Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/logo.png" Width="70" Height="Auto" Margin="5,5,0,0"></Image>
+<Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/logo.png" Width="90" Height="Auto" Margin="5,5,0,0"></Image>
 </MenuItem.Icon>
 </MenuItem>
 <MenuItem VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="Transparent">
