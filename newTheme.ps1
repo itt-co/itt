@@ -26,23 +26,25 @@ try {
   <!-- {$themeName} -->
   <!-- by {$authorName} -->
   <ResourceDictionary x:Key="$Key">
-    <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="Black"/>
-    <SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#FF111111"/>
-    <SolidColorBrush x:Key="PrimaryButtonForeground" Color="#FFB80000" />
-    <SolidColorBrush x:Key="TextColorPrimary" Color="WhiteSmoke" />
-    <SolidColorBrush x:Key="TextColorSecondaryColor" Color="White"/>
-    <SolidColorBrush x:Key="TextColorSecondaryColor2" Color="#bbbbbb"/>
-    <SolidColorBrush x:Key="BorderBrush" Color="#2b2d31" />
-    <SolidColorBrush x:Key="ButtonBorderColor" Color="#1DB954"/>
-    <SolidColorBrush x:Key="Label" Color="#3f3f3f"/>
-    <SolidColorBrush x:Key="HighlightColor" Color="#FFB80000"/>
+    <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="White"/>
+    <SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="WhiteSmoke"/>
+    <SolidColorBrush x:Key="PrimaryButtonForeground" Color="#1976d2" />
+    <SolidColorBrush x:Key="PrimaryButtonHighlight" Color="White" />
+    <SolidColorBrush x:Key="TextColorPrimary" Color="Black" />
+    <SolidColorBrush x:Key="TextColorSecondaryColor" Color="Black"/>
+    <SolidColorBrush x:Key="TextColorSecondaryColor2" Color="#4B5361"/>
+    <SolidColorBrush x:Key="BorderBrush" Color="#FFB3B3B3"/>
+    <SolidColorBrush x:Key="ButtonBorderColor" Color="#525FE1"/>
+    <SolidColorBrush x:Key="Label" Color="LightBlue"/>
+    <SolidColorBrush x:Key="HighlightColor" Color="#098fd4"/>
     <SolidColorBrush x:Key="ToggleSwitchBackgroundColor" Color="#282828"/>
     <SolidColorBrush x:Key="ToggleSwitchForegroundColor" Color="#282828"/>
     <SolidColorBrush x:Key="ToggleSwitchEnableColor" Color="white"/>
-    <SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="#c9c9c7"/>
-    <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#c9c9c7"/>
-    <Color x:Key="ListViewCardLeftColor">#FF1B1B1B</Color> 
-    <Color x:Key="ListViewCardRightColor">#FF1B1B1B</Color>
+    <SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="black"/>
+    <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="black"/>
+    <Color x:Key="ListViewCardLeftColor">#f0f0f0</Color>
+    <Color x:Key="ListViewCardRightColor">#ffffff</Color>
+    <ImageBrush x:Key="BackgroundImage" ImageSource="{x:Null}" Stretch="UniformToFill"/>
   </ResourceDictionary>
   <!-- Name {$themeName} -->
 "@
