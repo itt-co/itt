@@ -123,7 +123,7 @@
 
 ## ⚡ Quick Install Your Saved Apps
 
-<pre><code>iex "& { $(irm bit.ly/ittea) } -i -f .\myapps.itt"</code></pre>
+<pre><code>iex "& { $(irm bit.ly/ittea) } -i .\myapps.itt"</code></pre>
 
 <div align="center">
   
