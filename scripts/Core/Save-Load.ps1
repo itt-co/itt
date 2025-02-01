@@ -132,38 +132,31 @@ function Quick-Install {
         [string]$file
     )
 
-    # Load JSON data
-    try {
+        try {
+            # Get file local or remote
+            if ($file -match "^https?://") {
 
-        # Get file local or remote
-        if ($file -match "^https?://") {
+                $jsonData = Invoke-RestMethod -Uri $file -ErrorAction Stop
 
-            $jsonData = Invoke-RestMethod -Uri $file -ErrorAction Stop
+                if ($jsonData -isnot [array] -or $jsonData.Count -eq 0) {
+                    Message -NoneKey "The file is corrupt or access is forbidden" -icon "Warning" -action "OK"
+                    return
+                }
 
-            if ($jsonData -isnot [array]) {
-                Message -NoneKey "URL is valid or file has forbidden" -icon "Warning" -action "OK"
-                return
-            }
+            } else {
 
-        } else {
-            if($file -match "\.itt$"){
                 $jsonData = Get-Content -Path $file -Raw | ConvertFrom-Json -ErrorAction Stop
-            }else{
-                Message -NoneKey "Invalid file format. Expected .itt file." -icon "Warning" -action "OK"
-                return
+
+                if($file -notmatch "\.itt"){
+                    Message -NoneKey "Invalid file format. Expected .itt file." -icon "Warning" -action "OK"
+                    return
+                }
             }
+
+        } catch {
+            Write-Warning "Failed to load or parse JSON file: $_"
+            return
         }
-
-    } catch {
-        Write-Warning "Failed to load or parse JSON file: $_"
-        return
-    }
-
-    # Show message if the file is empty
-    if (-not $jsonData) {
-        Message -key "Empty_save_msg" -icon "Information" -action "OK"
-        return
-    }
 
     # Extract names from JSON data
     $filteredNames = $jsonData.Name
