@@ -44,7 +44,7 @@ function Invoke-Install {
     
     if ($result -eq "no") {
         Show-Selected -ListView "AppsListView" -Mode "Default"
-        #Clear-Item -ListView "AppsListView"
+        Clear-Item -ListView "AppsListView"
         return
     }
 
