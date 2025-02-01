@@ -1,9 +1,10 @@
 param (
     # debug start
-    [switch]$Debug,
+     [switch]$Debug,
     # debug end
     # Quick install
-    [string]$i
+    [string]$i,
+    [bool]$QuickInstall
 )
 
 # Load DLLs
