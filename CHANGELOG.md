@@ -28,7 +28,8 @@
 
 #### You can install your saved apps at any time using the command
 
-![itt.xName:preview2 [https://github.com/emadadel4/itt]](https://github.com/user-attachments/assets/d673c922-8bc4-43b0-98b5-9b3b14fae43a)
+![itt.xName:preview2 [https://github.com/emadadel4/itt]](https://github.com/user-attachments/assets/2a4fedc7-1d0e-419d-940c-b784edc7d1d1)
+
 
 ##### 📥 Download any Youtube video
 
