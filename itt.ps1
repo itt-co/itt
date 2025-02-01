@@ -1,6 +1,5 @@
 param (
-[string]$f,
-[switch]$i
+[string]$i
 )
 Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'PresentationCore', 'WindowsBase'
 $itt = [Hashtable]::Synchronized(@{
@@ -36,8 +35,7 @@ New-Item -ItemType Directory -Path $ittDir -Force | Out-Null
 }
 $logDir = Join-Path $ittDir 'logs'
 $timestamp = Get-Date -Format "yyyy-MM-dd"
-Start-Transcript -Path "$logDir\log_$timestamp.log" -Append -NoClobber
-Clear-Host
+Start-Transcript -Path "$logDir\log_$timestamp.log" -Append -NoClobber *> $null
 $itt.database.Applications = @'
 [
 {
@@ -12075,23 +12073,23 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/31/2025'.Trim()
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
@@ -12585,7 +12583,7 @@ $itt.Search_placeholder.Visibility = "Visible"
 }
 });
 if ($i) {
-Quick-Install -file $f *> $null
+Quick-Install -file $i *> $null
 }
 $itt["window"].add_Closing($onClosingEvent)
 $itt["window"].Add_PreViewKeyDown($KeyEvents)
