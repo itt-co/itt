@@ -37,20 +37,20 @@ function Invoke-Install {
         return
     }
 
-    if(-not $i)
+    if($QuickInstall -eq $false)
     {
         $result = Message -key "Install_msg" -icon "ask" -action "YesNo"
     }
     
     if ($result -eq "no") {
         Show-Selected -ListView "AppsListView" -Mode "Default"
-        Clear-Item -ListView "AppsListView"
+        #Clear-Item -ListView "AppsListView"
         return
     }
 
-    Invoke-ScriptBlock -ArgumentList $selectedApps -debug $debug -ScriptBlock {
+    Invoke-ScriptBlock -ArgumentList $selectedApps $QuickInstall, $debug -debug $debug -ScriptBlock {
 
-        param($selectedApps ,$debug)
+        param($selectedApps ,$QuickInstall ,$debug)
 
         $itt.ProcessRunning = $true
 
@@ -88,6 +88,8 @@ function Invoke-Install {
 
         Finish -ListView "AppsListView"
         $itt.ProcessRunning = $false
+        $QuickInstall = $false
+        
     }
 }
 function Invoke-Apply {
