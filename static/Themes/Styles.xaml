@@ -94,7 +94,7 @@
                         <Border.Background>
                             <LinearGradientBrush StartPoint="1,5" EndPoint="5,5">
                                 <GradientStop Color="{DynamicResource ListViewCardLeftColor}" Offset="1"/>
-                                <GradientStop Color="{DynamicResource CardRight}" Offset="1"/>
+                                <GradientStop Color="{DynamicResource ListViewCardRightColor}" Offset="1"/>
                             </LinearGradientBrush>
                         </Border.Background>
                         <ContentPresenter HorizontalAlignment="Left"
