@@ -6882,24 +6882,19 @@ param (
 try {
 if ($file -match "^https?://") {
 $jsonData = Invoke-RestMethod -Uri $file -ErrorAction Stop
-if ($jsonData -isnot [array]) {
-Message -NoneKey "URL is valid or file has forbidden" -icon "Warning" -action "OK"
+if ($jsonData -isnot [array] -or $jsonData.Count -eq 0) {
+Message -NoneKey "The file is corrupt or access is forbidden" -icon "Warning" -action "OK"
 return
 }
 } else {
-if($file -match "\.itt$"){
 $jsonData = Get-Content -Path $file -Raw | ConvertFrom-Json -ErrorAction Stop
-}else{
+if($file -notmatch "\.itt"){
 Message -NoneKey "Invalid file format. Expected .itt file." -icon "Warning" -action "OK"
 return
 }
 }
 } catch {
 Write-Warning "Failed to load or parse JSON file: $_"
-return
-}
-if (-not $jsonData) {
-Message -key "Empty_save_msg" -icon "Information" -action "OK"
 return
 }
 $filteredNames = $jsonData.Name
@@ -12082,14 +12077,11 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/31/2025'.Trim()
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
+$itt.event.FindName('ps').add_MouseLeftButtonDown({
+Start-Process('https://www.palestinercs.org/en/Donation')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
@@ -12097,8 +12089,11 @@ Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
-$itt.event.FindName('ps').add_MouseLeftButtonDown({
-Start-Process('https://www.palestinercs.org/en/Donation')
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
