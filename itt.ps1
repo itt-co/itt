@@ -6317,6 +6317,7 @@ Notify -title "$title" -msg "ALL INSTALLATIONS COMPLETED SUCCESSFULLY." -icon "I
 }
 "TweaksListView" {
 UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Apply" -TextIcon "applyIcon" -Icon "  " -Width "140"
+Add-Log -Message "Done." -Level "Apply"
 Notify -title "$title" -msg "ALL TWEAKS HAVE BEEN APPLIED SUCCESSFULLY." -icon "Info" -time 30000
 }
 }
@@ -12074,19 +12075,19 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/31/2025'.Trim()
+$itt.event.FindName('ps').add_MouseLeftButtonDown({
+Start-Process('https://www.palestinercs.org/en/Donation')
+})
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
-$itt.event.FindName('ps').add_MouseLeftButtonDown({
-Start-Process('https://www.palestinercs.org/en/Donation')
-})
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
