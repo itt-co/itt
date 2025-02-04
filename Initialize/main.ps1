@@ -1,6 +1,6 @@
-﻿#===========================================================================
+﻿#=========================================================================== 
 #region Select elements with a Name attribute using XPath and iterate over them
-#===========================================================================
+#=========================================================================== 
 $MainXaml.SelectNodes("//*[@Name]") | ForEach-Object {
     $name = $_.Name
     $element = $itt["window"].FindName($name)
@@ -13,8 +13,8 @@ $MainXaml.SelectNodes("//*[@Name]") | ForEach-Object {
             }
             "MenuItem" {
                 $element.Add_Click({
-                        Invoke-Button $args[0].Name -Content $args[0].Header
-                    })
+                    Invoke-Button $args[0].Name -Content $args[0].Header
+                })
             }
             "TextBox" {
                 $element.Add_TextChanged({ Invoke-Button $args[0].Name })
@@ -33,9 +33,10 @@ $MainXaml.SelectNodes("//*[@Name]") | ForEach-Object {
         }
     }
 }
-#===========================================================================
+#=========================================================================== 
 #endregion Select elements with a Name attribute using XPath and iterate over them
-#===========================================================================
+#=========================================================================== 
+
 # Define OnClosing event handler
 $onClosingEvent = {
     param($s, $c)
@@ -49,39 +50,51 @@ $onClosingEvent = {
     }
 }
 
+# Attach event handlers and other operations
 $itt["window"].Add_ContentRendered({
-        Startup
-        Show-Event
-    })
+    Startup
+    Show-Event
+})
 
-# Search input
+# Search input events
 $itt.SearchInput.Add_GotFocus({
-        $itt.Search_placeholder.Visibility = "Hidden"
-    })
+    $itt.Search_placeholder.Visibility = "Hidden"
+})
 
 $itt.SearchInput.Add_LostFocus({
-        if ([string]::IsNullOrEmpty($itt.SearchInput.Text)) {
-            $itt.Search_placeholder.Visibility = "Visible"
-        }
-    });
-# Search input
+    if ([string]::IsNullOrEmpty($itt.SearchInput.Text)) {
+        $itt.Search_placeholder.Visibility = "Visible"
+    }
+})
 
 # Quick install
 if ($i) {
     Quick-Install -file $i *> $null
 }
-# Quick install
 
-# Close Event handler
+# Close event handler
 $itt["window"].add_Closing($onClosingEvent)
+
 # Keyboard shortcut
 $itt["window"].Add_PreViewKeyDown($KeyEvents)
+
 # Show Window
 $itt["window"].ShowDialog() | Out-Null
-$script:powershell.Dispose()
+
+# Dispose of runspaces and other objects
 $itt.runspace.Dispose()
 $itt.runspace.Close()
+
+# Collect garbage
 [System.GC]::Collect()
+[System.GC]::WaitForPendingFinalizers()
+
+# Stop PowerShell session and release resources
+$script:powershell.Dispose()
 $script:powershell.Stop()
-$newProcess.exit
+
+# Wait for new process to exit
+$newProcess.Exit
+
+# Stop transcript logging
 Stop-Transcript *> $null
