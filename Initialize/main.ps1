@@ -84,4 +84,4 @@ $itt.runspace.Close()
 [System.GC]::Collect()
 $script:powershell.Stop()
 $newProcess.exit
-Stop-Transcript
+Stop-Transcript *> $null
