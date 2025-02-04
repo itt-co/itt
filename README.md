@@ -79,7 +79,7 @@
 </div>
 
 <div align="center">
-  <a  href="#-usage" rel="nofollow"><img src="https://img.shields.io/badge/Latest Update-02/01/2025-blue?style=for-the-badge"></a>
+  <a  href="#-usage" rel="nofollow"><img src="https://img.shields.io/badge/Latest Update-02/04/2025-blue?style=for-the-badge"></a>
 </div>
 
 <br>
@@ -188,7 +188,8 @@
 <pre><code>.\build.ps1 -Debug
 </code></pre>
 
-> ### ❗ Be sure to test your changes before you submit the Pull Request
+> [!NOTE]  
+> Test your changes before you submit the Pull Request
 
 ### Additional Repositories (Synced)
 

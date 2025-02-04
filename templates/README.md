@@ -188,7 +188,8 @@
 <pre><code>.\build.ps1 -Debug
 </code></pre>
 
-> ### ❗ Be sure to test your changes before you submit the Pull Request
+> [!NOTE]  
+> Test your changes before you submit the Pull Request
 
 ### Additional Repositories (Synced)
 
