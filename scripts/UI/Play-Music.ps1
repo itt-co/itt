@@ -40,8 +40,9 @@ function StopMusic {
 function StopAllRunspace {
     $script:powershell.Dispose()
     $itt.runspace.Dispose()
-    $itt.runspace.Close()      
+    $itt.runspace.Close()
     $script:powershell.Stop()
     StopMusic
     $newProcess.exit
+    [System.GC]::Collect()
 }
