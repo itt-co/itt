@@ -98,10 +98,10 @@
 
 <p><strong>ITT (Install and Tweak Tool)</strong></p>
 
-- **Automated Installation**: Say goodbye to manual software installations. ITT automates the process, saving you time and effort.
-- **System Tweaks**: Customize your Windows environment with ease. ITT provides scripts to apply system tweaks for enhanced performance and usability.
-- **Developer-Friendly**: Easy-to-use and clear documentation to add a new app or tweaks as you like, you can create a new method to download apps. Be creative. <a href="#-how-to-contribute">How to Contribute</a> or <a href="#youre-not-a-developer">App Request</a>
-- **Soundtracks**: Enjoy listening to the best music from games and movies while downloading your programs.
+- **🚀 Automated Installation**: Say goodbye to manual software installations. ITT automates the process, saving you time and effort.
+- **⚙️ System Tweaks**: Customize your Windows environment with ease. ITT provides scripts to apply system tweaks for enhanced performance and usability.
+- **👩‍💻 Developer-Friendly**: Easy-to-use and clear documentation to add a new app or tweaks as you like, you can create a new method to download apps. Be creative. <a href="#-how-to-contribute">How to Contribute</a> or <a href="#youre-not-a-developer">App Request</a>
+- **🎵 Soundtracks**: Enjoy listening to the best music from games and movies while downloading your programs.
 
 <h2>⚡ Usage</h2>
 
@@ -199,11 +199,11 @@
 <br>
 <br>
 
-# You're not a developer?
+# You're not a developer? 🛠️
 
-- If you'd like to add an app, you can fill out the request form using the following link [Request form](https://docs.google.com/forms/d/e/1FAIpQLSeT_hrvfesDE4hb8p9XyvLM4vAsXAYm1csOcmN_lCrQ4OsaUA/viewform?usp=dialog)
+- If you'd like to add an app, you can fill out the request form using the following link: [📝 Request Form](https://docs.google.com/forms/d/e/1FAIpQLSeT_hrvfesDE4hb8p9XyvLM4vAsXAYm1csOcmN_lCrQ4OsaUA/viewform?usp=dialog)
 
-- Help to translate ITT to your native language [Add your language](https://docs.google.com/spreadsheets/d/1Muy7iJbRm-7YpJKyS5lzP_v12TrCqlxr8_MY9iTnt-0/edit?usp=sharing)
+- Help translate ITT to your native language: [🌍 Add Your Language](https://docs.google.com/spreadsheets/d/1Muy7iJbRm-7YpJKyS5lzP_v12TrCqlxr8_MY9iTnt-0/edit?usp=sharing)
 
 <br>
 <br>
