@@ -7,7 +7,7 @@ $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
 developer      = "Emad Adel"
-lastupdate     = "02/01/2025"
+lastupdate     = "02/04/2025"
 github         = "https://github.com/emadadel4/itt"
 telegram       = "https://t.me/emadadel4"
 blog           = "https://emadadel4.github.io"
@@ -12081,23 +12081,23 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/31/2025'.Trim()
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
-})
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
@@ -12602,4 +12602,4 @@ $itt.runspace.Close()
 [System.GC]::Collect()
 $script:powershell.Stop()
 $newProcess.exit
-Stop-Transcript
+Stop-Transcript *> $null
