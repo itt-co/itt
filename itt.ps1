@@ -6,16 +6,9 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-developer      = "Emad Adel"
-lastupdate     = "02/04/2025"
-github         = "https://github.com/emadadel4/itt"
-telegram       = "https://t.me/emadadel4"
-blog           = "https://emadadel4.github.io"
-youtube        = "https://youtube.com/@emadadel4"
-buymeacoffee   = "https://buymeacoffee.com/emadadel"
+lastupdate     = "02/05/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
-PublicDatabase = "https://ittools-7d9fe-default-rtdb.firebaseio.com/Count.json"
 Theme          = "default"
 CurretTheme    = "default"
 Date           = (Get-Date -Format "MM/dd/yyy")
@@ -25,7 +18,7 @@ Language       = "default"
 ittDir         = "$env:ProgramData\itt\"
 })
 if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-Start-Process -FilePath "PowerShell" -ArgumentList "-ExecutionPolicy Bypass -NoProfile -Command `"$($MyInvocation.MyCommand.Definition)`"" -Verb RunAs
+$newProcess = Start-Process -FilePath "PowerShell" -ArgumentList "-ExecutionPolicy Bypass -NoProfile -Command `"$($MyInvocation.MyCommand.Definition)`"" -Verb RunAs
 exit
 }
 $itt.mediaPlayer = New-Object -ComObject WMPlayer.OCX
@@ -6232,6 +6225,7 @@ $itt.runspace.Dispose()
 $itt.runspace.Close()
 [System.GC]::Collect()
 }
+return $handle
 }
 function RestorePoint {
 Invoke-ScriptBlock -ScriptBlock {
@@ -6986,8 +6980,9 @@ $itt["window"].taskbarItemInfo.Overlay = "https://raw.githubusercontent.com/emad
 }
 }
 function Startup  {
-Invoke-ScriptBlock -ArgumentList $Debug -ScriptBlock {
-param($Debug)
+$UsersCount = "https://ittools-7d9fe-default-rtdb.firebaseio.com/Count.json"
+Invoke-ScriptBlock -ArgumentList $Debug $UsersCount -ScriptBlock {
+param($Debug,$UsersCount)
 function Telegram {
 param (
 [string]$Message
@@ -7007,7 +7002,7 @@ Add-Log -Message "Your internet connection appears to be slow." -Level "WARNING"
 }
 }
 function GetCount {
-$response = Invoke-RestMethod -Uri $itt.PublicDatabase -Method Get
+$response = Invoke-RestMethod -Uri $UsersCount -Method Get
 return $response
 }
 function PlayMusic {
@@ -7017,22 +7012,17 @@ $itt.mediaPlayer.currentPlaylist.appendItem($mediaItem)
 $itt.mediaPlayer.controls.play()
 }
 function GetShuffledTracks {
-if ($itt.Date.Month -eq 9 -and $itt.Date.Day -eq 1) {
-return $itt.database.OST.Favorite | Get-Random -Count $itt.database.OST.Favorite.Count
-}elseif($itt.Date.Month -eq 10 -and $itt.Date.Day -eq 6 -or $itt.Date.Day -eq 7)
-{
-return $itt.database.OST.Otobers | Get-Random -Count $itt.database.OST.Otobers.Count
-}
-else
-{
-return $itt.database.OST.Tracks | Get-Random -Count $itt.database.OST.Tracks.Count
+switch ($itt.Date.Month, $itt.Date.Day) {
+{ $_ -eq 9, 1 } { return $itt.database.OST.Favorite | Get-Random -Count $itt.database.OST.Favorite.Count }
+{ $_ -eq 10, 6 -or $_ -eq 10, 7 } { return $itt.database.OST.Otobers | Get-Random -Count $itt.database.OST.Otobers.Count }
+default { return $itt.database.OST.Tracks | Get-Random -Count $itt.database.OST.Tracks.Count }
 }
 }
 function PlayPreloadedPlaylist {
 $shuffledTracks = GetShuffledTracks
 foreach ($track in $shuffledTracks) {
 PlayAudio -track $track.url
-while ($itt.mediaPlayer.playState -in 3, 6) {
+while ($itt.mediaPlayer.playState -in @(3, 6)) {
 Start-Sleep -Milliseconds 100
 }
 }
@@ -7100,9 +7090,9 @@ Start-Sleep -Seconds 18
 } while ($true)
 }
 function NewUser {
-$currentCount = (Invoke-RestMethod -Uri $itt.PublicDatabase -Method Get)
+$currentCount = (Invoke-RestMethod -Uri $UsersCount -Method Get)
 $Runs = $currentCount + 1
-Invoke-RestMethod -Uri $itt.PublicDatabase -Method Put -Body ($Runs | ConvertTo-Json) -Headers @{ "Content-Type" = "application/json" }
+Invoke-RestMethod -Uri $UsersCount -Method Put -Body ($Runs | ConvertTo-Json) -Headers @{ "Content-Type" = "application/json" }
 Telegram -Message "🎉New User`n`👤 $env:USERNAME `n`🌐 Language: $($itt.Language)`n`🖥 Total devices: $(GetCount)"
 }
 function Welcome {
@@ -7218,9 +7208,6 @@ $selectedApps | ForEach-Object {
 if ($_.Winget -ne "none" -or $_.Choco -ne "none")
 {
 $chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($_.Choco)"
-Remove-Item -Path "$chocoFolder" -Recurse -Force
-Remove-Item -Path "$chocoFolder.install" -Recurse -Force
-Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
 Install-App -Name $_.Name -Winget $_.Winget -Choco $_.Choco
 }
 else
@@ -7682,19 +7669,18 @@ $childWindowReader = (New-Object System.Xml.XmlNodeReader $about)
 $itt.about = [Windows.Markup.XamlReader]::Load($childWindowReader)
 $itt["about"].Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.CurretTheme))
 $itt.about.FindName('ver').Text = "Last update $($itt.lastupdate)"
-$itt.about.FindName("telegram").Add_Click({Start-Process($itt.telegram)})
-$itt.about.FindName("github").Add_Click({Start-Process($itt.github)})
-$itt.about.FindName("blog").Add_Click({Start-Process($itt.blog)})
-$itt.about.FindName("yt").Add_Click({Start-Process($itt.youtube)})
-$itt.about.FindName("coffee").Add_Click({Start-Process($itt.buymeacoffee)})
+$itt.about.FindName("telegram").Add_Click({Start-Process("https://t.me/emadadel4")})
+$itt.about.FindName("github").Add_Click({Start-Process("https://github.com/emadadel4/itt")})
+$itt.about.FindName("blog").Add_Click({Start-Process("https://emadadel4.github.io")})
+$itt.about.FindName("yt").Add_Click({Start-Process("https://www.youtube.com/@emadadel4")})
+$itt.about.FindName("coffee").Add_Click({Start-Process("https://buymeacoffee.com/emadadel")})
 $itt.about.DataContext = $itt.database.locales.Controls.$($itt.Language)
 $itt.about.ShowDialog() | Out-Null
 }
 function ITTShortcut {
-$iconUrl = $itt.icon
 $appDataPath = "$env:ProgramData/itt"
 $localIconPath = Join-Path -Path $appDataPath -ChildPath "itt.ico"
-Invoke-WebRequest -Uri $iconUrl -OutFile $localIconPath
+Invoke-WebRequest -Uri $itt.icon -OutFile $localIconPath
 $Shortcut = (New-Object -ComObject WScript.Shell).CreateShortcut("$([Environment]::GetFolderPath('Desktop'))\ITT Emad Adel.lnk")
 $Shortcut.TargetPath = "$env:SystemRoot\System32\WindowsPowerShell\v1.0\powershell.exe"
 $Shortcut.Arguments = "-ExecutionPolicy Bypass -Command ""irm bit.ly/ittea | iex"""
@@ -7938,6 +7924,7 @@ $itt.runspace.Close()
 $script:powershell.Stop()
 StopMusic
 $newProcess.exit
+[System.GC]::Collect()
 }
 function System-Default {
 switch($shortCulture)
@@ -12081,23 +12068,23 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Cur
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/31/2025'.Trim()
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
-$itt.event.FindName('ps').add_MouseLeftButtonDown({
-Start-Process('https://www.palestinercs.org/en/Donation')
-})
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('ps').add_MouseLeftButtonDown({
+Start-Process('https://www.palestinercs.org/en/Donation')
+})
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
@@ -12475,9 +12462,11 @@ try {
 $themeResource = switch ($itt.Theme) {
 "Light" {
 "Light"
+$itt.CurretTheme
 }
 "Dark" {
 "Dark"
+$itt.CurretTheme
 }
 "Custom" {
 $itt.CurretTheme
@@ -12589,17 +12578,18 @@ $itt.SearchInput.Add_LostFocus({
 if ([string]::IsNullOrEmpty($itt.SearchInput.Text)) {
 $itt.Search_placeholder.Visibility = "Visible"
 }
-});
+})
 if ($i) {
 Quick-Install -file $i *> $null
 }
 $itt["window"].add_Closing($onClosingEvent)
 $itt["window"].Add_PreViewKeyDown($KeyEvents)
 $itt["window"].ShowDialog() | Out-Null
-$script:powershell.Dispose()
 $itt.runspace.Dispose()
 $itt.runspace.Close()
 [System.GC]::Collect()
+[System.GC]::WaitForPendingFinalizers()
+$script:powershell.Dispose()
 $script:powershell.Stop()
-$newProcess.exit
+$newProcess.Exit
 Stop-Transcript *> $null
