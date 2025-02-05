@@ -88,34 +88,13 @@ try {
     try {
         switch ($itt.Locales) {
             "default" {
-                switch ($shortCulture) {
-                    "ar" { $locale = "ar" }
-                    "en" { $locale = "en" }
-                    "fr" { $locale = "fr" }
-                    "tr" { $locale = "tr" }
-                    "zh" { $locale = "zh" }
-                    "ko" { $locale = "ko" }
-                    "de" { $locale = "de" }
-                    "ru" { $locale = "ru" }
-                    "es" { $locale = "es" }
-                    "ga" { $locale = "ga" }
-                    "hi" { $locale = "hi" }
-                    "it" { $locale = "it" }
+                switch ($shortCulture) 
+                {
+                    #{LangagesSwitch}
                     default { $locale = "en" }
                 }
             }
-            "ar" { $locale = "ar" }
-            "en" { $locale = "en" }
-            "fr" { $locale = "fr" }
-            "tr" { $locale = "tr" }
-            "zh" { $locale = "zh" }
-            "ko" { $locale = "ko" }
-            "de" { $locale = "de" }
-            "ru" { $locale = "ru" }
-            "es" { $locale = "es" }
-            "ga" { $locale = "ga" }
-            "hi" { $locale = "hi" }
-            "it" { $locale = "it" }
+            #{LangagesSwitch}
             default { $locale = "en" }
         }
         $itt["window"].DataContext = $itt.database.locales.Controls.$locale
@@ -133,7 +112,7 @@ try {
     #===========================================================================
     try {
         $themeResource = switch ($itt.Theme) {
-            #{CustomThemes}
+            #{ThemesSwitch}
             default {
                 switch ($appsTheme) {
                     "0" { 
