@@ -78,14 +78,23 @@ function AddFileContentToScript {
 # process files in a directory
 function ProcessDirectory {
     param (
-        [string]$Directory
+        [string]$Directory,
+        [string[]]$Skip
     )
+
     Get-ChildItem $Directory -Recurse -File | ForEach-Object {
+        
+        if ($Skip -contains $_.Name) {
+            Write-Host "[i] Skipping ($_) from ProcessDirectory"
+            return
+        }
+
         if ($_.DirectoryName -ne $Directory) {
             AddFileContentToScript -FilePath $_.FullName
         }
     }
 }
+
 # Generate Checkboxex apps/tewaks/settings
 function GenerateCheckboxes {
     param (
@@ -183,13 +192,13 @@ function Update-Readme {
 }
 # Add New Contributor to Contributor.md and show his name in about window
 function NewCONTRIBUTOR {
+
     # Define paths
     $gitFolder = ".git"
     $contribFile = "CONTRIBUTING.md"
-
     $AboutXamlContent = Get-Content -Path "xaml\views\AboutWindow.xaml"  -Raw
 
-    Update-Progress "Check for new contributor..." 40
+    
     # Function to get GitHub username from .git folder
     function Get-GitHubUsername {
         $configFile = Join-Path $gitFolder "config"
@@ -227,6 +236,9 @@ function NewCONTRIBUTOR {
        }
    
     $devsString = $devs -join "`n"
+
+    Update-Progress "Check for new contributor..." 40
+
 
     return $devsString
 
@@ -404,7 +416,7 @@ function GenerateClickEventHandlers {
     try {
         # Define file paths for scripts and templates
         $FilePaths = @{
-            "EventWindowScript" = Join-Path -Path "templates" -ChildPath "Show-Event.ps1"
+            "EventWindowScript" = Join-Path -Path "scripts/UI" -ChildPath "Show-Event.ps1"
         }
         # Read the content of the event window script file
         $EventWindowScript = Get-Content -Path $FilePaths["EventWindowScript"] -Raw
@@ -432,7 +444,7 @@ function GenerateClickEventHandlers {
         $EventWindowScript = $EventWindowScript -replace '#{contorlshandler}', $EventHandler
         $EventWindowScript = $EventWindowScript -replace '#{title}', $EventTitle
         # Write the modified content back to the script
-        WriteToScript -Content $EventWindowScript
+        WriteToScript -Content $EventWindowScript = $EventWindowScript
     }
     catch {
         Write-Host $_.Exception.Message # Capture the error message
@@ -443,7 +455,7 @@ function GenerateInvokeButtons {
     Write-Host "[i] Generate InvokeButtons..."
     # Define file paths for the Invoke button template
     $FilePaths = @{
-        "Invoke" = Join-Path -Path "templates" -ChildPath "Invoke-Button.ps1"
+        "Invoke" = Join-Path -Path "scripts/Invoke" -ChildPath "Invoke-Button.ps1"
     }
     try {
         # Read the content of the Invoke-Button.ps1 file
@@ -480,7 +492,7 @@ function GenerateInvokeButtons {
         $LanguageItemsItemsOutput = $LanguageItems -join "`n"
         $InvokeContent = $InvokeContent -replace '#{locales}', "$LanguageItemsItemsOutput"
         $InvokeContent = $InvokeContent -replace '#{themes}', "$menuItemsOutput"
-        WriteToScript -Content $InvokeContent
+        WriteToScript -Content $InvokeContent = $InvokeContent
     }
     catch {
         Write-Host $_.Exception.Message 
@@ -522,10 +534,10 @@ function Convert-Locales {
     # Write the JSON to the specified file only if it has changed
     if ($existingJsonOutputNormalized -ne $jsonOutputNormalized) {
         Set-Content -Path $jsonOutputPath -Value $jsonOutput -Encoding UTF8
-        Write-Host "JSON file updated." -ForegroundColor Green
+        Write-Host "locales.json file updated." -ForegroundColor Green
     }
     else {
-        Write-Host "[i] No changes detected. JSON file not updated." 
+        Write-Host "[i] No changes detected in locales.json" 
     }
 }
 
@@ -611,7 +623,8 @@ try {
 #===========================================================================
 "@
     GenerateInvokeButtons
-    ProcessDirectory -Directory $ScritsDirectory
+    # Skips files to avoid duplicates.
+    ProcessDirectory -Directory $ScritsDirectory -Skip @("Invoke-Button.ps1", "Show-Event.ps1")
     WriteToScript -Content @"
 #===========================================================================
 #endregion End Main Functions
@@ -696,11 +709,6 @@ try {
     $AboutWindowXamlContent = $AboutWindowXamlContent -replace "#{names}", (NewCONTRIBUTOR)
 
     WriteToScript -Content "`$AboutWindowXaml = '$AboutWindowXamlContent'"
-
-    
-    
-
-    
 
     WriteToScript -Content @"
 #===========================================================================
