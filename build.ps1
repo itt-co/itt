@@ -186,8 +186,9 @@ function NewCONTRIBUTOR {
     # Define paths
     $gitFolder = ".git"
     $contribFile = "CONTRIBUTING.md"
-    $xamlFile = "Templates\about.xaml"
-    $updatedXamlFile = "xaml\views\AboutWindow.xaml" 
+
+    $AboutXamlContent = Get-Content -Path "xaml\views\AboutWindow.xaml"  -Raw
+
     Update-Progress "Check for new contributor..." 40
     # Function to get GitHub username from .git folder
     function Get-GitHubUsername {
@@ -219,18 +220,16 @@ function NewCONTRIBUTOR {
         Set-Content $contribFile $username
         $contribLines = @($username)
     }
-    # Read the existing XAML file content
-    $MainXamlContent = Get-Content $xamlFile -Raw
-    # Create a StringBuilder for TextBlock elements
-    $stringBuilder = New-Object System.Text.StringBuilder
-    # Generate unique TextBlock elements for each name in CONTRIBUTORS.md
-    foreach ($name in $contribLines) {
-        [void]$stringBuilder.AppendLine("<TextBlock Text='$name' Margin='1' Foreground='{DynamicResource TextColorSecondaryColor2}' />")
-    }
-    # Replace #{names} in the XAML file with the TextBlock elements
-    $newXamlContent = $MainXamlContent -replace '#{names}', $stringBuilder.ToString()
-    # Write the updated content to the new XAML file
-    Set-Content -Path $updatedXamlFile -Value $newXamlContent -Encoding UTF8
+
+       $devs = @()
+       foreach ($name in $contribLines) {
+           $devs += "<TextBlock Text=`"$name`" Margin=`"1`" Foreground=`"{DynamicResource TextColorSecondaryColor2}`" />"
+       }
+   
+    $devsString = $devs -join "`n"
+
+    return $devsString
+
 }
 function ConvertTo-Xaml {
     param (
@@ -672,8 +671,6 @@ try {
     $MainXamlContent = $MainXamlContent -replace "{{CustomThemes}}", $ThemeFilesContent 
     # Final output
     WriteToScript -Content "`$MainWindowXaml = '$MainXamlContent'"
-    # Signup a new CONTRIBUTOR
-    NewCONTRIBUTOR
     WriteToScript -Content @"
 #===========================================================================
 #endregion End WPF Main Window
@@ -695,7 +692,16 @@ try {
     catch {
         Write-Error "Error: $($_.Exception.Message)"
     }
+
+    $AboutWindowXamlContent = $AboutWindowXamlContent -replace "#{names}", (NewCONTRIBUTOR)
+
     WriteToScript -Content "`$AboutWindowXaml = '$AboutWindowXamlContent'"
+
+    
+    
+
+    
+
     WriteToScript -Content @"
 #===========================================================================
 #endregion End WPF About Window
