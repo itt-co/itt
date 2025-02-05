@@ -55,7 +55,6 @@ try {
     if (-not (Test-Path $itt.registryPath)) {
         New-Item -Path $itt.registryPath -Force | Out-Null
         Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -Force
-        Set-ItemProperty -Path $itt.registryPath -Name "UserTheme" -Value "none" -Force
         Set-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -Force
         Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value 100 -Force
         Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -Force
@@ -64,7 +63,6 @@ try {
     try {
         # Attempt to get existing registry values
         $itt.Theme = (Get-ItemProperty -Path $itt.registryPath -Name "Theme" -ErrorAction Stop).Theme
-        $itt.CurretTheme = (Get-ItemProperty -Path $itt.registryPath -Name "UserTheme" -ErrorAction Stop).UserTheme
         $itt.Locales = (Get-ItemProperty -Path $itt.registryPath -Name "locales" -ErrorAction Stop).locales
         $itt.Music = (Get-ItemProperty -Path $itt.registryPath -Name "Music" -ErrorAction Stop).Music
         $itt.PopupWindow = (Get-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -ErrorAction Stop).PopupWindow
@@ -76,7 +74,6 @@ try {
         if ($Debug) { Add-Log -Message "An error occurred. Creating missing registry keys..." -Level "debug" }
         # debug end
         New-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -PropertyType String -Force *> $Null
-        New-ItemProperty -Path $itt.registryPath -Name "UserTheme" -Value "none" -PropertyType String -Force *> $Null
         New-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -PropertyType String -Force *> $Null
         New-ItemProperty -Path $itt.registryPath -Name "Music" -Value 100 -PropertyType DWORD -Force *> $Null
         New-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -PropertyType DWORD -Force *> $Null
@@ -136,24 +133,23 @@ try {
     #===========================================================================
     try {
         $themeResource = switch ($itt.Theme) {
-            "Light" {
-                "Light"
-            }
-            "Dark" {
-                "Dark"
-            }
-            "Custom" {
-                $itt.CurretTheme
-            }
+            #{CustomThemes}
             default {
                 switch ($appsTheme) {
-                    "0" { "Dark" }
-                    "1" { "Light" }
+                    "0" { 
+                        "Dark"
+                        Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -Force
+                    }
+                    "1" { 
+                        
+                        "Light" 
+                        Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -Force
+                    }
                 }
             }
         }
         $itt["window"].Resources.MergedDictionaries.Add($itt["window"].FindResource($themeResource))
-        $itt.CurretTheme = $themeResource
+        $itt.Theme = $themeResource
     }
     catch {
         # Fall back to default theme if there error
@@ -162,9 +158,8 @@ try {
             "1" { "Light" }
         }
         Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -Force
-        Set-ItemProperty -Path $itt.registryPath -Name "UserTheme" -Value "none" -Force
         $itt["window"].Resources.MergedDictionaries.Add($itt["window"].FindResource($fallback))
-        $itt.CurretTheme = $fallback
+        $itt.Theme = $fallback
     }
     #===========================================================================
     #endregion Check theme settings
@@ -214,3 +209,5 @@ $itt.installIcon = $itt["window"].FindName("installIcon")
 $itt.applyText = $itt["window"].FindName("applyText")
 $itt.applyIcon = $itt["window"].FindName("applyIcon")
 $itt.QuoteIcon = $itt["window"].FindName("QuoteIcon")
+
+
