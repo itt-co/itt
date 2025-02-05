@@ -3662,8 +3662,16 @@ $itt.database.OST = @'
 "url": "https://emadadel4.github.io/sounds/Telk Qadeya.mp3"
 },
 {
-"name": "Doom",
-"url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Doom_Imagine.mp3"
+"name": "Max Payne 3 - Theme Variation 02",
+"url": "https://vgmsite.com/soundtracks/max-payne-3-macos-ps3-windows-xbox-360-gamerip-2012/lksuleoehs/111.%20Theme%20Variation%2002.mp3"
+},
+{
+"name": "Max Payne 1 - Theme",
+"url": "https://kappa.vgmsite.com/soundtracks/max-payne-re-engineered-soundtrack-2001/rvcbkjxnwt/01.%20Max%20Payne%20Theme.mp3"
+},
+{
+"name": "Zack Hemsey - The Way",
+"url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Zack%20Hemsey%20-%20The%20Way.mp3"
 },
 {
 "name": "Can't Fight City Halloween",
