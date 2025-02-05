@@ -86,19 +86,19 @@ try {
     #region Set Language based on culture
     #===========================================================================
     try {
-        switch ($itt.Locales) {
+        $Locales = switch ($itt.Locales) {
             "default" {
                 switch ($shortCulture) 
                 {
                     #{LangagesSwitch}
-                    default { $locale = "en" }
+                    default { "en" }
                 }
             }
             #{LangagesSwitch}
-            default { $locale = "en" }
+            default {"en"}
         }
-        $itt["window"].DataContext = $itt.database.locales.Controls.$locale
-        $itt.Language = $locale
+        $itt["window"].DataContext = $itt.database.locales.Controls.$Locales
+        $itt.Language = $Locales
     }
     catch {
         # fallbak to en lang
@@ -111,7 +111,7 @@ try {
     #region Check theme settings
     #===========================================================================
     try {
-        $themeResource = switch ($itt.Theme) {
+        $Themes = switch ($itt.Theme) {
             #{ThemesSwitch}
             default {
                 switch ($appsTheme) {
@@ -127,8 +127,8 @@ try {
                 }
             }
         }
-        $itt["window"].Resources.MergedDictionaries.Add($itt["window"].FindResource($themeResource))
-        $itt.Theme = $themeResource
+        $itt["window"].Resources.MergedDictionaries.Add($itt["window"].FindResource($Themes))
+        $itt.Theme = $Themes
     }
     catch {
         # Fall back to default theme if there error
