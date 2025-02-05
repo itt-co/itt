@@ -322,7 +322,7 @@ function GenerateThemesKeys {
     # Convert StringBuilder to string and return the output
     return $stringBuilder.ToString().TrimEnd("`n".ToCharArray())  # Remove the trailing newline
 }
-function GenerateSwitchThemes
+function GenerateThemesSwitch
 {
 
     $XamlContent = Get-Content -Path $LoadXamlScript -Raw
@@ -348,6 +348,35 @@ function GenerateSwitchThemes
 
     return $switchStatement
 }
+
+function GenerateLanguageSwitch
+{
+
+    $XamlContent = Get-Content -Path $LoadXamlScript -Raw
+
+    # Define the path to the Themes directory
+    $ThemesDir = "locales"
+
+    # Get all theme files (assuming they are named like Light.xaml, Dark.xaml, etc.)
+    $ThemeFiles = Get-ChildItem -Path $ThemesDir -Filter *.csv
+
+    # Add cases for each theme file
+    foreach ($file in $ThemeFiles) {
+        $themeName = $file.BaseName
+        $switchStatement += @"
+        
+                "$themeName" { `$locale` = "$themeName"}
+"@
+    }
+
+    # Close the switch statement (without extra braces)
+    $switchStatement += @"
+"@
+
+    return $switchStatement
+}
+
+
 function GenerateLocalesKeys {
     param (
         [string]$localesPath = "locales"
@@ -705,7 +734,13 @@ try {
 #===========================================================================
 "@
     $XamlContent = Get-Content -Path $LoadXamlScript -Raw
-    $XamlContent = $XamlContent -replace "#{CustomThemes}", (GenerateSwitchThemes)
+
+    $XamlContent = $XamlContent -replace "#{ThemesSwitch}", (GenerateThemesSwitch)
+
+    $XamlContent = $XamlContent -replace "#{LangagesSwitch}", (GenerateLanguageSwitch)
+
+    Write-Host  (GenerateLanguageSwitch)
+
     WriteToScript -Content $XamlContent = $XamlContent
     WriteToScript -Content @"
 #===========================================================================
