@@ -2,7 +2,7 @@ function Startup  {
 
    $UsersCount = "https://ittools-7d9fe-default-rtdb.firebaseio.com/Count.json"
 
-    Invoke-ScriptBlock -ArgumentList $Debug $UsersCount -ScriptBlock {
+    ITT-ScriptBlock -ArgumentList $Debug $UsersCount -ScriptBlock {
 
         param($Debug,$UsersCount)
         function Telegram {
