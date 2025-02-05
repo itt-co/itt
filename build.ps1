@@ -365,7 +365,7 @@ function GenerateLanguageSwitch
         $themeName = $file.BaseName
         $switchStatement += @"
         
-                "$themeName" { `$locale` = "$themeName"}
+                "$themeName" {"$themeName"}
 "@
     }
 
