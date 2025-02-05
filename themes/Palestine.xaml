@@ -1,6 +1,6 @@
 <!-- {Palestine} -->
 <!-- by {emadadel} -->
-<ResourceDictionary x:Key="palestine">
+<ResourceDictionary x:Key="Palestine">
  <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#FF1F1F1F"/>
  <SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#2C211A"/>
  <SolidColorBrush x:Key="PrimaryButtonForeground" Color="#FFB80000" />

@@ -6,18 +6,10 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-developer      = "Emad Adel"
-lastupdate     = "02/04/2025"
-github         = "https://github.com/emadadel4/itt"
-telegram       = "https://t.me/emadadel4"
-blog           = "https://emadadel4.github.io"
-youtube        = "https://youtube.com/@emadadel4"
-buymeacoffee   = "https://buymeacoffee.com/emadadel"
+lastupdate     = "02/05/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
-PublicDatabase = "https://ittools-7d9fe-default-rtdb.firebaseio.com/Count.json"
 Theme          = "default"
-CurretTheme    = "default"
 Date           = (Get-Date -Format "MM/dd/yyy")
 Music          = 100
 PopupWindow    = "0"
@@ -25,7 +17,7 @@ Language       = "default"
 ittDir         = "$env:ProgramData\itt\"
 })
 if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-Start-Process -FilePath "PowerShell" -ArgumentList "-ExecutionPolicy Bypass -NoProfile -Command `"$($MyInvocation.MyCommand.Definition)`"" -Verb RunAs
+$newProcess = Start-Process -FilePath "PowerShell" -ArgumentList "-ExecutionPolicy Bypass -NoProfile -Command `"$($MyInvocation.MyCommand.Definition)`"" -Verb RunAs
 exit
 }
 $itt.mediaPlayer = New-Object -ComObject WMPlayer.OCX
@@ -6157,11 +6149,11 @@ Start-Process "https://ublockorigin.com/"
 }
 "mas" {
 Add-Log -Message "Microsoft Activation Scripts (MAS)" -Level "info"
-Invoke-ScriptBlock -ScriptBlock {irm https://get.activated.win | iex}
+ITT-ScriptBlock -ScriptBlock {irm https://get.activated.win | iex}
 }
 "idm" {
 Add-Log -Message "IDM Activation Script (WindowsAddict)" -Level "info"
-Invoke-ScriptBlock -ScriptBlock {irm https://massgrave.dev/ias | iex}
+ITT-ScriptBlock -ScriptBlock {irm https://massgrave.dev/ias | iex}
 }
 "neat" {
 Start-Process "https://addons.mozilla.org/en-US/firefox/addon/neatdownloadmanager-extension/"
@@ -6213,7 +6205,7 @@ Write-Host "Unknown action: $action"
 }
 }
 }
-function Invoke-ScriptBlock {
+function ITT-ScriptBlock {
 param(
 [scriptblock]$ScriptBlock,
 [array]$ArgumentList,
@@ -6232,9 +6224,10 @@ $itt.runspace.Dispose()
 $itt.runspace.Close()
 [System.GC]::Collect()
 }
+return $handle
 }
 function RestorePoint {
-Invoke-ScriptBlock -ScriptBlock {
+ITT-ScriptBlock -ScriptBlock {
 Try {
 Add-Log -Message "Creating Restore point..." -Level "INFO"
 Start-Process powershell.exe -ArgumentList "-NoExit", "-Command `"Enable-ComputerRestore -Drive '$env:SystemDrive'; Checkpoint-Computer -Description 'ITT' -RestorePointType 'MODIFY_SETTINGS'; exit`"" -Wait -Verb RunAs
@@ -6266,7 +6259,7 @@ switch ($Level.ToUpper()) {
 "Apply" { $icon = "√" }
 "Disabled" { $icon = "X" }
 "Enabled" { $icon = "√" }
-"debug" { $icon = "debug" }
+"Debug" { $icon = "Debug" }
 default { $icon = "i" }
 }
 $logMessage =  "[$icon] $Message"
@@ -6779,8 +6772,8 @@ Add-Log -Message "No tasks matching '$task' found" -Level "debug"
 function Reset-Preferences {
 Set-ItemProperty -Path $itt.registryPath  -Name "PopupWindow" -Value 0 -Force
 Set-ItemProperty -Path $itt.registryPath  -Name "Music" -Value 100 -Force
-Set-ItemProperty -Path $itt.registryPath  -Name "UserTheme" -Value "none" -Force
 SwitchToSystem
+System-Default
 Message -key "Reopen_itt_again" -icon "Information" -action "OK"
 }
 function Get-CheckBoxesFromStackPanel {
@@ -6986,8 +6979,9 @@ $itt["window"].taskbarItemInfo.Overlay = "https://raw.githubusercontent.com/emad
 }
 }
 function Startup  {
-Invoke-ScriptBlock -ArgumentList $Debug -ScriptBlock {
-param($Debug)
+$UsersCount = "https://ittools-7d9fe-default-rtdb.firebaseio.com/Count.json"
+ITT-ScriptBlock -ArgumentList $Debug $UsersCount -ScriptBlock {
+param($Debug,$UsersCount)
 function Telegram {
 param (
 [string]$Message
@@ -7007,7 +7001,7 @@ Add-Log -Message "Your internet connection appears to be slow." -Level "WARNING"
 }
 }
 function GetCount {
-$response = Invoke-RestMethod -Uri $itt.PublicDatabase -Method Get
+$response = Invoke-RestMethod -Uri $UsersCount -Method Get
 return $response
 }
 function PlayMusic {
@@ -7017,22 +7011,17 @@ $itt.mediaPlayer.currentPlaylist.appendItem($mediaItem)
 $itt.mediaPlayer.controls.play()
 }
 function GetShuffledTracks {
-if ($itt.Date.Month -eq 9 -and $itt.Date.Day -eq 1) {
-return $itt.database.OST.Favorite | Get-Random -Count $itt.database.OST.Favorite.Count
-}elseif($itt.Date.Month -eq 10 -and $itt.Date.Day -eq 6 -or $itt.Date.Day -eq 7)
-{
-return $itt.database.OST.Otobers | Get-Random -Count $itt.database.OST.Otobers.Count
-}
-else
-{
-return $itt.database.OST.Tracks | Get-Random -Count $itt.database.OST.Tracks.Count
+switch ($itt.Date.Month, $itt.Date.Day) {
+{ $_ -eq 9, 1 } { return $itt.database.OST.Favorite | Get-Random -Count $itt.database.OST.Favorite.Count }
+{ $_ -eq 10, 6 -or $_ -eq 10, 7 } { return $itt.database.OST.Otobers | Get-Random -Count $itt.database.OST.Otobers.Count }
+default { return $itt.database.OST.Tracks | Get-Random -Count $itt.database.OST.Tracks.Count }
 }
 }
 function PlayPreloadedPlaylist {
 $shuffledTracks = GetShuffledTracks
 foreach ($track in $shuffledTracks) {
 PlayAudio -track $track.url
-while ($itt.mediaPlayer.playState -in 3, 6) {
+while ($itt.mediaPlayer.playState -in @(3, 6)) {
 Start-Sleep -Milliseconds 100
 }
 }
@@ -7100,9 +7089,9 @@ Start-Sleep -Seconds 18
 } while ($true)
 }
 function NewUser {
-$currentCount = (Invoke-RestMethod -Uri $itt.PublicDatabase -Method Get)
+$currentCount = (Invoke-RestMethod -Uri $UsersCount -Method Get)
 $Runs = $currentCount + 1
-Invoke-RestMethod -Uri $itt.PublicDatabase -Method Put -Body ($Runs | ConvertTo-Json) -Headers @{ "Content-Type" = "application/json" }
+Invoke-RestMethod -Uri $UsersCount -Method Put -Body ($Runs | ConvertTo-Json) -Headers @{ "Content-Type" = "application/json" }
 Telegram -Message "🎉New User`n`👤 $env:USERNAME `n`🌐 Language: $($itt.Language)`n`🖥 Total devices: $(GetCount)"
 }
 function Welcome {
@@ -7209,7 +7198,7 @@ Show-Selected -ListView "AppsListView" -Mode "Default"
 Clear-Item -ListView "AppsListView"
 return
 }
-Invoke-ScriptBlock -ArgumentList $selectedApps $QuickInstall, $debug -debug $debug -ScriptBlock {
+ITT-ScriptBlock -ArgumentList $selectedApps $QuickInstall, $debug -debug $debug -ScriptBlock {
 param($selectedApps ,$QuickInstall ,$debug)
 $itt.ProcessRunning = $true
 UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "Downloading" -TextIcon "installIcon" -Icon "  " -Width "auto"
@@ -7263,7 +7252,7 @@ Show-Selected -ListView "TweaksListView" -Mode "Default"
 Clear-Item -ListView "TweaksListView"
 return
 }
-Invoke-ScriptBlock -ArgumentList $selectedTweaks -debug $debug -ScriptBlock {
+ITT-ScriptBlock -ArgumentList $selectedTweaks -debug $debug -ScriptBlock {
 param($selectedTweaks,$debug)
 $itt.ProcessRunning = $true
 UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Applying" -TextIcon "applyIcon" -Icon "  " -Width "auto"
@@ -7680,21 +7669,21 @@ function About {
 [xml]$about = $AboutWindowXaml
 $childWindowReader = (New-Object System.Xml.XmlNodeReader $about)
 $itt.about = [Windows.Markup.XamlReader]::Load($childWindowReader)
-$itt["about"].Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.CurretTheme))
+$itt['about'].Resources.MergedDictionaries.Clear()
+$itt["about"].Resources.MergedDictionaries.Add($itt["window"].FindResource($($itt.Theme)))
 $itt.about.FindName('ver').Text = "Last update $($itt.lastupdate)"
-$itt.about.FindName("telegram").Add_Click({Start-Process($itt.telegram)})
-$itt.about.FindName("github").Add_Click({Start-Process($itt.github)})
-$itt.about.FindName("blog").Add_Click({Start-Process($itt.blog)})
-$itt.about.FindName("yt").Add_Click({Start-Process($itt.youtube)})
-$itt.about.FindName("coffee").Add_Click({Start-Process($itt.buymeacoffee)})
+$itt.about.FindName("telegram").Add_Click({Start-Process("https://t.me/emadadel4")})
+$itt.about.FindName("github").Add_Click({Start-Process("https://github.com/emadadel4/itt")})
+$itt.about.FindName("blog").Add_Click({Start-Process("https://emadadel4.github.io")})
+$itt.about.FindName("yt").Add_Click({Start-Process("https://www.youtube.com/@emadadel4")})
+$itt.about.FindName("coffee").Add_Click({Start-Process("https://buymeacoffee.com/emadadel")})
 $itt.about.DataContext = $itt.database.locales.Controls.$($itt.Language)
 $itt.about.ShowDialog() | Out-Null
 }
 function ITTShortcut {
-$iconUrl = $itt.icon
 $appDataPath = "$env:ProgramData/itt"
 $localIconPath = Join-Path -Path $appDataPath -ChildPath "itt.ico"
-Invoke-WebRequest -Uri $iconUrl -OutFile $localIconPath
+Invoke-WebRequest -Uri $itt.icon -OutFile $localIconPath
 $Shortcut = (New-Object -ComObject WScript.Shell).CreateShortcut("$([Environment]::GetFolderPath('Desktop'))\ITT Emad Adel.lnk")
 $Shortcut.TargetPath = "$env:SystemRoot\System32\WindowsPowerShell\v1.0\powershell.exe"
 $Shortcut.Arguments = "-ExecutionPolicy Bypass -Command ""irm bit.ly/ittea | iex"""
@@ -7938,63 +7927,37 @@ $itt.runspace.Close()
 $script:powershell.Stop()
 StopMusic
 $newProcess.exit
+[System.GC]::Collect()
 }
 function System-Default {
-switch($shortCulture)
-{
-"ar" { $locale = "ar" }
-"en" { $locale = "en" }
-"fr" { $locale = "fr" }
-"tr" { $locale = "tr" }
-"zh" { $locale = "zh" }
-"ko" { $locale = "ko" }
-"de" { $locale = "de" }
-"ru" { $locale = "ru" }
-"es" { $locale = "es" }
-"ga" { $locale = "ga" }
-"hi" { $locale = "hi" }
-"it" { $locale = "it" }
-default { $locale = "en" }
-}
+try {
+$itt["window"].DataContext = $itt.database.locales.Controls.$shortCulture
+if (-not $itt["window"].DataContext -or [string]::IsNullOrWhiteSpace($itt["window"].DataContext)) {
+Add-Log -Message "This language ($shortCulture) is not supported yet, fallback to English" -Level "Info"
+$itt["window"].DataContext = $itt.database.locales.Controls.en
 Set-ItemProperty -Path $itt.registryPath  -Name "locales" -Value "default" -Force
-$itt["window"].DataContext = $itt.database.locales.Controls.$locale
-$itt.Language = $locale
+}
+else {
+$itt["window"].DataContext = $itt.database.locales.Controls.$shortCulture
+Set-ItemProperty -Path $itt.registryPath  -Name "locales" -Value "default" -Force
+}
+}
+catch {
+Write-Host "An error occurred: $_"
+}
 }
 function Set-Language {
 param (
 [string]$lang
 )
-if($lang -eq "default")
-{
+if ($lang -eq "default") {
 System-Default
 }
-else
-{
+else {
 $itt.Language = $lang
 Set-ItemProperty -Path $itt.registryPath  -Name "locales" -Value "$lang" -Force
 $itt["window"].DataContext = $itt.database.locales.Controls.$($itt.Language)
 }
-}
-function Switch-ToDarkMode {
-try {
-$theme = $itt['window'].FindResource("Dark")
-Update-Theme $theme "true"
-} catch {
-Write-Host "Error switching to dark mode: $_"
-}
-}
-function Switch-ToLightMode {
-try {
-$theme = $itt['window'].FindResource("Light")
-Update-Theme $theme "Light"
-} catch {
-Write-Host "Error switching to light mode: $_"
-}
-}
-function Update-Theme ($theme) {
-$itt['window'].Resources.MergedDictionaries.Clear()
-$itt['window'].Resources.MergedDictionaries.Add($theme)
-Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "$theme" -Force
 }
 function SwitchToSystem {
 try {
@@ -8020,22 +7983,10 @@ function Set-Theme {
 param (
 [string]$Theme
 )
-Switch($Theme)
-{
-"Light"{
-$itt['window'].Resources.MergedDictionaries.Add($itt['window'].FindResource("Light"))
-Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "Light" -Force
-}
-"Dark"{
-$itt['window'].Resources.MergedDictionaries.Add($itt['window'].FindResource("Dark"))
-Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "Dark" -Force
-}
-default{
+$itt['window'].Resources.MergedDictionaries.Clear()
 $itt['window'].Resources.MergedDictionaries.Add($itt['window'].FindResource("$Theme"))
-Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "Custom" -Force
-Set-ItemProperty -Path $itt.registryPath -Name "UserTheme" -Value "$Theme" -Force
-}
-}
+Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "$Theme" -Force
+$itt.Theme = $Theme
 }
 function UpdateUI {
 param(
@@ -8681,7 +8632,7 @@ To="5,0,0,0">
 <Color x:Key="ListViewCardRightColor">#ffffff</Color>
 <ImageBrush x:Key="BackgroundImage" ImageSource="{x:Null}" Stretch="UniformToFill"/>
 </ResourceDictionary>
-<ResourceDictionary x:Key="palestine">
+<ResourceDictionary x:Key="Palestine">
 <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#FF1F1F1F"/>
 <SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#2C211A"/>
 <SolidColorBrush x:Key="PrimaryButtonForeground" Color="#FFB80000" />
@@ -8866,7 +8817,7 @@ To="5,0,0,0">
 <MenuItem Name="Dark" Header="Dark"/>
 <MenuItem Name="DarkKnight" Header="Dark Knight"/>
 <MenuItem Name="Light" Header="Light"/>
-<MenuItem Name="palestine" Header="Palestine"/>
+<MenuItem Name="Palestine" Header="Palestine"/>
 </MenuItem>
 <MenuItem Header="{Binding Music}">
 <MenuItem.Icon>
@@ -12047,8 +11998,8 @@ TextAlignment="Center"
 TextWrapping="Wrap" HorizontalAlignment="Center" Foreground="{DynamicResource TextColorSecondaryColor2}" Margin="0,5,0,5" FontSize="12" FontStyle="Italic" TextAlignment="Center"/>
 <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" Height="103">
 <StackPanel Margin="20,0,0,0">
-<TextBlock Text=''emadadel4'' Margin=''1'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' />
-<TextBlock Text=''yousefmhmd'' Margin=''1'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' />
+<TextBlock Text="emadadel4" Margin="1" Foreground="{DynamicResource TextColorSecondaryColor2}" />
+<TextBlock Text="yousefmhmd" Margin="1" Foreground="{DynamicResource TextColorSecondaryColor2}" />
 </StackPanel>
 </ScrollViewer>
 </StackPanel>
@@ -12077,24 +12028,24 @@ function Show-Event {
 [xml]$event = $EventWindowXaml
 $EventWindowReader = (New-Object System.Xml.XmlNodeReader $event)
 $itt.event = [Windows.Markup.XamlReader]::Load($EventWindowReader)
-$itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.CurretTheme))
+$itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Theme))
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/31/2025'.Trim()
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
-$itt.event.FindName('ps').add_MouseLeftButtonDown({
-Start-Process('https://www.palestinercs.org/en/Donation')
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('ps').add_MouseLeftButtonDown({
+Start-Process('https://www.palestinercs.org/en/Donation')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
@@ -12410,7 +12361,6 @@ $shortCulture = $fullCulture.Split('-')[0]
 if (-not (Test-Path $itt.registryPath)) {
 New-Item -Path $itt.registryPath -Force | Out-Null
 Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -Force
-Set-ItemProperty -Path $itt.registryPath -Name "UserTheme" -Value "none" -Force
 Set-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -Force
 Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value 100 -Force
 Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -Force
@@ -12418,7 +12368,6 @@ Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value 0 -Force
 }
 try {
 $itt.Theme = (Get-ItemProperty -Path $itt.registryPath -Name "Theme" -ErrorAction Stop).Theme
-$itt.CurretTheme = (Get-ItemProperty -Path $itt.registryPath -Name "UserTheme" -ErrorAction Stop).UserTheme
 $itt.Locales = (Get-ItemProperty -Path $itt.registryPath -Name "locales" -ErrorAction Stop).locales
 $itt.Music = (Get-ItemProperty -Path $itt.registryPath -Name "Music" -ErrorAction Stop).Music
 $itt.PopupWindow = (Get-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -ErrorAction Stop).PopupWindow
@@ -12426,71 +12375,72 @@ $itt.Runs = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction 
 }
 catch {
 New-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -PropertyType String -Force *> $Null
-New-ItemProperty -Path $itt.registryPath -Name "UserTheme" -Value "none" -PropertyType String -Force *> $Null
 New-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -PropertyType String -Force *> $Null
 New-ItemProperty -Path $itt.registryPath -Name "Music" -Value 100 -PropertyType DWORD -Force *> $Null
 New-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -PropertyType DWORD -Force *> $Null
 New-ItemProperty -Path $itt.registryPath -Name "Runs" -Value 0 -PropertyType DWORD -Force *> $Null
 }
 try {
-switch ($itt.Locales) {
+$Locales = switch ($itt.Locales) {
 "default" {
-switch ($shortCulture) {
-"ar" { $locale = "ar" }
-"en" { $locale = "en" }
-"fr" { $locale = "fr" }
-"tr" { $locale = "tr" }
-"zh" { $locale = "zh" }
-"ko" { $locale = "ko" }
-"de" { $locale = "de" }
-"ru" { $locale = "ru" }
-"es" { $locale = "es" }
-"ga" { $locale = "ga" }
-"hi" { $locale = "hi" }
-"it" { $locale = "it" }
-default { $locale = "en" }
+switch ($shortCulture)
+{
+"ar" {"ar"}
+"de" {"de"}
+"en" {"en"}
+"es" {"es"}
+"fr" {"fr"}
+"ga" {"ga"}
+"hi" {"hi"}
+"it" {"it"}
+"ko" {"ko"}
+"ru" {"ru"}
+"tr" {"tr"}
+"zh" {"zh"}
+default { "en" }
 }
 }
-"ar" { $locale = "ar" }
-"en" { $locale = "en" }
-"fr" { $locale = "fr" }
-"tr" { $locale = "tr" }
-"zh" { $locale = "zh" }
-"ko" { $locale = "ko" }
-"de" { $locale = "de" }
-"ru" { $locale = "ru" }
-"es" { $locale = "es" }
-"ga" { $locale = "ga" }
-"hi" { $locale = "hi" }
-"it" { $locale = "it" }
-default { $locale = "en" }
+"ar" {"ar"}
+"de" {"de"}
+"en" {"en"}
+"es" {"es"}
+"fr" {"fr"}
+"ga" {"ga"}
+"hi" {"hi"}
+"it" {"it"}
+"ko" {"ko"}
+"ru" {"ru"}
+"tr" {"tr"}
+"zh" {"zh"}
+default {"en"}
 }
-$itt["window"].DataContext = $itt.database.locales.Controls.$locale
-$itt.Language = $locale
+$itt["window"].DataContext = $itt.database.locales.Controls.$Locales
+$itt.Language = $Locales
 }
 catch {
 $itt["window"].DataContext = $itt.database.locales.Controls.en
 }
 try {
-$themeResource = switch ($itt.Theme) {
-"Light" {
-"Light"
-}
-"Dark" {
-"Dark"
-}
-"Custom" {
-$itt.CurretTheme
-}
+$Themes = switch ($itt.Theme) {
+"Dark" {"Dark"}
+"DarkKnight" {"DarkKnight"}
+"Light" {"Light"}
+"Palestine" {"Palestine"}
 default {
 switch ($appsTheme) {
-"0" { "Dark" }
-"1" { "Light" }
+"0" {
+"Dark"
+Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -Force
+}
+"1" {
+"Light"
+Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -Force
 }
 }
 }
-$itt["window"].Resources.MergedDictionaries.Add($itt["window"].FindResource($themeResource))
-$itt.CurretTheme = $themeResource
+}
+$itt["window"].Resources.MergedDictionaries.Add($itt["window"].FindResource($Themes))
+$itt.Theme = $Themes
 }
 catch {
 $fallback = switch ($appsTheme) {
@@ -12498,9 +12448,8 @@ $fallback = switch ($appsTheme) {
 "1" { "Light" }
 }
 Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -Force
-Set-ItemProperty -Path $itt.registryPath -Name "UserTheme" -Value "none" -Force
 $itt["window"].Resources.MergedDictionaries.Add($itt["window"].FindResource($fallback))
-$itt.CurretTheme = $fallback
+$itt.Theme = $fallback
 }
 $itt.mediaPlayer.settings.volume = "$($itt.Music)"
 if ($itt.Music -eq 0) {
@@ -12544,7 +12493,7 @@ if ($element) {
 $itt[$name] = $element
 switch ($element.GetType().Name) {
 "Button" {
-$element.Add_Click({ Invoke-Button $args[0].Name })
+$element.Add_Click({ Invoke-Button $args[0].Name $args[0].Content })
 }
 "MenuItem" {
 $element.Add_Click({
@@ -12552,18 +12501,18 @@ Invoke-Button $args[0].Name -Content $args[0].Header
 })
 }
 "TextBox" {
-$element.Add_TextChanged({ Invoke-Button $args[0].Name })
-$element.Add_GotFocus({ Invoke-Button $args[0].Name })
+$element.Add_TextChanged({ Invoke-Button $args[0].Name $args[0].Text})
+$element.Add_GotFocus({ Invoke-Button $args[0].Name $args[0].Text})
 }
 "ComboBox" {
-$element.add_SelectionChanged({ Invoke-Button $args[0].Name $args[0].SelectedItem.Content })
+$element.add_SelectionChanged({ Invoke-Button $args[0].Name $args[0].SelectedItem.Content})
 }
 "TabControl" {
-$element.add_SelectionChanged({ Invoke-Button $args[0].Name $args[0].SelectedItem.Name })
+$element.add_SelectionChanged({ Invoke-Button $args[0].Name $args[0].SelectedItem.Name})
 }
 "CheckBox" {
 $element.IsChecked = Get-ToggleStatus -ToggleSwitch $name
-$element.Add_Click({ Invoke-Toogle $args[0].Name })
+$element.Add_Click({ Invoke-Toogle $args[0].Name})
 }
 }
 }
@@ -12589,17 +12538,18 @@ $itt.SearchInput.Add_LostFocus({
 if ([string]::IsNullOrEmpty($itt.SearchInput.Text)) {
 $itt.Search_placeholder.Visibility = "Visible"
 }
-});
+})
 if ($i) {
 Quick-Install -file $i *> $null
 }
 $itt["window"].add_Closing($onClosingEvent)
 $itt["window"].Add_PreViewKeyDown($KeyEvents)
 $itt["window"].ShowDialog() | Out-Null
-$script:powershell.Dispose()
 $itt.runspace.Dispose()
 $itt.runspace.Close()
 [System.GC]::Collect()
+[System.GC]::WaitForPendingFinalizers()
+$script:powershell.Dispose()
 $script:powershell.Stop()
-$newProcess.exit
+$newProcess.Exit
 Stop-Transcript *> $null

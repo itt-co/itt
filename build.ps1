@@ -78,14 +78,23 @@ function AddFileContentToScript {
 # process files in a directory
 function ProcessDirectory {
     param (
-        [string]$Directory
+        [string]$Directory,
+        [string[]]$Skip
     )
+
     Get-ChildItem $Directory -Recurse -File | ForEach-Object {
+        
+        if ($Skip -contains $_.Name) {
+            Write-Host "[i] Skipping ($_) from ProcessDirectory"
+            return
+        }
+
         if ($_.DirectoryName -ne $Directory) {
             AddFileContentToScript -FilePath $_.FullName
         }
     }
 }
+
 # Generate Checkboxex apps/tewaks/settings
 function GenerateCheckboxes {
     param (
@@ -183,12 +192,13 @@ function Update-Readme {
 }
 # Add New Contributor to Contributor.md and show his name in about window
 function NewCONTRIBUTOR {
+
     # Define paths
     $gitFolder = ".git"
     $contribFile = "CONTRIBUTING.md"
-    $xamlFile = "Templates\about.xaml"
-    $updatedXamlFile = "xaml\views\AboutWindow.xaml" 
-    Update-Progress "Check for new contributor..." 40
+    $AboutXamlContent = Get-Content -Path "xaml\views\AboutWindow.xaml"  -Raw
+
+    
     # Function to get GitHub username from .git folder
     function Get-GitHubUsername {
         $configFile = Join-Path $gitFolder "config"
@@ -219,18 +229,19 @@ function NewCONTRIBUTOR {
         Set-Content $contribFile $username
         $contribLines = @($username)
     }
-    # Read the existing XAML file content
-    $MainXamlContent = Get-Content $xamlFile -Raw
-    # Create a StringBuilder for TextBlock elements
-    $stringBuilder = New-Object System.Text.StringBuilder
-    # Generate unique TextBlock elements for each name in CONTRIBUTORS.md
-    foreach ($name in $contribLines) {
-        [void]$stringBuilder.AppendLine("<TextBlock Text='$name' Margin='1' Foreground='{DynamicResource TextColorSecondaryColor2}' />")
-    }
-    # Replace #{names} in the XAML file with the TextBlock elements
-    $newXamlContent = $MainXamlContent -replace '#{names}', $stringBuilder.ToString()
-    # Write the updated content to the new XAML file
-    Set-Content -Path $updatedXamlFile -Value $newXamlContent -Encoding UTF8
+
+       $devs = @()
+       foreach ($name in $contribLines) {
+           $devs += "<TextBlock Text=`"$name`" Margin=`"1`" Foreground=`"{DynamicResource TextColorSecondaryColor2}`" />"
+       }
+   
+    $devsString = $devs -join "`n"
+
+    Update-Progress "Check for new contributor..." 40
+
+
+    return $devsString
+
 }
 function ConvertTo-Xaml {
     param (
@@ -315,9 +326,68 @@ function GenerateThemesKeys {
         # Append the MenuItem entry to the StringBuilder
         $null = $stringBuilder.AppendFormat("<MenuItem Name=`"{0}`" Header=`"{1}`"/>`n", $name, $header)
     }
+
+
+
+
     # Convert StringBuilder to string and return the output
     return $stringBuilder.ToString().TrimEnd("`n".ToCharArray())  # Remove the trailing newline
 }
+function GenerateThemesSwitch
+{
+
+    $XamlContent = Get-Content -Path $LoadXamlScript -Raw
+
+    # Define the path to the Themes directory
+    $ThemesDir = "themes"
+
+    # Get all theme files (assuming they are named like Light.xaml, Dark.xaml, etc.)
+    $ThemeFiles = Get-ChildItem -Path $ThemesDir -Filter *.xaml
+
+    # Add cases for each theme file
+    foreach ($file in $ThemeFiles) {
+            $themeName = $file.BaseName
+            $switchStatement += @"
+                
+            "$themeName" {"$themeName"}
+"@
+    }
+
+    # Close the switch statement (without extra braces)
+    $switchStatement += @"
+"@
+
+    return $switchStatement
+}
+
+function GenerateLanguageSwitch
+{
+
+    $XamlContent = Get-Content -Path $LoadXamlScript -Raw
+
+    # Define the path to the Themes directory
+    $ThemesDir = "locales"
+
+    # Get all theme files (assuming they are named like Light.xaml, Dark.xaml, etc.)
+    $ThemeFiles = Get-ChildItem -Path $ThemesDir -Filter *.csv
+
+    # Add cases for each theme file
+    foreach ($file in $ThemeFiles) {
+        $themeName = $file.BaseName
+        $switchStatement += @"
+        
+                "$themeName" {"$themeName"}
+"@
+    }
+
+    # Close the switch statement (without extra braces)
+    $switchStatement += @"
+"@
+
+    return $switchStatement
+}
+
+
 function GenerateLocalesKeys {
     param (
         [string]$localesPath = "locales"
@@ -346,7 +416,7 @@ function GenerateClickEventHandlers {
     try {
         # Define file paths for scripts and templates
         $FilePaths = @{
-            "EventWindowScript" = Join-Path -Path "templates" -ChildPath "Show-Event.ps1"
+            "EventWindowScript" = Join-Path -Path "scripts/UI" -ChildPath "Show-Event.ps1"
         }
         # Read the content of the event window script file
         $EventWindowScript = Get-Content -Path $FilePaths["EventWindowScript"] -Raw
@@ -374,7 +444,7 @@ function GenerateClickEventHandlers {
         $EventWindowScript = $EventWindowScript -replace '#{contorlshandler}', $EventHandler
         $EventWindowScript = $EventWindowScript -replace '#{title}', $EventTitle
         # Write the modified content back to the script
-        WriteToScript -Content $EventWindowScript
+        WriteToScript -Content $EventWindowScript = $EventWindowScript
     }
     catch {
         Write-Host $_.Exception.Message # Capture the error message
@@ -385,7 +455,7 @@ function GenerateInvokeButtons {
     Write-Host "[i] Generate InvokeButtons..."
     # Define file paths for the Invoke button template
     $FilePaths = @{
-        "Invoke" = Join-Path -Path "templates" -ChildPath "Invoke-Button.ps1"
+        "Invoke" = Join-Path -Path "scripts/Invoke" -ChildPath "Invoke-Button.ps1"
     }
     try {
         # Read the content of the Invoke-Button.ps1 file
@@ -422,7 +492,7 @@ function GenerateInvokeButtons {
         $LanguageItemsItemsOutput = $LanguageItems -join "`n"
         $InvokeContent = $InvokeContent -replace '#{locales}', "$LanguageItemsItemsOutput"
         $InvokeContent = $InvokeContent -replace '#{themes}', "$menuItemsOutput"
-        WriteToScript -Content $InvokeContent
+        WriteToScript -Content $InvokeContent = $InvokeContent
     }
     catch {
         Write-Host $_.Exception.Message 
@@ -464,10 +534,10 @@ function Convert-Locales {
     # Write the JSON to the specified file only if it has changed
     if ($existingJsonOutputNormalized -ne $jsonOutputNormalized) {
         Set-Content -Path $jsonOutputPath -Value $jsonOutput -Encoding UTF8
-        Write-Host "JSON file updated." -ForegroundColor Green
+        Write-Host "locales.json file updated." -ForegroundColor Green
     }
     else {
-        Write-Host "[i] No changes detected. JSON file not updated." 
+        Write-Host "[i] No changes detected in locales.json" 
     }
 }
 
@@ -553,7 +623,8 @@ try {
 #===========================================================================
 "@
     GenerateInvokeButtons
-    ProcessDirectory -Directory $ScritsDirectory
+    # Skips files to avoid duplicates.
+    ProcessDirectory -Directory $ScritsDirectory -Skip @("Invoke-Button.ps1", "Show-Event.ps1")
     WriteToScript -Content @"
 #===========================================================================
 #endregion End Main Functions
@@ -613,8 +684,6 @@ try {
     $MainXamlContent = $MainXamlContent -replace "{{CustomThemes}}", $ThemeFilesContent 
     # Final output
     WriteToScript -Content "`$MainWindowXaml = '$MainXamlContent'"
-    # Signup a new CONTRIBUTOR
-    NewCONTRIBUTOR
     WriteToScript -Content @"
 #===========================================================================
 #endregion End WPF Main Window
@@ -636,7 +705,11 @@ try {
     catch {
         Write-Error "Error: $($_.Exception.Message)"
     }
+
+    $AboutWindowXamlContent = $AboutWindowXamlContent -replace "#{names}", (NewCONTRIBUTOR)
+
     WriteToScript -Content "`$AboutWindowXaml = '$AboutWindowXamlContent'"
+
     WriteToScript -Content @"
 #===========================================================================
 #endregion End WPF About Window
@@ -674,13 +747,19 @@ try {
 #region Begin loadXmal
 #===========================================================================
 "@
-    AddFileContentToScript -FilePath $LoadXamlScript
+    $XamlContent = Get-Content -Path $LoadXamlScript -Raw
+    $XamlContent = $XamlContent -replace "#{ThemesSwitch}", (GenerateThemesSwitch)
+    $XamlContent = $XamlContent -replace "#{LangagesSwitch}", (GenerateLanguageSwitch)
+
+    WriteToScript -Content $XamlContent = $XamlContent
     WriteToScript -Content @"
 #===========================================================================
 #endregion End loadXmal
 #===========================================================================
 "@
     # Write Main section
+
+
     WriteToScript -Content @"
 #===========================================================================
 #region Begin Main

@@ -166,9 +166,7 @@
               TextWrapping="Wrap" HorizontalAlignment="Center" Foreground="{DynamicResource TextColorSecondaryColor2}" Margin="0,5,0,5" FontSize="12" FontStyle="Italic" TextAlignment="Center"/>
               <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" Height="103">
                 <StackPanel Margin="20,0,0,0">
-                  <TextBlock Text='emadadel4' Margin='1' Foreground='{DynamicResource TextColorSecondaryColor2}' />
-<TextBlock Text='yousefmhmd' Margin='1' Foreground='{DynamicResource TextColorSecondaryColor2}' />
-
+                    #{names}
                 </StackPanel>
                 </ScrollViewer>
           </StackPanel>

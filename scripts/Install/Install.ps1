@@ -48,7 +48,7 @@ function Invoke-Install {
         return
     }
 
-    Invoke-ScriptBlock -ArgumentList $selectedApps $QuickInstall, $debug -debug $debug -ScriptBlock {
+    ITT-ScriptBlock -ArgumentList $selectedApps $QuickInstall, $debug -debug $debug -ScriptBlock {
 
         param($selectedApps ,$QuickInstall ,$debug)
 
@@ -140,7 +140,7 @@ function Invoke-Apply {
         return
     }
 
-    Invoke-ScriptBlock -ArgumentList $selectedTweaks -debug $debug -ScriptBlock {
+    ITT-ScriptBlock -ArgumentList $selectedTweaks -debug $debug -ScriptBlock {
 
         param($selectedTweaks,$debug)
 

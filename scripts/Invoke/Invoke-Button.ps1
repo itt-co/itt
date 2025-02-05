@@ -1,27 +1,14 @@
 function Invoke-Button {
+
     <#
         .SYNOPSIS
-        Handles various button actions and commands based on the specified action parameter.
+            Handles various button actions and commands based on the specified action parameter.
         .DESCRIPTION
-        The `Invoke-Button` function executes different actions depending on the input parameter. It manages operations such as installing apps, applying tweaks, changing themes, opening system utilities, and managing language settings. This function is designed to be used with UI elements where each button triggers a specific action.
-        .PARAMETER action
-        A string specifying the action to perform. The action can be one of several predefined values representing different operations, such as installing apps, applying tweaks, opening system utilities, changing themes, or managing language settings.
+            The `Invoke-Button` function executes different actions depending on the input parameter. It manages operations such as installing apps.
         .EXAMPLE
-        Invoke-Button -action "installBtn"
-        .EXAMPLE
-        Invoke-Button -action "Dark"
-        .EXAMPLE
-        Invoke-Button -action "sysinfo"
-        .NOTES
-        - The function uses a `Switch` statement to handle different actions based on the `$action` parameter.
-        - For UI-related actions, such as installing apps or applying tweaks, it calls `Invoke-Install` or `Invoke-Apply`.
-        - For system utilities and settings, it uses `Start-Process` to open tools like Device Manager, Task Manager, or disk management utilities.
-        - For language settings, it invokes the `Set-Language` function with the specified language code.
-        - For theme changes, it calls functions like `Switch-ToDarkMode` or `Switch-ToLightMode`.
-        - For managing audio settings, it calls `MuteMusic` or `UnmuteMusic`.
-        - For opening URLs related to tools or scripts, it uses `Start-Process` with the URL as an argument.
-        - The `Debug-Message` function is used for internal debugging and can be uncommented for logging purposes.
+            Invoke-Button -action "sysinfo"
     #>
+
     Param ([string]$action,[string]$Content)
     # debug start
         function Debug-Message {
@@ -35,7 +22,7 @@ function Invoke-Button {
             $itt.SearchInput.Text = $null
             Invoke-Install
             # debug start
-                Debug-Message
+                Debug-Message $action
             # debug end
         }
         "applyBtn" {
@@ -54,7 +41,7 @@ function Invoke-Button {
         "searchInput" {
             Search
             # debug start
-                Debug-Message 
+                Debug-Message $action
             # debug end
         }
         # Menu items
@@ -194,14 +181,14 @@ function Invoke-Button {
         }
         "mas" {
             Add-Log -Message "Microsoft Activation Scripts (MAS)" -Level "info"
-            Invoke-ScriptBlock -ScriptBlock {irm https://get.activated.win | iex}
+            ITT-ScriptBlock -ScriptBlock {irm https://get.activated.win | iex}
             # debug start
                 Debug-Message $action
             # debug end
         }
         "idm" {
             Add-Log -Message "IDM Activation Script (WindowsAddict)" -Level "info"
-            Invoke-ScriptBlock -ScriptBlock {irm https://massgrave.dev/ias | iex}
+            ITT-ScriptBlock -ScriptBlock {irm https://massgrave.dev/ias | iex}
             # debug start
                 Debug-Message $action
             # debug end

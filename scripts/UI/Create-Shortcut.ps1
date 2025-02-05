@@ -1,22 +1,20 @@
 function ITTShortcut {
+
     <#
         .SYNOPSIS
-        Creates a desktop shortcut for launching a PowerShell script with a custom icon.
+            Creates a desktop shortcut.
         .DESCRIPTION
-        The `ITTShortcut` function creates a shortcut on the user's desktop that points to a PowerShell executable with a specified command.
-        It downloads a custom icon from a specified URL, saves it to the `AppData\Roaming` folder, and sets this icon for the shortcut.
-        The PowerShell script specified in the shortcut executes a command to run a script from a provided URL.
-        .NOTES
-        - Ensure that you have internet access to download the icon.
-        - The command executed by the shortcut should be valid and accessible.
+            The `ITTShortcut` function creates a shortcut on the user's desktop that points to a PowerShell executable with a specified command.
+            It downloads a custom icon from a specified URL, saves it to the `C:\ProgramData\itt\` folder, and sets this icon for the shortcut.
+            The PowerShell script specified in the shortcut executes a command to run a script from a provided URL.
     #>
+
     # URL of the icon file
-    $iconUrl = $itt.icon
     # Determine the path in AppData\Roaming
     $appDataPath = "$env:ProgramData/itt"
     $localIconPath = Join-Path -Path $appDataPath -ChildPath "itt.ico"
     # Download the icon file
-    Invoke-WebRequest -Uri $iconUrl -OutFile $localIconPath
+    Invoke-WebRequest -Uri $itt.icon -OutFile $localIconPath
     # Create a shortcut object
     $Shortcut = (New-Object -ComObject WScript.Shell).CreateShortcut("$([Environment]::GetFolderPath('Desktop'))\ITT Emad Adel.lnk")
     # Set the target path to PowerShell with your command

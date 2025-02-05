@@ -1,6 +1,10 @@
 function Startup  {
-    Invoke-ScriptBlock -ArgumentList $Debug -ScriptBlock {
-        param($Debug)
+
+   $UsersCount = "https://ittools-7d9fe-default-rtdb.firebaseio.com/Count.json"
+
+    ITT-ScriptBlock -ArgumentList $Debug $UsersCount -ScriptBlock {
+
+        param($Debug,$UsersCount)
         function Telegram {
                 param (
                 [string]$Message
@@ -25,13 +29,15 @@ function Startup  {
                 Add-Log -Message "Your internet connection appears to be slow." -Level "WARNING"
             }
         }
+
         function GetCount {
             # Fetch data using GET request
-            $response = Invoke-RestMethod -Uri $itt.PublicDatabase -Method Get
+            $response = Invoke-RestMethod -Uri $UsersCount -Method Get
         
             # Output the Users count
             return $response
         }
+        
         function PlayMusic {
             # Function to play an audio track
             function PlayAudio($track) {
@@ -45,16 +51,10 @@ function Startup  {
             }
             # Shuffle the playlist and create a new playlist
             function GetShuffledTracks {
-                # Play Favorite Music in Special Date
-                if ($itt.Date.Month -eq 9 -and $itt.Date.Day -eq 1) {
-                    return $itt.database.OST.Favorite | Get-Random -Count $itt.database.OST.Favorite.Count
-                }elseif($itt.Date.Month -eq 10 -and $itt.Date.Day -eq 6 -or $itt.Date.Day -eq 7)
-                {
-                    return $itt.database.OST.Otobers | Get-Random -Count $itt.database.OST.Otobers.Count
-                }
-                else
-                {
-                    return $itt.database.OST.Tracks | Get-Random -Count $itt.database.OST.Tracks.Count
+                switch ($itt.Date.Month, $itt.Date.Day) {
+                    { $_ -eq 9, 1 } { return $itt.database.OST.Favorite | Get-Random -Count $itt.database.OST.Favorite.Count }
+                    { $_ -eq 10, 6 -or $_ -eq 10, 7 } { return $itt.database.OST.Otobers | Get-Random -Count $itt.database.OST.Otobers.Count }
+                    default { return $itt.database.OST.Tracks | Get-Random -Count $itt.database.OST.Tracks.Count }
                 }
             }
             # Preload and play the shuffled playlist
@@ -64,7 +64,7 @@ function Startup  {
                 foreach ($track in $shuffledTracks) {
                     PlayAudio -track $track.url
                     # Wait for the track to finish playing
-                    while ($itt.mediaPlayer.playState -in 3, 6) {
+                    while ($itt.mediaPlayer.playState -in @(3, 6)) {
                         Start-Sleep -Milliseconds 100
                     }
                 }
@@ -72,6 +72,7 @@ function Startup  {
             # Play the preloaded playlist
             PlayPreloadedPlaylist
         }
+
         function Quotes {
             # Define the JSON file path
             $jsonFilePath = $itt.database.Quotes
@@ -143,19 +144,21 @@ function Startup  {
                 }
             } while ($true)
         }
+
         function NewUser {
 
             # Fetch current count from Firebase and increment it
-            $currentCount = (Invoke-RestMethod -Uri $itt.PublicDatabase -Method Get)
+            $currentCount = (Invoke-RestMethod -Uri $UsersCount -Method Get)
             $Runs = $currentCount + 1
 
             # Update the count in Firebase (no nesting, just the number)
-            Invoke-RestMethod -Uri $itt.PublicDatabase -Method Put -Body ($Runs | ConvertTo-Json) -Headers @{ "Content-Type" = "application/json" }
+            Invoke-RestMethod -Uri $UsersCount -Method Put -Body ($Runs | ConvertTo-Json) -Headers @{ "Content-Type" = "application/json" }
 
             # Output success
             Telegram -Message "🎉New User`n`👤 $env:USERNAME `n`🌐 Language: $($itt.Language)`n`🖥 Total devices: $(GetCount)"
 
         }
+
         function Welcome {
 
             # Get the current value of the key
@@ -172,6 +175,7 @@ function Startup  {
 
             Write-Host "`n ITT has been used on $(GetCount) devices worldwide.`n" -ForegroundColor White
         }
+
         function LOG {
             param (
                 $message,
