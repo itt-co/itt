@@ -10,7 +10,6 @@ lastupdate     = "02/05/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
-CurretTheme    = "default"
 Date           = (Get-Date -Format "MM/dd/yyy")
 Music          = 100
 PopupWindow    = "0"
@@ -6773,7 +6772,6 @@ Add-Log -Message "No tasks matching '$task' found" -Level "debug"
 function Reset-Preferences {
 Set-ItemProperty -Path $itt.registryPath  -Name "PopupWindow" -Value 0 -Force
 Set-ItemProperty -Path $itt.registryPath  -Name "Music" -Value 100 -Force
-Set-ItemProperty -Path $itt.registryPath  -Name "UserTheme" -Value "none" -Force
 SwitchToSystem
 Message -key "Reopen_itt_again" -icon "Information" -action "OK"
 }
@@ -7208,6 +7206,9 @@ $selectedApps | ForEach-Object {
 if ($_.Winget -ne "none" -or $_.Choco -ne "none")
 {
 $chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($_.Choco)"
+Remove-Item -Path "$chocoFolder" -Recurse -Force
+Remove-Item -Path "$chocoFolder.install" -Recurse -Force
+Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
 Install-App -Name $_.Name -Winget $_.Winget -Choco $_.Choco
 }
 else
@@ -7667,7 +7668,7 @@ function About {
 [xml]$about = $AboutWindowXaml
 $childWindowReader = (New-Object System.Xml.XmlNodeReader $about)
 $itt.about = [Windows.Markup.XamlReader]::Load($childWindowReader)
-$itt["about"].Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.CurretTheme))
+$itt["about"].Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Theme))
 $itt.about.FindName('ver').Text = "Last update $($itt.lastupdate)"
 $itt.about.FindName("telegram").Add_Click({Start-Process("https://t.me/emadadel4")})
 $itt.about.FindName("github").Add_Click({Start-Process("https://github.com/emadadel4/itt")})
@@ -7962,27 +7963,6 @@ Set-ItemProperty -Path $itt.registryPath  -Name "locales" -Value "$lang" -Force
 $itt["window"].DataContext = $itt.database.locales.Controls.$($itt.Language)
 }
 }
-function Switch-ToDarkMode {
-try {
-$theme = $itt['window'].FindResource("Dark")
-Update-Theme $theme "true"
-} catch {
-Write-Host "Error switching to dark mode: $_"
-}
-}
-function Switch-ToLightMode {
-try {
-$theme = $itt['window'].FindResource("Light")
-Update-Theme $theme "Light"
-} catch {
-Write-Host "Error switching to light mode: $_"
-}
-}
-function Update-Theme ($theme) {
-$itt['window'].Resources.MergedDictionaries.Clear()
-$itt['window'].Resources.MergedDictionaries.Add($theme)
-Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "$theme" -Force
-}
 function SwitchToSystem {
 try {
 Set-ItemProperty -Path $itt.registryPath  -Name "Theme" -Value "default" -Force
@@ -8007,22 +7987,8 @@ function Set-Theme {
 param (
 [string]$Theme
 )
-Switch($Theme)
-{
-"Light"{
-$itt['window'].Resources.MergedDictionaries.Add($itt['window'].FindResource("Light"))
-Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "Light" -Force
-}
-"Dark"{
-$itt['window'].Resources.MergedDictionaries.Add($itt['window'].FindResource("Dark"))
-Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "Dark" -Force
-}
-default{
 $itt['window'].Resources.MergedDictionaries.Add($itt['window'].FindResource("$Theme"))
-Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "Custom" -Force
-Set-ItemProperty -Path $itt.registryPath -Name "UserTheme" -Value "$Theme" -Force
-}
-}
+Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "$Theme" -Force
 }
 function UpdateUI {
 param(
@@ -8668,7 +8634,7 @@ To="5,0,0,0">
 <Color x:Key="ListViewCardRightColor">#ffffff</Color>
 <ImageBrush x:Key="BackgroundImage" ImageSource="{x:Null}" Stretch="UniformToFill"/>
 </ResourceDictionary>
-<ResourceDictionary x:Key="palestine">
+<ResourceDictionary x:Key="Palestine">
 <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#FF1F1F1F"/>
 <SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#2C211A"/>
 <SolidColorBrush x:Key="PrimaryButtonForeground" Color="#FFB80000" />
@@ -8853,7 +8819,7 @@ To="5,0,0,0">
 <MenuItem Name="Dark" Header="Dark"/>
 <MenuItem Name="DarkKnight" Header="Dark Knight"/>
 <MenuItem Name="Light" Header="Light"/>
-<MenuItem Name="palestine" Header="Palestine"/>
+<MenuItem Name="Palestine" Header="Palestine"/>
 </MenuItem>
 <MenuItem Header="{Binding Music}">
 <MenuItem.Icon>
@@ -12064,14 +12030,11 @@ function Show-Event {
 [xml]$event = $EventWindowXaml
 $EventWindowReader = (New-Object System.Xml.XmlNodeReader $event)
 $itt.event = [Windows.Markup.XamlReader]::Load($EventWindowReader)
-$itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.CurretTheme))
+$itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Theme))
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/31/2025'.Trim()
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
@@ -12080,11 +12043,14 @@ Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
@@ -12397,7 +12363,6 @@ $shortCulture = $fullCulture.Split('-')[0]
 if (-not (Test-Path $itt.registryPath)) {
 New-Item -Path $itt.registryPath -Force | Out-Null
 Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -Force
-Set-ItemProperty -Path $itt.registryPath -Name "UserTheme" -Value "none" -Force
 Set-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -Force
 Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value 100 -Force
 Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -Force
@@ -12405,7 +12370,6 @@ Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value 0 -Force
 }
 try {
 $itt.Theme = (Get-ItemProperty -Path $itt.registryPath -Name "Theme" -ErrorAction Stop).Theme
-$itt.CurretTheme = (Get-ItemProperty -Path $itt.registryPath -Name "UserTheme" -ErrorAction Stop).UserTheme
 $itt.Locales = (Get-ItemProperty -Path $itt.registryPath -Name "locales" -ErrorAction Stop).locales
 $itt.Music = (Get-ItemProperty -Path $itt.registryPath -Name "Music" -ErrorAction Stop).Music
 $itt.PopupWindow = (Get-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -ErrorAction Stop).PopupWindow
@@ -12413,7 +12377,6 @@ $itt.Runs = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction 
 }
 catch {
 New-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -PropertyType String -Force *> $Null
-New-ItemProperty -Path $itt.registryPath -Name "UserTheme" -Value "none" -PropertyType String -Force *> $Null
 New-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -PropertyType String -Force *> $Null
 New-ItemProperty -Path $itt.registryPath -Name "Music" -Value 100 -PropertyType DWORD -Force *> $Null
 New-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -PropertyType DWORD -Force *> $Null
@@ -12422,34 +12385,35 @@ New-ItemProperty -Path $itt.registryPath -Name "Runs" -Value 0 -PropertyType DWO
 try {
 switch ($itt.Locales) {
 "default" {
-switch ($shortCulture) {
-"ar" { $locale = "ar" }
-"en" { $locale = "en" }
-"fr" { $locale = "fr" }
-"tr" { $locale = "tr" }
-"zh" { $locale = "zh" }
-"ko" { $locale = "ko" }
-"de" { $locale = "de" }
-"ru" { $locale = "ru" }
-"es" { $locale = "es" }
-"ga" { $locale = "ga" }
-"hi" { $locale = "hi" }
-"it" { $locale = "it" }
+switch ($shortCulture)
+{
+"ar" { $locale = "ar"}
+"de" { $locale = "de"}
+"en" { $locale = "en"}
+"es" { $locale = "es"}
+"fr" { $locale = "fr"}
+"ga" { $locale = "ga"}
+"hi" { $locale = "hi"}
+"it" { $locale = "it"}
+"ko" { $locale = "ko"}
+"ru" { $locale = "ru"}
+"tr" { $locale = "tr"}
+"zh" { $locale = "zh"}
 default { $locale = "en" }
 }
 }
-"ar" { $locale = "ar" }
-"en" { $locale = "en" }
-"fr" { $locale = "fr" }
-"tr" { $locale = "tr" }
-"zh" { $locale = "zh" }
-"ko" { $locale = "ko" }
-"de" { $locale = "de" }
-"ru" { $locale = "ru" }
-"es" { $locale = "es" }
-"ga" { $locale = "ga" }
-"hi" { $locale = "hi" }
-"it" { $locale = "it" }
+"ar" { $locale = "ar"}
+"de" { $locale = "de"}
+"en" { $locale = "en"}
+"es" { $locale = "es"}
+"fr" { $locale = "fr"}
+"ga" { $locale = "ga"}
+"hi" { $locale = "hi"}
+"it" { $locale = "it"}
+"ko" { $locale = "ko"}
+"ru" { $locale = "ru"}
+"tr" { $locale = "tr"}
+"zh" { $locale = "zh"}
 default { $locale = "en" }
 }
 $itt["window"].DataContext = $itt.database.locales.Controls.$locale
@@ -12460,26 +12424,25 @@ $itt["window"].DataContext = $itt.database.locales.Controls.en
 }
 try {
 $themeResource = switch ($itt.Theme) {
-"Light" {
-"Light"
-$itt.CurretTheme
-}
-"Dark" {
-"Dark"
-$itt.CurretTheme
-}
-"Custom" {
-$itt.CurretTheme
-}
+"Dark" {"Dark"}
+"DarkKnight" {"DarkKnight"}
+"Light" {"Light"}
+"Palestine" {"Palestine"}
 default {
 switch ($appsTheme) {
-"0" { "Dark" }
-"1" { "Light" }
+"0" {
+"Dark"
+Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -Force
+}
+"1" {
+"Light"
+Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -Force
+}
 }
 }
 }
 $itt["window"].Resources.MergedDictionaries.Add($itt["window"].FindResource($themeResource))
-$itt.CurretTheme = $themeResource
+$itt.Theme = $themeResource
 }
 catch {
 $fallback = switch ($appsTheme) {
@@ -12487,9 +12450,8 @@ $fallback = switch ($appsTheme) {
 "1" { "Light" }
 }
 Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -Force
-Set-ItemProperty -Path $itt.registryPath -Name "UserTheme" -Value "none" -Force
 $itt["window"].Resources.MergedDictionaries.Add($itt["window"].FindResource($fallback))
-$itt.CurretTheme = $fallback
+$itt.Theme = $fallback
 }
 $itt.mediaPlayer.settings.volume = "$($itt.Music)"
 if ($itt.Music -eq 0) {
