@@ -315,8 +315,38 @@ function GenerateThemesKeys {
         # Append the MenuItem entry to the StringBuilder
         $null = $stringBuilder.AppendFormat("<MenuItem Name=`"{0}`" Header=`"{1}`"/>`n", $name, $header)
     }
+
+
+
+
     # Convert StringBuilder to string and return the output
     return $stringBuilder.ToString().TrimEnd("`n".ToCharArray())  # Remove the trailing newline
+}
+function GenerateSwitchThemes
+{
+
+    $XamlContent = Get-Content -Path $LoadXamlScript -Raw
+
+    # Define the path to the Themes directory
+    $ThemesDir = "themes"
+
+    # Get all theme files (assuming they are named like Light.xaml, Dark.xaml, etc.)
+    $ThemeFiles = Get-ChildItem -Path $ThemesDir -Filter *.xaml
+
+    # Add cases for each theme file
+    foreach ($file in $ThemeFiles) {
+            $themeName = $file.BaseName
+            $switchStatement += @"
+                
+            "$themeName" {"$themeName"}
+"@
+    }
+
+    # Close the switch statement (without extra braces)
+    $switchStatement += @"
+"@
+
+    return $switchStatement
 }
 function GenerateLocalesKeys {
     param (
@@ -674,13 +704,17 @@ try {
 #region Begin loadXmal
 #===========================================================================
 "@
-    AddFileContentToScript -FilePath $LoadXamlScript
+    $XamlContent = Get-Content -Path $LoadXamlScript -Raw
+    $XamlContent = $XamlContent -replace "#{CustomThemes}", (GenerateSwitchThemes)
+    WriteToScript -Content $XamlContent = $XamlContent
     WriteToScript -Content @"
 #===========================================================================
 #endregion End loadXmal
 #===========================================================================
 "@
     # Write Main section
+
+
     WriteToScript -Content @"
 #===========================================================================
 #region Begin Main
