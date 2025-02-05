@@ -1,11 +1,11 @@
-﻿function Invoke-ScriptBlock {
+﻿function ITT-ScriptBlock {
     <#
         .SYNOPSIS
         Executes a given script block asynchronously within a specified runspace.
         .DESCRIPTION
         This function creates a new PowerShell instance to execute a provided script block asynchronously. It accepts an optional array of arguments to pass to the script block and manages the runspace and PowerShell instance resources. The function ensures that resources are properly disposed of after the script block completes execution.
         .EXAMPLE
-        Invoke-ScriptBlock -ScriptBlock { param($arg1) Write-Output $arg1 } -ArgumentList @("Hello, World!")
+        ITT-ScriptBlock -ScriptBlock { param($arg1) Write-Output $arg1 } -ArgumentList @("Hello, World!")
         Executes the script block that outputs the provided argument "Hello, World!" asynchronously.
     #>
     param(
