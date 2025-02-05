@@ -18,7 +18,6 @@ $itt = [Hashtable]::Synchronized(@{
         registryPath   = "HKCU:\Software\ITT@emadadel"
         icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
         Theme          = "default"
-        CurretTheme    = "default"
         Date           = (Get-Date -Format "MM/dd/yyy")
         Music          = 100
         PopupWindow    = "0"
