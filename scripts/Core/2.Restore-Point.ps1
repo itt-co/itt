@@ -8,7 +8,7 @@ function RestorePoint {
         RestorePoint
         Creates a restore point and logs the success or failure of the operation.
     #>
-    Invoke-ScriptBlock -ScriptBlock {
+    ITT-ScriptBlock -ScriptBlock {
         Try {
             Add-Log -Message "Creating Restore point..." -Level "INFO"
             Start-Process powershell.exe -ArgumentList "-NoExit", "-Command `"Enable-ComputerRestore -Drive '$env:SystemDrive'; Checkpoint-Computer -Description 'ITT' -RestorePointType 'MODIFY_SETTINGS'; exit`"" -Wait -Verb RunAs
