@@ -19,7 +19,7 @@
   <img src="https://img.shields.io/badge/-Arabic-red" alt="Arabic" height="25" />
 </a>
 <a href="/locales/ga.csv">
-  <img src="https://img.shields.io/badge/-Irish-green" alt="Irish" height="25" />
+  <img src="https://img.shields.io/badge/-Gaeilge-green" alt="Irish" height="25" />
 </a>
 <a href="/locales/fr.csv">
   <img src="https://img.shields.io/badge/-French-blue" alt="French" height="25" />
