@@ -7848,7 +7848,7 @@ if ($_.Key -eq "I" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
 ITTShortcut
 }
 if ($_.Key -eq "A" -and $_.KeyboardDevice.Modifiers -eq "Ctrl") {
-$itt["window"].FindName($itt.CurrentCategory).SelectedIndex = 0
+if($itt.CurrentCategory -eq "AppsCategory" -or $itt.CurrentCategory -eq "TwaeksCategory"){$itt["window"].FindName($itt.CurrentCategory).SelectedIndex = 0}
 }
 }
 function Message {
