@@ -22,7 +22,8 @@ function Set-Theme {
     param (
         [string]$Theme
     )
-   
+    $itt['window'].Resources.MergedDictionaries.Clear()
     $itt['window'].Resources.MergedDictionaries.Add($itt['window'].FindResource("$Theme"))
     Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "$Theme" -Force
+    $itt.Theme = $Theme
 }
