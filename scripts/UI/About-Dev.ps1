@@ -4,7 +4,8 @@ function About {
     $childWindowReader = (New-Object System.Xml.XmlNodeReader $about)
     $itt.about = [Windows.Markup.XamlReader]::Load($childWindowReader)
     # Get main style theme
-    $itt["about"].Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Theme))
+    $itt['about'].Resources.MergedDictionaries.Clear()
+    $itt["about"].Resources.MergedDictionaries.Add($itt["window"].FindResource($($itt.Theme)))
     # # Set Events on Click
     $itt.about.FindName('ver').Text = "Last update $($itt.lastupdate)"
     $itt.about.FindName("telegram").Add_Click({Start-Process("https://t.me/emadadel4")})
