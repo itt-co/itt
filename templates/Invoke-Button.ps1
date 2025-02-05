@@ -35,7 +35,7 @@ function Invoke-Button {
             $itt.SearchInput.Text = $null
             Invoke-Install
             # debug start
-                Debug-Message
+                Debug-Message $action
             # debug end
         }
         "applyBtn" {
@@ -54,7 +54,7 @@ function Invoke-Button {
         "searchInput" {
             Search
             # debug start
-                Debug-Message 
+                Debug-Message $action
             # debug end
         }
         # Menu items
@@ -194,14 +194,14 @@ function Invoke-Button {
         }
         "mas" {
             Add-Log -Message "Microsoft Activation Scripts (MAS)" -Level "info"
-            Invoke-ScriptBlock -ScriptBlock {irm https://get.activated.win | iex}
+            ITT-ScriptBlock -ScriptBlock {irm https://get.activated.win | iex}
             # debug start
                 Debug-Message $action
             # debug end
         }
         "idm" {
             Add-Log -Message "IDM Activation Script (WindowsAddict)" -Level "info"
-            Invoke-ScriptBlock -ScriptBlock {irm https://massgrave.dev/ias | iex}
+            ITT-ScriptBlock -ScriptBlock {irm https://massgrave.dev/ias | iex}
             # debug start
                 Debug-Message $action
             # debug end
