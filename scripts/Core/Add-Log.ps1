@@ -21,7 +21,7 @@ function Add-Log {
         "Apply" { $icon = "√" }
         "Disabled" { $icon = "X" }
         "Enabled" { $icon = "√" }
-        "debug" { $icon = "debug" }
+        "Debug" { $icon = "Debug" }
         default { $icon = "i" }
     }
     # Construct the log message
