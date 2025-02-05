@@ -734,12 +734,8 @@ try {
 #===========================================================================
 "@
     $XamlContent = Get-Content -Path $LoadXamlScript -Raw
-
     $XamlContent = $XamlContent -replace "#{ThemesSwitch}", (GenerateThemesSwitch)
-
     $XamlContent = $XamlContent -replace "#{LangagesSwitch}", (GenerateLanguageSwitch)
-
-    Write-Host  (GenerateLanguageSwitch)
 
     WriteToScript -Content $XamlContent = $XamlContent
     WriteToScript -Content @"
