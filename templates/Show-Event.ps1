@@ -3,7 +3,7 @@ function Show-Event {
     [xml]$event = $EventWindowXaml
     $EventWindowReader = (New-Object System.Xml.XmlNodeReader $event)
     $itt.event = [Windows.Markup.XamlReader]::Load($EventWindowReader)
-    $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.CurretTheme))
+    $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Theme))
     $CloseBtn = $itt.event.FindName('closebtn')
     #{title}
     #{contorlshandler}
