@@ -4250,6 +4250,15 @@ $itt.database.Quotes = @'
 {
 "type": "quote",
 "text": "ألنصر او الشهادة"
+},
+{
+"text": "The victory or martyrdom",
+"type": "quote",
+"name": "Palestinian Resistance"
+},
+{
+"type": "quote",
+"text": " النصر او الشهادة"
 }
 ]
 }
