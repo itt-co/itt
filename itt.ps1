@@ -3724,6 +3724,51 @@ $itt.database.Applications = @'
 "default": [],
 "category": "Gaming",
 "check": "false"
+},
+{
+"Name": "Kodu Game Lab",
+"Description": "Kodu Game Lab is a 3D game development environment that is designed to teach kids basic programming principles.",
+"winget": "InfiniteInstant.KoduGameLab",
+"choco": "none",
+"default": [],
+"category": "Development",
+"check": "false"
+},
+{
+"Name": "GDevelop",
+"Description": "A free and open source nocode game engine designed to be usable by everyone.",
+"winget": "GDevelop.GDevelop",
+"choco": "gdevelop",
+"default": [],
+"category": "Development",
+"check": "false"
+},
+{
+"Name": "MongoDB Tools",
+"Description": "The MongoDB Database Tools are a collection of command-line utilities for working with a MongoDB deployment",
+"winget": "MongoDB.DatabaseTools",
+"choco": "mongodb-database-tools",
+"default": [],
+"category": "Development",
+"check": "false"
+},
+{
+"Name": "DB Browser for SQLite",
+"Description": "DB Browser for SQLite (DB4S) is a high quality, visual, open source tool to create, design, and edit database files compatible with SQLite",
+"winget": "DBBrowserForSQLite.DBBrowserForSQLite",
+"choco": "sqlitebrowser",
+"default": [],
+"category": "Development",
+"check": "false"
+},
+{
+"Name": "MySQL",
+"Description": "The MySQL software delivers a very fast, multithreaded, multi-user, and robust SQL (Structured Query Language) database server. MySQL Server is intended for mission-critical, heavy-load production systems as well as for embedding into mass-deployed software",
+"winget": "Oracle.MySQL",
+"choco": "mysql",
+"default": [],
+"category": "Development",
+"check": "false"
 }
 ]
 '@ | ConvertFrom-Json
@@ -11625,6 +11670,36 @@ ScrollViewer.CanContentScroll="True">
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
 <TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="DOSBox is an emulator program which emulates an IBM PC compatible computer running a DOS operating system."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Kodu Game Lab" Tag="Development" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
+</StackPanel>
+<TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Kodu Game Lab is a 3D game development environment that is designed to teach kids basic programming principles.."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="GDevelop" Tag="Development" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
+</StackPanel>
+<TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A free and open source nocode game engine designed to be usable by everyone.."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="MongoDB Tools" Tag="Development" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
+</StackPanel>
+<TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The MongoDB Database Tools are a collection of commandline utilities for working with a MongoDB deployment."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="DB Browser for SQLite" Tag="Development" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
+</StackPanel>
+<TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="DB Browser for SQLite DB4S is a high quality visual open source tool to create design and edit database files compatible with SQLite."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="MySQL" Tag="Development" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
+</StackPanel>
+<TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The MySQL software delivers a very fast multithreaded multiuser and robust SQL Structured Query Language database server. MySQL Server is intended for missioncritical heavyload production systems as well as for embedding into massdeployed software."/>
 </StackPanel>
 </ListView>
 </TabItem.Content>
