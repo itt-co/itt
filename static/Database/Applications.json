@@ -3737,5 +3737,23 @@
     "default": [],
     "category": "Development",
     "check": "false"
+  },
+  {
+    "Name": "MongoDB Compass",
+    "Description": "Compass is a free interactive tool for querying, optimizing, and analyzing your MongoDB data",
+    "winget": "MongoDB.Compass.Full",
+    "choco": "mongodb-compass",
+    "default": [],
+    "category": "Development",
+    "check": "false"
+  },
+  {
+    "Name": "MongoDB Compass readonly",
+    "Description": "Compass is a free interactive tool for analyzing your MongoDB data",
+    "winget": "MongoDB.Compass.Readonly",
+    "choco": "mongodb-compass-readonly",
+    "default": [],
+    "category": "Development",
+    "check": "false"
   }
 ]
