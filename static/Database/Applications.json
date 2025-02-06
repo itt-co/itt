@@ -3692,5 +3692,50 @@
     "default": [],
     "category": "Gaming",
     "check": "false"
+  },
+  {
+    "Name": "Kodu Game Lab",
+    "Description": "Kodu Game Lab is a 3D game development environment that is designed to teach kids basic programming principles.",
+    "winget": "InfiniteInstant.KoduGameLab",
+    "choco": "none",
+    "default": [],
+    "category": "Development",
+    "check": "false"
+  },
+  {
+    "Name": "GDevelop",
+    "Description": "A free and open source nocode game engine designed to be usable by everyone.",
+    "winget": "GDevelop.GDevelop",
+    "choco": "gdevelop",
+    "default": [],
+    "category": "Development",
+    "check": "false"
+  },
+  {
+    "Name": "MongoDB Tools",
+    "Description": "The MongoDB Database Tools are a collection of command-line utilities for working with a MongoDB deployment",
+    "winget": "MongoDB.DatabaseTools",
+    "choco": "mongodb-database-tools",
+    "default": [],
+    "category": "Development",
+    "check": "false"
+  },
+  {
+    "Name": "DB Browser for SQLite",
+    "Description": "DB Browser for SQLite (DB4S) is a high quality, visual, open source tool to create, design, and edit database files compatible with SQLite",
+    "winget": "DBBrowserForSQLite.DBBrowserForSQLite",
+    "choco": "sqlitebrowser",
+    "default": [],
+    "category": "Development",
+    "check": "false"
+  },
+  {
+    "Name": "MySQL",
+    "Description": "The MySQL software delivers a very fast, multithreaded, multi-user, and robust SQL (Structured Query Language) database server. MySQL Server is intended for mission-critical, heavy-load production systems as well as for embedding into mass-deployed software",
+    "winget": "Oracle.MySQL",
+    "choco": "mysql",
+    "default": [],
+    "category": "Development",
+    "check": "false"
   }
 ]
