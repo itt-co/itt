@@ -3580,6 +3580,150 @@ $itt.database.Applications = @'
 "default": [],
 "category": "Documents",
 "check": "false"
+},
+{
+"Name": "Interior Design 3D",
+"Description": "Interior Design 3D is an expert program for home design and floor plan creation",
+"winget": "AMSSoftware.InteriorDesign3D-e",
+"choco": "none",
+"default": [],
+"category": "Imaging",
+"check": "false"
+},
+{
+"Name": "MeshLab",
+"Description": "MeshLab is an open source, portable, and extensible system for the processing and editing of unstructured large 3D triangular meshes. It is aimed to help the processing of the typical not-so-small unstructured models",
+"winget": "CNRISTI.MeshLab",
+"choco": "meshlab",
+"default": [],
+"category": "Imaging",
+"check": "false"
+},
+{
+"Name": "GitKraken",
+"Description": "Legendary Git GUI client for Windows, Mac & Linux",
+"winget": "Axosoft.GitKraken",
+"choco": "gitkraken",
+"default": [],
+"category": "Development",
+"check": "false"
+},
+{
+"Name": "Slack",
+"Description": "Slack is a collaboration hub for work, no matter what work you do. It's a place where conversations happen, decisions are made, and information is always at your fingertips. With Slack, your team is better connected",
+"winget": "SlackTechnologies.Slack",
+"choco": "slack",
+"default": [],
+"category": "Communication",
+"check": "false"
+},
+{
+"Name": "Rocket Chat",
+"Description": "Rocket.Chat is the leading open source team chat software solution. Free, unlimited and completely customizable with on-premises and SaaS cloud hosting",
+"winget": "RocketChat.RocketChat",
+"choco": "rocketchat",
+"default": [],
+"category": "Communication",
+"check": "false"
+},
+{
+"Name": "TeamSpeak",
+"Description": "Use crystal clear sound to communicate with your team mates cross-platform with military-grade security. lag-free performance & unparalleled reliability and uptime",
+"winget": "TeamSpeakSystems.TeamSpeakClient",
+"choco": "teamspeak",
+"default": [],
+"category": "Communication",
+"check": "false"
+},
+{
+"Name": "FFFTP",
+"Description": "FFFTP is lightweight FTP client software. FFFTP has many useful feature such as directory mirroring, character encdoging conversion, Firewall and SOCK, one-time password support, and so on",
+"winget": "Sayuri.FFFTP",
+"choco": "ffftp",
+"default": [],
+"category": "Development",
+"check": "false"
+},
+{
+"Name": "SmartFTP",
+"Description": "SmartFTP is a fast and reliable FTP, FTPS, SFTP, HTTP, Amazon S3, WebDAV, Google Drive, Google Cloud Storage, Microsoft OneDrive, Backblaze B2, Telnet, Terminal client with lots of features and a modern user interface",
+"winget": "SmartSoft.SmartFTP",
+"choco": "smartftp",
+"default": [],
+"category": "Development",
+"check": "false"
+},
+{
+"Name": "Rclone",
+"Description": "Rclone (\"rsync for cloud storage\") is a command-line program to sync files and directories to and from different cloud storage providers",
+"winget": "Rclone.Rclone",
+"choco": "rclone",
+"default": [],
+"category": "Development",
+"check": "false"
+},
+{
+"Name": "Cyberduck",
+"Description": "Cyberduck is a libre server and cloud storage browser for Mac and Windows with support for FTP, SFTP, WebDAV, Amazon S3, OpenStack Swift, Backblaze B2, Microsoft Azure & OneDrive, Google Drive and Dropbox",
+"winget": "Iterate.Cyberduck",
+"choco": "cyberduck",
+"default": [],
+"category": "Development",
+"check": "false"
+},
+{
+"Name": "Dolphin",
+"Description": "Dolphin is an emulator for two recent Nintendo video game consoles: the GameCube and the Wii. It allows PC gamers to enjoy games for these two consoles in full HD (1080p) with several enhancements: compatibility with all PC controllers, turbo speed, networked multiplayer, and even more!",
+"winget": "DolphinEmulator.Dolphin",
+"choco": "dolphin",
+"default": [],
+"category": "Gaming",
+"check": "false"
+},
+{
+"Name": "mGBA",
+"Description": "mGBA is an open-source Game Boy Advance emulator",
+"winget": "JeffreyPfau.mGBA",
+"choco": "mgba",
+"default": [],
+"category": "Gaming",
+"check": "false"
+},
+{
+"Name": "EmulationStation",
+"Description": "A graphical and themeable emulator front-end that allows you to access all your favorite games in one place, even without a keyboard!",
+"winget": "Emulationstation.Emulationstation",
+"choco": "emulationstation",
+"default": [],
+"category": "Gaming",
+"check": "false"
+},
+{
+"Name": "ScummVM",
+"Description": "ScummVM is a program which allows you to run certain classic graphical adventure and role-playing games, provided you already have their data files. The clever part about this: ScummVM just replaces the executables shipped with the games, allowing you to play them on systems for which they were never designed!",
+"winget": "ScummVM.ScummVM",
+"choco": "scummvm",
+"default": [],
+"category": "Gaming",
+"check": "false"
+},
+{
+"Name": "Project64",
+"Description": "Project64 is a free and open-source emulator for the Nintendo 64 and Nintendo 64 Disk Drive written in C++ currently for Windows",
+"winget": "Project64.Project64",
+"choco": "project64",
+"default": [],
+"category": "Gaming",
+"check": "false"
+},
+{
+"Name": "DOSBox",
+"Description": "DOSBox is an emulator program which emulates an IBM PC compatible computer running a DOS operating system",
+"winget": "DOSBox.DOSBox",
+"choco": "none",
+"default": [],
+"category": "Gaming",
+"check": "false"
 }
 ]
 '@ | ConvertFrom-Json
@@ -11385,6 +11529,102 @@ ScrollViewer.CanContentScroll="True">
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
 <TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Kindle Previewer is a graphical user interface tool that emulates how books display across Kindle devices and apps. Kindle Previewer makes it easy for publishers to preview the layout of a book and make sure its text displays properly for any orientation or font size to ensure publishers produce and submit the highest quality Kindle books."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Interior Design 3D" Tag="Imaging" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Imaging"/>
+</StackPanel>
+<TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Interior Design 3D is an expert program for home design and floor plan creation."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="MeshLab" Tag="Imaging" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Imaging"/>
+</StackPanel>
+<TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="MeshLab is an open source portable and extensible system for the processing and editing of unstructured large 3D triangular meshes. It is aimed to help the processing of the typical notsosmall unstructured models."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="GitKraken" Tag="Development" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
+</StackPanel>
+<TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Legendary Git GUI client for Windows Mac  Linux."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Slack" Tag="Communication" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Communication"/>
+</StackPanel>
+<TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Slack is a collaboration hub for work no matter what work you do. Its a place where conversations happen decisions are made and information is always at your fingertips. With Slack your team is better connected."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Rocket Chat" Tag="Communication" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Communication"/>
+</StackPanel>
+<TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Rocket.Chat is the leading open source team chat software solution. Free unlimited and completely customizable with onpremises and SaaS cloud hosting."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="TeamSpeak" Tag="Communication" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Communication"/>
+</StackPanel>
+<TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Use crystal clear sound to communicate with your team mates crossplatform with militarygrade security. lagfree performance  unparalleled reliability and uptime."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="FFFTP" Tag="Development" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
+</StackPanel>
+<TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="FFFTP is lightweight FTP client software. FFFTP has many useful feature such as directory mirroring character encdoging conversion Firewall and SOCK onetime password support and so on."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="SmartFTP" Tag="Development" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
+</StackPanel>
+<TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="SmartFTP is a fast and reliable FTP FTPS SFTP HTTP Amazon S3 WebDAV Google Drive Google Cloud Storage Microsoft OneDrive Backblaze B2 Telnet Terminal client with lots of features and a modern user interface."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Rclone" Tag="Development" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
+</StackPanel>
+<TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Rclone rsync for cloud storage is a commandline program to sync files and directories to and from different cloud storage providers."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Cyberduck" Tag="Development" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
+</StackPanel>
+<TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Cyberduck is a libre server and cloud storage browser for Mac and Windows with support for FTP SFTP WebDAV Amazon S3 OpenStack Swift Backblaze B2 Microsoft Azure  OneDrive Google Drive and Dropbox."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Dolphin" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
+</StackPanel>
+<TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Dolphin is an emulator for two recent Nintendo video game consoles the GameCube and the Wii. It allows PC gamers to enjoy games for these two consoles in full HD 1080p with several enhancements compatibility with all PC controllers turbo speed networked multiplayer and even more."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="mGBA" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
+</StackPanel>
+<TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="mGBA is an opensource Game Boy Advance emulator."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="EmulationStation" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
+</StackPanel>
+<TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A graphical and themeable emulator frontend that allows you to access all your favorite games in one place even without a keyboard."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="ScummVM" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
+</StackPanel>
+<TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="ScummVM is a program which allows you to run certain classic graphical adventure and roleplaying games provided you already have their data files. The clever part about this ScummVM just replaces the executables shipped with the games allowing you to play them on systems for which they were never designed."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Project64" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
+</StackPanel>
+<TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Project64 is a free and opensource emulator for the Nintendo 64 and Nintendo 64 Disk Drive written in C currently for Windows."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="DOSBox" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
+</StackPanel>
+<TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="DOSBox is an emulator program which emulates an IBM PC compatible computer running a DOS operating system."/>
 </StackPanel>
 </ListView>
 </TabItem.Content>
@@ -12030,20 +12270,20 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.The
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/31/2025'.Trim()
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
-})
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
