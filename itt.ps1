@@ -8166,32 +8166,21 @@ $itt["window"].DataContext = $itt.database.locales.Controls.$($itt.Language)
 }
 function SwitchToSystem {
 try {
-Set-ItemProperty -Path $itt.registryPath  -Name "Theme" -Value "default" -Force
-$AppsTheme = (Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name "AppsUseLightTheme")
-switch ($AppsTheme) {
-"0" {
-$itt['window'].Resources.MergedDictionaries.Add($itt['window'].FindResource("Dark"))
+Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -Force
+$theme = if ($AppsTheme -eq "0") { "Dark" } elseif ($AppsTheme -eq "1") { "Light" } else { Write-Host "Unknown theme: $AppsTheme"; return }
+$itt['window'].Resources.MergedDictionaries.Add($itt['window'].FindResource($theme))
 }
-"1" {
-$itt['window'].Resources.MergedDictionaries.Add($itt['window'].FindResource("Light"))
-}
-Default {
-Write-Host "Unknown theme value: $AppsTheme"
-}
-}
-}
-catch {
-Write-Host "Error occurred: $_"
-}
+catch { Write-Host "Error: $_" }
 }
 function Set-Theme {
-param (
-[string]$Theme
-)
+param ([string]$Theme)
+try {
 $itt['window'].Resources.MergedDictionaries.Clear()
-$itt['window'].Resources.MergedDictionaries.Add($itt['window'].FindResource("$Theme"))
-Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "$Theme" -Force
+$itt['window'].Resources.MergedDictionaries.Add($itt['window'].FindResource($Theme))
+Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value $Theme -Force
 $itt.Theme = $Theme
+}
+catch { Write-Host "Error: $_" }
 }
 function UpdateUI {
 param(
@@ -12375,23 +12364,23 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.The
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/31/2025'.Trim()
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
