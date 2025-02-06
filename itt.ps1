@@ -6661,49 +6661,30 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 }
 }
 function Install-Winget {
-$versionVCLibs = "14.00"
-$versionUIXamlMinor = "2.8"
-$versionUIXamlPatch = "2.8.6"
-function Get-OSArchitecture {
-$is64Bit = $env:PROCESSOR_ARCHITEW6432 -eq "AMD64"
-$architecture = if ($is64Bit) { "64-bit" } else { "32-bit" }
-return $architecture
-}
-if (Get-OSArchitecture -eq "64-bit") {
-$fileVCLibs = "https://aka.ms/Microsoft.VCLibs.x64.${versionVCLibs}.Desktop.appx"
-$fileUIXaml = "https://github.com/microsoft/microsoft-ui-xaml/releases/download/v${versionUIXamlPatch}/Microsoft.UI.Xaml.${versionUIXamlMinor}.x64.appx"
-}
-else
-{
-$fileVCLibs = "https://aka.ms/Microsoft.VCLibs.x86.${versionVCLibs}.Desktop.appx"
-$fileUIXaml = "https://github.com/microsoft/microsoft-ui-xaml/releases/download/v${versionUIXamlPatch}/Microsoft.UI.Xaml.${versionUIXamlMinor}.x86.appx"
-}
-Try {
-if (Get-Command winget -ErrorAction SilentlyContinue) {
-Write-Host "winget is installed on this system."
+if(Get-Command winget -ErrorAction SilentlyContinue) {return}
+$ComputerInfo = Get-ComputerInfo -ErrorAction Stop
+$arch = [int](($ComputerInfo).OsArchitecture -replace '\D', '')
+if ($ComputerInfo.WindowsVersion -lt "1809") {
+Add-Log -Message "Winget is not supported on this version of Windows Upgrade to 1809 or newer." -Level "info"
 return
 }
-Write-Host "Downloading Microsoft.VCLibs Dependency..."
-Invoke-WebRequest -Uri $fileVCLibs -OutFile $ENV:TEMP\Microsoft.VCLibs.x64.Desktop.appx
-Write-Host "Downloading Microsoft.UI.Xaml Dependency...`n"
-Invoke-WebRequest -Uri $fileUIXaml -OutFile $ENV:TEMP\Microsoft.UI.Xaml.x64.appx
-Add-AppxPackage -Path "$ENV:TEMP\Microsoft.VCLibs.x64.Desktop.appx"
-Add-AppxPackage -Path "$ENV:TEMP\Microsoft.UI.Xaml.x64.appx"
-$msiPath = "$env:TEMP\winget.msixbundle"
-$url = "https://github.com/microsoft/winget-cli/releases/latest/download/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
-Invoke-WebRequest -Uri $url -OutFile $msiPath
-Add-AppxPackage -Path $msiPath -ErrorAction Stop
-Start-Sleep -Seconds 2
-$wingetPath = "$env:ProgramFiles\WindowsApps\Microsoft.DesktopAppInstaller_1.11.12371.0_x64__8wekyb3d8bbwe"
-$pathVariable = [Environment]::GetEnvironmentVariable("Path", "Machine")
-if (-not ($pathVariable -split ";" | Where-Object {$_ -eq $wingetPath})) {
-$newPath = "$pathVariable;$wingetPath"
-[Environment]::SetEnvironmentVariable("Path", $newPath, "Machine")
+$VCLibs = "https://aka.ms/Microsoft.VCLibs.x$arch.14.00.Desktop.appx"
+$UIXaml = "https://github.com/microsoft/microsoft-ui-xaml/releases/download/v2.8.6/Microsoft.UI.Xaml.2.8.x$arch.appx"
+$WingetLatset = "https://aka.ms/getwinget"
+try {
+Add-Log -Message "Installing Winget... This might take several minutes" -Level "info"
+Start-BitsTransfer -Source $VCLibs -Destination "$env:TEMP\Microsoft.VCLibs.Desktop.appx"
+Start-BitsTransfer -Source $UIXaml -Destination "$env:TEMP\Microsoft.UI.Xaml.appx"
+Start-BitsTransfer -Source $WingetLatset -Destination "$env:TEMP\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
+Add-AppxPackage "$env:TEMP\Microsoft.VCLibs.Desktop.appx"
+Add-AppxPackage "$env:TEMP\Microsoft.UI.Xaml.appx"
+Add-AppxPackage "$env:TEMP\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
+Start-Sleep -Seconds 1
+Add-Log -Message "Successfully installed Winget. Continuing to install selected apps..." -Level "info"
+return
 }
-$ENV:PATH = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
-}
-Catch {
-throw [WingetFailedInstall]::new('Failed to install prerequisites')
+catch {
+Write-Error "Failed to install $_"
 }
 }
 function Native-Downloader {
@@ -12049,23 +12030,23 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.The
 $CloseBtn = $itt.event.FindName('closebtn')
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/31/2025'.Trim()
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $CloseBtn.add_MouseLeftButtonDown({
 $itt.event.Close()
