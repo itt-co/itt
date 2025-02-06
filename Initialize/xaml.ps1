@@ -7,6 +7,7 @@ $InitialSessionState = [System.Management.Automation.Runspaces.InitialSessionSta
 $InitialSessionState.Variables.Add($hashVars)
 $desiredFunctions = @(
     'Install-App' ,
+    'Install-Winget',
     'InvokeCommand' ,
     'Add-Log',
     'Disable-Service',
