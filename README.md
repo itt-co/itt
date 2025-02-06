@@ -79,7 +79,7 @@
 </div>
 
 <div align="center">
-  <a  href="#-usage" rel="nofollow"><img src="https://img.shields.io/badge/Latest Update-02/06/2025-blue?style=for-the-badge"></a>
+  <a  href="#-usage" rel="nofollow"><img src="https://img.shields.io/badge/Latest Update-02/07/2025-blue?style=for-the-badge"></a>
 </div>
 
 <br>
@@ -257,6 +257,9 @@ Other way to support (Boycott)
 <div>
     <a href="https://www.youtube.com/watch?v=kx5kanvn_ug" target="blank">
       <img src="https://img.youtube.com/vi/kx5kanvn_ug/0.jpg" alt="Play Video" style="width: 200px;">
+    </a>
+    <a href="https://youtu.be/uPQ9aS5rNd4" target="blank">
+      <img src="https://img.youtube.com/vi/uPQ9aS5rNd4/0.jpg" alt="Play Video" style="width: 200px;">
     </a>
     <a href="https://youtu.be/GTvsWLVC9QU" target="blank">
       <img src="https://img.youtube.com/vi/GTvsWLVC9QU/0.jpg" alt="Play Video" style="width: 200px;">
