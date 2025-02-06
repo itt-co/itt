@@ -3769,6 +3769,24 @@ $itt.database.Applications = @'
 "default": [],
 "category": "Development",
 "check": "false"
+},
+{
+"Name": "MongoDB Compass",
+"Description": "Compass is a free interactive tool for querying, optimizing, and analyzing your MongoDB data",
+"winget": "MongoDB.Compass.Full",
+"choco": "mongodb-compass",
+"default": [],
+"category": "Development",
+"check": "false"
+},
+{
+"Name": "MongoDB Compass readonly",
+"Description": "Compass is a free interactive tool for analyzing your MongoDB data",
+"winget": "MongoDB.Compass.Readonly",
+"choco": "mongodb-compass-readonly",
+"default": [],
+"category": "Development",
+"check": "false"
 }
 ]
 '@ | ConvertFrom-Json
@@ -11700,6 +11718,18 @@ ScrollViewer.CanContentScroll="True">
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
 <TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The MySQL software delivers a very fast multithreaded multiuser and robust SQL Structured Query Language database server. MySQL Server is intended for missioncritical heavyload production systems as well as for embedding into massdeployed software."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="MongoDB Compass" Tag="Development" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
+</StackPanel>
+<TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Compass is a free interactive tool for querying optimizing and analyzing your MongoDB data."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="MongoDB Compass readonly" Tag="Development" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
+</StackPanel>
+<TextBlock Width="600" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Compass is a free interactive tool for analyzing your MongoDB data."/>
 </StackPanel>
 </ListView>
 </TabItem.Content>
