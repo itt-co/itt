@@ -3548,5 +3548,149 @@
     "default": [],
     "category": "Documents",
     "check": "false"
+  },
+  {
+    "Name": "Interior Design 3D",
+    "Description": "Interior Design 3D is an expert program for home design and floor plan creation",
+    "winget": "AMSSoftware.InteriorDesign3D-e",
+    "choco": "none",
+    "default": [],
+    "category": "Imaging",
+    "check": "false"
+  },
+  {
+    "Name": "MeshLab",
+    "Description": "MeshLab is an open source, portable, and extensible system for the processing and editing of unstructured large 3D triangular meshes. It is aimed to help the processing of the typical not-so-small unstructured models",
+    "winget": "CNRISTI.MeshLab",
+    "choco": "meshlab",
+    "default": [],
+    "category": "Imaging",
+    "check": "false"
+  },
+  {
+    "Name": "GitKraken",
+    "Description": "Legendary Git GUI client for Windows, Mac & Linux",
+    "winget": "Axosoft.GitKraken",
+    "choco": "gitkraken",
+    "default": [],
+    "category": "Development",
+    "check": "false"
+  },
+  {
+    "Name": "Slack",
+    "Description": "Slack is a collaboration hub for work, no matter what work you do. It's a place where conversations happen, decisions are made, and information is always at your fingertips. With Slack, your team is better connected",
+    "winget": "SlackTechnologies.Slack",
+    "choco": "slack",
+    "default": [],
+    "category": "Communication",
+    "check": "false"
+  },
+  {
+    "Name": "Rocket Chat",
+    "Description": "Rocket.Chat is the leading open source team chat software solution. Free, unlimited and completely customizable with on-premises and SaaS cloud hosting",
+    "winget": "RocketChat.RocketChat",
+    "choco": "rocketchat",
+    "default": [],
+    "category": "Communication",
+    "check": "false"
+  },
+  {
+    "Name": "TeamSpeak",
+    "Description": "Use crystal clear sound to communicate with your team mates cross-platform with military-grade security. lag-free performance & unparalleled reliability and uptime",
+    "winget": "TeamSpeakSystems.TeamSpeakClient",
+    "choco": "teamspeak",
+    "default": [],
+    "category": "Communication",
+    "check": "false"
+  },
+  {
+    "Name": "FFFTP",
+    "Description": "FFFTP is lightweight FTP client software. FFFTP has many useful feature such as directory mirroring, character encdoging conversion, Firewall and SOCK, one-time password support, and so on",
+    "winget": "Sayuri.FFFTP",
+    "choco": "ffftp",
+    "default": [],
+    "category": "Development",
+    "check": "false"
+  },
+  {
+    "Name": "SmartFTP",
+    "Description": "SmartFTP is a fast and reliable FTP, FTPS, SFTP, HTTP, Amazon S3, WebDAV, Google Drive, Google Cloud Storage, Microsoft OneDrive, Backblaze B2, Telnet, Terminal client with lots of features and a modern user interface",
+    "winget": "SmartSoft.SmartFTP",
+    "choco": "smartftp",
+    "default": [],
+    "category": "Development",
+    "check": "false"
+  },
+  {
+    "Name": "Rclone",
+    "Description": "Rclone (\"rsync for cloud storage\") is a command-line program to sync files and directories to and from different cloud storage providers",
+    "winget": "Rclone.Rclone",
+    "choco": "rclone",
+    "default": [],
+    "category": "Development",
+    "check": "false"
+  },
+  {
+    "Name": "Cyberduck",
+    "Description": "Cyberduck is a libre server and cloud storage browser for Mac and Windows with support for FTP, SFTP, WebDAV, Amazon S3, OpenStack Swift, Backblaze B2, Microsoft Azure & OneDrive, Google Drive and Dropbox",
+    "winget": "Iterate.Cyberduck",
+    "choco": "cyberduck",
+    "default": [],
+    "category": "Development",
+    "check": "false"
+  },
+  {
+    "Name": "Dolphin",
+    "Description": "Dolphin is an emulator for two recent Nintendo video game consoles: the GameCube and the Wii. It allows PC gamers to enjoy games for these two consoles in full HD (1080p) with several enhancements: compatibility with all PC controllers, turbo speed, networked multiplayer, and even more!",
+    "winget": "DolphinEmulator.Dolphin",
+    "choco": "dolphin",
+    "default": [],
+    "category": "Gaming",
+    "check": "false"
+  },
+  {
+    "Name": "mGBA",
+    "Description": "mGBA is an open-source Game Boy Advance emulator",
+    "winget": "JeffreyPfau.mGBA",
+    "choco": "mgba",
+    "default": [],
+    "category": "Gaming",
+    "check": "false"
+  },
+  {
+    "Name": "EmulationStation",
+    "Description": "A graphical and themeable emulator front-end that allows you to access all your favorite games in one place, even without a keyboard!",
+    "winget": "Emulationstation.Emulationstation",
+    "choco": "emulationstation",
+    "default": [],
+    "category": "Gaming",
+    "check": "false"
+  },
+  {
+    "Name": "ScummVM",
+    "Description": "ScummVM is a program which allows you to run certain classic graphical adventure and role-playing games, provided you already have their data files. The clever part about this: ScummVM just replaces the executables shipped with the games, allowing you to play them on systems for which they were never designed!",
+    "winget": "ScummVM.ScummVM",
+    "choco": "scummvm",
+    "default": [],
+    "category": "Gaming",
+    "check": "false"
+  },
+  {
+    "Name": "Project64",
+    "Description": "Project64 is a free and open-source emulator for the Nintendo 64 and Nintendo 64 Disk Drive written in C++ currently for Windows",
+    "winget": "Project64.Project64",
+    "choco": "project64",
+    "default": [],
+    "category": "Gaming",
+    "check": "false"
+  },
+  {
+    "Name": "DOSBox",
+    "Description": "DOSBox is an emulator program which emulates an IBM PC compatible computer running a DOS operating system",
+    "winget": "DOSBox.DOSBox",
+    "choco": "none",
+    "default": [],
+    "category": "Gaming",
+    "check": "false"
   }
 ]
