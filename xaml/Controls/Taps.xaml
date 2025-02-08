@@ -9,23 +9,53 @@
                         </StackPanel>
                     </DataTemplate>
             </TabItem.HeaderTemplate>
-                <TabItem.Content>
-                   <ListView Name="appslist" 
-                        BorderBrush="{x:Null}" 
-                        Background="{x:Null}"
-                        SelectionMode="Single"
-                        SnapsToDevicePixels="True"
-                        VirtualizingStackPanel.IsVirtualizing="True"
-                        VirtualizingStackPanel.VirtualizationMode="Recycling"
-                        ScrollViewer.CanContentScroll="True">
-                        <ListView.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <VirtualizingStackPanel />
-                            </ItemsPanelTemplate>
-                        </ListView.ItemsPanel>
-                        {{Apps}}
-                    </ListView>
-                </TabItem.Content>
+            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+    
+    
+                <Grid Grid.Column="0" HorizontalAlignment="Left" Margin="20 0 20 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+    
+                    <ScrollViewer HorizontalScrollBarVisibility="Hidden" CanContentScroll="True" Width="Auto">
+                        <StackPanel Orientation="Horizontal" Margin="8" HorizontalAlignment="Left"  Grid.Column="0" VerticalAlignment="Top" >
+                            <CheckBox Name="installed" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Installed" Margin="0 0 0 0 "/>
+                            <CheckBox Content="Chocolatey" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15 0 0 0 "/>
+                            <CheckBox Content="Winget" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="15 0 0 0 "/>
+                        </StackPanel>
+                    </ScrollViewer>
+    
+                </Grid>
+    
+                <ListView Name="appslist" 
+                    Grid.Row="1" 
+                    BorderBrush="{x:Null}" 
+                    Background="{x:Null}"
+                    SelectionMode="Single"
+                    SnapsToDevicePixels="True"
+                    VirtualizingStackPanel.IsVirtualizing="True"
+                    VirtualizingStackPanel.VirtualizationMode="Recycling"
+                    ScrollViewer.CanContentScroll="True">
+    
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+
+                    {{Apps}}
+                
+                </ListView>
+    
+            </Grid>
+
             </TabItem>
             <TabItem x:Name="tweeksTab" Header="{Binding tweaks, TargetNullValue=Tweaks}" BorderBrush="{x:Null}" Background="{x:Null}">
                 <TabItem.HeaderTemplate>
