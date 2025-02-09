@@ -1,123 +1,57 @@
-#===========================================================================
-#region Keyboard-Shortcuts 
-#===========================================================================
-
-<#
-        .DESCRIPTION
-            How to add a new shortcut
-        .PARAMETER A
-            replace A With you latter you want
-        .PARAMETER Ctrl
-            replace Ctrl With you latter you want
-        .EXAMPLE
-            if (($_.Key -eq "A" -and $_.KeyboardDevice.Modifiers -eq "Ctrl")) {# your code here}      
-    #>
-
 $KeyEvents = {
-   
-    if ($itt.ProcessRunning -eq $true) {
-        return
-    }
-    if (($_.Key -eq "Enter")) {
-        switch ($itt.currentList) {
-            "appslist" {
-                Invoke-Install                
-            }
-            "tweakslist" {
-                Invoke-Apply
-            }
-        }
-    }
-    # Installing & Applying
-    if (($_.Key -eq "S" -and $_.KeyboardDevice.Modifiers -eq "Ctrl")) {
-        switch ($itt.currentList) {
-            "appslist" {
-                Invoke-Install                
-            }
-            "tweakslist" {
-                Invoke-Apply
-            }
-        }
-    }
-    # Quit from applaction
-    if (($_.Key -eq "G" -and $_.KeyboardDevice.Modifiers -eq "Ctrl")) {
-        $this.Close()
-    }
-    # Foucs on Search box
-    if (($_.Key -eq "F" -and $_.KeyboardDevice.Modifiers -eq "Ctrl")) {
-        $itt.SearchInput.Focus()
-    }
-    # Lost Foucs on Search box
-    if ($_.Key -eq "Escape") {
-        $itt.SearchInput.MoveFocus([System.Windows.Input.TraversalRequest]::New([System.Windows.Input.FocusNavigationDirection]::Next))
-        $itt.SearchInput.Text = $null
-        $itt["window"].FindName("search_placeholder").Visibility = "Visible";
-    }
-    # Easter Egg: Uncomment to enable the key press functionality
-    # Next Music (Ctrl + N)
-    # if ($_.Key -eq "N" -and $_.KeyboardDevice.Modifiers -eq "Ctrl") {
-    #     $itt.mediaPlayer.controls.next()
-    # }
-    # Previous Music (Ctrl + B)
-    # if ($_.Key -eq "B" -and $_.KeyboardDevice.Modifiers -eq "Ctrl") {
-    #     $itt.mediaPlayer.controls.previous()
-    # }
-    # Swtich to Apps tap
-    if ($_.Key -eq "Q" -and $_.KeyboardDevice.Modifiers -eq "Ctrl") {
-        $itt.TabControl.SelectedItem = $itt.TabControl.Items | Where-Object { $_.Name -eq "apps" }
-    }
-    # Swtich to tweaks tap
-    if ($_.Key -eq "W" -and $_.KeyboardDevice.Modifiers -eq "Ctrl") {
-        $itt.TabControl.SelectedItem = $itt.TabControl.Items | Where-Object { $_.Name -eq "tweeksTab" }
-    }
-    # Swtich to settings tap
-    if ($_.Key -eq "E" -and $_.KeyboardDevice.Modifiers -eq "Ctrl") {
-        $itt.TabControl.SelectedItem = $itt.TabControl.Items | Where-Object { $_.Name -eq "SettingsTab" }
-    }
-    # Swtich to settings tap
-    if ($_.Key -eq "I" -and $_.KeyboardDevice.Modifiers -eq "Ctrl") {
-        About
-    }
-    # SaveItemsToJson
-    if ($_.Key -eq "S" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
-        SaveItemsToJson
-    }
-    # LoadJson
-    if ($_.Key -eq "D" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
-        LoadJson
-    }
-    # Toggle the state on Shift + M press
-    if ($_.Key -eq "M" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
-        $global:toggleState = -not $global:toggleState
-        if ($global:toggleState) {
-            UnmuteMusic -value 100
-        }
-        else {
-            MuteMusic -value 0
-        }
-    }
-    # Restore point 
-    if ($_.Key -eq "Q" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
-        RestorePoint
-    }
-    # Choco Shortcut Folder
-    if ($_.Key -eq "C" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
-        Start-Process explorer.exe "C:\ProgramData\chocolatey\lib"
-    }
-    # ITT Shortcut 
-    if ($_.Key -eq "T" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
-        Start-Process explorer.exe $env:ProgramData\itt
-    }
-    # ITT Shortcut 
-    if ($_.Key -eq "I" -and $_.KeyboardDevice.Modifiers -eq "Shift") {
-        ITTShortcut
-    }
+    if ($itt.ProcessRunning) { return }
 
-    # Clear category filter
-    if ($_.Key -eq "A" -and $_.KeyboardDevice.Modifiers -eq "Ctrl") {
-        if($itt.CurrentCategory -eq "AppsCategory" -or $itt.CurrentCategory -eq "TwaeksCategory"){$itt["window"].FindName($itt.CurrentCategory).SelectedIndex = 0}
+    $modifiers = $_.KeyboardDevice.Modifiers
+    $key = $_.Key
+
+    switch ($key) {
+        "Enter" {
+            if ($itt.currentList -eq "appslist") { Invoke-Install }
+            elseif ($itt.currentList -eq "tweakslist") { Invoke-Apply }
+        }
+        "S" {
+            if ($modifiers -eq "Ctrl") {
+                if ($itt.currentList -eq "appslist") { Invoke-Install }
+                elseif ($itt.currentList -eq "tweakslist") { Invoke-Apply }
+            }
+            elseif ($modifiers -eq "Shift") { SaveItemsToJson }
+        }
+        "D" { if ($modifiers -eq "Shift") { LoadJson } }
+        "M" {
+            if ($modifiers -eq "Shift") {
+                $global:toggleState = -not $global:toggleState
+                if ($global:toggleState) { UnmuteMusic -value 100 }
+                else { MuteMusic -value 0 }
+            }
+        }
+        # Easter Egg: Uncomment to enable functionality
+        # "N" { if ($modifiers -eq "Ctrl") { $itt.mediaPlayer.controls.next() } }
+        # "B" { if ($modifiers -eq "Ctrl") { $itt.mediaPlayer.controls.previous() } }
+        "Q" {
+            if ($modifiers -eq "Ctrl") {
+                $itt.TabControl.SelectedItem = $itt.TabControl.Items | Where-Object { $_.Name -eq "apps" }
+            }
+            elseif ($modifiers -eq "Shift") { RestorePoint }
+        }
+        "W" { if ($modifiers -eq "Ctrl") { $itt.TabControl.SelectedItem = $itt.TabControl.Items | Where-Object { $_.Name -eq "tweeksTab" } } }
+        "E" { if ($modifiers -eq "Ctrl") { $itt.TabControl.SelectedItem = $itt.TabControl.Items | Where-Object { $_.Name -eq "SettingsTab" } } }
+        "I" {
+            if ($modifiers -eq "Ctrl") { About }
+            elseif ($modifiers -eq "Shift") { ITTShortcut }
+        }
+        "C" { if ($modifiers -eq "Shift") { Start-Process explorer.exe "C:\ProgramData\chocolatey\lib" } }
+        "T" { if ($modifiers -eq "Shift") { Start-Process explorer.exe $env:ProgramData\itt } }
+        "G" { if ($modifiers -eq "Ctrl") { $this.Close() } }
+        "F" { if ($modifiers -eq "Ctrl") { $itt.SearchInput.Focus() } }
+        "Escape" {
+            $itt.SearchInput.MoveFocus([System.Windows.Input.TraversalRequest]::New([System.Windows.Input.FocusNavigationDirection]::Next))
+            $itt.SearchInput.Text = $null
+            $itt["window"].FindName("search_placeholder").Visibility = "Visible"
+        }
+        "A" {
+            if ($modifiers -eq "Ctrl" -and ($itt.CurrentCategory -eq "AppsCategory" -or $itt.CurrentCategory -eq "TwaeksCategory")) {
+                $itt["window"].FindName($itt.CurrentCategory).SelectedIndex = 0
+            }
+        }
     }
 }
-#===========================================================================
-#endregion Keyboard-Shortcuts 
-#===========================================================================
