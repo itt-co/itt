@@ -112,29 +112,15 @@ function GenerateCheckboxes {
 
         # Clean description and category to remove special characters
         $CleanedDescription = $Item.Description -replace '[^\w\s./]', ''
-
         $CleanedCategory = $Item.Category -replace '[^\w\s]', ''
-
-        $CleanedName = ($Item.Name -replace '[^\p{L}\p{N}]', '').ToLower()
-
-
-        # Get content from the specified content field
-
+        $CleanedName = $Item.Name -replace '[^a-zA-Z0-9]', ''
         $Content = $Item.$ContentField
 
         # Optional attributes for CheckBox based on fields
-
         $Tag = if ($TagField) { "Tag=`"$($Item.$TagField)`"" } else { "" }
-
         $Tips = if ($TipsField) { "ToolTip=`"Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository.`"" } else { "" }
-
-        
-
-        $Name = if ($NameField) { "Name=`"$($CleanedName)`"" } else { "Name=`"$($CleanedName)`"" }
-
-
+        $Name = if ($NameField) { "Name=`"itt$($CleanedName)`"" } else { "Name=`"$($CleanedName)`"" }
         $Toggle = if ($ToggleField) { "Style=`"{StaticResource ToggleSwitchStyle}`"" } else { "" }
-
         $IsChecked = if ($IsCheckedField) { "IsChecked=`"$($Item.$IsCheckedField)`"" } else { "" }
 
         # Build the CheckBox and its container
