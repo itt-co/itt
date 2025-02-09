@@ -43,7 +43,7 @@ $onClosingEvent = {
     # Show confirmation message box
     $result = Message -title "Are you sure" -key "Exit_msg" -icon "ask" -action "YesNo"
     if ($result -eq "Yes") {
-        StopAllRunspace
+        Manage-Music -action "StopAll" 
     }
     else {
         $c.Cancel = $true
