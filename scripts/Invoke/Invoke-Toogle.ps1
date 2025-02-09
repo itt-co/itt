@@ -18,18 +18,18 @@ function Invoke-Toogle {
     #>
     Param ([string]$debug)
     Switch -Wildcard ($debug){
-        "ToggleShowExt" {Invoke-ShowFile-Extensions $(Get-ToggleStatus ToggleShowExt)}
-        "ToggleDarkMode" {Invoke-DarkMode $(Get-ToggleStatus ToggleDarkMode)}
-        "ToggleShowHidden" {Invoke-ShowFile $(Get-ToggleStatus ToggleShowHidden)}
-        "ToggleNumLook" {Invoke-NumLock $(Get-ToggleStatus ToggleNumLook)}
-        "ToggleStickyKeys" {Invoke-StickyKeys $(Get-ToggleStatus ToggleStickyKeys)}
-        "MouseAcceleration" {Invoke-MouseAcceleration $(Get-ToggleStatus MouseAcceleration)}
-        "EndTaskOnTaskbar" {Invoke-TaskbarEnd $(Get-ToggleStatus EndTaskOnTaskbar)}
-        "ClearPageFileAtShutdown" {Invoke-ClearPageFile $(Get-ToggleStatus ClearPageFileAtShutdown)}
-        "AutoEndTasks" {Invoke-AutoEndTasks $(Get-ToggleStatus AutoEndTasks)}
-        "VisualFXSetting" {Invoke-PerformanceOptions $(Get-ToggleStatus VisualFXSetting)}
-        "LaunchTo" {Invoke-LaunchTo $(Get-ToggleStatus LaunchTo)}
-        "DisableDriver" {Invoke-DisableAutoDrivers $(Get-ToggleStatus DisableDriver)}
+        "showfileextensions" {Invoke-ShowFile-Extensions $(Get-ToggleStatus showfileextensions)}
+        "darkmode" {Invoke-DarkMode $(Get-ToggleStatus darkmode)}
+        "showsuperhidden" {Invoke-ShowFile $(Get-ToggleStatus showsuperhidden)}
+        "numlook" {Invoke-NumLock $(Get-ToggleStatus numlook)}
+        "stickykeys" {Invoke-StickyKeys $(Get-ToggleStatus stickykeys)}
+        "mouseacceleration" {Invoke-MouseAcceleration $(Get-ToggleStatus mouseacceleration)}
+        "endtaskontaskbarwindows11" {Invoke-TaskbarEnd $(Get-ToggleStatus endtaskontaskbarwindows11)}
+        "clearpagefileatshutdown" {Invoke-ClearPageFile $(Get-ToggleStatus clearpagefileatshutdown)}
+        "autoendtasks" {Invoke-AutoEndTasks $(Get-ToggleStatus autoendtasks)}
+        "performanceoptions" {Invoke-PerformanceOptions $(Get-ToggleStatus performanceoptions)}
+        "launchtothispc" {Invoke-LaunchTo $(Get-ToggleStatus launchtothispc)}
+        "disableautomaticdriverinstallation" {Invoke-DisableAutoDrivers $(Get-ToggleStatus disableautomaticdriverinstallation)}
     }
     # debug start
         Add-Log -Message $debug -Level "debug"
