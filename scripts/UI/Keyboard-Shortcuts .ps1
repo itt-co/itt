@@ -20,8 +20,8 @@ $KeyEvents = {
         "M" {
             if ($modifiers -eq "Shift") {
                 $global:toggleState = -not $global:toggleState
-                if ($global:toggleState) { UnmuteMusic -value 100 }
-                else { MuteMusic -value 0 }
+                if ($global:toggleState) { Manage-Music -action "SetVolume" -volume 100 }
+                else { Manage-Music -action "SetVolume" -volume 0 }
             }
         }
         # Easter Egg: Uncomment to enable functionality
