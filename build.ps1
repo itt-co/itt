@@ -142,9 +142,17 @@ function Sync-JsonFiles {
         [Parameter(Mandatory = $true)]
         [string]$DatabaseDirectory,
         [Parameter(Mandatory = $true)]
-        [string]$OutputScriptPath
+        [string]$OutputScriptPath,
+        [string[]]$Skip
     )
     Get-ChildItem $DatabaseDirectory | Where-Object { $_.Extension -eq ".json" } | ForEach-Object {
+
+
+        if ($Skip -contains $_.Name) {
+            Write-Host "[i] Skipping ($_) from ProcessDirectory"
+            return
+        }
+
         # Get the content of the JSON file as raw text
         $json = Get-Content $_.FullName -Raw
         # Cache json file into $itt.database
@@ -613,7 +621,7 @@ try {
 #===========================================================================
 "@
     Convert-Locales
-    Sync-JsonFiles -DatabaseDirectory $DatabaseDirectory -OutputScriptPath $OutputScript
+    Sync-JsonFiles -DatabaseDirectory $DatabaseDirectory -OutputScriptPath $OutputScript -Skip @("OST.json", "Quotes.json")
     WriteToScript -Content @"
 #===========================================================================
 #endregion End Database /APPS/TWEEAKS/Quotes/OST/Settings
