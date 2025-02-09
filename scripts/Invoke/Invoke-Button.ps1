@@ -155,13 +155,13 @@ function Invoke-Button {
         }
         # Music
         "moff" {
-            MuteMusic -Value 0
+            Manage-Music -action "SetVolume" -volume 0 
             # debug start
                 Debug-Message $action
             # debug end
         }
         "mon" {
-            UnmuteMusic -Value 100
+            Manage-Music -action "SetVolume" -volume 100 
             # debug start
                 Debug-Message $action
             # debug end
