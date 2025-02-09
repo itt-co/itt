@@ -176,7 +176,7 @@ function Update-Readme {
     # Prepare values for the placeholders
     $applicationsCount = $itt.database.Applications.Count
     $tweaksCount = $itt.database.Tweaks.Count
-    $quotesCount = (Get-Content -Path ".\static\Database\Quotes.json").Count
+    $quotesCount = (Get-Content -Path ".\static\Database\Quotes.json" | ConvertFrom-Json).Quotes.Count
     $tracksCount = (Get-Content -Path ".\static\Database\OST.json" | ConvertFrom-Json).Tracks.Count
     $settingsCount = $itt.database.Settings.Count
     $localesCount = ($itt.database.locales.Controls.PSObject.Properties | Measure-Object).Count
