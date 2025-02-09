@@ -46,7 +46,7 @@ function Startup  {
             function GetShuffledTracks {
                 switch ($itt.Date.Month, $itt.Date.Day) {
                     { $_ -eq 9, 1 } { return $ST.Favorite | Get-Random -Count $ST.Favorite.Count }
-                    { $_ -eq 10, 6 -or $_ -eq 10, 7 } { return $itt.database.OST.Otobers | Get-Random -Count $ST.Otobers.Count }
+                    { $_ -eq 10, 6 -or $_ -eq 10, 7 } { return $ST.Otobers | Get-Random -Count $ST.Otobers.Count }
                     default { return $ST.Tracks | Get-Random -Count $ST.Tracks.Count }
                 }
             }
