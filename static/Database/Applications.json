@@ -2340,15 +2340,6 @@
     "check": "false"
   },
   {
-    "Name": "Ability Office",
-    "Description": "Ability Office 8 Standard complete office suite",
-    "winget": "Ability.AbilityOffice.8.Standard",
-    "choco": "abilityoffice",
-    "default": [],
-    "category": "Documents",
-    "check": "false"
-  },
-  {
     "Name": "Fing",
     "Description": "Fing App is a free network scanner that makes you discover all connected devices run internet speed tests and help troubleshoot network and device issues Get Fingbox for more advanced security and protection for your network",
     "winget": "none",
@@ -3188,8 +3179,8 @@
     "check": "false"
   },
   {
-    "Name": "Memtest86+",
-    "Description": "Memtest86+ v6 is a unified, free, open-source memory testing tool, released under GNU GPL v2.0. The new v6 code base (originally called PCMemTest) was provided by Martin Whitaker, based on Memtest86+ v5, developed by Sam Demeulemeester. Both are now working on Memtest86+",
+    "Name": "Memtest86 Plus",
+    "Description": "Memtest86 Plus v6 is a unified, free, open-source memory testing tool, released under GNU GPL v2.0. The new v6 code base (originally called PCMemTest) was provided by Martin Whitaker, based on Memtest86+ v5, developed by Sam Demeulemeester. Both are now working on Memtest86+",
     "winget": "none",
     "choco": "none",
     "default": [
