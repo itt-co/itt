@@ -1,11 +1,6 @@
 {
   "Quotes": [
     {
-      "name": "Rajeen ",
-      "type": "music",
-      "text": "صوتي حياة وانا واقف وحدي، العالم ضدي وانا ما اخشاه"
-    },
-    {
       "type": "quote",
       "text": "إما تموت بطلا، أو تعيش طويلاً حتى ترى نفسك اصبحت الشرير"
     },
@@ -47,7 +42,7 @@
     },
     {
       "type": "quote",
-      "text": "أنت تعتقد أن الظلام هو حليفك لكنك تبنيت الظلام , انا لقد ولدت فيه"
+      "text": "أنت تعتقد أن الظلام هو حليفك لكنك تبنيت الظلام, انا لقد ولدت فيه"
     },
     {
       "type": "quote",
@@ -171,10 +166,6 @@
     },
     {
       "type": "quote",
-      "text": "تموت البراءة وتحيا الكلاب"
-    },
-    {
-      "type": "quote",
       "text": "رجال الحق قالو الصابرون نالوا والذهن حامل لما لا تحمل الجبال"
     },
     {
@@ -184,10 +175,6 @@
     {
       "type": "quote",
       "text": "أنت لأ تخاف الموت أنت ترحب به"
-    },
-    {
-      "type": "quote",
-      "text": "لاستغلال خوف الآخرين، عليك أن تسيطر على خوفك"
     },
     {
       "type": "quote",
@@ -283,7 +270,7 @@
     },
     {
       "type": "quote",
-      "text": "إنهم يحتاجون إليك الآن، لكن عندما لا يعودون بحاجة إليك، سيتركونك وحيد"
+      "text": "يحتاجون إليك الآن، لكن عندما لا يعودون بحاجة إليك، سيتركونك وحيد"
     },
     {
       "type": "quote",
@@ -386,10 +373,6 @@
     },
     {
       "type": "quote",
-      "text": "The devil is sitting on the throne with his assistants (USA)"
-    },
-    {
-      "type": "quote",
       "text": "!جميع حدود الدول تحت قدمي"
     },
     {
@@ -416,11 +399,11 @@
       "type": "music"
     },
     {
-      "text": "Can You Find the Hidden Easter Egg? Open the source code and uncover the secret features waiting for you!",
+      "text": "Can you uncover the hidden secret? Dive into the source code, be the first to discover the feature, and integrate it into the tool",
       "type": "info"
     },
     {
-      "text": "!هل يمكنك اكتشاف المفاجأة المخفية؟ افتح السورس كود واكتشف الميزات السرية التي تنتظرك",
+      "text": "هل يمكنك اكتشاف السر المخفي؟ افتح السورس كود وكن أول من يكتشف الميزة ويضيفها إلى الأداة",
       "type": "info"
     },
     {
@@ -458,11 +441,6 @@
     {
       "text": "أخطر رجل على وجه الأرض هو الرجل الذي لم يعد لديه ما يخسره",
       "type": "quote"
-    },
-    {
-      "name": "Rajieen",
-      "type": "music",
-      "text": "اسف إني مش من أوكرانيا اسف  إن بشرتي مش بيضا اسف لأولادي اسف إني جيبتكم على دنيا منافقة ومش عادلة"
     },
     {
       "type": "quote",
