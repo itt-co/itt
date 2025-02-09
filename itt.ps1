@@ -6344,10 +6344,10 @@ Start-Process explorer.exe $env:ProgramData\itt
 RestorePoint
 }
 "moff" {
-MuteMusic -Value 0
+Manage-Music -action "SetVolume" -volume 0
 }
 "mon" {
-UnmuteMusic -Value 100
+Manage-Music -action "SetVolume" -volume 100
 }
 "unhook" {
 Start-Process "https://unhook.app/"
@@ -7943,8 +7943,8 @@ elseif ($modifiers -eq "Shift") { SaveItemsToJson }
 "M" {
 if ($modifiers -eq "Shift") {
 $global:toggleState = -not $global:toggleState
-if ($global:toggleState) { UnmuteMusic -value 100 }
-else { MuteMusic -value 0 }
+if ($global:toggleState) { Manage-Music -action "SetVolume" -volume 100 }
+else { Manage-Music -action "SetVolume" -volume 0 }
 }
 }
 "Q" {
@@ -8006,33 +8006,31 @@ $notification.Visible = $true
 $notification.ShowBalloonTip($time)
 $notification.Dispose()
 }
-function MuteMusic {
-param($value)
-$itt.mediaPlayer.settings.volume = $value
-Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value "$value" -Force
-$itt["window"].title = "Install Tweaks Tool #StandWithPalestine 🔈"
+function Manage-Music {
+param(
+[string]$action,
+[int]$volume = 0
+)
+switch ($action) {
+"SetVolume" {
+$itt.mediaPlayer.settings.volume = $volume
+Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value "$volume" -Force
+$itt["window"].title = "Install Tweaks Tool #StandWithPalestine " + @("🔊", "🔈")[$volume -eq 0]
 }
-function UnmuteMusic {
-param($value)
-$itt.mediaPlayer.settings.volume = $value
-Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value "$value" -Force
-$itt["window"].title = "Install Tweaks Tool #StandWithPalestine 🔊"
-}
-function StopMusic {
+"StopAll" {
 $itt.mediaPlayer.controls.stop()
 $itt.mediaPlayer = $null
-$script:powershell.Dispose()
 $itt.runspace.Dispose()
 $itt.runspace.Close()
-}
-function StopAllRunspace {
 $script:powershell.Dispose()
-$itt.runspace.Dispose()
-$itt.runspace.Close()
 $script:powershell.Stop()
-StopMusic
 $newProcess.exit
 [System.GC]::Collect()
+}
+default {
+Write-Host "Invalid action. Use 'SetVolume', 'StopMusic', or 'StopAll'."
+}
+}
 }
 function System-Default {
 try {
@@ -12728,7 +12726,7 @@ $onClosingEvent = {
 param($s, $c)
 $result = Message -title "Are you sure" -key "Exit_msg" -icon "ask" -action "YesNo"
 if ($result -eq "Yes") {
-StopAllRunspace
+Manage-Music -action "StopAll"
 }
 else {
 $c.Cancel = $true
