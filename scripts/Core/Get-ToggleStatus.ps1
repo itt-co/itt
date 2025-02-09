@@ -8,7 +8,7 @@ function Get-ToggleStatus {
         Specifies which toggle switch status to check. The following values are supported:
         - `ToggleDarkMode`: Checks if Dark Mode is enabled.
         - `ToggleShowExt`: Checks if file extensions are set to be shown.
-        - `ToggleShowHidden`: Checks if hidden files are set to be shown.
+        - `showsuperhidden`: Checks if hidden files are set to be shown.
         - `ToggleNumLock`: Checks if Num Lock is enabled.
         - `ToggleStickyKeys`: Checks if Sticky Keys is enabled.
         .RETURN
@@ -28,7 +28,7 @@ function Get-ToggleStatus {
     #>
     Param($ToggleSwitch)
     # Check status of "ToggleDarkMode"
-    if($ToggleSwitch -eq "ToggleDarkMode"){
+    if($ToggleSwitch -eq "darkmode"){
         $app = (Get-ItemProperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize').AppsUseLightTheme
         $system = (Get-ItemProperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize').SystemUsesLightTheme
         if($app -eq 0 -and $system -eq 0){
@@ -40,7 +40,7 @@ function Get-ToggleStatus {
         }
     }
     # Check status of "ToggleShowExt" (Show File Extensions)
-    if($ToggleSwitch -eq "ToggleShowExt"){
+    if($ToggleSwitch -eq "showfileextensions"){
         $hideextvalue = (Get-ItemProperty -path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced').HideFileExt
         if($hideextvalue -eq 0){
             return $true
@@ -50,8 +50,8 @@ function Get-ToggleStatus {
             return $false
         }
     }
-    # Check status of "ToggleShowHidden" (Show Hidden Files)
-    if($ToggleSwitch -eq "ToggleShowHidden"){
+    # Check status of "showsuperhidden" (Show Hidden Files)
+    if($ToggleSwitch -eq "showsuperhidden"){
         $hideextvalue = (Get-ItemPropertyValue -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowSuperHidden")
         if($hideextvalue -eq 1){
             return $true
@@ -62,7 +62,7 @@ function Get-ToggleStatus {
         }
     }
     # Check status of "ToggleNumLock"
-    if($ToggleSwitch -eq "ToggleNumLook"){
+    if($ToggleSwitch -eq "numlook"){
         $numlockvalue = (Get-ItemProperty -path 'HKCU:\Control Panel\Keyboard').InitialKeyboardIndicators
         if($numlockvalue -eq 2){
             return $true
@@ -73,7 +73,7 @@ function Get-ToggleStatus {
         }
     } 
     # Check status of "ToggleStickyKeys"    
-    if ($ToggleSwitch -eq "ToggleStickyKeys") {
+    if ($ToggleSwitch -eq "stickykeys") {
         $StickyKeys = (Get-ItemProperty -path 'HKCU:\Control Panel\Accessibility\StickyKeys').Flags
         if($StickyKeys -eq 58){
             return $false
@@ -84,7 +84,7 @@ function Get-ToggleStatus {
         }
     }
     # Check status of "MouseAcceleration"    
-    if($ToggleSwitch -eq "MouseAcceleration") {
+    if($ToggleSwitch -eq "mouseacceleration") {
         $Speed = (Get-ItemProperty -path 'HKCU:\Control Panel\Mouse').MouseSpeed
         $Threshold1 = (Get-ItemProperty -path 'HKCU:\Control Panel\Mouse').MouseThreshold1
         $Threshold2 = (Get-ItemProperty -path 'HKCU:\Control Panel\Mouse').MouseThreshold2
@@ -95,7 +95,7 @@ function Get-ToggleStatus {
         }
     }
     # EndTaskOnTaskbar     
-    if($ToggleSwitch -eq "EndTaskOnTaskbar") 
+    if($ToggleSwitch -eq "endtaskontaskbarwindows11") 
     {
         $path = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDeveloperSettings"
         if (-not (Test-Path $path))
@@ -116,7 +116,7 @@ function Get-ToggleStatus {
         }
     }
     # Remove Page file     
-    if($ToggleSwitch -eq "ClearPageFileAtShutdown") 
+    if($ToggleSwitch -eq "clearpagefileatshutdown") 
     {
         $PageFile = (Get-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\\Memory Management').ClearPageFileAtShutdown
         if($PageFile -eq 1) 
@@ -129,7 +129,7 @@ function Get-ToggleStatus {
         }
     }
      # Auto end tasks     
-    if($ToggleSwitch -eq "AutoEndTasks") 
+    if($ToggleSwitch -eq "autoendtasks") 
     {
          $PageFile = (Get-ItemProperty -path 'HKCU:\Control Panel\Desktop').AutoEndTasks
          if($PageFile -eq 1) 
@@ -142,7 +142,7 @@ function Get-ToggleStatus {
          }
     }
     # Auto end tasks     
-    if($ToggleSwitch -eq "VisualFXSetting") 
+    if($ToggleSwitch -eq "performanceoptions") 
     {
         $VisualFXSetting = (Get-ItemProperty -path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects').VisualFXSetting
         if($VisualFXSetting -eq 2) 
@@ -155,7 +155,7 @@ function Get-ToggleStatus {
         }
     }
     # Quick Access   
-    if($ToggleSwitch -eq "LaunchTo") 
+    if($ToggleSwitch -eq "launchtothispc") 
     {
         $LaunchTo = (Get-ItemProperty -path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced').LaunchTo
         if($LaunchTo -eq 1) 
@@ -168,7 +168,7 @@ function Get-ToggleStatus {
         }
     }
     # 
-    if($ToggleSwitch -eq "DisableDriver") 
+    if($ToggleSwitch -eq "disableautomaticdriverinstallation") 
     {
         $aaa = (Get-ItemProperty -path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching').SearchOrderConfig
         if($aaa -eq 1) 
