@@ -39,39 +39,42 @@ function Startup  {
          }
          
          function PlayMusic {
-             # Function to play an audio track
-             function PlayAudio($track) {
-                 $mediaItem = $itt.mediaPlayer.newMedia($track)
-                 $itt.mediaPlayer.currentPlaylist.appendItem($mediaItem)
-                 $itt.mediaPlayer.controls.play()
-                 # debug start
-                     #$currentFileName = $itt.mediaPlayer.currentMedia.name
-                     #Write-Host "Currently playing: $currentFileName"
-                 # debug end
-             }
-             # Shuffle the playlist and create a new playlist
-             function GetShuffledTracks {
-                 switch ($itt.Date.Month, $itt.Date.Day) {
-                     { $_ -eq 9, 1 } { return $itt.database.OST.Favorite | Get-Random -Count $itt.database.OST.Favorite.Count }
-                     { $_ -eq 10, 6 -or $_ -eq 10, 7 } { return $itt.database.OST.Otobers | Get-Random -Count $itt.database.OST.Otobers.Count }
-                     default { return $itt.database.OST.Tracks | Get-Random -Count $itt.database.OST.Tracks.Count }
-                 }
-             }
-             # Preload and play the shuffled playlist
-             function PlayPreloadedPlaylist {
-                 # Preload the shuffled playlist
-                 $shuffledTracks = GetShuffledTracks
-                 foreach ($track in $shuffledTracks) {
-                     PlayAudio -track $track.url
-                     # Wait for the track to finish playing
-                     while ($itt.mediaPlayer.playState -in @(3, 6)) {
-                         Start-Sleep -Milliseconds 100
-                     }
-                 }
-             }
-             # Play the preloaded playlist
-             PlayPreloadedPlaylist
-         }
+
+            $ST = Invoke-RestMethod -Uri "https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Database/OST.json" -Method Get
+
+            # Function to play an audio track
+            function PlayAudio($track) {
+                $mediaItem = $itt.mediaPlayer.newMedia($track)
+                $itt.mediaPlayer.currentPlaylist.appendItem($mediaItem)
+                $itt.mediaPlayer.controls.play()
+                # debug start
+                    #$currentFileName = $itt.mediaPlayer.currentMedia.name
+                    #Write-Host "Currently playing: $currentFileName"
+                # debug end
+            }
+            # Shuffle the playlist and create a new playlist
+            function GetShuffledTracks {
+                switch ($itt.Date.Month, $itt.Date.Day) {
+                    { $_ -eq 9, 1 } { return $ST.Favorite | Get-Random -Count $ST.Favorite.Count }
+                    { $_ -eq 10, 6 -or $_ -eq 10, 7 } { return $itt.database.OST.Otobers | Get-Random -Count $ST.Otobers.Count }
+                    default { return $ST.Tracks | Get-Random -Count $ST.Tracks.Count }
+                }
+            }
+            # Preload and play the shuffled playlist
+            function PlayPreloadedPlaylist {
+                # Preload the shuffled playlist
+                $shuffledTracks = GetShuffledTracks
+                foreach ($track in $shuffledTracks) {
+                    PlayAudio -track $track.url
+                    # Wait for the track to finish playing
+                    while ($itt.mediaPlayer.playState -in @(3, 6)) {
+                        Start-Sleep -Milliseconds 100
+                    }
+                }
+            }
+            # Play the preloaded playlist
+            PlayPreloadedPlaylist
+        }
  
          function Quotes {
              # Define the JSON file path
