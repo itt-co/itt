@@ -7495,7 +7495,7 @@ BeginTime="0:0:1" />
 </Style.Triggers>
 </Style>
 <Style TargetType="ListViewItem">
-<Setter Property="Margin" Value="20 4 8 0"/>
+<Setter Property="Margin" Value="5 5 5 0"/>
 <Setter Property="BorderThickness" Value="0.5"/>
 <Setter Property="BorderBrush" Value="DarkGray"/>
 <Setter Property="Padding" Value="0"/>
