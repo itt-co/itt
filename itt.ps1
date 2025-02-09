@@ -6486,8 +6486,9 @@ $itt["window"].taskbarItemInfo.Overlay = "https://raw.githubusercontent.com/emad
 }
 }
 function Startup  {
-ITT-ScriptBlock -ArgumentList $Debug -ScriptBlock {
-param($Debug)
+$UsersCount = "https://ittools-7d9fe-default-rtdb.firebaseio.com/Count.json"
+ITT-ScriptBlock -ArgumentList $Debug $UsersCount -ScriptBlock {
+param($Debug,$UsersCount)
 function Telegram {
 param (
 [string]$Message
@@ -6506,8 +6507,11 @@ catch {
 Add-Log -Message "Your internet connection appears to be slow." -Level "WARNING"
 }
 }
+function GetCount {
+$response = Invoke-RestMethod -Uri $UsersCount -Method Get
+return $response
+}
 function PlayMusic {
-$ST = Invoke-RestMethod -Uri "https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Database/OST.json" -Method Get
 function PlayAudio($track) {
 $mediaItem = $itt.mediaPlayer.newMedia($track)
 $itt.mediaPlayer.currentPlaylist.appendItem($mediaItem)
@@ -6515,9 +6519,9 @@ $itt.mediaPlayer.controls.play()
 }
 function GetShuffledTracks {
 switch ($itt.Date.Month, $itt.Date.Day) {
-{ $_ -eq 9, 1 } { return $ST.Favorite | Get-Random -Count $ST.Favorite.Count }
-{ $_ -eq 10, 6 -or $_ -eq 10, 7 } { return $ST.Otobers | Get-Random -Count $ST.Otobers.Count }
-default { return $ST.Tracks | Get-Random -Count $ST.Tracks.Count }
+{ $_ -eq 9, 1 } { return $itt.database.OST.Favorite | Get-Random -Count $itt.database.OST.Favorite.Count }
+{ $_ -eq 10, 6 -or $_ -eq 10, 7 } { return $itt.database.OST.Otobers | Get-Random -Count $itt.database.OST.Otobers.Count }
+default { return $itt.database.OST.Tracks | Get-Random -Count $itt.database.OST.Tracks.Count }
 }
 }
 function PlayPreloadedPlaylist {
@@ -6532,42 +6536,77 @@ Start-Sleep -Milliseconds 100
 PlayPreloadedPlaylist
 }
 function Quotes {
-function Get-Quotes {
-(Invoke-RestMethod "https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Database/Quotes.json").Quotes | Sort-Object { Get-Random }
+$jsonFilePath = $itt.database.Quotes
+function ShuffleArray {
+param (
+[array]$Array
+)
+$count = $Array.Count
+for ($i = $count - 1; $i -ge 0; $i--) {
+$randomIndex = Get-Random -Minimum 0 -Maximum $count
+$temp = $Array[$i]
+$Array[$i] = $Array[$randomIndex]
+$Array[$randomIndex] = $temp
 }
-function Show-Quote($text, $icon) {
+return $Array
+}
+function Get-QuotesFromJson {
+$jsonContent = $jsonFilePath
+return $jsonContent.Quotes
+}
+$shuffledQuotes = ShuffleArray -Array (Get-QuotesFromJson)
+function Show-WelcomeText {
 $itt.Quotes.Dispatcher.Invoke([Action]{
-$itt.QuoteIcon.Text = $icon
-$itt.Quotes.Text = $text
+$itt.QuoteIcon.Text = ""
+$itt.Quotes.Text = $itt.database.locales.Controls.$($itt.Language).welcome
 })
 }
-Show-Quote $itt.database.locales.Controls.$($itt.Language).welcome ""
-Start-Sleep 20
-Show-Quote "Can you uncover the hidden secret? Dive into the source code, be the first to discover the feature, and integrate it into the tool" ""
-Start-Sleep 18
-$iconMap = @{quote=""; info=""; music=""; Cautton=""; default=""}
+Show-WelcomeText
+Start-Sleep -Seconds 28
 do {
-foreach ($q in Get-Quotes) {
-$icon = if ($iconMap.ContainsKey($q.type)) { $iconMap[$q.type] } else { $iconMap.default }
-$text = "`“$($q.text)`”" + $(if ($q.name) { " ― $($q.name)" } else { "" })
-Show-Quote $text $icon
-Start-Sleep 20
+foreach ($quote in $shuffledQuotes) {
+$itt.Quotes.Dispatcher.Invoke([Action]{
+switch ($quote.type) {
+"quote" {
+$itt.QuoteIcon.Text = ""
+}
+"info" {
+$itt.QuoteIcon.Text = ""
+}
+"music" {
+$itt.QuoteIcon.Text = ""
+}
+"Cautton"
+{
+$itt.QuoteIcon.Text = ""
+}
+Default {
+$itt.QuoteIcon.Text = ""
+}
+}
+$quoteText = if ($quote.name) {
+"`“$($quote.text)`” ― $($quote.name)"
+} else {
+"`“$($quote.text)`”"
+}
+$itt.Quotes.Text = $quoteText
+})
+Start-Sleep -Seconds 18
 }
 } while ($true)
 }
-function UpdateUserCount {
-$newCount = (Invoke-RestMethod -Uri "https://ittools-7d9fe-default-rtdb.firebaseio.com/Count.json" -Method Get) + 1
-Invoke-RestMethod -Uri $UsersCount -Method Put -Body ($newCount | ConvertTo-Json) -Headers @{ "Content-Type" = "application/json" }
-return $newCount
+function NewUser {
+$currentCount = (Invoke-RestMethod -Uri $UsersCount -Method Get)
+$Runs = $currentCount + 1
+Invoke-RestMethod -Uri $UsersCount -Method Put -Body ($Runs | ConvertTo-Json) -Headers @{ "Content-Type" = "application/json" }
+Telegram -Message "🎉New User`n`👤 $env:USERNAME `n`🌐 Language: $($itt.Language)`n`🖥 Total devices: $(GetCount)"
 }
 function Welcome {
-$runs = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction SilentlyContinue).Runs + 1
-Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value $runs
-if ($runs -eq 1) {
-$totalDevices = UpdateUserCount
-Telegram -Message "🎉New User`n`👤 $env:USERNAME `n`🌐 Language: $($itt.Language)`n`🖥 Total devices:$(UpdateUserCount)"
-}
-Write-Host "`n ITT has been used on $(Invoke-RestMethod -Uri "https://ittools-7d9fe-default-rtdb.firebaseio.com/Count.json" -Method Get) devices worldwide.`n" -ForegroundColor White
+$currentValue = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction SilentlyContinue).Runs
+$newValue = [int]$currentValue + 1
+Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value $newValue
+if ($newValue -eq 1) {NewUser}
+Write-Host "`n ITT has been used on $(GetCount) devices worldwide.`n" -ForegroundColor White
 }
 function LOG {
 param (
