@@ -5,7 +5,7 @@ function Startup  {
      ITT-ScriptBlock -ArgumentList $Debug $UsersCount -ScriptBlock {
  
          param($Debug,$UsersCount)
-         function Telegram {
+        function Telegram {
                  param (
                  [string]$Message
              )
@@ -28,15 +28,15 @@ function Startup  {
              catch {
                  Add-Log -Message "Your internet connection appears to be slow." -Level "WARNING"
              }
-         }
+        }
  
-         function GetCount {
+        function GetCount {
              # Fetch data using GET request
              $response = Invoke-RestMethod -Uri $UsersCount -Method Get
          
              # Output the Users count
              return $response
-         }
+        }
          
          function PlayMusic {
 
@@ -76,79 +76,34 @@ function Startup  {
             PlayPreloadedPlaylist
         }
  
-         function Quotes {
-             # Define the JSON file path
-             $jsonFilePath = $itt.database.Quotes
-             # Function to shuffle an array
-             function ShuffleArray {
-                 param (
-                     [array]$Array
-                 )
-                 $count = $Array.Count
-                 for ($i = $count - 1; $i -ge 0; $i--) {
-                     $randomIndex = Get-Random -Minimum 0 -Maximum $count
-                     $temp = $Array[$i]
-                     $Array[$i] = $Array[$randomIndex]
-                     $Array[$randomIndex] = $temp
-                 }
-                 return $Array
-             }
-             # Function to get quotes from the JSON file
-             function Get-QuotesFromJson {
-                 $jsonContent = $jsonFilePath
-                 return $jsonContent.Quotes
-             }
-             # Get shuffled quotes
-             $shuffledQuotes = ShuffleArray -Array (Get-QuotesFromJson)
-             # Function to display welcome text
-             function Show-WelcomeText {
-                 $itt.Quotes.Dispatcher.Invoke([Action]{
-                     $itt.QuoteIcon.Text = ""
-                     $itt.Quotes.Text = $itt.database.locales.Controls.$($itt.Language).welcome
-                 })
-             }
-             # Display welcome text
-             Show-WelcomeText
-             Start-Sleep -Seconds 28
-             # Loop through shuffled quotes and display them
-             do {
-                 foreach ($quote in $shuffledQuotes) {
-                     $itt.Quotes.Dispatcher.Invoke([Action]{
-                         # Display icon based on the 'type' of the quote
-                         switch ($quote.type) {
-                             "quote" { 
-                                 $itt.QuoteIcon.Text = ""  
-                             }
-                             "info" { 
-                                 $itt.QuoteIcon.Text = ""
-                             }
-                             "music" {
-                                 $itt.QuoteIcon.Text = ""
-                             }
-                             "Cautton"
-                             {
-                                 $itt.QuoteIcon.Text = ""
-                             }
-                             Default {
-                                 $itt.QuoteIcon.Text = ""
-                             }
-                         }
-                         # Check if the quote has a 'name' field, else use just the 'text'
-                         $quoteText = if ($quote.name) {
-                             "`“$($quote.text)`” ― $($quote.name)"
-                         } else {
-                             "`“$($quote.text)`”"
-                         }
-                         # Display the quote text
-                         $itt.Quotes.Text = $quoteText
-                     })
-                     # sleep time 
-                     Start-Sleep -Seconds 18 
-                 }
-             } while ($true)
-         }
+        function Quotes {
+            function Get-Quotes {
+                (Invoke-RestMethod "https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Database/Quotes.json").Quotes | Sort-Object { Get-Random }
+            }
+            
+            function Show-Quote($text, $icon) {
+                $itt.Quotes.Dispatcher.Invoke([Action]{ 
+                    $itt.QuoteIcon.Text = $icon
+                    $itt.Quotes.Text = $text
+                })
+            }
+        
+            Show-Quote $itt.database.locales.Controls.$($itt.Language).welcome ""
+            Start-Sleep 20
+            Show-Quote "Can you uncover the hidden secret? Dive into the source code, be the first to discover the feature, and integrate it into the tool" ""
+            Start-Sleep 18
+            $iconMap = @{quote=""; info=""; music=""; Cautton=""; default=""}
+            do {
+                foreach ($q in Get-Quotes) {
+                    $icon = if ($iconMap.ContainsKey($q.type)) { $iconMap[$q.type] } else { $iconMap.default }
+                    $text = "`“$($q.text)`”" + $(if ($q.name) { " ― $($q.name)" } else { "" })
+                    Show-Quote $text $icon
+                    Start-Sleep 20
+                }
+            } while ($true)
+        }
  
-         function NewUser {
+        function NewUser {
  
              # Fetch current count from Firebase and increment it
              $currentCount = (Invoke-RestMethod -Uri $UsersCount -Method Get)
@@ -160,9 +115,9 @@ function Startup  {
              # Output success
              Telegram -Message "🎉New User`n`👤 $env:USERNAME `n`🌐 Language: $($itt.Language)`n`🖥 Total devices: $(GetCount)"
  
-         }
+        }
  
-         function Welcome {
+        function Welcome {
  
              # Get the current value of the key
              $currentValue = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction SilentlyContinue).Runs
@@ -177,9 +132,9 @@ function Startup  {
              if ($newValue -eq 1) {NewUser}
  
              Write-Host "`n ITT has been used on $(GetCount) devices worldwide.`n" -ForegroundColor White
-         }
+        }
  
-         function LOG {
+        function LOG {
              param (
                  $message,
                  $color
@@ -194,7 +149,7 @@ function Startup  {
              Write-Host " Telegram: https://t.me/emadadel4"
              Write-Host " Source Code: https://github.com/emadadel4/itt"
              Welcome
-         }
+        }
          # debug start
              if($Debug){return}
          # debug end
