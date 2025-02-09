@@ -30,32 +30,11 @@ function Message {
         [string]$icon,
         [string]$action
     )
-    # Use switch to determine the correct MessageBoxImage
-    switch ($icon.ToLower()) {
-        "info" { $icon = [System.Windows.MessageBoxImage]::Information }
-        "ask" { $icon = [System.Windows.MessageBoxImage]::Question }
-        "warning" { $icon = [System.Windows.MessageBoxImage]::Warning }
-        Default { $icon = [System.Windows.MessageBoxImage]::Question }
-    }
-    switch ($action.ToLower()) {
-        "YesNo" { 
-            $action = [System.Windows.MessageBoxButton]::YesNo 
-        }
-        "OK" {
-            $action = [System.Windows.MessageBoxButton]::OK 
-        }
-        Default { 
-            $icon = [System.Windows.MessageBoxButton]::OK 
-        }
-    }
-    if ([string]::IsNullOrWhiteSpace($key)) {
-        # Show message with NoneKey if key is empty or null
-        [System.Windows.MessageBox]::Show($NoneKey, $title, [System.Windows.MessageBoxButton]::$action, $icon)
-    }
-    else {
-        # Retrieve localized message template and display message
-        $localizedMessageTemplate = $itt.database.locales.Controls.$($itt.Language).$($key)
-        $msg = "$localizedMessageTemplate"
-        [System.Windows.MessageBox]::Show($msg, $title, [System.Windows.MessageBoxButton]::$action, $icon)
-    }
+
+    $iconMap = @{ info = "Information"; ask = "Question"; warning = "Warning"; default = "Question" }
+    $actionMap = @{ YesNo = "YesNo"; OK = "OK"; default = "OK" }
+    $icon = if ($iconMap.ContainsKey($icon.ToLower())) { $iconMap[$icon.ToLower()] } else { $iconMap.default }
+    $action = if ($actionMap.ContainsKey($action.ToLower())) { $actionMap[$action.ToLower()] } else { $actionMap.default }
+    $msg = if ([string]::IsNullOrWhiteSpace($key)) { $NoneKey } else { $itt.database.locales.Controls.$($itt.Language).$key }
+    [System.Windows.MessageBox]::Show($msg, $title, [System.Windows.MessageBoxButton]::$action, [System.Windows.MessageBoxImage]::$icon)
 }    
