@@ -109,17 +109,34 @@ function GenerateCheckboxes {
     Write-Host "[i] Generate Checkboxes..."
     $Checkboxes = ""
     foreach ($Item in $Items) {
+
         # Clean description and category to remove special characters
         $CleanedDescription = $Item.Description -replace '[^\w\s./]', ''
+
         $CleanedCategory = $Item.Category -replace '[^\w\s]', ''
+
+        $CleanedName = ($Item.Name -replace '[^\p{L}\p{N}]', '').ToLower()
+
+
         # Get content from the specified content field
+
         $Content = $Item.$ContentField
+
         # Optional attributes for CheckBox based on fields
+
         $Tag = if ($TagField) { "Tag=`"$($Item.$TagField)`"" } else { "" }
+
         $Tips = if ($TipsField) { "ToolTip=`"Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository.`"" } else { "" }
-        $Name = if ($NameField) { "Name=`"$($Item.$NameField)`"" } else { "" }
+
+        
+
+        $Name = if ($NameField) { "Name=`"$($CleanedName)`"" } else { "Name=`"$($CleanedName)`"" }
+
+
         $Toggle = if ($ToggleField) { "Style=`"{StaticResource ToggleSwitchStyle}`"" } else { "" }
+
         $IsChecked = if ($IsCheckedField) { "IsChecked=`"$($Item.$IsCheckedField)`"" } else { "" }
+
         # Build the CheckBox and its container
         $Checkboxes += @"
         <StackPanel Orientation="Vertical" Margin="10">
@@ -669,9 +686,9 @@ try {
     catch {
         Write-Error "An error occurred while processing the XAML content: $($_.Exception.Message)"
     }
-    $AppsCheckboxes = GenerateCheckboxes -Items $itt.database.Applications -ContentField "Name" -TagField "Category" -IsCheckedField "check" -TipsField "show"
+    $AppsCheckboxes = GenerateCheckboxes -Items $itt.database.Applications -ContentField "Name" -NameField "Name" -TagField "Category" -IsCheckedField "check" -TipsField "show"
     $TweaksCheckboxes = GenerateCheckboxes -Items $itt.database.Tweaks -ContentField "Name" -TagField "Category" -IsCheckedField "check"
-    $SettingsCheckboxes = GenerateCheckboxes -Items $itt.database.Settings -ContentField "Content" -NameField "Name" -ToggleField "Style=" { StaticResource ToggleSwitchStyle }""
+    $SettingsCheckboxes = GenerateCheckboxes -Items $itt.database.Settings -ContentField "Name" -NameField "" -ToggleField "Style=" { StaticResource ToggleSwitchStyle }""
     $MainXamlContent = $MainXamlContent -replace "{{Apps}}", $AppsCheckboxes 
     $MainXamlContent = $MainXamlContent -replace "{{Tweaks}}", $TweaksCheckboxes 
     $MainXamlContent = $MainXamlContent -replace "{{Settings}}", $SettingsCheckboxes 
