@@ -22,8 +22,6 @@ function Load-SavedFile {
 
         try {
 
-       
-
             # Load and parse JSON data
             $FileContent = Get-Content -Path $openFileDialog.FileName -Raw | ConvertFrom-Json -ErrorAction Stop
             $filteredNames = $FileContent.Name
