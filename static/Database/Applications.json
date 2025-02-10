@@ -3771,5 +3771,21 @@
     ],
     "category": "Utilities",
     "check": "false"
+  },
+  {
+    "Name": "Resource Hacker",
+    "Description": "freeware resource compiler & decompiler for Windows® applications",
+    "winget": "none",
+    "choco": "none",
+    "default": [
+      {
+        "url": "https://www.angusj.com/resourcehacker/resource_hacker.zip",
+        "args": "none",
+        "portable": "true",
+        "launcher": "ResourceHacker.exe"
+      }
+    ],
+    "category": "Portable",
+    "check": "false"
   }
 ]
