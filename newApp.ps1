@@ -10,8 +10,9 @@ Write-Host "
 |   |___| |_|   |_|   |____/_/   \_\_/_/   \_\____/_/   \_\____/|_____|   |
 |    Made with ♥  By Emad Adel                                            |
 |                                                                         |
-|  Choco packages: https://community.chocolatey.org/packages              |
-|  Winget packages: https://winget.run/                                   |
+| Choco packages:  https://community.chocolatey.org/packages              |
+| Winget packages: https://winget.run/ & https://winget.ragerworks.com/   |
+|                                                                         |
 +-------------------------------------------------------------------------+
 "
 #===========================================================================
