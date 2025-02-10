@@ -28,7 +28,7 @@ $MainXaml.SelectNodes("//*[@Name]") | ForEach-Object {
             }
             "CheckBox" {
                 $element.IsChecked = Get-ToggleStatus -ToggleSwitch $name
-                $element.Add_Click({ Invoke-Toogle $args[0].Name})
+                $element.Add_Click({ Invoke-Toggle $args[0].Name})
             }
         }
     }
