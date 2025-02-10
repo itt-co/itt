@@ -17,6 +17,7 @@
                     Background="{x:Null}"
                     SelectionMode="Single"
                     SnapsToDevicePixels="True"
+                    VirtualizingStackPanel.IsContainerVirtualizable="True"
                     VirtualizingStackPanel.IsVirtualizing="True"
                     VirtualizingStackPanel.VirtualizationMode="Recycling"
                     ScrollViewer.CanContentScroll="True">
@@ -47,6 +48,7 @@
                         SelectionMode="Single"
                         SnapsToDevicePixels="True"
                         VirtualizingStackPanel.IsVirtualizing="True"
+                        VirtualizingStackPanel.IsContainerVirtualizable="True"
                         VirtualizingStackPanel.VirtualizationMode="Recycling"
                         ScrollViewer.CanContentScroll="True">
                         <ListView.ItemsPanel>
@@ -72,6 +74,7 @@
                         SelectionMode="Single"
                         SnapsToDevicePixels="True"
                         VirtualizingStackPanel.IsVirtualizing="True"
+                        VirtualizingStackPanel.IsContainerVirtualizable="True"
                         VirtualizingStackPanel.VirtualizationMode="Recycling"
                         ScrollViewer.CanContentScroll="True">
                         <ListView.ItemsPanel>
