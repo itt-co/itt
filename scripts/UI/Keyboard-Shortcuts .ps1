@@ -14,9 +14,9 @@ $KeyEvents = {
                 if ($itt.currentList -eq "appslist") { Invoke-Install }
                 elseif ($itt.currentList -eq "tweakslist") { Invoke-Apply }
             }
-            elseif ($modifiers -eq "Shift") { SaveItemsToJson }
+            elseif ($modifiers -eq "Shift") { Save-File }
         }
-        "D" { if ($modifiers -eq "Shift") { LoadJson } }
+        "D" { if ($modifiers -eq "Shift") { Load-SavedFile } }
         "M" {
             if ($modifiers -eq "Shift") {
                 $global:toggleState = -not $global:toggleState
