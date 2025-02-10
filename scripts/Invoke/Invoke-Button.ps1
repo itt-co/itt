@@ -53,13 +53,13 @@ function Invoke-Button {
         }
         #{locales}
         "save" {
-            SaveItemsToJson
+            Save-File
             # debug start
                 Debug-Message $action
             # debug end
         }
         "load" {
-            LoadJson
+            Load-SavedFile
             # debug start
                 Debug-Message $action
             # debug end
