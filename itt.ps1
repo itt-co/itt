@@ -5601,10 +5601,10 @@ Set-Language -lang "tr"
 Set-Language -lang "zh"
 }
 "save" {
-SaveItemsToJson
+Save-File
 }
 "load" {
-LoadJson
+Load-SavedFile
 }
 "deviceManager" {
 Start-Process devmgmt.msc
@@ -5764,32 +5764,13 @@ Add-Log -Message "An error occurred while enabling System Restore: $_" -Level "E
 }
 }
 function Add-Log {
-param (
-[string]$Message,
-[string]$Level = "INFO"
-)
-switch ($Level.ToUpper()) {
-"INFO" { $color = "White" }
-"WARNING" { $color = "Yellow" }
-"ERROR" { $color = "Red" }
-"Installed" { $color = "White" }
-"Apply" { $color = "White" }
-"debug" { $color = "Yello" }
-default { $color = "White" }
-}
-switch ($Level.ToUpper()) {
-"INFO" { $icon = "i" }
-"WARNING" { $icon = "!" }
-"ERROR" { $icon = "X" }
-"Installed" { $icon = "√" }
-"Apply" { $icon = "√" }
-"Disabled" { $icon = "X" }
-"Enabled" { $icon = "√" }
-"Debug" { $icon = "Debug" }
-default { $icon = "i" }
-}
-$logMessage =  "[$icon] $Message"
-Write-Host " $logMessage" -ForegroundColor $color
+param ([string]$Message, [string]$Level = "INFO")
+$level = $Level.ToUpper()
+$colorMap = @{ INFO="White"; WARNING="Yellow"; ERROR="Red"; INSTALLED="White"; APPLY="White"; DEBUG="Yellow" }
+$iconMap  = @{ INFO="i"; WARNING="!"; ERROR="X"; INSTALLED="√"; APPLY="√"; DISABLED="X"; ENABLED="√"; DEBUG="Debug" }
+$color = if ($colorMap.ContainsKey($level)) { $colorMap[$level] } else { "White" }
+$icon  = if ($iconMap.ContainsKey($level)) { $iconMap[$level] } else { "i" }
+Write-Host "[$icon] $Message" -ForegroundColor $color
 }
 function Disable-Service {
 param(
@@ -5841,21 +5822,15 @@ Notify -title "$title" -msg "ALL TWEAKS HAVE BEEN APPLIED SUCCESSFULLY." -icon "
 }
 $itt["window"].Dispatcher.Invoke([action]{ Set-Taskbar -progress "None" -value 0.01 -icon "done" })
 $itt.$ListView.Dispatcher.Invoke([Action]{
-foreach ($item in $itt.$ListView.Items)
-{
-foreach ($child in $item.Children) {
-if ($child -is [System.Windows.Controls.StackPanel]) {
-foreach ($innerChild in $child.Children) {
-if ($innerChild -is [System.Windows.Controls.CheckBox]) {
-$innerChild.IsChecked = $false
-$itt.$ListView.Clear()
+foreach ($item in $itt.$ListView.Items) {
+if ($item.Children.Count -gt 0 -and $item.Children[0].Children.Count -gt 0) {
+$item.Children[0].Children[0].IsChecked = $false
+}
+}
+Write-Host $global:CheckedItems
 $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.$ListView.Items)
 $collectionView.Filter = $null
-}
-}
-}
-}
-}
+$collectionView.Refresh()
 })
 }
 function Show-Selected {
@@ -5863,32 +5838,26 @@ param (
 [string]$ListView,
 [string]$mode
 )
+$collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.$ListView.Items)
 switch ($mode) {
 "Filter" {
-$collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.$ListView.Items)
-$filterPredicate = {
-param($item)
-if ($item -is [System.Windows.Controls.StackPanel]) {
-foreach ($child in $item.Children) {
-if ($child -is [System.Windows.Controls.StackPanel]) {
-foreach ($innerChild in $child.Children) {
-if ($innerChild -is [System.Windows.Controls.CheckBox]) {
-return $innerChild.IsChecked -eq $true
+$collectionView.Filter = {
+param ($item)
+if ($item.Children.Count -lt 1 -or $item.Children[0].Children.Count -lt 1) {
+return $false
 }
+return $item.Children[0].Children[0].IsChecked -eq $true
 }
-}
-}
-}
-return $true
-}
-$collectionView.Filter = $filterPredicate
 }
 Default {
-$itt.$ListView.Clear()
-[System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.$ListView.Items).Filter = $null
-$itt['window'].FindName($itt.CurrentList).SelectedIndex = 0
+$collectionView.Filter = $null
+$listView = $itt['window'].FindName($itt.CurrentList)
+if ($listView.Items.Count -gt 0) {
+$listView.SelectedIndex = 0
 }
 }
+}
+$collectionView.Refresh()
 }
 function Clear-Item {
 param (
@@ -5896,20 +5865,15 @@ $ListView
 )
 $itt.$ListView.Dispatcher.Invoke({
 foreach ($item in $itt.$ListView.Items) {
-$item.Children | ForEach-Object {
-if ($_ -is [System.Windows.Controls.StackPanel]) {
-$_.Children | ForEach-Object {
-if ($_ -is [System.Windows.Controls.CheckBox]) {
-$_.IsChecked = $false
-}
-}
-}
+if ($item.Children.Count -gt 0 -and $item.Children[0].Children.Count -gt 0) {
+$item.Children[0].Children[0].IsChecked = $false
 }
 }
 $itt.$ListView.Clear()
+$global:CheckedItems = @()
 [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.$ListView.Items).Filter = $null
-})
 $itt['window'].FindName($itt.CurrentList).SelectedIndex = 0
+})
 }
 function Get-SelectedItems {
 param (
@@ -6283,57 +6247,48 @@ SwitchToSystem
 System-Default
 Message -key "Reopen_itt_again" -icon "Information" -action "OK"
 }
-function Get-CheckBoxesFromStackPanel {
-param (
-[System.Windows.Controls.StackPanel]$item
-)
-$checkBoxes = @()
-if ($item -is [System.Windows.Controls.StackPanel]) {
-foreach ($child in $item.Children) {
-if ($child -is [System.Windows.Controls.StackPanel]) {
-foreach ($innerChild in $child.Children) {
-if ($innerChild -is [System.Windows.Controls.CheckBox]) {
-$checkBoxes += $innerChild
+function Get-CheckBoxes {
+$item.Children[0].Children[0]
+return $item
 }
-}
-}
-}
-}
-return $checkBoxes
-}
-function LoadJson {
+function Load-SavedFile {
 if ($itt.ProcessRunning) {
 Message -key "Please_wait" -icon "Warning" -action "OK"
 return
 }
 $openFileDialog = New-Object Microsoft.Win32.OpenFileDialog -Property @{
-Filter = "JSON files (*.itt)|*.itt"
-Title  = "Open JSON File"
+Filter = "itt files (*.itt)|*.itt"
+Title  = "itt File"
 }
 if ($openFileDialog.ShowDialog() -eq $true) {
 try {
-$jsonData = Get-Content -Path $openFileDialog.FileName -Raw | ConvertFrom-Json -ErrorAction Stop
-$filteredNames = $jsonData.Name
+$FileContent = Get-Content -Path $openFileDialog.FileName -Raw | ConvertFrom-Json -ErrorAction Stop
+$filteredNames = $FileContent.Name
+if (-not $global:CheckedItems) {
+$global:CheckedItems = [System.Collections.ArrayList]::new()
+}
+foreach ($MyApp in $FileContent) {
+$global:CheckedItems.Add(@{ Content = $MyApp.Name; IsChecked = $true })
+}
 $appsList = $itt['window'].FindName('appslist')
 $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($appsList.Items)
 $collectionView.Filter = {
 param($item)
-$checkBoxes = Get-CheckBoxesFromStackPanel -item $item
-$checkBoxes.IsChecked = $filteredNames -contains $checkBoxes.Content
-return $checkBoxes.IsChecked
+if ($FileContent.Name -contains $item.Children[0].Children[0].Content) {
+$item.Children[0].Children[0].IsChecked = $true
+return $true
 }
-$itt['window'].FindName('apps').IsSelected = $true
-$appsList.Clear()
+return $false
+}
 Message -NoneKey "Restored successfully" -icon "info" -action "OK"
 } catch {
 Write-Warning "Failed to load or parse JSON file: $_"
-Message -NoneKey "Failed to load JSON file" -icon "error" -action "OK"
 }
 }
 $itt.Search_placeholder.Visibility = "Visible"
 $itt.SearchInput.Text = $null
 }
-function SaveItemsToJson {
+function Save-File {
 if ($itt.ProcessRunning) {
 Message -key "Please_wait" -icon "warning" -action "OK"
 return
@@ -6341,10 +6296,10 @@ return
 ClearFilter
 $appsDictionary = $itt.database.Applications | ForEach-Object { @{ $_.Name = $_ } }
 $items = foreach ($item in $itt.AppsListView.Items) {
-$checkBoxes = Get-CheckBoxesFromStackPanel -item $item
-if ($checkBoxes.IsChecked -and $appsDictionary.ContainsKey($checkBoxes.Content)) {
+$MyApp = Get-CheckBoxes
+if ($MyApp.IsChecked -and $appsDictionary.ContainsKey($MyApp.Content)) {
 [PSCustomObject]@{
-Name  = $checkBoxes.Content
+Name  = $MyApp.Content
 Check = "true"
 }
 }
@@ -6363,9 +6318,9 @@ $items | ConvertTo-Json -Compress | Out-File -FilePath $saveFileDialog.FileName 
 Write-Host "Saved: $($saveFileDialog.FileName)"
 Message -NoneKey "Saved successfully" -icon "info" -action "OK"
 foreach ($item in $itt.AppsListView.Items) {
-$checkBoxes = Get-CheckBoxesFromStackPanel -item $item
-if ($checkBoxes.IsChecked) {
-$checkBoxes.IsChecked = $false
+$item.Children[0].Children[0]
+if ($item.IsChecked) {
+$item.IsChecked = $false
 }
 }
 } catch {
@@ -6383,13 +6338,13 @@ param (
 $QuickInstall = $true
 try {
 if ($file -match "^https?://") {
-$jsonData = Invoke-RestMethod -Uri $file -ErrorAction Stop
-if ($jsonData -isnot [array] -or $jsonData.Count -eq 0) {
+$FileContent = Invoke-RestMethod -Uri $file -ErrorAction Stop
+if ($FileContent -isnot [array] -or $FileContent.Count -eq 0) {
 Message -NoneKey "The file is corrupt or access is forbidden" -icon "Warning" -action "OK"
 return
 }
 } else {
-$jsonData = Get-Content -Path $file -Raw | ConvertFrom-Json -ErrorAction Stop
+$FileContent = Get-Content -Path $file -Raw | ConvertFrom-Json -ErrorAction Stop
 if($file -notmatch "\.itt"){
 Message -NoneKey "Invalid file format. Expected .itt file." -icon "Warning" -action "OK"
 return
@@ -6399,18 +6354,23 @@ return
 Write-Warning "Failed to load or parse JSON file: $_"
 return
 }
-if($jsonData -eq $null){return}
-$filteredNames = $jsonData.Name
-$appsList = $itt['window'].FindName('appslist')
-$collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($appsList.Items)
+if($FileContent -eq $null){return}
+$filteredNames = $FileContent
+if (-not $global:CheckedItems) {
+$global:CheckedItems = [System.Collections.ArrayList]::new()
+}
+foreach ($MyApp in $FileContent) {
+$global:CheckedItems.Add(@{ Content = $MyApp.Name; IsChecked = $true })
+}
+$collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt['Window'].FindName('appslist').Items)
 $collectionView.Filter = {
 param($item)
-$checkBoxes = Get-CheckBoxesFromStackPanel -item $item
-$checkBoxes.IsChecked = $filteredNames -contains $checkBoxes.Content
-return $checkBoxes.IsChecked
+if ($FileContent.Name -contains (Get-CheckBoxes).Content) {
+$item.Children[0].Children[0].IsChecked = $true
+return $true
 }
-$itt['window'].FindName('apps').IsSelected = $true
-$appsList.Clear()
+return $false
+}
 try {
 Invoke-Install *> $null
 } catch {
@@ -6773,22 +6733,18 @@ $itt.ProcessRunning = $false
 Finish -ListView "TweaksListView"
 }
 }
-function Invoke-Toogle {
-Param ([string]$debug)
-Switch -Wildcard ($debug){
-"showfileextensions" {Invoke-ShowFile-Extensions $(Get-ToggleStatus showfileextensions)}
-"darkmode" {Invoke-DarkMode $(Get-ToggleStatus darkmode)}
-"showsuperhidden" {Invoke-ShowFile $(Get-ToggleStatus showsuperhidden)}
-"numlook" {Invoke-NumLock $(Get-ToggleStatus numlook)}
-"stickykeys" {Invoke-StickyKeys $(Get-ToggleStatus stickykeys)}
-"mouseacceleration" {Invoke-MouseAcceleration $(Get-ToggleStatus mouseacceleration)}
-"endtaskontaskbarwindows11" {Invoke-TaskbarEnd $(Get-ToggleStatus endtaskontaskbarwindows11)}
-"clearpagefileatshutdown" {Invoke-ClearPageFile $(Get-ToggleStatus clearpagefileatshutdown)}
-"autoendtasks" {Invoke-AutoEndTasks $(Get-ToggleStatus autoendtasks)}
-"performanceoptions" {Invoke-PerformanceOptions $(Get-ToggleStatus performanceoptions)}
-"launchtothispc" {Invoke-LaunchTo $(Get-ToggleStatus launchtothispc)}
-"disableautomaticdriverinstallation" {Invoke-DisableAutoDrivers $(Get-ToggleStatus disableautomaticdriverinstallation)}
+function Invoke-Toggle {
+Param ([string]$Debug)
+$toggleActions = @{
+"showfileextensions" = "Invoke-ShowFile-Extensions"; "darkmode" = "Invoke-DarkMode"
+"showsuperhidden" = "Invoke-ShowFile"; "numlock" = "Invoke-NumLock"
+"stickykeys" = "Invoke-StickyKeys"; "mouseacceleration" = "Invoke-MouseAcceleration"
+"endtaskontaskbarwindows11" = "Invoke-TaskbarEnd"; "clearpagefileatshutdown" = "Invoke-ClearPageFile"
+"autoendtasks" = "Invoke-AutoEndTasks"; "performanceoptions" = "Invoke-PerformanceOptions"
+"launchtothispc" = "Invoke-LaunchTo"; "disableautomaticdriverinstallation" = "Invoke-DisableAutoDrivers"
 }
+if ($toggleActions[$Debug.ToLower()]) { & $toggleActions[$Debug.ToLower()] $(Get-ToggleStatus $Debug) }
+else { Write-Warning "Invalid toggle: $Debug"; Add-Log -Message "Invalid toggle: $Debug" -Level "warning" }
 }
 function Invoke-AutoEndTasks {
 Param(
@@ -7166,79 +7122,40 @@ function Search {
 $filter = $itt.searchInput.Text.ToLower() -replace '[^\p{L}\p{N}]', ''
 $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt['window'].FindName($itt.currentList).Items)
 $collectionView.Filter = {
-param($item)
-if ($item -is [System.Windows.Controls.StackPanel]) {
-foreach ($child in $item.Children) {
-if ($child -is [System.Windows.Controls.StackPanel]) {
-foreach ($innerChild in $child.Children) {
-if ($innerChild -is [System.Windows.Controls.CheckBox]) {
-if ($innerChild.Content -match $filter) {
-return $true
-}
-}
-}
-}
-}
+param ($item)
+if ($item.Children.Count -lt 1 -or $item.Children[0].Children.Count -lt 1) {
 return $false
 }
-return $true
+return $item.Children[0].Children[0].Content -match $filter
 }
 }
 function FilterByCat {
 param ($Cat)
 $validCategories = @(
-"Web Browsers",
-"Media",
-"Media Tools",
-"Documents",
-"Compression",
-"Communication",
-"File Sharing",
-"Imaging",
-"Gaming",
-"Utilities",
-"Disk Tools",
-"Development",
-"Security",
-"Portable",
-"Runtimes",
-"Drivers",
-"Performance",
-"Privacy",
-"Fixer",
-"Performance",
-"Personalization",
-"Power",
-"Protection",
-"Classic",
-"GPU Drivers"
+"Web Browsers", "Media", "Media Tools", "Documents", "Compression",
+"Communication", "File Sharing", "Imaging", "Gaming", "Utilities",
+"Disk Tools", "Development", "Security", "Portable", "Runtimes",
+"Drivers", "Performance", "Privacy", "Fixer", "Personalization",
+"Power", "Protection", "Classic", "GPU Drivers"
 )
 $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt['window'].FindName($itt.CurrentList).Items)
-$filterPredicate = {
-param($item)
-if ($item -is [System.Windows.Controls.StackPanel]) {
-foreach ($child in $item.Children) {
-if ($child -is [System.Windows.Controls.StackPanel]) {
-foreach ($innerChild in $child.Children) {
-if ($innerChild -is [System.Windows.Controls.CheckBox]) {
-$tagToFilter =  $Cat
-$itemTag = $innerChild.Tag
-return $itemTag -eq $tagToFilter
-}
-}
-}
-}
-}
-}
 if ($validCategories -contains $Cat) {
-$itt['window'].FindName($itt.CurrentList).Clear()
-$collectionView.Filter = $filterPredicate
+$collectionView.Filter = {
+param ($item)
+if ($item.Children.Count -lt 1 -or $item.Children[0].Children.Count -lt 1) {
+return $false
+}
+return $item.Children[0].Children[0].Tag -eq $Cat
+}
 }
 else {
-$itt['window'].FindName($itt.CurrentList).Clear()
 $collectionView.Filter = $null
 }
-$itt.AppsListView.ScrollIntoView($itt['window'].FindName($itt.CurrentList).Items[0])
+$collectionView.Refresh()
+$listView = $itt['window'].FindName($itt.CurrentList)
+if ($listView.Items.Count -gt 0) {
+$itt.AppsListView.ScrollIntoView($listView.Items[0])
+}
 }
 function ClearFilter {
 $itt.AppsListView.Clear()
@@ -7259,9 +7176,9 @@ if ($modifiers -eq "Ctrl") {
 if ($itt.currentList -eq "appslist") { Invoke-Install }
 elseif ($itt.currentList -eq "tweakslist") { Invoke-Apply }
 }
-elseif ($modifiers -eq "Shift") { SaveItemsToJson }
+elseif ($modifiers -eq "Shift") { Save-File }
 }
-"D" { if ($modifiers -eq "Shift") { LoadJson } }
+"D" { if ($modifiers -eq "Shift") { Load-SavedFile } }
 "M" {
 if ($modifiers -eq "Shift") {
 $global:toggleState = -not $global:toggleState
@@ -7329,29 +7246,21 @@ $notification.ShowBalloonTip($time)
 $notification.Dispose()
 }
 function Manage-Music {
-param(
-[string]$action,
-[int]$volume = 0
-)
+param([string]$action, [int]$volume = 0)
 switch ($action) {
 "SetVolume" {
 $itt.mediaPlayer.settings.volume = $volume
+$global:toggleState = ($volume -ne 0)
 Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value "$volume" -Force
 $itt["window"].title = "Install Tweaks Tool #StandWithPalestine " + @("🔊", "🔈")[$volume -eq 0]
 }
 "StopAll" {
-$itt.mediaPlayer.controls.stop()
-$itt.mediaPlayer = $null
-$itt.runspace.Dispose()
-$itt.runspace.Close()
-$script:powershell.Dispose()
-$script:powershell.Stop()
-$newProcess.exit
-[System.GC]::Collect()
+$itt.mediaPlayer.controls.stop(); $itt.mediaPlayer = $null
+$itt.runspace.Dispose(); $itt.runspace.Close()
+$script:powershell.Dispose(); $script:powershell.Stop()
+$newProcess.exit; [System.GC]::Collect()
 }
-default {
-Write-Host "Invalid action. Use 'SetVolume', 'StopMusic', or 'StopAll'."
-}
+default { Write-Host "Invalid action. Use 'SetVolume' or 'StopAll'." }
 }
 }
 function System-Default {
@@ -8494,6 +8403,7 @@ BorderBrush="{x:Null}"
 Background="{x:Null}"
 SelectionMode="Single"
 SnapsToDevicePixels="True"
+VirtualizingStackPanel.IsContainerVirtualizable="True"
 VirtualizingStackPanel.IsVirtualizing="True"
 VirtualizingStackPanel.VirtualizationMode="Recycling"
 ScrollViewer.CanContentScroll="True">
@@ -10944,6 +10854,7 @@ Background="{x:Null}"
 SelectionMode="Single"
 SnapsToDevicePixels="True"
 VirtualizingStackPanel.IsVirtualizing="True"
+VirtualizingStackPanel.IsContainerVirtualizable="True"
 VirtualizingStackPanel.VirtualizationMode="Recycling"
 ScrollViewer.CanContentScroll="True">
 <ListView.ItemsPanel>
@@ -11209,6 +11120,7 @@ Background="{x:Null}"
 SelectionMode="Single"
 SnapsToDevicePixels="True"
 VirtualizingStackPanel.IsVirtualizing="True"
+VirtualizingStackPanel.IsContainerVirtualizable="True"
 VirtualizingStackPanel.VirtualizationMode="Recycling"
 ScrollViewer.CanContentScroll="True">
 <ListView.ItemsPanel>
@@ -11570,22 +11482,22 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/31/2025'.Trim()
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
+$itt.event.FindName('ps').add_MouseLeftButtonDown({
+Start-Process('https://www.palestinercs.org/en/Donation')
+})
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('ps').add_MouseLeftButtonDown({
-Start-Process('https://www.palestinercs.org/en/Donation')
-})
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.Add_PreViewKeyDown({
@@ -12039,7 +11951,7 @@ $element.add_SelectionChanged({ Invoke-Button $args[0].Name $args[0].SelectedIte
 }
 "CheckBox" {
 $element.IsChecked = Get-ToggleStatus -ToggleSwitch $name
-$element.Add_Click({ Invoke-Toogle $args[0].Name})
+$element.Add_Click({ Invoke-Toggle $args[0].Name})
 }
 }
 }
