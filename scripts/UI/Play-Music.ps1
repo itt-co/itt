@@ -9,29 +9,21 @@ function Manage-Music {
         It supports setting the volume, stopping music, and stopping all runspaces and processes.
     #>
 
-    param(
-        [string]$action,
-        [int]$volume = 0
-    )
+    param([string]$action, [int]$volume = 0)
 
     switch ($action) {
         "SetVolume" {
             $itt.mediaPlayer.settings.volume = $volume
+            $global:toggleState = ($volume -ne 0)
             Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value "$volume" -Force
             $itt["window"].title = "Install Tweaks Tool #StandWithPalestine " + @("🔊", "🔈")[$volume -eq 0]
         }
         "StopAll" {
-            $itt.mediaPlayer.controls.stop()   
-            $itt.mediaPlayer = $null
-            $itt.runspace.Dispose()
-            $itt.runspace.Close()
-            $script:powershell.Dispose()
-            $script:powershell.Stop()
-            $newProcess.exit
-            [System.GC]::Collect()
+            $itt.mediaPlayer.controls.stop(); $itt.mediaPlayer = $null
+            $itt.runspace.Dispose(); $itt.runspace.Close()
+            $script:powershell.Dispose(); $script:powershell.Stop()
+            $newProcess.exit; [System.GC]::Collect()
         }
-        default {
-            Write-Host "Invalid action. Use 'SetVolume', 'StopMusic', or 'StopAll'."
-        }
+        default { Write-Host "Invalid action. Use 'SetVolume' or 'StopAll'." }
     }
 }
