@@ -75,7 +75,7 @@
 </div>
 
 <div align="center">
-  <h5>🖥️ 404 Apps • ⚙️ 40 Tweaks • 🔧 12 Settings • 💬 115 Quote • 🎵 32 Soundtrack • 🌐 12 Localization </h5>
+  <h5>🖥️ 404 Apps • ⚙️ 40 Tweaks • 🔧 12 Settings • 💬 110 Quote • 🎵 32 Soundtrack • 🌐 12 Localization </h5>
 </div>
 
 <div align="center">
