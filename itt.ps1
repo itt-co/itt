@@ -3803,6 +3803,22 @@ $itt.database.Applications = @'
 ],
 "category": "Utilities",
 "check": "false"
+},
+{
+"Name": "Resource Hacker",
+"Description": "freeware resource compiler & decompiler for Windows® applications",
+"winget": "none",
+"choco": "none",
+"default": [
+{
+"url": "https://www.angusj.com/resourcehacker/resource_hacker.zip",
+"args": "none",
+"portable": "true",
+"launcher": "ResourceHacker.exe"
+}
+],
+"category": "Portable",
+"check": "false"
 }
 ]
 '@ | ConvertFrom-Json
@@ -10873,6 +10889,12 @@ ScrollViewer.CanContentScroll="True">
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="reverse engineering tool. It supports a number of great features."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Resource Hacker" Tag="Portable" IsChecked="false"   ToolTip="Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository." FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Portable"/>
+</StackPanel>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="freeware resource compiler  decompiler for Windows applications."/>
 </StackPanel>
 </ListView>
 </TabItem>
