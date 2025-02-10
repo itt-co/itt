@@ -1,31 +1,12 @@
 function Add-Log {
-    param (
-        [string]$Message,
-        [string]$Level = "INFO"
-    )
-    # Determine the color based on the log level
-    switch ($Level.ToUpper()) {
-        "INFO" { $color = "White" }
-        "WARNING" { $color = "Yellow" }
-        "ERROR" { $color = "Red" }
-        "Installed" { $color = "White" }
-        "Apply" { $color = "White" }
-        "debug" { $color = "Yello" }
-        default { $color = "White" }
-    }
-    switch ($Level.ToUpper()) {
-        "INFO" { $icon = "i" }
-        "WARNING" { $icon = "!" }
-        "ERROR" { $icon = "X" }
-        "Installed" { $icon = "√" }
-        "Apply" { $icon = "√" }
-        "Disabled" { $icon = "X" }
-        "Enabled" { $icon = "√" }
-        "Debug" { $icon = "Debug" }
-        default { $icon = "i" }
-    }
-    # Construct the log message
-    $logMessage =  "[$icon] $Message"
-    # Write the log message to the console with the specified color
-    Write-Host " $logMessage" -ForegroundColor $color
+    param ([string]$Message, [string]$Level = "INFO")
+
+    $level = $Level.ToUpper()
+    $colorMap = @{ INFO="White"; WARNING="Yellow"; ERROR="Red"; INSTALLED="White"; APPLY="White"; DEBUG="Yellow" }
+    $iconMap  = @{ INFO="i"; WARNING="!"; ERROR="X"; INSTALLED="√"; APPLY="√"; DISABLED="X"; ENABLED="√"; DEBUG="Debug" }
+
+    $color = if ($colorMap.ContainsKey($level)) { $colorMap[$level] } else { "White" }
+    $icon  = if ($iconMap.ContainsKey($level)) { $iconMap[$level] } else { "i" }
+
+    Write-Host "[$icon] $Message" -ForegroundColor $color
 }
