@@ -109,7 +109,6 @@ function Invoke-Apply {
     $itt.Search_placeholder.Visibility = "Visible"
 
     $itt['window'].FindName("TwaeksCategory").SelectedIndex = 0
-
     $selectedTweaks = Get-SelectedItems -Mode "Tweaks"
 
     if ($itt.ProcessRunning) {
