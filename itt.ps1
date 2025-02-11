@@ -6548,13 +6548,12 @@ Write-Host "`n ITT has been used on $(GetCount) devices worldwide.`n" -Foregroun
 }
 function LOG {
 Write-Host "                                    "
-Write-Host "                                    "
-Write-Host "  ██╗████████╗████████╗ itt @emadadel4"
-Write-Host "  ██║╚══██╔══╝╚══██╔══╝ https://t.me/emadadel4"
-Write-Host "  ██║   ██║      ██║    https://github.com/emadadel4/itt"
-Write-Host "  ██║   ██║      ██║   "
-Write-Host "  ██║   ██║      ██║   "
-Write-Host "  ╚═╝   ╚═╝      ╚═╝   "
+Write-Host "  ██████████████████╗ itt @emadadel4"
+Write-Host "  ██╚══██╔══╚══██╔══╝ https://t.me/emadadel4"
+Write-Host "  ██║  ██║     ██║    https://github.com/emadadel4/itt"
+Write-Host "  ██║  ██║     ██║   "
+Write-Host "  ██║  ██║     ██║   "
+Write-Host "  ╚═╝  ╚═╝     ╚═╝   "
 Welcome
 }
 LOG
