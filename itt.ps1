@@ -6647,9 +6647,9 @@ return
 }
 ITT-ScriptBlock -ArgumentList $selectedApps $QuickInstall, $debug -debug $debug -ScriptBlock {
 param($selectedApps , $QuickInstall , $debug)
-$itt.ProcessRunning = $true
 UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "Downloading" -TextIcon "installIcon" -Icon "  " -Width "auto"
 $itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
+$itt.ProcessRunning = $true
 foreach ($App in $selectedApps) {
 if ($App.Winget -ne "none" -or $App.Choco -ne "none") {
 $chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($App.Choco)"
