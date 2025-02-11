@@ -19,7 +19,7 @@ function Search {
         }
 
         # Search within first-level child content
-        return $item.Children[0].Children[0].Content -match $filter
+        return $item.Children[0].Children[0].Content -match $filter -or $item.Children[0].Children[0].Tag -match $filter
     }
 }
 
