@@ -6547,7 +6547,6 @@ if ($newValue -eq 1) { NewUser }
 Write-Host "`n ITT has been used on $(GetCount) devices worldwide.`n" -ForegroundColor White
 }
 function LOG {
-param ($message, $color)
 Write-Host "██╗████████╗████████╗ itt @emadadel4"
 Write-Host "██║╚══██╔══╝╚══██╔══╝ https://t.me/emadadel4"
 Write-Host "██║   ██║      ██║    https://github.com/emadadel4/itt"
