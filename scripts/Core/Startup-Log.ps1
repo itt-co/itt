@@ -135,8 +135,6 @@ function Startup {
         }
  
         function LOG {
-
-            param ($message, $color)
             Write-Host "██╗████████╗████████╗ itt @emadadel4"
             Write-Host "██║╚══██╔══╝╚══██╔══╝ https://t.me/emadadel4"
             Write-Host "██║   ██║      ██║    https://github.com/emadadel4/itt"
