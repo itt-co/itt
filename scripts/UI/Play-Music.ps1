@@ -16,7 +16,7 @@ function Manage-Music {
             $itt.mediaPlayer.settings.volume = $volume
             $global:toggleState = ($volume -ne 0)
             Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value "$volume" -Force
-            $itt["window"].title = "Install Tweaks Tool #StandWithPalestine " + @("🔊", "🔈")[$volume -eq 0]
+            $itt["window"].title = "Install Tweaks Tool " + @("🔊", "🔈")[$volume -eq 0]
         }
         "StopAll" {
             $itt.mediaPlayer.controls.stop(); $itt.mediaPlayer = $null
