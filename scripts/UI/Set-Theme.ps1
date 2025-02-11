@@ -10,9 +10,10 @@ function SwitchToSystem {
     #>
 
     try {
-        Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -Force
         $theme = if ($AppsTheme -eq "0") { "Dark" } elseif ($AppsTheme -eq "1") { "Light" } else { Write-Host "Unknown theme: $AppsTheme"; return }
         $itt['window'].Resources.MergedDictionaries.Add($itt['window'].FindResource($theme))
+        Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -Force
+        $itt.Theme = $Theme
     }
     catch { Write-Host "Error: $_" }
 }
