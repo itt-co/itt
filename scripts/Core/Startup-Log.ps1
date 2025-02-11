@@ -137,13 +137,12 @@ function Startup {
         function LOG {
 
             param ($message, $color)
-
             Write-Host "#StandWithPalestine"
-            Write-Host "  ___ _____ _____                 "
-            Write-Host " |_ _|_   _|_   _|  itt @emadadel4"
-            Write-Host "  | |  | |   | |    https://t.me/emadadel4"
-            Write-Host "  | |  | |   | |    https://github.com/emadadel4/itt"
-            Write-Host " |___| |_|   |_|"
+            Write-Host "  ___ _____ _____ "
+            Write-Host " |_ _|_   _|_   _|"
+            Write-Host "  | |  | |   | |  itt @emadadel4"
+            Write-Host "  | |  | |   | |  https://t.me/emadadel4"
+            Write-Host " |___| |_|   |_|  https://github.com/emadadel4/itt"
             Welcome
         }
         # debug start
