@@ -79,7 +79,7 @@ $itt["window"].add_Closing($onClosingEvent)
 $itt["window"].Add_PreViewKeyDown($KeyEvents)
 
 # Show Window
-$itt["window"].ShowDialog()
+$itt["window"].ShowDialog() | Out-Null
 
 # Dispose of runspaces and other objects
 $itt.runspace.Dispose()
