@@ -150,10 +150,8 @@ try {
     else {
         $global:toggleState = $true
     }
-    switch ($itt.Music) {
-        "100" { $itt["window"].title = "Install Tweaks Tool #StandWithPalestine 🔊" }
-        "0" { $itt["window"].title = "Install Tweaks Tool #StandWithPalestine 🔈" }
-    }
+
+    $itt["window"].title = "Install Tweaks Tool " + @("🔈", "🔊")[$itt.Music -eq 100]
     $itt.PopupWindow = (Get-ItemProperty -Path $itt.registryPath -Name "PopupWindow").PopupWindow
     #===========================================================================
     #endregion Get user Settings from registry
