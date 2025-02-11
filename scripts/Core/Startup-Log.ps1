@@ -135,12 +135,14 @@ function Startup {
         }
  
         function LOG {
-            Write-Host "██╗████████╗████████╗ itt @emadadel4"
-            Write-Host "██║╚══██╔══╝╚══██╔══╝ https://t.me/emadadel4"
-            Write-Host "██║   ██║      ██║    https://github.com/emadadel4/itt"
-            Write-Host "██║   ██║      ██║   "
-            Write-Host "██║   ██║      ██║   "
-            Write-Host "╚═╝   ╚═╝      ╚═╝   "
+            Write-Host "                                    "
+            Write-Host "                                    "
+            Write-Host "  ██╗████████╗████████╗ itt @emadadel4"
+            Write-Host "  ██║╚══██╔══╝╚══██╔══╝ https://t.me/emadadel4"
+            Write-Host "  ██║   ██║      ██║    https://github.com/emadadel4/itt"
+            Write-Host "  ██║   ██║      ██║   "
+            Write-Host "  ██║   ██║      ██║   "
+            Write-Host "  ╚═╝   ╚═╝      ╚═╝   "
             Welcome
         }
         # debug start
