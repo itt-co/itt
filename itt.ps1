@@ -6652,7 +6652,7 @@ UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "Downloading" -
 $itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
 foreach ($App in $selectedApps) {
 if ($App.Winget -ne "none" -or $App.Choco -ne "none") {
-$chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($_.Choco)"
+$chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($App.Choco)"
 Remove-Item -Path "$chocoFolder" -Recurse -Force
 Remove-Item -Path "$chocoFolder.install" -Recurse -Force
 Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
