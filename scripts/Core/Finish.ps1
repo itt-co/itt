@@ -71,44 +71,32 @@ function Show-Selected {
             # Clear filter instead of removing all items
             $collectionView.Filter = $null
 
-            # Reset selection to the first item (if available)
-            $listView = $itt['window'].FindName($itt.CurrentList)
-            if ($listView.Items.Count -gt 0) {
-                $listView.SelectedIndex = 0
-            }
+            # Invoke the operation on the UI thread to ensure thread safety
+            $itt.$ListView.Dispatcher.Invoke({
+        
+                    # Loop through each item in the ListView
+                    foreach ($item in $itt.$ListView.Items) {
+
+                        # Ensure the item structure is valid before accessing properties
+                        if ($item.Children.Count -gt 0 -and $item.Children[0].Children.Count -gt 0) {
+            
+                            # Uncheck the checkbox in the first child element
+                            $item.Children[0].Children[0].IsChecked = $false
+                        }
+                    }
+
+                    # Clear all items from the ListView
+                    $itt.$ListView.Clear()
+    
+                    # Reset the filter to show all items
+                    [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.$ListView.Items).Filter = $null
+
+                    # Reset selection to the first item (if available)
+                    $itt['window'].FindName($itt.CurrentList).SelectedIndex = 0
+                })
         }
     }
 
     # Refresh the collection view
     $collectionView.Refresh()
-}
-
-function Clear-Item {
-    param (
-        $ListView
-    )
-
-    # Invoke the operation on the UI thread to ensure thread safety
-    $itt.$ListView.Dispatcher.Invoke({
-        
-            # Loop through each item in the ListView
-            foreach ($item in $itt.$ListView.Items) {
-
-                # Ensure the item structure is valid before accessing properties
-                if ($item.Children.Count -gt 0 -and $item.Children[0].Children.Count -gt 0) {
-                
-                    # Uncheck the checkbox in the first child element
-                    $item.Children[0].Children[0].IsChecked = $false
-                }
-            }
-
-            # Clear all items from the ListView
-            $itt.$ListView.Clear()
-        
-            # Reset the filter to show all items
-            [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.$ListView.Items).Filter = $null
-
-            # Reset selection to the first item (if available)
-            $itt['window'].FindName($itt.CurrentList).SelectedIndex = 0
-        })
 }
