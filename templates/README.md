@@ -99,7 +99,7 @@
 <p><strong>ITT (Install and Tweak Tool)</strong></p>
 
 - **🚀 Automated Installation**: Say goodbye to manual software installations. ITT automates the process, saving you time and effort.
-- **⚙️ System Tweaks**: Customize your Windows environment with ease. ITT provides scripts to apply system tweaks for enhanced performance and usability.
+- **⚙️ Windows Debloater**: Remove bloatware, boost performance, and customize Windows effortlessly with ITT. Optimize your system in minutes.
 - **👩‍💻 Developer-Friendly**: Easy-to-use and clear documentation to add a new app or tweaks as you like, you can create a new method to download apps. Be creative. <a href="#-how-to-contribute">How to Contribute</a> or <a href="#youre-not-a-developer">App Request</a>
 - **🎵 Soundtracks**: Enjoy listening to the best music from games and movies while downloading your programs.
 
