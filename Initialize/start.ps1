@@ -32,7 +32,7 @@ if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
 }
 
 $itt.mediaPlayer = New-Object -ComObject WMPlayer.OCX
-$Host.UI.RawUI.WindowTitle = "ITT - #StandWithPalestine"
+$Host.UI.RawUI.WindowTitle = "Install Twaeks Tool"
 
 # Create directory if it doesn't exist
 $ittDir = $itt.ittDir
