@@ -1,44 +1,44 @@
-function Startup  {
+function Startup {
 
     $UsersCount = "https://ittools-7d9fe-default-rtdb.firebaseio.com/Count.json"
  
-     ITT-ScriptBlock -ArgumentList $Debug $UsersCount -ScriptBlock {
+    ITT-ScriptBlock -ArgumentList $Debug $UsersCount -ScriptBlock {
  
-         param($Debug,$UsersCount)
+        param($Debug, $UsersCount)
         function Telegram {
-                 param (
-                 [string]$Message
-             )
-             try {
-                 #===========================================================================
-                 #region Plz don't use this for bad things
-                 #===========================================================================
-                 $BotToken = "7140758327:AAG0vc3zBFSJtViny-H0dXAhY5tCac1A9OI"
-                 $ChatID = "1299033071"
-                 #===========================================================================
-                 #endregion Plz don't use this for bad things
-                 #===========================================================================
-                 $SendMessageUrl = "https://api.telegram.org/bot$BotToken"
-                 $PostBody = @{
-                     chat_id    = $ChatID
-                     text       = $Message
-                 }
-                 $Response = Invoke-RestMethod -Uri "$SendMessageUrl/sendMessage" -Method Post -Body $PostBody -ContentType "application/x-www-form-urlencoded"
-             }
-             catch {
-                 Add-Log -Message "Your internet connection appears to be slow." -Level "WARNING"
-             }
+            param (
+                [string]$Message
+            )
+            try {
+                #===========================================================================
+                #region Plz don't use this for bad things
+                #===========================================================================
+                $BotToken = "7140758327:AAG0vc3zBFSJtViny-H0dXAhY5tCac1A9OI"
+                $ChatID = "1299033071"
+                #===========================================================================
+                #endregion Plz don't use this for bad things
+                #===========================================================================
+                $SendMessageUrl = "https://api.telegram.org/bot$BotToken"
+                $PostBody = @{
+                    chat_id = $ChatID
+                    text    = $Message
+                }
+                $Response = Invoke-RestMethod -Uri "$SendMessageUrl/sendMessage" -Method Post -Body $PostBody -ContentType "application/x-www-form-urlencoded"
+            }
+            catch {
+                Add-Log -Message "Your internet connection appears to be slow." -Level "WARNING"
+            }
         }
  
         function GetCount {
-             # Fetch data using GET request
-             $response = Invoke-RestMethod -Uri $UsersCount -Method Get
+            # Fetch data using GET request
+            $response = Invoke-RestMethod -Uri $UsersCount -Method Get
          
-             # Output the Users count
-             return $response
+            # Output the Users count
+            return $response
         }
          
-         function PlayMusic {
+        function PlayMusic {
 
             $ST = Invoke-RestMethod -Uri "https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Database/OST.json" -Method Get
 
@@ -48,8 +48,8 @@ function Startup  {
                 $itt.mediaPlayer.currentPlaylist.appendItem($mediaItem)
                 $itt.mediaPlayer.controls.play()
                 # debug start
-                    #$currentFileName = $itt.mediaPlayer.currentMedia.name
-                    #Write-Host "Currently playing: $currentFileName"
+                #$currentFileName = $itt.mediaPlayer.currentMedia.name
+                #Write-Host "Currently playing: $currentFileName"
                 # debug end
             }
             # Shuffle the playlist and create a new playlist
@@ -82,17 +82,17 @@ function Startup  {
             }
             
             function Show-Quote($text, $icon) {
-                $itt.Quotes.Dispatcher.Invoke([Action]{ 
-                    $itt.QuoteIcon.Text = $icon
-                    $itt.Quotes.Text = $text
-                })
+                $itt.Quotes.Dispatcher.Invoke([Action] { 
+                        $itt.QuoteIcon.Text = $icon
+                        $itt.Quotes.Text = $text
+                    })
             }
         
             Show-Quote $itt.database.locales.Controls.$($itt.Language).welcome ""
             Start-Sleep 20
             Show-Quote "Can you uncover the hidden secret? Dive into the source code, be the first to discover the feature, and integrate it into the tool" ""
             Start-Sleep 18
-            $iconMap = @{quote=""; info=""; music=""; Cautton=""; default=""}
+            $iconMap = @{quote = ""; info = ""; music = ""; Cautton = ""; default = "" }
             do {
                 foreach ($q in Get-Quotes) {
                     $icon = if ($iconMap.ContainsKey($q.type)) { $iconMap[$q.type] } else { $iconMap.default }
@@ -109,10 +109,10 @@ function Startup  {
             $currentCount = (Invoke-RestMethod -Uri $UsersCount -Method Get)
             $Runs = $currentCount + 1
  
-             # Update the count in Firebase (no nesting, just the number)
+            # Update the count in Firebase (no nesting, just the number)
             Invoke-RestMethod -Uri $UsersCount -Method Put -Body ($Runs | ConvertTo-Json) -Headers @{ "Content-Type" = "application/json" }
  
-             # Output success
+            # Output success
             Telegram -Message "🎉New User`n`👤 $env:USERNAME `n`🌐 Language: $($itt.Language)`n`🖥 Total devices: $(GetCount)"
  
         }
@@ -129,28 +129,28 @@ function Startup  {
             Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value $newValue
 
             # Check if the value is equal 1
-            if ($newValue -eq 1) {NewUser}
+            if ($newValue -eq 1) { NewUser }
 
             Write-Host "`n ITT has been used on $(GetCount) devices worldwide.`n" -ForegroundColor White
         }
  
         function LOG {
 
-            param ($message,$color)
+            param ($message, $color)
 
             Write-Host "#StandWithPalestine"
-            Write-Host " ___ _____ _____                 "
-            Write-Host "|_ _|_   _|_   _|  itt @emadadel4"
-            Write-Host " i |  | |   | |    https://t.me/emadadel4"
-            Write-Host " i |  | |   | |    https://github.com/emadadel4/itt"
-            Write-Host "|___| |_|   |_|"
+            Write-Host "  ___ _____ _____                 "
+            Write-Host " |_ _|_   _|_   _|  itt @emadadel4"
+            Write-Host "  | |  | |   | |    https://t.me/emadadel4"
+            Write-Host "  | |  | |   | |    https://github.com/emadadel4/itt"
+            Write-Host " |___| |_|   |_|"
             Welcome
         }
         # debug start
-            if($Debug){return}
+        if ($Debug) { return }
         # debug end
         LOG
         PlayMusic
         Quotes
-     }
- }
+    }
+}
