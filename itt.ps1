@@ -6,7 +6,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "02/11/2025"
+lastupdate     = "02/12/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -5933,14 +5933,14 @@ $child = $item.Children[0].Children[0]
 if ($child.IsChecked -eq $true) {
 if ($tweaksDict.ContainsKey($child.Content)) {
 $items += @{
-Name = $tweaksDict[$child.Content].Name
-Registry = $tweaksDict[$child.Content].Registry
-Services  = $tweaksDict[$child.Content].Services
+Name          = $tweaksDict[$child.Content].Name
+Registry      = $tweaksDict[$child.Content].Registry
+Services      = $tweaksDict[$child.Content].Services
 ScheduledTask = $tweaksDict[$child.Content].ScheduledTask
-AppxPackage  = $tweaksDict[$child.Content].AppxPackage
-Script = $tweaksDict[$child.Content].Script
-UndoScript = $tweaksDict[$child.Content].UndoScript
-Refresh = $tweaksDict[$child.Content].Refresh
+AppxPackage   = $tweaksDict[$child.Content].AppxPackage
+Script        = $tweaksDict[$child.Content].Script
+UndoScript    = $tweaksDict[$child.Content].UndoScript
+Refresh       = $tweaksDict[$child.Content].Refresh
 }
 }
 }
@@ -6112,8 +6112,9 @@ param (
 )
 if ($Installer -ne 0) {
 Add-Log -Message "$Source Installation Failed for ($Name). Please report the issue in the ITT repository." -Level "ERROR"
-} else {
-Add-Log -Message "($Name) Successfully Installed Using $Source." -Level "Installed"
+}
+else {
+Add-Log -Message "Successfully Installed ($Name) Using $Source." -Level "Installed"
 }
 }
 $wingetArgs = "install --id $Winget --silent --accept-source-agreements --accept-package-agreements --force"
@@ -6127,14 +6128,15 @@ Log-Result $wingetResult "Winget"
 else {
 Install-Choco
 Add-Log -Message "Attempting to install $Name using Chocolatey." -Level "INFO"
-$chocoArgs = "install $Choco --confirm --acceptlicense -q -r --ignore-http-cache --allowemptychecksumsecure --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests --limitoutput"
+$chocoArgs = "install $Choco --confirm --acceptlicense -q --ignore-http-cache --limit-output --allowemptychecksumsecure --nocolor --ignorechecksum --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests --limitoutput"
 $chocoResult = Install-AppWithInstaller "choco" $chocoArgs
 if ($chocoResult -ne 0) {
 Install-Winget
-Add-Log -Message "Chocolatey installation failed, falling back to Winget." -Level "ERROR"
+Add-Log -Message "Chocolatey installation failed, Falling back to Winget." -Level "ERROR"
 $wingetResult = Install-AppWithInstaller "winget" $wingetArgs
 Log-Result $wingetResult "Winget"
-} else {
+}
+else {
 Log-Result $chocoResult "Chocolatey"
 }
 }
@@ -11499,14 +11501,8 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/31/2025'.Trim()
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
@@ -11514,8 +11510,14 @@ Start-Process('https://github.com/emadadel4/itt')
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $itt.event.Add_PreViewKeyDown({
 if ($_.Key -eq "Escape") { $itt.event.Close() }
