@@ -49,11 +49,10 @@ function Invoke-Install {
 
         param($selectedApps , $QuickInstall , $debug)
 
-        $itt.ProcessRunning = $true
-
         UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "Downloading" -TextIcon "installIcon" -Icon "  " -Width "auto"
-
         $itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
+
+        $itt.ProcessRunning = $true
 
         foreach ($App in $selectedApps) {
 
