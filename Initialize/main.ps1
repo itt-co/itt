@@ -13,22 +13,21 @@ $MainXaml.SelectNodes("//*[@Name]") | ForEach-Object {
             }
             "MenuItem" {
                 $element.Add_Click({
-                    Invoke-Button $args[0].Name -Content $args[0].Header
-                })
+                        Invoke-Button $args[0].Name -Content $args[0].Header
+                    })
             }
             "TextBox" {
-                $element.Add_TextChanged({ Invoke-Button $args[0].Name $args[0].Text})
-                $element.Add_GotFocus({ Invoke-Button $args[0].Name $args[0].Text})
+                $element.Add_TextChanged({ Invoke-Button $args[0].Name $args[0].Text })
             }
             "ComboBox" {
-                $element.add_SelectionChanged({ Invoke-Button $args[0].Name $args[0].SelectedItem.Content})
+                $element.add_SelectionChanged({ Invoke-Button $args[0].Name $args[0].SelectedItem.Content })
             }
             "TabControl" {
-                $element.add_SelectionChanged({ Invoke-Button $args[0].Name $args[0].SelectedItem.Name})
+                $element.add_SelectionChanged({ Invoke-Button $args[0].Name $args[0].SelectedItem.Name })
             }
             "CheckBox" {
                 $element.IsChecked = Get-ToggleStatus -ToggleSwitch $name
-                $element.Add_Click({ Invoke-Toggle $args[0].Name})
+                $element.Add_Click({ Invoke-Toggle $args[0].Name })
             }
         }
     }
@@ -52,20 +51,20 @@ $onClosingEvent = {
 
 # Attach event handlers and other operations
 $itt["window"].Add_ContentRendered({
-    Startup
-    Show-Event
-})
+        Startup
+        Show-Event
+    })
 
 # Search input events
 $itt.SearchInput.Add_GotFocus({
-    $itt.Search_placeholder.Visibility = "Hidden"
-})
+        $itt.Search_placeholder.Visibility = "Hidden"
+    })
 
 $itt.SearchInput.Add_LostFocus({
-    if ([string]::IsNullOrEmpty($itt.SearchInput.Text)) {
-        $itt.Search_placeholder.Visibility = "Visible"
-    }
-})
+        if ([string]::IsNullOrEmpty($itt.SearchInput.Text)) {
+            $itt.Search_placeholder.Visibility = "Visible"
+        }
+    })
 
 # Quick install
 if ($i) {
