@@ -8,12 +8,11 @@ function Finish {
     #>
 
     param (
-       [string]$ListView,
-       [string]$title = "ITT Emad Adel",
-       [string]$icon = "Info"
+        [string]$ListView,
+        [string]$title = "ITT Emad Adel",
+        [string]$icon = "Info"
     )
-    switch($ListView)
-    {
+    switch ($ListView) {
         "AppsListView" {
             UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "Install" -TextIcon "installIcon" -Icon "  " -Width "140"
             Notify -title "$title" -msg "ALL INSTALLATIONS COMPLETED SUCCESSFULLY." -icon "Info" -time 30000
@@ -26,25 +25,25 @@ function Finish {
     }
 
     # Reset Taskbar Progress
-    $itt["window"].Dispatcher.Invoke([action]{ Set-Taskbar -progress "None" -value 0.01 -icon "done" })
+    $itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "None" -value 0.01 -icon "done" })
 
     # Uncheck all items in ListView
-    $itt.$ListView.Dispatcher.Invoke([Action]{
-        # Uncheck all items
-        foreach ($item in $itt.$ListView.Items) {
-            if ($item.Children.Count -gt 0 -and $item.Children[0].Children.Count -gt 0) {
-                $item.Children[0].Children[0].IsChecked = $false
+    $itt.$ListView.Dispatcher.Invoke([Action] {
+            # Uncheck all items
+            foreach ($item in $itt.$ListView.Items) {
+                if ($item.Children.Count -gt 0 -and $item.Children[0].Children.Count -gt 0) {
+                    $item.Children[0].Children[0].IsChecked = $false
+                }
             }
-        }
     
 
-        Write-Host $global:CheckedItems
+            Write-Host $global:CheckedItems
 
-        # Clear the list view selection and reset the filter
-        $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.$ListView.Items)
-        $collectionView.Filter = $null
-        $collectionView.Refresh()
-    })
+            # Clear the list view selection and reset the filter
+            $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.$ListView.Items)
+            $collectionView.Filter = $null
+            $collectionView.Refresh()
+        })
 }
 function Show-Selected {
     param (
@@ -92,25 +91,24 @@ function Clear-Item {
     # Invoke the operation on the UI thread to ensure thread safety
     $itt.$ListView.Dispatcher.Invoke({
         
-        # Loop through each item in the ListView
-        foreach ($item in $itt.$ListView.Items) {
+            # Loop through each item in the ListView
+            foreach ($item in $itt.$ListView.Items) {
 
-            # Ensure the item structure is valid before accessing properties
-            if ($item.Children.Count -gt 0 -and $item.Children[0].Children.Count -gt 0) {
+                # Ensure the item structure is valid before accessing properties
+                if ($item.Children.Count -gt 0 -and $item.Children[0].Children.Count -gt 0) {
                 
-                # Uncheck the checkbox in the first child element
-                $item.Children[0].Children[0].IsChecked = $false
+                    # Uncheck the checkbox in the first child element
+                    $item.Children[0].Children[0].IsChecked = $false
+                }
             }
-        }
 
-        # Clear all items from the ListView
-        $itt.$ListView.Clear()
-        $global:CheckedItems = @()
+            # Clear all items from the ListView
+            $itt.$ListView.Clear()
+        
+            # Reset the filter to show all items
+            [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.$ListView.Items).Filter = $null
 
-        # Reset the filter to show all items
-        [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.$ListView.Items).Filter = $null
-
-        # Reset selection to the first item (if available)
-        $itt['window'].FindName($itt.CurrentList).SelectedIndex = 0
-    })
+            # Reset selection to the first item (if available)
+            $itt['window'].FindName($itt.CurrentList).SelectedIndex = 0
+        })
 }
