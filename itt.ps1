@@ -6624,23 +6624,20 @@ Add-Log -Message "PLEASE USE (WINDOWS POWERSHELL) NOT (TERMINAL POWERSHELL 7) TO
 function Invoke-Install {
 $itt.searchInput.text = $null
 $itt.Search_placeholder.Visibility = "Visible"
-if($itt.ProcessRunning) {
+if ($itt.ProcessRunning) {
 Message -key "Please_wait" -icon "Warning" -action "OK"
 return
 }
 $itt['window'].FindName("AppsCategory").SelectedIndex = 0
 $selectedApps = Get-SelectedItems -Mode "Apps"
-if($selectedApps.Count -gt 0)
-{
+if ($selectedApps.Count -gt 0) {
 Show-Selected -ListView "AppsListView" -Mode "Filter"
 }
-else
-{
+else {
 Message -key "App_empty_select" -icon "info" -action "OK"
 return
 }
-if($QuickInstall -eq $false)
-{
+if ($QuickInstall -eq $false) {
 $result = Message -key "Install_msg" -icon "ask" -action "YesNo"
 }
 if ($result -eq "no") {
@@ -6649,27 +6646,25 @@ Clear-Item -ListView "AppsListView"
 return
 }
 ITT-ScriptBlock -ArgumentList $selectedApps $QuickInstall, $debug -debug $debug -ScriptBlock {
-param($selectedApps ,$QuickInstall ,$debug)
+param($selectedApps , $QuickInstall , $debug)
 $itt.ProcessRunning = $true
 UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "Downloading" -TextIcon "installIcon" -Icon "  " -Width "auto"
-$itt["window"].Dispatcher.Invoke([action]{ Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
-$selectedApps | ForEach-Object {
-if ($_.Winget -ne "none" -or $_.Choco -ne "none")
-{
+$itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
+foreach ($App in $selectedApps) {
+if ($App.Winget -ne "none" -or $App.Choco -ne "none") {
 $chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($_.Choco)"
 Remove-Item -Path "$chocoFolder" -Recurse -Force
 Remove-Item -Path "$chocoFolder.install" -Recurse -Force
 Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
-Install-App -Name $_.Name -Winget $_.Winget -Choco $_.Choco
+Install-App -Name $App.Name -Winget $App.Winget -Choco $App.Choco
 }
-else
-{
+else {
 Native-Downloader `
--name           $_.name `
--url            $_.default.url `
--launcher       $_.default.launcher `
--portable       $_.default.portable `
--installArgs    $_.default.args
+-name           $App.name `
+-url            $App.default.url `
+-launcher       $App.default.launcher `
+-portable       $App.default.portable `
+-installArgs    $App.default.args
 }
 }
 Finish -ListView "AppsListView"
@@ -6682,66 +6677,58 @@ $itt.searchInput.text = $null
 $itt.Search_placeholder.Visibility = "Visible"
 $itt['window'].FindName("TwaeksCategory").SelectedIndex = 0
 $selectedTweaks = Get-SelectedItems -Mode "Tweaks"
-if($itt.ProcessRunning) {
+if ($itt.ProcessRunning) {
 Message -key "Please_wait" -icon "Warning" -action "OK"
 return
 }
-if ($selectedTweaks.Count -eq 0)
-{
+if ($selectedTweaks.Count -eq 0) {
 Message -key "Tweak_empty_select" -icon "info" -action "OK"
 return
 }
-else
-{
+else {
 Show-Selected -ListView "TweaksListView" -Mode "Filter"
 }
 $result = Message -key "Apply_msg" -icon "ask" -action "YesNo"
-if ($result -eq "no")
-{
+if ($result -eq "no") {
 Show-Selected -ListView "TweaksListView" -Mode "Default"
 Clear-Item -ListView "TweaksListView"
 return
 }
 ITT-ScriptBlock -ArgumentList $selectedTweaks -debug $debug -ScriptBlock {
-param($selectedTweaks,$debug)
+param($selectedTweaks, $debug)
 $itt.ProcessRunning = $true
 UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Applying" -TextIcon "applyIcon" -Icon "  " -Width "auto"
-$itt["window"].Dispatcher.Invoke([action]{ Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
+$itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
 foreach ($tweak in $selectedTweaks) {
 Add-Log -Message "::::$($tweak.Name)::::" -Level "info"
 $tweak | ForEach-Object {
 if ($_.Script -and $_.Script.Count -gt 0) {
 ExecuteCommand -tweak $tweak.Script
-if($_.Refresh -eq $true)
-{
+if ($_.Refresh -eq $true) {
 Refresh-Explorer
 }
 }
 if ($_.Registry -and $_.Registry.Count -gt 0) {
 Set-Registry -tweak $tweak.Registry
-if($_.Refresh -eq $true)
-{
+if ($_.Refresh -eq $true) {
 Refresh-Explorer
 }
 }
 if ($_.AppxPackage -and $_.AppxPackage.Count -gt 0) {
 Uninstall-AppxPackage -tweak $tweak.AppxPackage
-if($_.Refresh -eq $true)
-{
+if ($_.Refresh -eq $true) {
 Refresh-Explorer
 }
 }
 if ($_.ScheduledTask -and $_.ScheduledTask.Count -gt 0) {
 Remove-ScheduledTasks -tweak $tweak.ScheduledTask
-if($_.Refresh -eq $true)
-{
+if ($_.Refresh -eq $true) {
 Refresh-Explorer
 }
 }
 if ($_.Services -and $_.Services.Count -gt 0) {
 Disable-Service -tweak $tweak.Services
-if($_.Refresh -eq $true)
-{
+if ($_.Refresh -eq $true) {
 Refresh-Explorer
 }
 }
@@ -11518,6 +11505,9 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/31/2025'.Trim()
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
@@ -11532,9 +11522,6 @@ Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.Add_PreViewKeyDown({
 if ($_.Key -eq "Escape") { $itt.event.Close() }
