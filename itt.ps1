@@ -11965,9 +11965,7 @@ switch ($element.GetType().Name) {
 $element.Add_Click({ Invoke-Button $args[0].Name $args[0].Content })
 }
 "MenuItem" {
-$element.Add_Click({
-Invoke-Button $args[0].Name -Content $args[0].Header
-})
+$element.Add_Click({ Invoke-Button $args[0].Name -Content $args[0].Header })
 }
 "TextBox" {
 $element.Add_TextChanged({ Invoke-Button $args[0].Name $args[0].Text })
