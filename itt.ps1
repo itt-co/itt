@@ -21,7 +21,7 @@ $newProcess = Start-Process -FilePath "PowerShell" -ArgumentList "-ExecutionPoli
 exit
 }
 $itt.mediaPlayer = New-Object -ComObject WMPlayer.OCX
-$Host.UI.RawUI.WindowTitle = "ITT - #StandWithPalestine"
+$Host.UI.RawUI.WindowTitle = "Install Twaeks Tool"
 $ittDir = $itt.ittDir
 if (-not (Test-Path -Path $ittDir)) {
 New-Item -ItemType Directory -Path $ittDir -Force | Out-Null
@@ -6558,19 +6558,13 @@ if ($newValue -eq 1) {NewUser}
 Write-Host "`n ITT has been used on $(GetCount) devices worldwide.`n" -ForegroundColor White
 }
 function LOG {
-param (
-$message,
-$color
-)
-Write-Host "`n` #StandWithPalestine"
-Write-Host "  ___ _____ _____   _____ __  __    _    ____       _    ____  _____ _"
-Write-Host " |_ _|_   _|_   _| | ____|  \/  |  / \  |  _ \     / \  |  _ \| ____| |"
-Write-Host "  | |  | |   | |   |  _| | |\/| | / _ \ | | | |   / _ \ | | | |  _| | |"
-Write-Host "  | |  | |   | |   | |___| |  | |/ ___ \| |_| |  / ___ \| |_| | |___| |___"
-Write-Host " |___| |_|   |_|   |_____|_|  |_/_/   \_\____/  /_/   \_\____/|_____|_____|"
-Write-Host " Launch Anytime, Anywhere! `n` "
-Write-Host " Telegram: https://t.me/emadadel4"
-Write-Host " Source Code: https://github.com/emadadel4/itt"
+param ($message,$color)
+Write-Host "#StandWithPalestine"
+Write-Host " ___ _____ _____                 "
+Write-Host "|_ _|_   _|_   _|  itt @emadadel4"
+Write-Host " i |  | |   | |    https://t.me/emadadel4"
+Write-Host " i |  | |   | |    https://github.com/emadadel4/itt"
+Write-Host "|___| |_|   |_|"
 Welcome
 }
 LOG
@@ -7276,7 +7270,7 @@ switch ($action) {
 $itt.mediaPlayer.settings.volume = $volume
 $global:toggleState = ($volume -ne 0)
 Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value "$volume" -Force
-$itt["window"].title = "Install Tweaks Tool #StandWithPalestine " + @("🔊", "🔈")[$volume -eq 0]
+$itt["window"].title = "Install Tweaks Tool " + @("🔊", "🔈")[$volume -eq 0]
 }
 "StopAll" {
 $itt.mediaPlayer.controls.stop(); $itt.mediaPlayer = $null
@@ -7349,7 +7343,7 @@ $MainWindowXaml = '
 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 x:Name="Window"
-Title="Install Tweak Tool #StandWithPalestine"
+Title="Install Tweak Tool"
 WindowStartupLocation = "CenterScreen"
 Background="{DynamicResource PrimaryBackgroundColor}"
 Height="700" Width="1000"
@@ -11527,20 +11521,20 @@ $itt.event.FindName('date').text = '01/31/2025'.Trim()
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
-})
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.Add_PreViewKeyDown({
 if ($_.Key -eq "Escape") { $itt.event.Close() }
@@ -11928,10 +11922,7 @@ $global:toggleState = $false
 else {
 $global:toggleState = $true
 }
-switch ($itt.Music) {
-"100" { $itt["window"].title = "Install Tweaks Tool #StandWithPalestine 🔊" }
-"0" { $itt["window"].title = "Install Tweaks Tool #StandWithPalestine 🔈" }
-}
+$itt["window"].title = "Install Tweaks Tool " + @("🔈", "🔊")[$itt.Music -eq 100]
 $itt.PopupWindow = (Get-ItemProperty -Path $itt.registryPath -Name "PopupWindow").PopupWindow
 $itt["window"].TaskbarItemInfo = New-Object System.Windows.Shell.TaskbarItemInfo
 if (-not $Debug) { Set-Taskbar -progress "None" -icon "logo" }
