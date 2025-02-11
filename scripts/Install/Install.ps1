@@ -60,7 +60,7 @@ function Invoke-Install {
             if ($App.Winget -ne "none" -or $App.Choco -ne "none") {
 
                 # Some packages won't install until the package folder is removed.
-                $chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($_.Choco)"
+                $chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($App.Choco)"
                 Remove-Item -Path "$chocoFolder" -Recurse -Force
                 Remove-Item -Path "$chocoFolder.install" -Recurse -Force
                 Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
@@ -77,7 +77,7 @@ function Invoke-Install {
                     -launcher       $App.default.launcher `
                     -portable       $App.default.portable `
                     -installArgs    $App.default.args
-                    
+
                 # debug start
                 if ($debug) { Add-Log -Message $App.name $App.default.url -Level "debug" }
                 # debug end
