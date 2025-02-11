@@ -6,7 +6,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "02/10/2025"
+lastupdate     = "02/11/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -5879,55 +5879,38 @@ function Get-SelectedItems {
 param (
 [string]$Mode
 )
-$items = @()
 switch ($Mode) {
 "Apps" {
-$itt.AppsListView.Items |
-Where-Object { $_ -is [System.Windows.Controls.StackPanel] } |
-ForEach-Object {
-$_.Children |
-Where-Object { $_ -is [System.Windows.Controls.StackPanel] } |
-ForEach-Object {
-$_.Children |
-Where-Object { $_ -is [System.Windows.Controls.CheckBox] -and $_.IsChecked } |
-ForEach-Object {
-$checkbox = $_
-$app = $itt.database.Applications | Where-Object { $_.Name -eq $checkbox.Content }
-if ($app) {
+$items = @()
+foreach ($item in $itt.AppsListView.Items) {
+$child = $item.Children[0].Children[0]
+if ($child.IsChecked -eq $true) {
+if ($appsDict.ContainsKey($child.Content)) {
 $items += @{
-Name    = $app.name
-Choco   = $app.choco
-Winget  = $app.winget
-Default = $app.default
-}
+Name    = $appsDict[$child.Content].Name
+Choco   = $appsDict[$child.Content].Choco
+Winget  = $appsDict[$child.Content].Winget
+Default = $appsDict[$child.Content].Default
 }
 }
 }
 }
 }
 "Tweaks" {
-$itt.TweaksListView.Items |
-Where-Object { $_ -is [System.Windows.Controls.StackPanel] } |
-ForEach-Object {
-$_.Children |
-Where-Object { $_ -is [System.Windows.Controls.StackPanel] } |
-ForEach-Object {
-$_.Children |
-Where-Object { $_ -is [System.Windows.Controls.CheckBox] -and $_.IsChecked } |
-ForEach-Object {
-$checkbox = $_
-$tweak = $itt.database.Tweaks | Where-Object { $_.Name -eq $checkbox.Content }
-if ($tweak) {
+$items = @()
+foreach ($item in $itt.TweaksListView.Items) {
+$child = $item.Children[0].Children[0]
+if ($child.IsChecked -eq $true) {
+if ($tweaksDict.ContainsKey($child.Content)) {
 $items += @{
-Name                = $tweak.Name
-Registry            = $tweak.Registry
-Services            = $tweak.Services
-ScheduledTask       = $tweak.ScheduledTask
-AppxPackage         = $tweak.AppxPackage
-Script              = $tweak.Script
-UndoScript          = $tweak.UndoScript
-Refresh             = $tweak.Refresh
-}
+Name = $tweaksDict[$child.Content].Name
+Registry = $tweaksDict[$child.Content].Registry
+Services  = $tweaksDict[$child.Content].Services
+ScheduledTask = $tweaksDict[$child.Content].ScheduledTask
+AppxPackage  = $tweaksDict[$child.Content].AppxPackage
+Script = $tweaksDict[$child.Content].Script
+UndoScript = $tweaksDict[$child.Content].UndoScript
+Refresh = $tweaksDict[$child.Content].Refresh
 }
 }
 }
@@ -11482,20 +11465,20 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/31/2025'.Trim()
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
+$itt.event.FindName('ps').add_MouseLeftButtonDown({
+Start-Process('https://www.palestinercs.org/en/Donation')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('ps').add_MouseLeftButtonDown({
-Start-Process('https://www.palestinercs.org/en/Donation')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
@@ -11925,6 +11908,14 @@ $itt.installIcon = $itt["window"].FindName("installIcon")
 $itt.applyText = $itt["window"].FindName("applyText")
 $itt.applyIcon = $itt["window"].FindName("applyIcon")
 $itt.QuoteIcon = $itt["window"].FindName("QuoteIcon")
+$appsDict = @{}
+$tweaksDict = @{}
+foreach ($app in $itt.database.Applications) {
+$appsDict[$app.Name] = $app
+}
+foreach ($tweak in $itt.database.Tweaks) {
+$tweaksDict[$tweak.Name] = $tweak
+}
 $MainXaml.SelectNodes("//*[@Name]") | ForEach-Object {
 $name = $_.Name
 $element = $itt["window"].FindName($name)
