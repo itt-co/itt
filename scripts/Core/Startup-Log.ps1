@@ -105,56 +105,52 @@ function Startup  {
  
         function NewUser {
  
-             # Fetch current count from Firebase and increment it
-             $currentCount = (Invoke-RestMethod -Uri $UsersCount -Method Get)
-             $Runs = $currentCount + 1
+            # Fetch current count from Firebase and increment it
+            $currentCount = (Invoke-RestMethod -Uri $UsersCount -Method Get)
+            $Runs = $currentCount + 1
  
              # Update the count in Firebase (no nesting, just the number)
-             Invoke-RestMethod -Uri $UsersCount -Method Put -Body ($Runs | ConvertTo-Json) -Headers @{ "Content-Type" = "application/json" }
+            Invoke-RestMethod -Uri $UsersCount -Method Put -Body ($Runs | ConvertTo-Json) -Headers @{ "Content-Type" = "application/json" }
  
              # Output success
-             Telegram -Message "🎉New User`n`👤 $env:USERNAME `n`🌐 Language: $($itt.Language)`n`🖥 Total devices: $(GetCount)"
+            Telegram -Message "🎉New User`n`👤 $env:USERNAME `n`🌐 Language: $($itt.Language)`n`🖥 Total devices: $(GetCount)"
  
         }
  
         function Welcome {
  
-             # Get the current value of the key
-             $currentValue = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction SilentlyContinue).Runs
- 
-             # Increment the value by 1
-             $newValue = [int]$currentValue + 1
- 
-             # Set the new value in the registry
-             Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value $newValue
- 
-             # Check if the value is equal 1
-             if ($newValue -eq 1) {NewUser}
- 
-             Write-Host "`n ITT has been used on $(GetCount) devices worldwide.`n" -ForegroundColor White
+            # Get the current value of the key
+            $currentValue = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction SilentlyContinue).Runs
+
+            # Increment the value by 1
+            $newValue = [int]$currentValue + 1
+
+            # Set the new value in the registry
+            Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value $newValue
+
+            # Check if the value is equal 1
+            if ($newValue -eq 1) {NewUser}
+
+            Write-Host "`n ITT has been used on $(GetCount) devices worldwide.`n" -ForegroundColor White
         }
  
         function LOG {
-             param (
-                 $message,
-                 $color
-             )
-             Write-Host "`n` #StandWithPalestine"
-             Write-Host "  ___ _____ _____   _____ __  __    _    ____       _    ____  _____ _"
-             Write-Host " |_ _|_   _|_   _| | ____|  \/  |  / \  |  _ \     / \  |  _ \| ____| |"
-             Write-Host "  | |  | |   | |   |  _| | |\/| | / _ \ | | | |   / _ \ | | | |  _| | |"
-             Write-Host "  | |  | |   | |   | |___| |  | |/ ___ \| |_| |  / ___ \| |_| | |___| |___"
-             Write-Host " |___| |_|   |_|   |_____|_|  |_/_/   \_\____/  /_/   \_\____/|_____|_____|"
-             Write-Host " Launch Anytime, Anywhere! `n` " 
-             Write-Host " Telegram: https://t.me/emadadel4"
-             Write-Host " Source Code: https://github.com/emadadel4/itt"
-             Welcome
+
+            param ($message,$color)
+
+            Write-Host "#StandWithPalestine"
+            Write-Host " ___ _____ _____                 "
+            Write-Host "|_ _|_   _|_   _|  itt @emadadel4"
+            Write-Host " i |  | |   | |    https://t.me/emadadel4"
+            Write-Host " i |  | |   | |    https://github.com/emadadel4/itt"
+            Write-Host "|___| |_|   |_|"
+            Welcome
         }
-         # debug start
-             if($Debug){return}
-         # debug end
-         LOG
-         PlayMusic
-         Quotes
+        # debug start
+            if($Debug){return}
+        # debug end
+        LOG
+        PlayMusic
+        Quotes
      }
  }
