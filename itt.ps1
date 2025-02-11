@@ -7343,7 +7343,7 @@ $MainWindowXaml = '
 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 x:Name="Window"
-Title="Install Tweak Tool"
+Title="Install Tweaks Tool"
 WindowStartupLocation = "CenterScreen"
 Background="{DynamicResource PrimaryBackgroundColor}"
 Height="700" Width="1000"
