@@ -16,14 +16,15 @@ function Invoke-Install {
     # Clear Search QUery
     $itt.searchInput.text = $null
     $itt.Search_placeholder.Visibility = "Visible"
+
+    # Get Selected apps
+    $itt['window'].FindName("AppsCategory").SelectedIndex = 0
+    $selectedApps = Get-SelectedItems -Mode "Apps"
     
     if ($itt.ProcessRunning) {
         Message -key "Please_wait" -icon "Warning" -action "OK"
         return
     }
-    # Get Selected apps
-    $itt['window'].FindName("AppsCategory").SelectedIndex = 0
-    $selectedApps = Get-SelectedItems -Mode "Apps"
 
     if ($selectedApps.Count -gt 0) {
         # Show only selected item
@@ -41,7 +42,6 @@ function Invoke-Install {
     
     if ($result -eq "no") {
         Show-Selected -ListView "AppsListView" -Mode "Default"
-        Clear-Item -ListView "AppsListView"
         return
     }
 
@@ -129,7 +129,6 @@ function Invoke-Apply {
 
     if ($result -eq "no") {
         Show-Selected -ListView "TweaksListView" -Mode "Default"
-        Clear-Item -ListView "TweaksListView"
         return
     }
 
