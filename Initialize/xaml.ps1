@@ -170,6 +170,12 @@ try {
 catch {
     Write-Output "Error: $_"
 }
+
+
+#===========================================================================
+#region Initialize WPF Controls
+#===========================================================================
+
 # List Views
 $itt.CurrentList
 $itt.CurrentCategory
@@ -178,6 +184,7 @@ $itt.TabControl = $itt["window"].FindName("taps")
 $itt.AppsListView = $itt["window"].FindName("appslist")
 $itt.TweaksListView = $itt["window"].FindName("tweakslist")
 $itt.SettingsListView = $itt["window"].FindName("SettingsList")
+
 # Buttons and Inputs
 $itt.Description = $itt["window"].FindName("description")
 $itt.Quotes = $itt["window"].FindName("quotes")
@@ -190,4 +197,17 @@ $itt.applyText = $itt["window"].FindName("applyText")
 $itt.applyIcon = $itt["window"].FindName("applyIcon")
 $itt.QuoteIcon = $itt["window"].FindName("QuoteIcon")
 
+$appsDict = @{}
+$tweaksDict = @{}
 
+foreach ($app in $itt.database.Applications) {
+    $appsDict[$app.Name] = $app
+}
+
+foreach ($tweak in $itt.database.Tweaks) {
+    $tweaksDict[$tweak.Name] = $tweak
+}
+
+#===========================================================================
+#endregion Initialize WPF Controls
+#===========================================================================
