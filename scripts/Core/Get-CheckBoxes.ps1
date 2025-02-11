@@ -38,10 +38,6 @@ function Get-SelectedItems {
                             Default = $appsDict[$child.Content].Default
                             # Add a new download mothed here
                         }
-
-                        # debug start
-                            Add-Log -Message "Selected: $($app.Choco) $($app.Winget) $($app.Default)" -Level "info"
-                        # debug end
                     }
                 }
             }
@@ -60,14 +56,14 @@ function Get-SelectedItems {
 
                         $items += @{
 
-                            Name = $tweaksDict[$child.Content].Name
-                            Registry = $tweaksDict[$child.Content].Registry
-                            Services  = $tweaksDict[$child.Content].Services
+                            Name          = $tweaksDict[$child.Content].Name
+                            Registry      = $tweaksDict[$child.Content].Registry
+                            Services      = $tweaksDict[$child.Content].Services
                             ScheduledTask = $tweaksDict[$child.Content].ScheduledTask
-                            AppxPackage  = $tweaksDict[$child.Content].AppxPackage
-                            Script = $tweaksDict[$child.Content].Script
-                            UndoScript = $tweaksDict[$child.Content].UndoScript
-                            Refresh = $tweaksDict[$child.Content].Refresh
+                            AppxPackage   = $tweaksDict[$child.Content].AppxPackage
+                            Script        = $tweaksDict[$child.Content].Script
+                            UndoScript    = $tweaksDict[$child.Content].UndoScript
+                            Refresh       = $tweaksDict[$child.Content].Refresh
                             # Add a new tweak method here
                         }
                     }
