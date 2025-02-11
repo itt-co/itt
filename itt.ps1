@@ -11974,7 +11974,7 @@ Quick-Install -file $i *> $null
 }
 $itt["window"].add_Closing($onClosingEvent)
 $itt["window"].Add_PreViewKeyDown($KeyEvents)
-$itt["window"].ShowDialog() | Out-Null
+$itt["window"].ShowDialog()
 $itt.runspace.Dispose()
 $itt.runspace.Close()
 [System.GC]::Collect()
