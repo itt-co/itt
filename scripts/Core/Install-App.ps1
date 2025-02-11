@@ -41,8 +41,9 @@ function Install-App {
 
         if ($Installer -ne 0) {
             Add-Log -Message "$Source Installation Failed for ($Name). Please report the issue in the ITT repository." -Level "ERROR"
-        } else {
-            Add-Log -Message "($Name) Successfully Installed Using $Source." -Level "Installed"
+        }
+        else {
+            Add-Log -Message "Successfully Installed ($Name) Using $Source." -Level "Installed"
         }
     }
 
@@ -67,7 +68,7 @@ function Install-App {
         Install-Choco
         
         Add-Log -Message "Attempting to install $Name using Chocolatey." -Level "INFO"
-        $chocoArgs = "install $Choco --confirm --acceptlicense -q -r --ignore-http-cache --allowemptychecksumsecure --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests --limitoutput"
+        $chocoArgs = "install $Choco --confirm --acceptlicense -q --ignore-http-cache --limit-output --allowemptychecksumsecure --nocolor --ignorechecksum --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests --limitoutput"
         $chocoResult = Install-AppWithInstaller "choco" $chocoArgs
 
         # If Chocolatey fails, fallback to Winget
@@ -75,11 +76,12 @@ function Install-App {
 
             Install-Winget
 
-            Add-Log -Message "Chocolatey installation failed, falling back to Winget." -Level "ERROR"
+            Add-Log -Message "Chocolatey installation failed, Falling back to Winget." -Level "ERROR"
             $wingetResult = Install-AppWithInstaller "winget" $wingetArgs
             Log-Result $wingetResult "Winget"
 
-        } else {
+        }
+        else {
             Log-Result $chocoResult "Chocolatey"
         }
     }
