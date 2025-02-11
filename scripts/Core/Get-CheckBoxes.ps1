@@ -1,4 +1,5 @@
 function Get-SelectedItems {
+
     <#
         .SYNOPSIS
         Retrieves selected items from the ListView based on the specified mode.
@@ -11,14 +12,8 @@ function Get-SelectedItems {
         .EXAMPLE
         Get-SelectedItems -Mode "Apps"
         Retrieves and returns a list of selected applications from the `AppsListView`.
-        .EXAMPLE
-        Get-SelectedItems -Mode "Tweaks"
-        Retrieves and returns a list of selected tweaks from the `TweaksListView`.
-        .NOTES
-        - The function relies on the `$itt` object, which must be initialized and accessible within the scope of the function.
-        - The function processes items from the ListView by iterating through nested StackPanel controls and their child CheckBox controls.
-        - The resulting items are returned as an array of hashtables, with each hashtable containing details about the selected item based on the mode.
     #>
+    
     param (
         [string]$Mode
     )
