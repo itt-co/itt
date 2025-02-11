@@ -5849,8 +5849,7 @@ param (
 [string]$title = "ITT Emad Adel",
 [string]$icon = "Info"
 )
-switch($ListView)
-{
+switch ($ListView) {
 "AppsListView" {
 UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "Install" -TextIcon "installIcon" -Icon "  " -Width "140"
 Notify -title "$title" -msg "ALL INSTALLATIONS COMPLETED SUCCESSFULLY." -icon "Info" -time 30000
@@ -5861,8 +5860,8 @@ Add-Log -Message "Done." -Level "Apply"
 Notify -title "$title" -msg "ALL TWEAKS HAVE BEEN APPLIED SUCCESSFULLY." -icon "Info" -time 30000
 }
 }
-$itt["window"].Dispatcher.Invoke([action]{ Set-Taskbar -progress "None" -value 0.01 -icon "done" })
-$itt.$ListView.Dispatcher.Invoke([Action]{
+$itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "None" -value 0.01 -icon "done" })
+$itt.$ListView.Dispatcher.Invoke([Action] {
 foreach ($item in $itt.$ListView.Items) {
 if ($item.Children.Count -gt 0 -and $item.Children[0].Children.Count -gt 0) {
 $item.Children[0].Children[0].IsChecked = $false
@@ -5892,18 +5891,6 @@ return $item.Children[0].Children[0].IsChecked -eq $true
 }
 Default {
 $collectionView.Filter = $null
-$listView = $itt['window'].FindName($itt.CurrentList)
-if ($listView.Items.Count -gt 0) {
-$listView.SelectedIndex = 0
-}
-}
-}
-$collectionView.Refresh()
-}
-function Clear-Item {
-param (
-$ListView
-)
 $itt.$ListView.Dispatcher.Invoke({
 foreach ($item in $itt.$ListView.Items) {
 if ($item.Children.Count -gt 0 -and $item.Children[0].Children.Count -gt 0) {
@@ -5911,10 +5898,12 @@ $item.Children[0].Children[0].IsChecked = $false
 }
 }
 $itt.$ListView.Clear()
-$global:CheckedItems = @()
 [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.$ListView.Items).Filter = $null
 $itt['window'].FindName($itt.CurrentList).SelectedIndex = 0
 })
+}
+}
+$collectionView.Refresh()
 }
 function Get-SelectedItems {
 param (
@@ -6624,12 +6613,12 @@ Add-Log -Message "PLEASE USE (WINDOWS POWERSHELL) NOT (TERMINAL POWERSHELL 7) TO
 function Invoke-Install {
 $itt.searchInput.text = $null
 $itt.Search_placeholder.Visibility = "Visible"
+$itt['window'].FindName("AppsCategory").SelectedIndex = 0
+$selectedApps = Get-SelectedItems -Mode "Apps"
 if ($itt.ProcessRunning) {
 Message -key "Please_wait" -icon "Warning" -action "OK"
 return
 }
-$itt['window'].FindName("AppsCategory").SelectedIndex = 0
-$selectedApps = Get-SelectedItems -Mode "Apps"
 if ($selectedApps.Count -gt 0) {
 Show-Selected -ListView "AppsListView" -Mode "Filter"
 }
@@ -6642,7 +6631,6 @@ $result = Message -key "Install_msg" -icon "ask" -action "YesNo"
 }
 if ($result -eq "no") {
 Show-Selected -ListView "AppsListView" -Mode "Default"
-Clear-Item -ListView "AppsListView"
 return
 }
 ITT-ScriptBlock -ArgumentList $selectedApps $QuickInstall, $debug -debug $debug -ScriptBlock {
@@ -6691,7 +6679,6 @@ Show-Selected -ListView "TweaksListView" -Mode "Filter"
 $result = Message -key "Apply_msg" -icon "ask" -action "YesNo"
 if ($result -eq "no") {
 Show-Selected -ListView "TweaksListView" -Mode "Default"
-Clear-Item -ListView "TweaksListView"
 return
 }
 ITT-ScriptBlock -ArgumentList $selectedTweaks -debug $debug -ScriptBlock {
