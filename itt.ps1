@@ -5914,8 +5914,7 @@ switch ($Mode) {
 $items = @()
 foreach ($item in $itt.AppsListView.Items) {
 $child = $item.Children[0].Children[0]
-if ($child.IsChecked -eq $true) {
-if ($appsDict.ContainsKey($child.Content)) {
+if ($appsDict.ContainsKey($child.Content) -and $child.IsChecked) {
 $items += @{
 Name    = $appsDict[$child.Content].Name
 Choco   = $appsDict[$child.Content].Choco
@@ -5925,13 +5924,11 @@ Default = $appsDict[$child.Content].Default
 }
 }
 }
-}
 "Tweaks" {
 $items = @()
 foreach ($item in $itt.TweaksListView.Items) {
 $child = $item.Children[0].Children[0]
-if ($child.IsChecked -eq $true) {
-if ($tweaksDict.ContainsKey($child.Content)) {
+if ($tweaksDict.ContainsKey($child.Content) -and $child.IsChecked) {
 $items += @{
 Name          = $tweaksDict[$child.Content].Name
 Registry      = $tweaksDict[$child.Content].Registry
@@ -5941,7 +5938,6 @@ AppxPackage   = $tweaksDict[$child.Content].AppxPackage
 Script        = $tweaksDict[$child.Content].Script
 UndoScript    = $tweaksDict[$child.Content].UndoScript
 Refresh       = $tweaksDict[$child.Content].Refresh
-}
 }
 }
 }
@@ -6128,7 +6124,7 @@ Log-Result $wingetResult "Winget"
 else {
 Install-Choco
 Add-Log -Message "Attempting to install $Name using Chocolatey." -Level "INFO"
-$chocoArgs = "install $Choco --confirm --acceptlicense -q --ignore-http-cache --limit-output --allowemptychecksumsecure --nocolor --ignorechecksum --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests --limitoutput"
+$chocoArgs = "install $Choco --confirm --acceptlicense -q --ignore-http-cache --limit-output --allowemptychecksumsecure --nocolor --ignorechecksum --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests"
 $chocoResult = Install-AppWithInstaller "choco" $chocoArgs
 if ($chocoResult -ne 0) {
 Install-Winget

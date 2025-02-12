@@ -68,7 +68,7 @@ function Install-App {
         Install-Choco
         
         Add-Log -Message "Attempting to install $Name using Chocolatey." -Level "INFO"
-        $chocoArgs = "install $Choco --confirm --acceptlicense -q --ignore-http-cache --limit-output --allowemptychecksumsecure --nocolor --ignorechecksum --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests --limitoutput"
+        $chocoArgs = "install $Choco --confirm --acceptlicense -q --ignore-http-cache --limit-output --allowemptychecksumsecure --nocolor --ignorechecksum --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests"
         $chocoResult = Install-AppWithInstaller "choco" $chocoArgs
 
         # If Chocolatey fails, fallback to Winget

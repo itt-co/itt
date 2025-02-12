@@ -26,18 +26,15 @@ function Get-SelectedItems {
             foreach ($item in $itt.AppsListView.Items) {
                 
                 $child = $item.Children[0].Children[0]
-                
-                if ($child.IsChecked -eq $true) {
 
-                    if ($appsDict.ContainsKey($child.Content)) {
+                if ($appsDict.ContainsKey($child.Content) -and $child.IsChecked) {
 
-                        $items += @{
-                            Name    = $appsDict[$child.Content].Name
-                            Choco   = $appsDict[$child.Content].Choco
-                            Winget  = $appsDict[$child.Content].Winget
-                            Default = $appsDict[$child.Content].Default
-                            # Add a new download mothed here
-                        }
+                    $items += @{
+                        Name    = $appsDict[$child.Content].Name
+                        Choco   = $appsDict[$child.Content].Choco
+                        Winget  = $appsDict[$child.Content].Winget
+                        Default = $appsDict[$child.Content].Default
+                        # Add a new download mothed here
                     }
                 }
             }
@@ -49,23 +46,20 @@ function Get-SelectedItems {
             foreach ($item in $itt.TweaksListView.Items) {
                 
                 $child = $item.Children[0].Children[0]
-                
-                if ($child.IsChecked -eq $true) {
 
-                    if ($tweaksDict.ContainsKey($child.Content)) {
+                if ($tweaksDict.ContainsKey($child.Content) -and $child.IsChecked) {
 
-                        $items += @{
+                    $items += @{
 
-                            Name          = $tweaksDict[$child.Content].Name
-                            Registry      = $tweaksDict[$child.Content].Registry
-                            Services      = $tweaksDict[$child.Content].Services
-                            ScheduledTask = $tweaksDict[$child.Content].ScheduledTask
-                            AppxPackage   = $tweaksDict[$child.Content].AppxPackage
-                            Script        = $tweaksDict[$child.Content].Script
-                            UndoScript    = $tweaksDict[$child.Content].UndoScript
-                            Refresh       = $tweaksDict[$child.Content].Refresh
-                            # Add a new tweak method here
-                        }
+                        Name          = $tweaksDict[$child.Content].Name
+                        Registry      = $tweaksDict[$child.Content].Registry
+                        Services      = $tweaksDict[$child.Content].Services
+                        ScheduledTask = $tweaksDict[$child.Content].ScheduledTask
+                        AppxPackage   = $tweaksDict[$child.Content].AppxPackage
+                        Script        = $tweaksDict[$child.Content].Script
+                        UndoScript    = $tweaksDict[$child.Content].UndoScript
+                        Refresh       = $tweaksDict[$child.Content].Refresh
+                        # Add a new tweak method here
                     }
                 }
             }
