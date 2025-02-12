@@ -7884,7 +7884,7 @@ To="5,0,0,0">
 <ResourceDictionary x:Key="Dark">
 <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#2b2d31"/>
 <SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#3c3f44"/>
-<SolidColorBrush x:Key="PrimaryButtonForeground" Color="#3c3f44" />
+<SolidColorBrush x:Key="PrimaryButtonForeground" Color="#098fd4" />
 <SolidColorBrush x:Key="PrimaryButtonHighlight" Color="White" />
 <SolidColorBrush x:Key="TextColorPrimary" Color="WhiteSmoke" />
 <SolidColorBrush x:Key="TextColorSecondaryColor" Color="White"/>
