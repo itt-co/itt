@@ -3,6 +3,7 @@ function About {
     [xml]$about = $AboutWindowXaml
     $childWindowReader = (New-Object System.Xml.XmlNodeReader $about)
     $itt.about = [Windows.Markup.XamlReader]::Load($childWindowReader)
+    $itt.about.Add_PreViewKeyDown({ if ($_.Key -eq "Escape") { $itt.about.Close() } })
     # Get main style theme
     $itt['about'].Resources.MergedDictionaries.Clear()
     $itt["about"].Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Theme))
