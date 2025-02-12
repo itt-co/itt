@@ -10,9 +10,7 @@ function Show-Event {
     #{title}
     #{contorlshandler}
     
-    $itt.event.Add_PreViewKeyDown({
-        if ($_.Key -eq "Escape") { $itt.event.Close() }
-    })
+    $itt.event.Add_PreViewKeyDown({ if ($_.Key -eq "Escape") { $itt.event.Close() } })
 
     # Calculate timestamp
     $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
