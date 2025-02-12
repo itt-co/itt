@@ -244,10 +244,10 @@ function NewCONTRIBUTOR {
         $contribLines = @($username)
     }
 
-       $devs = @()
-       foreach ($name in $contribLines) {
-           $devs += "<TextBlock Text=`"$name`" Margin=`"1`" Foreground=`"{DynamicResource TextColorSecondaryColor2}`" />"
-       }
+    $devs = @()
+    foreach ($name in $contribLines) {
+        $devs += "<TextBlock Text=`"$name`" Margin=`"1`" Foreground=`"{DynamicResource TextColorSecondaryColor2}`" />"
+    }
    
     $devsString = $devs -join "`n"
 
@@ -273,7 +273,7 @@ function ConvertTo-Xaml {
                 $global:DateContent += $matches[1].Trim()
             }
             "!\[itt\.xName:(.+?)\s*\[(.+?)\]\]\((.+?)\)" {
-            # Image section
+                # Image section
                 $xaml += 
                 "<Image x:Name=''$($matches[1].Trim())'' Cursor=''Hand'' Margin=''8'' Height=''Auto'' Width=''400''>
                     <Image.Source>
@@ -283,7 +283,7 @@ function ConvertTo-Xaml {
                 $link = $matches[2].Trim()   # Extract the link from inside the brackets
                 $name = $matches[1].Trim()   # Extract the xName after 'tt.xName:'
                 $global:imageLinkMap[$name] = $link
-            # Image section
+                # Image section
             }
             "^## (.+)" {
                 # Event title
@@ -347,8 +347,7 @@ function GenerateThemesKeys {
     # Convert StringBuilder to string and return the output
     return $stringBuilder.ToString().TrimEnd("`n".ToCharArray())  # Remove the trailing newline
 }
-function GenerateThemesSwitch
-{
+function GenerateThemesSwitch {
 
     $XamlContent = Get-Content -Path $LoadXamlScript -Raw
 
@@ -360,8 +359,8 @@ function GenerateThemesSwitch
 
     # Add cases for each theme file
     foreach ($file in $ThemeFiles) {
-            $themeName = $file.BaseName
-            $switchStatement += @"
+        $themeName = $file.BaseName
+        $switchStatement += @"
                 
             "$themeName" {"$themeName"}
 "@
@@ -374,8 +373,7 @@ function GenerateThemesSwitch
     return $switchStatement
 }
 
-function GenerateLanguageSwitch
-{
+function GenerateLanguageSwitch {
 
     $XamlContent = Get-Content -Path $LoadXamlScript -Raw
 
@@ -581,7 +579,7 @@ function RemoveAllComments {
         }
     }
     catch {
-        Write-Error "An error occurred: $_" -ForegroundColor Red
+        Write-Error "An error occurred: $_"
     }
 }
 # Write script header
