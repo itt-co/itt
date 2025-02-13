@@ -33,11 +33,7 @@ function Load-SavedFile {
             $collectionView.Filter = {
                 param($item)
 
-                if ($FileContent.Name -contains $item.Children[0].Children[0].Content) {
-                    $item.Children[0].Children[0].IsChecked = $true
-                    return $true
-                }
-                return $false
+                if ($FileContent.Name -contains $item.Children[0].Children[0].Content) { return $item.Children[0].Children[0].IsChecked = $true } else { return $false }
             }
         }
         catch {
@@ -52,7 +48,7 @@ function Load-SavedFile {
 
 # Save selected items to a JSON file
 function Save-File {
-    
+
     # Check if a process is running
     if ($itt.ProcessRunning) {
         Message -key "Please_wait" -icon "warning" -action "OK"
@@ -117,6 +113,7 @@ function Save-File {
 
 # Quick Install 
 function Quick-Install {
+    
     param (
         [string]$file
     )
@@ -151,18 +148,7 @@ function Quick-Install {
         return
     }
 
-    if ($FileContent -eq $null) { return }
-
-    # Extract names from JSON data
-    $filteredNames = $FileContent
-
-    if (-not $global:CheckedItems) {
-        $global:CheckedItems = [System.Collections.ArrayList]::new()
-    }
-
-    foreach ($MyApp in $FileContent) {
-        $global:CheckedItems.Add(@{ Content = $MyApp.Name; IsChecked = $true })
-    }
+    if ($null -eq $FileContent) { return }
 
     # Get the apps list and collection view
     $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt['Window'].FindName('appslist').Items)
@@ -171,11 +157,7 @@ function Quick-Install {
     $collectionView.Filter = {
         param($item)
 
-        if ($FileContent.Name -contains (Get-CheckBoxes).Content) {
-            $item.Children[0].Children[0].IsChecked = $true
-            return $true
-        }
-        return $false
+        if ($FileContent.Name -contains $item.Children[0].Children[0].Content) { return $item.Children[0].Children[0].IsChecked = $true } else { return $false }
     }
 
     # Start the installation process
