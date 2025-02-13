@@ -119,7 +119,7 @@ function GenerateCheckboxes {
         # Optional attributes for CheckBox based on fields
         $Tag = if ($TagField) { "Tag=`"$($Item.$TagField)`"" } else { "" }
 
-        $Tips = if ($TipsField) { "ToolTip=`"Install it again to update. If there is an issue with the program, please report the problem on the GitHub repository.`"" } else { "" }
+        $Tips = if ($TipsField) { "ToolTip=`"Install it again to update`"" } else { "" }
 
         $Name = if ($NameField) { "Name=`"$($CleanedName)`"" } else { "" }
 
