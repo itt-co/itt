@@ -104,34 +104,35 @@ function Startup {
         }
  
         function NewUser {
- 
-            # Fetch current count from Firebase and increment it
-            $currentCount = (Invoke-RestMethod -Uri $UsersCount -Method Get)
-            $Runs = $currentCount + 1
- 
-            # Update the count in Firebase (no nesting, just the number)
-            Invoke-RestMethod -Uri $UsersCount -Method Put -Body ($Runs | ConvertTo-Json) -Headers @{ "Content-Type" = "application/json" }
- 
+
+            # Fetch current count from Firebase as a string
+            $currentCount = Invoke-RestMethod -Uri $UsersCount -Method Get
+        
+            # Convert to integer, increment, and convert back to string
+            $Runs = ([int]$currentCount + 1).ToString()
+        
+            # Update the count in Firebase as a string
+            Invoke-RestMethod -Uri $UsersCount -Method Put -Body ($Runs | ConvertTo-Json -Compress) -Headers @{ "Content-Type" = "application/json" }
+        
             # Output success
             Telegram -Message "🎉New User`n`👤 $env:USERNAME `n`🌐 Language: $($itt.Language)`n`🖥 Total devices: $(GetCount)"
- 
         }
- 
+        
         function Welcome {
- 
-            # Get the current value of the key
-            $currentValue = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction SilentlyContinue).Runs
-
-            # Increment the value by 1
-            $newValue = [int]$currentValue + 1
-
-            # Set the new value in the registry
-            Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value $newValue
-
-            # Check if the value is equal 1
-            if ($newValue -eq 1) { NewUser }
-
-            Write-Host "`n ITT has been used on $(GetCount) devices worldwide.`n" -ForegroundColor White
+            
+            $currentValue = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction Stop).Runs
+        
+            # Increment value but keep it as a string
+            $newValue = ([int]$currentValue + 1).ToString()
+        
+            # Set the new value in the registry as a string
+            Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value $newValue -Force
+        
+            # Check if it's the first run
+            if ($newValue -eq "1") { NewUser }
+        
+            # Display usage message
+            Write-Host "`nITT has been used on $(GetCount) devices worldwide.`n" -ForegroundColor White
         }
  
         function LOG {
