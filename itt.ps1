@@ -6502,23 +6502,23 @@ Start-Sleep 20
 }
 function NewUser {
 try {
-$currentCount = [int](Invoke-RestMethod -Uri $UsersCount -Method Get)
+$currentCount = Invoke-RestMethod -Uri $UsersCount -Method Get
 }
 catch {
-$currentCount = 0
+$currentCount = "0"
 }
-$Runs = $currentCount + 1
+$Runs = ([int]$currentCount + 1).ToString()
 Invoke-RestMethod -Uri $UsersCount -Method Put -Body ($Runs | ConvertTo-Json -Compress) -Headers @{ "Content-Type" = "application/json" }
 Telegram -Message "🎉New User`n`👤 $env:USERNAME `n`🌐 Language: $($itt.Language)`n`🖥 Total devices: $(GetCount)"
 }
 function Welcome {
 try {
-$currentValue = [int](Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction Stop).Runs
+$currentValue = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction Stop).Runs
 }
 catch {
-$currentValue = 0
+$currentValue = "0"
 }
-$newValue = ($currentValue + 1).ToString()
+$newValue = ([int]$currentValue + 1).ToString()
 Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value $newValue -Force
 if ($newValue -eq "1") { NewUser }
 Write-Host "`nITT has been used on $(GetCount) devices worldwide.`n" -ForegroundColor White
