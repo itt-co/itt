@@ -7499,7 +7499,7 @@ CornerRadius="8">
 <Setter Property="Margin" Value="1"/>
 <Setter Property="Padding" Value="0"/>
 <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-<Setter Property="BorderThickness" Value="0.5"/>
+<Setter Property="BorderThickness" Value="1"/>
 <Setter Property="Template">
 <Setter.Value>
 <ControlTemplate TargetType="MenuItem">
