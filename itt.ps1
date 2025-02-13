@@ -7301,7 +7301,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
 <Storyboard x:Key="FadeOutStoryboard">
 <DoubleAnimation
 Storyboard.TargetProperty="Opacity"
-From="0" To="1" Duration="0:0:0.1" />
+From="0" To="1" Duration="0:0:0.5" />
 </Storyboard>
 <Storyboard x:Key="Logo" RepeatBehavior="Forever">
 <DoubleAnimation
