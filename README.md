@@ -10,7 +10,7 @@
 
 ![Arabic](https://img.shields.io/badge/Arabic-red) ![Gaeilge](https://img.shields.io/badge/Gaeilge-green) ![French](https://img.shields.io/badge/French-blue) ![Turkish](https://img.shields.io/badge/Turkish-red) ![Chinese](https://img.shields.io/badge/Chinese-red) ![Korean](https://img.shields.io/badge/Korean-white) ![German](https://img.shields.io/badge/German-red) ![Russian](https://img.shields.io/badge/Russian-blue) ![Spanish](https://img.shields.io/badge/Spanish-red) ![Italian](https://img.shields.io/badge/Italian-green) ![Hindi](https://img.shields.io/badge/Hindi-orange) ![Add your language](https://img.shields.io/badge/Add%20your%20language-white)
 
-🖥️ 407 Apps • ⚙️ 40 Tweaks • 🔧 12 Settings • 💬 110 Quote • 🎵 32 Soundtrack • 🌐 12 Localization </h5>
+🖥️ 407 Apps • ⚙️ 40 Tweaks • 🔧 12 Settings • 💬 110 Quote • 🎵 32 Soundtrack • 🌐 12 Localization  
 <br>
 
 <br>
