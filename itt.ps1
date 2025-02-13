@@ -7544,7 +7544,7 @@ Margin="4,0,0,0"/>
 Placement="Right"
 IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}"                                   AllowsTransparency="True"
 Focusable="False"
-PopupAnimation="None">
+PopupAnimation="Fade">
 <Border Background="{TemplateBinding Background}"
 BorderBrush="{DynamicResource BorderBrush}"
 BorderThickness="2"
