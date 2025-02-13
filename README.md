@@ -20,12 +20,9 @@ ITT (Install Tweaks Tool) included all Windows 10/11 Software and Windows Tweaks
 
 ###### 🖥️ 407 Apps • ⚙️ 40 Tweaks • 🔧 12 Settings • 💬 110 Quote • 🎵 32 Soundtrack • 🌐 12 Localization
 
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&center=true&vCenter=true&repeat=false&width=435&lines=Launch+Anytime+Anywhere!)](https://git.io/typing-svg)
+
 </div>
-
-<br>
-
-<br>
-<br>
 
 <p align="center" dir="auto">
     <a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Images/themes.gif"><img src="https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Images/themes.gif" alt="ITT Demo" style="max-width: 100%;"></a>
