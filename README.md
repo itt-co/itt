@@ -130,12 +130,6 @@ ITT (Install Tweaks Tool) included all Windows 10/11 Software and Windows Tweaks
 > [!NOTE]  
 > Test your changes before you submit the Pull Request
 
-### Additional Repositories (Synced)
-
-[![GitLab](https://img.shields.io/badge/GitLab-%23FCA121?logo=gitlab&logoColor=white)](https://gitlab.com/emadadel/itt)
-[![Codeberg](https://img.shields.io/badge/Codeberg-%230073B7?logo=codeberg&logoColor=white)](https://codeberg.org/emadadel/itt)
-
-<br>
 <br>
 
 # You're not a developer? 🛠️
