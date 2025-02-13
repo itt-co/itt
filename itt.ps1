@@ -11781,7 +11781,7 @@ Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -Force
 Set-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -Force
 Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value 100 -Force
 Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -Force
-Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value "0" -Force
+Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value 0 -Force
 }
 try {
 $itt.Theme = (Get-ItemProperty -Path $itt.registryPath -Name "Theme" -ErrorAction Stop).Theme
@@ -11795,7 +11795,7 @@ New-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -Propert
 New-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -PropertyType String -Force *> $Null
 New-ItemProperty -Path $itt.registryPath -Name "Music" -Value 100 -PropertyType DWORD -Force *> $Null
 New-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -PropertyType DWORD -Force *> $Null
-New-ItemProperty -Path $itt.registryPath -Name "Runs" -Value "0" -PropertyType String -Force *> $Null
+New-ItemProperty -Path $itt.registryPath -Name "Runs" -Value 0 -PropertyType DWORD -Force *> $Null
 }
 try {
 $Locales = switch ($itt.Locales) {
