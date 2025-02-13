@@ -72,7 +72,7 @@ ITT (Install Tweaks Tool) included all Windows 10/11 Software and Windows Tweaks
 
 </div>
 
-# 💡 How to Contribute
+# 🤝 How to Contribute
 
 1. **Make sure you have PowerShell 7 installed (recommended) for building. is available on ITT**
 
