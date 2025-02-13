@@ -8,7 +8,7 @@
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Images/text_logo.png" width="100px" align="center" style="margin-Right: 15px; border-radius: 15px;">
+<img src="https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Images/text_logo.png" width="150px" align="center" style="margin-Right: 15px; border-radius: 15px;">
 
 ### `Install Tweaks Tool`
 
