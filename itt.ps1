@@ -5867,7 +5867,6 @@ if ($item.Children.Count -gt 0 -and $item.Children[0].Children.Count -gt 0) {
 $item.Children[0].Children[0].IsChecked = $false
 }
 }
-Write-Host $global:CheckedItems
 $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.$ListView.Items)
 $collectionView.Filter = $null
 $collectionView.Refresh()
@@ -5883,27 +5882,17 @@ switch ($mode) {
 "Filter" {
 $collectionView.Filter = {
 param ($item)
-if ($item.Children.Count -lt 1 -or $item.Children[0].Children.Count -lt 1) {
-return $false
-}
 return $item.Children[0].Children[0].IsChecked -eq $true
 }
 }
 Default {
-$collectionView.Filter = $null
-$itt.$ListView.Dispatcher.Invoke({
-foreach ($item in $itt.$ListView.Items) {
-if ($item.Children.Count -gt 0 -and $item.Children[0].Children.Count -gt 0) {
+$collectionView.Filter = {
+param ($item)
 $item.Children[0].Children[0].IsChecked = $false
 }
-}
-$itt.$ListView.Clear()
-[System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.$ListView.Items).Filter = $null
-$itt['window'].FindName($itt.CurrentList).SelectedIndex = 0
-})
+$collectionView.Filter = $null
 }
 }
-$collectionView.Refresh()
 }
 function Get-SelectedItems {
 param (
@@ -6124,7 +6113,7 @@ Log-Result $wingetResult "Winget"
 else {
 Install-Choco
 Add-Log -Message "Attempting to install $Name using Chocolatey." -Level "INFO"
-$chocoArgs = "install $Choco --confirm --acceptlicense -q --ignore-http-cache --limit-output --allowemptychecksumsecure --nocolor --ignorechecksum --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests"
+$chocoArgs = "install $Choco --confirm --acceptlicense -q --ignore-http-cache --limit-output --allowemptychecksumsecure --ignorechecksum --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests"
 $chocoResult = Install-AppWithInstaller "choco" $chocoArgs
 if ($chocoResult -ne 0) {
 Install-Winget
