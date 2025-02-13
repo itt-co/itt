@@ -278,7 +278,7 @@
                                    Placement="Right" 
                                    IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}"                                   AllowsTransparency="True" 
                                    Focusable="False"
-                                   PopupAnimation="None">
+                                   PopupAnimation="Fade">
                                 <Border Background="{TemplateBinding Background}" 
                                         BorderBrush="{DynamicResource BorderBrush}"     
                                         BorderThickness="2"
@@ -413,6 +413,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
 <!--End TabControl Style-->
 <!--ComboBox Style-->
     <Style TargetType="ComboBox">
