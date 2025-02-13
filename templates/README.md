@@ -1,94 +1,33 @@
 <p align="center">
   <a href="#resistance-struggling-for-justice-in-an-authoritarian-world" rel="nofollow">
-    <img src="https://raw.githubusercontent.com/Safouene1/support-palestine-banner/master/StandWithPalestine.svg" alt="Ceasefire Now" style="width:40%;">
+    <img src="https://raw.githubusercontent.com/Safouene1/support-palestine-banner/master/StandWithPalestine.svg" alt="Ceasefire Now" style="width:30%;">
   </a>
 </p>
 
-[![Genocide Watch](https://hinds-banner.vercel.app/genocide-watch?variant=forest)](#resistance-struggling-for-justice-in-an-authoritarian-world)
+<img src="https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Images/text_logo.jpg" width="200px" align="left" style="margin-Right: 15px; border-radius: 15px;">
 
-<h1 align="center">🚀✨ ITT (Install Tweaks Tool) ✨🛠️</h1>
+### `Install Tweaks Tool`
 
-<h4 align="center">
+ITT (Install Tweaks Tool) included all Windows 10/11 Software and Windows Tweaks & Remove Bloatwares & Windows activation
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=26&pause=1000&width=435&lines=Launch+Anytime%2C+Anywhere!)](https://git.io/typing-svg)
+![Endpoint Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fittools-7d9fe-default-rtdb.firebaseio.com%2F.json)
+![GitHub License](https://img.shields.io/github/license/emadadel4/itt)
+#{last}
 
-</h4>
-<br>
-<div align="center">
-<a href="/locales/ar.csv">
-  <img src="https://img.shields.io/badge/-Arabic-red" alt="Arabic" height="25" />
-</a>
-<a href="/locales/ga.csv">
-  <img src="https://img.shields.io/badge/-Gaeilge-green" alt="Irish" height="25" />
-</a>
-<a href="/locales/fr.csv">
-  <img src="https://img.shields.io/badge/-French-blue" alt="French" height="25" />
-</a>
-<a href="/locales/tr.csv">
-  <img src="https://img.shields.io/badge/-Turkish-red" alt="Turkish" height="25" />
-</a>
-<a href="/locales/zh.csv">
-  <img src="https://img.shields.io/badge/-Chinese-red" alt="Chinese" height="25" />
-</a>
-<a href="/locales/ko.csv">
-  <img src="https://img.shields.io/badge/-Korean-white" alt="Korean" height="25" />
-</a>
-<a href="/locales/de.csv">
-  <img src="https://img.shields.io/badge/-German-red" alt="German" height="25" />
-</a>
-<a href="/locales/ru.csv">
-  <img src="https://img.shields.io/badge/-Russian-blue" alt="Russian" height="25" />
-</a>
-<a href="/locales/es.csv">
-  <img src="https://img.shields.io/badge/-Spanish-red" alt="Spanish" height="25" />
-</a>
-<a href="/locales/it.csv">
-  <img src="https://img.shields.io/badge/-Italian-green" alt="Italian" height="25" />
-</a>
-<a href="/locales/hi.csv">
-  <img src="https://img.shields.io/badge/-Hindi-orange" alt="Hindi" height="25" />
-</a>
-<a href="https://docs.google.com/spreadsheets/d/1Muy7iJbRm-7YpJKyS5lzP_v12TrCqlxr8_MY9iTnt-0/edit?usp=sharing">
-  <img src="https://img.shields.io/badge/-Add%20your%20language-white" alt="Add your language" height="25" />
-</a>
-</div>
+![Arabic](https://img.shields.io/badge/Arabic-red) ![Gaeilge](https://img.shields.io/badge/Gaeilge-green) ![French](https://img.shields.io/badge/French-blue) ![Turkish](https://img.shields.io/badge/Turkish-red) ![Chinese](https://img.shields.io/badge/Chinese-red) ![Korean](https://img.shields.io/badge/Korean-white) ![German](https://img.shields.io/badge/German-red) ![Russian](https://img.shields.io/badge/Russian-blue) ![Spanish](https://img.shields.io/badge/Spanish-red) ![Italian](https://img.shields.io/badge/Italian-green) ![Hindi](https://img.shields.io/badge/Hindi-orange) ![Add your language](https://img.shields.io/badge/Add%20your%20language-white)
 
 <div align="center">
-<a href="https://discord.gg/Twyz2Wd5fB" target="_blank">
-  <img src="https://img.shields.io/static/v1?message=Discord&logo=discord&label=&color=7289DA&logoColor=white&labelColor=&style=for-the-badge" height="30" alt="discord logo" />
-</a>
-<a href="https://www.youtube.com/@emadadel4" target="_blank">
-  <img src="https://img.shields.io/static/v1?message=Youtube&logo=youtube&label=&color=FF0000&logoColor=white&labelColor=&style=for-the-badge" height="30" alt="youtube logo" />
-</a>
-<a href="https://t.me/emadadel4" target="_blank">
-  <img src="https://img.shields.io/static/v1?message=Telegram&logo=telegram&label=&color=2CA5E0&logoColor=white&labelColor=&style=for-the-badge" height="30" alt="telegram logo" />
-</a>
-<a href="https://www.reddit.com/r/ittea/" target="_blank">
-  <img src="https://img.shields.io/static/v1?message=Reddit&logo=reddit&label=&color=FF4500&logoColor=white&labelColor=&style=for-the-badge" height="30" alt="Reddit logo" />
-</a>
-<a href="https://ko-fi.com/emadadel" target="_blank">
-  <img src="https://img.shields.io/static/v1?message=Ko-fi&logo=ko-fi&label=&color=F16061&logoColor=white&labelColor=&style=for-the-badge" height="30" alt="ko-fi logo" />
-</a>
-<a href="https://buymeacoffee.com/emadadel" target="_blank">
-  <img src="https://img.shields.io/static/v1?label=&message=Buy%20me%20a%20coffee&color=FFDD00&logo=buymeacoffee&logoColor=black&style=for-the-badge" height="30" alt="Buy Me a Coffee" />
-</a>
-</div>
 
-<div align="center">
-  <h5>🖥️ #{a} Apps • ⚙️ #{t} Tweaks • 🔧 #{s} Settings • 💬 #{q} Quote • 🎵 #{OST} Soundtrack • 🌐 #{loc} Localization </h5>
-</div>
+###### 🖥️ #{a} Apps • ⚙️ #{t} Tweaks • 🔧 #{s} Settings • 💬 #{q} Quote • 🎵 #{OST} Soundtrack • 🌐 #{loc} Localization
 
-<div align="center">
-  <a  href="#-usage" rel="nofollow"><img src="#{last}"></a>
-</div>
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&center=true&vCenter=true&repeat=false&width=435&lines=Launch+Anytime+Anywhere!)](https://git.io/typing-svg)
 
-<br>
+</div>
 
 <p align="center" dir="auto">
     <a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Images/themes.gif"><img src="https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Images/themes.gif" alt="ITT Demo" style="max-width: 100%;"></a>
 </p>
 
-<p>
 <div align="center">
     <img src="https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/gitt.gif" alt="My GIF">
 </div>
