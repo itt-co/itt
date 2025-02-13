@@ -6,6 +6,7 @@ function Get-CheckBoxes {
 
 # Load JSON data and update the UI
 function Load-SavedFile {
+
     # Check if a process is running
     if ($itt.ProcessRunning) {
         Message -key "Please_wait" -icon "Warning" -action "OK"
@@ -24,20 +25,9 @@ function Load-SavedFile {
 
             # Load and parse JSON data
             $FileContent = Get-Content -Path $openFileDialog.FileName -Raw | ConvertFrom-Json -ErrorAction Stop
-            $filteredNames = $FileContent.Name
-
-            if (-not $global:CheckedItems) {
-                $global:CheckedItems = [System.Collections.ArrayList]::new()
-            }
-        
-            foreach ($MyApp in $FileContent) {
-                $global:CheckedItems.Add(@{ Content = $MyApp.Name; IsChecked = $true })
-            }
-
 
             # Get the apps list and collection view
-            $appsList = $itt['window'].FindName('appslist')
-            $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($appsList.Items)
+            $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.AppsListView.Items)
 
             # Define the filter predicate
             $collectionView.Filter = {
@@ -49,12 +39,8 @@ function Load-SavedFile {
                 }
                 return $false
             }
-
-            # Show success message
-            Message -NoneKey "Restored successfully" -icon "info" -action "OK"
-
-
-        } catch {
+        }
+        catch {
             Write-Warning "Failed to load or parse JSON file: $_"
         }
     }
@@ -66,14 +52,12 @@ function Load-SavedFile {
 
 # Save selected items to a JSON file
 function Save-File {
+    
     # Check if a process is running
     if ($itt.ProcessRunning) {
         Message -key "Please_wait" -icon "warning" -action "OK"
         return
     }
-
-    # Clear any existing filters
-    ClearFilter
 
     # Create a dictionary for faster lookups
     $appsDictionary = $itt.database.Applications | ForEach-Object { @{ $_.Name = $_ } }
@@ -119,7 +103,8 @@ function Save-File {
                     $item.IsChecked = $false
                 }
             }
-        } catch {
+        }
+        catch {
             Write-Warning "Failed to save file: $_"
             Message -NoneKey "Failed to save file" -icon "error" -action "OK"
         }
@@ -149,22 +134,24 @@ function Quick-Install {
                 return
             }
 
-        } else {
+        }
+        else {
 
             $FileContent = Get-Content -Path $file -Raw | ConvertFrom-Json -ErrorAction Stop
 
-            if($file -notmatch "\.itt"){
+            if ($file -notmatch "\.itt") {
                 Message -NoneKey "Invalid file format. Expected .itt file." -icon "Warning" -action "OK"
                 return
             }
         }
 
-    } catch {
+    }
+    catch {
         Write-Warning "Failed to load or parse JSON file: $_"
         return
     }
 
-    if($FileContent -eq $null){return}
+    if ($FileContent -eq $null) { return }
 
     # Extract names from JSON data
     $filteredNames = $FileContent
@@ -194,7 +181,8 @@ function Quick-Install {
     # Start the installation process
     try {
         Invoke-Install *> $null
-    } catch {
+    }
+    catch {
         Write-Warning "Installation failed: $_"
     }
 }
