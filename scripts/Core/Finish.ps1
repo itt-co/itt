@@ -35,10 +35,7 @@ function Finish {
                     $item.Children[0].Children[0].IsChecked = $false
                 }
             }
-    
-
-            Write-Host $global:CheckedItems
-
+            
             # Clear the list view selection and reset the filter
             $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.$ListView.Items)
             $collectionView.Filter = $null
