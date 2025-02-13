@@ -6501,23 +6501,13 @@ Start-Sleep 20
 } while ($true)
 }
 function NewUser {
-try {
 $currentCount = Invoke-RestMethod -Uri $UsersCount -Method Get
-}
-catch {
-$currentCount = "0"
-}
 $Runs = ([int]$currentCount + 1).ToString()
 Invoke-RestMethod -Uri $UsersCount -Method Put -Body ($Runs | ConvertTo-Json -Compress) -Headers @{ "Content-Type" = "application/json" }
 Telegram -Message "🎉New User`n`👤 $env:USERNAME `n`🌐 Language: $($itt.Language)`n`🖥 Total devices: $(GetCount)"
 }
 function Welcome {
-try {
 $currentValue = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction Stop).Runs
-}
-catch {
-$currentValue = "0"
-}
 $newValue = ([int]$currentValue + 1).ToString()
 Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value $newValue -Force
 if ($newValue -eq "1") { NewUser }
