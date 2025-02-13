@@ -6501,17 +6501,27 @@ Start-Sleep 20
 } while ($true)
 }
 function NewUser {
-$currentCount = (Invoke-RestMethod -Uri $UsersCount -Method Get)
+try {
+$currentCount = [int](Invoke-RestMethod -Uri $UsersCount -Method Get)
+}
+catch {
+$currentCount = 0
+}
 $Runs = $currentCount + 1
-Invoke-RestMethod -Uri $UsersCount -Method Put -Body ($Runs | ConvertTo-Json) -Headers @{ "Content-Type" = "application/json" }
+Invoke-RestMethod -Uri $UsersCount -Method Put -Body ($Runs | ConvertTo-Json -Compress) -Headers @{ "Content-Type" = "application/json" }
 Telegram -Message "🎉New User`n`👤 $env:USERNAME `n`🌐 Language: $($itt.Language)`n`🖥 Total devices: $(GetCount)"
 }
 function Welcome {
-$currentValue = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction SilentlyContinue).Runs
-$newValue = [int]$currentValue + 1
-Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value $newValue
-if ($newValue -eq 1) { NewUser }
-Write-Host "`n ITT has been used on $(GetCount) devices worldwide.`n" -ForegroundColor White
+try {
+$currentValue = [int](Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction Stop).Runs
+}
+catch {
+$currentValue = 0
+}
+$newValue = ($currentValue + 1).ToString()
+Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value $newValue -Force
+if ($newValue -eq "1") { NewUser }
+Write-Host "`nITT has been used on $(GetCount) devices worldwide.`n" -ForegroundColor White
 }
 function LOG {
 Write-Host "  `n` "
@@ -11771,7 +11781,7 @@ Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -Force
 Set-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -Force
 Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value 100 -Force
 Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -Force
-Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value 0 -Force
+Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value "0" -Force
 }
 try {
 $itt.Theme = (Get-ItemProperty -Path $itt.registryPath -Name "Theme" -ErrorAction Stop).Theme
@@ -11785,13 +11795,12 @@ New-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -Propert
 New-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -PropertyType String -Force *> $Null
 New-ItemProperty -Path $itt.registryPath -Name "Music" -Value 100 -PropertyType DWORD -Force *> $Null
 New-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -PropertyType DWORD -Force *> $Null
-New-ItemProperty -Path $itt.registryPath -Name "Runs" -Value 0 -PropertyType DWORD -Force *> $Null
+New-ItemProperty -Path $itt.registryPath -Name "Runs" -Value "0" -PropertyType String -Force *> $Null
 }
 try {
 $Locales = switch ($itt.Locales) {
 "default" {
-switch ($shortCulture)
-{
+switch ($shortCulture) {
 "ar" {"ar"}
 "de" {"de"}
 "en" {"en"}
@@ -11819,7 +11828,7 @@ default { "en" }
 "ru" {"ru"}
 "tr" {"tr"}
 "zh" {"zh"}
-default {"en"}
+default { "en" }
 }
 $itt["window"].DataContext = $itt.database.locales.Controls.$Locales
 $itt.Language = $Locales
