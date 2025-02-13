@@ -23,7 +23,7 @@ foreach ($func in $functions) {
         )
 
         #debug start
-            Write-Output "Added function: $func"
+        Write-Output "Added function: $func"
         #debug end
     }
 }
@@ -84,14 +84,13 @@ try {
     try {
         $Locales = switch ($itt.Locales) {
             "default" {
-                switch ($shortCulture) 
-                {
+                switch ($shortCulture) {
                     #{LangagesSwitch}
                     default { "en" }
                 }
             }
             #{LangagesSwitch}
-            default {"en"}
+            default { "en" }
         }
         $itt["window"].DataContext = $itt.database.locales.Controls.$Locales
         $itt.Language = $Locales
