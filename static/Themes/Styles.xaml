@@ -2,7 +2,7 @@
     <Storyboard x:Key="FadeOutStoryboard">
         <DoubleAnimation
             Storyboard.TargetProperty="Opacity"
-            From="0" To="1" Duration="0:0:0.1" />
+            From="0" To="1" Duration="0:0:0.5" />
     </Storyboard>
 <!--Listview Fade in-->
 <!--Logo Fade in-->
