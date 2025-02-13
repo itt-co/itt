@@ -6,7 +6,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "02/12/2025"
+lastupdate     = "02/13/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -6274,15 +6274,7 @@ Title  = "itt File"
 if ($openFileDialog.ShowDialog() -eq $true) {
 try {
 $FileContent = Get-Content -Path $openFileDialog.FileName -Raw | ConvertFrom-Json -ErrorAction Stop
-$filteredNames = $FileContent.Name
-if (-not $global:CheckedItems) {
-$global:CheckedItems = [System.Collections.ArrayList]::new()
-}
-foreach ($MyApp in $FileContent) {
-$global:CheckedItems.Add(@{ Content = $MyApp.Name; IsChecked = $true })
-}
-$appsList = $itt['window'].FindName('appslist')
-$collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($appsList.Items)
+$collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.AppsListView.Items)
 $collectionView.Filter = {
 param($item)
 if ($FileContent.Name -contains $item.Children[0].Children[0].Content) {
@@ -6291,8 +6283,8 @@ return $true
 }
 return $false
 }
-Message -NoneKey "Restored successfully" -icon "info" -action "OK"
-} catch {
+}
+catch {
 Write-Warning "Failed to load or parse JSON file: $_"
 }
 }
@@ -6304,7 +6296,6 @@ if ($itt.ProcessRunning) {
 Message -key "Please_wait" -icon "warning" -action "OK"
 return
 }
-ClearFilter
 $appsDictionary = $itt.database.Applications | ForEach-Object { @{ $_.Name = $_ } }
 $items = foreach ($item in $itt.AppsListView.Items) {
 $MyApp = Get-CheckBoxes
@@ -6334,7 +6325,8 @@ if ($item.IsChecked) {
 $item.IsChecked = $false
 }
 }
-} catch {
+}
+catch {
 Write-Warning "Failed to save file: $_"
 Message -NoneKey "Failed to save file" -icon "error" -action "OK"
 }
@@ -6354,18 +6346,20 @@ if ($FileContent -isnot [array] -or $FileContent.Count -eq 0) {
 Message -NoneKey "The file is corrupt or access is forbidden" -icon "Warning" -action "OK"
 return
 }
-} else {
+}
+else {
 $FileContent = Get-Content -Path $file -Raw | ConvertFrom-Json -ErrorAction Stop
-if($file -notmatch "\.itt"){
+if ($file -notmatch "\.itt") {
 Message -NoneKey "Invalid file format. Expected .itt file." -icon "Warning" -action "OK"
 return
 }
 }
-} catch {
+}
+catch {
 Write-Warning "Failed to load or parse JSON file: $_"
 return
 }
-if($FileContent -eq $null){return}
+if ($FileContent -eq $null) { return }
 $filteredNames = $FileContent
 if (-not $global:CheckedItems) {
 $global:CheckedItems = [System.Collections.ArrayList]::new()
@@ -6384,7 +6378,8 @@ return $false
 }
 try {
 Invoke-Install *> $null
-} catch {
+}
+catch {
 Write-Warning "Installation failed: $_"
 }
 }
@@ -11501,19 +11496,19 @@ $itt.event.FindName('date').text = '01/31/2025'.Trim()
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
-})
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.Add_PreViewKeyDown({ if ($_.Key -eq "Escape") { $itt.event.Close() } })
