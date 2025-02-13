@@ -16,7 +16,7 @@ ITT (Install Tweaks Tool) included all Windows 10/11 Software and Windows Tweaks
 ![Last Update](https://img.shields.io/badge/Last%20Update-02/13/2025-blue)
 ![GitHub License](https://img.shields.io/github/license/emadadel4/itt)
 
-<div align="center" style="width:50%;">
+<div align="center" style="width:350px;">
 
 [![Arabic](https://img.shields.io/badge/Arabic-red)](/locales/ar.csv) [![Gaeilge](https://img.shields.io/badge/Gaeilge-green)](/locales/ga.csv) [![French](https://img.shields.io/badge/French-blue)](/locales/fr.csv) [![Turkish](https://img.shields.io/badge/Turkish-red)](/locales/tr.csv) [![Chinese](https://img.shields.io/badge/Chinese-red)](/locales/zh.csv) [![Korean](https://img.shields.io/badge/Korean-white)](/locales/ko.csv) [![German](https://img.shields.io/badge/German-red)](/locales/de.csv) [![Russian](https://img.shields.io/badge/Russian-blue)](/locales/ru.csv) [![Spanish](https://img.shields.io/badge/Spanish-red)](/locales/es.csv) [![Italian](https://img.shields.io/badge/Italian-green)](/locales/it.csv) [![Hindi](https://img.shields.io/badge/Hindi-orange)](/locales/hi.csv) [![Add your language](https://img.shields.io/badge/Add%20your%20language-white)](https://docs.google.com/spreadsheets/d/1Muy7iJbRm-7YpJKyS5lzP_v12TrCqlxr8_MY9iTnt-0/edit?usp=sharing)
 
