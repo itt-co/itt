@@ -58,45 +58,21 @@ function Show-Selected {
             $collectionView.Filter = {
                 param ($item)
 
-                # Ensure item structure is valid
-                if ($item.Children.Count -lt 1 -or $item.Children[0].Children.Count -lt 1) {
-                    return $false
-                }
-
                 # Check if item is selected
                 return $item.Children[0].Children[0].IsChecked -eq $true
             }
         }
         Default {
-            # Clear filter instead of removing all items
+
+            $collectionView.Filter = {
+                param ($item)
+
+                # Check if item is selected
+                $item.Children[0].Children[0].IsChecked = $false
+            }
+
+            # Reset collection view
             $collectionView.Filter = $null
-
-            # Invoke the operation on the UI thread to ensure thread safety
-            $itt.$ListView.Dispatcher.Invoke({
-        
-                    # Loop through each item in the ListView
-                    foreach ($item in $itt.$ListView.Items) {
-
-                        # Ensure the item structure is valid before accessing properties
-                        if ($item.Children.Count -gt 0 -and $item.Children[0].Children.Count -gt 0) {
-            
-                            # Uncheck the checkbox in the first child element
-                            $item.Children[0].Children[0].IsChecked = $false
-                        }
-                    }
-
-                    # Clear all items from the ListView
-                    $itt.$ListView.Clear()
-    
-                    # Reset the filter to show all items
-                    [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.$ListView.Items).Filter = $null
-
-                    # Reset selection to the first item (if available)
-                    $itt['window'].FindName($itt.CurrentList).SelectedIndex = 0
-                })
         }
     }
-
-    # Refresh the collection view
-    $collectionView.Refresh()
 }
