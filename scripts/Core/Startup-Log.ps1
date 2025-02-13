@@ -1,6 +1,6 @@
 function Startup {
 
-    $UsersCount = "https://ittools-7d9fe-default-rtdb.firebaseio.com/Count.json"
+    $UsersCount = "https://ittools-7d9fe-default-rtdb.firebaseio.com/message.json"
  
     ITT-ScriptBlock -ArgumentList $Debug $UsersCount -ScriptBlock {
  
