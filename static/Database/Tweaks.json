@@ -782,7 +782,7 @@
   {
     "Name": "Remove OneDrive",
     "Description": "Removes OneDrive from the system",
-    "Category": "Fixer",
+    "Category": "Performance",
     "Check": "false",
     "Refresh": "false",
     "Script": [
@@ -797,7 +797,7 @@
   {
     "Name": "Remove Microsoft Edge (Not Recommended)",
     "Description": "Removes Edge from the system",
-    "Category": "Fixer",
+    "Category": "Performance",
     "Check": "false",
     "Refresh": "false",
     "Script": [
