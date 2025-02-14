@@ -188,7 +188,22 @@
       "Microsoft.NetworkSpeedTest"
     ],
     "Services": [],
-    "Registry": []
+    "Registry": [
+      {
+        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
+        "Name": "NoStartMenuMorePrograms",
+        "Type": "DWord",
+        "Value": "2",
+        "defaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
+        "Name": "NoStartMenuMorePrograms",
+        "Type": "DWord",
+        "Value": "2",
+        "defaultValue": "1"
+      }
+    ]
   },
   {
     "Name": "Fix Stutter in games",
