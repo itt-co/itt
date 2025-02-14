@@ -30,6 +30,21 @@
     "Registry": []
   },
   {
+    "Name": "Restore All Windows Services to Default",
+    "Description": "if you face issues with services, try Restore All Windows Services to Default",
+    "Category": "Fixer",
+    "Check": "false",
+    "Refresh": "false",
+    "Script": [
+      "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/emadadel4/WindowsTweaks/refs/heads/main/test.bat' -OutFile $env:TEMP\\script.bat \r\n Start-Process -FilePath 'cmd.exe' -ArgumentList '/c %TMP%\\script.bat && del /f /q %TMP%\\script.bat ' -NoNewWindow -Wait "
+    ],
+    "UndoScript": [],
+    "ScheduledTask": [],
+    "AppxPackage": [],
+    "Services": [],
+    "Registry": []
+  },
+  {
     "Name": "Clean Taskbar",
     "Description": "Disable the (News and interests) and (People icon) Show Search icon only for Windows 10/11",
     "Category": "Performance",
