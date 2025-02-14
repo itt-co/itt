@@ -63,5 +63,10 @@
     "Name": "Always show icons never Thumbnail",
     "description": "Show icons in the file explorer instead of thumbnails",
     "category": "Performance"
+  },
+  {
+    "Name": "Core Isolation Memory Integrity",
+    "description": "Core Isolation Memory Integrity",
+    "category": "Performance"
   }
 ]
