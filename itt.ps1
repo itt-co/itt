@@ -4080,7 +4080,22 @@ $itt.database.Tweaks = @'
 "Microsoft.NetworkSpeedTest"
 ],
 "Services": [],
-"Registry": []
+"Registry": [
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
+"Name": "NoStartMenuMorePrograms",
+"Type": "DWord",
+"Value": "2",
+"defaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
+"Name": "NoStartMenuMorePrograms",
+"Type": "DWord",
+"Value": "2",
+"defaultValue": "1"
+}
+]
 },
 {
 "Name": "Fix Stutter in games",
@@ -11529,17 +11544,17 @@ $itt.event.FindName('date').text = '01/31/2025'.Trim()
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
-$itt.event.FindName('ps').add_MouseLeftButtonDown({
-Start-Process('https://www.palestinercs.org/en/Donation')
-})
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('ps').add_MouseLeftButtonDown({
+Start-Process('https://www.palestinercs.org/en/Donation')
+})
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
