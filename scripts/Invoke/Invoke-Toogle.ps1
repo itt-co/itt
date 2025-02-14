@@ -1,30 +1,24 @@
 function Invoke-Toggle {
+    
+    Param ([string]$debug)
 
-    <#
-        .SYNOPSIS
-        Toggles various system settings based on the provided debug parameter.
-
-        .DESCRIPTION
-        The `Invoke-Toggle` function dynamically toggles system settings such as dark mode, file extensions visibility, 
-        and performance options. It determines the appropriate action based on the input parameter and executes 
-        the corresponding function.
-
-        .EXAMPLE
-        Invoke-Toggle -Debug "darkmode"
-        Toggles the system's dark mode setting.
-    #>
-
-    Param ([string]$Debug)
-
-    $toggleActions = @{
-        "showfileextensions" = "Invoke-ShowFile-Extensions"; "darkmode" = "Invoke-DarkMode"
-        "showsuperhidden" = "Invoke-ShowFile"; "numlock" = "Invoke-NumLock"
-        "stickykeys" = "Invoke-StickyKeys"; "mouseacceleration" = "Invoke-MouseAcceleration"
-        "endtaskontaskbarwindows11" = "Invoke-TaskbarEnd"; "clearpagefileatshutdown" = "Invoke-ClearPageFile"
-        "autoendtasks" = "Invoke-AutoEndTasks"; "performanceoptions" = "Invoke-PerformanceOptions"
-        "launchtothispc" = "Invoke-LaunchTo"; "disableautomaticdriverinstallation" = "Invoke-DisableAutoDrivers"
+    Switch -Wildcard ($debug) {
+        
+        "showfileextensions" { Invoke-ShowFile-Extensions $(Get-ToggleStatus showfileextensions) }
+        "darkmode" { Invoke-DarkMode $(Get-ToggleStatus darkmode) }
+        "showsuperhidden" { Invoke-ShowFile $(Get-ToggleStatus showsuperhidden) }
+        "numlook" { Invoke-NumLock $(Get-ToggleStatus numlook) }
+        "stickykeys" { Invoke-StickyKeys $(Get-ToggleStatus stickykeys) }
+        "mouseacceleration" { Invoke-MouseAcceleration $(Get-ToggleStatus mouseacceleration) }
+        "endtaskontaskbarwindows11" { Invoke-TaskbarEnd $(Get-ToggleStatus endtaskontaskbarwindows11) }
+        "clearpagefileatshutdown" { Invoke-ClearPageFile $(Get-ToggleStatus clearpagefileatshutdown) }
+        "autoendtasks" { Invoke-AutoEndTasks $(Get-ToggleStatus autoendtasks) }
+        "performanceoptions" { Invoke-PerformanceOptions $(Get-ToggleStatus performanceoptions) }
+        "launchtothispc" { Invoke-LaunchTo $(Get-ToggleStatus launchtothispc) }
+        "disableautomaticdriverinstallation" { Invoke-DisableAutoDrivers $(Get-ToggleStatus disableautomaticdriverinstallation) }
+        "AlwaysshowiconsneverThumbnail" { Invoke-ShowFile-Icons $(Get-ToggleStatus AlwaysshowiconsneverThumbnail) }
     }
-
-    if ($toggleActions[$Debug.ToLower()]) { & $toggleActions[$Debug.ToLower()] $(Get-ToggleStatus $Debug) }
-    else { Write-Warning "Invalid toggle: $Debug"; Add-Log -Message "Invalid toggle: $Debug" -Level "warning" }
+    # debug start
+    Add-Log -Message $debug -Level "debug"
+    # debug end
 }
