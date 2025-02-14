@@ -132,7 +132,7 @@ function Startup {
             if ($newValue -eq "1") { NewUser }
         
             # Display usage message
-            Write-Host "`nITT has been used on $(GetCount) devices worldwide.`n" -ForegroundColor White
+            Write-Host "`n  ITT has been used on $(GetCount) devices worldwide.`n" -ForegroundColor White
         }
  
         function LOG {
