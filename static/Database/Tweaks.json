@@ -99,7 +99,9 @@
     "Category": "Performance",
     "Check": "false",
     "Refresh": "true",
-    "Script": [],
+    "Script": [
+      "irm https://raw.githubusercontent.com/emadadel4/WindowsTweaks/refs/heads/main/CleanStartmenuFolders.ps1 | iex"
+    ],
     "UndoScript": [],
     "ScheduledTask": [],
     "AppxPackage": [
