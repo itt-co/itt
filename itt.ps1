@@ -6556,7 +6556,7 @@ $currentValue = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAct
 $newValue = ([int]$currentValue + 1).ToString()
 Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value $newValue -Force
 if ($newValue -eq "1") { NewUser }
-Write-Host "`nITT has been used on $(GetCount) devices worldwide.`n" -ForegroundColor White
+Write-Host "`n  ITT has been used on $(GetCount) devices worldwide.`n" -ForegroundColor White
 }
 function LOG {
 Write-Host "  `n` "
