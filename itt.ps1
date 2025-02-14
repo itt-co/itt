@@ -3886,6 +3886,11 @@ $itt.database.Settings = @'
 "Name": "Disable Automatic Driver Installation",
 "description": "Stopping Windows from automatically downloading and installing drivers",
 "category": "Drivers"
+},
+{
+"Name": "Always show icons never Thumbnail",
+"description": "Show icons in the file explorer instead of thumbnails",
+"category": "Performance"
 }
 ]
 '@ | ConvertFrom-Json
@@ -5661,27 +5666,6 @@ $itt.database.Tweaks = @'
 "Value": "Remove"
 }
 ]
-},
-{
-"Name": "Turn Off Thumbnail ",
-"Description": "Turn off thumbnail cache in Windows 10 and 11",
-"Category": "Performance",
-"Check": "false",
-"Refresh": "true",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
-"Registry": [
-{
-"Name": "IconsOnly",
-"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
-"Type": "DWord",
-"Value": "1",
-"defaultValue": "1"
-}
-]
 }
 ]
 '@ | ConvertFrom-Json
@@ -6038,139 +6022,129 @@ return $items
 }
 function Get-ToggleStatus {
 Param($ToggleSwitch)
-if($ToggleSwitch -eq "darkmode"){
+if ($ToggleSwitch -eq "darkmode") {
 $app = (Get-ItemProperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize').AppsUseLightTheme
 $system = (Get-ItemProperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize').SystemUsesLightTheme
-if($app -eq 0 -and $system -eq 0){
+if ($app -eq 0 -and $system -eq 0) {
 return $true
 }
-else{
+else {
 return $false
 }
 }
-if($ToggleSwitch -eq "showfileextensions"){
+if ($ToggleSwitch -eq "showfileextensions") {
 $hideextvalue = (Get-ItemProperty -path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced').HideFileExt
-if($hideextvalue -eq 0){
+if ($hideextvalue -eq 0) {
 return $true
 }
-else{
+else {
 return $false
 }
 }
-if($ToggleSwitch -eq "showsuperhidden"){
+if ($ToggleSwitch -eq "showsuperhidden") {
 $hideextvalue = (Get-ItemPropertyValue -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowSuperHidden")
-if($hideextvalue -eq 1){
+if ($hideextvalue -eq 1) {
 return $true
 }
-else{
+else {
 return $false
 }
 }
-if($ToggleSwitch -eq "numlook"){
+if ($ToggleSwitch -eq "numlook") {
 $numlockvalue = (Get-ItemProperty -path 'HKCU:\Control Panel\Keyboard').InitialKeyboardIndicators
-if($numlockvalue -eq 2){
+if ($numlockvalue -eq 2) {
 return $true
 }
-else{
+else {
 return $false
 }
 }
 if ($ToggleSwitch -eq "stickykeys") {
 $StickyKeys = (Get-ItemProperty -path 'HKCU:\Control Panel\Accessibility\StickyKeys').Flags
-if($StickyKeys -eq 58){
+if ($StickyKeys -eq 58) {
 return $false
 }
-else{
+else {
 return $true
 }
 }
-if($ToggleSwitch -eq "mouseacceleration") {
+if ($ToggleSwitch -eq "mouseacceleration") {
 $Speed = (Get-ItemProperty -path 'HKCU:\Control Panel\Mouse').MouseSpeed
 $Threshold1 = (Get-ItemProperty -path 'HKCU:\Control Panel\Mouse').MouseThreshold1
 $Threshold2 = (Get-ItemProperty -path 'HKCU:\Control Panel\Mouse').MouseThreshold2
-if($Speed -eq 1 -and $Threshold1 -eq 6 -and $Threshold2 -eq 10) {
+if ($Speed -eq 1 -and $Threshold1 -eq 6 -and $Threshold2 -eq 10) {
 return $true
-} else {
+}
+else {
 return $false
 }
 }
-if($ToggleSwitch -eq "endtaskontaskbarwindows11")
-{
+if ($ToggleSwitch -eq "endtaskontaskbarwindows11") {
 $path = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDeveloperSettings"
-if (-not (Test-Path $path))
-{
+if (-not (Test-Path $path)) {
 return $false
 }
-else
-{
+else {
 $TaskBar = (Get-ItemProperty -path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDeveloperSettings').TaskbarEndTask
-if($TaskBar -eq 1)
-{
+if ($TaskBar -eq 1) {
 return $true
 }
-else
-{
+else {
 return $false
 }
 }
 }
-if($ToggleSwitch -eq "clearpagefileatshutdown")
-{
+if ($ToggleSwitch -eq "clearpagefileatshutdown") {
 $PageFile = (Get-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\\Memory Management').ClearPageFileAtShutdown
-if($PageFile -eq 1)
-{
+if ($PageFile -eq 1) {
 return $true
 }
-else
-{
+else {
 return $false
 }
 }
-if($ToggleSwitch -eq "autoendtasks")
-{
+if ($ToggleSwitch -eq "autoendtasks") {
 $PageFile = (Get-ItemProperty -path 'HKCU:\Control Panel\Desktop').AutoEndTasks
-if($PageFile -eq 1)
-{
+if ($PageFile -eq 1) {
 return $true
 }
-else
-{
+else {
 return $false
 }
 }
-if($ToggleSwitch -eq "performanceoptions")
-{
+if ($ToggleSwitch -eq "performanceoptions") {
 $VisualFXSetting = (Get-ItemProperty -path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects').VisualFXSetting
-if($VisualFXSetting -eq 2)
-{
+if ($VisualFXSetting -eq 2) {
 return $true
 }
-else
-{
+else {
 return $false
 }
 }
-if($ToggleSwitch -eq "launchtothispc")
-{
+if ($ToggleSwitch -eq "launchtothispc") {
 $LaunchTo = (Get-ItemProperty -path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced').LaunchTo
-if($LaunchTo -eq 1)
-{
+if ($LaunchTo -eq 1) {
 return $true
 }
-else
-{
+else {
 return $false
 }
 }
-if($ToggleSwitch -eq "disableautomaticdriverinstallation")
-{
-$aaa = (Get-ItemProperty -path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching').SearchOrderConfig
-if($aaa -eq 1)
-{
+if ($ToggleSwitch -eq "disableautomaticdriverinstallation") {
+$disableautomaticdrive = (Get-ItemProperty -path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching').SearchOrderConfig
+if ($disableautomaticdrive -eq 1) {
 return $true
 }
-else
-{
+else {
+return $false
+}
+}
+if ($ToggleSwitch -eq "AlwaysshowiconsneverThumbnail") {
+$alwaysshowicons = (Get-ItemProperty -path 'HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced').IconsOnly
+if ($alwaysshowicons -eq 0) {
+return $true
+}
+else {
 return $false
 }
 }
@@ -6788,17 +6762,22 @@ Finish -ListView "TweaksListView"
 }
 }
 function Invoke-Toggle {
-Param ([string]$Debug)
-$toggleActions = @{
-"showfileextensions" = "Invoke-ShowFile-Extensions"; "darkmode" = "Invoke-DarkMode"
-"showsuperhidden" = "Invoke-ShowFile"; "numlock" = "Invoke-NumLock"
-"stickykeys" = "Invoke-StickyKeys"; "mouseacceleration" = "Invoke-MouseAcceleration"
-"endtaskontaskbarwindows11" = "Invoke-TaskbarEnd"; "clearpagefileatshutdown" = "Invoke-ClearPageFile"
-"autoendtasks" = "Invoke-AutoEndTasks"; "performanceoptions" = "Invoke-PerformanceOptions"
-"launchtothispc" = "Invoke-LaunchTo"; "disableautomaticdriverinstallation" = "Invoke-DisableAutoDrivers"
+Param ([string]$debug)
+Switch -Wildcard ($debug) {
+"showfileextensions" { Invoke-ShowFile-Extensions $(Get-ToggleStatus showfileextensions) }
+"darkmode" { Invoke-DarkMode $(Get-ToggleStatus darkmode) }
+"showsuperhidden" { Invoke-ShowFile $(Get-ToggleStatus showsuperhidden) }
+"numlook" { Invoke-NumLock $(Get-ToggleStatus numlook) }
+"stickykeys" { Invoke-StickyKeys $(Get-ToggleStatus stickykeys) }
+"mouseacceleration" { Invoke-MouseAcceleration $(Get-ToggleStatus mouseacceleration) }
+"endtaskontaskbarwindows11" { Invoke-TaskbarEnd $(Get-ToggleStatus endtaskontaskbarwindows11) }
+"clearpagefileatshutdown" { Invoke-ClearPageFile $(Get-ToggleStatus clearpagefileatshutdown) }
+"autoendtasks" { Invoke-AutoEndTasks $(Get-ToggleStatus autoendtasks) }
+"performanceoptions" { Invoke-PerformanceOptions $(Get-ToggleStatus performanceoptions) }
+"launchtothispc" { Invoke-LaunchTo $(Get-ToggleStatus launchtothispc) }
+"disableautomaticdriverinstallation" { Invoke-DisableAutoDrivers $(Get-ToggleStatus disableautomaticdriverinstallation) }
+"AlwaysshowiconsneverThumbnail" { Invoke-ShowFile-Icons $(Get-ToggleStatus AlwaysshowiconsneverThumbnail) }
 }
-if ($toggleActions[$Debug.ToLower()]) { & $toggleActions[$Debug.ToLower()] $(Get-ToggleStatus $Debug) }
-else { Write-Warning "Invalid toggle: $Debug"; Add-Log -Message "Invalid toggle: $Debug" -Level "warning" }
 }
 function Invoke-AutoEndTasks {
 Param(
@@ -6863,8 +6842,8 @@ $Enabled,
 [string]$Path = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\\Memory Management",
 [string]$name = "ClearPageFileAtShutdown"
 )
-Try{
-if ($Enabled -eq $false){
+Try {
+if ($Enabled -eq $false) {
 $value = 1
 Add-Log -Message "Show End Task on taskbar" -Level "Apply"
 }
@@ -6880,7 +6859,7 @@ Write-Warning "Unable to set $Path\$Name to $Value due to a Security Exception"
 Catch [System.Management.Automation.ItemNotFoundException] {
 Write-Warning $psitem.Exception.ErrorRecord
 }
-Catch{
+Catch {
 Write-Warning "Unable to set $Name due to unhandled exception"
 Write-Warning $psitem.Exception.StackTrace
 }
@@ -7083,6 +7062,31 @@ Catch [System.Management.Automation.ItemNotFoundException] {
 Write-Warning $psitem.Exception.ErrorRecord
 }
 Catch{
+Write-Warning "Unable to set $Name due to unhandled exception"
+Write-Warning $psitem.Exception.StackTrace
+}
+}
+function Invoke-ShowFile-Icons {
+param ($Enabled, $Name = "IconsOnly", $Path = "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced")
+Try {
+if ($Enabled -eq $false) {
+$value = 0
+Add-Log -Message "ON" -Level "Apply"
+}
+else {
+$value = 1
+Add-Log -Message "OFF" -Level "Disabled"
+}
+Set-ItemProperty -Path $Path -Name $Name -Value $value -ErrorAction Stop
+Refresh-Explorer
+}
+Catch [System.Security.SecurityException] {
+Write-Warning "Unable to set $Path\$Name to $Value due to a Security Exception"
+}
+Catch [System.Management.Automation.ItemNotFoundException] {
+Write-Warning $psitem.Exception.ErrorRecord
+}
+Catch {
 Write-Warning "Unable to set $Name due to unhandled exception"
 Write-Warning $psitem.Exception.StackTrace
 }
@@ -11206,12 +11210,6 @@ ScrollViewer.CanContentScroll="True">
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Fixer"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Restoring default apps for file type associations resets Windows settings allowing the system to select the appropriate programs by default."/>
-</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
-<StackPanel Orientation="Horizontal">
-<CheckBox Content="Turn Off Thumbnail " Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
-</StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Turn off thumbnail cache in Windows 10 and 11."/>
 </StackPanel>
 </ListView>
 </TabItem>
@@ -11310,6 +11308,12 @@ ScrollViewer.CanContentScroll="True">
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Stopping Windows from automatically downloading and installing drivers."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Always show icons never Thumbnail" Tag=""  Style="{StaticResource ToggleSwitchStyle}" Name="AlwaysshowiconsneverThumbnail"  FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
+</StackPanel>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Show icons in the file explorer instead of thumbnails."/>
 </StackPanel>
 </ListView>
 </TabItem>
@@ -11592,23 +11596,23 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/31/2025'.Trim()
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
+$itt.event.FindName('ps').add_MouseLeftButtonDown({
+Start-Process('https://www.palestinercs.org/en/Donation')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
-$itt.event.FindName('ps').add_MouseLeftButtonDown({
-Start-Process('https://www.palestinercs.org/en/Donation')
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.Add_PreViewKeyDown({ if ($_.Key -eq "Escape") { $itt.event.Close() } })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
