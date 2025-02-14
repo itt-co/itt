@@ -21,7 +21,7 @@
     "Check": "false",
     "Refresh": "false",
     "Script": [
-      "\r\n        Chkdsk /scan\r\n        sfc /scannow\r\n        DISM /Online /Cleanup-Image /Restorehealth\r\n        sfc /scannow\r\n      "
+      "Add-Log -Message 'This may take a few minutes' -Level 'Info' Chkdsk /scan\r\n sfc /scannow\r\n DISM /Online /Cleanup-Image /Restorehealth\r\n sfc /scannow\r\n"
     ],
     "UndoScript": [],
     "ScheduledTask": [],
