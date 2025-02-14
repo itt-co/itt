@@ -4001,7 +4001,9 @@ $itt.database.Tweaks = @'
 "Category": "Performance",
 "Check": "false",
 "Refresh": "true",
-"Script": [],
+"Script": [
+"irm https://raw.githubusercontent.com/emadadel4/WindowsTweaks/refs/heads/main/CleanStartmenuFolders.ps1 | iex"
+],
 "UndoScript": [],
 "ScheduledTask": [],
 "AppxPackage": [
@@ -5927,7 +5929,8 @@ Add-Log -Message "Please wait..."
 $script = [scriptblock]::Create($cmd)
 Invoke-Command  $script -ErrorAction Stop
 }
-} catch  {
+}
+catch {
 Add-Log -Message "The specified command was not found." -Level "WARNING"
 }
 }
