@@ -98,7 +98,7 @@
     "Description": "A selection of pre-installed apps, including productivity tools, games, communication apps, and entertainment software like Xbox, Microsoft News, TikTok, and more, will be removed.",
     "Category": "Performance",
     "Check": "false",
-    "Refresh": "false",
+    "Refresh": "true",
     "Script": [],
     "UndoScript": [],
     "ScheduledTask": [],
