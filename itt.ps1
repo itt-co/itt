@@ -3922,6 +3922,21 @@ $itt.database.Tweaks = @'
 "Registry": []
 },
 {
+"Name": "Restore All Windows Services to Default",
+"Description": "if you face issues with services, try Restore All Windows Services to Default",
+"Category": "Fixer",
+"Check": "false",
+"Refresh": "false",
+"Script": [
+"Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/emadadel4/WindowsTweaks/refs/heads/main/test.bat' -OutFile $env:TEMP\\script.bat \r\n Start-Process -FilePath 'cmd.exe' -ArgumentList '/c %TMP%\\script.bat && del /f /q %TMP%\\script.bat ' -NoNewWindow -Wait "
+],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": []
+},
+{
 "Name": "Clean Taskbar",
 "Description": "Disable the (News and interests) and (People icon) Show Search icon only for Windows 10/11",
 "Category": "Performance",
@@ -10885,6 +10900,12 @@ ScrollViewer.CanContentScroll="True">
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Fixer"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="sfc /scannow Use the System File Checker tool to repair missing or corrupted system files."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Restore All Windows Services to Default" Tag="Fixer" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Fixer"/>
+</StackPanel>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="if you face issues with services try Restore All Windows Services to Default."/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Clean Taskbar" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
