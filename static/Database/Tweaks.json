@@ -1769,26 +1769,5 @@
         "Value": "Remove"
       }
     ]
-  },
-  {
-    "Name": "Turn Off Thumbnail ",
-    "Description": "Turn off thumbnail cache in Windows 10 and 11",
-    "Category": "Performance",
-    "Check": "false",
-    "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Name": "IconsOnly",
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "1"
-      }
-    ]
   }
 ]
