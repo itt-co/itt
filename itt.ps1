@@ -6,7 +6,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "02/14/2025"
+lastupdate     = "02/15/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -3891,6 +3891,11 @@ $itt.database.Settings = @'
 "Name": "Always show icons never Thumbnail",
 "description": "Show icons in the file explorer instead of thumbnails",
 "category": "Performance"
+},
+{
+"Name": "Core Isolation Memory Integrity",
+"description": "Core Isolation Memory Integrity",
+"category": "Performance"
 }
 ]
 '@ | ConvertFrom-Json
@@ -6140,8 +6145,17 @@ return $false
 }
 }
 if ($ToggleSwitch -eq "AlwaysshowiconsneverThumbnail") {
-$alwaysshowicons = (Get-ItemProperty -path 'HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced').IconsOnly
+$alwaysshowicons = (Get-ItemProperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced').IconsOnly
 if ($alwaysshowicons -eq 0) {
+return $true
+}
+else {
+return $false
+}
+}
+if ($ToggleSwitch -eq "CoreIsolationMemoryIntegrity") {
+$CoreIsolationMemory = (Get-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\CredentialGuard').Enabled
+if ($CoreIsolationMemory -eq 1) {
 return $true
 }
 else {
@@ -6777,6 +6791,7 @@ Switch -Wildcard ($debug) {
 "launchtothispc" { Invoke-LaunchTo $(Get-ToggleStatus launchtothispc) }
 "disableautomaticdriverinstallation" { Invoke-DisableAutoDrivers $(Get-ToggleStatus disableautomaticdriverinstallation) }
 "AlwaysshowiconsneverThumbnail" { Invoke-ShowFile-Icons $(Get-ToggleStatus AlwaysshowiconsneverThumbnail) }
+"CoreIsolationMemoryIntegrity" { Invoke-Core-Isolation $(Get-ToggleStatus CoreIsolationMemoryIntegrity) }
 }
 }
 function Invoke-AutoEndTasks {
@@ -6852,6 +6867,31 @@ $value = 0
 Add-Log -Message "Disable End Task on taskbar" -Level "Disabled"
 }
 Set-ItemProperty -Path $Path -Name $name -Value $value -ErrorAction Stop
+}
+Catch [System.Security.SecurityException] {
+Write-Warning "Unable to set $Path\$Name to $Value due to a Security Exception"
+}
+Catch [System.Management.Automation.ItemNotFoundException] {
+Write-Warning $psitem.Exception.ErrorRecord
+}
+Catch {
+Write-Warning "Unable to set $Name due to unhandled exception"
+Write-Warning $psitem.Exception.StackTrace
+}
+}
+function Invoke-Core-Isolation {
+param ($Enabled, $Name = "Enabled", $Path = "HKLM:\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\CredentialGuard")
+Try {
+if ($Enabled -eq $false) {
+$value = 1
+Add-Log -Message "This change require a restart" -Level "Apply"
+}
+else {
+$value = 0
+Add-Log -Message "This change require a restart" -Level "Disabled"
+}
+Set-ItemProperty -Path $Path -Name $Name -Value $value -ErrorAction Stop
+Refresh-Explorer
 }
 Catch [System.Security.SecurityException] {
 Write-Warning "Unable to set $Path\$Name to $Value due to a Security Exception"
@@ -11314,6 +11354,12 @@ ScrollViewer.CanContentScroll="True">
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Show icons in the file explorer instead of thumbnails."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Core Isolation Memory Integrity" Tag=""  Style="{StaticResource ToggleSwitchStyle}" Name="CoreIsolationMemoryIntegrity"  FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
+</StackPanel>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Core Isolation Memory Integrity."/>
 </StackPanel>
 </ListView>
 </TabItem>
