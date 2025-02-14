@@ -163,8 +163,18 @@ function Get-ToggleStatus {
     }
 
     if ($ToggleSwitch -eq "AlwaysshowiconsneverThumbnail") {
-        $alwaysshowicons = (Get-ItemProperty -path 'HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced').IconsOnly
+        $alwaysshowicons = (Get-ItemProperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced').IconsOnly
         if ($alwaysshowicons -eq 0) {
+            return $true
+        } 
+        else {
+            return $false
+        }
+    }
+
+    if ($ToggleSwitch -eq "CoreIsolationMemoryIntegrity") {
+        $CoreIsolationMemory = (Get-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\CredentialGuard').Enabled
+        if ($CoreIsolationMemory -eq 1) {
             return $true
         } 
         else {
