@@ -1751,5 +1751,23 @@
     "AppxPackage": [],
     "Services": [],
     "Registry": []
+  },
+  {
+    "Name": "Restore Default File Type Associations",
+    "Description": "Restoring default apps for file type associations resets Windows settings, allowing the system to select the appropriate programs by default",
+    "Category": "Fixer",
+    "Check": "false",
+    "Refresh": "true",
+    "Script": [],
+    "UndoScript": [],
+    "ScheduledTask": [],
+    "AppxPackage": [],
+    "Services": [],
+    "Registry": [
+      {
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts",
+        "Value": "Remove"
+      }
+    ]
   }
 ]
