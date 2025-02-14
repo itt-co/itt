@@ -5643,6 +5643,24 @@ $itt.database.Tweaks = @'
 "AppxPackage": [],
 "Services": [],
 "Registry": []
+},
+{
+"Name": "Restore Default File Type Associations",
+"Description": "Restoring default apps for file type associations resets Windows settings, allowing the system to select the appropriate programs by default",
+"Category": "Fixer",
+"Check": "false",
+"Refresh": "true",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts",
+"Value": "Remove"
+}
+]
 }
 ]
 '@ | ConvertFrom-Json
@@ -11161,6 +11179,12 @@ ScrollViewer.CanContentScroll="True">
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Fixer"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Fix issues related to strange symbols appearing in Arabic text."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Restore Default File Type Associations" Tag="Fixer" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Fixer"/>
+</StackPanel>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Restoring default apps for file type associations resets Windows settings allowing the system to select the appropriate programs by default."/>
 </StackPanel>
 </ListView>
 </TabItem>
