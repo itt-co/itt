@@ -1705,7 +1705,7 @@
     "Check": "false",
     "Refresh": "true",
     "Script": [
-      "winget uninstall 'windows web experience pack' --silent"
+      "Install-Winget \r\n winget uninstall 'windows web experience pack' --silent"
     ],
     "UndoScript": [],
     "ScheduledTask": [],
@@ -1767,6 +1767,27 @@
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts",
         "Value": "Remove"
+      }
+    ]
+  },
+  {
+    "Name": "Turn Off Thumbnail ",
+    "Description": "Turn off thumbnail cache in Windows 10 and 11",
+    "Category": "Performance",
+    "Check": "false",
+    "Refresh": "true",
+    "Script": [],
+    "UndoScript": [],
+    "ScheduledTask": [],
+    "AppxPackage": [],
+    "Services": [],
+    "Registry": [
+      {
+        "Name": "IconsOnly",
+        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "Type": "DWord",
+        "Value": "1",
+        "defaultValue": "1"
       }
     ]
   }
