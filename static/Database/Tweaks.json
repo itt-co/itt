@@ -1769,5 +1769,28 @@
         "Value": "Remove"
       }
     ]
+  },
+  {
+    "Name": "Limit Defender CPU Usage",
+    "Description": "Limits Defender CPU maximum usage at 25% instead of default 50%.",
+    "Category": "Performance",
+    "Check": "false",
+    "Refresh": "true",
+    "Script": [
+      "Install-Winget \r\n winget uninstall 'windows web experience pack' --silent"
+    ],
+    "UndoScript": [],
+    "ScheduledTask": [],
+    "AppxPackage": [],
+    "Services": [],
+    "Registry": [
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Scan",
+        "Name": "AvgCPULoadFactor",
+        "Type": "DWord",
+        "Value": "25",
+        "defaultValue": "1"
+      }
+    ]
   }
 ]
