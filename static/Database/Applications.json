@@ -3790,7 +3790,7 @@
   },
   {
     "Name": "Microsoft Visual C++ Redistributable for Visual Studio 2015-2022",
-    "Description": "Run-time components that are required to run C++ applications that are built by using Visual Studio 2015-2022",
+    "Description": "Run-time components that are required to run C++ applications that are built by using Visual Studio 2015/2022",
     "winget": "Microsoft.VCRedist.2015+.x86",
     "choco": "vcredist140",
     "default": [],
