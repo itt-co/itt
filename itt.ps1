@@ -4102,7 +4102,7 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Remove Xbox Apps",
-"Description": "Uninstalls pre-installed Xbox apps.",
+"Description": "Uninstalls pre-installed Xbox apps",
 "Category": "Performance",
 "Check": "false",
 "Refresh": "true",
@@ -11098,7 +11098,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Remove Xbox Apps" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Uninstalls preinstalled Xbox apps.."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Uninstalls preinstalled Xbox apps."/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Fix Stutter in games" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
