@@ -3,9 +3,9 @@
             <TabItem Name="apps" Header="{Binding apps, TargetNullValue=Apps}" BorderBrush="{x:Null}" >
                 <TabItem.HeaderTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="" FontFamily="Segoe MDL2 Assets" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Left"  Margin="0"/>
-                            <TextBlock Text="{Binding}"  FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap"  Margin="20,0,2,0"/>
+                        <StackPanel Orientation="Vertical" >
+                            <TextBlock Text="" FontFamily="Segoe MDL2 Assets" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding}" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="0,5,0,0"/>
                         </StackPanel>
                     </DataTemplate>
             </TabItem.HeaderTemplate>
@@ -36,9 +36,9 @@
             <TabItem x:Name="tweeksTab" Header="{Binding tweaks, TargetNullValue=Tweaks}" BorderBrush="{x:Null}" Background="{x:Null}">
                 <TabItem.HeaderTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" HorizontalAlignment="Left"  FontSize="18" Margin="0"/>
-                                <TextBlock Text="{Binding}"  FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Left"  TextWrapping="Wrap" Margin="20,0,2,0"/>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="18"/>
+                                <TextBlock Text="{Binding}" VerticalAlignment="Center" HorizontalAlignment="Center"  TextWrapping="Wrap" Margin="0,5,0,0"/>
                             </StackPanel>
                         </DataTemplate>
                 </TabItem.HeaderTemplate>
@@ -62,9 +62,9 @@
             <TabItem x:Name="SettingsTab" Header="{Binding settings, TargetNullValue=Settings}" BorderBrush="{x:Null}" Background="{x:Null}">
                 <TabItem.HeaderTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" HorizontalAlignment="Left"  FontSize="18" Margin="0"/>
-                                <TextBlock Text="{Binding}"  FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="20,0,2,0"/>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="18"/>
+                                <TextBlock Text="{Binding}" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="0,5,0,0"/>
                             </StackPanel>
                         </DataTemplate>
                 </TabItem.HeaderTemplate>
