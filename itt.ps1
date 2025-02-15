@@ -5502,7 +5502,6 @@ $itt.database.Tweaks = @'
 "Type": "DWord",
 "defaultValue": "0"
 },
-[
 {
 "Path": "HKCU:\\Software\\Microsoft\\Speech_OneCore\\Preferences",
 "Name": "VoiceActivationOn",
@@ -5601,7 +5600,6 @@ $itt.database.Tweaks = @'
 "Type": "DWord",
 "DefaultValue": "1"
 }
-]
 ]
 },
 {
