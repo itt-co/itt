@@ -5674,13 +5674,11 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Limit Defender CPU Usage",
-"Description": "Limits Defender CPU maximum usage at 25% instead of default 50%.",
+"Description": "Limits Defender CPU maximum usage at 25% instead of default 50%",
 "Category": "Performance",
 "Check": "false",
 "Refresh": "true",
-"Script": [
-"Install-Winget \r\n winget uninstall 'windows web experience pack' --silent"
-],
+"Script": [],
 "UndoScript": [],
 "ScheduledTask": [],
 "AppxPackage": [],
@@ -5691,7 +5689,28 @@ $itt.database.Tweaks = @'
 "Name": "AvgCPULoadFactor",
 "Type": "DWord",
 "Value": "25",
-"defaultValue": "1"
+"defaultValue": "0"
+}
+]
+},
+{
+"Name": "Disable HAGS",
+"Description": "Disables Hardware-Accelerated GPU Scheduling, which may improve performance",
+"Category": "Performance",
+"Check": "false",
+"Refresh": "true",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKLM:\\SOFTWARE\\CurrentControlSet\\Control\\GraphicsDrivers",
+"Name": "HwSchMode",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
 }
 ]
 }
@@ -11278,7 +11297,13 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Limit Defender CPU Usage" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Limits Defender CPU maximum usage at 25 instead of default 50.."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Limits Defender CPU maximum usage at 25 instead of default 50."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Disable HAGS" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
+</StackPanel>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Disables HardwareAccelerated GPU Scheduling which may improve performance."/>
 </StackPanel>
 </ListView>
 </TabItem>
