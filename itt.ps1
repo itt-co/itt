@@ -3822,7 +3822,7 @@ $itt.database.Applications = @'
 },
 {
 "Name": "Microsoft Visual C++ Redistributable for Visual Studio 2015-2022",
-"Description": "Run-time components that are required to run C++ applications that are built by using Visual Studio 2015-2022",
+"Description": "Run-time components that are required to run C++ applications that are built by using Visual Studio 2015/2022",
 "winget": "Microsoft.VCRedist.2015+.x86",
 "choco": "vcredist140",
 "default": [],
@@ -11836,7 +11836,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Microsoft Visual C++ Redistributable for Visual Studio 2015-2022" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Runtime components that are required to run C applications that are built by using Visual Studio 20152022."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Runtime components that are required to run C applications that are built by using Visual Studio 2015/2022."/>
 </StackPanel>
 </ListView>
 </TabItem>
