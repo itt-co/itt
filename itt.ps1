@@ -4014,7 +4014,6 @@ $itt.database.Tweaks = @'
 "Microsoft.GetHelp",
 "Microsoft.AppConnector",
 "Microsoft.BingFinance",
-"Microsoft.XboxGamingOverlay",
 "Microsoft.BingTranslator",
 "Microsoft.BingHealthAndFitness",
 "Microsoft.BingTravel",
@@ -4053,12 +4052,6 @@ $itt.database.Tweaks = @'
 "Microsoft.WindowsMaps",
 "Microsoft.YourPhone",
 "Microsoft.WindowsSoundRecorder",
-"Microsoft.Xbox.TCUI",
-"Microsoft.XboxApp",
-"Microsoft.XboxGameOverlay",
-"Microsoft.GamingApp",
-"Microsoft.XboxIdentityProvider",
-"Microsoft.XboxSpeechToTextOverlay",
 "Microsoft.Windows.Cortana",
 "Microsoft.ScreenSketch",
 "Microsoft.Windows.DevHome",
@@ -4104,6 +4097,34 @@ $itt.database.Tweaks = @'
 "Type": "DWord",
 "Value": "2",
 "defaultValue": "1"
+}
+]
+},
+{
+"Name": "Remove Xbox Apps",
+"Description": "Uninstalls pre-installed Xbox apps.",
+"Category": "Performance",
+"Check": "false",
+"Refresh": "true",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [
+"Microsoft.XboxApp",
+"Microsoft.Xbox.TCUI",
+"Microsoft.XboxGamingOverlay",
+"Microsoft.XboxGameOverlay",
+"Microsoft.XboxIdentityProvider",
+"Microsoft.XboxSpeechToTextOverlay"
+],
+"Services": [],
+"Registry": [
+{
+"Path": "HKCU:\\System\\GameConfigStore",
+"Name": "GameDVR_DXGIHonorFSEWindowsCompatible",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
 }
 ]
 },
@@ -11072,6 +11093,12 @@ ScrollViewer.CanContentScroll="True">
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Uninstalls preinstalled Microsoft apps like Clipchamp People etc."/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Remove Xbox Apps" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
+</StackPanel>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Uninstalls preinstalled Xbox apps.."/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Fix Stutter in games" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
