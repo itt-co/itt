@@ -1439,7 +1439,268 @@
         "Value": "0",
         "Type": "DWord",
         "defaultValue": "1"
-      }
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+        "Name": "ConnectedSearchPrivacy",
+        "Value": "3",
+        "Type": "DWord",
+        "defaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\Software\\Policies\\Microsoft\\Windows\\Explorer",
+        "Name": "DisableSearchHistory",
+        "Value": "1",
+        "Type": "DWord",
+        "defaultValue": "0"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+        "Name": "AllowSearchToUseLocation",
+        "Value": "0",
+        "Type": "DWord",
+        "defaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+        "Name": "EnableDynamicContentInWSB",
+        "Value": "0",
+        "Type": "DWord",
+        "defaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+        "Name": "DisableWebSearch",
+        "Value": "1",
+        "Type": "DWord",
+        "defaultValue": "0"
+      },
+      {
+        "Path": "HKLM:\\Software\\Policies\\Microsoft\\Windows\\Explorer",
+        "Name": "DisableSearchBoxSuggestions",
+        "Value": "1",
+        "Type": "DWord",
+        "defaultValue": "0"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+        "Name": "PreventUnwantedAddIns",
+        "Value": " ",
+        "Type": "String",
+        "defaultValue": " "
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+        "Name": "PreventRemoteQueries",
+        "Value": "1",
+        "Type": "DWord",
+        "defaultValue": "0"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+        "Name": "AlwaysUseAutoLangDetection",
+        "Value": "0",
+        "Type": "DWord",
+        "defaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+        "Name": "AllowIndexingEncryptedStoresOrItems",
+        "Value": "0",
+        "Type": "DWord",
+        "defaultValue": "1"
+      },  
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+        "Name": "DisableSearchBoxSuggestions",
+        "Value": "1",
+        "Type": "DWord",
+        "defaultValue": "0"
+      },  
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+        "Name": "CortanaInAmbientMode",
+        "Value": "0",
+        "Type": "DWord",
+        "defaultValue": "1"
+      },  
+      {
+        "Path": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+        "Name": "BingSearchEnabled",
+        "Value": "0",
+        "Type": "DWord",
+        "defaultValue": "1"
+      },  
+      {
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "Name": "ShowCortanaButton",
+        "Value": "0",
+        "Type": "DWord",
+        "defaultValue": "1"
+      },  
+      {
+        "Path": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+        "Name": "CanCortanaBeEnabled",
+        "Value": "0",
+        "Type": "DWord",
+        "defaultValue": "1"
+      },  
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+        "Name": "CanCortanaBeEnabled",
+        "Value": "0",
+        "Type": "DWord",
+        "defaultValue": "1"
+      },  
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+        "Name": "ConnectedSearchUseWebOverMeteredConnections",
+        "Value": "0",
+        "Type": "DWord",
+        "defaultValue": "1"
+      },  
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+        "Name": "AllowCortanaAboveLock",
+        "Value": "0",
+        "Type": "DWord",
+        "defaultValue": "1"
+      },  
+      {
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\SearchSettings",
+        "Name": "IsDynamicSearchBoxEnabled",
+        "Value": "1",
+        "Type": "DWord",
+        "defaultValue": "0"
+      },  
+      {
+        "Path": "HKLM:\\SOFTWARE\\Microsoft\\PolicyManager\\default\\Experience\\AllowCortana",
+        "Name": "value",
+        "Value": "0",
+        "Type": "DWord",
+        "defaultValue": "1"
+      },  
+      {
+        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
+        "Name": "AllowSearchToUseLocation",
+        "Value": "0",
+        "Type": "DWord",
+        "defaultValue": "1"
+      },
+      {
+        "Path": "HKCU:\\Software\\Microsoft\\Speech_OneCore\\Preferences",
+        "Name": "ModelDownloadAllowed",
+        "Value": "0",
+        "Type": "DWord",
+        "defaultValue": "1"
+      },
+      {
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\SearchSettings",
+        "Name": "IsDeviceSearchHistoryEnabled",
+        "Value": "1",
+        "Type": "DWord",
+        "defaultValue": "0"
+      },
+      [
+        {
+          "Path": "HKCU:\\Software\\Microsoft\\Speech_OneCore\\Preferences",
+          "Name": "VoiceActivationOn",
+          "Value": "0",
+          "Type": "DWord",
+          "DefaultValue": "1"
+        },
+        {
+          "Path": "HKCU:\\Software\\Microsoft\\Speech_OneCore\\Preferences",
+          "Name": "VoiceActivationEnableAboveLockscreen",
+          "Value": "0",
+          "Type": "DWord",
+          "DefaultValue": "1"
+        },
+        {
+          "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OOBE",
+          "Name": "DisableVoice",
+          "Value": "1",
+          "Type": "DWord",
+          "DefaultValue": "0"
+        },
+        {
+          "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+          "Name": "AllowCortana",
+          "Value": "0",
+          "Type": "DWord",
+          "DefaultValue": "1"
+        },
+        {
+          "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
+          "Name": "DeviceHistoryEnabled",
+          "Value": "0",
+          "Type": "DWord",
+          "DefaultValue": "1"
+        },
+        {
+          "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
+          "Name": "HistoryViewEnabled",
+          "Value": "0",
+          "Type": "DWord",
+          "DefaultValue": "1"
+        },
+        {
+          "Path": "HKLM:\\Software\\Microsoft\\Speech_OneCore\\Preferences",
+          "Name": "VoiceActivationDefaultOn",
+          "Value": "0",
+          "Type": "DWord",
+          "DefaultValue": "1"
+        },
+        {
+          "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
+          "Name": "CortanaEnabled",
+          "Value": "0",
+          "Type": "DWord",
+          "DefaultValue": "1"
+        },
+        {
+          "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
+          "Name": "CortanaEnabled",
+          "Value": "0",
+          "Type": "DWord",
+          "DefaultValue": "1"
+        },
+        {
+          "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\SearchSettings",
+          "Name": "IsMSACloudSearchEnabled",
+          "Value": "0",
+          "Type": "DWord",
+          "DefaultValue": "1"
+        },
+        {
+          "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\SearchSettings",
+          "Name": "IsAADCloudSearchEnabled",
+          "Value": "0",
+          "Type": "DWord",
+          "DefaultValue": "1"
+        },
+        {
+          "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+          "Name": "AllowCloudSearch",
+          "Value": "0",
+          "Type": "DWord",
+          "DefaultValue": "1"
+        },
+        {
+          "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
+          "Name": "VoiceShortcut",
+          "Value": "0",
+          "Type": "DWord",
+          "DefaultValue": "1"
+        },
+        {
+          "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
+          "Name": "CortanaConsent",
+          "Value": "0",
+          "Type": "DWord",
+          "DefaultValue": "1"
+        }
+      ]
     ]
   },
   {
