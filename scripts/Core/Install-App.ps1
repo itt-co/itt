@@ -77,6 +77,7 @@ function Install-App {
             Install-Winget
 
             Add-Log -Message "Chocolatey installation failed, Falling back to Winget." -Level "ERROR"
+            Start-Process -FilePath "winget" -ArgumentList "settings --enable InstallerHashOverride" -NoNewWindow -Wait -PassThru
             $wingetResult = Install-AppWithInstaller "winget" $wingetArgs
             Log-Result $wingetResult "Winget"
 
