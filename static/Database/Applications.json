@@ -64,7 +64,7 @@
   },
   {
     "Name": "Brave",
-    "Description": "A privacy-focused web browser that blocks ads and trackers, offering faster and safer browsing experiences",
+    "Description": "A privacy focused web browser that blocks ads and trackers, offering faster and safer browsing experiences",
     "winget": "Brave.Brave",
     "choco": "brave",
     "default": [],
