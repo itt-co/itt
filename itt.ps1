@@ -4015,6 +4015,8 @@ $itt.database.Tweaks = @'
 "Microsoft.AppConnector",
 "Microsoft.BingFinance",
 "Microsoft.BingTranslator",
+"Microsoft.BingSports",
+"MicrosoftCorporationII.MicrosoftFamily",
 "Microsoft.BingHealthAndFitness",
 "Microsoft.BingTravel",
 "Microsoft.MinecraftUWP",
@@ -4027,6 +4029,7 @@ $itt.database.Tweaks = @'
 "Microsoft.BingWeather",
 "Microsoft.Messaging",
 "Microsoft.Microsoft3DViewer",
+"Microsoft.3DBuilder",
 "Microsoft.MicrosoftOfficeHub",
 "Microsoft.MicrosoftSolitaireCollection",
 "Microsoft.NetworkSpeedTest",
@@ -4044,8 +4047,7 @@ $itt.database.Tweaks = @'
 "Microsoft.StorePurchaseApp",
 "Microsoft.Office.Todo.List",
 "Microsoft.Whiteboard",
-"Microsoft.WindowsAlarms",
-"Microsoft.WindowsCamera",
+"Microsoft.CommsPhone",
 "Microsoft.windowscommunicationsapps",
 "Microsoft.WindowsFeedbackHub",
 "Microsoft.Wallet",
@@ -4118,15 +4120,7 @@ $itt.database.Tweaks = @'
 "Microsoft.XboxSpeechToTextOverlay"
 ],
 "Services": [],
-"Registry": [
-{
-"Path": "HKCU:\\System\\GameConfigStore",
-"Name": "GameDVR_DXGIHonorFSEWindowsCompatible",
-"Type": "DWord",
-"Value": "1",
-"defaultValue": "0"
-}
-]
+"Registry": []
 },
 {
 "Name": "Fix Stutter in games",
