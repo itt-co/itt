@@ -8675,8 +8675,9 @@ KeyboardNavigation.DirectionalNavigation="Continue"/>
 <Border Name="Border" CornerRadius="5" BorderThickness="0" Padding="8" BorderBrush="Transparent"  Margin="10,5">
 <ContentPresenter x:Name="ContentSite"
 VerticalAlignment="Center"
-HorizontalAlignment="Left"
+HorizontalAlignment="Center"
 ContentSource="Header"
+Width="80"
 />
 </Border>
 <ControlTemplate.Triggers>
@@ -9376,9 +9377,9 @@ Margin="30,0,0,0" />
 <TabItem Name="apps" Header="{Binding apps, TargetNullValue=Apps}" BorderBrush="{x:Null}" >
 <TabItem.HeaderTemplate>
 <DataTemplate>
-<StackPanel Orientation="Horizontal">
-<TextBlock Text="" FontFamily="Segoe MDL2 Assets" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Left"  Margin="0"/>
-<TextBlock Text="{Binding}"  FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap"  Margin="20,0,2,0"/>
+<StackPanel Orientation="Vertical" >
+<TextBlock Text="" FontFamily="Segoe MDL2 Assets" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+<TextBlock Text="{Binding}" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="0,5,0,0"/>
 </StackPanel>
 </DataTemplate>
 </TabItem.HeaderTemplate>
@@ -11851,9 +11852,9 @@ ScrollViewer.CanContentScroll="True">
 <TabItem x:Name="tweeksTab" Header="{Binding tweaks, TargetNullValue=Tweaks}" BorderBrush="{x:Null}" Background="{x:Null}">
 <TabItem.HeaderTemplate>
 <DataTemplate>
-<StackPanel Orientation="Horizontal">
-<TextBlock Text="" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" HorizontalAlignment="Left"  FontSize="18" Margin="0"/>
-<TextBlock Text="{Binding}"  FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Left"  TextWrapping="Wrap" Margin="20,0,2,0"/>
+<StackPanel Orientation="Vertical">
+<TextBlock Text="" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="18"/>
+<TextBlock Text="{Binding}" VerticalAlignment="Center" HorizontalAlignment="Center"  TextWrapping="Wrap" Margin="0,5,0,0"/>
 </StackPanel>
 </DataTemplate>
 </TabItem.HeaderTemplate>
@@ -12171,9 +12172,9 @@ ScrollViewer.CanContentScroll="True">
 <TabItem x:Name="SettingsTab" Header="{Binding settings, TargetNullValue=Settings}" BorderBrush="{x:Null}" Background="{x:Null}">
 <TabItem.HeaderTemplate>
 <DataTemplate>
-<StackPanel Orientation="Horizontal">
-<TextBlock Text="" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" HorizontalAlignment="Left"  FontSize="18" Margin="0"/>
-<TextBlock Text="{Binding}"  FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="20,0,2,0"/>
+<StackPanel Orientation="Vertical">
+<TextBlock Text="" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="18"/>
+<TextBlock Text="{Binding}" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="0,5,0,0"/>
 </StackPanel>
 </DataTemplate>
 </TabItem.HeaderTemplate>
@@ -12557,22 +12558,22 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/31/2025'.Trim()
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.Add_PreViewKeyDown({ if ($_.Key -eq "Escape") { $itt.event.Close() } })
