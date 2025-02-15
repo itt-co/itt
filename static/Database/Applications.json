@@ -164,9 +164,16 @@
   {
     "Name": "Aimp",
     "Description": "A lightweight and feature-rich audio player with support for various audio formats and customizable interface themes",
-    "winget": "AIMP.AIMP",
-    "choco": "aimp",
-    "default": [],
+    "winget": "none",
+    "choco": "none",
+    "default": [
+      {
+        "url": "https://aimp.ru/files/windows/builds/aimp_5.40.2655_w32.exe",
+        "args": "/AUTO /SILENT /RUN",
+        "portable": "false",
+        "launcher": "aimp_5.40.2655_w32.exe"
+      }
+    ],
     "category": "Media",
     "check": "false"
   },
