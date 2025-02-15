@@ -9242,7 +9242,7 @@ Shift+I
 <Binding Path="null" TargetNullValue="Unhook Customize youtube"/>
 </MenuItem.Header>
 </MenuItem>
-<MenuItem Name="enhance">
+<MenuItem Name="efy">
 <MenuItem.Header>
 <Binding Path="null" TargetNullValue="Enhancer for YouTube"/>
 </MenuItem.Header>
