@@ -5013,8 +5013,8 @@ $itt.database.Tweaks = @'
 ]
 },
 {
-"Name": "Disable all Privacy Settings",
-"Description": "Disable Wifi-Sense & Activity History & ActivityFeed All Telemetry & DataCollection",
+"Name": "Super Privacy Disable all Privacy Settings",
+"Description": "Disable Wifi-Sense & Activity History & ActivityFeed All Telemetry & DataCollection & disable various telemetry and annoyances in Edge",
 "Category": "Privacy",
 "Check": "false",
 "Refresh": "true",
@@ -5977,6 +5977,125 @@ $itt.database.Tweaks = @'
 "Value": "Deny",
 "Type": "String",
 "DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "EdgeEnhanceImagesEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "PersonalizationReportingEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "ShowRecommendationsEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "HideFirstRunExperience",
+"Value": "1",
+"Type": "DWord",
+"DefaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "UserFeedbackAllowed",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "ConfigureDoNotTrack",
+"Value": "1",
+"Type": "DWord",
+"DefaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "AlternateErrorPagesEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "EdgeCollectionsEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "EdgeFollowEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "EdgeShoppingAssistantEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "MicrosoftEdgeInsiderPromotionEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "ShowMicrosoftRewards",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "WebWidgetAllowed",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "DiagnosticData",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "EdgeAssetDeliveryServiceEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "CryptoWalletEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "WalletDonationEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
 }
 ]
 },
@@ -11876,10 +11995,10 @@ ScrollViewer.CanContentScroll="True">
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Removes the Home and Gallery from explorer and sets This PC as default."/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Disable all Privacy Settings" Tag="Privacy" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<CheckBox Content="Super Privacy Disable all Privacy Settings" Tag="Privacy" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Disable WifiSense  Activity History  ActivityFeed All Telemetry  DataCollection."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Disable WifiSense  Activity History  ActivityFeed All Telemetry  DataCollection  disable various telemetry and annoyances in Edge."/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable Autoplay and Autorun" Tag="Protection" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
