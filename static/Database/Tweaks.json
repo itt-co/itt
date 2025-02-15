@@ -200,7 +200,7 @@
   },
   {
     "Name": "Remove Xbox Apps",
-    "Description": "Uninstalls pre-installed Xbox apps.",
+    "Description": "Uninstalls pre-installed Xbox apps",
     "Category": "Performance",
     "Check": "false",
     "Refresh": "true",
