@@ -1112,8 +1112,8 @@
     ]
   },
   {
-    "Name": "Disable all Privacy Settings",
-    "Description": "Disable Wifi-Sense & Activity History & ActivityFeed All Telemetry & DataCollection",
+    "Name": "Super Privacy Disable all Privacy Settings",
+    "Description": "Disable Wifi-Sense & Activity History & ActivityFeed All Telemetry & DataCollection & disable various telemetry and annoyances in Edge",
     "Category": "Privacy",
     "Check": "false",
     "Refresh": "true",
@@ -2076,6 +2076,125 @@
         "Value": "Deny",
         "Type": "String",
         "DefaultValue": "Allow"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "Name": "EdgeEnhanceImagesEnabled",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "Name": "PersonalizationReportingEnabled",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "Name": "ShowRecommendationsEnabled",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "Name": "HideFirstRunExperience",
+        "Value": "1",
+        "Type": "DWord",
+        "DefaultValue": "0"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "Name": "UserFeedbackAllowed",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "Name": "ConfigureDoNotTrack",
+        "Value": "1",
+        "Type": "DWord",
+        "DefaultValue": "0"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "Name": "AlternateErrorPagesEnabled",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "Name": "EdgeCollectionsEnabled",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "Name": "EdgeFollowEnabled",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "Name": "EdgeShoppingAssistantEnabled",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "Name": "MicrosoftEdgeInsiderPromotionEnabled",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "Name": "ShowMicrosoftRewards",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "Name": "WebWidgetAllowed",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "Name": "DiagnosticData",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "Name": "EdgeAssetDeliveryServiceEnabled",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "Name": "CryptoWalletEnabled",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+        "Name": "WalletDonationEnabled",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
       }
     ]
   },
