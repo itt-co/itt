@@ -94,8 +94,8 @@
     ]
   },
   {
-    "Name": "Remove Windows 10/11 Bloatware",
-    "Description": "A selection of pre-installed apps, including productivity tools, games, communication apps, and entertainment software like Xbox, Microsoft News, TikTok, and more, will be removed.",
+    "Name": "Remove Microsoft Apps",
+    "Description": "Uninstalls pre-installed Microsoft apps like Clipchamp, People etc",
     "Category": "Performance",
     "Check": "false",
     "Refresh": "true",
@@ -222,7 +222,7 @@
   },
   {
     "Name": "Enable the Ultimate Performance Power Plan",
-    "Description": "Enable the Ultimate Performance Power Plan",
+    "Description": "This will add the Ultimate Performance power plan, to enable it go to the power options",
     "Category": "Power",
     "Check": "false",
     "Refresh": "false",
@@ -266,7 +266,7 @@
     "Registry": []
   },
   {
-    "Name": "Disable  Xbox Services",
+    "Name": "Disable Xbox Services",
     "Description": "Disables all Xbox Services Game Mode and Optimizations for Windowed Games and fix stutter playing smooth",
     "Category": "Performance",
     "Check": "false",
@@ -369,13 +369,6 @@
         "Name": "GameDVR_FSEBehavior",
         "Type": "DWord",
         "Value": "2",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKCU:\\System\\GameConfigStore",
-        "Name": "GameDVR_DXGIHonorFSEWindowsCompatible",
-        "Type": "DWord",
-        "Value": "1",
         "defaultValue": "0"
       },
       {
@@ -1806,6 +1799,27 @@
       {
         "Path": "HKLM:\\SOFTWARE\\CurrentControlSet\\Control\\GraphicsDrivers",
         "Name": "HwSchMode",
+        "Type": "DWord",
+        "Value": "1",
+        "defaultValue": "0"
+      }
+    ]
+  },
+  {
+    "Name": "Disable Fullscreen Optimizations",
+    "Description": "Disables Fullscreen Optimizations, which may improve performance",
+    "Category": "Performance",
+    "Check": "false",
+    "Refresh": "true",
+    "Script": [],
+    "UndoScript": [],
+    "ScheduledTask": [],
+    "AppxPackage": [],
+    "Services": [],
+    "Registry": [
+      {
+        "Path": "HKCU:\\System\\GameConfigStore",
+        "Name": "GameDVR_DXGIHonorFSEWindowsCompatible",
         "Type": "DWord",
         "Value": "1",
         "defaultValue": "0"
