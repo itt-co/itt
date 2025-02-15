@@ -5809,6 +5809,174 @@ $itt.database.Tweaks = @'
 "Value": "0",
 "Type": "DWord",
 "DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Personalization",
+"Name": "NoLockScreenCamera",
+"Value": "1",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\location",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\webcam",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\microphone",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\documentsLibrary",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\picturesLibrary",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\videosLibrary",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\broadFileSystemAccess",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\userAccountInformation",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\contacts",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\phoneCallHistory",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\chat",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\email",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\userDataTasks",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\appDiagnostics",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKCU:\\Software\\Microsoft\\Speech_OneCore\\Settings\\VoiceActivation\\UserPreferenceForAllApps",
+"Name": "AgentActivationEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\AppPrivacy",
+"Name": "LetAppsAccessPhone",
+"Value": "2",
+"Type": "DWord",
+"DefaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\AppPrivacy",
+"Name": "LetAppsAccessPhone_UserInControlOfTheseApps",
+"Value": "",
+"Type": "REG_MULTI_SZ",
+"DefaultValue": ""
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\AppPrivacy",
+"Name": "LetAppsAccessPhone_ForceAllowTheseApps",
+"Value": "",
+"Type": "REG_MULTI_SZ",
+"DefaultValue": ""
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\AppPrivacy",
+"Name": "LetAppsAccessPhone_ForceDenyTheseApps",
+"Value": "",
+"Type": "REG_MULTI_SZ",
+"DefaultValue": ""
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DeviceAccess\\Global\\{C1D23ACC-752B-43E5-8448-8D0E519CD6D6}",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\appointments",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\activity",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\radios",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
 }
 ]
 },
