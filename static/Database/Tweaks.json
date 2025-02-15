@@ -1698,6 +1698,216 @@
         "Value": "0",
         "Type": "DWord",
         "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
+        "Name": "AllowDesktopAnalyticsProcessing",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
+        "Name": "AllowDeviceNameInTelemetry",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
+        "Name": "MicrosoftEdgeDataOptIn",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
+        "Name": "AllowWUfBCloudProcessing",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
+        "Name": "AllowUpdateComplianceProcessing",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
+        "Name": "AllowCommercialDataPipeline",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\Software\\Policies\\Microsoft\\SQMClient\\Windows",
+        "Name": "CEIPEnable",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\DataCollection",
+        "Name": "AllowTelemetry",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
+        "Name": "AllowTelemetry",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\Software\\Policies\\Microsoft\\Windows\\DataCollection",
+        "Name": "DisableOneSettingsDownloads",
+        "Value": "1",
+        "Type": "DWord",
+        "DefaultValue": "0"
+      },
+      {
+        "Path": "HKLM:\\Software\\Policies\\Microsoft\\Windows NT\\CurrentVersion\\Software Protection Platform",
+        "Name": "NoGenTicket",
+        "Value": "1",
+        "Type": "DWord",
+        "DefaultValue": "0"
+      },
+      {
+        "Path": "HKLM:\\Software\\Policies\\Microsoft\\Windows\\Windows Error Reporting",
+        "Name": "Disabled",
+        "Value": "1",
+        "Type": "DWord",
+        "DefaultValue": "0"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\Windows Error Reporting",
+        "Name": "Disabled",
+        "Value": "1",
+        "Type": "DWord",
+        "DefaultValue": "0"
+      },
+      {
+        "Path": "HKLM:\\Software\\Microsoft\\Windows\\Windows Error Reporting\\Consent",
+        "Name": "DefaultConsent",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\Software\\Microsoft\\Windows\\Windows Error Reporting\\Consent",
+        "Name": "DefaultOverrideBehavior",
+        "Value": "1",
+        "Type": "DWord",
+        "DefaultValue": "0"
+      },
+      {
+        "Path": "HKLM:\\Software\\Microsoft\\Windows\\Windows Error Reporting",
+        "Name": "DontSendAdditionalData",
+        "Value": "1",
+        "Type": "DWord",
+        "DefaultValue": "0"
+      },
+      {
+        "Path": "HKLM:\\Software\\Microsoft\\Windows\\Windows Error Reporting",
+        "Name": "LoggingDisabled",
+        "Value": "1",
+        "Type": "DWord",
+        "DefaultValue": "0"
+      },
+      {
+        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+        "Name": "ContentDeliveryAllowed",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+        "Name": "OemPreInstalledAppsEnabled",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+        "Name": "PreInstalledAppsEnabled",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+        "Name": "PreInstalledAppsEverEnabled",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+        "Name": "SilentInstalledAppsEnabled",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+        "Name": "SystemPaneSuggestionsEnabled",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\SystemSettings\\AccountNotifications",
+        "Name": "EnableAccountNotifications",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\SystemSettings\\AccountNotifications",
+        "Name": "EnableAccountNotifications",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Notifications\\Settings",
+        "Name": "NOC_GLOBAL_SETTING_TOASTS_ENABLED",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKCU:\\Software\\Policies\\Microsoft\\Windows\\EdgeUI",
+        "Name": "DisableMFUTracking",
+        "Value": "1",
+        "Type": "DWord",
+        "DefaultValue": "0"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\EdgeUI",
+        "Name": "DisableMFUTracking",
+        "Value": "1",
+        "Type": "DWord",
+        "DefaultValue": "0"
+      },
+      {
+        "Path": "HKCU:\\Control Panel\\International\\User Profile",
+        "Name": "HttpAcceptLanguageOptOut",
+        "Value": "1",
+        "Type": "DWord",
+        "DefaultValue": "0"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+        "Name": "PublishUserActivities",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
       }
     ]
   },
