@@ -112,7 +112,6 @@
       "Microsoft.GetHelp",
       "Microsoft.AppConnector",
       "Microsoft.BingFinance",
-      "Microsoft.XboxGamingOverlay",
       "Microsoft.BingTranslator",
       "Microsoft.BingHealthAndFitness",
       "Microsoft.BingTravel",
@@ -151,12 +150,6 @@
       "Microsoft.WindowsMaps",
       "Microsoft.YourPhone",
       "Microsoft.WindowsSoundRecorder",
-      "Microsoft.Xbox.TCUI",
-      "Microsoft.XboxApp",
-      "Microsoft.XboxGameOverlay",
-      "Microsoft.GamingApp",
-      "Microsoft.XboxIdentityProvider",
-      "Microsoft.XboxSpeechToTextOverlay",
       "Microsoft.Windows.Cortana",
       "Microsoft.ScreenSketch",
       "Microsoft.Windows.DevHome",
@@ -202,6 +195,35 @@
         "Type": "DWord",
         "Value": "2",
         "defaultValue": "1"
+      }
+    ]
+  },
+  {
+    "Name": "Remove Xbox Apps",
+    "Description": "Uninstalls pre-installed Xbox apps.",
+    "Category": "Performance",
+    "Check": "false",
+    "Refresh": "true",
+    "Script": [],
+    "UndoScript": [],
+    "ScheduledTask": [],
+    "AppxPackage": [
+      "Microsoft.XboxApp",
+      "Microsoft.Xbox.TCUI",
+      "Microsoft.XboxGamingOverlay",
+      "Microsoft.XboxGameOverlay",
+      "Microsoft.XboxIdentityProvider",
+      "Microsoft.XboxSpeechToTextOverlay"
+
+    ],
+    "Services": [],
+    "Registry": [
+      {
+        "Path": "HKCU:\\System\\GameConfigStore",
+        "Name": "GameDVR_DXGIHonorFSEWindowsCompatible",
+        "Type": "DWord",
+        "Value": "1",
+        "defaultValue": "0"
       }
     ]
   },
