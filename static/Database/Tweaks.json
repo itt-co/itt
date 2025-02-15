@@ -2199,6 +2199,41 @@
     ]
   },
   {
+    "Name": "Disable Wifi Sense",
+    "Description": "Wifi Sense is a service that phones home all nearby scanned wifi networks and your location",
+    "Category": "Protection",
+    "Check": "false",
+    "Refresh": "false",
+    "Script": [],
+    "UndoScript": [],
+    "ScheduledTask": [],
+    "AppxPackage": [],
+    "Services": [],
+    "Registry": [
+      {
+        "Path": "HKLM:\\SOFTWARE\\Microsoft\\PolicyManager\\default\\WiFi\\AllowWiFiHotSpotReporting",
+        "Name": "value",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Microsoft\\PolicyManager\\default\\WiFi\\AllowAutoConnectToWiFiSenseHotspots",
+        "Name": "value",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Microsoft\\WcmSvc\\wifinetworkmanager\\config",
+        "Name": "AutoConnectAllowedOEM",
+        "Value": "0",
+        "Type": "DWord",
+        "DefaultValue": "1"
+      }
+    ]
+  },
+  {
     "Name": "Disable Autoplay and Autorun",
     "Description": "Disabling autoplay in Windows prevents the automatic launch of media or applications when a removable device, such as a USB drive or CD, is connected to the computer",
     "Category": "Protection",
