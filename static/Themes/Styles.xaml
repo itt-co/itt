@@ -397,7 +397,6 @@
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
                         ContentSource="Header"
-                        Width="80"
                         />
                     </Border>
                     <ControlTemplate.Triggers>
