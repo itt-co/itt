@@ -310,11 +310,24 @@
                         <Binding Path="uBlockOrigin" TargetNullValue="uBlock Origin"/>
                     </MenuItem.Header>
                 </MenuItem>
-                <MenuItem Name="unhook">
-                    <MenuItem.Header>
-                        <Binding Path="Unhook" TargetNullValue="Unhook Customize youtube"/>
-                    </MenuItem.Header>
+
+                <MenuItem Header="Youtube">
+
+                    <MenuItem Name="Unhook">
+                        <MenuItem.Header>
+                            <Binding Path="null" TargetNullValue="Unhook Customize youtube"/>
+                        </MenuItem.Header>  
+                    </MenuItem>
+
+                    <MenuItem Name="enhance">
+                        <MenuItem.Header>
+                            <Binding Path="null" TargetNullValue="Enhancer for YouTube"/>
+                        </MenuItem.Header>
+                    </MenuItem>
+        
+
                 </MenuItem>
+
                 <MenuItem Name="neat">
                     <MenuItem.Header>
                         <Binding Path="NeatDownloadManager" TargetNullValue="Neat Download Manager"/>

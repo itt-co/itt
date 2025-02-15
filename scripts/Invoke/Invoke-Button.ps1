@@ -173,6 +173,12 @@ function Invoke-Button {
                 Debug-Message $action
             # debug end
         }
+        "efy" {
+            Start-Process "https://www.mrfdev.com/enhancer-for-youtube" 
+            # debug start
+                Debug-Message $action
+            # debug end
+        }
         "uBlock" {
             Start-Process "https://ublockorigin.com/" 
             # debug start
