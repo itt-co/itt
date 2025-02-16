@@ -8801,7 +8801,7 @@ BorderThickness="1"/>
 <StackPanel Orientation="Horizontal">
 <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" Margin="8"/>
 <Grid>
-<Border Name="emad" Width="40"
+<Border Name="Label" Width="40"
 Height="20"
 Background="{DynamicResource Label}"
 CornerRadius="10"
@@ -8846,8 +8846,8 @@ To="22,0,0,0">
 </BeginStoryboard>
 </Trigger.ExitActions>
 <Setter TargetName="ToggleSwitchButton" Property="Background" Value="{DynamicResource ToggleSwitchDisableColor}"/>
-<Setter TargetName="emad" Property="BorderBrush" Value="{DynamicResource ToggleSwitchBorderBrush}"/>
-<Setter TargetName="emad" Property="BorderThickness" Value="1"/>
+<Setter TargetName="Label" Property="BorderBrush" Value="{DynamicResource ToggleSwitchBorderBrush}"/>
+<Setter TargetName="Label" Property="BorderThickness" Value="1"/>
 </Trigger>
 <Trigger Property="IsChecked" Value="true">
 <Trigger.ExitActions>
@@ -8864,7 +8864,7 @@ To="5,0,0,0">
 </BeginStoryboard>
 </Trigger.ExitActions>
 <Setter TargetName="ToggleSwitchButton" Property="Background" Value="{DynamicResource ToggleSwitchEnableColor}"/>
-<Setter TargetName="emad" Property="Background" Value="{DynamicResource HighlightColor}"/>
+<Setter TargetName="Label" Property="Background" Value="{DynamicResource HighlightColor}"/>
 </Trigger>
 <Trigger Property="IsMouseOver" Value="True">
 <Setter TargetName="ToggleSwitchButton" Property="Width" Value="13"/>
