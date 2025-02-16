@@ -48,7 +48,7 @@
 <!--End Image Style-->
 <!--Button Style-->
     <Style TargetType="Button">
-        <Setter Property="Background" Value="{DynamicResource PrimaryButtonForeground}"/>
+        <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
         <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor2}"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="1"/>
