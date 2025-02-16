@@ -16,25 +16,24 @@ param (
     [string]$localNodePath = "CHANGELOG.md",
     [string]$NoteUrl = "https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/CHANGELOG.md"
 )
+
+try {
+    if (Test-Path -Path $OutputScript) {
+        Remove-Item -Path $OutputScript -Force
+    }
+}
+catch {
+    Write-Host $psitem.Exception.Message
+}
+
+
 # Initializeialize synchronized hashtable
 $itt = [Hashtable]::Synchronized(@{})
 $itt.database = @{}
 $global:imageLinkMap = @{}
-$global:localesMap = @{}
 $global:TitleContent = ""
 $global:DateContent = ""
-function Update-Progress {
-    param (
-        [Parameter(Mandatory, position = 0)]
-        [string]$Status,
-        [Parameter(Mandatory, position = 1)]
-        [ValidateRange(0, 100)]
-        [int]$PercentComplete ,
-        [Parameter(position = 2)]
-        [string]$Activity = "Building"
-    )
-    Write-Progress -Activity $Activity -Status $Status -PercentComplete $PercentComplete 
-}
+
 # write content to output script
 function WriteToScript {
     param (
@@ -59,7 +58,6 @@ function ReplaceTextInFile {
         [string]$ReplacementText
     )
     Write-Host "[i] Replace Placeholder"
-    Update-Progress "$($MyInvocation.MyCommand.Name)" 30
     # Read the content of the file
     $content = Get-Content $FilePath
     # Replace the text
@@ -85,7 +83,7 @@ function ProcessDirectory {
     Get-ChildItem $Directory -Recurse -File | ForEach-Object {
         
         if ($Skip -contains $_.Name) {
-            Write-Host "[i] Skipping ($_) from ProcessDirectory"
+            Write-Host "[i] Skipping ($_) from ProcessDirectory."
             return
         }
 
@@ -94,7 +92,6 @@ function ProcessDirectory {
         }
     }
 }
-
 # Generate Checkboxex apps/tewaks/settings
 function GenerateCheckboxes {
     param (
@@ -152,7 +149,7 @@ function Sync-JsonFiles {
 
 
         if ($Skip -contains $_.Name) {
-            Write-Host "[i] Skipping ($_) from ProcessDirectory"
+            Write-Host "[i] Skipping ($_) from ProcessDirectory."
             return
         }
 
@@ -210,8 +207,6 @@ function NewCONTRIBUTOR {
     # Define paths
     $gitFolder = ".git"
     $contribFile = "CONTRIBUTING.md"
-    $AboutXamlContent = Get-Content -Path "xaml\views\AboutWindow.xaml"  -Raw
-
     
     # Function to get GitHub username from .git folder
     function Get-GitHubUsername {
@@ -250,9 +245,6 @@ function NewCONTRIBUTOR {
     }
    
     $devsString = $devs -join "`n"
-
-    Update-Progress "Check for new contributor..." 40
-
 
     return $devsString
 
@@ -349,8 +341,6 @@ function GenerateThemesKeys {
 }
 function GenerateThemesSwitch {
 
-    $XamlContent = Get-Content -Path $LoadXamlScript -Raw
-
     # Define the path to the Themes directory
     $ThemesDir = "themes"
 
@@ -375,8 +365,6 @@ function GenerateThemesSwitch {
 
 function GenerateLanguageSwitch {
 
-    $XamlContent = Get-Content -Path $LoadXamlScript -Raw
-
     # Define the path to the Themes directory
     $ThemesDir = "locales"
 
@@ -398,7 +386,6 @@ function GenerateLanguageSwitch {
 
     return $switchStatement
 }
-
 
 function GenerateLocalesKeys {
     param (
@@ -600,10 +587,9 @@ function WriteHeader {
 }
 # Main script generation
 try {
-    if (Test-Path -Path $OutputScript) {
-        Remove-Item -Path $OutputScript -Force
-    }
+
     WriteHeader
+
     WriteToScript -Content @"
 #===========================================================================
 #region Begin Start
