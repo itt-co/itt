@@ -392,20 +392,31 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TabItem">
-                    <Border Name="Border" CornerRadius="5" BorderThickness="0" Padding="8" BorderBrush="Transparent"  Margin="10,5">
-                        <ContentPresenter x:Name="ContentSite"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Center"
-                        ContentSource="Header"
-                        />
-                    </Border>
+                    
+                <Border Name="Border" 
+                            CornerRadius="6" 
+                            BorderThickness="0" 
+                            Height="62"
+                            Width="68"
+                            BorderBrush="Transparent" 
+                            Background="Transparent" 
+                            Margin="5">
+                        <ContentPresenter 
+                            x:Name="ContentSite"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            ContentSource="Header"
+                            />
+                </Border>
+
+
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource PrimaryButtonForeground}" />
-                            <Setter Property="Foreground" Value="white" />
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}" />
+                            <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor}" />
                         </Trigger>
                         <Trigger Property="IsSelected" Value="False">
-                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}" />
+                            <Setter TargetName="Border" Property="Background" Value="Transparent" />
                             <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
