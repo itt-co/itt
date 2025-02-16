@@ -8356,7 +8356,7 @@ BeginTime="0:0:1" />
 </Style.Triggers>
 </Style>
 <Style TargetType="Button">
-<Setter Property="Background" Value="{DynamicResource PrimaryButtonForeground}"/>
+<Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
 <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor2}"/>
 <Setter Property="BorderBrush" Value="Transparent"/>
 <Setter Property="BorderThickness" Value="1"/>
@@ -12317,12 +12317,12 @@ Margin="20">
 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
 <TextBlock Name="installText"
 Text="{Binding Install, TargetNullValue=Install}"
-Foreground="White"
+Foreground="{DynamicResource TextColorSecondaryColor}"
 Margin="0"
 VerticalAlignment="Center"/>
 <TextBlock Name="installIcon"
 Text=" &#xE930;"
-Foreground="White"
+Foreground="{DynamicResource TextColorSecondaryColor}"
 FontFamily="Segoe MDL2 Assets"
 FontSize="14"
 HorizontalAlignment="Center"
