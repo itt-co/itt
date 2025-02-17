@@ -158,12 +158,9 @@ Example:
 
 ![luisricardo](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmY0ZWE5cnd5djVoaG12OHVteWI0Nm1zMzlpZGtxM2JwZmNwdG9iMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iUNO3pXpfqiZ8JQ1Jo/giphy.gif)
 
-### Do not hesitate to speak your truth and raise your voice for Palestine.
+Don’t hesitate to speak up and join the conversation about Palestine. In this age, each of us has a role in raising awareness. Every post or message can inspire or educate others. Don’t fear expressing yourself, as words are a powerful force to change reality. Make your platforms spaces for dialogue and contribute to creating change. Together, we raise the voices of the oppressed and work toward global justice. Let’s unite for Palestine and restore hope to those who need it.
 
-In this age, where voices intersect and humanitarian issues grow more pressing, each of us has a role to play as an advocate for change. Every post you share can reach someone who needs to hear the truth. Every message you send can inspire or educate another person. Do not be afraid to express your opinions, for words are powerful tools to build awareness and spread truth. Transform your platforms into spaces for meaningful dialogue, and join the movement toward positive change. Share stories, ideas, and news—everything you contribute can be a step toward justice. Together, we can amplify the voices of the unheard and work toward a fairer world. Let us unite and stand in solidarity with Palestine, reigniting hope in the hearts of those who need it most.
-
-### لا تتردد في قول كلمتك، وشارك في الحديث عن فلسطين
-
+ لا تتردد في قول كلمتك، وشارك في الحديث عن فلسطين
 في هذا العصر، لكل منا دور في نشر الوعي. كل منشور أو رسالة قد يلهم أو يثقف الآخرين. لا تخف من التعبير، فالكلمات قوة لتغيير الواقع. اجعل منصاتك فضاءً للحوار وشارك في صنع التغيير. معًا، نرفع أصوات المظلومين ونعمل من أجل عدالة عالمية. لنتحد من أجل فلسطين ونعيد الأمل لمن يحتاجونه
 
 <a href="https://www.palestinercs.org/en/Donation" target="blank">
