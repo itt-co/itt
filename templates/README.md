@@ -161,7 +161,7 @@ Example:
 Don’t hesitate to speak up and join the conversation about Palestine. In this age, each of us has a role in raising awareness. Every post or message can inspire or educate others. Don’t fear expressing yourself, as words are a powerful force to change reality. Make your platforms spaces for dialogue and contribute to creating change. Together, we raise the voices of the oppressed and work toward global justice. Let’s unite for Palestine and restore hope to those who need it.
 
  لا تتردد في قول كلمتك، وشارك في الحديث عن فلسطين
-في هذا العصر، لكل منا دور في نشر الوعي. كل منشور أو رسالة قد يلهم أو يثقف الآخرين. لا تخف من التعبير، فالكلمات قوة لتغيير الواقع. اجعل منصاتك فضاءً للحوار وشارك في صنع التغيير. معًا، نرفع أصوات المظلومين ونعمل من أجل عدالة عالمية. لنتحد من أجل فلسطين ونعيد الأمل لمن يحتاجونه
+في هذا العصر، لكل منا دور في نشر الوعي. كل منشور أو رسالة قد يلهم أو يثقف الآخرين. لا تخف من التعبير، فالكلمات قوة لتغيير الواقع. اجعل منصاتك مساحة للحوار وشارك في صنع التغيير. معًا، نرفع أصوات المظلومين ونعمل من أجل عدالة عالمية. لنتحد من أجل فلسطين ونعيد الأمل لمن يحتاجونه
 
 <a href="https://www.palestinercs.org/en/Donation" target="blank">
 Donate to the Palestinian Red Crescent
