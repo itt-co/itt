@@ -57,7 +57,7 @@ function ReplaceTextInFile {
         [string]$TextToReplace,
         [string]$ReplacementText
     )
-    Write-Host "[+] Replace Placeholder" -ForegroundColor Yellow
+    Write-Host "[+] Replacing Placeholder..." -ForegroundColor Yellow
     # Read the content of the file
     $content = Get-Content $FilePath
     # Replace the text
@@ -86,7 +86,7 @@ function ProcessDirectory {
         Get-ChildItem $Directory -Recurse -File | ForEach-Object {
         
             if ($Skip -contains $_.Name) {
-                Write-Host "[+] Skipping $($_.Name) from ProcessDirectory." -ForegroundColor Yellow
+                Write-Host "[+] Skip $($_.Name) from ProcessDirectory." -ForegroundColor Yellow
                 return
             }
     
@@ -112,7 +112,7 @@ function GenerateCheckboxes {
         [string]$ToggleField = "",
         [string]$NameField = ""
     )
-    Write-Host "[+] Generate Checkboxes..." -ForegroundColor Yellow
+    Write-Host "[+] Generating Listview Checkboxes..." -ForegroundColor Yellow
     $Checkboxes = ""
     foreach ($Item in $Items) {
 
@@ -158,7 +158,7 @@ function Sync-JsonFiles {
 
 
         if ($Skip -contains $_.Name) {
-            Write-Host "[+] Skipping $($_.Name) from ProcessDirectory." -ForegroundColor Yellow
+            Write-Host "[+] Skip $($_.Name) from ProcessDirectory." -ForegroundColor Yellow
             return
         }
 
@@ -178,7 +178,7 @@ function Update-Readme {
         [string]$OriginalReadmePath = "Templates\README.md",
         [string]$NewReadmePath = "README.md"
     )
-    Write-Host "[+] Updating Readme..." -ForegroundColor Yellow
+    Write-Host "[+] Updating README..." -ForegroundColor Yellow
     # Read the content of the original README.md file
     $readmeContent = Get-Content -Path $OriginalReadmePath -Raw
     $badgeUrl = "![Latest update](https://img.shields.io/badge/Latest%20update-$(Get-Date -Format 'MM/dd/yyy')-blue)"
@@ -264,7 +264,7 @@ function ConvertTo-Xaml {
         [string]$HeadlineFontSize = 20,
         [string]$DescriptionFontSize = 16
     )
-    Write-Host "[+] Generate Events Window Content..." -ForegroundColor Yellow
+    Write-Host "[+] Generating Events Window Content..." -ForegroundColor Yellow
     # Initialize XAML as an empty string
     $xaml = ""
     # Process each line of the input text
@@ -323,7 +323,7 @@ function GenerateThemesKeys {
     param (
         [string]$ThemesPath = "themes"
     )
-    Write-Host "[+] Generate Themes Keys..." -ForegroundColor Yellow
+    Write-Host "[+] Generating Themes Keys..." -ForegroundColor Yellow
     # Validate the path
     if (-Not (Test-Path $ThemesPath)) {
         Write-Host "The specified path does not exist: $ThemesPath" -ForegroundColor Red
@@ -400,7 +400,7 @@ function GenerateLocalesKeys {
     param (
         [string]$localesPath = "locales"
     )
-    Write-Host "[+] Generate Locales Keys..." -ForegroundColor Yellow
+    Write-Host "[+] Generating Locales Keys..." -ForegroundColor Yellow
     # Validate the path
     if (-Not (Test-Path $localesPath)) {
         Write-Host "The specified path does not exist: $ThemesPath"
@@ -420,7 +420,7 @@ function GenerateLocalesKeys {
     return $stringBuilder.ToString().TrimEnd("`n".ToCharArray())  # Remove the trailing newline
 }
 function GenerateClickEventHandlers {
-    Write-Host "[+] Generate Click Event Handlers..." -ForegroundColor Yellow
+    Write-Host "[+] Generating Click Event Handlers..." -ForegroundColor Yellow
     try {
         # Define file paths for scripts and templates
         $FilePaths = @{
@@ -460,7 +460,7 @@ function GenerateClickEventHandlers {
 }
 # Generate GenerateInvokeButtons
 function GenerateInvokeButtons {
-    Write-Host "[+] Generate InvokeButtons..." -ForegroundColor Yellow
+    Write-Host "[+] Generating Invoke-Buttons..." -ForegroundColor Yellow
     # Define file paths for the Invoke button template
     $FilePaths = @{
         "Invoke" = Join-Path -Path "scripts/Invoke" -ChildPath "Invoke-Button.ps1"
@@ -512,7 +512,7 @@ function Convert-Locales {
         [string]$csvFolderPath = "locales", 
         [string]$jsonOutputPath = "static/Database/locales.json"
     )
-    Write-Host "[+] Convert Locales CSV Files..." -ForegroundColor Yellow
+    Write-Host "[+] Converting locales CSV files..." -ForegroundColor Yellow
     # Initialize an OrderedDictionary to store the "Controls" object
     $locales = @{
         "Controls" = [System.Collections.Specialized.OrderedDictionary]@{}
@@ -778,7 +778,7 @@ try {
 #===========================================================================
 "@
 
-    Write-Host "[+] BUILD SUCCESSFULLY." -ForegroundColor Yellow
+    Write-Host "[+] Build Successful." -ForegroundColor Yellow
 
     Update-Readme
     
