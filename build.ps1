@@ -57,7 +57,7 @@ function ReplaceTextInFile {
         [string]$TextToReplace,
         [string]$ReplacementText
     )
-    Write-Host "[i] Replace Placeholder"
+    Write-Host "[+] Replace Placeholder"
     # Read the content of the file
     $content = Get-Content $FilePath
     # Replace the text
@@ -83,7 +83,7 @@ function ProcessDirectory {
     Get-ChildItem $Directory -Recurse -File | ForEach-Object {
         
         if ($Skip -contains $_.Name) {
-            Write-Host "[i] Skipping ($_) from ProcessDirectory."
+            Write-Host "[+] Skipping ($_) from ProcessDirectory."
             return
         }
 
@@ -103,7 +103,7 @@ function GenerateCheckboxes {
         [string]$ToggleField = "",
         [string]$NameField = ""
     )
-    Write-Host "[i] Generate Checkboxes..."
+    Write-Host "[+] Generate Checkboxes..."
     $Checkboxes = ""
     foreach ($Item in $Items) {
 
@@ -149,7 +149,7 @@ function Sync-JsonFiles {
 
 
         if ($Skip -contains $_.Name) {
-            Write-Host "[i] Skipping ($_) from ProcessDirectory."
+            Write-Host "[+] Skipping ($_) from ProcessDirectory."
             return
         }
 
@@ -169,7 +169,7 @@ function Update-Readme {
         [string]$OriginalReadmePath = "Templates\README.md",
         [string]$NewReadmePath = "README.md"
     )
-    Write-Host "[i] Update Readme..."
+    Write-Host "[+] Update Readme..."
     # Read the content of the original README.md file
     $readmeContent = Get-Content -Path $OriginalReadmePath -Raw
     $badgeUrl = "![Latest update](https://img.shields.io/badge/Latest%20update-$(Get-Date -Format 'MM/dd/yyy')-blue)"
@@ -199,7 +199,7 @@ function Update-Readme {
     Set-Content -Path $NewReadmePath -Value $updatedContent -Encoding UTF8
     Write-Host `n`
     # Output the counts to the console in one go
-    Write-Host "[i] Apps $applicationsCount`n[i] Tweaks $tweaksCount`n[i] Quotes $quotesCount`n[i] Tracks $tracksCount`n[i] Settings $settingsCount`n[i] Locales $localesCount"
+    Write-Host "[+] Apps $applicationsCount`n[+] Tweaks $tweaksCount`n[+] Quotes $quotesCount`n[+] Tracks $tracksCount`n[+] Settings $settingsCount`n[+] Locales $localesCount"
 }
 # Add New Contributor to Contributor.md and show his name in about window
 function NewCONTRIBUTOR {
@@ -255,7 +255,7 @@ function ConvertTo-Xaml {
         [string]$HeadlineFontSize = 20,
         [string]$DescriptionFontSize = 16
     )
-    Write-Host "[i] Generate Events Window Content..."
+    Write-Host "[+] Generate Events Window Content..."
     # Initialize XAML as an empty string
     $xaml = ""
     # Process each line of the input text
@@ -314,7 +314,7 @@ function GenerateThemesKeys {
     param (
         [string]$ThemesPath = "themes"
     )
-    Write-Host "[i] Generate Themes Keys..."
+    Write-Host "[+] Generate Themes Keys..."
     # Validate the path
     if (-Not (Test-Path $ThemesPath)) {
         Write-Host "The specified path does not exist: $ThemesPath"
@@ -391,7 +391,7 @@ function GenerateLocalesKeys {
     param (
         [string]$localesPath = "locales"
     )
-    Write-Host "[i] Generate Locales Keys..."
+    Write-Host "[+] Generate Locales Keys..."
     # Validate the path
     if (-Not (Test-Path $localesPath)) {
         Write-Host "The specified path does not exist: $ThemesPath"
@@ -411,7 +411,7 @@ function GenerateLocalesKeys {
     return $stringBuilder.ToString().TrimEnd("`n".ToCharArray())  # Remove the trailing newline
 }
 function GenerateClickEventHandlers {
-    Write-Host "[i] Generate Click Event Handlers..."
+    Write-Host "[+] Generate Click Event Handlers..."
     try {
         # Define file paths for scripts and templates
         $FilePaths = @{
@@ -451,7 +451,7 @@ function GenerateClickEventHandlers {
 }
 # Generate GenerateInvokeButtons
 function GenerateInvokeButtons {
-    Write-Host "[i] Generate InvokeButtons..."
+    Write-Host "[+] Generate InvokeButtons..."
     # Define file paths for the Invoke button template
     $FilePaths = @{
         "Invoke" = Join-Path -Path "scripts/Invoke" -ChildPath "Invoke-Button.ps1"
@@ -503,7 +503,7 @@ function Convert-Locales {
         [string]$csvFolderPath = "locales", 
         [string]$jsonOutputPath = "static/Database/locales.json"
     )
-    Write-Host "[i] Convert Locales CSV Files..."
+    Write-Host "[+] Convert Locales CSV Files..."
     # Initialize an OrderedDictionary to store the "Controls" object
     $locales = @{
         "Controls" = [System.Collections.Specialized.OrderedDictionary]@{}
@@ -536,7 +536,7 @@ function Convert-Locales {
         Write-Host "locales.json file updated." -ForegroundColor Green
     }
     else {
-        Write-Host "[i] No changes detected in locales.json" 
+        Write-Host "[+] No changes detected in locales.json" 
     }
 }
 
@@ -544,7 +544,7 @@ function Convert-Locales {
 function RemoveAllComments {
   
     try {
-        Write-Host "[i] Removing all debug comments and unnecessary content..."
+        Write-Host "[+] Removing all debug comments and unnecessary content..."
         $FilePath = $OutputScript
         $Content = Get-Content -Path $FilePath -Raw
         $Content = $Content -replace '(#\s*debug start[\s\S]*?#\s*debug end)', ''
@@ -755,8 +755,6 @@ try {
 #endregion End loadXmal
 #===========================================================================
 "@
-    # Write Main section
-
 
     WriteToScript -Content @"
 #===========================================================================
@@ -771,22 +769,34 @@ try {
 #===========================================================================
 "@
     Update-Readme
-    Write-Host "[i] Build successfully" -ForegroundColor Yellow
+    
+    Write-Host "[+] Build successfully" -ForegroundColor Yellow
+
     function Run {
+
         param ($Version)
-        $script = "& '$ProjectDir\$OutputScript'"
-        $pwsh = if (Get-Command pwsh -ErrorAction SilentlyContinue) { "pwsh" } else { "powershell" }
-        $wt = if (Get-Command wt.exe -ErrorAction SilentlyContinue) { "wt.exe" } else { $pwsh }
-        Start-Process $wt -ArgumentList "$pwsh -NoProfile -Command $script -$Version"
+
+        try {
+
+            $script = "& '$ProjectDir\$OutputScript'"
+            $pwsh = if (Get-Command pwsh -ErrorAction SilentlyContinue) { "pwsh" } else { "powershell" }
+            $wt = if (Get-Command wt.exe -ErrorAction SilentlyContinue) { "wt.exe" } else { $pwsh }
+            Start-Process $wt -ArgumentList "$pwsh -NoProfile -Command $script -$Version"
+        }
+        catch {
+            Write-Error "An error occurred: $_"
+        }
+
     }
+
     if ($Realsee) {
         RemoveAllComments
         Run -Version "Realsee"
-        Write-Host "[i] Starting Realsee mode..." -ForegroundColor Yellow
+        Write-Host "[+] Starting Realsee mode..." -ForegroundColor Yellow
     }
     if ($Debug) {
         Run -Version "debug"
-        Write-Host "[i] Starting Debug mode..." -ForegroundColor Yellow
+        Write-Host "[+] Starting Debug mode..." -ForegroundColor Yellow
     }
 }
 catch {
