@@ -43,7 +43,7 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico
             </Grid>
         </Grid>
     <!--Header Section-->
-        {{Taps}}
+        {{Tabs}}
         {{buttons}}
 </Grid>
 </Window>
