@@ -5257,7 +5257,7 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Reset the TCP/IP Stack",
-"Description": "If you have an internet problem, Reset network configuration",
+"Description": "If you have an internet issue, reset the network configuration",
 "Category": "Fixer",
 "Check": "false",
 "Refresh": "false",
@@ -11948,7 +11948,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Reset the TCP/IP Stack" Tag="Fixer" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Fixer"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="If you have an internet problem Reset network configuration."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="If you have an internet issue reset the network configuration."/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Setup Auto login" Tag="Other" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
