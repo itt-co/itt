@@ -645,7 +645,7 @@ try {
     # Define file paths
     $FilePaths = @{
         "MainWindow" = Join-Path -Path $windows -ChildPath "MainWindow.xaml"
-        "taps"       = Join-Path -Path $Controls -ChildPath "taps.xaml"
+        "tabs"       = Join-Path -Path $Controls -ChildPath "tabs.xaml"
         "menu"       = Join-Path -Path $Controls -ChildPath "menu.xaml"
         "catagory"   = Join-Path -Path $Controls -ChildPath "catagory.xaml"
         "search"     = Join-Path -Path $Controls -ChildPath "search.xaml"
@@ -657,7 +657,7 @@ try {
     try {
         # Read content from files
         $MainXamlContent = (Get-Content -Path $FilePaths["MainWindow"] -Raw) -replace "'", "''"
-        $AppXamlContent = Get-Content -Path $FilePaths["taps"] -Raw
+        $AppXamlContent = Get-Content -Path $FilePaths["tabs"] -Raw
         $StyleXamlContent = Get-Content -Path $FilePaths["Style"] -Raw
         $ColorsXamlContent = Get-Content -Path $FilePaths["Colors"] -Raw
         $MenuXamlContent = Get-Content -Path $FilePaths["menu"] -Raw
@@ -665,7 +665,7 @@ try {
         $CatagoryXamlContent = Get-Content -Path $FilePaths["catagory"] -Raw
         $searchXamlContent = Get-Content -Path $FilePaths["search"] -Raw
         # Replace placeholders with actual content
-        $MainXamlContent = $MainXamlContent -replace "{{Taps}}", $AppXamlContent
+        $MainXamlContent = $MainXamlContent -replace "{{Tabs}}", $AppXamlContent
         $MainXamlContent = $MainXamlContent -replace "{{Style}}", $StyleXamlContent
         $MainXamlContent = $MainXamlContent -replace "{{Colors}}", $ColorsXamlContent
         $MainXamlContent = $MainXamlContent -replace "{{menu}}", $MenuXamlContent
