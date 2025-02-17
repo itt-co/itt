@@ -1340,7 +1340,7 @@
   },
   {
     "Name": "Reset the TCP/IP Stack",
-    "Description": "If you have an internet problem, Reset network configuration",
+    "Description": "If you have an internet issue, reset the network configuration",
     "Category": "Fixer",
     "Check": "false",
     "Refresh": "false",
