@@ -172,7 +172,7 @@ function Update-Readme {
     Write-Host "[i] Update Readme..."
     # Read the content of the original README.md file
     $readmeContent = Get-Content -Path $OriginalReadmePath -Raw
-    $badgeUrl = "![Last Update](https://img.shields.io/badge/Last%20Update-$(Get-Date -Format 'MM/dd/yyy')-blue)"
+    $badgeUrl = "![Latest update](https://img.shields.io/badge/Latest%20update-$(Get-Date -Format 'MM/dd/yyy')-blue)"
     # Prepare values for the placeholders
     $applicationsCount = $itt.database.Applications.Count
     $tweaksCount = $itt.database.Tweaks.Count
