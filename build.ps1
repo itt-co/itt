@@ -57,7 +57,7 @@ function ReplaceTextInFile {
         [string]$TextToReplace,
         [string]$ReplacementText
     )
-    Write-Host "[+] Replace Placeholder"
+    Write-Host "[+] Replace Placeholder" -ForegroundColor Yellow
     # Read the content of the file
     $content = Get-Content $FilePath
     # Replace the text
@@ -70,6 +70,7 @@ function AddFileContentToScript {
     param (
         [string]$FilePath
     )
+    
     $Content = Get-Content -Path $FilePath -Raw
     WriteToScript -Content $Content
 }
@@ -80,16 +81,24 @@ function ProcessDirectory {
         [string[]]$Skip
     )
 
-    Get-ChildItem $Directory -Recurse -File | ForEach-Object {
+    try {
         
-        if ($Skip -contains $_.Name) {
-            Write-Host "[+] Skipping ($_) from ProcessDirectory."
-            return
+        Get-ChildItem $Directory -Recurse -File | ForEach-Object {
+        
+            if ($Skip -contains $_.Name) {
+                Write-Host "[+] Skipping $($_.Name) from ProcessDirectory." -ForegroundColor Yellow
+                return
+            }
+    
+            if ($_.DirectoryName -ne $Directory) {
+                AddFileContentToScript -FilePath $_.FullName
+                #Write-Host "[+] Successfully $($_.Name) in final output." -ForegroundColor Yellow    
+            }
         }
-
-        if ($_.DirectoryName -ne $Directory) {
-            AddFileContentToScript -FilePath $_.FullName
-        }
+    }
+    catch {
+        Write-Host "[!] Failed to add '$($_.Name)' to the final output." -ForegroundColor Red
+        Write-Host "Error: $_" -ForegroundColor Red
     }
 }
 # Generate Checkboxex apps/tewaks/settings
@@ -103,7 +112,7 @@ function GenerateCheckboxes {
         [string]$ToggleField = "",
         [string]$NameField = ""
     )
-    Write-Host "[+] Generate Checkboxes..."
+    Write-Host "[+] Generate Checkboxes..." -ForegroundColor Yellow
     $Checkboxes = ""
     foreach ($Item in $Items) {
 
@@ -149,7 +158,7 @@ function Sync-JsonFiles {
 
 
         if ($Skip -contains $_.Name) {
-            Write-Host "[+] Skipping ($_) from ProcessDirectory."
+            Write-Host "[+] Skipping $($_.Name) from ProcessDirectory." -ForegroundColor Yellow
             return
         }
 
@@ -169,7 +178,7 @@ function Update-Readme {
         [string]$OriginalReadmePath = "Templates\README.md",
         [string]$NewReadmePath = "README.md"
     )
-    Write-Host "[+] Update Readme..."
+    Write-Host "[+] Updating Readme..." -ForegroundColor Yellow
     # Read the content of the original README.md file
     $readmeContent = Get-Content -Path $OriginalReadmePath -Raw
     $badgeUrl = "![Latest update](https://img.shields.io/badge/Latest%20update-$(Get-Date -Format 'MM/dd/yyy')-blue)"
@@ -199,7 +208,7 @@ function Update-Readme {
     Set-Content -Path $NewReadmePath -Value $updatedContent -Encoding UTF8
     Write-Host `n`
     # Output the counts to the console in one go
-    Write-Host "[+] Apps $applicationsCount`n[+] Tweaks $tweaksCount`n[+] Quotes $quotesCount`n[+] Tracks $tracksCount`n[+] Settings $settingsCount`n[+] Locales $localesCount"
+    Write-Host "[i] Apps $applicationsCount`n[i] Tweaks $tweaksCount`n[i] Quotes $quotesCount`n[i] Tracks $tracksCount`n[i] Settings $settingsCount`n[i] Locales $localesCount"
 }
 # Add New Contributor to Contributor.md and show his name in about window
 function NewCONTRIBUTOR {
@@ -222,7 +231,7 @@ function NewCONTRIBUTOR {
     # Get GitHub username
     $username = Get-GitHubUsername
     if (-not $username) {
-        Write-Error "GitHub username not found in .git/config."
+        Write-Error "GitHub username not found in .git/config." -ForegroundColor Red
         exit 1
     }
     # Read CONTRIBUTORS.md content and ensure username is unique
@@ -255,7 +264,7 @@ function ConvertTo-Xaml {
         [string]$HeadlineFontSize = 20,
         [string]$DescriptionFontSize = 16
     )
-    Write-Host "[+] Generate Events Window Content..."
+    Write-Host "[+] Generate Events Window Content..." -ForegroundColor Yellow
     # Initialize XAML as an empty string
     $xaml = ""
     # Process each line of the input text
@@ -314,10 +323,10 @@ function GenerateThemesKeys {
     param (
         [string]$ThemesPath = "themes"
     )
-    Write-Host "[+] Generate Themes Keys..."
+    Write-Host "[+] Generate Themes Keys..." -ForegroundColor Yellow
     # Validate the path
     if (-Not (Test-Path $ThemesPath)) {
-        Write-Host "The specified path does not exist: $ThemesPath"
+        Write-Host "The specified path does not exist: $ThemesPath" -ForegroundColor Red
         return
     }
     # Create a StringBuilder for better performance on string concatenation
@@ -391,7 +400,7 @@ function GenerateLocalesKeys {
     param (
         [string]$localesPath = "locales"
     )
-    Write-Host "[+] Generate Locales Keys..."
+    Write-Host "[+] Generate Locales Keys..." -ForegroundColor Yellow
     # Validate the path
     if (-Not (Test-Path $localesPath)) {
         Write-Host "The specified path does not exist: $ThemesPath"
@@ -411,7 +420,7 @@ function GenerateLocalesKeys {
     return $stringBuilder.ToString().TrimEnd("`n".ToCharArray())  # Remove the trailing newline
 }
 function GenerateClickEventHandlers {
-    Write-Host "[+] Generate Click Event Handlers..."
+    Write-Host "[+] Generate Click Event Handlers..." -ForegroundColor Yellow
     try {
         # Define file paths for scripts and templates
         $FilePaths = @{
@@ -451,7 +460,7 @@ function GenerateClickEventHandlers {
 }
 # Generate GenerateInvokeButtons
 function GenerateInvokeButtons {
-    Write-Host "[+] Generate InvokeButtons..."
+    Write-Host "[+] Generate InvokeButtons..." -ForegroundColor Yellow
     # Define file paths for the Invoke button template
     $FilePaths = @{
         "Invoke" = Join-Path -Path "scripts/Invoke" -ChildPath "Invoke-Button.ps1"
@@ -503,7 +512,7 @@ function Convert-Locales {
         [string]$csvFolderPath = "locales", 
         [string]$jsonOutputPath = "static/Database/locales.json"
     )
-    Write-Host "[+] Convert Locales CSV Files..."
+    Write-Host "[+] Convert Locales CSV Files..." -ForegroundColor Yellow
     # Initialize an OrderedDictionary to store the "Controls" object
     $locales = @{
         "Controls" = [System.Collections.Specialized.OrderedDictionary]@{}
@@ -533,10 +542,10 @@ function Convert-Locales {
     # Write the JSON to the specified file only if it has changed
     if ($existingJsonOutputNormalized -ne $jsonOutputNormalized) {
         Set-Content -Path $jsonOutputPath -Value $jsonOutput -Encoding UTF8
-        Write-Host "locales.json file updated." -ForegroundColor Green
+        Write-Host "[+] locales.json file updated." -ForegroundColor Yellow
     }
     else {
-        Write-Host "[+] No changes detected in locales.json" 
+        Write-Host "[i] No changes detected in locales.json" 
     }
 }
 
@@ -544,7 +553,7 @@ function Convert-Locales {
 function RemoveAllComments {
   
     try {
-        Write-Host "[+] Removing all debug comments and unnecessary content..."
+        Write-Host "[+] Removing all debug comments and unnecessary content..." -ForegroundColor Yellow
         $FilePath = $OutputScript
         $Content = Get-Content -Path $FilePath -Raw
         $Content = $Content -replace '(#\s*debug start[\s\S]*?#\s*debug end)', ''
@@ -595,7 +604,7 @@ try {
 #region Begin Start
 #===========================================================================
 "@
-    AddFileContentToScript -FilePath $StartScript
+    AddFileContentToScript -FilePath $StartScript 
     ReplaceTextInFile -FilePath $OutputScript -TextToReplace '#{replaceme}' -ReplacementText "$(Get-Date -Format 'MM/dd/yyy')"
     WriteToScript -Content @"
 #===========================================================================
@@ -768,9 +777,11 @@ try {
 #endregion End Main
 #===========================================================================
 "@
+
+    Write-Host "[+] BUILD SUCCESSFULLY." -ForegroundColor Yellow
+
     Update-Readme
     
-    Write-Host "[+] Build successfully" -ForegroundColor Yellow
 
     function Run {
 
