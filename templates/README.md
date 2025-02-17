@@ -62,8 +62,8 @@ ITT (Install Tweaks Tool) included all Windows 10/11 Software and Windows Tweaks
 <pre><code>irm emadadel4.github.io/itt.ps1 | iex</code></pre>
 <pre><code>irm raw.githubusercontent.com/emadadel4/ITT/main/itt.ps1 | iex</code></pre>
 
-## ⚡ Quick Install Your Saved Apps
-
+## ⚡ Quick Install Your Saved Apps (Run as Admin is recommended)
+Example:
 <pre><code>iex "& { $(irm bit.ly/ittea) } -i .\myapps.itt"</code></pre>
 
 <div align="center">
