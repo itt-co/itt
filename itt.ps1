@@ -7145,8 +7145,8 @@ $File = [System.IO.Path]::GetFileName($url)
 $DownloadPath = Join-Path -Path $Destination_Directory -ChildPath $File
 $targetPath = Join-Path -Path $Destination_Directory -ChildPath $launcher
 try {
-Add-Log -Message "Downloading $name using Invoke-WebRequest" -Level "INFO"
-Invoke-WebRequest -Uri $url -OutFile $DownloadPath -ErrorAction Stop
+Add-Log -Message "Downloading $name using Start-BitsTransfer" -Level "INFO"
+Start-BitsTransfer -Source $url -Destination $DownloadPath -ErrorAction Stop
 Expand-Archive -Path $DownloadPath -DestinationPath $Destination_Directory -Force -ErrorAction Stop
 }
 catch {
