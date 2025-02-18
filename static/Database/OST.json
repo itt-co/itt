@@ -107,6 +107,10 @@
     {
       "name": "Outlaws From The West",
       "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Outlaws%20From%20The%20West.mp3"
+    },
+    {
+      "name": "Alarm - Boys Noize",
+      "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Alarm%20-%20Boys%20Noize.mp3"
     }
   ],
   "Favorite": [
@@ -153,10 +157,6 @@
     {
       "name": "Sigrid - Everybody Knows",
       "url": "https://archive.org/download/justiceleagueflac/Danny%20Elfman%20-%20Justice%20League%20%28Original%20Motion%20Picture%20Soundtrack%29/01%20-%20Everybody%20Knows.mp3"
-    },
-    {
-      "name": "Alarm - Boys Noize",
-      "url": "https://github.com/emadadel4/emadadel4.github.io/raw/refs/heads/main/static/sounds/Alarm%20-%20Boys%20Noize.mp3"
     }
   ],
   "Otobers": [
