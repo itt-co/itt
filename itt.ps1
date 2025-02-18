@@ -6,7 +6,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "02/17/2025"
+lastupdate     = "02/18/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -7430,7 +7430,7 @@ $itt.mediaPlayer.controls.play()
 function GetShuffledTracks {
 switch ($itt.Date.Month, $itt.Date.Day) {
 { $_ -eq 9, 1 } { return $ST.Favorite | Get-Random -Count $ST.Favorite.Count }
-{ $_ -eq 10, 6 -or $_ -eq 10, 7 } { return $itt.database.OST.Otobers | Get-Random -Count $ST.Otobers.Count }
+{ $_ -eq 10, 6 -or $_ -eq 10, 7 } { return $ST.Otobers | Get-Random -Count $ST.Otobers.Count }
 default { return $ST.Tracks | Get-Random -Count $ST.Tracks.Count }
 }
 }
@@ -8167,6 +8167,8 @@ if ($global:toggleState) { Manage-Music -action "SetVolume" -volume 100 }
 else { Manage-Music -action "SetVolume" -volume 0 }
 }
 }
+"N" { if ($modifiers -eq "Ctrl") { $itt.mediaPlayer.controls.next() } }
+"B" { if ($modifiers -eq "Ctrl") { $itt.mediaPlayer.controls.previous() } }
 "Q" {
 if ($modifiers -eq "Ctrl") {
 $itt.TabControl.SelectedItem = $itt.TabControl.Items | Where-Object { $_.Name -eq "apps" }
@@ -12575,22 +12577,22 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/31/2025'.Trim()
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.Add_PreViewKeyDown({ if ($_.Key -eq "Escape") { $itt.event.Close() } })
