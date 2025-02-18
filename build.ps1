@@ -26,7 +26,6 @@ catch {
     Write-Host $psitem.Exception.Message
 }
 
-
 # Initializeialize synchronized hashtable
 $itt = [Hashtable]::Synchronized(@{})
 $itt.database = @{}
@@ -36,20 +35,46 @@ $global:DateContent = ""
 
 # write content to output script
 function WriteToScript {
-    param (
-        [string]$Content
-    )
-    $streamWriter = $null
+
+    param ([string]$Content)
+    
     try {
-        $streamWriter = [System.IO.StreamWriter]::new($OutputScript, $true)
-        $streamWriter.WriteLine($Content)
-    }
-    finally {
-        if ($null -ne $streamWriter) {
-            $streamWriter.Dispose()
+
+        if($Realsee)
+        {
+
+            $Content = $Content -replace '(#\s*debug start[\s\S]*?#\s*debug end)', ''
+            $Content = $Content -replace '<#[\s\S]*?#>', ''
+            $Content = $Content -replace '<!.*', ''
+            $Content = ($Content -split "`r?`n" | ForEach-Object {
+                ($_ -replace '^\s*#.*$', '').Trim()
+            }) -join "`n"
+
+            $Content = ($Content -split "`r?`n" | Where-Object { $_ -notmatch '^\s*$' }) -join "`n"
+
+            # Remove the last empty line if it exists
+            $Content = $Content -replace '(\r?\n)+$', ''
+        }
+
+        $streamWriter = $null
+        
+        try {
+            $streamWriter = [System.IO.StreamWriter]::new($OutputScript, $true)
+            if($Content) {
+                $streamWriter.WriteLine($Content)
+            }
+        }
+        finally {
+            if ($null -ne $streamWriter) {
+                $streamWriter.Dispose()
+            }
         }
     }
+    catch {
+        Write-Error "An error occurred: $_"
+    }
 }
+
 # Replace placeholder function
 function ReplaceTextInFile {
     param (
@@ -371,7 +396,6 @@ function GenerateThemesSwitch {
 
     return $switchStatement
 }
-
 function GenerateLanguageSwitch {
 
     # Define the path to the Themes directory
@@ -395,7 +419,6 @@ function GenerateLanguageSwitch {
 
     return $switchStatement
 }
-
 function GenerateLocalesKeys {
     param (
         [string]$localesPath = "locales"
@@ -549,35 +572,6 @@ function Convert-Locales {
     }
 }
 
-# comparison itt.ps1 remove all comments and space
-function RemoveAllComments {
-  
-    try {
-        Write-Host "[+] Removing all debug comments and unnecessary content..." -ForegroundColor Yellow
-        $FilePath = $OutputScript
-        $Content = Get-Content -Path $FilePath -Raw
-        $Content = $Content -replace '(#\s*debug start[\s\S]*?#\s*debug end)', ''
-        $Content = $Content -replace '<#[\s\S]*?#>', ''
-        $Content = $Content -replace '<!.*', ''
-        $Content = ($Content -split "`r?`n" | ForEach-Object {
-            ($_ -replace '^\s*#.*$', '').Trim()
-            }) -join "`n"
-        $Content = ($Content -split "`r?`n" | Where-Object { $_ -notmatch '^\s*$' }) -join "`n"
-        $streamWriter = $null
-        try {
-            $streamWriter = [System.IO.StreamWriter]::new($FilePath, $false)
-            $streamWriter.Write($Content)
-        }
-        finally {
-            if ($null -ne $streamWriter) {
-                $streamWriter.Dispose()
-            }
-        }
-    }
-    catch {
-        Write-Error "An error occurred: $_"
-    }
-}
 # Write script header
 function WriteHeader {
     WriteToScript -Content @"
@@ -781,34 +775,18 @@ try {
     Write-Host "[+] Build Successful." -ForegroundColor Yellow
 
     Update-Readme
-    
 
-    function Run {
+    try {
 
-        param ($Version)
-
-        try {
-
-            $script = "& '$ProjectDir\$OutputScript'"
-            $pwsh = if (Get-Command pwsh -ErrorAction SilentlyContinue) { "pwsh" } else { "powershell" }
-            $wt = if (Get-Command wt.exe -ErrorAction SilentlyContinue) { "wt.exe" } else { $pwsh }
-            Start-Process $wt -ArgumentList "$pwsh -NoProfile -Command $script -$Version"
-        }
-        catch {
-            Write-Error "An error occurred: $_"
-        }
-
+        $script = "& '$ProjectDir\$OutputScript'"
+        $pwsh = if (Get-Command pwsh -ErrorAction SilentlyContinue) { "pwsh" } else { "powershell" }
+        $wt = if (Get-Command wt.exe -ErrorAction SilentlyContinue) { "wt.exe" } else { $pwsh }
+        Start-Process $wt -ArgumentList "$pwsh -NoProfile -Command $script -Debug"
+    }
+    catch {
+        Write-Error "An error occurred: $_"
     }
 
-    if ($Realsee) {
-        RemoveAllComments
-        Run -Version "Realsee"
-        Write-Host "[+] Starting Realsee mode..." -ForegroundColor Yellow
-    }
-    if ($Debug) {
-        Run -Version "debug"
-        Write-Host "[+] Starting Debug mode..." -ForegroundColor Yellow
-    }
 }
 catch {
     Write-Error "An error occurred: $_"
