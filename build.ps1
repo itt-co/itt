@@ -43,6 +43,7 @@ function WriteToScript {
         if($Realsee)
         {
 
+            $Content = $Content.Trim()
             $Content = $Content -replace '(#\s*debug start[\s\S]*?#\s*debug end)', ''
             $Content = $Content -replace '<#[\s\S]*?#>', ''
             $Content = $Content -replace '<!.*', ''
@@ -51,9 +52,7 @@ function WriteToScript {
             }) -join "`n"
 
             $Content = ($Content -split "`r?`n" | Where-Object { $_ -notmatch '^\s*$' }) -join "`n"
-
-            # Remove the last empty line if it exists
-            $Content = $Content -replace '(\r?\n)+$', ''
+            $Content = $Content.Trim()
         }
 
         $streamWriter = $null
