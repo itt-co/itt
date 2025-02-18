@@ -8167,8 +8167,6 @@ if ($global:toggleState) { Manage-Music -action "SetVolume" -volume 100 }
 else { Manage-Music -action "SetVolume" -volume 0 }
 }
 }
-"N" { if ($modifiers -eq "Ctrl") { $itt.mediaPlayer.controls.next() } }
-"B" { if ($modifiers -eq "Ctrl") { $itt.mediaPlayer.controls.previous() } }
 "Q" {
 if ($modifiers -eq "Ctrl") {
 $itt.TabControl.SelectedItem = $itt.TabControl.Items | Where-Object { $_.Name -eq "apps" }
