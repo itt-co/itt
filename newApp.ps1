@@ -20,7 +20,7 @@ Write-Host "
 #===========================================================================
 $Mthoed = @{
     1 = "API [Choco/Winget] Recommended"
-    2 = "Default [HttpClient] Custom"
+    2 = "Default [Start-BitsTransfer] Custom"
 }
 do {
     Write-Host "Which method to download this app will be?:"
@@ -101,7 +101,7 @@ function Download-Mthoed {
                 defaultEntry = $null
             }
         }
-        "Default [HttpClient] Custom" {
+        "Default [Start-BitsTransfer] Custom" {
             $url = Read-Host "Enter url file (e.g: emadadel4.github.io/setup.exe)"  
             $launcher = Read-Host "Setup launcher (e.g: setup.exe)"
 
