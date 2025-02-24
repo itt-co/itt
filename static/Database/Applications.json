@@ -2387,14 +2387,7 @@
     "Description": "Neat Download Manager is a free Internet Download Manager for Windows",
     "winget": "none",
     "choco": "none",
-    "default": [
-      {
-        "url": "https://www.neatdownloadmanager.com/file/NeatDM_setup.exe",
-        "args": "/verysilent /tasks=addcontextmenufiles,addcontextmenufolders,addtopath",
-        "portable": "false",
-        "launcher": "NeatDM_setup.exe"
-      }
-    ],
+    "itt": "vlc",
     "category": "Web Browsers",
     "check": "false"
   },
