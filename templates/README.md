@@ -199,6 +199,11 @@ Other way to support (Boycott)
   </div>
 </div>
 
+<div align="center">
+<br>
+ "YouTube continues to remove recommended videos!"
+</div>
+
 <h3 align="center">
   If you can't lift the injustice, at least tell everyone about it.
 </h3>
