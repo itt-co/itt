@@ -2387,7 +2387,7 @@
     "Description": "Neat Download Manager is a free Internet Download Manager for Windows",
     "winget": "none",
     "choco": "none",
-    "itt": "vlc",
+    "itt": "neat",
     "category": "Web Browsers",
     "check": "false"
   },
