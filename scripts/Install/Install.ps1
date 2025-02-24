@@ -49,36 +49,24 @@ function Invoke-Install {
 
         param($selectedApps , $QuickInstall , $debug)
 
-        UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "Downloading" -TextIcon "installIcon" -Icon "  " -Width "auto"
+        #UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "Downloading" -TextIcon "installIcon" -Icon "  " -Width "auto"
         $itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
 
         $itt.ProcessRunning = $true
 
         foreach ($App in $selectedApps) {
 
-            if ($App.Winget -ne "none" -or $App.Choco -ne "none") {
+            if ($App.Winget -ne "none" -or $App.Choco -ne "none" -or $App.ITT -ne "none") {
 
                 # Some packages won't install until the package folder is removed.
                 #$chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($App.Choco)"
                 #Remove-Item -Path "$chocoFolder" -Recurse -Force
                 #Remove-Item -Path "$chocoFolder.install" -Recurse -Force
                 #Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
-                Install-App -Name $App.Name -Winget $App.Winget -Choco $App.Choco
+                Install-App -Name $App.Name -Winget $App.Winget -Choco $App.Choco -itt $App.ITT
                 
                 # debug start
                 if ($debug) { Add-Log -Message $App.Choco -Level "debug" }
-                # debug end
-            }
-            else {
-                Native-Downloader `
-                    -name           $App.name `
-                    -url            $App.default.url `
-                    -launcher       $App.default.launcher `
-                    -portable       $App.default.portable `
-                    -installArgs    $App.default.args
-
-                # debug start
-                if ($debug) { Add-Log -Message $App.name $App.default.url -Level "debug" }
                 # debug end
             }
         }
