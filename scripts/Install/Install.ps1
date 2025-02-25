@@ -56,19 +56,17 @@ function Invoke-Install {
 
         foreach ($App in $selectedApps) {
 
-            if ($App.Winget -ne "none" -or $App.Choco -ne "none" -or $App.ITT -ne "none") {
-
-                # Some packages won't install until the package folder is removed.
-                #$chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($App.Choco)"
-                #Remove-Item -Path "$chocoFolder" -Recurse -Force
-                #Remove-Item -Path "$chocoFolder.install" -Recurse -Force
-                #Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
-                Install-App -Name $App.Name -Winget $App.Winget -Choco $App.Choco -itt $App.ITT
-                
-                # debug start
-                if ($debug) { Add-Log -Message $App.Choco -Level "debug" }
-                # debug end
-            }
+            # Some packages won't install until the package folder is removed.
+            #$chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($App.Choco)"
+            #Remove-Item -Path "$chocoFolder" -Recurse -Force
+            #Remove-Item -Path "$chocoFolder.install" -Recurse -Force
+            #Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
+            
+            Install-App -Name $App.Name -Winget $App.Winget -Choco $App.Choco -itt $App.ITT
+            
+            # debug start
+            if ($debug) { Add-Log -Message "$App.Choco | $App.Winget | $App.ITT"  -Level "debug" }
+            # debug end
         }
 
         Finish -ListView "AppsListView"
