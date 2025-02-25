@@ -7071,7 +7071,7 @@ Add-Log -Message "Successfully Installed ($Name) Using $Source." -Level "Install
 $wingetArgs = "install --id $Winget --silent --accept-source-agreements --accept-package-agreements --force"
 $ittArgs = "install $ITT -y"
 if ($Choco -eq "none" -and $Winget -eq "none" -and $itt -ne "none") {
-Install-ITTPM
+Install-Choco
 Add-Log -Message "Attempting to install $Name using ITT." -Level "INFO"
 $ITTResult = Install-AppWithInstaller "itt" $ittArgs
 Log-Result $ITTResult "itt"
