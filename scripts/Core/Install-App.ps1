@@ -56,11 +56,10 @@ function Install-App {
     # If Chocolatey is 'none', use Winget
     if ($Choco -eq "none" -and $Winget -eq "none" -and $itt -ne "none") {
 
-        Install-ITTPM
+        Install-Choco
         Add-Log -Message "Attempting to install $Name using ITT." -Level "INFO"
         $ITTResult = Install-AppWithInstaller "itt" $ittArgs
         Log-Result $ITTResult "itt"
-
     }
     else 
     {
