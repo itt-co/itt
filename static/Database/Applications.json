@@ -166,14 +166,7 @@
     "Description": "A lightweight and feature-rich audio player with support for various audio formats and customizable interface themes",
     "winget": "none",
     "choco": "none",
-    "default": [
-      {
-        "url": "https://aimp.ru/files/windows/builds/aimp_5.40.2655_w32.exe",
-        "args": "/AUTO /SILENT /RUN",
-        "portable": "false",
-        "launcher": "aimp_5.40.2655_w32.exe"
-      }
-    ],
+    "itt": "aimp",
     "category": "Media",
     "check": "false"
   },
@@ -2396,46 +2389,7 @@
     "Description": "Xbox 360 Controller Emulator” allows your controller (gamepad, joystick, steering wheel, pedals, etc.) to function on your PC as an Xbox 360 controller. It allows you to remap buttons and axes and to drive cars with steering wheel and pedals or to fly planes with joystick and throttle in games like “Grand Theft Auto” or “Saints Row” • Digitally Signed",
     "winget": "none",
     "choco": "none",
-    "default": [
-      {
-        "url": "https://www.x360ce.com/files/x360ce_x86.zip",
-        "args": "none",
-        "portable": "true",
-        "launcher": "x360ce_x86.exe"
-      }
-    ],
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "x630ce x86",
-    "Description": "Xbox 360 Controller Emulator” allows your controller (gamepad, joystick, steering wheel, pedals, etc.) to function on your PC as an Xbox 360 controller. It allows you to remap buttons and axes and to drive cars with steering wheel and pedals or to fly planes with joystick and throttle in games like “Grand Theft Auto” or “Saints Row” • Digitally Signed",
-    "winget": "none",
-    "choco": "none",
-    "default": [
-      {
-        "url": "https://www.x360ce.com/files/x360ce_x86.zip",
-        "args": "none",
-        "portable": "true",
-        "launcher": "x360ce_x86.exe"
-      }
-    ],
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "x630ce x64",
-    "Description": "Xbox 360 Controller Emulator” allows your controller (gamepad, joystick, steering wheel, pedals, etc.) to function on your PC as an Xbox 360 controller. It allows you to remap buttons and axes and to drive cars with steering wheel and pedals or to fly planes with joystick and throttle in games like “Grand Theft Auto” or “Saints Row” • Digitally Signed",
-    "winget": "none",
-    "choco": "none",
-    "default": [
-      {
-        "url": "https://www.x360ce.com/files/x360ce_x64.zip",
-        "args": "none",
-        "portable": "true",
-        "launcher": "x360ce_x64.exe"
-      }
-    ],
+    "itt": "x630ce",
     "category": "Gaming",
     "check": "false"
   },
@@ -2867,14 +2821,7 @@
     "Description": "Control your internet bandwidth with SelfishNet V3, ARP Spoofing application.",
     "winget": "none",
     "choco": "none",
-    "default": [
-      {
-        "url": "https://github.com/nov0caina/SelfishNetV3/releases/download/SelfishNetV3.0.0/SelfishNetV3.0.0_Installer.zip",
-        "args": "/quiet",
-        "portable": "false",
-        "launcher": "SelfishNetV3_Installer.msi"
-      }
-    ],
+    "itt": "selfishnet",
     "category": "Utilities",
     "check": "false"
   },
@@ -3126,14 +3073,7 @@
     "Description": "All in One Runtimes also known as AIO Runtimes is a program that integrates essential runtime packages ensuring the seamless functionality of all programs by installing them automatically",
     "winget": "none",
     "choco": "none",
-    "default": [
-      {
-        "url": "https://allinoneruntimes.org/files/aio-runtimes_v2.5.0.exe",
-        "args": "none",
-        "portable": "false",
-        "launcher": "aio-runtimes_v2.5.0.exe"
-      }
-    ],
+    "itt": "aio-runtimes",
     "category": "Runtimes",
     "check": "false"
   },
@@ -3142,14 +3082,7 @@
     "Description": "This archive contains the latest version (Oct 2024) of all VCRedist Visual Studio C++ runtimes, installable with a single click by running the included batch file installer",
     "winget": "none",
     "choco": "none",
-    "default": [
-      {
-        "url": "https://uk1-dl.techpowerup.com/files/ueTG1ZUGfNLEEZoDA7FORw/1731410753/Visual-C-Runtimes-All-in-One-Oct-2024.zip",
-        "args": "none",
-        "portable": "false",
-        "launcher": "install_all.bat"
-      }
-    ],
+    "itt": "vsall",
     "category": "Runtimes",
     "check": "false"
   },
@@ -3167,14 +3100,7 @@
     "Description": "MemTest86 boots from a USB flash drive and tests the RAM in your computer for faults using a series of comprehensive algorithms and test patterns",
     "winget": "none",
     "choco": "none",
-    "default": [
-      {
-        "url": "https://www.memtest86.com/downloads/memtest86-usb.zip",
-        "launcher": "imageUSB.exe",
-        "args": "/silent",
-        "portable": "ture"
-      }
-    ],
+    "itt": "memtest86",
     "category": "Utilities",
     "check": "false"
   },
@@ -3183,14 +3109,7 @@
     "Description": "Memtest86 Plus v6 is a unified, free, open-source memory testing tool, released under GNU GPL v2.0. The new v6 code base (originally called PCMemTest) was provided by Martin Whitaker, based on Memtest86+ v5, developed by Sam Demeulemeester. Both are now working on Memtest86+",
     "winget": "none",
     "choco": "none",
-    "default": [
-      {
-        "url": "https://www.memtest.org/download/v7.20/mt86plus_7.20_USB_Installer.exe",
-        "launcher": "mt86plus_7.20_USB_Installer.exe",
-        "args": "/verysilent /tasks=addcontextmenufiles,addcontextmenufolders,addtopath",
-        "portable": "ture"
-      }
-    ],
+    "itt": "memtest86plus",
     "category": "Utilities",
     "check": "false"
   },
@@ -3231,54 +3150,6 @@
     "check": "false"
   },
   {
-    "Name": "Radeon™ RX 570 Adrenalin Edition Windows 10",
-    "Description": "RX 570 Driver Adrenalin 24.3.1 (WHQL Recommended)",
-    "winget": "none",
-    "choco": "none",
-    "default": [
-      {
-        "url": "https://drivers.amd.com/drivers/whql-amd-software-adrenalin-edition-24.3.1-win10-win11-mar20-vega-polaris.exe",
-        "args": "/SILENT",
-        "launcher": "whql-amd-software-adrenalin-edition-24.3.1-win10-win11-mar20-vega-polaris.exe",
-        "portable": "false"
-      }
-    ],
-    "category": "GPU Drivers",
-    "check": "false"
-  },
-  {
-    "Name": "Radeon™ RX 580 Adrenalin Edition Windows 10",
-    "Description": "RX 580 Adrenalin 24.9.1 (WHQL Recommended)",
-    "winget": "none",
-    "choco": "none",
-    "default": [
-      {
-        "url": "https://drivers.amd.com/drivers/whql-amd-software-adrenalin-edition-24.9.1-win10-win11-vega-polaris.exe",
-        "args": "/SILENT",
-        "launcher": "whql-amd-software-adrenalin-edition-24.9.1-win10-win11-vega-polaris.exe",
-        "portable": "false"
-      }
-    ],
-    "category": "GPU Drivers",
-    "check": "false"
-  },
-  {
-    "Name": "Visual C++ Redistributable Runtimes AIO Repack",
-    "Description": "Visual C++ Redistributable Runtimes AIO Repack is all the latest Microsoft Visual C++ Redistributable Runtimes, without the original setup bloat payload",
-    "winget": "none",
-    "choco": "none",
-    "default": [
-      {
-        "portable": "false",
-        "launcher": "VisualCppRedist_AIO_x86_x64.exe",
-        "url": "https://www.majorgeeks.com/index.php?ct=files&action=download&",
-        "args": "/SILENT"
-      }
-    ],
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
     "Name": "Volume2",
     "Description": "Advanced Windows volume control",
     "winget": "irzyxa.Volume2Portable",
@@ -3301,14 +3172,7 @@
     "Description": "Remote desktop and file transfer tool",
     "winget": "none",
     "choco": "none",
-    "default": [
-      {
-        "url": "https://github.com/dchapyshev/aspia/releases/download/v2.7.0/aspia-host-2.7.0-x86_64.msi",
-        "launcher": "aspia-host-2.7.0-x86_64.msi",
-        "args": "/silent",
-        "portable": "false"
-      }
-    ],
+    "itt": "Aspia",
     "category": "File Sharing",
     "check": "false"
   },
@@ -3434,14 +3298,7 @@
     "Description": " Desktop Telegram client with good customization and Ghost mode",
     "winget": "none",
     "choco": "none",
-    "default": [
-      {
-        "url": "https://github.com/AyuGram/AyuGramDesktop/releases/download/v5.10.3/AyuGram.exe",
-        "portable": "ture",
-        "args": "none",
-        "launcher": "AyuGram.exe"
-      }
-    ],
+    "itt": "ayugramdesktop",
     "category": "Communication",
     "check": "false"
   },
@@ -3486,14 +3343,7 @@
     "Description": " Fast PlayStation 1 emulator for x86-64/AArch32/AArch64/RV64",
     "winget": "none",
     "choco": "none",
-    "default": [
-      {
-        "url": "https://github.com/stenzek/duckstation/releases/download/latest/duckstation-windows-x64-release.zip",
-        "portable": "ture",
-        "args": "none",
-        "launcher": "duckstation-qt-x64-ReleaseLTCG.exe"
-      }
-    ],
+    "itt": "duckstation",
     "category": "Portable",
     "check": "false"
   },
@@ -3511,14 +3361,7 @@
     "Description": "SuperCopier2 SuperCopier replaces Windows explorer file copy and adds many features",
     "winget": "none",
     "choco": "none",
-    "default": [
-      {
-        "url": "https://github.com/gligli/SuperCopier2/releases/download/2.2b/SuperCopier22beta.exe",
-        "portable": "false",
-        "args": "/S /LANG=en",
-        "launcher": "SuperCopier22beta.exe"
-      }
-    ],
+    "itt": "supercopier2",
     "category": "Utilities",
     "check": "false"
   },
@@ -3761,14 +3604,7 @@
     "Description": "reverse engineering tool. It supports a number of great features",
     "winget": "none",
     "choco": "none",
-    "default": [
-      {
-        "url": "https://cdn.binary.ninja/installers/binaryninja_free_win64.exe",
-        "args": "/silent",
-        "launcher": "binaryninja_free_win64.exe",
-        "portable": "false"
-      }
-    ],
+    "itt": "binaryninja",
     "category": "Utilities",
     "check": "false"
   },
@@ -3777,14 +3613,7 @@
     "Description": "freeware resource compiler & decompiler for Windows® applications",
     "winget": "none",
     "choco": "none",
-    "default": [
-      {
-        "url": "https://www.angusj.com/resourcehacker/resource_hacker.zip",
-        "args": "none",
-        "portable": "true",
-        "launcher": "ResourceHacker.exe"
-      }
-    ],
+    "itt": "resourcehacker",
     "category": "Portable",
     "check": "false"
   },
