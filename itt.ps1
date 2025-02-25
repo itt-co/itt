@@ -6,7 +6,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "02/24/2025"
+lastupdate     = "02/25/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -2419,14 +2419,7 @@ $itt.database.Applications = @'
     "Description": "Neat Download Manager is a free Internet Download Manager for Windows",
     "winget": "none",
     "choco": "none",
-    "default": [
-      {
-        "url": "https://www.neatdownloadmanager.com/file/NeatDM_setup.exe",
-        "args": "/verysilent /tasks=addcontextmenufiles,addcontextmenufolders,addtopath",
-        "portable": "false",
-        "launcher": "NeatDM_setup.exe"
-      }
-    ],
+    "itt": "neat",
     "category": "Web Browsers",
     "check": "false"
   },
@@ -6881,7 +6874,7 @@ $items += @{
 Name    = $appsDict[$child.Content].Name
 Choco   = $appsDict[$child.Content].Choco
 Winget  = $appsDict[$child.Content].Winget
-Default = $appsDict[$child.Content].Default
+ITT     = $appsDict[$child.Content].itt
 }
 }
 }
@@ -7052,7 +7045,8 @@ function Install-App {
 param (
 [string]$Name,
 [string]$Choco,
-[string]$Winget
+[string]$Winget,
+[string]$ITT
 )
 function Install-AppWithInstaller {
 param (
@@ -7075,14 +7069,27 @@ Add-Log -Message "Successfully Installed ($Name) Using $Source." -Level "Install
 }
 }
 $wingetArgs = "install --id $Winget --silent --accept-source-agreements --accept-package-agreements --force"
-if ($Choco -eq "none" -and $Winget -ne "none") {
+$ittArgs = "install $ITT -y"
+if ($Choco -eq "none" -and $Winget -eq "none" -and $itt -ne "none") {
+Install-ITTPM
+Add-Log -Message "Attempting to install $Name using ITT." -Level "INFO"
+$ITTResult = Install-AppWithInstaller "itt" $ittArgs
+Log-Result $ITTResult "itt"
+}
+else
+{
+if ($Choco -eq "none" -and $Winget -ne "none")
+{
 Install-Winget
 Add-Log -Message "Attempting to install $Name using Winget." -Level "INFO"
 Start-Process -FilePath "winget" -ArgumentList "settings --enable InstallerHashOverride" -NoNewWindow -Wait -PassThru
 $wingetResult = Install-AppWithInstaller "winget" $wingetArgs
 Log-Result $wingetResult "Winget"
 }
-else {
+else
+{
+if ($Choco -ne "none" -or $Winget -ne "none")
+{
 Install-Choco
 Add-Log -Message "Attempting to install $Name using Chocolatey." -Level "INFO"
 $chocoArgs = "install $Choco --confirm --acceptlicense -q --ignore-http-cache --limit-output --allowemptychecksumsecure --ignorechecksum --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests"
@@ -7093,9 +7100,12 @@ Add-Log -Message "Chocolatey installation failed, Falling back to Winget." -Leve
 Start-Process -FilePath "winget" -ArgumentList "settings --enable InstallerHashOverride" -NoNewWindow -Wait -PassThru
 $wingetResult = Install-AppWithInstaller "winget" $wingetArgs
 Log-Result $wingetResult "Winget"
-}
-else {
+}else {
 Log-Result $chocoResult "Chocolatey"
+}
+}else {
+Add-Log -Message "No Package Manager" -Level "ERROR"
+}
 }
 }
 }
@@ -7104,6 +7114,12 @@ if (-not (Get-Command choco -ErrorAction SilentlyContinue))
 {
 Add-Log -Message "Checking dependencies This won't take a minute..." -Level "INFO"
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1')) *> $null
+}
+}
+function Install-ITTPM {
+if (-not (Get-Command itt -ErrorAction SilentlyContinue))
+{
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/itt-co/bin/refs/heads/main/install.ps1')) *> $null
 }
 }
 function Install-Winget {
@@ -7575,21 +7591,10 @@ return
 }
 ITT-ScriptBlock -ArgumentList $selectedApps $QuickInstall, $debug -debug $debug -ScriptBlock {
 param($selectedApps , $QuickInstall , $debug)
-UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "Downloading" -TextIcon "installIcon" -Icon "  " -Width "auto"
 $itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
 $itt.ProcessRunning = $true
 foreach ($App in $selectedApps) {
-if ($App.Winget -ne "none" -or $App.Choco -ne "none") {
-Install-App -Name $App.Name -Winget $App.Winget -Choco $App.Choco
-}
-else {
-Native-Downloader `
--name           $App.name `
--url            $App.default.url `
--launcher       $App.default.launcher `
--portable       $App.default.portable `
--installArgs    $App.default.args
-}
+Install-App -Name $App.Name -Winget $App.Winget -Choco $App.Choco -itt $App.ITT
 }
 Finish -ListView "AppsListView"
 $itt.ProcessRunning = $false
@@ -12582,20 +12587,20 @@ $itt.event.FindName('date').text = '01/31/2025'.Trim()
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $itt.event.Add_PreViewKeyDown({ if ($_.Key -eq "Escape") { $itt.event.Close() } })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
@@ -12858,7 +12863,7 @@ $functions = @(
 'Disable-Service', 'Uninstall-AppxPackage', 'Finish', 'Message',
 'Notify', 'UpdateUI', 'Native-Downloader', 'Install-Choco',
 'ExecuteCommand', 'Set-Registry', 'Set-Taskbar',
-'Refresh-Explorer', 'Remove-ScheduledTasks'
+'Refresh-Explorer', 'Remove-ScheduledTasks','Install-ITTPM'
 )
 foreach ($func in $functions) {
 $command = Get-Command $func -ErrorAction SilentlyContinue
