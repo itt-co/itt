@@ -6886,7 +6886,7 @@ param (
 [string]$Source
 )
 if ($Installer -ne 0) {
-Add-Log -Message "$Source Installation Failed for ($Name). Please report the issue in the ITT repository." -Level "ERROR"
+Add-Log -Message "Installation Failed for ($Name). Report the issue in the ITT repository." -Level "$Source"
 }
 else {
 Add-Log -Message "Successfully Installed ($Name)" -Level "$Source"
@@ -6920,7 +6920,7 @@ Add-Log -Message "Attempting to install $Name." -Level "Chocolatey"
 $chocoResult = Install-AppWithInstaller "choco" $chocoArgs
 if ($chocoResult -ne 0) {
 Install-Winget
-Add-Log -Message "Chocolatey installation failed, Falling back to Winget." -Level "Chocolatey"
+Add-Log -Message "installation failed, Falling back to Winget." -Level "Chocolatey"
 Start-Process -FilePath "winget" -ArgumentList "settings --enable InstallerHashOverride" -NoNewWindow -Wait -PassThru
 $wingetResult = Install-AppWithInstaller "winget" $wingetArgs
 Log $wingetResult "Winget"
@@ -12377,22 +12377,22 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '01/31/2025'.Trim()
-$itt.event.FindName('ps').add_MouseLeftButtonDown({
-Start-Process('https://www.palestinercs.org/en/Donation')
-})
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
+$itt.event.FindName('ps').add_MouseLeftButtonDown({
+Start-Process('https://www.palestinercs.org/en/Donation')
+})
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.Add_PreViewKeyDown({ if ($_.Key -eq "Escape") { $itt.event.Close() } })
