@@ -45,9 +45,9 @@ function Invoke-Install {
         return
     }
 
-    ITT-ScriptBlock -ArgumentList $selectedApps $QuickInstall, $debug -debug $debug -ScriptBlock {
+    ITT-ScriptBlock -ArgumentList $selectedApps $QuickInstall -Debug $debug -ScriptBlock {
 
-        param($selectedApps , $QuickInstall , $debug)
+        param($selectedApps , $QuickInstall)
 
         UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "Downloading" -TextIcon "installIcon" -Icon "  " -Width "auto"
         $itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
@@ -65,7 +65,7 @@ function Invoke-Install {
             Install-App -Name $App.Name -Winget $App.Winget -Choco $App.Choco -itt $App.ITT
             
             # debug start
-            if ($debug) { Add-Log -Message "$App.Choco | $App.Winget | $App.ITT"  -Level "debug" }
+            if ($Debug) { Add-Log -Message "$($App.Choco) | $($App.Winget) | $($App.ITT)"  -Level "debug" }
             # debug end
         }
 
