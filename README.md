@@ -55,7 +55,8 @@ ITT (Install Tweaks Tool) included all Windows 10/11 Software and Windows Tweaks
 </ol>
 
 > [!CAUTION]  
-> Run the script using official commands from this repository. It's not a portable script, so avoid download it from any sites.
+> Run the script using official commands from this repository. 
+> It's not a portable script, so avoid download it from any sites.
 
 <pre><code>irm bit.ly/ittea | iex</code></pre>
 <pre><code>irm bit.ly/emadadel | iex</code></pre>
