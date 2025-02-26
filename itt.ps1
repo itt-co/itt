@@ -36,7 +36,7 @@ $itt.database.Applications = @'
     "Description": "A widely-used open-source web browser known for its speed, privacy features, and customization options",
     "winget": "Mozilla.Firefox",
     "choco": "firefox",
-    "itt": "none",
+    "itt": "na",
     "category": "Web Browsers",
     "check": "false"
   },
@@ -45,7 +45,7 @@ $itt.database.Applications = @'
     "Description": "A widely-used open-source web browser known for its speed, privacy features, and customization options",
     "winget": "Mozilla.Firefox.ESR",
     "choco": "firefoxesr",
-    "itt": "none",
+    "itt": "na",
     "category": "Web Browsers",
     "check": "false"
   },
@@ -54,7 +54,7 @@ $itt.database.Applications = @'
     "Description": "A web browser designed for smooth and secure browsing experiences",
     "winget": "Alex313031.Thorium",
     "choco": "thorium --params /SSE3",
-    "itt": "none",
+    "itt": "na",
     "category": "Web Browsers",
     "check": "false"
   },
@@ -63,7 +63,7 @@ $itt.database.Applications = @'
     "Description": "A web browser designed for smooth and secure browsing experiences",
     "winget": "Alex313031.Thorium.AVX2",
     "choco": "thorium --params /AVX",
-    "itt": "none",
+    "itt": "na",
     "category": "Web Browsers",
     "check": "false"
   },
@@ -72,7 +72,7 @@ $itt.database.Applications = @'
     "Description": "Microsoft's web browser built for fast and secure internet surfing, integrating seamlessly with Windows ecosystem",
     "winget": "Microsoft.Edge",
     "choco": "microsoft-edge",
-    "itt": "none",
+    "itt": "na",
     "category": "Web Browsers",
     "check": "false"
   },
@@ -81,7 +81,7 @@ $itt.database.Applications = @'
     "Description": "A popular web browser known for its speed, simplicity, and vast ecosystem of extensions",
     "winget": "Google.Chrome",
     "choco": "googlechrome",
-    "itt": "none",
+    "itt": "na",
     "category": "Web Browsers",
     "check": "false"
   },
@@ -90,7 +90,7 @@ $itt.database.Applications = @'
     "Description": "An open-source web browser project that serves as the foundation for many browsers, including Google Chrome",
     "winget": "eloston.ungoogled-chromium",
     "choco": "chromium",
-    "itt": "none",
+    "itt": "na",
     "category": "Web Browsers",
     "check": "false"
   },
@@ -99,7 +99,7 @@ $itt.database.Applications = @'
     "Description": "A privacy focused web browser that blocks ads and trackers, offering faster and safer browsing experiences",
     "winget": "Brave.Brave",
     "choco": "brave",
-    "itt": "none",
+    "itt": "na",
     "category": "Web Browsers",
     "check": "false"
   },
@@ -108,7 +108,7 @@ $itt.database.Applications = @'
     "Description": "A web browser that prioritizes user privacy by routing internet traffic through a global network of servers, enabling anonymous browsing",
     "winget": "TorProject.TorBrowser",
     "choco": "tor-browser",
-    "itt": "none",
+    "itt": "na",
     "category": "Web Browsers",
     "check": "false"
   },
@@ -117,7 +117,7 @@ $itt.database.Applications = @'
     "Description": "The Opera web browser makes the Web fast and fun, giving you a better web browser experience on any computer",
     "winget": "Opera.Opera",
     "choco": "opera",
-    "itt": "none",
+    "itt": "na",
     "category": "Web Browsers",
     "check": "false"
   },
@@ -126,7 +126,7 @@ $itt.database.Applications = @'
     "Description": "A popular download manager tool that accelerates downloads and allows users to organize and schedule downloads efficiently",
     "winget": "Tonec.InternetDownloadManager",
     "choco": "internet-download-manager",
-    "itt": "none",
+    "itt": "na",
     "category": "Web Browsers",
     "check": "false"
   },
@@ -135,16 +135,16 @@ $itt.database.Applications = @'
     "Description": "JDownloader is an internet download manager",
     "winget": "AppWork.JDownloader",
     "choco": "jdownloader",
-    "itt": "none",
+    "itt": "na",
     "category": "Web Browsers",
     "check": "false"
   },
   {
     "Name": "KLite Mega Codec Full Pack",
     "Description": "Comprehensive collection of audio and video codecs, filters, and tools, enabling playback of various media formats",
-    "winget": "none",
+    "winget": "na",
     "choco": "k-litecodecpackfull",
-    "itt": "none",
+    "itt": "na",
     "category": "Media",
     "check": "false"
   },
@@ -153,7 +153,7 @@ $itt.database.Applications = @'
     "Description": "A multimedia player with a sleek interface and advanced features, supporting a wide range of audio and video formats",
     "winget": "Daum.PotPlayer",
     "choco": "potplayer",
-    "itt": "none",
+    "itt": "na",
     "category": "Media",
     "check": "false"
   },
@@ -162,7 +162,7 @@ $itt.database.Applications = @'
     "Description": "A versatile media player capable of playing almost any multimedia file format, with support for various streaming protocols",
     "winget": "VideoLAN.VLC",
     "choco": "vlc.install",
-    "itt": "none",
+    "itt": "na",
     "category": "Media",
     "check": "false"
   },
@@ -171,7 +171,7 @@ $itt.database.Applications = @'
     "Description": "A powerful open-source media center software that allows users to organize and stream their media collections",
     "winget": "9NBLGGH4T892",
     "choco": "kodi",
-    "itt": "none",
+    "itt": "na",
     "category": "Media",
     "check": "false"
   },
@@ -180,7 +180,7 @@ $itt.database.Applications = @'
     "Description": "An open-source media server software that enables users to stream their media libraries across devices, providing a self-hosted alternative to commercial services",
     "winget": "Jellyfin.Server",
     "choco": "jellyfin",
-    "itt": "none",
+    "itt": "na",
     "category": "Media",
     "check": "false"
   },
@@ -189,15 +189,15 @@ $itt.database.Applications = @'
     "Description": "A classic media player known for its customizable interface and extensive plugin support, providing a nostalgic music playback experience",
     "winget": "Winamp.Winamp",
     "choco": "winamp",
-    "itt": "none",
+    "itt": "na",
     "category": "Media",
     "check": "false"
   },
   {
     "Name": "Aimp",
     "Description": "A lightweight and feature-rich audio player with support for various audio formats and customizable interface themes",
-    "winget": "none",
-    "choco": "none",
+    "winget": "na",
+    "choco": "na",
     "itt": "aimp",
     "category": "Media",
     "check": "false"
@@ -207,7 +207,7 @@ $itt.database.Applications = @'
     "Description": "Spotify is a new way to listen to music",
     "winget": "Spotify.Spotify",
     "choco": "spotify",
-    "itt": "none",
+    "itt": "na",
     "category": "Media",
     "check": "false"
   },
@@ -216,7 +216,7 @@ $itt.database.Applications = @'
     "Description": "FastStone Image Viewer is a fast, stable, user-friendly image browser, converter and editor",
     "winget": "FastStone.Viewer",
     "choco": "fsviewer",
-    "itt": "none",
+    "itt": "na",
     "category": "Imaging",
     "check": "false"
   },
@@ -225,7 +225,7 @@ $itt.database.Applications = @'
     "Description": "An open-source office productivity suite offering word processing, spreadsheet, presentation, and other office tools, compatible with Microsoft Office formats",
     "winget": "Apache.OpenOffice",
     "choco": "openoffice",
-    "itt": "none",
+    "itt": "na",
     "category": "Documents",
     "check": "false"
   },
@@ -234,7 +234,7 @@ $itt.database.Applications = @'
     "Description": "A lightweight and feature-rich PDF reader with annotation, form filling, and document signing capabilities",
     "winget": "Foxit.FoxitReader",
     "choco": "foxitreader",
-    "itt": "none",
+    "itt": "na",
     "category": "Documents",
     "check": "false"
   },
@@ -243,7 +243,7 @@ $itt.database.Applications = @'
     "Description": "A powerful open-source office suite providing word processing, spreadsheet, presentation, and other office tools, compatible with Microsoft Office formats",
     "winget": "Foxit.FoxitReader",
     "choco": "libreoffice-fresh",
-    "itt": "none",
+    "itt": "na",
     "category": "Documents",
     "check": "false"
   },
@@ -252,7 +252,7 @@ $itt.database.Applications = @'
     "Description": "A lightweight and fast PDF reader with minimalistic design and focus on simplicity and speed",
     "winget": "SumatraPDF.SumatraPDF",
     "choco": "sumatrapdf.install",
-    "itt": "none",
+    "itt": "na",
     "category": "Documents",
     "check": "false"
   },
@@ -261,7 +261,7 @@ $itt.database.Applications = @'
     "Description": "A popular file compression and archiving utility that supports various archive formats and offers advanced features such as encryption and self-extracting archives",
     "winget": "RARLab.WinRAR",
     "choco": "winrar",
-    "itt": "none",
+    "itt": "na",
     "category": "Compression",
     "check": "false"
   },
@@ -270,7 +270,7 @@ $itt.database.Applications = @'
     "Description": "An open-source file archiver with a high compression ratio, supporting various archive formats and providing a powerful command-line interface",
     "winget": "7zip.7zip",
     "choco": "7zip",
-    "itt": "none",
+    "itt": "na",
     "category": "Compression",
     "check": "false"
   },
@@ -279,7 +279,7 @@ $itt.database.Applications = @'
     "Description": " PeaZip is a free cross-platform file archiver",
     "winget": "Giorgiotani.Peazip",
     "choco": "peazip",
-    "itt": "none",
+    "itt": "na",
     "category": "Compression",
     "check": "false"
   },
@@ -288,7 +288,7 @@ $itt.database.Applications = @'
     "Description": "A cross-platform messaging app with a focus on speed and security, offering end-to-end encryption and a wide range of features such as group chats, file sharing, and stickers",
     "winget": "Telegram.TelegramDesktop",
     "choco": "telegram",
-    "itt": "none",
+    "itt": "na",
     "category": "Communication",
     "check": "false"
   },
@@ -297,7 +297,7 @@ $itt.database.Applications = @'
     "Description": "Fast, simple, secure. Privacy that fits in your pocket",
     "winget": "OpenWhisperSystems.Signal",
     "choco": "signal",
-    "itt": "none",
+    "itt": "na",
     "category": "Communication",
     "check": "false"
   },
@@ -306,7 +306,7 @@ $itt.database.Applications = @'
     "Description": "A messaging app that allows users to connect with friends and family through text messages, voice calls, and video calls, offering various multimedia sharing features",
     "winget": "9WZDNCRF0083",
     "choco": "messenger",
-    "itt": "none",
+    "itt": "na",
     "category": "Communication",
     "check": "false"
   },
@@ -315,7 +315,7 @@ $itt.database.Applications = @'
     "Description": "A video conferencing app that facilitates online meetings, webinars, and virtual events, allowing participants to interact through video, audio, and chat",
     "winget": "Zoom.ZoomRooms",
     "choco": "zoom",
-    "itt": "none",
+    "itt": "na",
     "category": "Communication",
     "check": "false"
   },
@@ -324,7 +324,7 @@ $itt.database.Applications = @'
     "Description": "A collaboration platform that combines workplace chat, video meetings, file storage, and application integration, enhancing teamwork and productivity within organizations",
     "winget": "Microsoft.Teams",
     "choco": "microsoft-teams.install",
-    "itt": "none",
+    "itt": "na",
     "category": "Communication",
     "check": "false"
   },
@@ -333,7 +333,7 @@ $itt.database.Applications = @'
     "Description": "A VoIP application and digital distribution platform designed for creating communities and connecting gamers, providing text, voice, and video communication features",
     "winget": "Discord.Discord",
     "choco": "discord",
-    "itt": "none",
+    "itt": "na",
     "category": "Communication",
     "check": "false"
   },
@@ -342,7 +342,7 @@ $itt.database.Applications = @'
     "Description": "A remote access and support software that enables users to remotely control computers, transfer files, and collaborate online, facilitating remote work and IT support",
     "winget": "TeamViewer.TeamViewer",
     "choco": "teamviewer",
-    "itt": "none",
+    "itt": "na",
     "category": "File Sharing",
     "check": "false"
   },
@@ -351,16 +351,16 @@ $itt.database.Applications = @'
     "Description": "A free and open-source raster graphics editor used for image retouching and editing, drawing and painting, and converting between different image formats",
     "winget": "GIMP.GIMP",
     "choco": "gimp",
-    "itt": "none",
+    "itt": "na",
     "category": "Imaging",
     "check": "false"
   },
   {
     "Name": "Microsoft Visual C++ Runtime - all versions",
     "Description": "Microsoft Visual C++ Redistributable installs run-time components of Visual C++ libraries. These components are required to run C++ applications that are developed using Visual Studio and link dynamically to Visual C++ libraries",
-    "winget": "none",
+    "winget": "na",
     "choco": "vcredist-all",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
@@ -369,142 +369,142 @@ $itt.database.Applications = @'
     "Description": "DirectX is a collection of APIs for handling tasks related to games and videos.",
     "winget": "Microsoft.DirectX",
     "choco": "directx",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
   {
     "Name": "Microsoft Visual C++ 2005 (x86) Redistributable",
     "Description": "A set of runtime components required to run applications developed with Microsoft Visual C++ 2005, providing libraries, DLLs, and other resources",
-    "winget": "none",
+    "winget": "na",
     "choco": "vcredist2005",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
   {
     "Name": "Microsoft Visual C++ 2005 (x64) Redistributable",
     "Description": "A set of runtime components required to run 64-bit applications developed with Microsoft Visual C++ 2005, providing libraries, DLLs, and other resources",
-    "winget": "none",
+    "winget": "na",
     "choco": "vcredist2005",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
   {
     "Name": "Microsoft Visual C++ 2008 (x86) Redistributable",
     "Description": "A set of runtime components required to run applications developed with Microsoft Visual C++ 2008, providing libraries, DLLs, and other resources",
-    "winget": "none",
+    "winget": "na",
     "choco": "vcredist2008",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
   {
     "Name": "Microsoft Visual C++ 2008 (x64) Redistributable",
     "Description": "A set of runtime components required to run 64-bit applications developed with Microsoft Visual C++ 2008, providing libraries, DLLs, and other resources",
-    "winget": "none",
+    "winget": "na",
     "choco": "vcredist2008",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
   {
     "Name": "Microsoft Visual C++ 2010 (x86) Redistributable",
     "Description": "A set of runtime components required to run applications developed with Microsoft Visual C++ 2010, providing libraries, DLLs, and other resources",
-    "winget": "none",
+    "winget": "na",
     "choco": "vcredist2010",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
   {
     "Name": "Microsoft Visual C++ 2010 (x64) Redistributable",
     "Description": "A set of runtime components required to run 64-bit applications developed with Microsoft Visual C++ 2010, providing libraries, DLLs, and other resources",
-    "winget": "none",
+    "winget": "na",
     "choco": "vcredist2010",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
   {
     "Name": "Microsoft Visual C++ 2012 (x86) Redistributable",
     "Description": "A set of runtime components required to run applications developed with Microsoft Visual C++ 2012, providing libraries, DLLs, and other resources",
-    "winget": "none",
+    "winget": "na",
     "choco": "vcredist2012",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
   {
     "Name": "Microsoft Visual C++ 2012 (x64) Redistributable",
     "Description": "A set of runtime components required to run 64-bit applications developed with Microsoft Visual C++ 2012, providing libraries, DLLs, and other resources",
-    "winget": "none",
+    "winget": "na",
     "choco": "vcredist2012",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
   {
     "Name": "Microsoft Visual C++ 2013 (x86) Redistributable",
     "Description": "A set of runtime components required to run applications developed with Microsoft Visual C++ 2013, providing libraries, DLLs, and other resources",
-    "winget": "none",
+    "winget": "na",
     "choco": "vcredist2013",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
   {
     "Name": "Microsoft Visual C++ 2013 (x64) Redistributable",
     "Description": "A set of runtime components required to run 64-bit applications developed with Microsoft Visual C++ 2013, providing libraries, DLLs, and other resources",
-    "winget": "none",
+    "winget": "na",
     "choco": "vcredist2013",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
   {
     "Name": "Microsoft Visual C++ 2015-2022 (x64) Redistributable",
     "Description": "A set of runtime components required to run 64-bit applications developed with Microsoft Visual C++ 2015-2022, providing libraries, DLLs, and other resources",
-    "winget": "none",
+    "winget": "na",
     "choco": "vcredist2015",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
   {
     "Name": "Microsoft Visual C++ 2015-2022  (x86) Redistributable",
     "Description": "A set of runtime components required to run applications developed with Microsoft Visual C++ 2015-2022, providing libraries, DLLs, and other resources",
-    "winget": "none",
+    "winget": "na",
     "choco": "vcredist2015",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
   {
     "Name": "NET Framework All Versions",
     "Description": "A comprehensive and consistent programming model for building applications that have visually stunning user experiences, seamless and secure communication, and the ability to model a range of business processes",
-    "winget": "none",
+    "winget": "na",
     "choco": "dotnet-all",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
   {
     "Name": "AMD Ryzen Chipset Drivers",
     "Description": "Supports: AMD Ryzen Threadripper PRO Processor, AMD Ryzen 8000/7040/7000 Series Desktop & Mobile Processors, AMD Ryzen 5000/3rd Gen/2nd Gen Desktop & Threadripper Processors, AMD Ryzen Desktop Processor with Radeon Graphics & Mobile Processor with Radeon Graphics, 7th-Gen AMD A-Series Processors, AMD X670E/X670/B650E/B650/B350/A320/X370/X399/B450/X470/X570/B550/A520/A620/TRX40/TRX50/WRX80/WRX90 Chipsets",
-    "winget": "none",
+    "winget": "na",
     "choco": "amd-ryzen-chipset",
-    "itt": "none",
+    "itt": "na",
     "category": "Drivers",
     "check": "false"
   },
   {
     "Name": "NVidia Display Driver",
     "Description": "The software component that allows the operating system and installed software to communicate with and control the NVIDIA graphics processing unit (GPU)",
-    "winget": "none",
+    "winget": "na",
     "choco": "nvidia-display-driver",
-    "itt": "none",
+    "itt": "na",
     "category": "Drivers",
     "check": "false"
   },
@@ -513,7 +513,7 @@ $itt.database.Applications = @'
     "Description": "A cloud-based gaming service provided by NVIDIA that allows users to play video games on supported devices via a remote gaming PC hosted on NVIDIA's servers",
     "winget": "Nvidia.GeForceExperience",
     "choco": "geforce-experience",
-    "itt": "none",
+    "itt": "na",
     "category": "Drivers",
     "check": "false"
   },
@@ -522,7 +522,7 @@ $itt.database.Applications = @'
     "Description": "MSI Afterburner is the ultimate graphics card utility, co-developed by MSI and RivaTuner teams",
     "winget": "Guru3D.Afterburner",
     "choco": "msiafterburner",
-    "itt": "none",
+    "itt": "na",
     "category": "Drivers",
     "check": "false"
   },
@@ -531,7 +531,7 @@ $itt.database.Applications = @'
     "Description": "A physics processing unit (PPU) software development kit (SDK) offered by NVIDIA for real-time physics simulations in video games",
     "winget": "Nvidia.PhysXLegacy",
     "choco": "physx.legacy",
-    "itt": "none",
+    "itt": "na",
     "category": "Drivers",
     "check": "false"
   },
@@ -540,7 +540,7 @@ $itt.database.Applications = @'
     "Description": "A digital distribution platform developed by Valve Corporation for purchasing and playing video games",
     "winget": "Valve.Steam",
     "choco": "steam",
-    "itt": "none",
+    "itt": "na",
     "category": "Gaming",
     "check": "false"
   },
@@ -549,7 +549,7 @@ $itt.database.Applications = @'
     "Description": "A digital distribution, digital rights management, multiplayer, and communications service developed by Ubisoft, providing access to Ubisoft's games, rewards, and social features",
     "winget": "Ubisoft.Connect",
     "choco": "ubisoft-connect",
-    "itt": "none",
+    "itt": "na",
     "category": "Gaming",
     "check": "false"
   },
@@ -558,16 +558,16 @@ $itt.database.Applications = @'
     "Description": " Game store launcher",
     "winget": "ElectronicArts.Origin",
     "choco": "origin",
-    "itt": "none",
+    "itt": "na",
     "category": "Gaming",
     "check": "false"
   },
   {
     "Name": "Rockstar Games Launcher",
     "Description": "Download and play the latest Rockstar Games PC titles",
-    "winget": "none",
+    "winget": "na",
     "choco": "rockstar-launcher",
-    "itt": "none",
+    "itt": "na",
     "category": "Gaming",
     "check": "false"
   },
@@ -576,7 +576,7 @@ $itt.database.Applications = @'
     "Description": "A utility tool that allows users to backup, restore, and transfer their game saves between different gaming platforms and directories",
     "winget": "InsaneMatt.GameSaveManager",
     "choco": "gamesavemanager",
-    "itt": "none",
+    "itt": "na",
     "category": "Gaming",
     "check": "false"
   },
@@ -585,7 +585,7 @@ $itt.database.Applications = @'
     "Description": "A free and open-source streaming software built on top of OBS Studio with additional features tailored for streamers, such as built-in alerts, overlays, and chat integration",
     "winget": "Streamlabs.StreamlabsOBS",
     "choco": "streamlabs-obs",
-    "itt": "none",
+    "itt": "na",
     "category": "Gaming",
     "check": "false"
   },
@@ -594,7 +594,7 @@ $itt.database.Applications = @'
     "Description": "A free and open-source software for video recording and live streaming. It offers high performance real-time video/audio capturing and mixing",
     "winget": "OBSProject.OBSStudio",
     "choco": "obs-studio.install",
-    "itt": "none",
+    "itt": "na",
     "category": "Gaming",
     "check": "false"
   },
@@ -603,7 +603,7 @@ $itt.database.Applications = @'
     "Description": "Logitech Gaming Software lets you customize Logitech G gaming mice, keyboards, headsets and select wheels",
     "winget": "Logitech.LGS",
     "choco": "logitechgaming",
-    "itt": "none",
+    "itt": "na",
     "category": "Gaming",
     "check": "false"
   },
@@ -612,7 +612,7 @@ $itt.database.Applications = @'
     "Description": "A software that allows users to set animated and interactive wallpapers on their Windows desktop, providing various customization options",
     "winget": "rocksdanister.LivelyWallpaper",
     "choco": "lively",
-    "itt": "none",
+    "itt": "na",
     "category": "Gaming",
     "check": "false"
   },
@@ -621,7 +621,7 @@ $itt.database.Applications = @'
     "Description": "Open source video game library manager and launcher with support for 3rd party libraries like Steam, GOG, Origin, Battle.net and Uplay",
     "winget": "Playnite.Playnite",
     "choco": "playnite",
-    "itt": "none",
+    "itt": "na",
     "category": "Gaming",
     "check": "false"
   },
@@ -630,16 +630,16 @@ $itt.database.Applications = @'
     "Description": "A driver update tool that automatically detects, downloads, and installs device drivers for the user's computer hardware",
     "winget": "Easeware.DriverEasy",
     "choco": "drivereasyfree",
-    "itt": "none",
+    "itt": "na",
     "category": "Drivers",
     "check": "false"
   },
   {
     "Name": "Intel Graphics Windows DCH",
     "Description": "Intel Graphics Driver for Windows 10",
-    "winget": "none",
+    "winget": "na",
     "choco": "intel-graphics-driver",
-    "itt": "none",
+    "itt": "na",
     "category": "Drivers",
     "check": "false"
   },
@@ -648,7 +648,7 @@ $itt.database.Applications = @'
     "Description": "Intel Driver & Support Assistant enables you to scan computing devices for the latest drivers available from Intel",
     "winget": "Intel.IntelDriverAndSupportAssistant",
     "choco": "intel-dsa",
-    "itt": "none",
+    "itt": "na",
     "category": "Drivers",
     "check": "false"
   },
@@ -657,7 +657,7 @@ $itt.database.Applications = @'
     "Description": "Intel Network Adapter Drivers for Windows 10",
     "winget": "Intel.WiFiDrivers",
     "choco": "intel-network-drivers-win10",
-    "itt": "none",
+    "itt": "na",
     "category": "Drivers",
     "check": "false"
   },
@@ -666,7 +666,7 @@ $itt.database.Applications = @'
     "Description": "A free and open-source tool for updating and installing device drivers on Windows, offering offline driver updates and wide hardware support",
     "winget": "samlab-ws.SnappyDriverInstaller",
     "choco": "sdio",
-    "itt": "none",
+    "itt": "na",
     "category": "Drivers",
     "check": "false"
   },
@@ -675,16 +675,16 @@ $itt.database.Applications = @'
     "Description": "Scans and identifies outdated drivers automatically, and downloads and installs the right update for you with just ONE click",
     "winget": "IObit.DriverBooster",
     "choco": "driverbooster",
-    "itt": "none",
+    "itt": "na",
     "category": "Drivers",
     "check": "false"
   },
   {
     "Name": "Driver Genius",
     "Description": "Professional driver management tool and hardware diagnostics",
-    "winget": "none",
+    "winget": "na",
     "choco": "drivergenius",
-    "itt": "none",
+    "itt": "na",
     "category": "Drivers",
     "check": "false"
   },
@@ -693,16 +693,16 @@ $itt.database.Applications = @'
     "Description": "Utility to completely remove system drivers",
     "winget": "Wagnardsoft.DisplayDriverUninstaller",
     "choco": "ddu",
-    "itt": "none",
+    "itt": "na",
     "category": "Drivers",
     "check": "false"
   },
   {
     "Name": "Driver Store Explorer",
     "Description": " Windows driver store utility",
-    "winget": "none",
+    "winget": "na",
     "choco": "rapr",
-    "itt": "none",
+    "itt": "na",
     "category": "Drivers",
     "check": "false"
   },
@@ -711,7 +711,7 @@ $itt.database.Applications = @'
     "Description": "A password manager that securely stores login credentials, credit card information, and other sensitive data in an encrypted vault, accessible with a single master password",
     "winget": "AgileBits.1Password",
     "choco": "1password",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -720,7 +720,7 @@ $itt.database.Applications = @'
     "Description": "AOMEI Partition Assistant Standard allows you to realize disk upgrade/replacement, partition style conversion, OS migration and other disk managements without any difficulties",
     "winget": "AOMEI.PartitionAssistant",
     "choco": "partition-assistant-standard",
-    "itt": "none",
+    "itt": "na",
     "category": "Disk Tools",
     "check": "false"
   },
@@ -729,7 +729,7 @@ $itt.database.Applications = @'
     "Description": "A backup and recovery software that enables users to create system backups, disk backups, partition backups, and file backups to protect data against system failures and data loss",
     "winget": "AOMEI.Backupper.Standard",
     "choco": "backupper-standard",
-    "itt": "none",
+    "itt": "na",
     "category": "Disk Tools",
     "check": "false"
   },
@@ -738,7 +738,7 @@ $itt.database.Applications = @'
     "Description": "A data recovery software that helps users retrieve accidentally deleted files, including photos, documents, videos, and more, from various storage devices such as hard drives, USB drives, and memory cards",
     "winget": "Piriform.Recuva",
     "choco": "recuva",
-    "itt": "none",
+    "itt": "na",
     "category": "Disk Tools",
     "check": "false"
   },
@@ -747,7 +747,7 @@ $itt.database.Applications = @'
     "Description": "A system optimization, privacy, and cleaning tool that helps users remove unused files, clean up temporary files, and optimize their Windows PCs for better performance",
     "winget": "SingularLabs.CCEnhancer",
     "choco": "ccleaner",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -756,16 +756,16 @@ $itt.database.Applications = @'
     "Description": "A powerful uninstaller tool for Windows that allows users to remove unwanted programs, plugins, and Windows Store apps, along with leftover files and registry entries",
     "winget": "Klocman.BulkCrapUninstaller",
     "choco": "bulk-crap-uninstaller",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
   {
     "Name": "Easy Context Menu",
     "Description": "To install Easy Context Menu, run the following command from the command line or from PowerShell:",
-    "winget": "none",
+    "winget": "na",
     "choco": "ecm",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -774,7 +774,7 @@ $itt.database.Applications = @'
     "Description": "A hardware information and diagnostic tool that provides detailed information about the hardware components of a computer system, including sensors, temperature, voltage, and more",
     "winget": "REALiX.HWiNFO",
     "choco": "hwinfo.install",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -783,7 +783,7 @@ $itt.database.Applications = @'
     "Description": "A system information tool that provides detailed information about the hardware and operating system of a computer, including CPU, RAM, motherboard, graphics card, and storage devices",
     "winget": "Piriform.Speccy",
     "choco": "speccy",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -792,7 +792,7 @@ $itt.database.Applications = @'
     "Description": "A graphics card stress testing and benchmarking utility that helps users test the stability, cooling, and performance of their GPU by rendering a highly intensive 3D graphics scene",
     "winget": "Geeks3D.FurMark",
     "choco": "furmark",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -801,7 +801,7 @@ $itt.database.Applications = @'
     "Description": "A hard disk monitoring and analysis software that helps users monitor the health, performance, and temperature of their hard drives, SSDs, and other storage devices",
     "winget": "JanosMathe.HardDiskSentinelPro",
     "choco": "hdsentinel",
-    "itt": "none",
+    "itt": "na",
     "category": "Disk Tools",
     "check": "false"
   },
@@ -810,7 +810,7 @@ $itt.database.Applications = @'
     "Description": "A system monitoring utility that provides detailed information about the CPU, motherboard, memory, and other hardware components of a computer system",
     "winget": "CPUID.CPU-Z",
     "choco": "cpu-z",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -819,7 +819,7 @@ $itt.database.Applications = @'
     "Description": "Lightweight real-time memory management application to monitor and clean system memory on your computer",
     "winget": "Henry++.MemReduct",
     "choco": "memreduct",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -828,7 +828,7 @@ $itt.database.Applications = @'
     "Description": "A free and open-source video transcoder tool that converts video files from one format to another, supporting a wide range of input and output formats",
     "winget": "HandBrake.HandBrake",
     "choco": "handbrake.install",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -837,7 +837,7 @@ $itt.database.Applications = @'
     "Description": "A utility tool for creating bootable USB drives from ISO images, helping users to install or run operating systems, such as Windows, Linux, or other utilities",
     "winget": "Rufus.Rufus",
     "choco": "rufus",
-    "itt": "none",
+    "itt": "na",
     "category": "Portable",
     "check": "false"
   },
@@ -846,16 +846,16 @@ $itt.database.Applications = @'
     "Description": "Lightweight CD / DVD burning application",
     "winget": "LIGHTNINGUK.ImgBurn",
     "choco": "imgburn",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
   {
     "Name": "Virtual CloneDrive",
     "Description": "A free software that allows users to mount disc images as virtual drives, enabling them to access the content of ISO, BIN, and CCD files without the need for physical discs",
-    "winget": "none",
+    "winget": "na",
     "choco": "virtualclonedrive",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -864,7 +864,7 @@ $itt.database.Applications = @'
     "Description": "A powerful ISO image management tool that enables users to create, edit, extract, and burn ISO files, providing a comprehensive solution for managing disk image files",
     "winget": "EZBSystems.UltraISO",
     "choco": "ultraiso",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -873,16 +873,16 @@ $itt.database.Applications = @'
     "Description": "An open-source tool for creating bootable USB drives with multiple ISO files, allowing users to boot various operating systems or utilities directly from a single USB drive",
     "winget": "Ventoy.Ventoy",
     "choco": "ventoy",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
   {
     "Name": "iVentoy",
     "Description": "With iVentoy you can boot and install OS on multiple machines at the same time through the network",
-    "winget": "none",
+    "winget": "na",
     "choco": "iventoy",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -891,7 +891,7 @@ $itt.database.Applications = @'
     "Description": "A scripting language for automating repetitive tasks and creating macros on Windows, allowing users to customize keyboard shortcuts, remap keys, and automate mouse actions",
     "winget": "AutoHotkey.AutoHotkey",
     "choco": "autohotkey",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -900,7 +900,7 @@ $itt.database.Applications = @'
     "Description": "A customizable desktop customization tool that displays customizable skins, widgets, and applets on the Windows desktop, providing users with real-time system monitoring and information",
     "winget": "Rainmeter.Rainmeter",
     "choco": "rainmeter",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -909,7 +909,7 @@ $itt.database.Applications = @'
     "Description": "An audio enhancer software that improves the sound quality of music, videos, and games on Windows PCs by providing advanced audio processing and customization options",
     "winget": "FxSoundLLC.FxSound",
     "choco": "fxsound",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -918,7 +918,7 @@ $itt.database.Applications = @'
     "Description": "A screen mirroring and remote control software that enables users to view and control Android devices from Windows PCs, allowing for easy screen sharing, app testing, and troubleshooting",
     "winget": "Vysor.Vysor",
     "choco": "vysor",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -927,7 +927,7 @@ $itt.database.Applications = @'
     "Description": "A remote control app that turns smartphones into universal remote controls for Windows, macOS, and Linux computers, allowing users to control media playback, presentations, and more",
     "winget": "UnifiedIntents.UnifiedRemote",
     "choco": "unifiedremote",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -936,7 +936,7 @@ $itt.database.Applications = @'
     "Description": "A remote desktop software that allows users to access and control Windows, macOS, Linux, Android, and iOS devices from anywhere, providing secure and reliable remote access",
     "winget": "AnyDeskSoftwareGmbH.AnyDesk",
     "choco": "anydesk",
-    "itt": "none",
+    "itt": "na",
     "category": "File Sharing",
     "check": "false"
   },
@@ -945,7 +945,7 @@ $itt.database.Applications = @'
     "Description": "AirDroid is a free and fast Android device manager app that allows you to access Android phone/tablet from computer remotely and securely. Manage SMS, files, photos and videos, WhatsApp, Line, WeChat and more on computer",
     "winget": "AirDroid.AirDroid",
     "choco": "airdroid",
-    "itt": "none",
+    "itt": "na",
     "category": "File Sharing",
     "check": "false"
   },
@@ -954,7 +954,7 @@ $itt.database.Applications = @'
     "Description": "Remote control to support your clients / partners from everywhere",
     "winget": "DucFabulous.UltraViewer",
     "choco": "ultraviewer",
-    "itt": "none",
+    "itt": "na",
     "category": "File Sharing",
     "check": "false"
   },
@@ -963,7 +963,7 @@ $itt.database.Applications = @'
     "Description": "Wireless Network Watcher is a small utility that scans your wireless network and displays the list of all computers and devices that are currently connected to your network",
     "winget": "NirSoft.WirelessNetworkWatcher",
     "choco": "wnetwatcher.portable",
-    "itt": "none",
+    "itt": "na",
     "category": "Portable",
     "check": "false"
   },
@@ -972,16 +972,16 @@ $itt.database.Applications = @'
     "Description": "Wireless Network Watcher is a small utility that scans your wireless network and displays the list of all computers and devices that are currently connected to your network",
     "winget": "NirSoft.WifiInfoView",
     "choco": "wifiinfoview",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
   {
     "Name": "WirelessNetView",
     "Description": "Wireless Network Watcher is a small utility that scans your wireless network and displays the list of all computers and devices that are currently connected to your network",
-    "winget": "none",
+    "winget": "na",
     "choco": "wirelessnetview",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -990,7 +990,7 @@ $itt.database.Applications = @'
     "Description": "A free and open-source BitTorrent client for downloading and uploading files via the BitTorrent protocol, providing users with a lightweight and feature-rich torrenting experience",
     "winget": "qBittorrent.qBittorrent",
     "choco": "qbittorrent",
-    "itt": "none",
+    "itt": "na",
     "category": "File Sharing",
     "check": "false"
   },
@@ -999,7 +999,7 @@ $itt.database.Applications = @'
     "Description": "Google Earth Pro on desktop is free for users with advanced feature needs. Import and export GIS data, and go back in time with historical imagery",
     "winget": "Google.EarthPro",
     "choco": "googleearthpro",
-    "itt": "none",
+    "itt": "na",
     "category": "Imaging",
     "check": "false"
   },
@@ -1008,7 +1008,7 @@ $itt.database.Applications = @'
     "Description": "XAMPP is a free and open-source cross-platform web server solution stack package developed by Apache Friends, consisting mainly of the Apache HTTP Server, MariaDB database, and interpreters for scripts written in the PHP and Perl programming languages",
     "winget": "ApacheFriends.Xampp.8.2",
     "choco": "xampp-81",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1017,7 +1017,7 @@ $itt.database.Applications = @'
     "Description": "Visual Studio Professional 2022 is an integrated development environment (IDE) from Microsoft. It is used to develop computer programs, websites, web apps, web services, and mobile apps",
     "winget": "Microsoft.VisualStudio.2022.Professional",
     "choco": "visualstudio2022professional",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1026,7 +1026,7 @@ $itt.database.Applications = @'
     "Description": "Visual Studio Community 2022 is a free, fully-featured, and extensible IDE for individual developers, open source projects, academic research, education, and small professional teams",
     "winget": "Microsoft.VisualStudio.2022.Community",
     "choco": "visualstudio2022community",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1035,7 +1035,7 @@ $itt.database.Applications = @'
     "Description": "Unity is a cross-platform game creation system developed by Unity Technologies and used to develop video games for PC, consoles, mobile",
     "winget": "Unity.UnityHub",
     "choco": "unity-hub",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1044,7 +1044,7 @@ $itt.database.Applications = @'
     "Description": "Godot is a feature-packed, cross-platform game engine for creating 2D and 3D games. It provides a comprehensive set of tools and features to develop games efficiently and quickly",
     "winget": "GodotEngine.GodotEngine",
     "choco": "godot",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1053,7 +1053,7 @@ $itt.database.Applications = @'
     "Description": "Unity is a cross-platform game creation system developed by Unity Technologies and used to develop video games for PC, consoles, mobile",
     "winget": "Unity.Unity.2020",
     "choco": "unity",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1062,7 +1062,7 @@ $itt.database.Applications = @'
     "Description": "Blender is a free and open-source professional-grade 3D computer graphics and video compositing program",
     "winget": "BlenderFoundation.Blender",
     "choco": "blender",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1071,7 +1071,7 @@ $itt.database.Applications = @'
     "Description": "Visual Studio Code is a free source-code editor developed by Microsoft for Windows, Linux, and macOS. It includes support for debugging, embedded Git control, syntax highlighting, intelligent code completion, snippets, and code refactoring",
     "winget": "Microsoft.VisualStudioCode",
     "choco": "vscode",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1080,7 +1080,7 @@ $itt.database.Applications = @'
     "Description": "Vim is an advanced text editor that seeks to provide the power of the de-facto Unix editor 'Vi', with a more complete feature set. It's us... Keep Reading",
     "winget": "vim.vim",
     "choco": "vim",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1089,7 +1089,7 @@ $itt.database.Applications = @'
     "Description": "Sublime Text 4 - The sophisticated text editor for code, markup and prose",
     "winget": "SublimeHQ.SublimeText.4",
     "choco": "sublimetext4",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1098,7 +1098,7 @@ $itt.database.Applications = @'
     "Description": "Atom is a text editor that's modern, approachable, yet hackable to the core—a tool you can customize to do anything but also use productively without ever touching a config file",
     "winget": "GitHub.Atom",
     "choco": "atom",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1107,7 +1107,7 @@ $itt.database.Applications = @'
     "Description": "Inno Setup is a free installer for Windows programs. First introduced in 1997, Inno Setup today rivals and even surpasses many commercial installers in feature set and stability",
     "winget": "JRSoftware.InnoSetup",
     "choco": "innosetup",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1116,7 +1116,7 @@ $itt.database.Applications = @'
     "Description": "PyCharm Community Edition is a free and open-source IDE for Python development. It provides smart code completion, code inspections, on-the-fly error highlighting, and quick-fixes",
     "winget": "JetBrains.PyCharm.Community",
     "choco": "pycharm-community",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1125,7 +1125,7 @@ $itt.database.Applications = @'
     "Description": "PyCharm Professional Edition is a powerful IDE for professional Python development. It includes advanced features such as database tools, web development support, and scientific tools integration",
     "winget": "JetBrains.PyCharm.Professional",
     "choco": "pycharm",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1134,7 +1134,7 @@ $itt.database.Applications = @'
     "Description": "Rider is a cross-platform .NET IDE developed by JetBrains. It supports C#, VB.NET, F#, ASP.NET, JavaScript, TypeScript, HTML, CSS, and SQL languages and frameworks",
     "winget": "JetBrains.Rider",
     "choco": "jetbrains-rider",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1143,16 +1143,16 @@ $itt.database.Applications = @'
     "Description": "Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. LTS (Long Term Support) releases are supported for an extended period and provide stability for production environments",
     "winget": "OpenJS.NodeJS.LTS",
     "choco": "nodejs-lts",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
   {
     "Name": "Electron",
     "Description": "Electron, framework lets you write cross-platform desktop applications using JavaScript, HTML and CSS. It is based on io.js and Chromium and is used in the Atom editor",
-    "winget": "none",
+    "winget": "na",
     "choco": "electron",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1161,7 +1161,7 @@ $itt.database.Applications = @'
     "Description": "Electrum is a lightweight Bitcoin wallet focused on speed and simplicity, with support for hardware wallets and multisig functionality. LTS (Long Term Support) releases provide stability and security updates for an extended period",
     "winget": "Electrum.Electrum",
     "choco": "electronim",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1170,7 +1170,7 @@ $itt.database.Applications = @'
     "Description": "Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites f... Keep Reading",
     "winget": "Hugo.Hugo",
     "choco": "hugo",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1179,7 +1179,7 @@ $itt.database.Applications = @'
     "Description": "Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites f... Keep Reading",
     "winget": "Hugo.Hugo.Extended",
     "choco": "hugo-extended",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1188,7 +1188,7 @@ $itt.database.Applications = @'
     "Description": "Notepad++ is a free source code editor and Notepad replacement that supports several languages. It offers syntax highlighting, code folding, auto-completion, and other features for efficient code editing",
     "winget": "Notepad++.Notepad++",
     "choco": "notepadplusplus",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1197,7 +1197,7 @@ $itt.database.Applications = @'
     "Description": "Windows Terminal is a modern terminal application for users of command-line tools and shells like Command Prompt, PowerShell, and Windows Subsystem for Linux (WSL). It provides multiple tabs, custom themes, and GPU-accelerated text rendering",
     "winget": "Microsoft.WindowsTerminal",
     "choco": "microsoft-windows-terminal",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1206,16 +1206,16 @@ $itt.database.Applications = @'
     "Description": "PowerShell Core is a cross-platform (Windows, Linux, and macOS) automation and configuration tool/framework that works well with your existing tools and is optimized for dealing with structured data (e.g., JSON, CSV, XML, etc.), REST APIs, and object models",
     "winget": "Microsoft.PowerShell",
     "choco": "powershell-core",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
   {
     "Name": "x64dbg Portable",
     "Description": "An open-source x64/x32 debugger for windows",
-    "winget": "none",
+    "winget": "na",
     "choco": "x64dbg.portable",
-    "itt": "none",
+    "itt": "na",
     "category": "Portable",
     "check": "false"
   },
@@ -1224,16 +1224,16 @@ $itt.database.Applications = @'
     "Description": "dnSpy is a tool to reverse engineer .NET assemblies. It includes a decompiler, a debugger and an assembly editor (and more) and can be easily extended by writing your own extension. It uses dnlib to read and write assemblies so it can handle obfuscated assemblies (eg. malware) without crashing",
     "winget": "dnSpyEx.dnSpy",
     "choco": "dnspy",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
   {
     "Name": "Cheat Engine",
     "Description": "Cheat Engine is an open source tool designed to help you modify single player games",
-    "winget": "none",
+    "winget": "na",
     "choco": "cheatengine",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1242,7 +1242,7 @@ $itt.database.Applications = @'
     "Description": "Python is a popular high-level programming language known for its simplicity and versatility. It is used in various fields such as web development, data science, machine learning, and automation",
     "winget": "Python.Python.3.9",
     "choco": "python",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1251,7 +1251,7 @@ $itt.database.Applications = @'
     "Description": "Git is a free and open-source distributed version control system designed to handle everything from small to very large projects with speed and efficiency",
     "winget": "Git.Git",
     "choco": "git",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1260,7 +1260,7 @@ $itt.database.Applications = @'
     "Description": "GitHub Desktop is a seamless way to contribute to projects on GitHub and GitHub Enterprise. It provides an intuitive interface for managing repositories, branching, committing, and merging code changes",
     "winget": "GitHub.GitHubDesktop",
     "choco": "github-desktop",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1269,7 +1269,7 @@ $itt.database.Applications = @'
     "Description": "Docker Desktop is an easy-to-install application for Windows and macOS that enables developers to build, share, and run containerized applications and microservices locally",
     "winget": "Docker.DockerDesktop",
     "choco": "docker-desktop",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1278,7 +1278,7 @@ $itt.database.Applications = @'
     "Description": "Docker Compose is a tool for defining and running multi-container Docker applications. It allows you to use a YAML file to configure your application's services, networks, and volumes",
     "winget": "Docker.DockerCompose",
     "choco": "docker-compose",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1287,7 +1287,7 @@ $itt.database.Applications = @'
     "Description": "PowerToys is a set of utilities for power users to tune and streamline their Windows experience for greater productivity. It includes tools like FancyZones for window management, PowerRename for batch renaming files, and more",
     "winget": "Microsoft.PowerToys",
     "choco": "powertoys",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1296,7 +1296,7 @@ $itt.database.Applications = @'
     "Description": "The all-in-one workspace for your notes, tasks, wikis, and databases",
     "winget": "Notion.Notion",
     "choco": "notion",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1305,25 +1305,25 @@ $itt.database.Applications = @'
     "Description": "FL Studio is a digital audio workstation (DAW) developed by Image-Line. It allows you to compose, arrange, record, edit, mix, and master professional-quality music",
     "winget": "ImageLine.FLStudio",
     "choco": "ImageLine.FLStudio",
-    "itt": "none",
+    "itt": "na",
     "category": "Media Tools",
     "check": "false"
   },
   {
     "Name": "Android Debug Bridge",
     "Description": "Android Debug Bridge (ADB) is a command-line tool that allows you to communicate with an Android device. It is used for various debugging tasks such as installing and debugging apps",
-    "winget": "none",
+    "winget": "na",
     "choco": "adb",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
   {
     "Name": "Universal ADB Drivers",
     "Description": "Universal ADB Drivers are drivers that provide compatibility with a wide range of Android devices for debugging purposes. They allow you to connect your Android device to a computer and use ADB commands",
-    "winget": "none",
+    "winget": "na",
     "choco": "universal-adb-drivers",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1332,7 +1332,7 @@ $itt.database.Applications = @'
     "Description": "Scrcpy is a free and open-source tool that allows you to display and control your Android device from a computer. It provides high-performance screen mirroring and supports various input methods",
     "winget": "Genymobile.scrcpy",
     "choco": "scrcpy",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1341,7 +1341,7 @@ $itt.database.Applications = @'
     "Description": "VirtualBox is a cross-platform virtualization application. It installs on existing Intel or AMD-based computers, whether they are running Windows, Mac, Linux or Solaris operating systems. It extends the capabilities of your existing computer so that it can run multiple operating systems (inside multiple virtual machines) at the same time",
     "winget": "Oracle.VirtualBox",
     "choco": "virtualbox",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1350,7 +1350,7 @@ $itt.database.Applications = @'
     "Description": " Oh my Posh is a custom prompt engine for any shell that has the ability to adjust the prompt string with a function or variable",
     "winget": "JanDeDobbeleer.OhMyPosh",
     "choco": "oh-my-posh",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1359,7 +1359,7 @@ $itt.database.Applications = @'
     "Description": "Multiple layers of malware-crushing tech, including virus protection. Thorough malware and spyware removal. Specialized ransomware protection",
     "winget": "Malwarebytes.Malwarebytes",
     "choco": "malwarebytes",
-    "itt": "none",
+    "itt": "na",
     "category": "Security",
     "check": "false"
   },
@@ -1368,25 +1368,25 @@ $itt.database.Applications = @'
     "Description": "Avast Free Antivirus",
     "winget": "XPDNZJFNCR1B07",
     "choco": "avastfreeantivirus",
-    "itt": "none",
+    "itt": "na",
     "category": "Security",
     "check": "false"
   },
   {
     "Name": "Nerd Fonts - CascadiaCode",
     "Description": "Nerd Fonts is a project that patches developer targeted fonts with a high number of glyphs (icons)",
-    "winget": "none",
+    "winget": "na",
     "choco": "nerd-fonts-cascadiacode",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
   {
     "Name": "Java SE Runtime Environment 8.0.411",
     "Description": "Java allows you to play online games, chat with people around the world, calculate your mortgage interest, and view images in 3D, just to name a few. It's also integral to the intranet applications and other e-business solutions that are the foundation of corporate computing. Please note you now need a Java License from Oracle to use unless installed for Personal Use and Development Use",
-    "winget": "none",
+    "winget": "na",
     "choco": "jre8",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
@@ -1395,7 +1395,7 @@ $itt.database.Applications = @'
     "Description": "Audacity is free, open source, cross-platform software for recording and editing sounds",
     "winget": "Audacity.Audacity",
     "choco": "audacity",
-    "itt": "none",
+    "itt": "na",
     "category": "Media Tools",
     "check": "false"
   },
@@ -1404,25 +1404,25 @@ $itt.database.Applications = @'
     "Description": "MusicBee makes it easy to organize, find and play music files on your computer, on portable devices and on the web",
     "winget": "MusicBee.MusicBee",
     "choco": "musicbee",
-    "itt": "none",
+    "itt": "na",
     "category": "Media",
     "check": "false"
   },
   {
     "Name": "Format Factory",
     "Description": "multifunctional media processing tools",
-    "winget": "none",
+    "winget": "na",
     "choco": "formatfactory",
-    "itt": "none",
+    "itt": "na",
     "category": "Media Tools",
     "check": "false"
   },
   {
     "Name": "Winaero Tweaker",
     "Description": "Customize the appearance and behavior of the Windows operating system",
-    "winget": "none",
+    "winget": "na",
     "choco": "winaero-tweaker",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -1431,16 +1431,16 @@ $itt.database.Applications = @'
     "Description": "To install Windows Subsystem for Linux 2, run the following command from the command line or from PowerShell",
     "winget": "Microsoft.WSL",
     "choco": "wsl2",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
   {
     "Name": "Wamp Server 3.3.5",
     "Description": "WampServer is a Windows web development environment. It allows you to create web applications",
-    "winget": "none",
+    "winget": "na",
     "choco": "wamp-server",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1449,7 +1449,7 @@ $itt.database.Applications = @'
     "Description": "MongoDB stores data using a flexible document data model that is similar to JSON. Documents contain one or more fields, including arrays, binary data and sub-documents. Fields can vary from document to document. This flexibility allows development teams to evolve the data model rapidly as their application requirements change",
     "winget": "MongoDB.Server",
     "choco": "mongodb",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1458,7 +1458,7 @@ $itt.database.Applications = @'
     "Description": "Media Player Classic - BE is a free and open source audio and video player for Windows",
     "winget": " MPC-BE.MPC-BE",
     "choco": "mpc-be",
-    "itt": "none",
+    "itt": "na",
     "category": "Media",
     "check": "false"
   },
@@ -1467,7 +1467,7 @@ $itt.database.Applications = @'
     "Description": "A powerful non-linear video editor",
     "winget": "KDE.Kdenlive",
     "choco": "kdenlive",
-    "itt": "none",
+    "itt": "na",
     "category": "Media Tools",
     "check": "false"
   },
@@ -1476,7 +1476,7 @@ $itt.database.Applications = @'
     "Description": "Modern, native, and friendly GUI tool for relational databases: MySQL, PostgreSQL, SQLite, MongoDB, Redis, and more",
     "winget": "TablePlus.TablePlus",
     "choco": "tableplus",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1485,7 +1485,7 @@ $itt.database.Applications = @'
     "Description": "Hosts File Editor makes it easy to change your hosts file as well as archive multiple versions for easy retrieval",
     "winget": "scottlerch.hosts-file-editor",
     "choco": "hosts.editor",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -1494,7 +1494,7 @@ $itt.database.Applications = @'
     "Description": "With SE you can easily adjust a subtitle if it is out of sync with the video in several different ways. You can also use SE for making new subtitles from scratch (do use the time-line/waveform/spectrogram) or translating subtitles",
     "winget": "9NWH51GWJTKN",
     "choco": "subtitleedit",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1503,16 +1503,16 @@ $itt.database.Applications = @'
     "Description": "Skype - Install Skype, add your friends as contacts, then call, video call and instant message with them for free. Call people who aren't on Skype too, at really low rates",
     "winget": "Microsoft.Skype",
     "choco": "skype",
-    "itt": "none",
+    "itt": "na",
     "category": "Communication",
     "check": "false"
   },
   {
     "Name": "FileZilla",
     "Description": "FileZilla Client is a fast and reliable cross-platform FTP, FTPS and SFTP client with lots of useful features and an intuitive graphical user interface",
-    "winget": "none",
+    "winget": "na",
     "choco": "filezilla",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1521,7 +1521,7 @@ $itt.database.Applications = @'
     "Description": "Everything Search Engine - locate files and folders by name instantly",
     "winget": "voidtools.Everything",
     "choco": "everything",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -1530,25 +1530,25 @@ $itt.database.Applications = @'
     "Description": "Yarn is a package manager for the npm and bower registries with a few specific focuses",
     "winget": "Yarn.Yarn",
     "choco": "yarn",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
   {
     "Name": "VMware Workstation Player",
     "Description": "VMware Workstation Player™ is a streamlined desktop virtualization application that runs another operating system on the same computer without rebooting. VMware Workstation Player provides a simple user interface, unmatched operating system support, and portability across the VMware ecosystem",
-    "winget": "none",
+    "winget": "na",
     "choco": "vmware-workstation-player",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
   {
     "Name": "HDD Low Level Format Tool",
     "Description": "Will erase, Low-Level Format and re-certify a SATA, IDE or SCSI hard disk drive with any size of up to 281 474 976 710 655 bytes",
-    "winget": "none",
+    "winget": "na",
     "choco": "llftool",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -1557,16 +1557,16 @@ $itt.database.Applications = @'
     "Description": "Play Android Games on PC",
     "winget": "BlueStack.BlueStacks",
     "choco": "bluestacks",
-    "itt": "none",
+    "itt": "na",
     "category": "Gaming",
     "check": "false"
   },
   {
     "Name": "Intel Wireless Bluetooth for Windows 10 and Windows 11",
     "Description": "Bluetooth for Windows 10 and Windows",
-    "winget": "none",
+    "winget": "na",
     "choco": "intel-bluetooth-drivers",
-    "itt": "none",
+    "itt": "na",
     "category": "Drivers",
     "check": "false"
   },
@@ -1575,7 +1575,7 @@ $itt.database.Applications = @'
     "Description": "Microsoft 365 (formerly Office 365) is a line of subscription services offered by Microsoft as part of the Microsoft Office product line. The brand encompasses plans that allow use of the Microsoft Office software suite over the life of the subscription, as well as cloud-based software as a service products for business environments, such as hosted Exchange Server, Skype for Business Server, and SharePoint, among others. All Microsoft 365 plans include automatic updates to their respective software at no additional charge, as opposed to conventional licenses for these programs—where new versions require purchase of a new license",
     "winget": "Microsoft.Office",
     "choco": "office365business",
-    "itt": "none",
+    "itt": "na",
     "category": "Documents",
     "check": "false"
   },
@@ -1583,8 +1583,8 @@ $itt.database.Applications = @'
     "Name": "Bandicam",
     "Description": "Bandicam is a closed-source screen capture and screen recording software originally developed by Bandisoft and later by Bandicam Company that can take screenshots or record screen changes. Bandicam consists of three main modes. One is the Screen Recording mode, which can be used for recording a certain area on the PC screen",
     "winget": "BandicamCompany.Bandicam",
-    "choco": "none",
-    "itt": "none",
+    "choco": "na",
+    "itt": "na",
     "category": "Imaging",
     "check": "false"
   },
@@ -1592,8 +1592,8 @@ $itt.database.Applications = @'
     "Name": "QQPlayer",
     "Description": "QQPlayer media player",
     "winget": "Tencent.QQPlayer",
-    "choco": "none",
-    "itt": "none",
+    "choco": "na",
+    "itt": "na",
     "category": "Media",
     "check": "false"
   },
@@ -1602,7 +1602,7 @@ $itt.database.Applications = @'
     "Description": "4K Video Downloader allows downloading videos, playlists, channels and subtitles from YouTube, Facebook, Vimeo and other video sites in high quality",
     "winget": "OpenMedia.4KVideoDownloader",
     "choco": "4k-video-downloader",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -1610,8 +1610,8 @@ $itt.database.Applications = @'
     "Name": "Active@ Partition Recovery",
     "Description": "Active@ Partition Recovery is a freeware toolkit that helps to recover deleted and damaged logical drives and partitions within Windows, WinPE (recovery boot disk) and Linux (recovery LiveCD) environments",
     "winget": "LSoftTechnologies.ActivePartitionRecovery",
-    "choco": "none",
-    "itt": "none",
+    "choco": "na",
+    "itt": "na",
     "category": "Disk Tools",
     "check": "false"
   },
@@ -1619,8 +1619,8 @@ $itt.database.Applications = @'
     "Name": "HiSuite",
     "Description": "HUAWEI HiSuite is the official Android Smart Device Manager tool,HiSuite helps users to connect their HUAWEI smartphones and tablets to PC",
     "winget": "Huawei.HiSuite",
-    "choco": "none",
-    "itt": "none",
+    "choco": "na",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -1629,7 +1629,7 @@ $itt.database.Applications = @'
     "Description": "Android Studio is the official integrated development environment for Google's Android operating system, built on JetBrains IntelliJ IDEA software and designed specifically for Android development",
     "winget": "Google.AndroidStudio",
     "choco": "androidstudio",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1638,7 +1638,7 @@ $itt.database.Applications = @'
     "Description": "LibreWolf is designed to increase protection against tracking and fingerprinting techniques, while also including a few security improvements. This is achieved through our privacy and security oriented settings and patches. LibreWolf also aims to remove all the telemetry, data collection and annoyances, as well as disabling anti-freedom features like DRM",
     "winget": "LibreWolf.LibreWolf",
     "choco": "librewolf",
-    "itt": "none",
+    "itt": "na",
     "category": "Web Browsers",
     "check": "false"
   },
@@ -1647,16 +1647,16 @@ $itt.database.Applications = @'
     "Description": "Dedicated to making your workflow flow more seamless. Search everything from applications, files, bookmarks, YouTube, Twitter and more. Flow will continue to evolve, designed to be open and built with the community at heart",
     "winget": "Flow-Launcher.Flow-Launcher",
     "choco": "flow-launcher",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
   {
     "Name": "IconsExtract",
     "Description": "The IconsExtract utility scans the files and folders on your computer, and extract the icons and cursors stored in EXE, DLL, OCX, CPL, and in other file types",
-    "winget": "none",
+    "winget": "na",
     "choco": "iconsext",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -1665,7 +1665,7 @@ $itt.database.Applications = @'
     "Description": "AdGuard Home is a network-wide software for blocking ads and tracking. After you set it up, it'll cover ALL your home devices, and you don't need any client-side software for that",
     "winget": "AdGuard.AdGuardHome",
     "choco": "adguardhome",
-    "itt": "none",
+    "itt": "na",
     "category": "Security",
     "check": "false"
   },
@@ -1674,7 +1674,7 @@ $itt.database.Applications = @'
     "Description": "Burp Suite is an integrated platform for performing security testing of web applications. Its various tools work seamlessly together to support the entire testing process, from initial mapping and analysis of an application's attack surface, through to finding and exploiting security vulnerabilities.",
     "winget": "PortSwigger.BurpSuite.Community",
     "choco": "burp-suite-free-edition",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1683,7 +1683,7 @@ $itt.database.Applications = @'
     "Description": "Core Temp is a compact, no fuss, small footprint, yet powerful program to monitor processor temperature and other vital information",
     "winget": "ALCPU.CoreTemp",
     "choco": "coretemp",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -1692,7 +1692,7 @@ $itt.database.Applications = @'
     "Description": "Screen capture, file sharing and productivity tool",
     "winget": "ShareX.ShareX",
     "choco": "sharex",
-    "itt": "none",
+    "itt": "na",
     "category": "File Sharing",
     "check": "false"
   },
@@ -1701,7 +1701,7 @@ $itt.database.Applications = @'
     "Description": "ONLYOFFICE is a project developed by experienced IT experts from Ascensio System SIA, leading IT company with headquarters in Riga, Latvia. Originally ONLYOFFICE was designed for internal team collaboration. An attempt to introduce it to a wider audience proved to be successful: ONLYOFFICE received very positive feedback from the Internet community. As a result, its functionality was considerably revised and expanded that brought about a high and stable growth of users from different countries",
     "winget": "ONLYOFFICE.DesktopEditors",
     "choco": "onlyoffice",
-    "itt": "none",
+    "itt": "na",
     "category": "Documents",
     "check": "false"
   },
@@ -1710,7 +1710,7 @@ $itt.database.Applications = @'
     "Description": "Ideal for modern users concerned about their privacy, who actively use internet for shopping, banking, work and communication",
     "winget": "ESET.EndpointSecurity",
     "choco": "eset-internet-security",
-    "itt": "none",
+    "itt": "na",
     "category": "Security",
     "check": "false"
   },
@@ -1719,7 +1719,7 @@ $itt.database.Applications = @'
     "Description": "WinDirStat is a disk usage statistics viewer and cleanup tool for Microsoft Windows",
     "winget": "WinDirStat.WinDirStat",
     "choco": "windirstat",
-    "itt": "none",
+    "itt": "na",
     "category": "Disk Tools",
     "check": "false"
   },
@@ -1728,7 +1728,7 @@ $itt.database.Applications = @'
     "Description": "WinMerge is an Open Source differencing and merging tool for Windows. WinMerge can compare both  folders and files, presenting differences in a visual text format that is easy to understand and handle",
     "winget": "WinMerge.WinMerge",
     "choco": "winmerge",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -1737,7 +1737,7 @@ $itt.database.Applications = @'
     "Description": "Wireshark is the worlds foremost and widely-used network protocol analyzer. It lets you see whats happening on your network at a microscopic level and is the de facto (and often de jure) standard across many commercial and non-profit enterprises, government agencies, and educational institutions. Wireshark development thrives thanks to the volunteer contributions of networking experts around the globe and is the continuation of a project started by Gerald Combs in 1998",
     "winget": "WiresharkFoundation.Wireshark",
     "choco": "wireshark",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -1746,7 +1746,7 @@ $itt.database.Applications = @'
     "Description": "TeraCopy is designed to copy and move files at the maximum possible speed. It skips bad files during the copying process, and then displays them at the end of the transfer so that you can see which ones need attention. TeraCopy can automatically check the copied files for errors by calculating their CRC checksum values. It also provides a lot more information about the files being copied than its Windows counterpart. TeraCopy integrates with Windows Explorer's right-click menu and can be set as the default copy handler",
     "winget": "CodeSector.TeraCopy",
     "choco": "teracopy",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -1755,7 +1755,7 @@ $itt.database.Applications = @'
     "Description": "Quick Look is among the few features I missed from Mac OS X It enables very quick preview of file by pressing Space key while highlighting it without opening its associated application Then I decide to add this feature to Windows by myself which results this QuickLook project",
     "winget": "QL-Win.QuickLook",
     "choco": "quicklook",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -1764,7 +1764,7 @@ $itt.database.Applications = @'
     "Description": "RepoZ provides a quick overview of the git repositories on your development machine including their current branch and a short status information It uses the repositories on your machine to create an efficient navigation widget and makes sure youll never loose track of your work along the way",
     "winget": "AndreasWascher.RepoZ",
     "choco": "repoz",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1772,8 +1772,8 @@ $itt.database.Applications = @'
     "Name": "Intel Graphics Command Center",
     "Description": "Dont have time to mess around with settings The Intel Graphics Command Center easily finds and tunes your games complete with recommended settings for your computer Use oneclick optimization for many popular titles and instantly get the most out of your system. (Windows 10 version 1709 or higher,6th Gen Intel Core Platforms or newer)",
     "winget": "9PLFNLNT3G5G",
-    "choco": "none",
-    "itt": "none",
+    "choco": "na",
+    "itt": "na",
     "category": "Drivers",
     "check": "false"
   },
@@ -1782,7 +1782,7 @@ $itt.database.Applications = @'
     "Description": "Go is expressive concise clean and efficient Its concurrency mechanisms make it easy to write programs that get the most out of multicore and networked machines while its novel type system enables flexible and modular program construction Go compiles quickly to machine code yet has the convenience of garbage collection and the power of runtime reflection Its a fast statically typed compiled language that feels like a dynamically typed interpreted language",
     "winget": "Language GoLang.Go",
     "choco": "golang",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1791,7 +1791,7 @@ $itt.database.Applications = @'
     "Description": "Rust is a curlybrace blockstructured expression language It visually resembles the C language family but differs significantly in syntactic and semantic details Its design is oriented toward concerns of programming in the large that is of creating and maintaining boundaries  both abstract and operational  that preserve largesystem integrity availability and concurrency",
     "winget": "Rustlang.Rust.GNU",
     "choco": "rust",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1800,7 +1800,7 @@ $itt.database.Applications = @'
     "Description": "Inkscape is an opensource vector graphics editor similar to Adobe Illustrator Corel Draw Freehand or Xara X What sets Inkscape apart is its use of Scalable Vector Graphics SVG an open XMLbased W3C standard as the native format",
     "winget": "Inkscape.Inkscape",
     "choco": "inkscape",
-    "itt": "none",
+    "itt": "na",
     "category": "Imaging",
     "check": "false"
   },
@@ -1809,7 +1809,7 @@ $itt.database.Applications = @'
     "Description": "youtubedl is a small commandline program to download videos from YouTubecom and a few more sites It is written in Python and its not platform specific It should work in your Unix box in Windows or in Mac OS X It is released to the public domain which means you can modify it redistribute it or use it however you like",
     "winget": "youtube-dl.youtube-dl",
     "choco": "yt-dlp",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -1818,7 +1818,7 @@ $itt.database.Applications = @'
     "Description": "Postman helps you be more efficient while working with APIs Using Postman you can construct complex HTTP requests quickly organize them in collections and share them with your coworkers",
     "winget": "Postman.Postman",
     "choco": "postman",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1827,7 +1827,7 @@ $itt.database.Applications = @'
     "Description": "The Azure CLI is available across Azure services and is designed to get you working quickly with Azure with an emphasis on automation",
     "winget": "Microsoft.AzureCLI",
     "choco": "azure-cli",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1835,8 +1835,8 @@ $itt.database.Applications = @'
     "Name": "GameMaker Studio",
     "Description": "GameMaker Studio has everything you need for games development no matter what your level or expertise",
     "winget": "YoYoGames.GameMaker.Studio.2",
-    "choco": "none",
-    "itt": "none",
+    "choco": "na",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1845,7 +1845,7 @@ $itt.database.Applications = @'
     "Description": "Charles is an HTTP proxy  HTTP monitor  Reverse Proxy that enables a developer to view all of the HTTP and SSL  HTTPS traffic between their machine and the Internet This includes requests responses and the HTTP headers which contain the cookies and caching information",
     "winget": "XK72.Charles",
     "choco": "charles",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1853,8 +1853,8 @@ $itt.database.Applications = @'
     "Name": "Windows Media Player",
     "Description": "Media Player is designed to make listening to and watching your multimedia content more enjoyable At the heart of Media Player is a fullfeatured music library that allows you to quickly browse and play music as well as create and manage playlists All your content in the music and video folders on your PC will appear automatically in your library",
     "winget": "9WZDNCRFJ3PT",
-    "choco": "none",
-    "itt": "none",
+    "choco": "na",
+    "itt": "na",
     "category": "Media",
     "check": "false"
   },
@@ -1863,7 +1863,7 @@ $itt.database.Applications = @'
     "Description": "A crossplatform Text Expander written in Rust",
     "winget": "Espanso.Espanso",
     "choco": "espanso",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -1872,7 +1872,7 @@ $itt.database.Applications = @'
     "Description": "Ability Office Standard offers 3 core applications essential for home and business Word Processor Spreadsheet and Presentation in one affordable office suite It also includes a Photoalbum and quick application Launcher Just perfect for working from home allowing files to be edited and exchanged with those back in the office and absolutely ideal for students and school children",
     "winget": "Ability.AbilityOffice.8.Standard",
     "choco": "abilityoffice",
-    "itt": "none",
+    "itt": "na",
     "category": "Documents",
     "check": "false"
   },
@@ -1880,8 +1880,8 @@ $itt.database.Applications = @'
     "Name": "Winbox",
     "Description": "Small utility that allows administration of MikroTik RouterOS using a fast and simple GUI",
     "winget": "Mikrotik.Winbox",
-    "choco": "none",
-    "itt": "none",
+    "choco": "na",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -1890,7 +1890,7 @@ $itt.database.Applications = @'
     "Description": "SearchMyFiles allows you to make a very accurate search that cannot be done with Windows search For Example You can search all files created in the last 10 minutes with size between 500 and 700 bytes",
     "winget": "NirSoft.SearchMyFiles",
     "choco": "searchmyfiles",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -1899,7 +1899,7 @@ $itt.database.Applications = @'
     "Description": "iTunes is the best way to organize and enjoy the music movies and TV shows you already have and shop for the ones you want to get Its home to Apple Music which gives you unlimited access to millions of songs curated playlists1 and Beats 1 radio hosted by Zane Lowe and a team of acclaimed DJs Enjoy all the entertainment iTunes has to offer on your Mac and PC",
     "winget": "Apple.iTunes",
     "choco": "itunes",
-    "itt": "none",
+    "itt": "na",
     "category": "Media",
     "check": "false"
   },
@@ -1908,7 +1908,7 @@ $itt.database.Applications = @'
     "Description": "StartIsBack returns Windows 10 and Windows 8 a real fully featured start menu and start button behaving exactly like the ones in Windows 7",
     "winget": "StartIsBack.StartIsBack",
     "choco": "startisback",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -1917,7 +1917,7 @@ $itt.database.Applications = @'
     "Description": "Over time your computer may accumulate with large quantities of useless temporary and duplicate files Advanced SystemCare 12 will help clean up these junk files and free up your disk space Also you can use our advanced tools to make registry clean for better use",
     "winget": "XPFFGSS4Z9M2TX",
     "choco": "afedteated",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -1925,8 +1925,8 @@ $itt.database.Applications = @'
     "Name": "Send Anywhere",
     "Description": "Send Anywhere is a multiplatform file sharing service where users can directly share digital content in real time",
     "winget": "Estmob.SendAnywhere",
-    "choco": "none",
-    "itt": "none",
+    "choco": "na",
+    "itt": "na",
     "category": "File Sharing",
     "check": "false"
   },
@@ -1935,7 +1935,7 @@ $itt.database.Applications = @'
     "Description": "YUMI Your Universal Multiboot Installer is the successor to MultibootISOs It can be used to create a Multiboot USB Flash Drive containing multiple operating systems antivirus utilities disc cloning diagnostic tools and more Contrary to MultiBootISOs which used grub to boot ISO files directly from USB YUMI uses syslinux to boot extracted distributions stored on the USB device and reverts to using grub to Boot Multiple ISO files from USB if necessary",
     "winget": "YumiUsb.Legacy",
     "choco": "yumi",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -1944,7 +1944,7 @@ $itt.database.Applications = @'
     "Description": "YUMI Your Universal Multiboot Installer is the successor to MultibootISOs It can be used to create a Multiboot USB Flash Drive containing multiple operating systems antivirus utilities disc cloning diagnostic tools and more Contrary to MultiBootISOs which used grub to boot ISO files directly from USB YUMI uses syslinux to boot extracted distributions stored on the USB device and reverts to using grub to Boot Multiple ISO files from USB if necessary",
     "winget": "YumiUsb.UEFI",
     "choco": "yumi-uefi",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -1953,7 +1953,7 @@ $itt.database.Applications = @'
     "Description": "A fullfledged autoclicker with two modes of autoclicking at your dynamic cursor location or at a prespecified location The maximum amounts of clicked can also be set or left as infinite Hotkeys work in the background for convenience",
     "winget": "OPAutoClicker.OPAutoClicker",
     "choco": "autoclicker",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -1962,7 +1962,7 @@ $itt.database.Applications = @'
     "Description": "Spotube is a Flutter based lightweight spotify client It utilizes the power of Spotify  Youtubes public API  creates a hazardless performant  resource friendly User Experience",
     "winget": "KRTirtho.Spotube",
     "choco": "spotube",
-    "itt": "none",
+    "itt": "na",
     "category": "Media",
     "check": "false"
   },
@@ -1971,43 +1971,43 @@ $itt.database.Applications = @'
     "Description": "Easily switch the default audio device input or output on any Windows PC Vista and above Using this application you can switch output OR input sound devices at the click of a button or the press of a key I designed this application to be incredibly small and lightweight There is no bloat it does exactly what it should nothing more nothing less",
     "winget": "FortyOneLtd.AudioSwitcher",
     "choco": "audioswitcher",
-    "itt": "none",
+    "itt": "na",
     "category": "Media",
     "check": "false"
   },
   {
     "Name": "Microsoft Teams Classic Desktop",
     "Description": "Microsoft Teams is a messaging app for teams where all conversations meetings files and notes can be accessed by everyone all in one place Its a place for collaboration and work to happen in the open",
-    "winget": "none",
+    "winget": "na",
     "choco": "microsoft-teams.install",
-    "itt": "none",
+    "itt": "na",
     "category": "Communication",
     "check": "false"
   },
   {
     "Name": "Microsoft Windows SDK",
     "Description": "The Windows 10 SDK for Windows 10 version 1809 provides the latest headers libraries metadata and tools for building Windows 10 apps NoteWindows 10 development targeting Windows 10 version 1903 or later requires Visual Studio 2017 or later This SDK will not be discovered by previous versions of Visual Studio",
-    "winget": "none",
+    "winget": "na",
     "choco": "windows-sdk-10.1",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
   {
     "Name": "RunAsDate Portable",
     "Description": "RunAsDate is a small utility that allows you to run a program in the date and time that you specify This utility doesnt change the current system date and time of your computer but it only injects the datetime that you specify into the desired application",
-    "winget": "none",
+    "winget": "na",
     "choco": "runasdate",
-    "itt": "none",
+    "itt": "na",
     "category": "Portable",
     "check": "false"
   },
   {
     "Name": "Visual Studio 2017 Build ",
     "Description": "These Build Tools allow you to build native and managed MSBuildbased applications without requiring the Visual Studio IDE There are options to install the Visual C compilers and libraries MFC ATL and CCLI support",
-    "winget": "none",
+    "winget": "na",
     "choco": "visualstudio2017buildtools",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -2016,7 +2016,7 @@ $itt.database.Applications = @'
     "Description": "This tool filters and passes the command line arguments of Microsoft Edge processes into your default browser instead of hooking into the microsoftedge handler this should provide resiliency against future changes Additionally an Image File Execution Options mode is available to operate similarly to the Old EdgeDeflector Additional modes are planned for future versions",
     "winget": "rcmaehl.MSEdgeRedirect",
     "choco": "msedgeredirect",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -2025,7 +2025,7 @@ $itt.database.Applications = @'
     "Description": "NET Core is a general purpose development platform maintained by Microsoft and the NET community on GitHub It is crossplatform supporting Windows macOS and Linux and can be used in device cloud and embeddedIoT scenarios This package is required to run Windows Desktop applications with the .NET Runtime",
     "winget": "Microsoft.DotNet.HostingBundle.5",
     "choco": "dotnet-5.0-desktopruntime",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
@@ -2034,7 +2034,7 @@ $itt.database.Applications = @'
     "Description": "NET Core is a general purpose development platform maintained by Microsoft and the NET community on GitHub It is crossplatform supporting Windows macOS and Linux and can be used in device cloud and embeddedIoT scenarios This package is required to run Windows Desktop applications with the .NET Runtime.",
     "winget": "dotnetcore-3.0-desktopruntime",
     "choco": "Microsoft.DotNet.HostingBundle.3_1",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
@@ -2043,7 +2043,7 @@ $itt.database.Applications = @'
     "Description": "NET Core is a general purpose development platform maintained by Microsoft and the NET community on GitHub It is crossplatform supporting Windows macOS and Linux and can be used in device cloud and embeddedIoT scenarios This package is required to run Windows Desktop applications with the .NET Runtime.",
     "winget": "Microsoft.DotNet.HostingBundle.6",
     "choco": "dotnet-6.0-desktopruntime",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
@@ -2052,7 +2052,7 @@ $itt.database.Applications = @'
     "Description": "NET Core is a general purpose development platform maintained by Microsoft and the NET community on GitHub It is crossplatform supporting Windows macOS and Linux and can be used in device cloud and embeddedIoT scenarios This package is required to run Windows Desktop applications with the .NET Runtime.",
     "winget": "Microsoft.DotNet.AspNetCore.7",
     "choco": "dotnet-7.0-desktopruntime",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
@@ -2061,7 +2061,7 @@ $itt.database.Applications = @'
     "Description": "NET Core is a general purpose development platform maintained by Microsoft and the NET community on GitHub It is crossplatform supporting Windows macOS and Linux and can be used in device cloud and embeddedIoT scenarios This package is required to run Windows Desktop applications with the NET Runtime",
     "winget": "Microsoft.DotNet.DesktopRuntime.8",
     "choco": "dotnet-desktopruntime",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
@@ -2070,7 +2070,7 @@ $itt.database.Applications = @'
     "Description": "Viber is a mobile application that lets you make free phone calls and send text messages to anyone who also has the application installed You can call or text any Viber user anywhere in the world for free",
     "winget": "XPFM5P5KDWF0JP",
     "choco": "viber",
-    "itt": "none",
+    "itt": "na",
     "category": "Communication",
     "check": "false"
   },
@@ -2079,7 +2079,7 @@ $itt.database.Applications = @'
     "Description": "Introducing  StartAllBack Windows 11 from a better timeline Embrace enhance unsweep classic UI from under the rug",
     "winget": "StartIsBack.StartAllBack",
     "choco": "startallback",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -2088,7 +2088,7 @@ $itt.database.Applications = @'
     "Description": "With powerful capabilities and userfriendly interface DiskGenius Free Edition provides a robust solution for individuals and organizations to seek efficient disk management",
     "winget": "Eassos.DiskGenius",
     "choco": "diskgenius",
-    "itt": "none",
+    "itt": "na",
     "category": "Disk Tools",
     "check": "false"
   },
@@ -2096,8 +2096,8 @@ $itt.database.Applications = @'
     "Name": "UNFORMAT",
     "Description": "UNFORMAT is a software utility created to solve almost all data loss scenarios due to logical failure It can recover deleted files on a disk or restore deleted or damaged partitions and volumes As well as recovers data after using the FORMAT command",
     "winget": "LSoftTechnologies.UNFORMAT",
-    "choco": "none",
-    "itt": "none",
+    "choco": "na",
+    "itt": "na",
     "category": "Disk Tools",
     "check": "false"
   },
@@ -2105,8 +2105,8 @@ $itt.database.Applications = @'
     "Name": "Active@ UNDELETE",
     "Description": "Active UNDELETE helps you to recover deleted files and restore deleted partitions from a variety of file systems such as FAT NTFS NTFS  EFS MacOS HFS ApFS Linux ext2 ext3 ext4 ZFS Unix UFS Advanced scan algorithms help to restore files even from severely damaged disks Sophisticated userfriendly UI makes navigation through your data a breeze",
     "winget": "LSoftTechnologies.ActiveUNDELETE",
-    "choco": "none",
-    "itt": "none",
+    "choco": "na",
+    "itt": "na",
     "category": "Disk Tools",
     "check": "false"
   },
@@ -2115,7 +2115,7 @@ $itt.database.Applications = @'
     "Description": "HxD is a carefully designed and fast hex editor which additionally to raw disk editing and modifying of main memory RAM handles files of any size",
     "winget": "MHNexus.HxD",
     "choco": "hxd",
-    "itt": "none",
+    "itt": "na",
     "category": "Disk Tools",
     "check": "false"
   },
@@ -2124,7 +2124,7 @@ $itt.database.Applications = @'
     "Description": "The Epic Games Launcher is how you obtain the Unreal Game Engine modding tools and other Epic Games like Fortnite and the new Epic Games Store",
     "winget": "EpicGames.EpicGamesLauncher",
     "choco": "epicgameslauncher",
-    "itt": "none",
+    "itt": "na",
     "category": "Gaming",
     "check": "false"
   },
@@ -2133,7 +2133,7 @@ $itt.database.Applications = @'
     "Description": "The new Vivaldi browser protects you from trackers blocks unwanted ads and puts you in control with unique builtin features Get Vivaldi and browse fast",
     "winget": "VivaldiTechnologies.Vivaldi",
     "choco": "vivaldi",
-    "itt": "none",
+    "itt": "na",
     "category": "Web Browsers",
     "check": "false"
   },
@@ -2141,8 +2141,8 @@ $itt.database.Applications = @'
     "Name": "Microsoft PC Manager",
     "Description": "Microsoft PC manager a good way to protect your personal computer and optimize performance provides PC cleanup antivirus and Windows update making your computer safe and secure",
     "winget": "9PM860492SZD",
-    "choco": "none",
-    "itt": "none",
+    "choco": "na",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -2151,7 +2151,7 @@ $itt.database.Applications = @'
     "Description": "OpenShot Video Editor is an awardwinning opensource video editor available on Linux Mac and Windows OpenShot can create stunning videos films and animations with an easytouse interface and rich set of features",
     "winget": "OpenShot.OpenShot",
     "choco": "openshot",
-    "itt": "none",
+    "itt": "na",
     "category": "Media Tools",
     "check": "false"
   },
@@ -2159,8 +2159,8 @@ $itt.database.Applications = @'
     "Name": "WhatsApp",
     "Description": "WhatsApp Messenger or simply WhatsApp is an American freeware crossplatform centralized messaging and voiceoverIP VoIP service owned by Facebook Inc It allows users to send text messages and voice messages make voice and video calls and share images documents user locations and other content",
     "winget": "9NKSQGP7F2NH",
-    "choco": "none",
-    "itt": "none",
+    "choco": "na",
+    "itt": "na",
     "category": "Communication",
     "check": "false"
   },
@@ -2169,7 +2169,7 @@ $itt.database.Applications = @'
     "Description": "PaintNET is image and photo editing software for PCs that run Windows",
     "winget": "dotPDNLLC.paintdotnet",
     "choco": "paint.net",
-    "itt": "none",
+    "itt": "na",
     "category": "Imaging",
     "check": "false"
   },
@@ -2178,16 +2178,16 @@ $itt.database.Applications = @'
     "Description": "stretchly is a crossplatform electron app that reminds you to take breaks when working on your computer By default it runs in your tray and displays a reminder window containing an idea for a microbreak for 20 seconds every 10 minutes",
     "winget": "Stretchly.Stretchly",
     "choco": "stretchly",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
   {
     "Name": "Microsoft Silverlight",
     "Description": "Silverlight is a powerful development tool for creating engaging interactive user experiences for Web and mobile applications",
-    "winget": "none",
+    "winget": "na",
     "choco": "silverlight",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
@@ -2196,7 +2196,7 @@ $itt.database.Applications = @'
     "Description": "Every hard disk is too small if you just wait long enough TreeSize Free tells you where precious disk space has gone",
     "winget": "JAMSoftware.TreeSize.Free",
     "choco": "treesizefree",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -2205,34 +2205,34 @@ $itt.database.Applications = @'
     "Description": "NET is a free crossplatform opensource developer platform for building many different types of applications",
     "winget": "Microsoft.DotNet.DesktopRuntime.3_1",
     "choco": "dotnet3.5",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
   {
     "Name": "Flash Player ActiveX",
     "Description": "The Adobe Flash Player is freeware software for viewing multimedia executing Rich Internet Applications and streaming video and audio content created on the Adobe Flash platform",
-    "winget": "none",
+    "winget": "na",
     "choco": "flashplayeractivex",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
   {
     "Name": "Google Drive",
     "Description": "Google Drive  All your files  everywhere Safely store your files and access them from any device Choose folders on your computer to sync with Google Drive or backup to Google Photos and access all of your content directly from your PC or Mac",
-    "winget": "none",
+    "winget": "na",
     "choco": "googledrive",
-    "itt": "none",
+    "itt": "na",
     "category": "File Sharing",
     "check": "false"
   },
   {
     "Name": "Dot Net 4.5.2",
     "Description": "The Microsoft NET Framework 452 is a highly compatible inplace update to the Microsoft NET Framework 4 Microsoft NET Framework 45 and Microsoft NET Framework 451",
-    "winget": "none",
+    "winget": "na",
     "choco": "dotnet4.5.2",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
@@ -2241,7 +2241,7 @@ $itt.database.Applications = @'
     "Description": "Organize all your team's content, tune out distractions, and get everyone coordinated with the world's first smart workspace",
     "winget": "Dropbox.Dropbox",
     "choco": "dropbox",
-    "itt": "none",
+    "itt": "na",
     "category": "File Sharing",
     "check": "false"
   },
@@ -2250,7 +2250,7 @@ $itt.database.Applications = @'
     "Description": "Command line tool and library for transferring data with URLs",
     "winget": "cURL.cURL",
     "choco": "curl",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -2259,7 +2259,7 @@ $itt.database.Applications = @'
     "Description": "PDFCreator lets you convert any printable document to PDF",
     "winget": "pdfforge.PDFCreator",
     "choco": "pdfcreator",
-    "itt": "none",
+    "itt": "na",
     "category": "Documents",
     "check": "false"
   },
@@ -2268,7 +2268,7 @@ $itt.database.Applications = @'
     "Description": "This utility shows you what programs are configured to run during system bootup or login",
     "winget": "Microsoft.Sysinternals.Autoruns",
     "choco": "autoruns",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -2277,7 +2277,7 @@ $itt.database.Applications = @'
     "Description": "Save your files and photos to OneDrive and access them from any device anywhere",
     "winget": "Microsoft.OneDrive",
     "choco": "onedrive",
-    "itt": "none",
+    "itt": "na",
     "category": "File Sharing",
     "check": "false"
   },
@@ -2286,7 +2286,7 @@ $itt.database.Applications = @'
     "Description": "Process Explorer shows you information about which handles and DLLs processes have opened or loaded",
     "winget": "Microsoft.Sysinternals.ProcessExplorer",
     "choco": "procexp",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -2295,7 +2295,7 @@ $itt.database.Applications = @'
     "Description": "FFmpeg is a widelyused crossplatform multimedia framework which can process almost all common and many uncommon media formats It has over 1000 internal components to capture decode encode modify combine stream media and it can make use of dozens of external libraries to provide more capabilities",
     "winget": "Gyan.FFmpeg",
     "choco": "ffmpeg",
-    "itt": "none",
+    "itt": "na",
     "category": "Media Tools",
     "check": "false"
   },
@@ -2304,16 +2304,16 @@ $itt.database.Applications = @'
     "Description": "The official OpenVPN Connect client software developed and maintained by OpenVPN Inc",
     "winget": "OpenVPNTechnologies.OpenVPNConnect",
     "choco": "openvpn-connect",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
   {
     "Name": "Git Large File Storage",
     "Description": "Git Large File Storage LFS replaces large files such as audio samples videos datasets and graphics with text pointers inside Git while storing the file contents on a remote server like GitHubcom or GitHub Enterprise",
-    "winget": "none",
+    "winget": "na",
     "choco": "git-lfs",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -2322,7 +2322,7 @@ $itt.database.Applications = @'
     "Description": "Nmap Network Mapper is a free and open source utility for network discovery and security auditing",
     "winget": "Insecure.Nmap",
     "choco": "nmap",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -2331,7 +2331,7 @@ $itt.database.Applications = @'
     "Description": "UltraVNC is an open source application that uses the VNC protocol to control another computer remotely over a network connection UltraVNC allows the use of a remote computer",
     "winget": "uvncbvba.UltraVnc",
     "choco": "ultravnc",
-    "itt": "none",
+    "itt": "na",
     "category": "File Sharing",
     "check": "false"
   },
@@ -2340,7 +2340,7 @@ $itt.database.Applications = @'
     "Description": "Plex is a global streaming media service and a clientserver media player platform made by Plex Inc",
     "winget": "Plex.Plex",
     "choco": "plex",
-    "itt": "none",
+    "itt": "na",
     "category": "Media Tools",
     "check": "false"
   },
@@ -2349,7 +2349,7 @@ $itt.database.Applications = @'
     "Description": "Plex Media Server helps you organise your media and stream it to your devices",
     "winget": "Plex.PlexMediaServer",
     "choco": "plexmediaserver",
-    "itt": "none",
+    "itt": "na",
     "category": "Media Tools",
     "check": "false"
   },
@@ -2358,43 +2358,43 @@ $itt.database.Applications = @'
     "Description": "By using Microsoft Visio 2016 Viewer Visio users can freely distribute Visio drawings files with a vsdx vsdm vsd vdx vdw vstx vstm vst or vtx extension to team members partners customers or others even if the recipients do not have Visio installed on their computer",
     "winget": "Microsoft.VisioViewer",
     "choco": "visioviewer",
-    "itt": "none",
+    "itt": "na",
     "category": "Documents",
     "check": "false"
   },
   {
     "Name": "Keyn Stroke",
     "Description": "KeynStroke makes it easy for your audience to follow your actions on the screen",
-    "winget": "none",
+    "winget": "na",
     "choco": "key-n-stroke",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
   {
     "Name": "Fing",
     "Description": "Fing App is a free network scanner that makes you discover all connected devices run internet speed tests and help troubleshoot network and device issues Get Fingbox for more advanced security and protection for your network",
-    "winget": "none",
+    "winget": "na",
     "choco": "fing",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
   {
     "Name": "Ryujinx",
     "Description": "Ryujinx is an opensource Nintendo Switch emulator created by gdkchan and written in C This emulator aims at providing excellent accuracy and performance a userfriendly interface and consistent builds",
-    "winget": "none",
+    "winget": "na",
     "choco": "ryujinx --params '/DesktopShortcut'",
-    "itt": "none",
+    "itt": "na",
     "category": "Gaming",
     "check": "false"
   },
   {
     "Name": "Omnify Hotspot",
     "Description": "The best virtual router to turn your PC into a WiFi hotspot  repeater WiFi hotspot allows you to create a wireless access point and share your internet Its easy to use and quick to start as you only need to give it a name and password and then connect your smartphone tablet media player ereader printer laptop and other wireless devices The network name can also include Unicode characters and Emojis",
-    "winget": "none",
+    "winget": "na",
     "choco": "omnifyhotspot",
-    "itt": "none",
+    "itt": "na",
     "category": "File Sharing",
     "check": "false"
   },
@@ -2403,15 +2403,15 @@ $itt.database.Applications = @'
     "Description": "MKVToolNix is a set of tools to create alter and inspect Matroska files under Linux other Unices and Windows",
     "winget": "MoritzBunkus.MKVToolNix",
     "choco": "mkvtoolnix",
-    "itt": "none",
+    "itt": "na",
     "category": "Media Tools",
     "check": "false"
   },
   {
     "Name": "Neat Download Manager",
     "Description": "Neat Download Manager is a free Internet Download Manager for Windows",
-    "winget": "none",
-    "choco": "none",
+    "winget": "na",
+    "choco": "na",
     "itt": "neat",
     "category": "Web Browsers",
     "check": "false"
@@ -2419,8 +2419,8 @@ $itt.database.Applications = @'
   {
     "Name": "x630ce for all games",
     "Description": "Xbox 360 Controller Emulator” allows your controller (gamepad, joystick, steering wheel, pedals, etc.) to function on your PC as an Xbox 360 controller. It allows you to remap buttons and axes and to drive cars with steering wheel and pedals or to fly planes with joystick and throttle in games like “Grand Theft Auto” or “Saints Row” • Digitally Signed",
-    "winget": "none",
-    "choco": "none",
+    "winget": "na",
+    "choco": "na",
     "itt": "x630ce",
     "category": "Gaming",
     "check": "false"
@@ -2430,7 +2430,7 @@ $itt.database.Applications = @'
     "Description": "NET is a free crossplatform opensource developer platform for building many different types of applications",
     "winget": "Microsoft.DotNet.SDK.7",
     "choco": "dotnet-7.0-sdk",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
@@ -2439,7 +2439,7 @@ $itt.database.Applications = @'
     "Description": "NET is a free crossplatform opensource developer platform for building many different types of applications",
     "winget": "Microsoft.DotNet.SDK.Preview",
     "choco": "dotnet-sdk",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
@@ -2448,16 +2448,16 @@ $itt.database.Applications = @'
     "Description": "NET is a free crossplatform opensource developer platform for building many different types of applications",
     "winget": "Microsoft.DotNet.AspNetCore.7",
     "choco": "dotnet-aspnetruntime",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   },
   {
     "Name": "HFS HTTP File Server",
     "Description": "You can use HFS HTTP File Server to send and receive files Its different from classic file sharing because it uses web technology to be more compatible with todays Internet It also differs from classic web servers because its very easy to use and runs right outofthe box",
-    "winget": "none",
+    "winget": "na",
     "choco": "hfs",
-    "itt": "none",
+    "itt": "na",
     "category": "File Sharing",
     "check": "false"
   },
@@ -2466,7 +2466,7 @@ $itt.database.Applications = @'
     "Description": "Cemu is a highly experimental software to emulate Wii U applications on PC",
     "winget": "Cemu.Cemu",
     "choco": "cemu",
-    "itt": "none",
+    "itt": "na",
     "category": "Gaming",
     "check": "false"
   },
@@ -2475,7 +2475,7 @@ $itt.database.Applications = @'
     "Description": "Chatterino is a chat client for Twitch chat that offers a clean and customizable interface for a better streaming experience",
     "winget": "ChatterinoTeam.Chatterino",
     "choco": "chatterino",
-    "itt": "none",
+    "itt": "na",
     "category": "Communication",
     "check": "false"
   },
@@ -2484,7 +2484,7 @@ $itt.database.Applications = @'
     "Description": "Clementine is a modern music player and library organizer supporting various audio formats and online radio services",
     "winget": "Clementine.Clementine",
     "choco": "clementine",
-    "itt": "none",
+    "itt": "na",
     "category": "Media Tools",
     "check": "false"
   },
@@ -2493,7 +2493,7 @@ $itt.database.Applications = @'
     "Description": "Clink is a powerful Bashcompatible commandline interface CLIenhancement for Windows adding features like syntax highlighting and improved history",
     "winget": "chrisant996.Clink",
     "choco": "clink",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -2502,7 +2502,7 @@ $itt.database.Applications = @'
     "Description": "CMake is an opensource crossplatform family of tools designed to build test and package software",
     "winget": "Kitware.CMake",
     "choco": "cmake",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -2511,7 +2511,7 @@ $itt.database.Applications = @'
     "Description": "CopyQ is a clipboard manager with advanced features allowing you to store edit and retrieve clipboard history",
     "winget": "hluk.CopyQ",
     "choco": "copyq",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -2520,7 +2520,7 @@ $itt.database.Applications = @'
     "Description": "Crystal Disk Info is a disk health monitoring tool that provides information about the status and performance of hard drives It helps users anticipate potential issues and monitor drive health",
     "winget": "CrystalDewWorld.CrystalDiskInfo",
     "choco": "crystaldiskinfo",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -2529,7 +2529,7 @@ $itt.database.Applications = @'
     "Description": "Crystal Disk Mark is a disk benchmarking tool that measures the read and write speeds of storage devices It helps users assess the performance of their hard drives and SSDs",
     "winget": "CrystalDewWorld.CrystalDiskMark",
     "choco": "crystaldiskmark",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -2538,7 +2538,7 @@ $itt.database.Applications = @'
     "Description": "Opensource photo editing tool offering an intuitive interface advanced editing capabilities and a nondestructive workflow for seamless image enhancement",
     "winget": "darktable.darktable",
     "choco": "darktable",
-    "itt": "none",
+    "itt": "na",
     "category": "Media Tools",
     "check": "false"
   },
@@ -2547,7 +2547,7 @@ $itt.database.Applications = @'
     "Description": "EA App is a platform for accessing and playing Electronic Arts games",
     "winget": "ElectronicArts.EADesktop",
     "choco": "ea-app",
-    "itt": "none",
+    "itt": "na",
     "category": "Gaming",
     "check": "false"
   },
@@ -2556,7 +2556,7 @@ $itt.database.Applications = @'
     "Description": "Falkon is a lightweight and fast web browser with a focus on user privacy and efficiency",
     "winget": "KDE.Falkon",
     "choco": "falkon",
-    "itt": "none",
+    "itt": "na",
     "category": "Web Browsers",
     "check": "false"
   },
@@ -2565,16 +2565,16 @@ $itt.database.Applications = @'
     "Description": "File Converter is a very simple tool which allows you to convert and compress one or several files using the context menu in windows explorer",
     "winget": "AdrienAllard.FileConverter",
     "choco": "file-converter",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
   {
     "Name": "Files",
     "Description": "Alternative file explorer",
-    "winget": "none",
+    "winget": "na",
     "choco": "files",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -2583,7 +2583,7 @@ $itt.database.Applications = @'
     "Description": "Flameshot is a powerful yet simple to use screenshot software offering annotation and editing features",
     "winget": "Flameshot.Flameshot",
     "choco": "flameshot",
-    "itt": "none",
+    "itt": "na",
     "category": "Media Tools",
     "check": "false"
   },
@@ -2592,7 +2592,7 @@ $itt.database.Applications = @'
     "Description": "Ligthshot is an Easytouse lightweight screenshot software tool where you can optionally edit your screenshots using different tools share them via Internet andor save to disk and customize the available options",
     "winget": "Skillbrains.Lightshot",
     "choco": "lightshot",
-    "itt": "none",
+    "itt": "na",
     "category": "Media Tools",
     "check": "false"
   },
@@ -2601,7 +2601,7 @@ $itt.database.Applications = @'
     "Description": "flux adjusts the color temperature of your screen to reduce eye strain during nighttime use",
     "winget": "flux.flux",
     "choco": "flux",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -2610,7 +2610,7 @@ $itt.database.Applications = @'
     "Description": "GitHub CLI is a commandline tool that simplifies working with GitHub directly from the terminal",
     "winget": "GitHub.cli",
     "choco": "gh",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -2619,7 +2619,7 @@ $itt.database.Applications = @'
     "Description": "GOG Galaxy is a gaming client that offers DRMfree games additional content and more",
     "winget": "GOG.Galaxy",
     "choco": "goggalaxy",
-    "itt": "none",
+    "itt": "na",
     "category": "Gaming",
     "check": "false"
   },
@@ -2628,7 +2628,7 @@ $itt.database.Applications = @'
     "Description": "Greenshot is a lightweight screenshot software tool with builtin image editor and customizable capture options",
     "winget": "Greenshot.Greenshot",
     "choco": "greenshot",
-    "itt": "none",
+    "itt": "na",
     "category": "Media Tools",
     "check": "false"
   },
@@ -2637,7 +2637,7 @@ $itt.database.Applications = @'
     "Description": "HexChat is a free opensource IRC Internet Relay Chat client with a graphical interface for easy communication",
     "winget": "HexChat.HexChat",
     "choco": "hexchat",
-    "itt": "none",
+    "itt": "na",
     "category": "Communication",
     "check": "false"
   },
@@ -2646,7 +2646,7 @@ $itt.database.Applications = @'
     "Description": "HWMonitor is a hardware monitoring program that reads PC systems main health sensors",
     "winget": "CPUID.HWMonitor",
     "choco": "hwmonitor",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -2655,7 +2655,7 @@ $itt.database.Applications = @'
     "Description": "ImageGlass is a versatile image viewer with support for various image formats and a focus on simplicity and speed",
     "winget": "DuongDieuPhap.ImageGlass",
     "choco": "imageglass",
-    "itt": "none",
+    "itt": "na",
     "category": "Media Tools",
     "check": "false"
   },
@@ -2664,7 +2664,7 @@ $itt.database.Applications = @'
     "Description": "Itchio is a digital distribution platform for indie games and creative projects",
     "winget": "ItchIo.Itch",
     "choco": "itch",
-    "itt": "none",
+    "itt": "na",
     "category": "Gaming",
     "check": "false"
   },
@@ -2673,7 +2673,7 @@ $itt.database.Applications = @'
     "Description": "KDE Connect allows seamless integration between your KDE desktop and mobile devices",
     "winget": "KDE.KDEConnect",
     "choco": "kdeconnect-kde",
-    "itt": "none",
+    "itt": "na",
     "category": "File Sharing",
     "check": "false"
   },
@@ -2682,7 +2682,7 @@ $itt.database.Applications = @'
     "Description": "KeePassXC is a crossplatform opensource password manager with strong encryption features",
     "winget": "KeePassXCTeam.KeePassXC",
     "choco": "keepassxc",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -2691,7 +2691,7 @@ $itt.database.Applications = @'
     "Description": "Simple terminal UI for git commands",
     "winget": "JesseDuffield.lazygit",
     "choco": "lazygit",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -2700,7 +2700,7 @@ $itt.database.Applications = @'
     "Description": "An open source crossplatform alternative to AirDrop",
     "winget": "LocalSend.LocalSend",
     "choco": "localsend.install",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -2709,7 +2709,7 @@ $itt.database.Applications = @'
     "Description": "Fork  a fast and friendly git client",
     "winget": "Fork.Fork",
     "choco": "git-fork",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -2718,7 +2718,7 @@ $itt.database.Applications = @'
     "Description": "A Communityled HyperHackable Text Editor",
     "winget": "Pulsar-Edit.Pulsar",
     "choco": "pulsar",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -2727,7 +2727,7 @@ $itt.database.Applications = @'
     "Description": "Shotcut is a free open source crossplatform video editor",
     "winget": "Meltytech.Shotcut",
     "choco": "Shotcut",
-    "itt": "none",
+    "itt": "na",
     "category": "Media Tools",
     "check": "false"
   },
@@ -2736,7 +2736,7 @@ $itt.database.Applications = @'
     "Description": "Pale Moon is an Open Source Goannabased web browser available for Microsoft Windows and Linux with other operating systems in development focusing on efficiency and ease of use",
     "winget": "MoonchildProductions.PaleMoon",
     "choco": "paleMoon",
-    "itt": "none",
+    "itt": "na",
     "category": "Web Browsers",
     "check": "false"
   },
@@ -2745,7 +2745,7 @@ $itt.database.Applications = @'
     "Description": "enables PC game controllers to emulate the keyboard and mouse input",
     "winget": "JTKsoftware.JoyToKey",
     "choco": "joytokey",
-    "itt": "none",
+    "itt": "na",
     "category": "Gaming",
     "check": "false"
   },
@@ -2754,7 +2754,7 @@ $itt.database.Applications = @'
     "Description": "Automatically switches between the dark and light theme of Windows 10 and Windows 11",
     "winget": "Armin2208.WindowsAutoNightMode",
     "choco": "auto-dark-mode",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -2763,7 +2763,7 @@ $itt.database.Applications = @'
     "Description": "Windows Firewall Control is a powerful tool which extends the functionality of Windows Firewall and provides new extra features which makes Windows Firewall better",
     "winget": "BiniSoft.WindowsFirewallControl",
     "choco": "windowsfirewallcontrol",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -2772,16 +2772,16 @@ $itt.database.Applications = @'
     "Description": "TightVNC is a free and Open Source remote desktop software that lets you access and control a computer over the network With its intuitive interface you can interact with the remote screen as if you were sitting in front of it You can open files launch applications and perform other actions on the remote desktop almost as if you were physically there",
     "winget": "GlavSoft.TightVNC",
     "choco": "TightVNC",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
   {
     "Name": "Python Version Manager",
     "Description": "pyenv for Windows is a simple python version management tool It lets you easily switch between multiple versions of Python",
-    "winget": "none",
+    "winget": "na",
     "choco": "pyenv-win",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -2790,7 +2790,7 @@ $itt.database.Applications = @'
     "Description": "Pixi is a fast software package manager built on top of the existing conda ecosystem Spins up development environments quickly on Windows macOS and Linux Pixi supports Python R CC Rust Ruby and many other languages",
     "winget": "prefix-dev.pixi",
     "choco": "pixi",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -2799,7 +2799,7 @@ $itt.database.Applications = @'
     "Description": "VSCodium is a communitydriven freelylicensed binary distribution of Microsofts VS Code",
     "winget": "VSCodium.VSCodium",
     "choco": "vscodium",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -2808,16 +2808,16 @@ $itt.database.Applications = @'
     "Description": "Python IDE for beginners",
     "winget": "AivarAnnamaa.Thonny",
     "choco": "thonny",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
   {
     "Name": "Poedit",
     "Description": "Poedit translations editor The best way to translate apps and sites",
-    "winget": "none",
-    "choco": "none",
-    "itt": "none",
+    "winget": "na",
+    "choco": "na",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -2826,33 +2826,33 @@ $itt.database.Applications = @'
     "Description": "Adobe Acrobat Reader DC software is the free trusted global standard for viewing printing signing sharing and annotating PDFs Its the only PDF viewer that can open and interact",
     "winget": "Adobe.Acrobat.Reader.32-bit",
     "choco": "adobereader",
-    "itt": "none",
+    "itt": "na",
     "category": "Documents",
     "check": "false"
   },
   {
     "Name": "Flash Player Plugin",
     "Description": "The Adobe Flash Player is freeware software for viewing multimedia executing Rich Internet Applications and streaming video and audio content created on the Adobe Flash platform",
-    "winget": "none",
+    "winget": "na",
     "choco": "flashplayerplugin",
-    "itt": "none",
+    "itt": "na",
     "category": "Documents",
     "check": "false"
   },
   {
     "Name": "Sysinternals",
     "Description": "The Sysinternals Troubleshooting Utilities have been rolled up into a single suite of tools",
-    "winget": "none",
+    "winget": "na",
     "choco": "sysinternals",
-    "itt": "none",
+    "itt": "na",
     "category": "Documents",
     "check": "false"
   },
   {
     "Name": "SelfishNet",
     "Description": "Control your internet bandwidth with SelfishNet V3, ARP Spoofing application.",
-    "winget": "none",
-    "choco": "none",
+    "winget": "na",
+    "choco": "na",
     "itt": "selfishnet",
     "category": "Utilities",
     "check": "false"
@@ -2862,7 +2862,7 @@ $itt.database.Applications = @'
     "Description": "Integrate updates drivers automate Windows and application setup speedup Windows deployment process and have it all set for the next time",
     "winget": "Nlitesoft.NTLite",
     "choco": "ntlite-free",
-    "itt": "none",
+    "itt": "na",
     "category": "Drivers",
     "check": "false"
   },
@@ -2871,7 +2871,7 @@ $itt.database.Applications = @'
     "Description": "Olive is a free nonlinear video editor for Windows",
     "winget": "OliveTeam.OliveVideoEditor",
     "choco": "olive",
-    "itt": "none",
+    "itt": "na",
     "category": "Media Tools",
     "check": "false"
   },
@@ -2880,7 +2880,7 @@ $itt.database.Applications = @'
     "Description": "A simple and elegant opensource markdown editor that focused on speed and usability",
     "winget": "MarkText.MarkText",
     "choco": "marktext.portable",
-    "itt": "none",
+    "itt": "na",
     "category": "Portable",
     "check": "false"
   },
@@ -2889,7 +2889,7 @@ $itt.database.Applications = @'
     "Description": "pCloud is a file hosting service also called cloud storage or online storage founded in Switzerland in 2013",
     "winget": "pCloudAG.pCloudDrive",
     "choco": "pcloud",
-    "itt": "none",
+    "itt": "na",
     "category": "File Sharing",
     "check": "false"
   },
@@ -2898,7 +2898,7 @@ $itt.database.Applications = @'
     "Description": "Hurl is a command line tool that runs HTTP requests defined in a simple plain text format",
     "winget": "Orange-OpenSource.Hurl",
     "choco": "hurl",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -2907,25 +2907,25 @@ $itt.database.Applications = @'
     "Description": "Compute and save MD5 SHA1 SHA2 RIPEMD hashes and CRC1632 checksums for multiple files Calculate hashes and checksums for the whole file or just specified bytes",
     "winget": "BinaryMark.FileHashGenerator",
     "choco": "file-hash-generator",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
   {
     "Name": "Multimark down",
     "Description": "MultiMarkdown or MMD, is a tool to help turn minimally marked-up plain text into well formatted documents, including HTML, PDF",
-    "winget": "none",
+    "winget": "na",
     "choco": "multimarkdown",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
   {
     "Name": "PCSX2 Emulator",
     "Description": "PCSX2 is a free and opensource PlayStation 2 PS2 emulator Its purpose is to emulate the PS2s hardware",
-    "winget": "none",
+    "winget": "na",
     "choco": "pcsx2.portable",
-    "itt": "none",
+    "itt": "na",
     "category": "Portable",
     "check": "false"
   },
@@ -2934,25 +2934,25 @@ $itt.database.Applications = @'
     "Description": "RetroArch is a frontend for emulators game engines and media players It enables you to run classic games on a wide range of computers and consoles through its slick graphical interface",
     "winget": "Libretro.RetroArch",
     "choco": "retroarch",
-    "itt": "none",
+    "itt": "na",
     "category": "Gaming",
     "check": "false"
   },
   {
     "Name": "Free Virtual Keyboard",
     "Description": "Free Virtual Keyboard works on any Windows based UMPC with a passive touchscreen Ultramobile PC Tablet PC and Panel PC",
-    "winget": "none",
+    "winget": "na",
     "choco": "free-virtual-keyboard",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
   {
     "Name": "TypeScript for Visual Studio 2017 and 2019",
     "Description": "This is a standalone power tool release of TypeScript for Visual Studio 2017 and 2019 It includes both the TypeScript experience for Visual Studio and a standalone compiler that can be used from the command line",
-    "winget": "none",
+    "winget": "na",
     "choco": "typescript-vs2017-vs2019",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -2961,34 +2961,34 @@ $itt.database.Applications = @'
     "Description": "Beautiful  Clever Markdown Editor Download trial",
     "winget": "Caret.Caret",
     "choco": "caret",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
   {
     "Name": "iSpy",
     "Description": "iSpy is the worlds most popular open source video surveillance application Its compatible with the the vast majority of consumer webcams and IP cameras With more than 2 million users worldwide iSpy works with more cameras and devices than anything else on the market",
-    "winget": "none",
+    "winget": "na",
     "choco": "ispy",
-    "itt": "none",
+    "itt": "na",
     "category": "Imaging",
     "check": "false"
   },
   {
     "Name": "WavPack",
     "Description": "WavPack is a completely open audio compression format providing lossless highquality lossy and a unique hybrid compression mode Although the technology is loosely based on previous versions of WavPack the new version 4 format has been designed from the ground up to offer unparalleled performance and functionality",
-    "winget": "none",
+    "winget": "na",
     "choco": "wavpack",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
   {
     "Name": "ProcessThreadsView",
     "Description": "ProcessThreadsView is a small utility that displays extensive information about all threads of the process that you choose",
-    "winget": "none",
+    "winget": "na",
     "choco": "processthreadsview",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -2997,7 +2997,7 @@ $itt.database.Applications = @'
     "Description": "Zulu is a certified build of OpenJDK that is fully compliant with the Java SE standard Zulu is 100 open source and freely downloadable Now Java developers system administrators and end users can enjoy the full benefits of open source Java with deployment flexibility and control over upgrade timing",
     "winget": "Azul.Zulu.11.JRE",
     "choco": "zulu12",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -3006,16 +3006,16 @@ $itt.database.Applications = @'
     "Description": "Generate Release Notes in MarkDown format from a GitHub project",
     "winget": "StefHeyenrath.GitHubReleaseNotes",
     "choco": "githubreleasenotes",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
   {
     "Name": "Tome",
     "Description": "Developing games is all about data With game systems for modifying data and user interfaces for presenting it finding a sophisticated data model is key to creating successful games Even more being able to change this data and iterate on a daytoday basis is mandatory in todays production cycles",
-    "winget": "none",
+    "winget": "na",
     "choco": "tome-editor",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -3024,7 +3024,7 @@ $itt.database.Applications = @'
     "Description": "OpenSSH is a complete implementation of the SSH protocol version 2 for secure remote login command execution and file transfer",
     "winget": "Microsoft.OpenSSH.Beta",
     "choco": "openssh",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -3033,7 +3033,7 @@ $itt.database.Applications = @'
     "Description": "Komodo Edit is a free and open source text editor for dynamic programming languages",
     "winget": "ActiveState.KomodoEdit",
     "choco": "komodo-edit",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -3042,7 +3042,7 @@ $itt.database.Applications = @'
     "Description": "A free and opensource multiplatform 3D parametric modeler",
     "winget": "FreeCAD.FreeCAD",
     "choco": "freecad",
-    "itt": "none",
+    "itt": "na",
     "category": "Imaging",
     "check": "false"
   },
@@ -3051,25 +3051,25 @@ $itt.database.Applications = @'
     "Description": "SQLite is an inprocess library that implements a selfcontained serverless zeroconfiguration transactional SQL database engine SQLite is an embedded SQL database engine Unlike most other SQL databases SQLite does not have a separate server process SQLite reads and writes directly to ordinary disk files A complete SQL database with multiple tables indices triggers and views is contained in a single disk file",
     "winget": "SQLite.SQLite",
     "choco": "sqlite",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
   {
     "Name": "MkDocs",
     "Description": "MkDocs is a fast simple and downright gorgeous static site generator thats geared towards building project documentation Documentation source files are written in Markdown and configured with a single YAML configuration file",
-    "winget": "none",
+    "winget": "na",
     "choco": "mkdocs",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
   {
     "Name": "MkDocs Material Theme",
     "Description": "MkDocs is a fast simple and downright gorgeous static site generator thats geared towards building project documentation Documentation source files are written in Markdown and configured with a single YAML configuration file",
-    "winget": "none",
+    "winget": "na",
     "choco": "mkdocs-material",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -3078,7 +3078,7 @@ $itt.database.Applications = @'
     "Description": "A free implementation of SSH and Telnet along with an xterm terminal emulator",
     "winget": "PuTTY.PuTTY",
     "choco": "putty",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -3087,24 +3087,24 @@ $itt.database.Applications = @'
     "Description": "WinSCP is an open source free SFTP client FTP client WebDAV client S3 client and SCP client for Windows Its main function is file transfer between a local and a remote computer Beyond this WinSCP offers scripting and basic file manager functionality",
     "winget": "WinSCP.WinSCP",
     "choco": "winscp",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
   {
     "Name": "LibreOffice Still",
     "Description": "LibreOffice is the free powerpacked Open Source personal productivity suite for Windows macOS and Linux that gives you six featurerich applications for all your document production and data processing needs",
-    "winget": "none",
+    "winget": "na",
     "choco": "libreoffice-still",
-    "itt": "none",
+    "itt": "na",
     "category": "Documents",
     "check": "false"
   },
   {
     "Name": "Aio Runtimes",
     "Description": "All in One Runtimes also known as AIO Runtimes is a program that integrates essential runtime packages ensuring the seamless functionality of all programs by installing them automatically",
-    "winget": "none",
-    "choco": "none",
+    "winget": "na",
+    "choco": "na",
     "itt": "aio-runtimes",
     "category": "Runtimes",
     "check": "false"
@@ -3112,8 +3112,8 @@ $itt.database.Applications = @'
   {
     "Name": "Visual-C-Runtimes All in One Oct 2024",
     "Description": "This archive contains the latest version (Oct 2024) of all VCRedist Visual Studio C++ runtimes, installable with a single click by running the included batch file installer",
-    "winget": "none",
-    "choco": "none",
+    "winget": "na",
+    "choco": "na",
     "itt": "vsall",
     "category": "Runtimes",
     "check": "false"
@@ -3123,15 +3123,15 @@ $itt.database.Applications = @'
     "Description": "GPUZ is a lightweight system utility designed to provide vital information about your video card and graphics processor",
     "winget": "TechPowerUp.GPU-Z",
     "choco": "gpu-z",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
   {
     "Name": "MemTest86",
     "Description": "MemTest86 boots from a USB flash drive and tests the RAM in your computer for faults using a series of comprehensive algorithms and test patterns",
-    "winget": "none",
-    "choco": "none",
+    "winget": "na",
+    "choco": "na",
     "itt": "memtest86",
     "category": "Utilities",
     "check": "false"
@@ -3139,8 +3139,8 @@ $itt.database.Applications = @'
   {
     "Name": "Memtest86 Plus",
     "Description": "Memtest86 Plus v6 is a unified, free, open-source memory testing tool, released under GNU GPL v2.0. The new v6 code base (originally called PCMemTest) was provided by Martin Whitaker, based on Memtest86+ v5, developed by Sam Demeulemeester. Both are now working on Memtest86+",
-    "winget": "none",
-    "choco": "none",
+    "winget": "na",
+    "choco": "na",
     "itt": "memtest86plus",
     "category": "Utilities",
     "check": "false"
@@ -3148,9 +3148,9 @@ $itt.database.Applications = @'
   {
     "Name": "VLC Skins",
     "Description": "Put the downloaded VLT files in the following folder: On Windows: the skins folder in the VLC installation directory (e.g. C:\\Program Files\\VideoLAN\\VLC\\skins) On Linux/Unix: ~/.local/share/vlc/skins2",
-    "winget": "none",
+    "winget": "na",
     "choco": "vlc-skins",
-    "itt": "none",
+    "itt": "na",
     "category": "Media Tools",
     "check": "false"
   },
@@ -3159,16 +3159,16 @@ $itt.database.Applications = @'
     "Description": "Regular expression search and replace for Windows",
     "winget": "StefansTools.grepWin",
     "choco": "grepwin",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
   {
     "Name": "NICE DCV Server",
     "Description": "NICE DCV is a remote display protocol that securely streams desktops and apps from cloud or data centers to any device, enabling graphics-intensive applications on Amazon EC2. It's used for HPC workloads and by services like Appstream 2.0 and AWS RoboMaker",
-    "winget": "none",
+    "winget": "na",
     "choco": "nice-dcv-server",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -3177,7 +3177,7 @@ $itt.database.Applications = @'
     "Description": "NTag is a cross platform-graphical tag editor focused on everyday life use cases",
     "winget": "nrittsti.NTag",
     "choco": "ntag",
-    "itt": "none",
+    "itt": "na",
     "category": "Media Tools",
     "check": "false"
   },
@@ -3186,7 +3186,7 @@ $itt.database.Applications = @'
     "Description": "Advanced Windows volume control",
     "winget": "irzyxa.Volume2Portable",
     "choco": "volume2",
-    "itt": "none",
+    "itt": "na",
     "category": "Media Tools",
     "check": "false"
   },
@@ -3195,15 +3195,15 @@ $itt.database.Applications = @'
     "Description": "[Unofficial] qBittorrent Enhanced, based on qBittorrent",
     "winget": "wingetinstallc0re100.qBittorrent-Enhanced-Edition",
     "choco": "qbittorrent-enhanced",
-    "itt": "none",
+    "itt": "na",
     "category": "File Sharing",
     "check": "false"
   },
   {
     "Name": "Aspia",
     "Description": "Remote desktop and file transfer tool",
-    "winget": "none",
-    "choco": "none",
+    "winget": "na",
+    "choco": "na",
     "itt": "Aspia",
     "category": "File Sharing",
     "check": "false"
@@ -3213,16 +3213,16 @@ $itt.database.Applications = @'
     "Description": "Simple Transfer is the easiest way of transferring your Photos and Videos to computer and other iOS devices wirelessly or USB. No need for cable, iTunes or extra softwares on your computer!",
     "winget": "Rambax.SimpleTransfer",
     "choco": "simpletransfer",
-    "itt": "none",
+    "itt": "na",
     "category": "File Sharing",
     "check": "false"
   },
   {
     "Name": "Twitch Desktop App",
     "Description": "Servers - A virtual home for your community to chat, watch, and play with fully customizable text and voice rooms",
-    "winget": "none",
+    "winget": "na",
     "choco": "twitch",
-    "itt": "none",
+    "itt": "na",
     "category": "Gaming",
     "check": "false"
   },
@@ -3231,16 +3231,16 @@ $itt.database.Applications = @'
     "Description": "Remote Connections & Passwords. Everywhere!",
     "winget": "Devolutions.RemoteDesktopManager",
     "choco": "rdm",
-    "itt": "none",
+    "itt": "na",
     "category": "File Sharing",
     "check": "false"
   },
   {
     "Name": "Torrid",
     "Description": "Torrid is a multi-server, multi-client, multi-tracker Remote Torrent Client which allows any number of installed torrent engines.",
-    "winget": "none",
+    "winget": "na",
     "choco": "torrid",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -3249,7 +3249,7 @@ $itt.database.Applications = @'
     "Description": "Manage small to large collections of audio files, videos and playlists (100,000+), whether on a hard drive, network, or CDs. Rip CDs, download podcasts, lookup artwork and other missing information online, tag almost any audio or video format, and automatically rename/re-organize files on your hard drive",
     "winget": "VentisMedia.MediaMonkey",
     "choco": "mediamonkey",
-    "itt": "none",
+    "itt": "na",
     "category": "Media",
     "check": "false"
   },
@@ -3258,7 +3258,7 @@ $itt.database.Applications = @'
     "Description": "Convenient unified display of the most relevent technical and tag data for video and audio files",
     "winget": "MediaArea.MediaInfo.GUI",
     "choco": "mediainfo",
-    "itt": "none",
+    "itt": "na",
     "category": "Media Tools",
     "check": "false"
   },
@@ -3267,7 +3267,7 @@ $itt.database.Applications = @'
     "Description": "Universal Media Server is a DLNA-compliant UPnP Media Server. It is capable of sharing video, audio and images between most modern devices",
     "winget": "UniversalMediaServer.UniversalMediaServer",
     "choco": "ums",
-    "itt": "none",
+    "itt": "na",
     "category": "Media",
     "check": "false"
   },
@@ -3276,7 +3276,7 @@ $itt.database.Applications = @'
     "Description": "The K-Lite Codec Pack is a collection of DirectShow filters, VFW/ACM codecs, and tools. Codecs and DirectShow filters are needed for encoding and decoding audio and video formats. The K-Lite Codec Pack is designed as a user-friendly solution for playing all your audio and movie files. With the K-Lite Codec Pack you should be able to play all the popular audio and video formats and even several less common formats",
     "winget": "CodecGuide.K-LiteCodecPack.Standard",
     "choco": "k-litecodecpack-standard",
-    "itt": "none",
+    "itt": "na",
     "category": "Media",
     "check": "false"
   },
@@ -3285,7 +3285,7 @@ $itt.database.Applications = @'
     "Description": "PowerISO provides an all-in-one solution. You can do every thing with your ISO files and disc image files",
     "winget": "PowerSoftware.PowerISO",
     "choco": "poweriso",
-    "itt": "none",
+    "itt": "na",
     "category": "Compression",
     "check": "false"
   },
@@ -3294,7 +3294,7 @@ $itt.database.Applications = @'
     "Description": "This tool allows you to record a selected area of your screen, live feed from your webcam or live drawings from a sketchboard. Afterwards, you can edit and save the animation as a gif, apng, video, psd or png images",
     "winget": "NickeManarin.ScreenToGif",
     "choco": "screentogif.portable",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -3303,7 +3303,7 @@ $itt.database.Applications = @'
     "Description": "The collaborative interface design tool Build better products as a team. Design, prototype, and gather feedback all in one place with Figma",
     "winget": "Figma.Figma",
     "choco": "figma",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -3312,7 +3312,7 @@ $itt.database.Applications = @'
     "Description": "EarTrumpet is a powerful volume control app for Windows",
     "winget": "File-New-Project.EarTrumpet",
     "choco": "eartrumpet",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
@@ -3321,15 +3321,15 @@ $itt.database.Applications = @'
     "Description": "Microsoft Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications. Microsoft Visual Studio Code is free and available on your favorite platform - Linux, macOS, and Windows",
     "winget": "Microsoft.VisualStudioCode.Insiders",
     "choco": "vscode-insiders",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
   {
     "Name": "AyuGramDesktop",
     "Description": " Desktop Telegram client with good customization and Ghost mode",
-    "winget": "none",
-    "choco": "none",
+    "winget": "na",
+    "choco": "na",
     "itt": "ayugramdesktop",
     "category": "Communication",
     "check": "false"
@@ -3339,7 +3339,7 @@ $itt.database.Applications = @'
     "Description": "Zettlr is a supercharged markdown editor that combines many writing editor features and collect them in one application. It aims at speeding up your workflow and help you write without any interruptions",
     "winget": "Zettlr.Zettlr",
     "choco": "zettlr",
-    "itt": "none",
+    "itt": "na",
     "category": "Documents",
     "check": "false"
   },
@@ -3348,16 +3348,16 @@ $itt.database.Applications = @'
     "Description": "An open-source remote desktop software, works out of the box, no configuration required, written in Rust",
     "winget": "RustDesk.RustDesk",
     "choco": "rustdesk",
-    "itt": "none",
+    "itt": "na",
     "category": "File Sharing",
     "check": "false"
   },
   {
     "Name": "Ente Auth",
     "Description": "An end-to-end encrypted, cross platform and free app for storing your 2FA codes with cloud backups",
-    "winget": "none",
+    "winget": "na",
     "choco": "ente-auth",
-    "itt": "none",
+    "itt": "na",
     "category": "Security",
     "check": "false"
   },
@@ -3366,15 +3366,15 @@ $itt.database.Applications = @'
     "Description": "SQLiteStudio is desktop application for browsing and editing SQLite database files. It is aimed for people, who know what SQLite is, or what relational databases are in general",
     "winget": "sqlitestudio.pl.SQLiteStudio",
     "choco": "sqlitestudio",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
   {
     "Name": "DuckStation",
     "Description": " Fast PlayStation 1 emulator for x86-64/AArch32/AArch64/RV64",
-    "winget": "none",
-    "choco": "none",
+    "winget": "na",
+    "choco": "na",
     "itt": "duckstation",
     "category": "Portable",
     "check": "false"
@@ -3382,17 +3382,17 @@ $itt.database.Applications = @'
   {
     "Name": "Authme - Simple 2FA",
     "Description": "Simple 2FA desktop application",
-    "winget": "none",
+    "winget": "na",
     "choco": "authme.portable",
-    "itt": "none",
+    "itt": "na",
     "category": "Security",
     "check": "false"
   },
   {
     "Name": "SuperCopier2",
     "Description": "SuperCopier2 SuperCopier replaces Windows explorer file copy and adds many features",
-    "winget": "none",
-    "choco": "none",
+    "winget": "na",
+    "choco": "na",
     "itt": "supercopier2",
     "category": "Utilities",
     "check": "false"
@@ -3402,16 +3402,16 @@ $itt.database.Applications = @'
     "Description": "Octopus Deploy is a Continuous Delivery platform for complex deployments across your entire stack. Deploy with ease to Kubernetes, Linux, Windows virtual machines, Amazon Web Services, Azure, or Google Cloud. If the Octopus Tentacle agent, SSH, command line, or a web service can speak to it, Octopus can deploy to it",
     "winget": "OctopusDeploy.Tentacle",
     "choco": "octopusdeploy.tentacle",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
   {
     "Name": "Kindle Previewer",
     "Description": "Kindle Previewer is a graphical user interface tool that emulates how books display across Kindle devices and apps. Kindle Previewer makes it easy for publishers to preview the layout of a book and make sure its text displays properly for any orientation or font size to ensure publishers produce and submit the highest quality Kindle books",
-    "winget": "none",
+    "winget": "na",
     "choco": "kindlepreviewer",
-    "itt": "none",
+    "itt": "na",
     "category": "Documents",
     "check": "false"
   },
@@ -3419,8 +3419,8 @@ $itt.database.Applications = @'
     "Name": "Interior Design 3D",
     "Description": "Interior Design 3D is an expert program for home design and floor plan creation",
     "winget": "AMSSoftware.InteriorDesign3D-e",
-    "choco": "none",
-    "itt": "none",
+    "choco": "na",
+    "itt": "na",
     "category": "Imaging",
     "check": "false"
   },
@@ -3429,7 +3429,7 @@ $itt.database.Applications = @'
     "Description": "MeshLab is an open source, portable, and extensible system for the processing and editing of unstructured large 3D triangular meshes. It is aimed to help the processing of the typical not-so-small unstructured models",
     "winget": "CNRISTI.MeshLab",
     "choco": "meshlab",
-    "itt": "none",
+    "itt": "na",
     "category": "Imaging",
     "check": "false"
   },
@@ -3438,7 +3438,7 @@ $itt.database.Applications = @'
     "Description": "Legendary Git GUI client for Windows, Mac & Linux",
     "winget": "Axosoft.GitKraken",
     "choco": "gitkraken",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -3447,7 +3447,7 @@ $itt.database.Applications = @'
     "Description": "Slack is a collaboration hub for work, no matter what work you do. It's a place where conversations happen, decisions are made, and information is always at your fingertips. With Slack, your team is better connected",
     "winget": "SlackTechnologies.Slack",
     "choco": "slack",
-    "itt": "none",
+    "itt": "na",
     "category": "Communication",
     "check": "false"
   },
@@ -3456,7 +3456,7 @@ $itt.database.Applications = @'
     "Description": "Rocket.Chat is the leading open source team chat software solution. Free, unlimited and completely customizable with on-premises and SaaS cloud hosting",
     "winget": "RocketChat.RocketChat",
     "choco": "rocketchat",
-    "itt": "none",
+    "itt": "na",
     "category": "Communication",
     "check": "false"
   },
@@ -3465,7 +3465,7 @@ $itt.database.Applications = @'
     "Description": "Use crystal clear sound to communicate with your team mates cross-platform with military-grade security. lag-free performance & unparalleled reliability and uptime",
     "winget": "TeamSpeakSystems.TeamSpeakClient",
     "choco": "teamspeak",
-    "itt": "none",
+    "itt": "na",
     "category": "Communication",
     "check": "false"
   },
@@ -3474,7 +3474,7 @@ $itt.database.Applications = @'
     "Description": "FFFTP is lightweight FTP client software. FFFTP has many useful feature such as directory mirroring, character encdoging conversion, Firewall and SOCK, one-time password support, and so on",
     "winget": "Sayuri.FFFTP",
     "choco": "ffftp",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -3483,7 +3483,7 @@ $itt.database.Applications = @'
     "Description": "SmartFTP is a fast and reliable FTP, FTPS, SFTP, HTTP, Amazon S3, WebDAV, Google Drive, Google Cloud Storage, Microsoft OneDrive, Backblaze B2, Telnet, Terminal client with lots of features and a modern user interface",
     "winget": "SmartSoft.SmartFTP",
     "choco": "smartftp",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -3492,7 +3492,7 @@ $itt.database.Applications = @'
     "Description": "Rclone (\"rsync for cloud storage\") is a command-line program to sync files and directories to and from different cloud storage providers",
     "winget": "Rclone.Rclone",
     "choco": "rclone",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -3501,7 +3501,7 @@ $itt.database.Applications = @'
     "Description": "Cyberduck is a libre server and cloud storage browser for Mac and Windows with support for FTP, SFTP, WebDAV, Amazon S3, OpenStack Swift, Backblaze B2, Microsoft Azure & OneDrive, Google Drive and Dropbox",
     "winget": "Iterate.Cyberduck",
     "choco": "cyberduck",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -3510,7 +3510,7 @@ $itt.database.Applications = @'
     "Description": "Dolphin is an emulator for two recent Nintendo video game consoles: the GameCube and the Wii. It allows PC gamers to enjoy games for these two consoles in full HD (1080p) with several enhancements: compatibility with all PC controllers, turbo speed, networked multiplayer, and even more!",
     "winget": "DolphinEmulator.Dolphin",
     "choco": "dolphin",
-    "itt": "none",
+    "itt": "na",
     "category": "Gaming",
     "check": "false"
   },
@@ -3519,7 +3519,7 @@ $itt.database.Applications = @'
     "Description": "mGBA is an open-source Game Boy Advance emulator",
     "winget": "JeffreyPfau.mGBA",
     "choco": "mgba",
-    "itt": "none",
+    "itt": "na",
     "category": "Gaming",
     "check": "false"
   },
@@ -3528,7 +3528,7 @@ $itt.database.Applications = @'
     "Description": "A graphical and themeable emulator front-end that allows you to access all your favorite games in one place, even without a keyboard!",
     "winget": "Emulationstation.Emulationstation",
     "choco": "emulationstation",
-    "itt": "none",
+    "itt": "na",
     "category": "Gaming",
     "check": "false"
   },
@@ -3537,7 +3537,7 @@ $itt.database.Applications = @'
     "Description": "ScummVM is a program which allows you to run certain classic graphical adventure and role-playing games, provided you already have their data files. The clever part about this: ScummVM just replaces the executables shipped with the games, allowing you to play them on systems for which they were never designed!",
     "winget": "ScummVM.ScummVM",
     "choco": "scummvm",
-    "itt": "none",
+    "itt": "na",
     "category": "Gaming",
     "check": "false"
   },
@@ -3546,7 +3546,7 @@ $itt.database.Applications = @'
     "Description": "Project64 is a free and open-source emulator for the Nintendo 64 and Nintendo 64 Disk Drive written in C++ currently for Windows",
     "winget": "Project64.Project64",
     "choco": "project64",
-    "itt": "none",
+    "itt": "na",
     "category": "Gaming",
     "check": "false"
   },
@@ -3554,8 +3554,8 @@ $itt.database.Applications = @'
     "Name": "DOSBox",
     "Description": "DOSBox is an emulator program which emulates an IBM PC compatible computer running a DOS operating system",
     "winget": "DOSBox.DOSBox",
-    "choco": "none",
-    "itt": "none",
+    "choco": "na",
+    "itt": "na",
     "category": "Gaming",
     "check": "false"
   },
@@ -3563,8 +3563,8 @@ $itt.database.Applications = @'
     "Name": "Kodu Game Lab",
     "Description": "Kodu Game Lab is a 3D game development environment that is designed to teach kids basic programming principles.",
     "winget": "InfiniteInstant.KoduGameLab",
-    "choco": "none",
-    "itt": "none",
+    "choco": "na",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -3573,7 +3573,7 @@ $itt.database.Applications = @'
     "Description": "A free and open source nocode game engine designed to be usable by everyone.",
     "winget": "GDevelop.GDevelop",
     "choco": "gdevelop",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -3582,7 +3582,7 @@ $itt.database.Applications = @'
     "Description": "The MongoDB Database Tools are a collection of command-line utilities for working with a MongoDB deployment",
     "winget": "MongoDB.DatabaseTools",
     "choco": "mongodb-database-tools",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -3591,7 +3591,7 @@ $itt.database.Applications = @'
     "Description": "DB Browser for SQLite (DB4S) is a high quality, visual, open source tool to create, design, and edit database files compatible with SQLite",
     "winget": "DBBrowserForSQLite.DBBrowserForSQLite",
     "choco": "sqlitebrowser",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -3600,7 +3600,7 @@ $itt.database.Applications = @'
     "Description": "The MySQL software delivers a very fast, multithreaded, multi-user, and robust SQL (Structured Query Language) database server. MySQL Server is intended for mission-critical, heavy-load production systems as well as for embedding into mass-deployed software",
     "winget": "Oracle.MySQL",
     "choco": "mysql",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -3609,7 +3609,7 @@ $itt.database.Applications = @'
     "Description": "Compass is a free interactive tool for querying, optimizing, and analyzing your MongoDB data",
     "winget": "MongoDB.Compass.Full",
     "choco": "mongodb-compass",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
@@ -3618,24 +3618,24 @@ $itt.database.Applications = @'
     "Description": "Compass is a free interactive tool for analyzing your MongoDB data",
     "winget": "MongoDB.Compass.Readonly",
     "choco": "mongodb-compass-readonly",
-    "itt": "none",
+    "itt": "na",
     "category": "Development",
     "check": "false"
   },
   {
     "Name": "IDA free",
     "Description": "DA is a Windows, Linux or Mac OS X hosted multi-processor disassembler and debugger that offers so many features",
-    "winget": "none",
+    "winget": "na",
     "choco": "ida-free",
-    "itt": "none",
+    "itt": "na",
     "category": "Utilities",
     "check": "false"
   },
   {
     "Name": "Binary Ninja",
     "Description": "reverse engineering tool. It supports a number of great features",
-    "winget": "none",
-    "choco": "none",
+    "winget": "na",
+    "choco": "na",
     "itt": "binaryninja",
     "category": "Utilities",
     "check": "false"
@@ -3643,8 +3643,8 @@ $itt.database.Applications = @'
   {
     "Name": "Resource Hacker",
     "Description": "freeware resource compiler & decompiler for Windows® applications",
-    "winget": "none",
-    "choco": "none",
+    "winget": "na",
+    "choco": "na",
     "itt": "resourcehacker",
     "category": "Portable",
     "check": "false"
@@ -3654,12 +3654,11 @@ $itt.database.Applications = @'
     "Description": "Run-time components that are required to run C++ applications that are built by using Visual Studio 2015/2022",
     "winget": "Microsoft.VCRedist.2015+.x86",
     "choco": "vcredist140",
-    "itt": "none",
+    "itt": "na",
     "category": "Runtimes",
     "check": "false"
   }
 ]
-
 '@ | ConvertFrom-Json
 $itt.database.locales = @'
 {"Controls":{"ar":{"name":"عربي","Welcome":"توفر هذه الأداة تسهيلات كبيرة في عملية تثبيت البرامج وتحسين الاداء. انضم إلينا لتساهم في تطويرها وجعلها أكثر اكتمالًا","System_Info":"معلومات النظام","Power_Options":"خيارات الطاقة","Device_Manager":"إدارة الأجهزة","Services":"خدمات","Networks":"شبكات","Apps_features":"التطبيقات و الميزات","Task_Manager":"مدير المهام","Disk_Managment":"إدارة القرص","Msconfig":"تكوين النظام","Environment_Variables":"متغيرات بيئة النظام","Install":"تثبيت","Apply":"تطبيق","Downloading":"...جارٍ التحميل","About":"عن الاداة","Third_party":"ادوات اخرى","Preferences":"التفضيلات","Management":"إدارة الجهاز","Apps":"برامج","Tweaks":"تحسينات","Settings":"إعدادات","Save":"حفظ البرامج","Restore":"أسترجاع البرامج","Music":"الموسيقى","On":"تشغيل ","Off":"كتم","Dark":"ليلا","Light":"نهارا","Use_system_setting":"استخدم إعدادات النظام","Create_desktop_shortcut":"أنشاء أختصار على سطح المكتب","Reset_preferences":" إعادة التفضيلات إلى الوضع الافتراضي","Reopen_itt_again":"يرجى اعادة فتح الاداة مرة اخرى","Theme":"المظهر","Language":"اللغة","MAS":"تفعيل الويندوز","Win_Office":"تحميل ويندوز / أوفيس","IDM":"تفعيل الدونلود مانجر","Browsers_extensions":"أضافات المتصفحات","All":"الكل","Search":"بحث","Create_restore_point":"إنشاء نقطة الاستعادة","Portable_Downloads_Folder":"مجلد التنزيلات المحمولة","Install_msg":"هل تريد تثبيت البرامج التالية","Apply_msg":"هل تريد تطبيق التحسينات التالية","Applying":"...جارٍي التطبيق","Please_wait":"يرجى الانتظار، يوجد عملية في الخلفية","App_empty_select":"اختر على الأقل تطبيقًا لتثبيته","Tweak_empty_select":"اختار على الاقل تحسين واحد لتطبيقه","Last_update":"آخر تحديث","Exit_msg":"هل أنت متأكد من رغبتك في إغلاق البرنامج؟ إذا كان هناك أي تثبيتات، فسيتم إيقافها.","Happy_birthday":"!عيد ميلاد سعيد عماد","My_playlist":"انه عيد ميلادي و قائمة الموسيقى الخاصة بي","Empty_save_msg":"يرجى اختيار تطبيق واحد على الاقل لحفظه"},"de":{"name":"Deutsch","Welcome":"Sparen Sie Zeit indem Sie mehrere Programme gleichzeitig instAllieren und die Leistung Ihres Windows steigern. Schließen Sie sich uns an um dieses Tool zu verbessern und noch besser zu machen. Sie können auch Ihre Lieblings-Musik-Apps und Anpassungen hinzufügen.","Install":"InstAllieren","Apply":"Anwenden","Downloading":"Herunterladen...","About":"Über","Third_party":"Drittanbieter","Preferences":"Einstellungen","Management":"Verwaltung","Apps":"Apps","Tweaks":"Optimierungen","Settings":"Einstellungen","Save":"Speichern","Restore":"Wiederherstellen","Music":"Musik","On":"Ein ","Off":"Aus","Disk_Managment":"Datenträgerverwaltung","Msconfig":"Systemkonfiguration","Environment_Variables":"Umgebungsvariablen","Task_Manager":"Task-Manager","Apps_features":"Apps-FunktiOnen","Networks":"Netzwerke","Services":"Dienste","Device_Manager":"Geräte-Manager","Power_Options":"EnergieoptiOnen","System_Info":"Systeminfo","Use_system_setting":"Systemeinstellungen verwenden","Create_desktop_shortcut":"Desktop-Verknüpfung erstellen","Reset_preferences":"Einstellungen zurücksetzen","Reopen_itt_again":"Bitte ITT erneut öffnen.","Theme":"Thema","Language":"Sprache","MAS":"Microsoft Aktivierungsskripte (MAS)","Win_Office":"Windows / Office ISO herunterladen","IDM":"IDM-Aktivierung","Browsers_extensions":"Browser-Erweiterungen","All":"Alle","Search":"Suchen","Create_restore_point":"Wiederherstellungspunkt erstellen","Portable_Downloads_Folder":"Ordner für tragbare Downloads","Install_msg":"Sind Sie sicher  dass Sie die folgenden Anwendungen instAllieren möchten?","Apply_msg":"Sind Sie sicher dass Sie die folgenden Anpassungen anwenden möchten?","Applying":"Anwenden...","App_empty_select":"Wählen Sie mindestens eine App zur InstAllatiOn aus.","Tweak_empty_select":"Wählen Sie mindestens eine Optimierung zur Anwendung aus.","Please_wait":"Bitte warten ein Prozess läuft im Hintergrund.","Last_update":"Letztes Update","Exit_msg":"Sind Sie sicher dass Sie das Programm schließen möchten? Alle InstAllatiOnen werden abgebrochen.","Happy_birthday":"Alles Gute zum Geburtstag mir!","My_playlist":"Es ist mein Geburtstag und meine Playlist ♪","Empty_save_msg":"Wählen Sie mindestens eine App zum Speichern aus."},"en":{"name":"English","Welcome":"Save time and install all your programs at once and debloat windows. Be part of ITT—contribute to improving this tool with Apps/Tweaks — and more","Install":"Install","Apply":"Apply","Downloading":"Downloading...","About":"About","Third_party":"Third-party","Preferences":"Preferences","Management":"Management","Apps":"Apps","Tweaks":"Tweaks","Settings":"Settings","Save":"Save","Restore":"Restore","Music":"Music","On":"On","Off":"Off","Disk_Managment":"Disk Managment","Msconfig":"System Configuration","Environment_Variables":"Environment Variables","Task_Manager":"Task Manager","Apps_features":"Programs and Features","Networks":"Networks","Services":"Services","Device_Manager":"Device Manager","Power_Options":"Power options","System_Info":"System Info","Use_system_setting":"Use system setting","Create_desktop_shortcut":"Create desktop shortcut","Reset_preferences":"Reset Preferences","Reopen_itt_again":"Please reopen itt again.","Theme":"Theme","Language":"Language","MAS":"Microsoft Activation Scripts (MAS)","Win_Office":"Windows / Office ISO (MAS)","IDM":"IDM Activation (WindowsAddict)","Browsers_extensions":"Browsers extensions","All":"All","Search":"Search","Create_restore_point":"Create a restore point","Portable_Downloads_Folder":"Portable Downloads Folder","Install_msg":"Are you sure you want to install the following App(s)","Apply_msg":"Are you sure you want to apply the following Tweak(s)","Applying":"Applying...","App_empty_select":"Please select at least one app to install.","Tweak_empty_select":"Please select at least one tweak to apply.","Please_wait":"Please wait  a process is running in the background","Last_update":"Last update","Exit_msg":"Are you sure you want to close the program? Any ongoing installations will be canceled.","Happy_birthday":"Happy Birthday to me!","My_playlist":"It's my Birthday and My Playlist ♪","Empty_save_msg":"Choose at least One app to save it"},"es":{"name":"Español","Welcome":"Ahorra tiempo instalando varios prograMAS a la vez y mejora el rendimiento de tu Windows. Únete a nosotros para mejorar esta herramienta y hacerla aún mejor. También puedes agregar tus aplicaciOnes Musicales y ajustes favoritos.","Install":"Instalar","Apply":"Aplicar","Downloading":"Descargando...","About":"Acerca de","Third_party":"Terceros","Preferences":"Preferencias","Management":"Gestión","Apps":"AplicaciOnes","Tweaks":"Ajustes","Settings":"COnfiguración","Save":"Guardar","Restore":"Restaurar","Music":"Música","On":"Encendido","Off":"Apagado","Disk_Managment":"Administración de discos","Msconfig":"Configuración del sistema","Environment_Variables":"Variables de entorno","Task_Manager":"Administrador de tareas","Apps_features":"AplicaciOnes-FunciOnes","Networks":"Redes","Services":"Servicios","Device_Manager":"Administrador de dispositivos","Power_Options":"OpciOnes de energía","System_Info":"Información del sistema","Use_system_setting":"Usar la cOnfiguración del sistema","Create_desktop_shortcut":"Crear acceso directo en el escritorio","Reset_preferences":"Restablecer preferencias","Reopen_itt_again":"Vuelve a abrir ITT.","Theme":"Tema","Language":"Idioma","MAS":"Scripts de activación de Microsoft (MAS)","Win_Office":"Descargar ISO de Windows / Office","IDM":"Activación IDM","Browsers_extensions":"ExtensiOnes del navegador","All":"Todos","Search":"Buscar","Create_restore_point":"Crear un punto de restauración","Portable_Downloads_Folder":"Carpeta de descargas portátiles","Install_msg":"¿Estás seguro de que deseas instalar las siguientes aplicaciOnes?","Apply_msg":"¿Estás seguro de que deseas aplicar los siguientes ajustes?","Applying":"Aplicando...","App_empty_select":"SelecciOna al menos una aplicación para instalar.","Tweak_empty_select":"SelecciOna al menos un ajuste para aplicar.","Please_wait":"Por favorespera un proceso se está ejecutando en segundo plano.","Last_update":"Última actualización","Exit_msg":"¿Estás seguro de que deseas cerrar el programa? Si hay instalaciOnes se interrumpirán.","Happy_birthday":"¡Feliz cumpleaños a mí!","My_playlist":"Es mi cumpleaños y mi lista de reproducción ♪","Empty_save_msg":"Elige al menos una aplicación para guardarla."},"fr":{"name":"Français","Welcome":"Gagnez du temps en instAllant plusieurs programmes à la fois et améliorez les performances de votre Windows. Rejoignez-nous pour améliorer cet outil et le rendre encore meilleur. Vous pouvez également ajouter vos applicatiOns Musicales et vos Tweaks préférés.","Install":"InstAller","Apply":"Appliquer","Downloading":"Téléchargement...","About":"À propos","Third_party":"Tiers","Preferences":"Préférences","Management":"GestiOn","Apps":"ApplicatiOns","Tweaks":"OptimisatiOns","Settings":"Paramètres","Save":"Sauvegarder","Restore":"Restaurer","Music":"Musique","On":"Activé ","Off":"Désactivé","Disk_Managment":"GestiOn des disques","Msconfig":"Configuration du système","Environment_Variables":"Variables d'environnement","Task_Manager":"GestiOnnaire des tâches","Apps_features":"ApplicatiOns-FOnctiOnnalités","Networks":"Réseaux","Services":"Services","Device_Manager":"GestiOnnaire de périphériques","Power_Options":"OptiOns d'alimentatiOn","System_Info":"Infos système","Use_system_setting":"Utiliser les paramètres système","Create_desktop_shortcut":"Créer un raccourci sur le bureau","Reset_preferences":"Réinitialiser les préférences","Reopen_itt_again":"Veuillez rouvrir ITT.","Theme":"Thème","Language":"Langue","MAS":"Scripts d'activatiOn Microsoft (MAS)","Win_Office":"Télécharger l'ISO Windows / Office","IDM":"ActivatiOn IDM","Browsers_extensions":"Browsers_extensions de navigateurs","All":"Tout","Search":"Rechercher","Create_restore_point":"Créer un point de restauratiOn","Portable_Downloads_Folder":"Dossier de téléchargements portables","Install_msg":"Êtes-vous sûr de vouloir instAller les applicatiOns suivantes ?","Apply_msg":"Êtes-vous sûr de vouloir appliquer les Tweaks suivants ?","Applying":"ApplicatiOn...","App_empty_select":"Veuillez sélectiOnner au moins une applicatiOn à instAller.","Tweak_empty_select":"Veuillez sélectiOnner au moins un tweak à appliquer.","Please_wait":"Veuillez patienter","Last_update":"Dernière mise à jour  un processus est en cours d'exécutiOn en arrière-plan.","Exit_msg":"Êtes-vous sûr de vouloir fermer le programme ? Si des instAllatiOns sOnt en cours  elles serOnt interrompues.","Happy_birthday":"Joyeux anniversaire à moi !","My_playlist":"C'est mOn anniversaire et ma playlist ♪","Empty_save_msg":"Choisissez au moins une applicatiOn à sauvegarder."},"ga":{"name":"Gaeilge","Welcome":"Sábháil am trí níos mó ná clár amháin a shuiteáil ag an am céanna agus feabhsaigh feidhmíocht do Windows. Bí linn ag feabhsú an uirlis seo agus ag déanamh é níos fearr. Is féidir leat do chuid Apps ceoil agus feabhsúcháin is fearr leat a chur leis freisin.","Install":"Suiteáil","Apply":"Cuir i bhfeidhm","Downloading":"Ag suiteáil...","About":"Faoi","Third_party":"Tríú páirtí","Preferences":"Roghanna","Management":"Bainistíocht","Apps":"Aplaicí","Tweaks":"Feabhsúcháin","Settings":"Socruithe","Save":"Sábháil","Restore":"Athchóirigh","Music":"Ceol","On":"Ar ","Off":"Múchta","Disk_Managment":"Bainistíocht Diosca","Msconfig":"Cumraíocht an Chórais","Environment_Variables":"Variables d'environnement","Task_Manager":"Bainisteoir Tascanna","Apps_features":"Gnéithe Aipeanna","Networks":"LíOnraí","Services":"Seirbhísí","Device_Manager":"Bainisteoir Gléasanna","Power_Options":"Roghanna Cumhachta","System_Info":"Eolas Córas","Use_system_setting":"Úsáid socrú an chórais","Create_desktop_shortcut":"Cruthaigh gearrthagairt deisce","Reset_preferences":"Athshocraigh Roghanna","Reopen_itt_again":"Oscail ITT arís le do thoil.","Theme":"Téama","Language":"Teanga","MAS":"Scripteanna Gníomhachtaithe Microsoft (MAS)","Win_Office":"Íoslódáil ISO Windows / Office","IDM":"Gníomhachtú IDM","Browsers_extensions":"Síntí Brabhsálaí","All":"Uile","Search":"Cuardaigh","Create_restore_point":"Cruthaigh pointe athchóirithe","Portable_Downloads_Folder":"Fillteán Íoslódálacha Inaistrithe","Install_msg":"An bhfuil tú cinnte gur mhaith leat na feidhmchláir seo a shuiteáil","Apply_msg":"An bhfuil tú cinnte gur mhaith leat na feabhsúcháin seo a chur i bhfeidhm","Applying":"Cur i bhfeidhm...","App_empty_select":"Roghnaigh ar a laghad aip amháin le suiteáil.","Tweak_empty_select":"Roghnaigh ar a laghad feabhsúchán amháin le cur i bhfeidhm.","Please_wait":"Fan le do thoil tá próiseas ag rith sa chúlra","Last_update":"An nuashOnrú deireanach","Exit_msg":"An bhfuil tú cinnte gur mhaith leat an clár a dhúnadh? Má tá suiteálacha ar siúl beidh siad curtha ar ceal.","Happy_birthday":"Breithlá ShOna domsa!","My_playlist":"Is é mo Bhreithlá é agus Mo Phléaráca ♪","Empty_save_msg":"Roghnaigh ar a laghad aip amháin chun é a shábháil"},"hi":{"name":"अंग्रेज़ी","Welcome":"एक बार में कई प्रोग्राम इंस्टॉल करके समय बचाएं और अपने विंडोज़ के प्रदर्शन को बढ़ावा दें। इस टूल को बेहतर बनाने और इसे और अच्छा बनाने में हमारा साथ दें। आप अपने पसंदीदा म्यूज़िक ऐप्स और ट्विक्स भी जोड़ सकते हैं।","Install":"इंस्टॉल करें","Apply":"लागू करें","Downloading":"डाउनलोड हो रहा है...","About":"के बारे में","Third_party":"थर्ड-पार्टी","Preferences":"पसंद","Management":"प्रबंधन","Apps":"ऐप्स","Tweaks":"ट्विक्स","Settings":"सेटिंग्स","Save":"सहेजें","Restore":"पुनर्स्थापित करें","Music":"संगीत","On":"चालू ","Off":"बंद","Disk_Managment":"डिस्क प्रबंधन","Msconfig":"सिस्टम कॉन्फ़िगरेशन","Environment_Variables":"एन्विर्बल वार्डियल्स","Task_Manager":"टास्क मैनेजर","Apps_features":"ऐप्स-फीचर्स","Networks":"नेटवर्क्स","Services":"सेवाएँ","Device_Manager":"डिवाइस मैनेजर","Power_Options":"पावर विकल्प","System_Info":"सिस्टम जानकारी","Use_system_setting":"सिस्टम सेटिंग का उपयोग करें","Create_desktop_shortcut":"डेस्कटॉप शॉर्टकट बनाएं","Reset_preferences":"पसंद रीसेट करें","Reopen_itt_again":"कृपया इसे फिर से खोलें।","Theme":"थीम","Language":"भाषा","MAS":"माइक्रोसॉफ्ट एक्टिवेशन स्क्रिप्ट्स (MAS)","Win_Office":"विंडोज़ / ऑफिस ISO (MAS)","IDM":"IDM एक्टिवेशन (WindowsAddict)","Browsers_extensions":"ब्राउज़र एक्सटेंशन","All":"सभी","Search":"खोज","Create_restore_point":"पुनर्स्थापना बिंदु बनाएँ","Portable_Downloads_Folder":"पोर्टेबल डाउनलोड फ़ोल्डर","Install_msg":"क्या आप निश्चित हैं कि आप निम्न ऐप्स इंस्टॉल करना चाहते हैं?","Apply_msg":"क्या आप निश्चित हैं कि आप निम्न ट्विक्स लागू करना चाहते हैं?","Applying":"लागू किया जा रहा है...","App_empty_select":"कृपया कम से कम एक ऐप इंस्टॉल करने के लिए चुनें।","Tweak_empty_select":"कृपया कम से कम एक ट्विक लागू करने के लिए चुनें।","Please_wait":"कृपया प्रतीक्षा करें बैकग्राउंड में एक प्रक्रिया चल रही है","Last_update":"आखिरी अपडेट","Exit_msg":"क्या आप निश्चित हैं कि आप प्रोग्राम बंद करना चाहते हैं? यदि कोई इंस्टॉलेशन चल रहा हो तो वह समाप्त हो जाएगा।","Happy_birthday":"मुझे जन्मदिन की शुभकामनाएँ!","My_playlist":"यह मेरा जन्मदिन है और मेरी प्लेलिस्ट ♪","Empty_save_msg":"कम से कम एक ऐप चुनें और उसे सहेजें।"},"it":{"name":"Italiano","Welcome":"Risparmia tempo installando più programmi contemporaneamente e migliora le prestazioni di Windows. Unisciti a noi per migliorare questo strumento e renderlo migliore. Puoi anche aggiungere le tue app musicali preferite e le personalizzazioni.","Install":"Installa","Apply":"Applica","Downloading":"Download in corso...","About":"Informazioni","Third_party":"Terze parti","Preferences":"Preferenze","Management":"Gestione","Apps":"App","Tweaks":"Personalizzazioni","Settings":"Impostazioni","Save":"Salva","Restore":"Ripristina","Music":"Musica","On":"Acceso","Off":"Spento","Disk_Managment":"Gestione disco","Msconfig":"Configurazione di sistema","Environment_Variables":"Variabili di ambiente","Task_Manager":"Gestore attività","Apps_features":"App-Funzionalità","Networks":"Reti","Services":"Servizi","Device_Manager":"Gestore dispositivi","Power_Options":"Opzioni risparmio energia","System_Info":"Informazioni di sistema","Use_system_setting":"Usa impostazioni di sistema","Create_desktop_shortcut":"Crea collegamento sul desktop","Reset_preferences":"Reimposta preferenze","Reopen_itt_again":"Per favore riapri di nuovo.","Theme":"Tema","Language":"Lingua","MAS":"Microsoft Activation Scripts (MAS)","Win_Office":"Windows / Office ISO (MAS)","IDM":"Attivazione IDM (WindowsAddict)","Browsers_extensions":"Estensioni per browser","All":"Tutti","Search":"Cerca","Create_restore_point":"Crea un punto di ripristino","Portable_Downloads_Folder":"Cartella download portatile","Install_msg":"Sei sicuro di voler installare le seguenti app?","Apply_msg":"Sei sicuro di voler applicare le seguenti personalizzazioni?","Applying":"Applicazione in corso...","App_empty_select":"Seleziona almeno un'app da installare.","Tweak_empty_select":"Seleziona almeno una personalizzazione da applicare.","Please_wait":"Attendere un processo è in corso in background","Last_update":"Ultimo aggiornamento","Exit_msg":"Sei sicuro di voler chiudere il programma? Se ci sono installazioni in corso verranno terminate.","Happy_birthday":"Buon compleanno a me!","My_playlist":"È il mio compleanno e la mia playlist ♪","Empty_save_msg":"Scegli almeno un'app per salvarla."},"ko":{"name":"한국어","Welcome":"여러 프로그램을 한 번에 설치하여 시간을 절약하고 Windows 성능을 향상시킵니다. 도구를 개선하고 우리와 함께 훌륭하게 만들어 보세요.","System_Info":"시스템 정보","Power_Options":"전원 옵션","Device_Manager":"장치 관리자","Services":"서비스","Networks":"네트워크","Apps_features":"앱 기능","Task_Manager":"작업 관리자","Disk_Managment":"디스크 관리","Msconfig":"시스템 구성","Environment_Variables":"연습별 변수","Install":"설치","Apply":"적용","Downloading":"다운로드 중","About":"정보","Third_party":"외부","Preferences":"환경 설정","Management":"관리","Apps":"앱","Tweaks":"설정","Settings":"설정","Save":"선택한 앱 저장","Restore":"선택한 앱 복원","Music":"음악","On":"켜기","Reset_preferences":"환경 설정 초기화","Off":"끄기","Dark":"다크","Light":"라이트","Use_system_setting":"시스템","Create_desktop_shortcut":"바탕화면 바로 가기 만들기","Reopen_itt_again":"ITT를 다시 열어주세요.","Theme":"테마","Language":"언어","MAS":"Microsoft 활성화 스크립트 (MAS)","Win_Office":"Windows / Office ISO 다운로드","IDM":"IDM 활성화","Browsers_extensions":"브라우저 확장 프로그램","All":"모두","Create_restore_point":"복원 지점 생성","Portable_Downloads_Folder":"휴대용 다운로드 폴더","Install_msg":"선택한 앱을 설치하시겠습니까","Apply_msg":"선택한 조정 사항을 적용하시겠습니까","instAlling":"설치 중..","Applying":"적용 중..","App_empty_select":"설치할 적어도 하나의 앱을 선택하십시오","Tweak_empty_select":"조정 사항 적용 대기 중","Please_wait":"배경에서 프로세스가 진행 중입니다. 잠시 기다려주세요.","Last_update":"마지막 업데이트","Exit_msg":"프로그램을 종료하시겠습니까? 진행 중인 설치가 있으면 중단됩니다.","Happy_birthday":"생일 축하합니다 Emad!","My_playlist":"제 생일과 제 플레이리스트 ♪"},"ru":{"name":"Русский","Welcome":"Сэкономьте время устанавливая несколько программ одновременно и улучшите производительность Windows. Присоединяйтесь к нам для улучшения этого инструмента и его совершенствования. Вы также можете добавить свои любимые музыкальные приложения и настройки.","Install":"Установить","Apply":"Применить","Downloading":"Загрузка...","About":"О нас","Third_party":"Сторонние","Preferences":"Настройки","Management":"Управление","Apps":"Приложения","Tweaks":"Настройки","Settings":"Параметры","Save":"Сохранить","Restore":"Восстановить","Music":"Музыка","On":"Вкл ","Off":"Выкл","Disk_Managment":"Управление дисками","Msconfig":"Конфигурация системы","Environment_Variables":"Переменные окружения","Task_Manager":"Диспетчер задач","Apps_features":"Приложения-Функции","Networks":"Сети","Services":"Сервисы","Device_Manager":"Диспетчер устройств","Power_Options":"Энергопитание","System_Info":"Информация о системе","Use_system_setting":"Использовать системные настройки","Create_desktop_shortcut":"Создать ярлык на рабочем столе","Reset_preferences":"Сбросить настройки","Reopen_itt_again":"Пожалуйста перезапустите ITT.","Theme":"Тема","Language":"Язык","MAS":"Microsoft ActivatiOn Scripts (MAS)","Win_Office":"Скачать ISO Windows / Office","IDM":"Активация IDM","Browsers_extensions":"Расширения для браузеров","All":"Все","Search":"Поиск","Create_restore_point":"Создать точку восстановления","Portable_Downloads_Folder":"Папка для портативных загрузок","Install_msg":"Вы уверены что хотите установить следующие приложения?","Apply_msg":"Вы уверены что хотите применить следующие настройки?","Applying":"Применение...","App_empty_select":"Выберите хотя бы одно приложение для установки.","Tweak_empty_select":"Выберите хотя бы одну настройку для применения.","Please_wait":"Подождите выполняется фоновый процесс.","Last_update":"Последнее обновление","Exit_msg":"Вы уверены что хотите закрыть программу? Все установки будут прерваны.","Happy_birthday":"С Днем Рождения меня!","My_playlist":"Это мой день рождения и мой плейлист ♪","Empty_save_msg":"Выберите хотя бы одно приложение для сохранения."},"tr":{"name":"Türkçe","Welcome":"Birden fazla programı aynı anda yükleyerek zaman kazanın ve Windows performansınızı artırın. Bu aracı geliştirmek ve daha da iyileştirmek için bize katılın. Ayrıca favori müzik uygulamalarınızı ve ayarlarınızı da ekleyebilirsiniz.","Install":"Yükle","Apply":"Uygula","Downloading":"İndiriliyor...","About":"Hakkında","Third_party":"Üçüncü Taraf","Preferences":"Tercihler","Management":"Yönetim","Apps":"Uygulamalar","Tweaks":"İnce Ayarlar","Settings":"Ayarlar","Save":"Kayıt Et","Restore":"Geri Yükle","Music":"Müzik","On":"Açık ","Off":"Kapalı","Disk_Managment":"Disk Yönetimi","Msconfig":"Sistem Yapılandırması","Environment_Variables":"Ortam Değişkenleri","Task_Manager":"Görev Yöneticisi","Apps_features":"Uygulamalar-Özellikler","Networks":"Ağlar","Services":"Hizmetler","Device_Manager":"Aygıt Yöneticisi","Power_Options":"Güç Seçenekleri","System_Info":"Sistem Bilgisi","Use_system_setting":"Sistem ayarlarını kullan","Create_desktop_shortcut":"MASaüstü kısayolu oluştur","Reset_preferences":"Tercihleri sıfırla","Reopen_itt_again":"Lütfen ITT'yi tekrar açın.","Theme":"Tema","Language":"Dil","MAS":"Microsoft Etkinleştirme Betikleri (MAS)","Win_Office":"Windows / Office ISO İndir","IDM":"IDM Etkinleştirme","Browsers_extensions":"Tarayıcı Eklentileri","All":"Tümü","Search":"Ara","Create_restore_point":"Geri yükleme noktası oluştur","Portable_Downloads_Folder":"Taşınabilir İndirilenler Klasörü","Install_msg":"Aşağıdaki uygulamaları yüklemek istediğinizden emin misiniz?","Apply_msg":"Aşağıdaki ayarları uygulamak istediğinizden emin misiniz?","Applying":"Uygulanıyor...","App_empty_select":"Lütfen yüklemek için en az bir uygulama seçin.","Tweak_empty_select":"Lütfen uygulamak için en az bir ince ayar seçin.","Please_wait":"Lütfen bekleyin arka planda bir işlem çalışıyor.","Last_update":"SOn güncelleme","Exit_msg":"Programı kapatmak istediğinizden emin misiniz? Herhangi bir kurulum varsa durdurulacak.","Happy_birthday":"Kendime Mutlu Yıllar!","My_playlist":"Benim Doğum Günüm ve Benim Çalma Listem ♪","Empty_save_msg":"Kaydetmek için en az bir uygulama seçin."},"zh":{"name":"中文","Welcome":"通过一次安装多个程序节省时间并提升您的Windows性能。加入我们，改进工具，使其更加优秀。","System_Info":"系统信息","Power_Options":"电源选项","Device_Manager":"设备管理器","Services":"服务","Networks":"网络","Apps_features":"应用特性","Task_Manager":"任务管理器","Disk_Managment":"磁盘管理","Msconfig":"系统配置","Environment_Variables":"环境变量","Install":"安装","Apply":"应用","Downloading":"下载中","About":"关于","Third_party":"第三方","Preferences":"偏好","Management":"管理","Apps":"应用","Tweaks":"调整","Settings":"设置","Save":"保存选定应用","Restore":"恢复选定应用","Music":"音乐","On":"开启","Off":"关闭","Reset_preferences":"重置偏好设置","Dark":"深色","Light":"浅色","Use_system_setting":"系统","Create_desktop_shortcut":"创建桌面快捷方式","Reopen_itt_again":"请重新打开ITT。","Theme":"主题","Language":"语言","MAS":"Microsoft 激活脚本 (MAS)","Win_Office":"下载 Windows / Office ISO","IDM":"IDM 激活","Browsers_extensions":"浏览器扩展","All":"都","Create_restore_point":"创建还原点","Portable_Downloads_Folder":"便携下载文件夹","Install_msg":"是否要安装选定的应用","Apply_msg":"是否要应用选定的调整","instAlling":"安装中..","Applying":"应用中..","App_empty_select":"请选择至少一款要安装的应用","Tweak_empty_select":"请等待调整应用完成","Please_wait":"请等待，后台有进程在进行中。","Last_update":"最后更新","Exit_msg":"您确定要关闭程序吗？如果有任何安装正在进行，它们将被终止。","Happy_birthday":"生日快乐 Emad!","My_playlist":"这是我的生日和我的播放列表 ♪"}}}
@@ -6895,7 +6894,7 @@ Add-Log -Message "Successfully Installed ($Name)" -Level "$Source"
 $wingetArgs = "install --id $Winget --silent --accept-source-agreements --accept-package-agreements --force"
 $chocoArgs = "install $Choco --confirm --acceptlicense -q --ignore-http-cache --limit-output --allowemptychecksumsecure --ignorechecksum --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests"
 $ittArgs = "install $ITT -y"
-if ($Choco -eq "none" -and $Winget -eq "none" -and $itt -ne "none") {
+if ($Choco -eq "na" -and $Winget -eq "na" -and $itt -ne "na") {
 Install-Choco
 Add-Log -Message "Attempting to install $Name." -Level "ITT"
 $ITTResult = Install-AppWithInstaller "itt" $ittArgs
@@ -6903,7 +6902,7 @@ Log $ITTResult "itt"
 }
 else
 {
-if ($Choco -eq "none" -and $Winget -ne "none")
+if ($Choco -eq "na" -and $Winget -ne "na")
 {
 Install-Winget
 Add-Log -Message "Attempting to install $Name." -Level "Winget"
@@ -6913,7 +6912,7 @@ Log $wingetResult "Winget"
 }
 else
 {
-if ($Choco -ne "none" -or $Winget -ne "none")
+if ($Choco -ne "na" -or $Winget -ne "na")
 {
 Install-Choco
 Add-Log -Message "Attempting to install $Name." -Level "Chocolatey"
@@ -12376,11 +12375,14 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.The
 $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
-$itt.event.FindName('date').text = '01/31/2025'.Trim()
+$itt.event.FindName('date').text = '02/26/2025'.Trim()
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
@@ -12389,11 +12391,11 @@ Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
+$itt.event.FindName('ittpm').add_MouseLeftButtonDown({
+Start-Process('https://github.com/itt-co/itt-packages/tree/main/automation')
+})
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
-})
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.Add_PreViewKeyDown({ if ($_.Key -eq "Escape") { $itt.event.Close() } })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
@@ -12546,6 +12548,13 @@ HorizontalAlignment="Left" />
 <Grid Row="1" Background="Transparent" Margin="20">
 <ScrollViewer Name="ScrollViewer" VerticalScrollBarVisibility="Auto" Height="Auto">
 <StackPanel Orientation="Vertical">
+<TextBlock Text=''📦 ITT Package Manager'' FontSize=''20'' Margin=''0,18,0,30'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
+<Image x:Name=''ittpm'' Cursor=''Hand'' Margin=''8'' Height=''Auto'' Width=''400''>
+<Image.Source>
+<BitmapImage UriSource=''https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Images/text_logo.png''/>
+</Image.Source>
+</Image>
+<TextBlock Text=''ITT now has its own package manager. You are welcome to contribute by adding any package you want and writing your own installation script.'' FontSize=''16'' Margin=''25,25,35,0''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
 <TextBlock Text=''🎬 Watch demo'' FontSize=''20'' Margin=''0,18,0,30'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
 <Image x:Name=''ytv'' Cursor=''Hand'' Margin=''8'' Height=''Auto'' Width=''400''>
 <Image.Source>
