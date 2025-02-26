@@ -81,7 +81,7 @@ function Create-JsonObject {
 
     $downloadMethod = Download-Mthoed
 
-    # Set the winget and choco values outside of the default section
+    # Set the itt ,winget, choco values
     $jsonObject.itt = $downloadMethod.itt
     $jsonObject.winget = $downloadMethod.winget
     $jsonObject.choco = $downloadMethod.choco
