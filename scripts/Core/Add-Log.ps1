@@ -3,7 +3,7 @@ function Add-Log {
 
     $level = $Level.ToUpper()
     $colorMap = @{ INFO="White"; WARNING="Yellow"; ERROR="Red"; INSTALLED="White"; APPLY="White"; DEBUG="Yellow" }
-    $iconMap  = @{ INFO="+"; WARNING="!"; ERROR="X"; INSTALLED="√"; APPLY="√"; DISABLED="X"; ENABLED="√"; DEBUG="Debug" }
+    $iconMap  = @{ INFO="+"; WARNING="!"; ERROR="X"; INSTALLED="√"; APPLY="√"; DISABLED="X"; ENABLED="√"; DEBUG="Debug"; ITT="ITT"; choco="Choco"; Winget="Winget" }
 
     $color = if ($colorMap.ContainsKey($level)) { $colorMap[$level] } else { "White" }
     $icon  = if ($iconMap.ContainsKey($level)) { $iconMap[$level] } else { "i" }
