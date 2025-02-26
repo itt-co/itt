@@ -121,9 +121,10 @@ function Download-Mthoed {
 
         "ITT [in development]" {
 
-
             # Prompt the user for input
             $itt = Read-Host "Enter itt package name"
+            if ($itt -eq "") { $itt = "na" }  # Set default value if empty
+
             Check -itt $itt
 
             return @{
