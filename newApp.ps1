@@ -65,8 +65,10 @@ function Check {
     }
 }
 function Create-JsonObject {
+
     $Name = Read-Host "Enter app name"
     $Description = Read-Host "Enter app description"
+    
     # Create the base JSON object
     $jsonObject = @{
         name        = $Name
