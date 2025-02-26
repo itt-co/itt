@@ -7315,7 +7315,7 @@ function NewUser {
 $currentCount = Invoke-RestMethod -Uri $UsersCount -Method Get
 $Runs = ([int]$currentCount + 1).ToString()
 Invoke-RestMethod -Uri $UsersCount -Method Put -Body ($Runs | ConvertTo-Json -Compress) -Headers @{ "Content-Type" = "application/json" }
-Telegram -Message "🎉New User`n`👤 $env:USERNAME `n`🌐 Language: $($itt.Language)`n`🖥 Total devices: $(GetCount)"
+Telegram -Message "🎉New User`n`👤 $env:USERNAME ($env:ComputerName)`n`🌐 Language: $($itt.Language)`n`🖥 Total devices: $(GetCount)"
 }
 function Welcome {
 $currentValue = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction Stop).Runs
