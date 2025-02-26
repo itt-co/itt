@@ -20,7 +20,7 @@ Write-Host "
 #===========================================================================
 $Mthoed = @{
     1 = "API [Choco/Winget] Recommended"
-    2 = "Default [Start-BitsTransfer] Custom"
+    2 = "ITT [in development]"
 }
 do {
     Write-Host "Which method to download this app will be?:"
@@ -39,18 +39,27 @@ do {
 #endregion end  Prompt user to choose download method
 #===========================================================================
 function Check {
+
     param (
         [string]$choco,
-        [string]$winget
+        [string]$winget,
+        [string]$itt
     )
+
     $jsonContent = Get-Content -Path $applications -Raw | ConvertFrom-Json
+    
     foreach ($item in $jsonContent) {
-        if ($item.choco -eq $choco -and $item.choco -ne "none") {
+
+        if ($item.choco -eq $choco -and $item.choco -ne "na") {
             Write-Host "($choco) already exists!" -ForegroundColor Yellow
             exit
         }
-        elseif ($item.winget -eq $winget -and $item.winget -ne "none") {
+        elseif ($item.winget -eq $winget -and $item.winget -ne "na") {
             Write-Host "($winget) already exists!" -ForegroundColor Yellow
+            exit
+
+        }elseif ($item.itt -eq $itt -and $item.itt -ne "na") {
+            Write-Host "($itt) already exists!" -ForegroundColor Yellow
             exit
         }
     }
@@ -62,19 +71,18 @@ function Create-JsonObject {
     $jsonObject = @{
         name        = $Name
         description = $Description
-        winget      = "none"
-        choco       = "none"
-        scoop       = "none"
-        default     = @()
+        winget      = "na"
+        choco       = "na"
+        scoop       = "na"
+        itt         = "na"
         category    = ""
         check       = "false"
     }
+
     $downloadMethod = Download-Mthoed
-    # Only add the necessary download method details to the default section
-    if ($downloadMethod.defaultEntry) {
-        $jsonObject.default += $downloadMethod.defaultEntry
-    }
+
     # Set the winget and choco values outside of the default section
+    $jsonObject.itt = $downloadMethod.itt
     $jsonObject.winget = $downloadMethod.winget
     $jsonObject.choco = $downloadMethod.choco
     $jsonObject.category += Category
@@ -83,61 +91,45 @@ function Create-JsonObject {
 function Download-Mthoed {
     # Handle the selected method
     switch ($userInput) {
+
         "API [Choco/Winget] Recommended" {
+
             # Prompt the user for input
             $choco = Read-Host "Enter Chocolatey package name"
+
             $choco = ($choco -replace "choco install", "" -replace ",,", ",").Trim()
-            if ($choco -eq "") { $choco = "none" }  # Set default value if empty
+
+            if ($choco -eq "") { $choco = "na" }  # Set default value if empty
+
             Check -choco $choco
+
             # Prompt the user for input
             $winget = Read-Host "Enter winget package"
-            if ($winget -eq "") { $winget = "none" }  # Set default value if empty
+
+            if ($winget -eq "") { $winget = "na" }  # Set default value if empty
+
             # Remove the string 'winget install -e --id' and any spaces from the input
             $cleanedWinget = $winget -replace "winget install -e --id", "" -replace "\s+", ""
+
             Check -winget $cleanedWinget
             return @{
                 winget       = $cleanedWinget
                 choco        = $choco
-                defaultEntry = $null
+                itt          = "na"
             }
         }
-        "Default [Start-BitsTransfer] Custom" {
-            $url = Read-Host "Enter url file (e.g: emadadel4.github.io/setup.exe)"  
-            $launcher = Read-Host "Setup launcher (e.g: setup.exe)"
 
-            if ($launcher -eq "") {
-                $launcher = "none"
-            }
-            
-            $IsPortable = @{
-                1 = "ture"
-                2 = "false"
-            }
-            do {
-                Write-Host "If file is compressed choose (true)" -ForegroundColor Yellow
-                Write-Host "If file is installer choose (false)" -ForegroundColor Yellow
-                foreach ($key in $IsPortable.Keys | Sort-Object) {
-                    Write-Host "$key - $($IsPortable[$key])"
-                }
-                $choice = Read-Host "Enter the number corresponding to the methods"
-                if ([int]$choice -in $IsPortable.Keys) {
-                    $Portable = $IsPortable[[int]$choice]
-                }
-                else {
-                    Write-Host "Invalid choice. Please select a valid option."
-                }
-            } until ([int]$choice -in $IsPortable.Keys)
-            $arg = Read-Host "Enter ArgumentList (e.g: /silent) You can skip this if don't know setup Argument"
-            if (-not $arg -or $arg -eq '') { $arg = "/silent" }
+        "ITT [in development]" {
+
+
+            # Prompt the user for input
+            $itt = Read-Host "Enter itt package name"
+            Check -itt $itt
+
             return @{
-                winget       = "none"
-                choco        = "none"
-                defaultEntry = @{
-                    url      = $url
-                    launcher = $launcher
-                    args     = $arg
-                    portable = $Portable
-                }
+                winget  = "na"
+                choco   = "na"
+                itt     = "$itt"
             }
         }
     }
@@ -204,7 +196,7 @@ if (Test-Path $applications) {
             Description = $item.Description
             winget      = $item.winget
             choco       = $item.choco
-            default     = $item.default
+            itt         = $item.itt
             category    = $item.category
             check       = $item.check
         }
