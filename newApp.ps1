@@ -23,17 +23,22 @@ $Mthoed = @{
     2 = "ITT [in development]"
 }
 do {
+
     Write-Host "Which method to download this app will be?:"
+
     foreach ($key in $Mthoed.Keys | Sort-Object) {
         Write-Host "$key - $($Mthoed[$key])"
     }
+
     $choice = Read-Host "Enter the number corresponding to the methods"
+
     if ([int]$choice -in $Mthoed.Keys) {
         $userInput = $Mthoed[[int]$choice]
     }
     else {
         Write-Host "Invalid choice. Please select a valid option."
     }
+    
 } until ([int]$choice -in $Mthoed.Keys)
 #===========================================================================
 #endregion end  Prompt user to choose download method
@@ -68,7 +73,7 @@ function Create-JsonObject {
 
     $Name = Read-Host "Enter app name"
     $Description = Read-Host "Enter app description"
-    
+
     # Create the base JSON object
     $jsonObject = @{
         name        = $Name
