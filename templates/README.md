@@ -101,7 +101,8 @@ Example:
 <pre><code>.\newTweak.ps1
 </code></pre>
 
-<p><em>Note: Ensure you understand the tweak you are adding and test it before committing.</em></p>
+> [!NOTE]  
+> Ensure you understand the tweak you are adding and test it before committing.
 
 <h3>🌐 Add your native language</h3>
 <p><em>
