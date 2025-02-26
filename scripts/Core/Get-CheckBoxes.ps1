@@ -33,7 +33,7 @@ function Get-SelectedItems {
                         Name    = $appsDict[$child.Content].Name
                         Choco   = $appsDict[$child.Content].Choco
                         Winget  = $appsDict[$child.Content].Winget
-                        Default = $appsDict[$child.Content].Default
+                        ITT     = $appsDict[$child.Content].itt
                         # Add a new download mothed here
                     }
                 }
