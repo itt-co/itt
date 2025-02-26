@@ -49,7 +49,7 @@ function Install-App {
     $ittArgs = "install $ITT -y"
 
     # TODO: If Chocolatey is 'none', use Winget
-    if ($Choco -eq "none" -and $Winget -eq "none" -and $itt -ne "none") {
+    if ($Choco -eq "na" -and $Winget -eq "na" -and $itt -ne "na") {
 
         Install-Choco
         Add-Log -Message "Attempting to install $Name." -Level "ITT"
@@ -59,7 +59,7 @@ function Install-App {
     else 
     {
         # TODO: if choco is 'none' and winget is not 'none', use winget
-        if ($Choco -eq "none" -and $Winget -ne "none") 
+        if ($Choco -eq "na" -and $Winget -ne "na") 
         {
             Install-Winget
             Add-Log -Message "Attempting to install $Name." -Level "Winget"
@@ -70,7 +70,7 @@ function Install-App {
         else 
         {
             # TODO: If choco is not 'none' and winget is not 'none', use choco first and fallback to winget
-            if ($Choco -ne "none" -or $Winget -ne "none") 
+            if ($Choco -ne "na" -or $Winget -ne "na") 
             {
                 Install-Choco
                 Add-Log -Message "Attempting to install $Name." -Level "Chocolatey"
