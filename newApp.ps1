@@ -12,7 +12,7 @@ Write-Host "
 |                                                                         |
 | Choco packages:  https://community.chocolatey.org/packages              |
 | Winget packages: https://winget.run/ & https://winget.ragerworks.com/   |
-|                                                                         |
+| ITT packages:    https://github.com/itt-co/itt-packages                 |
 +-------------------------------------------------------------------------+
 "
 #===========================================================================
