@@ -110,7 +110,7 @@
   {
     "Name": "KLite Mega Codec Full Pack",
     "Description": "Comprehensive collection of audio and video codecs, filters, and tools, enabling playback of various media formats",
-    "winget": "none",
+    "winget": "na",
     "choco": "k-litecodecpackfull",
     "itt": "none",
     "category": "Media",
@@ -164,7 +164,7 @@
   {
     "Name": "Aimp",
     "Description": "A lightweight and feature-rich audio player with support for various audio formats and customizable interface themes",
-    "winget": "none",
+    "winget": "na",
     "choco": "none",
     "itt": "aimp",
     "category": "Media",
@@ -326,7 +326,7 @@
   {
     "Name": "Microsoft Visual C++ Runtime - all versions",
     "Description": "Microsoft Visual C++ Redistributable installs run-time components of Visual C++ libraries. These components are required to run C++ applications that are developed using Visual Studio and link dynamically to Visual C++ libraries",
-    "winget": "none",
+    "winget": "na",
     "choco": "vcredist-all",
     "itt": "none",
     "category": "Runtimes",
@@ -344,7 +344,7 @@
   {
     "Name": "Microsoft Visual C++ 2005 (x86) Redistributable",
     "Description": "A set of runtime components required to run applications developed with Microsoft Visual C++ 2005, providing libraries, DLLs, and other resources",
-    "winget": "none",
+    "winget": "na",
     "choco": "vcredist2005",
     "itt": "none",
     "category": "Runtimes",
@@ -353,7 +353,7 @@
   {
     "Name": "Microsoft Visual C++ 2005 (x64) Redistributable",
     "Description": "A set of runtime components required to run 64-bit applications developed with Microsoft Visual C++ 2005, providing libraries, DLLs, and other resources",
-    "winget": "none",
+    "winget": "na",
     "choco": "vcredist2005",
     "itt": "none",
     "category": "Runtimes",
@@ -362,7 +362,7 @@
   {
     "Name": "Microsoft Visual C++ 2008 (x86) Redistributable",
     "Description": "A set of runtime components required to run applications developed with Microsoft Visual C++ 2008, providing libraries, DLLs, and other resources",
-    "winget": "none",
+    "winget": "na",
     "choco": "vcredist2008",
     "itt": "none",
     "category": "Runtimes",
@@ -371,7 +371,7 @@
   {
     "Name": "Microsoft Visual C++ 2008 (x64) Redistributable",
     "Description": "A set of runtime components required to run 64-bit applications developed with Microsoft Visual C++ 2008, providing libraries, DLLs, and other resources",
-    "winget": "none",
+    "winget": "na",
     "choco": "vcredist2008",
     "itt": "none",
     "category": "Runtimes",
@@ -380,7 +380,7 @@
   {
     "Name": "Microsoft Visual C++ 2010 (x86) Redistributable",
     "Description": "A set of runtime components required to run applications developed with Microsoft Visual C++ 2010, providing libraries, DLLs, and other resources",
-    "winget": "none",
+    "winget": "na",
     "choco": "vcredist2010",
     "itt": "none",
     "category": "Runtimes",
@@ -389,7 +389,7 @@
   {
     "Name": "Microsoft Visual C++ 2010 (x64) Redistributable",
     "Description": "A set of runtime components required to run 64-bit applications developed with Microsoft Visual C++ 2010, providing libraries, DLLs, and other resources",
-    "winget": "none",
+    "winget": "na",
     "choco": "vcredist2010",
     "itt": "none",
     "category": "Runtimes",
@@ -398,7 +398,7 @@
   {
     "Name": "Microsoft Visual C++ 2012 (x86) Redistributable",
     "Description": "A set of runtime components required to run applications developed with Microsoft Visual C++ 2012, providing libraries, DLLs, and other resources",
-    "winget": "none",
+    "winget": "na",
     "choco": "vcredist2012",
     "itt": "none",
     "category": "Runtimes",
@@ -407,7 +407,7 @@
   {
     "Name": "Microsoft Visual C++ 2012 (x64) Redistributable",
     "Description": "A set of runtime components required to run 64-bit applications developed with Microsoft Visual C++ 2012, providing libraries, DLLs, and other resources",
-    "winget": "none",
+    "winget": "na",
     "choco": "vcredist2012",
     "itt": "none",
     "category": "Runtimes",
@@ -416,7 +416,7 @@
   {
     "Name": "Microsoft Visual C++ 2013 (x86) Redistributable",
     "Description": "A set of runtime components required to run applications developed with Microsoft Visual C++ 2013, providing libraries, DLLs, and other resources",
-    "winget": "none",
+    "winget": "na",
     "choco": "vcredist2013",
     "itt": "none",
     "category": "Runtimes",
@@ -425,7 +425,7 @@
   {
     "Name": "Microsoft Visual C++ 2013 (x64) Redistributable",
     "Description": "A set of runtime components required to run 64-bit applications developed with Microsoft Visual C++ 2013, providing libraries, DLLs, and other resources",
-    "winget": "none",
+    "winget": "na",
     "choco": "vcredist2013",
     "itt": "none",
     "category": "Runtimes",
@@ -434,7 +434,7 @@
   {
     "Name": "Microsoft Visual C++ 2015-2022 (x64) Redistributable",
     "Description": "A set of runtime components required to run 64-bit applications developed with Microsoft Visual C++ 2015-2022, providing libraries, DLLs, and other resources",
-    "winget": "none",
+    "winget": "na",
     "choco": "vcredist2015",
     "itt": "none",
     "category": "Runtimes",
@@ -443,7 +443,7 @@
   {
     "Name": "Microsoft Visual C++ 2015-2022  (x86) Redistributable",
     "Description": "A set of runtime components required to run applications developed with Microsoft Visual C++ 2015-2022, providing libraries, DLLs, and other resources",
-    "winget": "none",
+    "winget": "na",
     "choco": "vcredist2015",
     "itt": "none",
     "category": "Runtimes",
@@ -452,7 +452,7 @@
   {
     "Name": "NET Framework All Versions",
     "Description": "A comprehensive and consistent programming model for building applications that have visually stunning user experiences, seamless and secure communication, and the ability to model a range of business processes",
-    "winget": "none",
+    "winget": "na",
     "choco": "dotnet-all",
     "itt": "none",
     "category": "Runtimes",
@@ -461,7 +461,7 @@
   {
     "Name": "AMD Ryzen Chipset Drivers",
     "Description": "Supports: AMD Ryzen Threadripper PRO Processor, AMD Ryzen 8000/7040/7000 Series Desktop & Mobile Processors, AMD Ryzen 5000/3rd Gen/2nd Gen Desktop & Threadripper Processors, AMD Ryzen Desktop Processor with Radeon Graphics & Mobile Processor with Radeon Graphics, 7th-Gen AMD A-Series Processors, AMD X670E/X670/B650E/B650/B350/A320/X370/X399/B450/X470/X570/B550/A520/A620/TRX40/TRX50/WRX80/WRX90 Chipsets",
-    "winget": "none",
+    "winget": "na",
     "choco": "amd-ryzen-chipset",
     "itt": "none",
     "category": "Drivers",
@@ -470,7 +470,7 @@
   {
     "Name": "NVidia Display Driver",
     "Description": "The software component that allows the operating system and installed software to communicate with and control the NVIDIA graphics processing unit (GPU)",
-    "winget": "none",
+    "winget": "na",
     "choco": "nvidia-display-driver",
     "itt": "none",
     "category": "Drivers",
@@ -533,7 +533,7 @@
   {
     "Name": "Rockstar Games Launcher",
     "Description": "Download and play the latest Rockstar Games PC titles",
-    "winget": "none",
+    "winget": "na",
     "choco": "rockstar-launcher",
     "itt": "none",
     "category": "Gaming",
@@ -605,7 +605,7 @@
   {
     "Name": "Intel Graphics Windows DCH",
     "Description": "Intel Graphics Driver for Windows 10",
-    "winget": "none",
+    "winget": "na",
     "choco": "intel-graphics-driver",
     "itt": "none",
     "category": "Drivers",
@@ -650,7 +650,7 @@
   {
     "Name": "Driver Genius",
     "Description": "Professional driver management tool and hardware diagnostics",
-    "winget": "none",
+    "winget": "na",
     "choco": "drivergenius",
     "itt": "none",
     "category": "Drivers",
@@ -668,7 +668,7 @@
   {
     "Name": "Driver Store Explorer",
     "Description": " Windows driver store utility",
-    "winget": "none",
+    "winget": "na",
     "choco": "rapr",
     "itt": "none",
     "category": "Drivers",
@@ -731,7 +731,7 @@
   {
     "Name": "Easy Context Menu",
     "Description": "To install Easy Context Menu, run the following command from the command line or from PowerShell:",
-    "winget": "none",
+    "winget": "na",
     "choco": "ecm",
     "itt": "none",
     "category": "Utilities",
@@ -821,7 +821,7 @@
   {
     "Name": "Virtual CloneDrive",
     "Description": "A free software that allows users to mount disc images as virtual drives, enabling them to access the content of ISO, BIN, and CCD files without the need for physical discs",
-    "winget": "none",
+    "winget": "na",
     "choco": "virtualclonedrive",
     "itt": "none",
     "category": "Utilities",
@@ -848,7 +848,7 @@
   {
     "Name": "iVentoy",
     "Description": "With iVentoy you can boot and install OS on multiple machines at the same time through the network",
-    "winget": "none",
+    "winget": "na",
     "choco": "iventoy",
     "itt": "none",
     "category": "Utilities",
@@ -947,7 +947,7 @@
   {
     "Name": "WirelessNetView",
     "Description": "Wireless Network Watcher is a small utility that scans your wireless network and displays the list of all computers and devices that are currently connected to your network",
-    "winget": "none",
+    "winget": "na",
     "choco": "wirelessnetview",
     "itt": "none",
     "category": "Utilities",
@@ -1118,7 +1118,7 @@
   {
     "Name": "Electron",
     "Description": "Electron, framework lets you write cross-platform desktop applications using JavaScript, HTML and CSS. It is based on io.js and Chromium and is used in the Atom editor",
-    "winget": "none",
+    "winget": "na",
     "choco": "electron",
     "itt": "none",
     "category": "Development",
@@ -1181,7 +1181,7 @@
   {
     "Name": "x64dbg Portable",
     "Description": "An open-source x64/x32 debugger for windows",
-    "winget": "none",
+    "winget": "na",
     "choco": "x64dbg.portable",
     "itt": "none",
     "category": "Portable",
@@ -1199,7 +1199,7 @@
   {
     "Name": "Cheat Engine",
     "Description": "Cheat Engine is an open source tool designed to help you modify single player games",
-    "winget": "none",
+    "winget": "na",
     "choco": "cheatengine",
     "itt": "none",
     "category": "Development",
@@ -1280,7 +1280,7 @@
   {
     "Name": "Android Debug Bridge",
     "Description": "Android Debug Bridge (ADB) is a command-line tool that allows you to communicate with an Android device. It is used for various debugging tasks such as installing and debugging apps",
-    "winget": "none",
+    "winget": "na",
     "choco": "adb",
     "itt": "none",
     "category": "Development",
@@ -1289,7 +1289,7 @@
   {
     "Name": "Universal ADB Drivers",
     "Description": "Universal ADB Drivers are drivers that provide compatibility with a wide range of Android devices for debugging purposes. They allow you to connect your Android device to a computer and use ADB commands",
-    "winget": "none",
+    "winget": "na",
     "choco": "universal-adb-drivers",
     "itt": "none",
     "category": "Development",
@@ -1343,7 +1343,7 @@
   {
     "Name": "Nerd Fonts - CascadiaCode",
     "Description": "Nerd Fonts is a project that patches developer targeted fonts with a high number of glyphs (icons)",
-    "winget": "none",
+    "winget": "na",
     "choco": "nerd-fonts-cascadiacode",
     "itt": "none",
     "category": "Development",
@@ -1352,7 +1352,7 @@
   {
     "Name": "Java SE Runtime Environment 8.0.411",
     "Description": "Java allows you to play online games, chat with people around the world, calculate your mortgage interest, and view images in 3D, just to name a few. It's also integral to the intranet applications and other e-business solutions that are the foundation of corporate computing. Please note you now need a Java License from Oracle to use unless installed for Personal Use and Development Use",
-    "winget": "none",
+    "winget": "na",
     "choco": "jre8",
     "itt": "none",
     "category": "Runtimes",
@@ -1379,7 +1379,7 @@
   {
     "Name": "Format Factory",
     "Description": "multifunctional media processing tools",
-    "winget": "none",
+    "winget": "na",
     "choco": "formatfactory",
     "itt": "none",
     "category": "Media Tools",
@@ -1388,7 +1388,7 @@
   {
     "Name": "Winaero Tweaker",
     "Description": "Customize the appearance and behavior of the Windows operating system",
-    "winget": "none",
+    "winget": "na",
     "choco": "winaero-tweaker",
     "itt": "none",
     "category": "Utilities",
@@ -1406,7 +1406,7 @@
   {
     "Name": "Wamp Server 3.3.5",
     "Description": "WampServer is a Windows web development environment. It allows you to create web applications",
-    "winget": "none",
+    "winget": "na",
     "choco": "wamp-server",
     "itt": "none",
     "category": "Development",
@@ -1478,7 +1478,7 @@
   {
     "Name": "FileZilla",
     "Description": "FileZilla Client is a fast and reliable cross-platform FTP, FTPS and SFTP client with lots of useful features and an intuitive graphical user interface",
-    "winget": "none",
+    "winget": "na",
     "choco": "filezilla",
     "itt": "none",
     "category": "Development",
@@ -1505,7 +1505,7 @@
   {
     "Name": "VMware Workstation Player",
     "Description": "VMware Workstation Player™ is a streamlined desktop virtualization application that runs another operating system on the same computer without rebooting. VMware Workstation Player provides a simple user interface, unmatched operating system support, and portability across the VMware ecosystem",
-    "winget": "none",
+    "winget": "na",
     "choco": "vmware-workstation-player",
     "itt": "none",
     "category": "Development",
@@ -1514,7 +1514,7 @@
   {
     "Name": "HDD Low Level Format Tool",
     "Description": "Will erase, Low-Level Format and re-certify a SATA, IDE or SCSI hard disk drive with any size of up to 281 474 976 710 655 bytes",
-    "winget": "none",
+    "winget": "na",
     "choco": "llftool",
     "itt": "none",
     "category": "Utilities",
@@ -1532,7 +1532,7 @@
   {
     "Name": "Intel Wireless Bluetooth for Windows 10 and Windows 11",
     "Description": "Bluetooth for Windows 10 and Windows",
-    "winget": "none",
+    "winget": "na",
     "choco": "intel-bluetooth-drivers",
     "itt": "none",
     "category": "Drivers",
@@ -1622,7 +1622,7 @@
   {
     "Name": "IconsExtract",
     "Description": "The IconsExtract utility scans the files and folders on your computer, and extract the icons and cursors stored in EXE, DLL, OCX, CPL, and in other file types",
-    "winget": "none",
+    "winget": "na",
     "choco": "iconsext",
     "itt": "none",
     "category": "Utilities",
@@ -1946,7 +1946,7 @@
   {
     "Name": "Microsoft Teams Classic Desktop",
     "Description": "Microsoft Teams is a messaging app for teams where all conversations meetings files and notes can be accessed by everyone all in one place Its a place for collaboration and work to happen in the open",
-    "winget": "none",
+    "winget": "na",
     "choco": "microsoft-teams.install",
     "itt": "none",
     "category": "Communication",
@@ -1955,7 +1955,7 @@
   {
     "Name": "Microsoft Windows SDK",
     "Description": "The Windows 10 SDK for Windows 10 version 1809 provides the latest headers libraries metadata and tools for building Windows 10 apps NoteWindows 10 development targeting Windows 10 version 1903 or later requires Visual Studio 2017 or later This SDK will not be discovered by previous versions of Visual Studio",
-    "winget": "none",
+    "winget": "na",
     "choco": "windows-sdk-10.1",
     "itt": "none",
     "category": "Runtimes",
@@ -1964,7 +1964,7 @@
   {
     "Name": "RunAsDate Portable",
     "Description": "RunAsDate is a small utility that allows you to run a program in the date and time that you specify This utility doesnt change the current system date and time of your computer but it only injects the datetime that you specify into the desired application",
-    "winget": "none",
+    "winget": "na",
     "choco": "runasdate",
     "itt": "none",
     "category": "Portable",
@@ -1973,7 +1973,7 @@
   {
     "Name": "Visual Studio 2017 Build ",
     "Description": "These Build Tools allow you to build native and managed MSBuildbased applications without requiring the Visual Studio IDE There are options to install the Visual C compilers and libraries MFC ATL and CCLI support",
-    "winget": "none",
+    "winget": "na",
     "choco": "visualstudio2017buildtools",
     "itt": "none",
     "category": "Development",
@@ -2153,7 +2153,7 @@
   {
     "Name": "Microsoft Silverlight",
     "Description": "Silverlight is a powerful development tool for creating engaging interactive user experiences for Web and mobile applications",
-    "winget": "none",
+    "winget": "na",
     "choco": "silverlight",
     "itt": "none",
     "category": "Runtimes",
@@ -2180,7 +2180,7 @@
   {
     "Name": "Flash Player ActiveX",
     "Description": "The Adobe Flash Player is freeware software for viewing multimedia executing Rich Internet Applications and streaming video and audio content created on the Adobe Flash platform",
-    "winget": "none",
+    "winget": "na",
     "choco": "flashplayeractivex",
     "itt": "none",
     "category": "Runtimes",
@@ -2189,7 +2189,7 @@
   {
     "Name": "Google Drive",
     "Description": "Google Drive  All your files  everywhere Safely store your files and access them from any device Choose folders on your computer to sync with Google Drive or backup to Google Photos and access all of your content directly from your PC or Mac",
-    "winget": "none",
+    "winget": "na",
     "choco": "googledrive",
     "itt": "none",
     "category": "File Sharing",
@@ -2198,7 +2198,7 @@
   {
     "Name": "Dot Net 4.5.2",
     "Description": "The Microsoft NET Framework 452 is a highly compatible inplace update to the Microsoft NET Framework 4 Microsoft NET Framework 45 and Microsoft NET Framework 451",
-    "winget": "none",
+    "winget": "na",
     "choco": "dotnet4.5.2",
     "itt": "none",
     "category": "Runtimes",
@@ -2279,7 +2279,7 @@
   {
     "Name": "Git Large File Storage",
     "Description": "Git Large File Storage LFS replaces large files such as audio samples videos datasets and graphics with text pointers inside Git while storing the file contents on a remote server like GitHubcom or GitHub Enterprise",
-    "winget": "none",
+    "winget": "na",
     "choco": "git-lfs",
     "itt": "none",
     "category": "Development",
@@ -2333,7 +2333,7 @@
   {
     "Name": "Keyn Stroke",
     "Description": "KeynStroke makes it easy for your audience to follow your actions on the screen",
-    "winget": "none",
+    "winget": "na",
     "choco": "key-n-stroke",
     "itt": "none",
     "category": "Utilities",
@@ -2342,7 +2342,7 @@
   {
     "Name": "Fing",
     "Description": "Fing App is a free network scanner that makes you discover all connected devices run internet speed tests and help troubleshoot network and device issues Get Fingbox for more advanced security and protection for your network",
-    "winget": "none",
+    "winget": "na",
     "choco": "fing",
     "itt": "none",
     "category": "Utilities",
@@ -2351,7 +2351,7 @@
   {
     "Name": "Ryujinx",
     "Description": "Ryujinx is an opensource Nintendo Switch emulator created by gdkchan and written in C This emulator aims at providing excellent accuracy and performance a userfriendly interface and consistent builds",
-    "winget": "none",
+    "winget": "na",
     "choco": "ryujinx --params '/DesktopShortcut'",
     "itt": "none",
     "category": "Gaming",
@@ -2360,7 +2360,7 @@
   {
     "Name": "Omnify Hotspot",
     "Description": "The best virtual router to turn your PC into a WiFi hotspot  repeater WiFi hotspot allows you to create a wireless access point and share your internet Its easy to use and quick to start as you only need to give it a name and password and then connect your smartphone tablet media player ereader printer laptop and other wireless devices The network name can also include Unicode characters and Emojis",
-    "winget": "none",
+    "winget": "na",
     "choco": "omnifyhotspot",
     "itt": "none",
     "category": "File Sharing",
@@ -2378,7 +2378,7 @@
   {
     "Name": "Neat Download Manager",
     "Description": "Neat Download Manager is a free Internet Download Manager for Windows",
-    "winget": "none",
+    "winget": "na",
     "choco": "none",
     "itt": "neat",
     "category": "Web Browsers",
@@ -2387,7 +2387,7 @@
   {
     "Name": "x630ce for all games",
     "Description": "Xbox 360 Controller Emulator” allows your controller (gamepad, joystick, steering wheel, pedals, etc.) to function on your PC as an Xbox 360 controller. It allows you to remap buttons and axes and to drive cars with steering wheel and pedals or to fly planes with joystick and throttle in games like “Grand Theft Auto” or “Saints Row” • Digitally Signed",
-    "winget": "none",
+    "winget": "na",
     "choco": "none",
     "itt": "x630ce",
     "category": "Gaming",
@@ -2423,7 +2423,7 @@
   {
     "Name": "HFS HTTP File Server",
     "Description": "You can use HFS HTTP File Server to send and receive files Its different from classic file sharing because it uses web technology to be more compatible with todays Internet It also differs from classic web servers because its very easy to use and runs right outofthe box",
-    "winget": "none",
+    "winget": "na",
     "choco": "hfs",
     "itt": "none",
     "category": "File Sharing",
@@ -2540,7 +2540,7 @@
   {
     "Name": "Files",
     "Description": "Alternative file explorer",
-    "winget": "none",
+    "winget": "na",
     "choco": "files",
     "itt": "none",
     "category": "Utilities",
@@ -2747,7 +2747,7 @@
   {
     "Name": "Python Version Manager",
     "Description": "pyenv for Windows is a simple python version management tool It lets you easily switch between multiple versions of Python",
-    "winget": "none",
+    "winget": "na",
     "choco": "pyenv-win",
     "itt": "none",
     "category": "Development",
@@ -2783,7 +2783,7 @@
   {
     "Name": "Poedit",
     "Description": "Poedit translations editor The best way to translate apps and sites",
-    "winget": "none",
+    "winget": "na",
     "choco": "none",
     "itt": "none",
     "category": "Development",
@@ -2801,7 +2801,7 @@
   {
     "Name": "Flash Player Plugin",
     "Description": "The Adobe Flash Player is freeware software for viewing multimedia executing Rich Internet Applications and streaming video and audio content created on the Adobe Flash platform",
-    "winget": "none",
+    "winget": "na",
     "choco": "flashplayerplugin",
     "itt": "none",
     "category": "Documents",
@@ -2810,7 +2810,7 @@
   {
     "Name": "Sysinternals",
     "Description": "The Sysinternals Troubleshooting Utilities have been rolled up into a single suite of tools",
-    "winget": "none",
+    "winget": "na",
     "choco": "sysinternals",
     "itt": "none",
     "category": "Documents",
@@ -2819,7 +2819,7 @@
   {
     "Name": "SelfishNet",
     "Description": "Control your internet bandwidth with SelfishNet V3, ARP Spoofing application.",
-    "winget": "none",
+    "winget": "na",
     "choco": "none",
     "itt": "selfishnet",
     "category": "Utilities",
@@ -2882,7 +2882,7 @@
   {
     "Name": "Multimark down",
     "Description": "MultiMarkdown or MMD, is a tool to help turn minimally marked-up plain text into well formatted documents, including HTML, PDF",
-    "winget": "none",
+    "winget": "na",
     "choco": "multimarkdown",
     "itt": "none",
     "category": "Utilities",
@@ -2891,7 +2891,7 @@
   {
     "Name": "PCSX2 Emulator",
     "Description": "PCSX2 is a free and opensource PlayStation 2 PS2 emulator Its purpose is to emulate the PS2s hardware",
-    "winget": "none",
+    "winget": "na",
     "choco": "pcsx2.portable",
     "itt": "none",
     "category": "Portable",
@@ -2909,7 +2909,7 @@
   {
     "Name": "Free Virtual Keyboard",
     "Description": "Free Virtual Keyboard works on any Windows based UMPC with a passive touchscreen Ultramobile PC Tablet PC and Panel PC",
-    "winget": "none",
+    "winget": "na",
     "choco": "free-virtual-keyboard",
     "itt": "none",
     "category": "Utilities",
@@ -2918,7 +2918,7 @@
   {
     "Name": "TypeScript for Visual Studio 2017 and 2019",
     "Description": "This is a standalone power tool release of TypeScript for Visual Studio 2017 and 2019 It includes both the TypeScript experience for Visual Studio and a standalone compiler that can be used from the command line",
-    "winget": "none",
+    "winget": "na",
     "choco": "typescript-vs2017-vs2019",
     "itt": "none",
     "category": "Development",
@@ -2936,7 +2936,7 @@
   {
     "Name": "iSpy",
     "Description": "iSpy is the worlds most popular open source video surveillance application Its compatible with the the vast majority of consumer webcams and IP cameras With more than 2 million users worldwide iSpy works with more cameras and devices than anything else on the market",
-    "winget": "none",
+    "winget": "na",
     "choco": "ispy",
     "itt": "none",
     "category": "Imaging",
@@ -2945,7 +2945,7 @@
   {
     "Name": "WavPack",
     "Description": "WavPack is a completely open audio compression format providing lossless highquality lossy and a unique hybrid compression mode Although the technology is loosely based on previous versions of WavPack the new version 4 format has been designed from the ground up to offer unparalleled performance and functionality",
-    "winget": "none",
+    "winget": "na",
     "choco": "wavpack",
     "itt": "none",
     "category": "Utilities",
@@ -2954,7 +2954,7 @@
   {
     "Name": "ProcessThreadsView",
     "Description": "ProcessThreadsView is a small utility that displays extensive information about all threads of the process that you choose",
-    "winget": "none",
+    "winget": "na",
     "choco": "processthreadsview",
     "itt": "none",
     "category": "Utilities",
@@ -2981,7 +2981,7 @@
   {
     "Name": "Tome",
     "Description": "Developing games is all about data With game systems for modifying data and user interfaces for presenting it finding a sophisticated data model is key to creating successful games Even more being able to change this data and iterate on a daytoday basis is mandatory in todays production cycles",
-    "winget": "none",
+    "winget": "na",
     "choco": "tome-editor",
     "itt": "none",
     "category": "Development",
@@ -3026,7 +3026,7 @@
   {
     "Name": "MkDocs",
     "Description": "MkDocs is a fast simple and downright gorgeous static site generator thats geared towards building project documentation Documentation source files are written in Markdown and configured with a single YAML configuration file",
-    "winget": "none",
+    "winget": "na",
     "choco": "mkdocs",
     "itt": "none",
     "category": "Development",
@@ -3035,7 +3035,7 @@
   {
     "Name": "MkDocs Material Theme",
     "Description": "MkDocs is a fast simple and downright gorgeous static site generator thats geared towards building project documentation Documentation source files are written in Markdown and configured with a single YAML configuration file",
-    "winget": "none",
+    "winget": "na",
     "choco": "mkdocs-material",
     "itt": "none",
     "category": "Development",
@@ -3062,7 +3062,7 @@
   {
     "Name": "LibreOffice Still",
     "Description": "LibreOffice is the free powerpacked Open Source personal productivity suite for Windows macOS and Linux that gives you six featurerich applications for all your document production and data processing needs",
-    "winget": "none",
+    "winget": "na",
     "choco": "libreoffice-still",
     "itt": "none",
     "category": "Documents",
@@ -3071,7 +3071,7 @@
   {
     "Name": "Aio Runtimes",
     "Description": "All in One Runtimes also known as AIO Runtimes is a program that integrates essential runtime packages ensuring the seamless functionality of all programs by installing them automatically",
-    "winget": "none",
+    "winget": "na",
     "choco": "none",
     "itt": "aio-runtimes",
     "category": "Runtimes",
@@ -3080,7 +3080,7 @@
   {
     "Name": "Visual-C-Runtimes All in One Oct 2024",
     "Description": "This archive contains the latest version (Oct 2024) of all VCRedist Visual Studio C++ runtimes, installable with a single click by running the included batch file installer",
-    "winget": "none",
+    "winget": "na",
     "choco": "none",
     "itt": "vsall",
     "category": "Runtimes",
@@ -3098,7 +3098,7 @@
   {
     "Name": "MemTest86",
     "Description": "MemTest86 boots from a USB flash drive and tests the RAM in your computer for faults using a series of comprehensive algorithms and test patterns",
-    "winget": "none",
+    "winget": "na",
     "choco": "none",
     "itt": "memtest86",
     "category": "Utilities",
@@ -3107,7 +3107,7 @@
   {
     "Name": "Memtest86 Plus",
     "Description": "Memtest86 Plus v6 is a unified, free, open-source memory testing tool, released under GNU GPL v2.0. The new v6 code base (originally called PCMemTest) was provided by Martin Whitaker, based on Memtest86+ v5, developed by Sam Demeulemeester. Both are now working on Memtest86+",
-    "winget": "none",
+    "winget": "na",
     "choco": "none",
     "itt": "memtest86plus",
     "category": "Utilities",
@@ -3116,7 +3116,7 @@
   {
     "Name": "VLC Skins",
     "Description": "Put the downloaded VLT files in the following folder: On Windows: the skins folder in the VLC installation directory (e.g. C:\\Program Files\\VideoLAN\\VLC\\skins) On Linux/Unix: ~/.local/share/vlc/skins2",
-    "winget": "none",
+    "winget": "na",
     "choco": "vlc-skins",
     "itt": "none",
     "category": "Media Tools",
@@ -3134,7 +3134,7 @@
   {
     "Name": "NICE DCV Server",
     "Description": "NICE DCV is a remote display protocol that securely streams desktops and apps from cloud or data centers to any device, enabling graphics-intensive applications on Amazon EC2. It's used for HPC workloads and by services like Appstream 2.0 and AWS RoboMaker",
-    "winget": "none",
+    "winget": "na",
     "choco": "nice-dcv-server",
     "itt": "none",
     "category": "Utilities",
@@ -3170,7 +3170,7 @@
   {
     "Name": "Aspia",
     "Description": "Remote desktop and file transfer tool",
-    "winget": "none",
+    "winget": "na",
     "choco": "none",
     "itt": "Aspia",
     "category": "File Sharing",
@@ -3188,7 +3188,7 @@
   {
     "Name": "Twitch Desktop App",
     "Description": "Servers - A virtual home for your community to chat, watch, and play with fully customizable text and voice rooms",
-    "winget": "none",
+    "winget": "na",
     "choco": "twitch",
     "itt": "none",
     "category": "Gaming",
@@ -3206,7 +3206,7 @@
   {
     "Name": "Torrid",
     "Description": "Torrid is a multi-server, multi-client, multi-tracker Remote Torrent Client which allows any number of installed torrent engines.",
-    "winget": "none",
+    "winget": "na",
     "choco": "torrid",
     "itt": "none",
     "category": "Utilities",
@@ -3296,7 +3296,7 @@
   {
     "Name": "AyuGramDesktop",
     "Description": " Desktop Telegram client with good customization and Ghost mode",
-    "winget": "none",
+    "winget": "na",
     "choco": "none",
     "itt": "ayugramdesktop",
     "category": "Communication",
@@ -3323,7 +3323,7 @@
   {
     "Name": "Ente Auth",
     "Description": "An end-to-end encrypted, cross platform and free app for storing your 2FA codes with cloud backups",
-    "winget": "none",
+    "winget": "na",
     "choco": "ente-auth",
     "itt": "none",
     "category": "Security",
@@ -3341,7 +3341,7 @@
   {
     "Name": "DuckStation",
     "Description": " Fast PlayStation 1 emulator for x86-64/AArch32/AArch64/RV64",
-    "winget": "none",
+    "winget": "na",
     "choco": "none",
     "itt": "duckstation",
     "category": "Portable",
@@ -3350,7 +3350,7 @@
   {
     "Name": "Authme - Simple 2FA",
     "Description": "Simple 2FA desktop application",
-    "winget": "none",
+    "winget": "na",
     "choco": "authme.portable",
     "itt": "none",
     "category": "Security",
@@ -3359,7 +3359,7 @@
   {
     "Name": "SuperCopier2",
     "Description": "SuperCopier2 SuperCopier replaces Windows explorer file copy and adds many features",
-    "winget": "none",
+    "winget": "na",
     "choco": "none",
     "itt": "supercopier2",
     "category": "Utilities",
@@ -3377,7 +3377,7 @@
   {
     "Name": "Kindle Previewer",
     "Description": "Kindle Previewer is a graphical user interface tool that emulates how books display across Kindle devices and apps. Kindle Previewer makes it easy for publishers to preview the layout of a book and make sure its text displays properly for any orientation or font size to ensure publishers produce and submit the highest quality Kindle books",
-    "winget": "none",
+    "winget": "na",
     "choco": "kindlepreviewer",
     "itt": "none",
     "category": "Documents",
@@ -3593,7 +3593,7 @@
   {
     "Name": "IDA free",
     "Description": "DA is a Windows, Linux or Mac OS X hosted multi-processor disassembler and debugger that offers so many features",
-    "winget": "none",
+    "winget": "na",
     "choco": "ida-free",
     "itt": "none",
     "category": "Utilities",
@@ -3602,7 +3602,7 @@
   {
     "Name": "Binary Ninja",
     "Description": "reverse engineering tool. It supports a number of great features",
-    "winget": "none",
+    "winget": "na",
     "choco": "none",
     "itt": "binaryninja",
     "category": "Utilities",
@@ -3611,7 +3611,7 @@
   {
     "Name": "Resource Hacker",
     "Description": "freeware resource compiler & decompiler for Windows® applications",
-    "winget": "none",
+    "winget": "na",
     "choco": "none",
     "itt": "resourcehacker",
     "category": "Portable",
