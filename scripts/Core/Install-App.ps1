@@ -36,7 +36,7 @@ function Install-App {
         )
 
         if ($Installer -ne 0) {
-            Add-Log -Message "$Source Installation Failed for ($Name). Please report the issue in the ITT repository." -Level "ERROR"
+            Add-Log -Message "Installation Failed for ($Name). Report the issue in the ITT repository." -Level "$Source"
         }
         else {
             Add-Log -Message "Successfully Installed ($Name)" -Level "$Source"
@@ -78,7 +78,7 @@ function Install-App {
 
                 if ($chocoResult -ne 0) {
                     Install-Winget
-                    Add-Log -Message "Chocolatey installation failed, Falling back to Winget." -Level "Chocolatey"
+                    Add-Log -Message "installation failed, Falling back to Winget." -Level "Chocolatey"
                     Start-Process -FilePath "winget" -ArgumentList "settings --enable InstallerHashOverride" -NoNewWindow -Wait -PassThru
                     $wingetResult = Install-AppWithInstaller "winget" $wingetArgs
                     Log $wingetResult "Winget"
