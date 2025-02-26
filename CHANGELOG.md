@@ -1,6 +1,13 @@
-###### 01/31/2025
+###### 02/26/2025
 
 ## Changelog
+
+
+### 📦 ITT Package Manager
+
+![itt.xName:ittpm [https://github.com/itt-co/itt-packages/tree/main/automation]](https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Images/text_logo.png)
+
+#### ITT now has its own package manager. You are welcome to contribute by adding any package you want and writing your own installation script.
 
 ### 🎬 Watch demo
 
