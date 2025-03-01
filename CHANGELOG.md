@@ -5,7 +5,7 @@
 
 ### 🌙 Ramadan Kareem
 
-![itt.xName:RK [https://duckduckgo.com/?q=what+is+ramadan&t=brave&ia=web]](https://github.com/user-attachments/assets/4eeeac61-c19b-4aa6-b9dc-2f2de606de3c)
+![itt.xName:RK [https://duckduckgo.com/?q=what+is+ramadan&t=brave&ia=web]](https://github.com/user-attachments/assets/1d454980-68ee-4e85-9fdb-b8eefce10f9c)
 
 #### ITT now has its own package manager. You are welcome to contribute by adding any package you want and writing your own installation script.
 
