@@ -6,7 +6,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "02/26/2025"
+lastupdate     = "03/01/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -6645,11 +6645,11 @@ param (
 )
 switch ($ListView) {
 "AppsListView" {
-UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "Install" -TextIcon "installIcon" -Icon "  " -Width "140"
+UpdateUI -Button "InstallBtn" -Content "Install" -Width "140"
 Notify -title "$title" -msg "ALL INSTALLATIONS COMPLETED SUCCESSFULLY." -icon "Info" -time 30000
 }
 "TweaksListView" {
-UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Apply" -TextIcon "applyIcon" -Icon "  " -Width "140"
+UpdateUI -Button "ApplyBtn" -Content "Apply" -Width "140"
 Add-Log -Message "Done." -Level "Apply"
 Notify -title "$title" -msg "ALL TWEAKS HAVE BEEN APPLIED SUCCESSFULLY." -icon "Info" -time 30000
 }
@@ -7412,7 +7412,7 @@ return
 }
 ITT-ScriptBlock -ArgumentList $selectedApps $QuickInstall -Debug $debug -ScriptBlock {
 param($selectedApps , $QuickInstall)
-UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "Downloading" -TextIcon "installIcon" -Icon "  " -Width "auto"
+UpdateUI -Button "installBtn" -Content "Downloading" -Width "auto"
 $itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
 $itt.ProcessRunning = $true
 foreach ($App in $selectedApps) {
@@ -7447,7 +7447,7 @@ return
 ITT-ScriptBlock -ArgumentList $selectedTweaks -debug $debug -ScriptBlock {
 param($selectedTweaks, $debug)
 $itt.ProcessRunning = $true
-UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Applying" -TextIcon "applyIcon" -Icon "  " -Width "auto"
+UpdateUI -Button "ApplyBtn" -Content "Applying" -Width "auto"
 $itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
 foreach ($tweak in $selectedTweaks) {
 Add-Log -Message "::::$($tweak.Name)::::" -Level "info"
@@ -8120,17 +8120,13 @@ catch { Write-Host "Error: $_" }
 function UpdateUI {
 param(
 [string]$Button,
-[string]$ButtonText,
-[string]$Icon,
 [string]$Content,
-[string]$TextIcon,
-[string]$Width = "100"
+[string]$Width = "140"
 )
-$applyBtn = $itt.database.locales.Controls.$($itt.Language).$Content
+$key = $itt.database.locales.Controls.$($itt.Language).$Content
 $itt['window'].Dispatcher.Invoke([Action]{
 $itt.$Button.Width = $Width
-$itt.$ButtonText.Text = "$applyBtn"
-$itt.$TextIcon.Text = "$icon"
+$itt.$Button.Content = "$key"
 })
 }
 $MainWindowXaml = '
@@ -8208,7 +8204,7 @@ BeginTime="0:0:1" />
 <Style.Triggers>
 <Trigger Property="IsMouseOver" Value="True">
 <Setter Property="Background" Value="{DynamicResource HighlightColor}"/>
-<Setter Property="Foreground" Value="{DynamicResource PrimaryButtonHighlight}"/>
+<Setter Property="Foreground" Value="{DynamicResource HighlightColor}"/>
 <Setter Property="BorderBrush" Value="{DynamicResource HighlightColor}"/>
 </Trigger>
 <Trigger Property="IsPressed" Value="True">
@@ -12106,7 +12102,9 @@ ScrollViewer.CanContentScroll="True">
 <Grid Column="1" Background="Transparent">
 <Button
 Name="installBtn"
-FontSize="14"
+Content="{Binding Install, TargetNullValue=Install}"
+FontSize="16"
+Background="Transparent"
 HorizontalAlignment="Center"
 VerticalAlignment="Center"
 HorizontalContentAlignment="Center"
@@ -12115,24 +12113,12 @@ Cursor="Hand"
 Width="140"
 Height="45"
 Margin="20">
-<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-<TextBlock Name="installText"
-Text="{Binding Install, TargetNullValue=Install}"
-Foreground="{DynamicResource TextColorSecondaryColor}"
-Margin="0"
-VerticalAlignment="Center"/>
-<TextBlock Name="installIcon"
-Text=" &#xE930;"
-Foreground="{DynamicResource TextColorSecondaryColor}"
-FontFamily="Segoe MDL2 Assets"
-FontSize="14"
-HorizontalAlignment="Center"
-VerticalAlignment="Center"/>
-</StackPanel>
 </Button>
 <Button
 Name="applyBtn"
-FontSize="14"
+Content="{Binding Apply, TargetNullValue=Apply}"
+FontSize="16"
+Background="Transparent"
 Visibility="Hidden"
 HorizontalAlignment="Center"
 VerticalAlignment="Center"
@@ -12142,19 +12128,6 @@ Cursor="Hand"
 Width="140"
 Height="45"
 Margin="20">
-<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-<TextBlock Name="applyText"
-Text="{Binding Apply, TargetNullValue=Apply}"
-Foreground="White"
-Margin="0"
-VerticalAlignment="Center"/>
-<TextBlock Name="applyIcon"
-Text=" &#xE930;" Foreground="White"
-FontFamily="Segoe MDL2 Assets"
-FontSize="14"
-HorizontalAlignment="Center"
-VerticalAlignment="Center"/>
-</StackPanel>
 </Button>
 </Grid>
 <Grid Column="0" Background="Transparent">
@@ -12376,14 +12349,14 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '02/26/2025'.Trim()
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
-})
 $itt.event.FindName('ittpm').add_MouseLeftButtonDown({
 Start-Process('https://github.com/itt-co/itt-packages/tree/main/automation')
+})
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
@@ -12391,10 +12364,10 @@ Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.Add_PreViewKeyDown({ if ($_.Key -eq "Escape") { $itt.event.Close() } })
@@ -12692,7 +12665,7 @@ if (-not (Test-Path $itt.registryPath)) {
 New-Item -Path $itt.registryPath -Force | Out-Null
 Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -Force
 Set-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -Force
-Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value 100 -Force
+Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value 0 -Force
 Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -Force
 Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value 0 -Force
 }
@@ -12706,7 +12679,7 @@ $itt.Runs = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction 
 catch {
 New-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -PropertyType String -Force *> $Null
 New-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -PropertyType String -Force *> $Null
-New-ItemProperty -Path $itt.registryPath -Name "Music" -Value 100 -PropertyType DWORD -Force *> $Null
+New-ItemProperty -Path $itt.registryPath -Name "Music" -Value 0 -PropertyType DWORD -Force *> $Null
 New-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -PropertyType DWORD -Force *> $Null
 New-ItemProperty -Path $itt.registryPath -Name "Runs" -Value 0 -PropertyType DWORD -Force *> $Null
 }
