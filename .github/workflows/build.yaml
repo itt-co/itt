@@ -7,6 +7,7 @@ on:
   push:
     paths:
       - static/Database/Applications.json
+      - templates/README.md
       - CHANGELOG.md
     branches:
       - main  
