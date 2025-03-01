@@ -1,11 +1,11 @@
-###### 02/26/2025
+###### 02/03/2025
 
 ## Changelog
 
 
-### 📦 ITT Package Manager
+### 🌙 Ramadan Kareem
 
-![itt.xName:ittpm [https://github.com/itt-co/itt-packages/tree/main/automation]](https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Images/text_logo.png)
+![itt.xName:RK [https://duckduckgo.com/?q=what+is+ramadan&t=brave&ia=web]](https://github.com/user-attachments/assets/1d454980-68ee-4e85-9fdb-b8eefce10f9c)
 
 #### ITT now has its own package manager. You are welcome to contribute by adding any package you want and writing your own installation script.
 

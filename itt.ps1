@@ -12317,6 +12317,7 @@ TextWrapping="Wrap" HorizontalAlignment="Center" Foreground="{DynamicResource Te
 <StackPanel Margin="20,0,0,0">
 <TextBlock Text="emadadel4" Margin="1" Foreground="{DynamicResource TextColorSecondaryColor2}" />
 <TextBlock Text="yousefmhmd" Margin="1" Foreground="{DynamicResource TextColorSecondaryColor2}" />
+<TextBlock Text="itt-co" Margin="1" Foreground="{DynamicResource TextColorSecondaryColor2}" />
 </StackPanel>
 </ScrollViewer>
 </StackPanel>
@@ -12348,26 +12349,26 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.The
 $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
-$itt.event.FindName('date').text = '02/26/2025'.Trim()
-$itt.event.FindName('ittpm').add_MouseLeftButtonDown({
-Start-Process('https://github.com/itt-co/itt-packages/tree/main/automation')
-})
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
+$itt.event.FindName('date').text = '02/03/2025'.Trim()
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('RK').add_MouseLeftButtonDown({
+Start-Process('https://duckduckgo.com/?q=what+is+ramadan&t=brave&ia=web')
+})
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.Add_PreViewKeyDown({ if ($_.Key -eq "Escape") { $itt.event.Close() } })
@@ -12521,10 +12522,10 @@ HorizontalAlignment="Left" />
 <Grid Row="1" Background="Transparent" Margin="20">
 <ScrollViewer Name="ScrollViewer" VerticalScrollBarVisibility="Auto" Height="Auto">
 <StackPanel Orientation="Vertical">
-<TextBlock Text=''📦 ITT Package Manager'' FontSize=''20'' Margin=''0,18,0,30'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
-<Image x:Name=''ittpm'' Cursor=''Hand'' Margin=''8'' Height=''Auto'' Width=''400''>
+<TextBlock Text=''🌙 Ramadan Kareem'' FontSize=''20'' Margin=''0,18,0,30'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
+<Image x:Name=''RK'' Cursor=''Hand'' Margin=''8'' Height=''Auto'' Width=''400''>
 <Image.Source>
-<BitmapImage UriSource=''https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Images/text_logo.png''/>
+<BitmapImage UriSource=''https://github.com/user-attachments/assets/1d454980-68ee-4e85-9fdb-b8eefce10f9c''/>
 </Image.Source>
 </Image>
 <TextBlock Text=''ITT now has its own package manager. You are welcome to contribute by adding any package you want and writing your own installation script.'' FontSize=''16'' Margin=''25,25,35,0''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
