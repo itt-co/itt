@@ -12350,26 +12350,26 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '02/03/2025'.Trim()
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('RK').add_MouseLeftButtonDown({
-Start-Process('https://duckduckgo.com/?q=what+is+ramadan&t=brave&ia=web')
-})
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('RK').add_MouseLeftButtonDown({
+Start-Process('https://duckduckgo.com/?q=what+is+ramadan&t=brave&ia=web')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.Add_PreViewKeyDown({ if ($_.Key -eq "Escape") { $itt.event.Close() } })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
@@ -12525,7 +12525,7 @@ HorizontalAlignment="Left" />
 <TextBlock Text=''🌙 Ramadan Kareem'' FontSize=''20'' Margin=''0,18,0,30'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
 <Image x:Name=''RK'' Cursor=''Hand'' Margin=''8'' Height=''Auto'' Width=''400''>
 <Image.Source>
-<BitmapImage UriSource=''https://github.com/user-attachments/assets/4eeeac61-c19b-4aa6-b9dc-2f2de606de3c''/>
+<BitmapImage UriSource=''https://github.com/user-attachments/assets/1d454980-68ee-4e85-9fdb-b8eefce10f9c''/>
 </Image.Source>
 </Image>
 <TextBlock Text=''ITT now has its own package manager. You are welcome to contribute by adding any package you want and writing your own installation script.'' FontSize=''16'' Margin=''25,25,35,0''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
