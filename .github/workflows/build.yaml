@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
   push:
     paths:
+      - static/Database/Applications.json
       - CHANGELOG.md
     branches:
       - main  
@@ -18,15 +19,16 @@ jobs:
       - name: Build project
         shell: pwsh
         run: |
-          Set-ExecutionPolicy Bypass -Scope Process -Force; ./build.ps1
+          Set-ExecutionPolicy Bypass -Scope Process -Force; ./build.ps1 -Realsee
         continue-on-error: false 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Commit 'itt' file
         run: |
-          git config --global user.name "emadadel4"
-          git config --global user.email "19177373+emadadel4@users.noreply.github.com"
+          git config --global user.name "itt-co"
+          git config --global user.email "167635892+itt-co@users.noreply.github.com"
           git add itt.ps1
+          git add README.md
           git commit -m "update"
           git push
         env:
