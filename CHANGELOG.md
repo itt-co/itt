@@ -3,9 +3,9 @@
 ## Changelog
 
 
-### 📦 ITT Package Manager
+### 🌙 Ramadan Kareem
 
-![itt.xName:ittpm [https://github.com/itt-co/itt-packages/tree/main/automation]](https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Images/text_logo.png)
+![itt.xName:RK [https://github.com/emadadel4/itt]](https://github.com/user-attachments/assets/c201ebc6-e9b8-432d-8c8a-44c6374ec2e1)
 
 #### ITT now has its own package manager. You are welcome to contribute by adding any package you want and writing your own installation script.
 
