@@ -3625,5 +3625,14 @@
     "itt": "na",
     "category": "Runtimes",
     "check": "false"
+  },
+  {
+    "Name": "MPV",
+    "Description": "a free open source and cross-platform media player",
+    "winget": "na",
+    "choco": "mpvio",
+    "itt": "na",
+    "category": "Media",
+    "check": "false"
   }
 ]
