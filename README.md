@@ -59,9 +59,11 @@ ITT (Install Tweaks Tool) included all Windows 10/11 Software and Windows Tweaks
 > It's not a portable script, so avoid download it from any sites.
 
 <pre><code>irm bit.ly/ittea | iex</code></pre>
+<pre><code>irm fli.so/ittea | iex</code></pre>
+<pre><code>irm kutt.it/ea | iex</code></pre>
 <pre><code>irm bit.ly/emadadel | iex</code></pre>
 <pre><code>irm cutt.ly/ittea | iex</code></pre>
- <p>Or run it directly from GitHub if the URL is blocked in your region:</p>
+ <p>If the URL is blocked in your region try:</p>
 <pre><code>irm emadadel4.github.io/itt.ps1 | iex</code></pre>
 <pre><code>irm raw.githubusercontent.com/emadadel4/ITT/main/itt.ps1 | iex</code></pre>
 
