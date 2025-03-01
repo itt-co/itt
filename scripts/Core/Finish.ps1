@@ -14,11 +14,11 @@ function Finish {
     )
     switch ($ListView) {
         "AppsListView" {
-            UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "Install" -TextIcon "installIcon" -Icon "  " -Width "140"
+            UpdateUI -Button "InstallBtn" -Content "Install" -Width "140"
             Notify -title "$title" -msg "ALL INSTALLATIONS COMPLETED SUCCESSFULLY." -icon "Info" -time 30000
         }
         "TweaksListView" {
-            UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Apply" -TextIcon "applyIcon" -Icon "  " -Width "140"
+            UpdateUI -Button "ApplyBtn" -Content "Apply" -Width "140"
             Add-Log -Message "Done." -Level "Apply"
             Notify -title "$title" -msg "ALL TWEAKS HAVE BEEN APPLIED SUCCESSFULLY." -icon "Info" -time 30000
         }
