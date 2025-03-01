@@ -8,7 +8,9 @@
       <!--Install Button-->
         <Button
           Name="installBtn"
-          FontSize="14"
+          Content="{Binding Install, TargetNullValue=Install}"
+          FontSize="16"
+          Background="Transparent"
           HorizontalAlignment="Center"
           VerticalAlignment="Center"
           HorizontalContentAlignment="Center"
@@ -17,26 +19,14 @@
           Width="140" 
           Height="45" 
           Margin="20">
-          <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-              <TextBlock Name="installText" 
-              Text="{Binding Install, TargetNullValue=Install}" 
-              Foreground="{DynamicResource TextColorSecondaryColor}" 
-              Margin="0" 
-              VerticalAlignment="Center"/>
-              <TextBlock Name="installIcon"
-              Text=" &#xE930;" 
-              Foreground="{DynamicResource TextColorSecondaryColor}" 
-              FontFamily="Segoe MDL2 Assets" 
-              FontSize="14" 
-              HorizontalAlignment="Center"
-              VerticalAlignment="Center"/>
-          </StackPanel>
         </Button>
       <!--End Install Button-->
       <!--Apply Button-->
           <Button
             Name="applyBtn"
-            FontSize="14" 
+            Content="{Binding Apply, TargetNullValue=Apply}"
+            FontSize="16" 
+            Background="Transparent"
             Visibility="Hidden"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
@@ -46,19 +36,6 @@
             Width="140" 
             Height="45" 
             Margin="20">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock Name="applyText" 
-                Text="{Binding Apply, TargetNullValue=Apply}" 
-                Foreground="White" 
-                Margin="0" 
-                VerticalAlignment="Center"/>
-                <TextBlock Name="applyIcon" 
-                Text=" &#xE930;" Foreground="White" 
-                FontFamily="Segoe MDL2 Assets" 
-                FontSize="14" 
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"/>
-            </StackPanel>
           </Button>
       <!--End Apply Button-->
     </Grid>
