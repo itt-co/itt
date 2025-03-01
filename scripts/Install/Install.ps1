@@ -49,7 +49,10 @@ function Invoke-Install {
 
         param($selectedApps , $QuickInstall)
 
-        UpdateUI -Button "InstallBtn" -ButtonText "installText" -Content "Downloading" -TextIcon "installIcon" -Icon "  " -Width "auto"
+        UpdateUI -Button "installBtn" -Content "Downloading" -Width "auto"
+
+
+
         $itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
 
         $itt.ProcessRunning = $true
@@ -123,7 +126,7 @@ function Invoke-Apply {
 
         $itt.ProcessRunning = $true
 
-        UpdateUI -Button "ApplyBtn" -ButtonText "applyText" -Content "Applying" -TextIcon "applyIcon" -Icon "  " -Width "auto"
+        UpdateUI -Button "ApplyBtn" -Content "Applying" -Width "auto"
 
         $itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
 
