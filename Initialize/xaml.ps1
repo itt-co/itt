@@ -52,7 +52,7 @@ try {
         New-Item -Path $itt.registryPath -Force | Out-Null
         Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -Force
         Set-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -Force
-        Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value 100 -Force
+        Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value 0 -Force
         Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -Force
         Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value 0 -Force
     }
@@ -71,7 +71,7 @@ try {
         # debug end
         New-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -PropertyType String -Force *> $Null
         New-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -PropertyType String -Force *> $Null
-        New-ItemProperty -Path $itt.registryPath -Name "Music" -Value 100 -PropertyType DWORD -Force *> $Null
+        New-ItemProperty -Path $itt.registryPath -Name "Music" -Value 0 -PropertyType DWORD -Force *> $Null
         New-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -PropertyType DWORD -Force *> $Null
         New-ItemProperty -Path $itt.registryPath -Name "Runs" -Value 0 -PropertyType DWORD -Force *> $Null
     }
