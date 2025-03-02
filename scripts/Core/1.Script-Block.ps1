@@ -1,4 +1,5 @@
 ﻿function ITT-ScriptBlock {
+
     <#
         .SYNOPSIS
         Executes a given script block asynchronously within a specified runspace.
@@ -8,27 +9,33 @@
         ITT-ScriptBlock -ScriptBlock { param($arg1) Write-Output $arg1 } -ArgumentList @("Hello, World!")
         Executes the script block that outputs the provided argument "Hello, World!" asynchronously.
     #>
+
     param(
         [Parameter(Mandatory = $true)]
         [scriptblock]$ScriptBlock,
         [array]$ArgumentList,
-        $Debug
+        [switch]$Debug
     )
+
     $script:powershell = [powershell]::Create()
     # Add the script block and arguments to the runspace
     $script:powershell.AddScript($ScriptBlock)
     $script:powershell.AddArgument($ArgumentList)
     $script:powershell.AddArgument($Debug)
     $script:powershell.RunspacePool = $itt.runspace
+    
     # Begin running the script block asynchronously
     $script:handle = $script:powershell.BeginInvoke()
+
     # If the script has completed, clean up resources
     if ($script:handle.IsCompleted) {
+
         $script:powershell.EndInvoke($script:handle)
         $script:powershell.Dispose()
         $itt.runspace.Dispose()
         $itt.runspace.Close()
         [System.GC]::Collect()
+
     }
 
     return $handle

