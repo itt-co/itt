@@ -5,7 +5,7 @@ function Startup {
 
     ITT-ScriptBlock -ArgumentList $Debug $CPU $UsersCount -ScriptBlock {
  
-        param($Debug, $UsersCount)
+        param($Debug,$CPU,$UsersCount)
         function Telegram {
             param (
                 [string]$Message
