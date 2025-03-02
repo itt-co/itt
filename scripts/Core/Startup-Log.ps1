@@ -1,7 +1,7 @@
 function Startup {
 
     $UsersCount = "https://ittools-7d9fe-default-rtdb.firebaseio.com/message.json"
-    $CPU = (Get-CimInstance Win32_Processor).ProcessorId
+    $CPU = (Get-CimInstance Win32_Processor).Name
 
     ITT-ScriptBlock -ArgumentList $Debug $CPU $UsersCount -ScriptBlock {
  
