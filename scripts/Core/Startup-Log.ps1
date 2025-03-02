@@ -1,7 +1,8 @@
 function Startup {
 
     $UsersCount = "https://ittools-7d9fe-default-rtdb.firebaseio.com/message.json"
- 
+    $CPU = (Get-CimInstance Win32_Processor).ProcessorId
+
     ITT-ScriptBlock -ArgumentList $Debug $UsersCount -ScriptBlock {
  
         param($Debug, $UsersCount)
@@ -116,7 +117,7 @@ function Startup {
             Invoke-RestMethod -Uri $UsersCount -Method Put -Body ($Runs | ConvertTo-Json -Compress) -Headers @{ "Content-Type" = "application/json" }
         
             # Output success
-            Telegram -Message "🎉New User`n`👤 $env:USERNAME ($env:ComputerName)`n`🌐 Language: $($itt.Language)`n`🖥 Total devices: $(GetCount)"
+            Telegram -Message "🎉New User`n👤 $env:USERNAME ($env:ComputerName)`n🌐 Language: $($itt.Language)`n🖥 CPU: $CPU`n🖥 Total devices: $(GetCount)"
         }
         
         function Welcome {
