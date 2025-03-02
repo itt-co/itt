@@ -9,6 +9,7 @@
         Executes the script block that outputs the provided argument "Hello, World!" asynchronously.
     #>
     param(
+        [Parameter(Mandatory = $true)]
         [scriptblock]$ScriptBlock,
         [array]$ArgumentList,
         $Debug
