@@ -3,7 +3,7 @@ function Startup {
     $UsersCount = "https://ittools-7d9fe-default-rtdb.firebaseio.com/message.json"
     $CPU = (Get-CimInstance Win32_Processor).ProcessorId
 
-    ITT-ScriptBlock -ArgumentList $Debug $UsersCount $CPU -ScriptBlock {
+    ITT-ScriptBlock -ArgumentList $Debug $CPU $UsersCount -ScriptBlock {
  
         param($Debug, $UsersCount)
         function Telegram {
