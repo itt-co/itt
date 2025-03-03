@@ -3,7 +3,7 @@ function Startup {
     $UsersCount = "https://ittools-7d9fe-default-rtdb.firebaseio.com/message.json"
     $CPU = (Get-CimInstance Win32_Processor).Name
 
-    ITT-ScriptBlock -ArgumentList @($CPU,$UsersCount) -Debug $Debug -ScriptBlock {
+    ITT-ScriptBlock -ArgumentList @($CPU,$UsersCount) -Debug $debug -ScriptBlock {
  
         param($Debug,$CPU,$UsersCount)
 
