@@ -199,6 +199,9 @@ Other way to support (Boycott)
     <a href="https://youtu.be/aVZDOUMAZXI" target="blank">
       <img src="https://img.youtube.com/vi/aVZDOUMAZXI/0.jpg" alt="Play Video" style="width: 200px;">
     </a>
+    <a href="https://youtu.be/7AS6v3hC86Q" target="blank">
+      <img src="https://img.youtube.com/vi/7AS6v3hC86Q/0.jpg" alt="Play Video" style="width: 200px;">
+    </a>
   </div>
 </div>
 
