@@ -1,11 +1,6 @@
 ###### 03/01/2025
 
-## Changelog
-
-
-### 🌜 Ramadan Kareem
-
-![itt.xName:RK [https://duckduckgo.com/?q=what+is+ramadan&t=brave&ia=web]](https://github.com/user-attachments/assets/1d454980-68ee-4e85-9fdb-b8eefce10f9c)
+## 🌜 Ramadan Kareem
 
 ### 🎬 Watch demo
 
