@@ -4934,7 +4934,7 @@ $itt.database.Tweaks = @'
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Feeds",
         "Name": "ShellFeedsTaskbarViewMode",
         "Type": "DWord",
-        "Value": "2",
+        "Value": "0",
         "defaultValue": "0"
       },
       {
@@ -4966,14 +4966,14 @@ $itt.database.Tweaks = @'
         "defaultValue": "0"
       },
       {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\PolicyManager\\default\\NewsAndInterests\\AllowNewsAndInterests",
+        "Path": "HKLM:\\SOFTWARE\\Microsoft\\PolicyManager\\default\\NewsAndInterests\\AllowNewsAndInterests",
         "Name": "value",
         "Type": "DWord",
         "Value": "0",
         "defaultValue": "0"
       },
       {
-        "Path": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Feeds",
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Feeds",
         "Name": "EnableFeeds",
         "Type": "DWord",
         "Value": "0",
@@ -13675,22 +13675,22 @@ function Show-Event {
                 })
             
             
-            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
-                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-                })
-            
-            
             $itt.event.FindName('ps').add_MouseLeftButtonDown({
                     Start-Process('https://www.palestinercs.org/en/Donation')
                 })
             
             
-            $itt.event.FindName('preview').add_MouseLeftButtonDown({
+            $itt.event.FindName('esg').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/itt')
                 })
             
             
-            $itt.event.FindName('esg').add_MouseLeftButtonDown({
+            $itt.event.FindName('ytv').add_MouseLeftButtonDown({
+                    Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+                })
+            
+            
+            $itt.event.FindName('preview').add_MouseLeftButtonDown({
                     Start-Process('https://github.com/emadadel4/itt')
                 })
             
