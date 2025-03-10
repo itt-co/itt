@@ -1147,7 +1147,7 @@
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Feeds",
         "Name": "ShellFeedsTaskbarViewMode",
         "Type": "DWord",
-        "Value": "2",
+        "Value": "0",
         "defaultValue": "0"
       },
       {
@@ -1179,14 +1179,14 @@
         "defaultValue": "0"
       },
       {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\PolicyManager\\default\\NewsAndInterests\\AllowNewsAndInterests",
+        "Path": "HKLM:\\SOFTWARE\\Microsoft\\PolicyManager\\default\\NewsAndInterests\\AllowNewsAndInterests",
         "Name": "value",
         "Type": "DWord",
         "Value": "0",
         "defaultValue": "0"
       },
       {
-        "Path": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Feeds",
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Feeds",
         "Name": "EnableFeeds",
         "Type": "DWord",
         "Value": "0",
