@@ -9,11 +9,11 @@ function Invoke-ShowFile-Icons {
 
     Try {
         if ($Enabled -eq $false) {
-            $value = 0
+            $value = 1
             Add-Log -Message "ON" -Level "Apply"
         }
         else {
-            $value = 1
+            $value = 0
             Add-Log -Message "OFF" -Level "Disabled"
         }
         Set-ItemProperty -Path $Path -Name $Name -Value $value -ErrorAction Stop
