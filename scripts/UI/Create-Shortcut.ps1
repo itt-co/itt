@@ -12,7 +12,7 @@ function ITTShortcut {
     # URL of the icon file
     # Determine the path in AppData\Roaming
     $appDataPath = "$env:ProgramData/itt"
-    $localIconPath = Join-Path -Path $appDataPath -ChildPath "itt.ico"
+    $localIconPath = Join-Path -Path $appDataPath -ChildPath "icon.ico"
     # Download the icon file
     Invoke-WebRequest -Uri $itt.icon -OutFile $localIconPath
     # Create a shortcut object
