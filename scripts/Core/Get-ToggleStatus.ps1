@@ -164,7 +164,7 @@ function Get-ToggleStatus {
 
     if ($ToggleSwitch -eq "AlwaysshowiconsneverThumbnail") {
         $alwaysshowicons = (Get-ItemProperty -path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced').IconsOnly
-        if ($alwaysshowicons -eq 0) {
+        if ($alwaysshowicons -eq 1) {
             return $true
         } 
         else {
