@@ -6,7 +6,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "03/11/2025"
+lastupdate     = "03/14/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -8200,26 +8200,6 @@ From="1.0" To="0.0"
 Duration="0:0:1"
 BeginTime="0:0:10" />
 </Storyboard>
-<Storyboard x:Key="FadeOutInLoopStoryboard">
-<DoubleAnimation
-Storyboard.TargetProperty="Opacity"
-From="1.0"
-To="0.0"
-Duration="0:0:1" />
-<DoubleAnimation
-Storyboard.TargetProperty="Opacity"
-From="0.0"
-To="1.0"
-Duration="0:0:1"
-BeginTime="0:0:1" />
-</Storyboard>
-<Style TargetType="Image">
-<Style.Triggers>
-<EventTrigger RoutedEvent="FrameworkElement.Loaded">
-<BeginStoryboard Storyboard="{StaticResource Logo}" />
-</EventTrigger>
-</Style.Triggers>
-</Style>
 <Style TargetType="Button">
 <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
 <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor2}"/>
@@ -8740,6 +8720,20 @@ To="5,0,0,0">
 </Setter.Value>
 </Setter>
 </Style>
+<Style TargetType="TextBlock" x:Key="logoText">
+<Setter Property="Foreground" Value="#3DAEE9"/>
+<Setter Property="TextOptions.TextFormattingMode" Value="Ideal" />
+<Setter Property="FontFamily" Value="Arial"/>
+<Setter Property="FontWeight" Value="bold"/>
+<Setter Property="FontSize" Value="60"/>
+<Setter Property="TextAlignment" Value="Center"/>
+<Setter Property="TextOptions.TextRenderingMode" Value="ClearType" />
+<Style.Triggers>
+<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+<BeginStoryboard Storyboard="{StaticResource Logo}" />
+</EventTrigger>
+</Style.Triggers>
+</Style>
 <ResourceDictionary x:Key="Dark">
 <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#2b2d31"/>
 <SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#3c3f44"/>
@@ -8837,9 +8831,11 @@ To="5,0,0,0">
 <ColumnDefinition Width="*"/>
 </Grid.ColumnDefinitions>
 <Menu Grid.Row="0" Grid.Column="0" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Left" BorderThickness="0">
-<MenuItem Background="Transparent" BorderBrush="Transparent" BorderThickness="0" IsEnabled="False" ToolTip="Emad Adel">
+<MenuItem Background="Transparent" BorderBrush="Transparent" BorderThickness="0"  IsEnabled="False" ToolTip="Emad Adel">
 <MenuItem.Icon>
-<Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/logo.png" Width="90" Height="Auto" Margin="5,5,0,0"></Image>
+<Border Background="Transparent" CornerRadius="10" Height="70" Width="70">
+<TextBlock Text="itt" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource logoText}"/>
+</Border>
 </MenuItem.Icon>
 </MenuItem>
 <MenuItem VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="Transparent">
@@ -12393,15 +12389,6 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
 $itt.event.FindName('title').text = '🌜 Ramadan Kareem'.Trim()
 $itt.event.FindName('date').text = '03/01/2025'.Trim()
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
-})
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
@@ -12410,6 +12397,15 @@ Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
+})
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.Add_PreViewKeyDown({ if ($_.Key -eq "Escape") { $itt.event.Close() } })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
