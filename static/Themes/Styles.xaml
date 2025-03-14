@@ -5,6 +5,7 @@
             From="0" To="1" Duration="0:0:0.2" />
     </Storyboard>
 <!--Listview Fade in-->
+
 <!--Logo Fade in-->
     <Storyboard x:Key="Logo" RepeatBehavior="Forever">
         <!-- Fade Out -->
@@ -20,32 +21,7 @@
             BeginTime="0:0:10" /> 
     </Storyboard>
 <!--Logo Fade in-->
-<!-- Define the FadeOut and FadeIn animations with looping -->
-    <Storyboard x:Key="FadeOutInLoopStoryboard">
-        <!-- Fade Out Animation -->
-        <DoubleAnimation
-            Storyboard.TargetProperty="Opacity"
-            From="1.0"
-            To="0.0"
-            Duration="0:0:1" />
-        <!-- Fade In Animation -->
-        <DoubleAnimation
-            Storyboard.TargetProperty="Opacity"
-            From="0.0"
-            To="1.0"
-            Duration="0:0:1"
-            BeginTime="0:0:1" />
-    </Storyboard>
-<!-- Define the FadeOut and FadeIn animations with looping -->
-<!--Image Style-->
-    <Style TargetType="Image">
-        <Style.Triggers>
-            <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-                <BeginStoryboard Storyboard="{StaticResource Logo}" />
-            </EventTrigger>
-        </Style.Triggers>
-    </Style>
-<!--End Image Style-->
+
 <!--Button Style-->
     <Style TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
@@ -78,6 +54,7 @@
         </Style.Triggers>
     </Style>
 <!--End Button Style-->
+
 <!--ListViewItem Style-->
     <Style TargetType="ListViewItem">
         <Setter Property="Margin" Value="5 5 5 0"/>
@@ -111,6 +88,7 @@
         </Style.Triggers>
     </Style>
 <!--End ListViewItem Style-->
+
 <!--CheckBox Style-->
     <Style TargetType="CheckBox">
         <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor}"/>
@@ -149,6 +127,7 @@
         </Setter>
     </Style>
 <!--End CheckBox Style-->
+
 <!--SearchBox Style-->
     <Style x:Key="SearchBox" TargetType="TextBox">
         <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
@@ -172,6 +151,7 @@
         </Setter>
     </Style>
 <!--End SearchBox Style-->
+
 <!--Label Style-->
   <Style TargetType="Label">
     <Setter Property="Background" Value="Transparent"/>
@@ -192,6 +172,7 @@
     </Setter>
   </Style>
 <!--End Label Style-->
+
 <!--TextBlock Style-->
     <Style TargetType="TextBlock">
         <Setter Property="Foreground" Value="{DynamicResource TextColorPrimary}"/>
@@ -199,6 +180,7 @@
         <Setter Property="TextOptions.TextRenderingMode" Value="ClearType" />
     </Style>
 <!--End TextBlock Style-->
+
 <!-- Menu Style -->
     <Style TargetType="Menu">
         <Setter Property="Background" Value="#FFFFFF"/>
@@ -305,6 +287,7 @@
         </Setter>
     </Style>
 <!-- End Menu Style -->
+
 <!--Scrollbar Thumbs-->
     <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
         <Setter Property="Template">
@@ -387,6 +370,7 @@
         <Setter Property="HorizontalScrollBarVisibility" Value="Hidden"/>
     </Style>
 <!--End Scrollbar Thumbs-->
+
 <!--TabControl Style-->
     <Style TargetType="TabItem">
         <Setter Property="Template">
@@ -426,6 +410,7 @@
     </Style>
     
 <!--End TabControl Style-->
+
 <!--ComboBox Style-->
     <Style TargetType="ComboBox">
         <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
@@ -518,6 +503,7 @@
         </Setter>
     </Style>
 <!--End ComboBox Style-->
+
 <!--ToggleSwitchStyle Style-->
     <Style x:Key="ToggleSwitchStyle" TargetType="CheckBox">
         <Setter Property="Template">
@@ -601,3 +587,20 @@
         </Setter>
     </Style>
 <!--End ToggleSwitchStyle Style-->
+
+<!--Logo Style-->
+    <Style TargetType="TextBlock" x:Key="logoText">
+        <Setter Property="Foreground" Value="#3DAEE9"/>
+        <Setter Property="TextOptions.TextFormattingMode" Value="Ideal" />
+        <Setter Property="FontFamily" Value="Arial"/>
+        <Setter Property="FontWeight" Value="bold"/>
+        <Setter Property="FontSize" Value="60"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="TextOptions.TextRenderingMode" Value="ClearType" />
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                <BeginStoryboard Storyboard="{StaticResource Logo}" />
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+<!--End Logo Style-->
