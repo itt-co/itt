@@ -1,8 +1,10 @@
  <!--Menu-->
     <Menu Grid.Row="0" Grid.Column="0" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Left" BorderThickness="0">
-        <MenuItem Background="Transparent" BorderBrush="Transparent" BorderThickness="0" IsEnabled="False" ToolTip="Emad Adel">
+        <MenuItem Background="Transparent" BorderBrush="Transparent" BorderThickness="0"  IsEnabled="False" ToolTip="Emad Adel">
             <MenuItem.Icon>
-                <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/logo.png" Width="90" Height="Auto" Margin="5,5,0,0"></Image>
+                <Border Background="Transparent" CornerRadius="10" Height="70" Width="70">
+                    <TextBlock Text="itt" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource logoText}"/>
+                </Border>
             </MenuItem.Icon>
         </MenuItem>
 
