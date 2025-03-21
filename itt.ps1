@@ -1,12 +1,11 @@
 param (
-[string]$i,
-[bool]$QuickInstall
+[string]$i
 )
 Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'PresentationCore', 'WindowsBase'
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "03/14/2025"
+lastupdate     = "03/21/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -6702,6 +6701,10 @@ $item.Children[0].Children[0].IsChecked = $false
 $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.$ListView.Items)
 $collectionView.Filter = $null
 $collectionView.Refresh()
+if ($i -eq $false) {
+Manage-Music -action "StopAll"
+$itt["window"].Close()
+}
 })
 }
 function Show-Selected {
@@ -7008,53 +7011,6 @@ catch {
 Write-Error "Failed to install $_"
 }
 }
-function Native-Downloader {
-param (
-[string]$url,
-[string]$name,
-[string]$launcher,
-[string]$portable,
-[string]$installArgs
-)
-$Destination_Directory = Join-Path -Path "$env:ProgramData\itt\Downloads" -ChildPath $name
-if (-not (Test-Path -Path $Destination_Directory)) {
-New-Item -ItemType Directory -Path $Destination_Directory -Force | Out-Null
-}
-$File = [System.IO.Path]::GetFileName($url)
-$DownloadPath = Join-Path -Path $Destination_Directory -ChildPath $File
-$targetPath = Join-Path -Path $Destination_Directory -ChildPath $launcher
-try {
-Add-Log -Message "Downloading $name using Start-BitsTransfer" -Level "INFO"
-Start-BitsTransfer -Source $url -Destination $DownloadPath -ErrorAction Stop
-Expand-Archive -Path $DownloadPath -DestinationPath $Destination_Directory -Force -ErrorAction Stop
-}
-catch {
-Write-Error "An error occurred during the download or extraction process: $_"
-}
-if ($portable -eq "true") {
-if (-not (Test-Path -Path $targetPath)) {
-Add-Log -Message  "Target file '$targetPath' does not exist after extraction." -Level "error"
-return
-}
-if ($launcher -ne "none" -or "") {
-$desktopPath = [System.Environment]::GetFolderPath('Desktop')
-$shortcutPath = Join-Path -Path $desktopPath -ChildPath "$name.lnk"
-try {
-$shell = New-Object -ComObject WScript.Shell
-$shortcut = $shell.CreateShortcut($shortcutPath)
-$shortcut.TargetPath = $targetPath
-$shortcut.Save()
-Add-Log -Message "Shortcut created on Destkop" -Level "info"
-}
-catch {
-Write-Error "Failed to create shortcut. Error: $_"
-}
-}
-}
-else {
-Start-Process -FilePath $targetPath -ArgumentList $installArgs -Wait
-}
-}
 function Refresh-Explorer {
 Add-Log -Message "Restart explorer." -Level "Apply"
 Stop-Process -Name explorer -Force
@@ -7171,7 +7127,6 @@ function Quick-Install {
 param (
 [string]$file
 )
-$QuickInstall = $true
 try {
 if ($file -match "^https?://") {
 $FileContent = Invoke-RestMethod -Uri $file -ErrorAction Stop
@@ -7441,15 +7396,15 @@ else {
 Message -key "App_empty_select" -icon "info" -action "OK"
 return
 }
-if ($QuickInstall -eq $false) {
+if (-not $i) {
 $result = Message -key "Install_msg" -icon "ask" -action "YesNo"
 }
 if ($result -eq "no") {
 Show-Selected -ListView "AppsListView" -Mode "Default"
 return
 }
-ITT-ScriptBlock -ArgumentList $selectedApps $QuickInstall -Debug $debug -ScriptBlock {
-param($selectedApps , $QuickInstall)
+ITT-ScriptBlock -ArgumentList $selectedApps $i -Debug $debug -ScriptBlock {
+param($selectedApps , $i)
 UpdateUI -Button "installBtn" -Content "Downloading" -Width "auto"
 $itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
 $itt.ProcessRunning = $true
@@ -7458,7 +7413,6 @@ Install-App -Name $App.Name -Winget $App.Winget -Choco $App.Choco -itt $App.ITT
 }
 Finish -ListView "AppsListView"
 $itt.ProcessRunning = $false
-$QuickInstall = $false
 }
 }
 function Invoke-Apply {
@@ -12389,23 +12343,23 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
 $itt.event.FindName('title').text = '🌜 Ramadan Kareem'.Trim()
 $itt.event.FindName('date').text = '03/01/2025'.Trim()
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.Add_PreViewKeyDown({ if ($_.Key -eq "Escape") { $itt.event.Close() } })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
@@ -12666,7 +12620,7 @@ $InitialSessionState.Variables.Add($hashVars)
 $functions = @(
 'Install-App', 'Install-Winget', 'InvokeCommand', 'Add-Log',
 'Disable-Service', 'Uninstall-AppxPackage', 'Finish', 'Message',
-'Notify', 'UpdateUI', 'Native-Downloader', 'Install-Choco',
+'Notify', 'UpdateUI', 'Install-Choco',
 'ExecuteCommand', 'Set-Registry', 'Set-Taskbar',
 'Refresh-Explorer', 'Remove-ScheduledTasks'
 )
@@ -12851,6 +12805,7 @@ $element.Add_Click({ Invoke-Toggle $args[0].Name })
 }
 }
 }
+if (-not $i) {
 $onClosingEvent = {
 param($s, $c)
 $result = Message -title "Are you sure" -key "Exit_msg" -icon "ask" -action "YesNo"
@@ -12859,6 +12814,7 @@ Manage-Music -action "StopAll"
 }
 else {
 $c.Cancel = $true
+}
 }
 }
 $itt["window"].Add_ContentRendered({
@@ -12876,6 +12832,7 @@ $itt.Search_placeholder.Visibility = "Visible"
 if ($i) {
 Quick-Install -file $i *> $null
 }
+Write-Host $i
 $itt["window"].add_Closing($onClosingEvent)
 $itt["window"].Add_PreViewKeyDown($KeyEvents)
 $itt["window"].ShowDialog() | Out-Null
