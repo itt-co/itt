@@ -40,6 +40,12 @@ function Finish {
             $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.$ListView.Items)
             $collectionView.Filter = $null
             $collectionView.Refresh()
+
+            # Close window after install apps
+            if ($i -eq $false) {
+                Manage-Music -action "StopAll" 
+                $itt["window"].Close()
+            }
         })
 }
 function Show-Selected {

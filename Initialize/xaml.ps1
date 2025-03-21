@@ -10,7 +10,7 @@ $InitialSessionState.Variables.Add($hashVars)
 $functions = @(
     'Install-App', 'Install-Winget', 'InvokeCommand', 'Add-Log',
     'Disable-Service', 'Uninstall-AppxPackage', 'Finish', 'Message',
-    'Notify', 'UpdateUI', 'Native-Downloader', 'Install-Choco',
+    'Notify', 'UpdateUI', 'Install-Choco',
     'ExecuteCommand', 'Set-Registry', 'Set-Taskbar',
     'Refresh-Explorer', 'Remove-ScheduledTasks'
 )

@@ -36,7 +36,7 @@ function Invoke-Install {
         return
     }
 
-    if ($QuickInstall -eq $false) {
+    if (-not $i) {
         $result = Message -key "Install_msg" -icon "ask" -action "YesNo"
     }
     
@@ -45,13 +45,11 @@ function Invoke-Install {
         return
     }
 
-    ITT-ScriptBlock -ArgumentList $selectedApps $QuickInstall -Debug $debug -ScriptBlock {
+    ITT-ScriptBlock -ArgumentList $selectedApps $i -Debug $debug -ScriptBlock {
 
-        param($selectedApps , $QuickInstall)
+        param($selectedApps , $i)
 
         UpdateUI -Button "installBtn" -Content "Downloading" -Width "auto"
-
-
 
         $itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
 
@@ -74,8 +72,9 @@ function Invoke-Install {
 
         Finish -ListView "AppsListView"
         $itt.ProcessRunning = $false
-        $QuickInstall = $false
     }
+
+
 }
 function Invoke-Apply {
 

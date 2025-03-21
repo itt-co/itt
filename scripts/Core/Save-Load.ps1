@@ -118,8 +118,6 @@ function Quick-Install {
         [string]$file
     )
 
-    $QuickInstall = $true
-
     try {
         # Get file local or remote
         if ($file -match "^https?://") {
