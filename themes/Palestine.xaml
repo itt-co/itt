@@ -19,6 +19,7 @@
  <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#c9c9c7"/>
  <Color x:Key="ListViewCardLeftColor">#D82C211A</Color> 
  <Color x:Key="ListViewCardRightColor">#D82C211A</Color>
+ <SolidColorBrush x:Key="logo" Color="red"/>
  <ImageBrush x:Key="BackgroundImage" ImageSource="https://w.wallhaven.cc/full/we/wallhaven-wegrj6.jpg" Stretch="UniformToFill"/>
 </ResourceDictionary>
 <!-- Name {Palestine} -->

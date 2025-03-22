@@ -19,6 +19,7 @@
  <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#c9c9c7"/>
  <Color x:Key="ListViewCardLeftColor">#3c3f44</Color> 
  <Color x:Key="ListViewCardRightColor">#2b2d31</Color>
+ <SolidColorBrush x:Key="logo" Color="#098fd4"/>
  <ImageBrush x:Key="BackgroundImage" ImageSource="{x:Null}" Stretch="UniformToFill"/>
 </ResourceDictionary>
 <!--{Dark}-->

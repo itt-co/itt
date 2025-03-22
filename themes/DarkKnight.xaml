@@ -19,6 +19,7 @@
   <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#c9c9c7"/>
   <Color x:Key="ListViewCardLeftColor">#E117181D</Color> 
   <Color x:Key="ListViewCardRightColor">#E117181D</Color>
+ <SolidColorBrush x:Key="logo" Color="#066ca1"/>
   <ImageBrush x:Key="BackgroundImage" ImageSource="https://images.hdqwalls.com/wallpapers/the-batman-fan-made-4k-xx.jpg" Stretch="UniformToFill"/>
 </ResourceDictionary>
 <!-- Name {Dark Knight} -->
