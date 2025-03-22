@@ -283,7 +283,7 @@ function Invoke-Button {
             # debug end
         }
         "spotifydown"{
-            Start-Process ("https://spotifydown.com")
+            Start-Process ("https://spotidownloader.com/")
             # debug start
                 Debug-Message $action
             # debug end
