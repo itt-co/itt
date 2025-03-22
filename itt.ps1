@@ -8682,7 +8682,7 @@ To="5,0,0,0">
 </Setter>
 </Style>
 <Style TargetType="TextBlock" x:Key="logoText">
-<Setter Property="Foreground" Value="#3DAEE9"/>
+<Setter Property="Foreground" Value="{DynamicResource logo}"/>
 <Setter Property="TextOptions.TextFormattingMode" Value="Ideal" />
 <Setter Property="FontFamily" Value="Arial"/>
 <Setter Property="FontWeight" Value="bold"/>
@@ -8714,6 +8714,7 @@ To="5,0,0,0">
 <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#c9c9c7"/>
 <Color x:Key="ListViewCardLeftColor">#3c3f44</Color>
 <Color x:Key="ListViewCardRightColor">#2b2d31</Color>
+<SolidColorBrush x:Key="logo" Color="#098fd4"/>
 <ImageBrush x:Key="BackgroundImage" ImageSource="{x:Null}" Stretch="UniformToFill"/>
 </ResourceDictionary>
 <ResourceDictionary x:Key="DarkKnight">
@@ -8735,6 +8736,7 @@ To="5,0,0,0">
 <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#c9c9c7"/>
 <Color x:Key="ListViewCardLeftColor">#E117181D</Color>
 <Color x:Key="ListViewCardRightColor">#E117181D</Color>
+<SolidColorBrush x:Key="logo" Color="#066ca1"/>
 <ImageBrush x:Key="BackgroundImage" ImageSource="https://images.hdqwalls.com/wallpapers/the-batman-fan-made-4k-xx.jpg" Stretch="UniformToFill"/>
 </ResourceDictionary>
 <ResourceDictionary x:Key="Light">
@@ -8756,6 +8758,7 @@ To="5,0,0,0">
 <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="black"/>
 <Color x:Key="ListViewCardLeftColor">#f0f0f0</Color>
 <Color x:Key="ListViewCardRightColor">#ffffff</Color>
+<SolidColorBrush x:Key="logo" Color="black"/>
 <ImageBrush x:Key="BackgroundImage" ImageSource="{x:Null}" Stretch="UniformToFill"/>
 </ResourceDictionary>
 <ResourceDictionary x:Key="Palestine">
@@ -8777,6 +8780,7 @@ To="5,0,0,0">
 <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#c9c9c7"/>
 <Color x:Key="ListViewCardLeftColor">#D82C211A</Color>
 <Color x:Key="ListViewCardRightColor">#D82C211A</Color>
+<SolidColorBrush x:Key="logo" Color="red"/>
 <ImageBrush x:Key="BackgroundImage" ImageSource="https://w.wallhaven.cc/full/we/wallhaven-wegrj6.jpg" Stretch="UniformToFill"/>
 </ResourceDictionary>
 </Window.Resources>
