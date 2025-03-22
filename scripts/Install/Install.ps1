@@ -123,6 +123,8 @@ function Invoke-Apply {
 
         param($selectedTweaks, $debug)
 
+        if($itt.backup -eq 0){CreateRestorePoint} 
+        
         $itt.ProcessRunning = $true
 
         UpdateUI -Button "ApplyBtn" -Content "Applying" -Width "auto"
