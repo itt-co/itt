@@ -109,7 +109,15 @@
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text="&#xE81E;"/>
                 </MenuItem.Icon>
             </MenuItem>
-            
+
+            <MenuItem Name="spp">
+                <MenuItem.Header>
+                    <Binding Path="System_Protection" TargetNullValue="System Protection" />
+                </MenuItem.Header>
+                <MenuItem.Icon>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text="&#xE81E;"/>
+                </MenuItem.Icon>
+            </MenuItem>
 
         </MenuItem>
 
