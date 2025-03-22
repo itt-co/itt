@@ -148,7 +148,7 @@ function Invoke-Button {
         }
         # restore point
         "restorepoint" {
-            RestorePoint
+            ITT-ScriptBlock -ScriptBlock{CreateRestorePoint}
             # debug start
                 Debug-Message $action
             # debug end
