@@ -42,10 +42,10 @@ function Finish {
             $collectionView.Refresh()
 
             # Close window after install apps
-            if ($i -ne "") {
-                Manage-Music -action "StopAll" 
-                $itt["window"].Close()
-            }
+            # if ($i -ne "") {
+            #     Manage-Music -action "StopAll" 
+            #     $itt["window"].Close()
+            # }
         })
 }
 function Show-Selected {
