@@ -42,7 +42,7 @@ function Finish {
             $collectionView.Refresh()
 
             # Close window after install apps
-            if ($i -eq $false) {
+            if ($i -ne "") {
                 Manage-Music -action "StopAll" 
                 $itt["window"].Close()
             }
