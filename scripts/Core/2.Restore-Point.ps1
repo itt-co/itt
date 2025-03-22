@@ -10,10 +10,10 @@ function CreateRestorePoint {
             $RestorePointName = "ITT-$Date"
             Enable-ComputerRestore -Drive $env:SystemDrive
             Checkpoint-Computer -Description $RestorePointName -RestorePointType "MODIFY_SETTINGS"
-            Set-ItemProperty -Path $itt.registryPath  -Name "backup" -Value 1 -Force
             exit
         }
 
+        Set-ItemProperty -Path $itt.registryPath  -Name "backup" -Value 1 -Force
         Add-Log -Message "Created successfully" -Level "INFO"
 
     }
