@@ -12,7 +12,7 @@ $functions = @(
     'Disable-Service', 'Uninstall-AppxPackage', 'Finish', 'Message',
     'Notify', 'UpdateUI', 'Install-Choco',
     'ExecuteCommand', 'Set-Registry', 'Set-Taskbar',
-    'Refresh-Explorer', 'Remove-ScheduledTasks'
+    'Refresh-Explorer', 'Remove-ScheduledTasks','CreateRestorePoint'
 )
 
 foreach ($func in $functions) {
@@ -54,6 +54,7 @@ try {
         Set-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -Force
         Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value 0 -Force
         Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -Force
+        Set-ItemProperty -Path $itt.registryPath -Name "backup" -Value 0 -Force
         Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value 0 -Force
     }
     try {
@@ -63,6 +64,7 @@ try {
         $itt.Music = (Get-ItemProperty -Path $itt.registryPath -Name "Music" -ErrorAction Stop).Music
         $itt.PopupWindow = (Get-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -ErrorAction Stop).PopupWindow
         $itt.Runs = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction Stop).Runs
+        $itt.backup = (Get-ItemProperty -Path $itt.registryPath -Name "backup" -ErrorAction Stop).backup
     }
     catch {
         # Creating missing registry keys
@@ -74,6 +76,7 @@ try {
         New-ItemProperty -Path $itt.registryPath -Name "Music" -Value 0 -PropertyType DWORD -Force *> $Null
         New-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -PropertyType DWORD -Force *> $Null
         New-ItemProperty -Path $itt.registryPath -Name "Runs" -Value 0 -PropertyType DWORD -Force *> $Null
+        New-ItemProperty -Path $itt.registryPath -Name "backup" -Value 0 -PropertyType DWORD -Force *> $Null
     }
     #===========================================================================
     #endregion Create default keys
