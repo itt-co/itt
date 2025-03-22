@@ -44,6 +44,7 @@ try {
     <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="black"/>
     <Color x:Key="ListViewCardLeftColor">#f0f0f0</Color>
     <Color x:Key="ListViewCardRightColor">#ffffff</Color>
+    <SolidColorBrush x:Key="logo" Color="black"/>
     <ImageBrush x:Key="BackgroundImage" ImageSource="{x:Null}" Stretch="UniformToFill"/>
   </ResourceDictionary>
   <!-- Name {$themeName} -->
