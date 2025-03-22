@@ -5,7 +5,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "03/21/2025"
+lastupdate     = "03/22/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -6528,7 +6528,7 @@ Start-Process explorer.exe "C:\ProgramData\chocolatey\lib"
 Start-Process explorer.exe $env:ProgramData\itt
 }
 "restorepoint" {
-RestorePoint
+ITT-ScriptBlock -ScriptBlock{CreateRestorePoint}
 }
 "moff" {
 Manage-Music -action "SetVolume" -volume 0
@@ -6624,15 +6624,22 @@ $itt.runspace.Close()
 }
 return $handle
 }
-function RestorePoint {
-ITT-ScriptBlock -ScriptBlock {
-Try {
+function CreateRestorePoint {
+try {
 Add-Log -Message "Creating Restore point..." -Level "INFO"
-Start-Process powershell.exe -ArgumentList "-NoExit", "-Command `"Enable-ComputerRestore -Drive '$env:SystemDrive'; Checkpoint-Computer -Description 'ITT' -RestorePointType 'MODIFY_SETTINGS'; exit`"" -Wait -Verb RunAs
-Add-Log -Message "Created successfully" -Level "INFO"
-} Catch {
-Add-Log -Message "An error occurred while enabling System Restore: $_" -Level "ERROR"
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\SystemRestore" -Name "SystemRestorePointCreationFrequency" -Value 0 -Type DWord -Force
+powershell.exe -Command {
+$Date = Get-Date -Format "yyyyMMdd-hhmmss-tt"
+$RestorePointName = "ITT-$Date"
+Enable-ComputerRestore -Drive $env:SystemDrive
+Checkpoint-Computer -Description $RestorePointName -RestorePointType "MODIFY_SETTINGS"
+exit
 }
+Set-ItemProperty -Path $itt.registryPath  -Name "backup" -Value 1 -Force
+Add-Log -Message "Created successfully" -Level "INFO"
+}
+catch {
+Add-Log -Message "Error: $_" -Level "ERROR"
 }
 }
 function Add-Log {
@@ -7229,13 +7236,10 @@ $itt["window"].taskbarItemInfo.Overlay = "https://raw.githubusercontent.com/emad
 }
 }
 function Startup {
-$UsersCount = "https://ittools-7d9fe-default-rtdb.firebaseio.com/message.json"
-ITT-ScriptBlock -ArgumentList $Debug $UsersCount -ScriptBlock {
-param($Debug, $UsersCount)
+ITT-ScriptBlock -debug $Debug -ScriptBlock {
+param($Debug)
 function Telegram {
-param (
-[string]$Message
-)
+param ([string]$Message)
 try {
 $BotToken = "7140758327:AAG0vc3zBFSJtViny-H0dXAhY5tCac1A9OI"
 $ChatID = "1299033071"
@@ -7251,6 +7255,7 @@ Add-Log -Message "Your internet connection appears to be slow." -Level "WARNING"
 }
 }
 function GetCount {
+$UsersCount = "https://ittools-7d9fe-default-rtdb.firebaseio.com/message.json"
 $response = Invoke-RestMethod -Uri $UsersCount -Method Get
 return $response
 }
@@ -7438,6 +7443,7 @@ return
 }
 ITT-ScriptBlock -ArgumentList $selectedTweaks -debug $debug -ScriptBlock {
 param($selectedTweaks, $debug)
+if($itt.backup -eq 0){CreateRestorePoint}
 $itt.ProcessRunning = $true
 UpdateUI -Button "ApplyBtn" -Content "Applying" -Width "auto"
 $itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
@@ -12343,22 +12349,22 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
 $itt.event.FindName('title').text = '🌜 Ramadan Kareem'.Trim()
 $itt.event.FindName('date').text = '03/01/2025'.Trim()
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
+$itt.event.FindName('ps').add_MouseLeftButtonDown({
+Start-Process('https://www.palestinercs.org/en/Donation')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('ps').add_MouseLeftButtonDown({
-Start-Process('https://www.palestinercs.org/en/Donation')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.Add_PreViewKeyDown({ if ($_.Key -eq "Escape") { $itt.event.Close() } })
@@ -12622,7 +12628,7 @@ $functions = @(
 'Disable-Service', 'Uninstall-AppxPackage', 'Finish', 'Message',
 'Notify', 'UpdateUI', 'Install-Choco',
 'ExecuteCommand', 'Set-Registry', 'Set-Taskbar',
-'Refresh-Explorer', 'Remove-ScheduledTasks'
+'Refresh-Explorer', 'Remove-ScheduledTasks','CreateRestorePoint'
 )
 foreach ($func in $functions) {
 $command = Get-Command $func -ErrorAction SilentlyContinue
@@ -12651,6 +12657,7 @@ Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -Force
 Set-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -Force
 Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value 0 -Force
 Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -Force
+Set-ItemProperty -Path $itt.registryPath -Name "backup" -Value 0 -Force
 Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value 0 -Force
 }
 try {
@@ -12659,6 +12666,7 @@ $itt.Locales = (Get-ItemProperty -Path $itt.registryPath -Name "locales" -ErrorA
 $itt.Music = (Get-ItemProperty -Path $itt.registryPath -Name "Music" -ErrorAction Stop).Music
 $itt.PopupWindow = (Get-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -ErrorAction Stop).PopupWindow
 $itt.Runs = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction Stop).Runs
+$itt.backup = (Get-ItemProperty -Path $itt.registryPath -Name "backup" -ErrorAction Stop).backup
 }
 catch {
 New-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -PropertyType String -Force *> $Null
@@ -12666,6 +12674,7 @@ New-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -Prope
 New-ItemProperty -Path $itt.registryPath -Name "Music" -Value 0 -PropertyType DWORD -Force *> $Null
 New-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -PropertyType DWORD -Force *> $Null
 New-ItemProperty -Path $itt.registryPath -Name "Runs" -Value 0 -PropertyType DWORD -Force *> $Null
+New-ItemProperty -Path $itt.registryPath -Name "backup" -Value 0 -PropertyType DWORD -Force *> $Null
 }
 try {
 $Locales = switch ($itt.Locales) {
