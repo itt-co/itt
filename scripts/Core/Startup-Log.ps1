@@ -1,14 +1,12 @@
 function Startup {
 
-    $UsersCount = "https://ittools-7d9fe-default-rtdb.firebaseio.com/message.json"
- 
-    ITT-ScriptBlock -ArgumentList $Debug $UsersCount -ScriptBlock {
- 
-        param($Debug, $UsersCount)
+    ITT-ScriptBlock -debug $Debug -ScriptBlock {
+
+        param($Debug)
+
         function Telegram {
-            param (
-                [string]$Message
-            )
+
+            param ([string]$Message)
             try {
                 # This only do Devices count
                 $BotToken = "7140758327:AAG0vc3zBFSJtViny-H0dXAhY5tCac1A9OI"
@@ -27,6 +25,9 @@ function Startup {
         }
  
         function GetCount {
+
+            $UsersCount = "https://ittools-7d9fe-default-rtdb.firebaseio.com/message.json" 
+
             # Fetch data using GET request
             $response = Invoke-RestMethod -Uri $UsersCount -Method Get
          
