@@ -4,6 +4,8 @@ function CreateRestorePoint {
         
         Add-Log -Message "Creating Restore point..." -Level "INFO"
 
+        Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\SystemRestore" -Name "SystemRestorePointCreationFrequency" -Value 0 -Type DWord -Force
+
         powershell.exe -Command {
 
             $Date = Get-Date -Format "yyyyMMdd-hhmmss-tt"
