@@ -12827,7 +12827,6 @@ $element.Add_Click({ Invoke-Toggle $args[0].Name })
 }
 }
 }
-if (-not $i) {
 $onClosingEvent = {
 param($s, $c)
 $result = Message -title "Are you sure" -key "Exit_msg" -icon "ask" -action "YesNo"
@@ -12836,7 +12835,6 @@ Manage-Music -action "StopAll"
 }
 else {
 $c.Cancel = $true
-}
 }
 }
 $itt["window"].Add_ContentRendered({
@@ -12854,7 +12852,6 @@ $itt.Search_placeholder.Visibility = "Visible"
 if ($i) {
 Quick-Install -file $i *> $null
 }
-Write-Host $i
 $itt["window"].add_Closing($onClosingEvent)
 $itt["window"].Add_PreViewKeyDown($KeyEvents)
 $itt["window"].ShowDialog() | Out-Null
