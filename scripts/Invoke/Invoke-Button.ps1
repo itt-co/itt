@@ -124,6 +124,9 @@ function Invoke-Button {
         "ev" {
             rundll32 sysdm.cpl,EditEnvironmentVariables
         }
+        "spp" {
+            systemPropertiesProtection
+        }
         "systheme" {
             SwitchToSystem 
             # debug start
