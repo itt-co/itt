@@ -6506,6 +6506,9 @@ Start-Process msconfig.exe
 "ev" {
 rundll32 sysdm.cpl,EditEnvironmentVariables
 }
+"spp" {
+systemPropertiesProtection
+}
 "systheme" {
 SwitchToSystem
 }
@@ -7236,10 +7239,13 @@ $itt["window"].taskbarItemInfo.Overlay = "https://raw.githubusercontent.com/emad
 }
 }
 function Startup {
-ITT-ScriptBlock -debug $Debug -ScriptBlock {
-param($Debug)
+$UsersCount = "https://ittools-7d9fe-default-rtdb.firebaseio.com/message.json"
+ITT-ScriptBlock -ArgumentList $Debug $UsersCount -ScriptBlock {
+param($Debug, $UsersCount)
 function Telegram {
-param ([string]$Message)
+param (
+[string]$Message
+)
 try {
 $BotToken = "7140758327:AAG0vc3zBFSJtViny-H0dXAhY5tCac1A9OI"
 $ChatID = "1299033071"
@@ -7255,7 +7261,6 @@ Add-Log -Message "Your internet connection appears to be slow." -Level "WARNING"
 }
 }
 function GetCount {
-$UsersCount = "https://ittools-7d9fe-default-rtdb.firebaseio.com/message.json"
 $response = Invoke-RestMethod -Uri $UsersCount -Method Get
 return $response
 }
@@ -8880,6 +8885,14 @@ To="5,0,0,0">
 <MenuItem Name="ev">
 <MenuItem.Header>
 <Binding Path="Environment_Variables" TargetNullValue="Environment Variables" />
+</MenuItem.Header>
+<MenuItem.Icon>
+<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text="&#xE81E;"/>
+</MenuItem.Icon>
+</MenuItem>
+<MenuItem Name="spp">
+<MenuItem.Header>
+<Binding Path="System_Protection" TargetNullValue="System Protection" />
 </MenuItem.Header>
 <MenuItem.Icon>
 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text="&#xE81E;"/>
