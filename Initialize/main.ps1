@@ -34,20 +34,16 @@ $MainXaml.SelectNodes("//*[@Name]") | ForEach-Object {
 #endregion Select elements with a Name attribute using XPath and iterate over them
 #=========================================================================== 
 
-
-if (-not $i) {
-
-    # Define OnClosing event handler
-    $onClosingEvent = {
-        param($s, $c)
-        # Show confirmation message box
-        $result = Message -title "Are you sure" -key "Exit_msg" -icon "ask" -action "YesNo"
-        if ($result -eq "Yes") {
-            Manage-Music -action "StopAll" 
-        }
-        else {
-            $c.Cancel = $true
-        }
+# Define OnClosing event handler
+$onClosingEvent = {
+    param($s, $c)
+    # Show confirmation message box
+    $result = Message -title "Are you sure" -key "Exit_msg" -icon "ask" -action "YesNo"
+    if ($result -eq "Yes") {
+        Manage-Music -action "StopAll" 
+    }
+    else {
+        $c.Cancel = $true
     }
 }
 
@@ -72,8 +68,6 @@ $itt.SearchInput.Add_LostFocus({
 if ($i) {
     Quick-Install -file $i *> $null
 }
-
-Write-Host $i
 
 # Close event handler
 $itt["window"].add_Closing($onClosingEvent)
