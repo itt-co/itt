@@ -590,7 +590,7 @@
 
 <!--Logo Style-->
     <Style TargetType="TextBlock" x:Key="logoText">
-        <Setter Property="Foreground" Value="#3DAEE9"/>
+        <Setter Property="Foreground" Value="{DynamicResource logo}"/>
         <Setter Property="TextOptions.TextFormattingMode" Value="Ideal" />
         <Setter Property="FontFamily" Value="Arial"/>
         <Setter Property="FontWeight" Value="bold"/>
