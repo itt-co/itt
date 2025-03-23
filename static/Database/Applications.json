@@ -3634,5 +3634,23 @@
     "itt": "na",
     "category": "Media",
     "check": "false"
+  },
+  {
+    "Name": "ZenBrowser",
+    "Description": "The modern, privacy-focused, performance-driven browser built on Firefox",
+    "winget": "Zen-Team.Zen-Browser",
+    "choco": "na",
+    "itt": "na",
+    "category": "Web Browsers",
+    "check": "false"
+  },
+  {
+    "Name": "Aegisub",
+    "Description": "Aegisub is a free, cross-platform open source tool for creating and modifying subtitles. Aegisub makes it quick and easy to time subtitles to audio, and features many powerful tools for styling them, including a built-in real-time video preview",
+    "winget": "Aegisub.Aegisub",
+    "choco": "aegisub",
+    "itt": "na",
+    "category": "Media Tools",
+    "check": "false"
   }
 ]
