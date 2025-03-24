@@ -1,25 +1,26 @@
 <!-- {Dark Knight} -->
 <!-- by {Emad Adel} -->
 <ResourceDictionary x:Key="DarkKnight">
-  <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#081015"/>
-  <SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#17181D"/>
-  <SolidColorBrush x:Key="PrimaryButtonForeground" Color="#004D69" />
-  <SolidColorBrush x:Key="PrimaryButtonHighlight" Color="White" />
-  <SolidColorBrush x:Key="TextColorPrimary" Color="WhiteSmoke" />
-  <SolidColorBrush x:Key="TextColorSecondaryColor" Color="White"/>
-  <SolidColorBrush x:Key="TextColorSecondaryColor2" Color="#bbbbbb"/>
-  <SolidColorBrush x:Key="BorderBrush" Color="#2b2d31" />
-  <SolidColorBrush x:Key="ButtonBorderColor" Color="#1DB954"/>
-  <SolidColorBrush x:Key="Label" Color="#3f3f3f"/>
-  <SolidColorBrush x:Key="HighlightColor" Color="CornflowerBlue"/>
-  <SolidColorBrush x:Key="ToggleSwitchBackgroundColor" Color="#282828"/>
-  <SolidColorBrush x:Key="ToggleSwitchForegroundColor" Color="#282828"/>
-  <SolidColorBrush x:Key="ToggleSwitchEnableColor" Color="white"/>
-  <SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="#c9c9c7"/>
-  <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#c9c9c7"/>
-  <Color x:Key="ListViewCardLeftColor">#E117181D</Color> 
-  <Color x:Key="ListViewCardRightColor">#E117181D</Color>
-  <SolidColorBrush x:Key="logo" Color="CornflowerBlue"/>
-  <ImageBrush x:Key="BackgroundImage" ImageSource="https://images.hdqwalls.com/wallpapers/the-batman-fan-made-4k-xx.jpg" Stretch="UniformToFill"/>
+<SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#081015"/>
+<SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#17181D"/>
+<SolidColorBrush x:Key="PrimaryButtonForeground" Color="#004D69" />
+<SolidColorBrush x:Key="PrimaryButtonHighlight" Color="White" />
+<SolidColorBrush x:Key="TextColorPrimary" Color="WhiteSmoke" />
+<SolidColorBrush x:Key="TextColorSecondaryColor" Color="White"/>
+<SolidColorBrush x:Key="TextColorSecondaryColor2" Color="#bbbbbb"/>
+<SolidColorBrush x:Key="BorderBrush" Color="#2b2d31" />
+<SolidColorBrush x:Key="ButtonBorderColor" Color="#1DB954"/>
+<SolidColorBrush x:Key="Label" Color="#3f3f3f"/>
+<SolidColorBrush x:Key="HighlightColor" Color="CornflowerBlue"/>
+<SolidColorBrush x:Key="ToggleSwitchBackgroundColor" Color="#282828"/>
+<SolidColorBrush x:Key="ToggleSwitchForegroundColor" Color="#282828"/>
+<SolidColorBrush x:Key="ToggleSwitchEnableColor" Color="white"/>
+<SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="#c9c9c7"/>
+<SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#c9c9c7"/>
+<Color x:Key="ListViewCardLeftColor">#E117181D</Color> 
+<Color x:Key="ListViewCardRightColor">#E117181D</Color>
+<SolidColorBrush x:Key="logo" Color="CornflowerBlue"/>
+<ImageBrush x:Key="BackgroundImage" ImageSource="https://images.hdqwalls.com/wallpapers/the-batman-fan-made-4k-xx.jpg" Stretch="UniformToFill"/>
+<x:String x:Key="SubText">Iam not a hero</x:String>
 </ResourceDictionary>
 <!-- Name {Dark Knight} -->
