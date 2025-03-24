@@ -1,11 +1,13 @@
 ---
-name: Tweaks
-about: Create a report to help us improve
+name: Tweak Request
+about: Create a tweaks request
 title: ''
-labels: 'bug'
+labels: 'Request'
 assignees: ''
 ---
-## Describe the bug
-<!-- A clear and concise description of what the bug is. -->
-## Screenshots
-<!-- If applicable, add screenshots to help explain your problem. -->
+
+## Script
+<!-- script here -->
+
+## Describe The tweak
+<!-- description of what the tweak is. -->

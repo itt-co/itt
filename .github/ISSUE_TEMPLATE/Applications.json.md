@@ -1,11 +1,16 @@
 ---
-name: Applications
-about: Create a report to help us improve
+name: App Request
+about: Create app request 
 title: ''
-labels: 'bug'
+labels: 'Request'
 assignees: ''
 ---
-## Describe the bug
-<!-- A clear and concise description of what the bug is. -->
-## Screenshots
-<!-- If applicable, add screenshots to help explain your problem. -->
+
+## App Name
+<!-- App name here. -->
+
+## Description
+<!-- description here. -->
+
+## Download link
+<!-- make sure is static link -->
