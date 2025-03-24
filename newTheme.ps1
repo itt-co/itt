@@ -46,6 +46,7 @@ try {
     <Color x:Key="ListViewCardRightColor">#ffffff</Color>
     <SolidColorBrush x:Key="logo" Color="black"/>
     <ImageBrush x:Key="BackgroundImage" ImageSource="{x:Null}" Stretch="UniformToFill"/>
+    <x:String x:Key="SubText">Sub Text</x:String>
   </ResourceDictionary>
   <!-- Name {$themeName} -->
 "@
