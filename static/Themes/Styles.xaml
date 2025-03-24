@@ -258,7 +258,8 @@
                             <!-- Popup for Submenu -->
                             <Popup Name="PART_Popup" 
                                    Placement="Right" 
-                                   IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}"                                   AllowsTransparency="True" 
+                                   IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}"                                   
+                                   AllowsTransparency="True" 
                                    Focusable="False"
                                    PopupAnimation="Fade">
                                 <Border Background="{TemplateBinding Background}" 
@@ -273,8 +274,8 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource HighlightColor}"/>
-                            <Setter TargetName="TextBlock" Property="Foreground" Value="White"/>
+                            <Setter TargetName="Border" Property="Background" Value="Transparent"/>
+                            <Setter TargetName="TextBlock" Property="Foreground" Value="{DynamicResource HighlightColor}"/>
                             <Setter TargetName="ShortcutText" Property="Foreground" Value="White"/>
                             <Setter TargetName="Arrow" Property="Fill" Value="White"/>
                         </Trigger>
@@ -397,7 +398,7 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="Border" Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}" />
-                            <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor}" />
+                            <Setter Property="Foreground" Value="{DynamicResource HighlightColor}" />
                         </Trigger>
                         <Trigger Property="IsSelected" Value="False">
                             <Setter TargetName="Border" Property="Background" Value="Transparent" />
