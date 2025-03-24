@@ -2,8 +2,11 @@
     <Menu Grid.Row="0" Grid.Column="0" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Left" BorderThickness="0">
         <MenuItem Background="Transparent" BorderBrush="Transparent" BorderThickness="0"  IsEnabled="False" ToolTip="Emad Adel">
             <MenuItem.Icon>
-                <Border Background="Transparent" CornerRadius="10" Height="70" Width="70">
-                    <TextBlock Text="itt" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource logoText}"/>
+                <Border Background="Transparent" CornerRadius="10" Height="auto" Width="auto">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="itt" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource logoText}"/>
+                        <TextBlock Text="{DynamicResource SubText}" FontFamily="Arial" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Normal" FontSize="10" Style="{DynamicResource logoText}" />
+                    </StackPanel>
                 </Border>
             </MenuItem.Icon>
         </MenuItem>
@@ -278,17 +281,6 @@
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
-            
-
-            <MenuItem Name="idm" ToolTip="Get rid of IDM Active message">
-                <MenuItem.Header>
-                    <Binding Path="IDM" TargetNullValue="IDM Active Message" />
-                </MenuItem.Header>
-                <MenuItem.Icon>
-                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
-                </MenuItem.Icon>
-            </MenuItem>
-            
 
             <MenuItem Name="winoffice" ToolTip="Windows and Office Orginal ISO">
                 <MenuItem.Header>
