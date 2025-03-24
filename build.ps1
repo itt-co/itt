@@ -18,9 +18,7 @@ param (
 )
 
 try {
-    if (Test-Path -Path $OutputScript) {
-        Remove-Item -Path $OutputScript -Force
-    }
+    if (Test-Path -Path $OutputScript) {Remove-Item -Path $OutputScript -Force}
 }
 catch {
     Write-Host $psitem.Exception.Message
@@ -73,7 +71,6 @@ function WriteToScript {
         Write-Error "An error occurred: $_"
     }
 }
-
 # Replace placeholder function
 function ReplaceTextInFile {
     param (
@@ -282,6 +279,7 @@ function NewCONTRIBUTOR {
     return $devsString
 
 }
+# Generate Changelog Window Content from CHANGELOG.md
 function ConvertTo-Xaml {
     param (
         [string]$text,
@@ -776,7 +774,6 @@ try {
     Update-Readme
 
     try {
-
         $script = "& '$ProjectDir\$OutputScript'"
         $pwsh = if (Get-Command pwsh -ErrorAction SilentlyContinue) { "pwsh" } else { "powershell" }
         $wt = if (Get-Command wt.exe -ErrorAction SilentlyContinue) { "wt.exe" } else { $pwsh }
