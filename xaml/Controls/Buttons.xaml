@@ -44,7 +44,6 @@
     <Grid Column="0" Background="Transparent">
       <StackPanel Orientation="Horizontal">
         <TextBlock
-          Text="&#xEFA9;"
           Name="QuoteIcon"
           Margin="15,0,0,0"
           FontSize="14"
@@ -58,7 +57,6 @@
           VerticalAlignment="Center" 
           TextWrapping="Wrap"
           Padding="8"
-          Text="#StandWithPalestine"
           FontWeight="SemiBold"
           FlowDirection="LeftToRight"
           Width="611"
