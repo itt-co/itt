@@ -10,10 +10,9 @@ function Invoke-Button {
     #>
 
     Param ([string]$action,[string]$Content)
+
     # debug start
-        function Debug-Message {
-                if($Debug) {  Add-Log "$action,$Content" -Level "Debug"  }
-        }
+    function Debug-Message {if($Debug) {  Add-Log "$action,$Content" -Level "Debug"  }}
     # debug end
 
     # Switch block to handle different actions
@@ -191,13 +190,6 @@ function Invoke-Button {
         "mas" {
             Add-Log -Message "Microsoft Activation Scripts (MAS)" -Level "info"
             ITT-ScriptBlock -ScriptBlock {irm https://get.activated.win | iex}
-            # debug start
-                Debug-Message $action
-            # debug end
-        }
-        "idm" {
-            Add-Log -Message "IDM Activation Script (WindowsAddict)" -Level "info"
-            ITT-ScriptBlock -ScriptBlock {irm https://massgrave.dev/ias | iex}
             # debug start
                 Debug-Message $action
             # debug end
