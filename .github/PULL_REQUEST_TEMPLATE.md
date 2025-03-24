@@ -1,7 +1,7 @@
 ## Type of Change
 - [ ] Refactoring
 - [ ] New feature
-- [ ] New Language
+- [ ] New language
 - [ ] Hotfix
 - [ ] Bug fix
 - [ ] UI improvement
