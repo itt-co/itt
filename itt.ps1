@@ -5,7 +5,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "03/23/2025"
+lastupdate     = "03/25/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -6570,10 +6570,6 @@ Start-Process "https://ublockorigin.com/"
 Add-Log -Message "Microsoft Activation Scripts (MAS)" -Level "info"
 ITT-ScriptBlock -ScriptBlock {irm https://get.activated.win | iex}
 }
-"idm" {
-Add-Log -Message "IDM Activation Script (WindowsAddict)" -Level "info"
-ITT-ScriptBlock -ScriptBlock {irm https://massgrave.dev/ias | iex}
-}
 "neat" {
 Start-Process "https://addons.mozilla.org/en-US/firefox/addon/neatdownloadmanager-extension/"
 }
@@ -8387,7 +8383,8 @@ Visibility="Collapsed"
 Margin="4,0,0,0"/>
 <Popup Name="PART_Popup"
 Placement="Right"
-IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}"                                   AllowsTransparency="True"
+IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}"
+AllowsTransparency="True"
 Focusable="False"
 PopupAnimation="Fade">
 <Border Background="{TemplateBinding Background}"
@@ -8402,8 +8399,8 @@ KeyboardNavigation.DirectionalNavigation="Continue"/>
 </Border>
 <ControlTemplate.Triggers>
 <Trigger Property="IsMouseOver" Value="True">
-<Setter TargetName="Border" Property="Background" Value="{DynamicResource HighlightColor}"/>
-<Setter TargetName="TextBlock" Property="Foreground" Value="White"/>
+<Setter TargetName="Border" Property="Background" Value="Transparent"/>
+<Setter TargetName="TextBlock" Property="Foreground" Value="{DynamicResource HighlightColor}"/>
 <Setter TargetName="ShortcutText" Property="Foreground" Value="White"/>
 <Setter TargetName="Arrow" Property="Fill" Value="White"/>
 </Trigger>
@@ -8517,7 +8514,7 @@ ContentSource="Header"
 <ControlTemplate.Triggers>
 <Trigger Property="IsSelected" Value="True">
 <Setter TargetName="Border" Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}" />
-<Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor}" />
+<Setter Property="Foreground" Value="{DynamicResource HighlightColor}" />
 </Trigger>
 <Trigger Property="IsSelected" Value="False">
 <Setter TargetName="Border" Property="Background" Value="Transparent" />
@@ -8724,7 +8721,7 @@ To="5,0,0,0">
 <SolidColorBrush x:Key="BorderBrush" Color="#2b2d31" />
 <SolidColorBrush x:Key="ButtonBorderColor" Color="#1DB954"/>
 <SolidColorBrush x:Key="Label" Color="#3f3f3f"/>
-<SolidColorBrush x:Key="HighlightColor" Color="#066ca1"/>
+<SolidColorBrush x:Key="HighlightColor" Color="CornflowerBlue"/>
 <SolidColorBrush x:Key="ToggleSwitchBackgroundColor" Color="#282828"/>
 <SolidColorBrush x:Key="ToggleSwitchForegroundColor" Color="#282828"/>
 <SolidColorBrush x:Key="ToggleSwitchEnableColor" Color="white"/>
@@ -8732,8 +8729,9 @@ To="5,0,0,0">
 <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#c9c9c7"/>
 <Color x:Key="ListViewCardLeftColor">#3c3f44</Color>
 <Color x:Key="ListViewCardRightColor">#2b2d31</Color>
-<SolidColorBrush x:Key="logo" Color="#098fd4"/>
+<SolidColorBrush x:Key="logo" Color="CornflowerBlue"/>
 <ImageBrush x:Key="BackgroundImage" ImageSource="{x:Null}" Stretch="UniformToFill"/>
+<x:String x:Key="SubText">Install Tweaks Tool</x:String>
 </ResourceDictionary>
 <ResourceDictionary x:Key="DarkKnight">
 <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#081015"/>
@@ -8746,7 +8744,7 @@ To="5,0,0,0">
 <SolidColorBrush x:Key="BorderBrush" Color="#2b2d31" />
 <SolidColorBrush x:Key="ButtonBorderColor" Color="#1DB954"/>
 <SolidColorBrush x:Key="Label" Color="#3f3f3f"/>
-<SolidColorBrush x:Key="HighlightColor" Color="#066ca1"/>
+<SolidColorBrush x:Key="HighlightColor" Color="CornflowerBlue"/>
 <SolidColorBrush x:Key="ToggleSwitchBackgroundColor" Color="#282828"/>
 <SolidColorBrush x:Key="ToggleSwitchForegroundColor" Color="#282828"/>
 <SolidColorBrush x:Key="ToggleSwitchEnableColor" Color="white"/>
@@ -8754,8 +8752,9 @@ To="5,0,0,0">
 <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#c9c9c7"/>
 <Color x:Key="ListViewCardLeftColor">#E117181D</Color>
 <Color x:Key="ListViewCardRightColor">#E117181D</Color>
-<SolidColorBrush x:Key="logo" Color="#066ca1"/>
+<SolidColorBrush x:Key="logo" Color="CornflowerBlue"/>
 <ImageBrush x:Key="BackgroundImage" ImageSource="https://images.hdqwalls.com/wallpapers/the-batman-fan-made-4k-xx.jpg" Stretch="UniformToFill"/>
+<x:String x:Key="SubText">I am not a hero</x:String>
 </ResourceDictionary>
 <ResourceDictionary x:Key="Light">
 <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="White"/>
@@ -8778,6 +8777,7 @@ To="5,0,0,0">
 <Color x:Key="ListViewCardRightColor">#ffffff</Color>
 <SolidColorBrush x:Key="logo" Color="black"/>
 <ImageBrush x:Key="BackgroundImage" ImageSource="{x:Null}" Stretch="UniformToFill"/>
+<x:String x:Key="SubText">Install Tweaks Tool</x:String>
 </ResourceDictionary>
 <ResourceDictionary x:Key="Palestine">
 <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#FF1F1F1F"/>
@@ -8800,6 +8800,7 @@ To="5,0,0,0">
 <Color x:Key="ListViewCardRightColor">#D82C211A</Color>
 <SolidColorBrush x:Key="logo" Color="red"/>
 <ImageBrush x:Key="BackgroundImage" ImageSource="https://w.wallhaven.cc/full/we/wallhaven-wegrj6.jpg" Stretch="UniformToFill"/>
+<x:String x:Key="SubText">#StandWithPalestine</x:String>
 </ResourceDictionary>
 </Window.Resources>
 <Grid Background="{DynamicResource BackgroundImage}">
@@ -8816,8 +8817,11 @@ To="5,0,0,0">
 <Menu Grid.Row="0" Grid.Column="0" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Left" BorderThickness="0">
 <MenuItem Background="Transparent" BorderBrush="Transparent" BorderThickness="0"  IsEnabled="False" ToolTip="Emad Adel">
 <MenuItem.Icon>
-<Border Background="Transparent" CornerRadius="10" Height="70" Width="70">
-<TextBlock Text="itt" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource logoText}"/>
+<Border Background="Transparent" CornerRadius="10" Height="88" Width="88">
+<StackPanel Orientation="Vertical">
+<TextBlock Text="itt" VerticalAlignment="Center"  TextAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource logoText}"/>
+<TextBlock Text="{DynamicResource SubText}" FontFamily="Arial" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Normal" FontSize="10" Style="{DynamicResource logoText}" />
+</StackPanel>
 </Border>
 </MenuItem.Icon>
 </MenuItem>
@@ -9056,14 +9060,6 @@ Shift+I
 <MenuItem Name="mas" ToolTip="Windows activation ">
 <MenuItem.Header>
 <Binding Path="MAS" TargetNullValue="MAS" />
-</MenuItem.Header>
-<MenuItem.Icon>
-<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
-</MenuItem.Icon>
-</MenuItem>
-<MenuItem Name="idm" ToolTip="Get rid of IDM Active message">
-<MenuItem.Header>
-<Binding Path="IDM" TargetNullValue="IDM Active Message" />
 </MenuItem.Header>
 <MenuItem.Icon>
 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
@@ -12176,7 +12172,6 @@ Margin="20">
 <Grid Column="0" Background="Transparent">
 <StackPanel Orientation="Horizontal">
 <TextBlock
-Text="&#xEFA9;"
 Name="QuoteIcon"
 Margin="15,0,0,0"
 FontSize="14"
@@ -12190,7 +12185,6 @@ HorizontalAlignment="Left"
 VerticalAlignment="Center"
 TextWrapping="Wrap"
 Padding="8"
-Text="#StandWithPalestine"
 FontWeight="SemiBold"
 FlowDirection="LeftToRight"
 Width="611"
@@ -12392,23 +12386,23 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
 $itt.event.FindName('title').text = '🌜 Ramadan Kareem'.Trim()
 $itt.event.FindName('date').text = '03/01/2025'.Trim()
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.Add_PreViewKeyDown({ if ($_.Key -eq "Escape") { $itt.event.Close() } })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
