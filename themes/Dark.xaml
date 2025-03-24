@@ -21,6 +21,6 @@
 <Color x:Key="ListViewCardRightColor">#2b2d31</Color>
 <SolidColorBrush x:Key="logo" Color="CornflowerBlue"/>
 <ImageBrush x:Key="BackgroundImage" ImageSource="{x:Null}" Stretch="UniformToFill"/>
-<x:String x:Key="SubText"></x:String>
+<x:String x:Key="SubText">Install Tweaks Tool</x:String>
 </ResourceDictionary>
 <!--{Dark}-->

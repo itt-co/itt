@@ -21,6 +21,6 @@
 <Color x:Key="ListViewCardRightColor">#E117181D</Color>
 <SolidColorBrush x:Key="logo" Color="CornflowerBlue"/>
 <ImageBrush x:Key="BackgroundImage" ImageSource="https://images.hdqwalls.com/wallpapers/the-batman-fan-made-4k-xx.jpg" Stretch="UniformToFill"/>
-<x:String x:Key="SubText">Iam not a hero</x:String>
+<x:String x:Key="SubText">I am not a hero</x:String>
 </ResourceDictionary>
 <!-- Name {Dark Knight} -->
