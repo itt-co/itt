@@ -9,27 +9,14 @@ function Message {
         .PARAMETER key
             The key used to retrieve the localized message from the `itt.database.locales.Controls` object.
             This key should correspond to a valid entry in the localization database for the current language.
-        .PARAMETER icon
-            The type of icon to be displayed in the message box. Valid values are:
-            - "Warning" for a warning icon
-            - "Question" for a question icon
-            - "Information" for Information icon
         .EXAMPLE
             Message -key "Welcome" -icon "Warning"
             Displays a message box with the message associated with the "Welcome" key and a warning icon.
-        .EXAMPLE
-            Message -key "ConfirmAction" -icon "Question"
-            Displays a message box with the message associated with the "ConfirmAction" key and a question icon.
         .NOTES
             Ensure that the `itt.database.locales.Controls` object is properly populated with localization data and that the specified keys exist for the current language.
     #>
-    param(
-        [string]$key,
-        [string]$NoneKey,
-        [string]$title = "ITT",
-        [string]$icon,
-        [string]$action
-    )
+    
+    param([string]$key,[string]$NoneKey,[string]$title = "ITT",[string]$icon,[string]$action)
 
     $iconMap = @{ info = "Information"; ask = "Question"; warning = "Warning"; default = "Question" }
     $actionMap = @{ YesNo = "YesNo"; OK = "OK"; default = "OK" }
@@ -37,4 +24,4 @@ function Message {
     $action = if ($actionMap.ContainsKey($action.ToLower())) { $actionMap[$action.ToLower()] } else { $actionMap.default }
     $msg = if ([string]::IsNullOrWhiteSpace($key)) { $NoneKey } else { $itt.database.locales.Controls.$($itt.Language).$key }
     [System.Windows.MessageBox]::Show($msg, $title, [System.Windows.MessageBoxButton]::$action, [System.Windows.MessageBoxImage]::$icon)
-}    
+}

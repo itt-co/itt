@@ -1,5 +1,5 @@
 function Show-Event {
-    # if ($itt.PopupWindow -eq "off") { return }
+    
     [xml]$event = $EventWindowXaml
     $itt.event = [Windows.Markup.XamlReader]::Load((New-Object System.Xml.XmlNodeReader $event))
     $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Theme))

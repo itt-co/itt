@@ -39,7 +39,7 @@ $KeyEvents = {
             if ($modifiers -eq "Ctrl") { About }
             elseif ($modifiers -eq "Shift") { ITTShortcut }
         }
-        "C" { if ($modifiers -eq "Shift") { Start-Process explorer.exe "C:\ProgramData\chocolatey\lib" } }
+        "C" { if ($modifiers -eq "Shift") { Start-Process explorer.exe $env:ProgramData\chocolatey\lib } }
         "T" { if ($modifiers -eq "Shift") { Start-Process explorer.exe $env:ProgramData\itt } }
         "G" { if ($modifiers -eq "Ctrl") { $this.Close() } }
         "F" { if ($modifiers -eq "Ctrl") { $itt.SearchInput.Focus() } }
