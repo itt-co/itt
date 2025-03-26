@@ -1,31 +1,14 @@
 function Get-ToggleStatus {
+
     <#
         .SYNOPSIS
         Checks the status of various system toggle switches based on the provided parameter.
         .DESCRIPTION
         This function retrieves and returns the status of specific system toggle switches, such as Dark Mode, file extension visibility, hidden files visibility, Num Lock, and Sticky Keys. The status is determined by querying the Windows Registry for relevant settings.
-        .PARAMETER ToggleSwitch
-        Specifies which toggle switch status to check. The following values are supported:
-        - `ToggleDarkMode`: Checks if Dark Mode is enabled.
-        - `ToggleShowExt`: Checks if file extensions are set to be shown.
-        - `showsuperhidden`: Checks if hidden files are set to be shown.
-        - `ToggleNumLock`: Checks if Num Lock is enabled.
-        - `ToggleStickyKeys`: Checks if Sticky Keys is enabled.
-        .RETURN
-        - Returns `$true` if the specified toggle switch is enabled according to the criteria.
-        - Returns `$false` if the toggle switch is disabled or if the check does not match the criteria.
         .EXAMPLE
         Get-ToggleStatus -ToggleSwitch "ToggleDarkMode"
-        Checks if Dark Mode is enabled on the system and returns `$true` if it is.
-        .EXAMPLE
-        Get-ToggleStatus -ToggleSwitch "ToggleShowExt"
-        Checks if file extensions are shown in the File Explorer and returns `$true` if they are.
-        .NOTES
-        - The function relies on querying specific registry paths to determine the status of the toggle switches.
-        - The function uses registry values to determine the state of settings related to the specified toggle switches.
-        - Ensure that you have appropriate permissions to access the registry paths used by this function.
-        - The function includes error handling to return `$false` if the registry values do not match the expected criteria for the toggle switches.
     #>
+
     Param($ToggleSwitch)
     # Check status of "ToggleDarkMode"
     if ($ToggleSwitch -eq "darkmode") {
