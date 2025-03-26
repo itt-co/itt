@@ -18,10 +18,7 @@ function Install-App {
 
     # Helper function to install an app using a specific installer
     function Install-AppWithInstaller {
-        param (
-            [string]$Installer,
-            [string]$InstallArgs
-        )
+        param ([string]$Installer,[string]$InstallArgs)
 
         # Try to install and return the exit code
         $process = Start-Process -FilePath $Installer -ArgumentList $InstallArgs -NoNewWindow -Wait -PassThru
@@ -30,10 +27,8 @@ function Install-App {
 
     # Function to log installation result
     function Log {
-        param (
-            [string]$Installer,
-            [string]$Source
-        )
+
+        param ([string]$Installer,[string]$Source)
 
         if ($Installer -ne 0) {
             Add-Log -Message "Installation Failed for ($Name). Report the issue in the ITT repository." -Level "$Source"
