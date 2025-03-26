@@ -1,4 +1,5 @@
 function Disable-Service {
+    
     <#
         .SYNOPSIS
         Disables a specified service by changing its startup type and stopping it.
@@ -11,9 +12,9 @@ function Disable-Service {
         .EXAMPLE
         Disable-Service -ServiceName "wuauserv" -StartupType "Disabled"
     #>
-    param(
-        [array]$tweak
-    )
+
+    param([array]$tweak)
+
     foreach ($serv in $tweak) {
         try {
             Add-Log  -Message "Setting Service $($serv.Name)" -Level "info"
