@@ -123,7 +123,7 @@ function Invoke-Apply {
 
         param($selectedTweaks, $debug)
 
-        # if($itt.backup -eq 0){CreateRestorePoint} 
+        if((Get-ItemProperty -Path $itt.registryPath -Name "backup" -ErrorAction Stop).backup -eq 0){CreateRestorePoint} 
         
         $itt.ProcessRunning = $true
 
