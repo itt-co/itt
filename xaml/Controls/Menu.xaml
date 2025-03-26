@@ -282,12 +282,22 @@
                 </MenuItem.Icon>
             </MenuItem>
 
+
             <MenuItem Name="winoffice" ToolTip="Windows and Office Orginal ISO">
                 <MenuItem.Header>
                     <Binding Path="Win_Office" TargetNullValue="Windows/Office ISO" />
                 </MenuItem.Header>
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+                </MenuItem.Icon>
+            </MenuItem>
+            
+            <MenuItem Name="idm" ToolTip="Get rid of IDM Active message">
+                <MenuItem.Header>
+                    <Binding Path="IDM" TargetNullValue="IDM Trial Reset" />
+                </MenuItem.Header>
+                <MenuItem.Icon>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
 
