@@ -16,7 +16,7 @@
                 <Binding Path="Management" TargetNullValue="Management"/>
             </MenuItem.Header>
             <MenuItem.Icon>
-                <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
+                <TextBlock FontSize="15" Text="💻"/>
             </MenuItem.Icon>
 
             <MenuItem Name="sysinfo">
@@ -129,7 +129,7 @@
                 <Binding Path="Preferences" TargetNullValue="Preferences"/>
             </MenuItem.Header>
             <MenuItem.Icon>
-                <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Text=""/>
+                <TextBlock FontSize="15" FontFamily="Segoe MDL2 Assets"  HorizontalAlignment="Center" VerticalAlignment="Center" Text=""/>
             </MenuItem.Icon>
 
             <MenuItem Name="restorepoint" InputGestureText="Shift+Q">
@@ -270,7 +270,7 @@
                 <Binding Path="Third_party" TargetNullValue="Third Party"/>
             </MenuItem.Header>
             <MenuItem.Icon>
-                <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
+                <TextBlock  FontSize="15" Text="🔗"/>
             </MenuItem.Icon>
 
             <MenuItem Name="mas" ToolTip="Windows activation ">
@@ -387,7 +387,7 @@
                 <Binding Path="About" TargetNullValue="About"/>
             </MenuItem.Header>
             <MenuItem.Icon>
-                <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
+                <TextBlock  FontSize="15" Text="👤"/>
             </MenuItem.Icon>
         </MenuItem>
 
