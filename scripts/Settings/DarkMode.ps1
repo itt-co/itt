@@ -29,6 +29,7 @@ function Invoke-DarkMode {
             if($Theme -eq "default")
             {
                 $itt['window'].Resources.MergedDictionaries.Add($itt['window'].FindResource("Dark"))
+                $itt.Theme = "Dark"
             }
         }
         else {
@@ -37,6 +38,7 @@ function Invoke-DarkMode {
             if($Theme -eq "default")
             {
                 $itt['window'].Resources.MergedDictionaries.Add($itt['window'].FindResource("Light"))
+                $itt.Theme = "Light"
             }
         }
         $Path = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize"
