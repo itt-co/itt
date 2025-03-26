@@ -276,8 +276,8 @@
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="Border" Property="Background" Value="Transparent"/>
                             <Setter TargetName="TextBlock" Property="Foreground" Value="{DynamicResource HighlightColor}"/>
-                            <Setter TargetName="ShortcutText" Property="Foreground" Value="White"/>
-                            <Setter TargetName="Arrow" Property="Fill" Value="White"/>
+                            <Setter TargetName="ShortcutText" Property="Foreground" Value="{DynamicResource HighlightColor}"/>
+                            <Setter TargetName="Arrow" Property="Fill" Value="{DynamicResource HighlightColor}"/>
                         </Trigger>
                         <Trigger Property="HasItems" Value="True">
                             <Setter TargetName="Arrow" Property="Visibility" Value="Visible"/>
