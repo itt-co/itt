@@ -87,9 +87,9 @@ function Startup {
         
             Show-Quote $itt.database.locales.Controls.$($itt.Language).welcome ""
             Start-Sleep 20
-            Show-Quote "Can you uncover the hidden secret? Dive into the source code, be the first to discover the feature, and integrate it into the tool" ""
+            Show-Quote "Can you uncover the hidden secret? Dive into the source code, be the first to discover the feature, and integrate it into the tool" "👁‍🗨"
             Start-Sleep 18
-            $iconMap = @{quote = ""; info = ""; music = ""; Cautton = ""; default = "" }
+            $iconMap = @{quote = "💬"; info = "📢"; music = "🎵"; Cautton = "⚠"; default = "☕" }
             do {
                 foreach ($q in Get-Quotes) {
                     $icon = if ($iconMap.ContainsKey($q.type)) { $iconMap[$q.type] } else { $iconMap.default }
