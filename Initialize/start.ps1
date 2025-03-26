@@ -11,17 +11,19 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 
 # Synchronized Hashtable for shared variables
 $itt = [Hashtable]::Synchronized(@{
-        database       = @{}
-        ProcessRunning = $false
-        lastupdate     = "#{replaceme}"
-        registryPath   = "HKCU:\Software\ITT@emadadel"
-        icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
-        Theme          = "default"
-        Date           = (Get-Date -Format "MM/dd/yyy")
-        Music          = "0"
-        PopupWindow    = "0"
-        Language       = "default"
-        ittDir         = "$env:ProgramData\itt\"
+
+    database       = @{}
+    ProcessRunning = $false
+    lastupdate     = "#{replaceme}"
+    registryPath   = "HKCU:\Software\ITT@emadadel"
+    icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
+    Theme          = "default"
+    Date           = (Get-Date -Format "MM/dd/yyy")
+    Music          = "0"
+    PopupWindow    = "0"
+    Language       = "default"
+    ittDir         = "$env:ProgramData\itt\"
+
 })
 
 # Ask user for administrator privileges if not already running as admin
@@ -35,9 +37,7 @@ $Host.UI.RawUI.WindowTitle = "Install Twaeks Tool"
 
 # Create directory if it doesn't exist
 $ittDir = $itt.ittDir
-if (-not (Test-Path -Path $ittDir)) {
-    New-Item -ItemType Directory -Path $ittDir -Force | Out-Null
-}
+if (-not (Test-Path -Path $ittDir)) {New-Item -ItemType Directory -Path $ittDir -Force | Out-Null}
 
 # Trace the script
 $logDir = Join-Path $ittDir 'logs'
