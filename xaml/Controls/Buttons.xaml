@@ -44,15 +44,16 @@
     <Grid Column="0" Background="Transparent">
       <StackPanel Orientation="Horizontal">
         <TextBlock
+          Text="✊"
           Name="QuoteIcon"
           Margin="15,0,0,0"
           FontSize="14"
           TextAlignment="Center"
           HorizontalAlignment="Center"
           VerticalAlignment="Center"
-          FontFamily="Segoe MDL2 Assets"
         />
         <TextBlock Name="quotes"
+          Text="#StandWithPalestine"
           HorizontalAlignment="Left"
           VerticalAlignment="Center" 
           TextWrapping="Wrap"
