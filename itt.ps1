@@ -5,7 +5,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "03/28/2025"
+lastupdate     = "03/29/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -7240,7 +7240,7 @@ default{$itt["window"].taskbarItemInfo.Overlay = "https://raw.githubusercontent.
 }
 }
 function Startup {
-$UsersCount = "https://ittools-7d9fe-default-rtdb.firebaseio.com/message.json"
+$UsersCount = "https://ittools-7d9fe-default-rtdb.firebaseio.com/message/message.json"
 ITT-ScriptBlock -ArgumentList $Debug $UsersCount -ScriptBlock {
 param($Debug, $UsersCount)
 function Telegram {
@@ -12383,6 +12383,9 @@ Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
+$itt.event.FindName('ps').add_MouseLeftButtonDown({
+Start-Process('https://www.palestinercs.org/en/Donation')
+})
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
@@ -12391,9 +12394,6 @@ Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('ps').add_MouseLeftButtonDown({
-Start-Process('https://www.palestinercs.org/en/Donation')
 })
 $itt.event.Add_PreViewKeyDown({ if ($_.Key -eq "Escape") { $itt.event.Close() } })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
