@@ -18,15 +18,14 @@ function Install-ITTAChoco {
             # Check for updates
             $currentVersion = (itt.exe -ver)
             $installerPath = "$env:TEMP\installer.msi"
-            $installerUrl = "https://github.com/itt-co/bin/releases/latest/download/installer.msi"
             $latestReleaseApi = "https://api.github.com/repos/itt-co/bin/releases/latest"
             $latestVersion = (Invoke-RestMethod -Uri $latestReleaseApi).tag_name
             if ($latestVersion -eq $currentVersion) {return}
-            Write-Host "New version available: $latestVersion. Updating..."
-            Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
+            # Write-Host "New version available: $latestVersion. Updating..."
+            Invoke-WebRequest "https://github.com/itt-co/bin/releases/latest/download/installer.msi" -OutFile $installerPath
             Start-Process msiexec.exe -ArgumentList "/i `"$installerPath`" /q" -NoNewWindow -Wait
             Write-Host "Updated to version $latestVersion successfully."
-            Remove-Item -Path $installerPath -Force
+            # Remove-Item -Path $installerPath -Force
         }
         catch {
             Add-Log -Message "Failed to update ITT Package manager." -Level "error"
