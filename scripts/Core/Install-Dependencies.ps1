@@ -15,15 +15,13 @@ function Install-ITTAChoco {
     else
     {
         try {
-            
-            $currentVersion = "0.1" 
+            # Check for updates
+            $currentVersion = (itt.exe -ver)
             $installerPath = "$env:TEMP\installer.msi"
             $installerUrl = "https://github.com/itt-co/bin/releases/latest/download/installer.msi"
             $latestReleaseApi = "https://api.github.com/repos/itt-co/bin/releases/latest"
             $latestVersion = (Invoke-RestMethod -Uri $latestReleaseApi).tag_name
-
             if ($latestVersion -eq $currentVersion) {return}
-
             Write-Host "New version available: $latestVersion. Updating..."
             Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
             Start-Process -FilePath "msiexec.exe" -ArgumentList "/i `"$installerPath`" /qn" -NoNewWindow -Wait
