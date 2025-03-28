@@ -6998,7 +6998,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 else
 {
 try {
-$currentVersion = "0.1"
+$currentVersion = (itt.exe -ver)
 $installerPath = "$env:TEMP\installer.msi"
 $installerUrl = "https://github.com/itt-co/bin/releases/latest/download/installer.msi"
 $latestReleaseApi = "https://api.github.com/repos/itt-co/bin/releases/latest"
