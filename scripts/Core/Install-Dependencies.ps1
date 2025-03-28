@@ -15,7 +15,7 @@ function Install-ITT-A-Choco {
 
         try {
             
-            $currentVersion = "0.1.0.0" 
+            $currentVersion = "0.1" 
             $installerPath = "$env:TEMP\installer.msi"
             $installerUrl = "https://github.com/itt-co/bin/releases/latest/download/installer.msi"
             $latestReleaseApi = "https://api.github.com/repos/itt-co/bin/releases/latest"

@@ -6948,7 +6948,7 @@ $wingetArgs = "install --id $Winget --silent --accept-source-agreements --accept
 $chocoArgs = "install $Choco --confirm --acceptlicense -q --ignore-http-cache --limit-output --allowemptychecksumsecure --ignorechecksum --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests"
 $ittArgs = "install $ITT -y"
 if ($Choco -eq "na" -and $Winget -eq "na" -and $itt -ne "na") {
-Install-Choco
+Install-ITTAChoco
 Add-Log -Message "Attempting to install $Name." -Level "ITT"
 $ITTResult = Install-AppWithInstaller "itt" $ittArgs
 Log $ITTResult "itt"
@@ -6967,7 +6967,7 @@ else
 {
 if ($Choco -ne "na" -or $Winget -ne "na")
 {
-Install-Choco
+Install-ITTAChoco
 Add-Log -Message "Attempting to install $Name." -Level "Chocolatey"
 $chocoResult = Install-AppWithInstaller "choco" $chocoArgs
 if ($chocoResult -ne 0) {
@@ -6996,7 +6996,7 @@ if (-not (Get-Command itt -ErrorAction SilentlyContinue))
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/itt-co/bin/refs/heads/main/install.ps1')) *> $null
 }else{
 try {
-$currentVersion = "0.1.0.0"
+$currentVersion = "0.1"
 $installerPath = "$env:TEMP\installer.msi"
 $installerUrl = "https://github.com/itt-co/bin/releases/latest/download/installer.msi"
 $latestReleaseApi = "https://api.github.com/repos/itt-co/bin/releases/latest"
@@ -12378,22 +12378,22 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
 $itt.event.FindName('title').text = '🌜 Ramadan Kareem'.Trim()
 $itt.event.FindName('date').text = '03/01/2025'.Trim()
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
-})
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.Add_PreViewKeyDown({ if ($_.Key -eq "Escape") { $itt.event.Close() } })
@@ -12655,7 +12655,7 @@ $InitialSessionState.Variables.Add($hashVars)
 $functions = @(
 'Install-App', 'Install-Winget', 'InvokeCommand', 'Add-Log',
 'Disable-Service', 'Uninstall-AppxPackage', 'Finish', 'Message',
-'Notify', 'UpdateUI', 'Install-ITT-A-Choco',
+'Notify', 'UpdateUI', 'Install-ITTAChoco',
 'ExecuteCommand', 'Set-Registry', 'Set-Taskbar',
 'Refresh-Explorer', 'Remove-ScheduledTasks','CreateRestorePoint'
 )
