@@ -5,7 +5,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "03/27/2025"
+lastupdate     = "03/28/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -6985,7 +6985,7 @@ Add-Log -Message "Package not found in any repository" -Level "ERROR"
 }
 }
 }
-function Install-Choco {
+function Install-ITT-A-Choco {
 if (-not (Get-Command choco -ErrorAction SilentlyContinue))
 {
 Add-Log -Message "Checking dependencies This won't take a minute..." -Level "INFO"
@@ -6994,6 +6994,23 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 if (-not (Get-Command itt -ErrorAction SilentlyContinue))
 {
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/itt-co/bin/refs/heads/main/install.ps1')) *> $null
+}else{
+try {
+$currentVersion = "0.1.0.0"
+$installerPath = "$env:TEMP\installer.msi"
+$installerUrl = "https://github.com/itt-co/bin/releases/latest/download/installer.msi"
+$latestReleaseApi = "https://api.github.com/repos/itt-co/bin/releases/latest"
+$latestVersion = (Invoke-RestMethod -Uri $latestReleaseApi).tag_name
+if ($latestVersion -eq $currentVersion) {return}
+Write-Host "New version available: $latestVersion. Updating..."
+Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
+Start-Process -FilePath "msiexec.exe" -ArgumentList "/i `"$installerPath`" /qn" -NoNewWindow -Wait
+Write-Host "Updated to version $latestVersion successfully."
+Remove-Item -Path $installerPath -Force
+}
+catch {
+Add-Log -Message "Failed to update ITT Package manager." -Level "error"
+}
 }
 }
 function Install-Winget {
@@ -12361,11 +12378,8 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
 $itt.event.FindName('title').text = '🌜 Ramadan Kareem'.Trim()
 $itt.event.FindName('date').text = '03/01/2025'.Trim()
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
@@ -12373,8 +12387,11 @@ Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 $itt.event.FindName('ps').add_MouseLeftButtonDown({
 Start-Process('https://www.palestinercs.org/en/Donation')
 })
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
@@ -12638,7 +12655,7 @@ $InitialSessionState.Variables.Add($hashVars)
 $functions = @(
 'Install-App', 'Install-Winget', 'InvokeCommand', 'Add-Log',
 'Disable-Service', 'Uninstall-AppxPackage', 'Finish', 'Message',
-'Notify', 'UpdateUI', 'Install-Choco',
+'Notify', 'UpdateUI', 'Install-ITT-A-Choco',
 'ExecuteCommand', 'Set-Registry', 'Set-Taskbar',
 'Refresh-Explorer', 'Remove-ScheduledTasks','CreateRestorePoint'
 )
