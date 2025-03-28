@@ -16,7 +16,7 @@
 
 ITT (Install Tweaks Tool) included all Windows 10/11 Software and Windows Tweaks & Remove Bloatwares & Windows activation
 
-![Endpoint Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fittools-7d9fe-default-rtdb.firebaseio.com%2F.json)
+![Endpoint Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fittools-7d9fe-default-rtdb.firebaseio.com%2Fmessage.json)
 ![Latest update](https://img.shields.io/badge/Latest%20update-03/29/2025-blue)
 ![MIT License](https://img.shields.io/badge/License-MIT-green.svg)
 [![itt Community](https://img.shields.io/badge/ITT%20Community-Join%20Chat-26A5E4?logo=telegram)](https://t.me/ittcommunity)
