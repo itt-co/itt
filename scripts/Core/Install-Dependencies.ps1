@@ -24,7 +24,7 @@ function Install-ITTAChoco {
             if ($latestVersion -eq $currentVersion) {return}
             Write-Host "New version available: $latestVersion. Updating..."
             Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
-            Start-Process -FilePath "msiexec.exe" -ArgumentList "/i `"$installerPath`" /qn" -NoNewWindow -Wait
+            Start-Process msiexec.exe -ArgumentList "/i `"$installerPath`" /q" -NoNewWindow -Wait
             Write-Host "Updated to version $latestVersion successfully."
             Remove-Item -Path $installerPath -Force
         }
