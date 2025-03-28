@@ -6985,7 +6985,7 @@ Add-Log -Message "Package not found in any repository" -Level "ERROR"
 }
 }
 }
-function Install-ITT-A-Choco {
+function Install-ITTAChoco {
 if (-not (Get-Command choco -ErrorAction SilentlyContinue))
 {
 Add-Log -Message "Checking dependencies This won't take a minute..." -Level "INFO"
@@ -6994,7 +6994,9 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 if (-not (Get-Command itt -ErrorAction SilentlyContinue))
 {
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/itt-co/bin/refs/heads/main/install.ps1')) *> $null
-}else{
+}
+else
+{
 try {
 $currentVersion = "0.1"
 $installerPath = "$env:TEMP\installer.msi"
