@@ -6,7 +6,7 @@
 
 ![itt.xName:ps [https://www.palestinercs.org/en/Donation]](https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/ps_flag.jpg)
 
-#### Keep interrupting, keep raising your voice, keep exposing the injustice. Do not let attempts to silence you deter you—truth is stronger than any wall of silence they try to build. Your voice is part of the struggle, and your words carry undeniable power. Freedom does not come through silence but through resistance, awareness, and unwavering determination.
+#### Keep boycotting, keep raising your voice, keep exposing the injustice. Do not let attempts to silence you deter you—truth is stronger than any wall of silence they try to build. Your voice is part of the struggle, and your words carry undeniable power. Freedom does not come through silence but through resistance, awareness, and unwavering determination.
 
 #### استمر في المقاطعة، استمر في رفع الصوت، استمر في فضح الظلم. لا تجعل محاولات تكميم الأفواه تردعك، فالحقيقة أقوى من أي جدار صمت يحاولون بناءه. صوتك هو جزء من النضال، وكلمتك تحمل قوة لا يستهان بها. الحرية لا تأتي بالصمت، بل بالمواجهة، بالوعي، وبإصرار لا ينكسر.
 
