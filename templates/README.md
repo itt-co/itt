@@ -59,8 +59,8 @@ ITT (Install Tweaks Tool) included all Windows 10/11 Software and Windows Tweaks
 </ol>
 
 > [!CAUTION]  
-> **LAUNCH THE SCRIPT USING OFFICIAL COMMANDS ONLY.**  
-> **IT'S NOT PORTABLE, SO DO NOT DOWNLOAD IT ELSEWHERE.**
+> **LAUNCH THE SCRIPT FROM THIS REPOSITORY ONLY.**  
+> **IT'S NOT PORTABLE, SO DO NOT DOWNLOAD OR LAUNCH IT ELSEWHERE.**
 
 <pre><code>irm bit.ly/ittea | iex</code></pre>
 <pre><code>irm kutt.it/ea | iex</code></pre>
@@ -216,6 +216,8 @@ Other way to support (Boycott)
 
 <h3 align="center">
   If you can't lift the injustice, at least tell everyone about it.
+  
+  إذا لم تستطع رفع الظلم، فعلى الأقل أخبر الجميع عنه.
 </h3>
 
 <h2>🔑 Keywords</h2>
