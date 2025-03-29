@@ -10,15 +10,14 @@
 
 <img src="https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Images/text_logo.png" width="150px" align="center" style="margin-Right: 15px; border-radius: 15px;">
 
-# Install Tweaks Tool
-
-
+## `Install Tweaks Tool`
 
 ITT (Install Tweaks Tool) included all Windows 10/11 Software and Windows Tweaks & Remove Bloatwares & Windows activation
 
-![Endpoint Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fittools-7d9fe-default-rtdb.firebaseio.com%2Fmessage.json)
 ![Latest update](https://img.shields.io/badge/Latest%20update-03/29/2025-blue)
+![Endpoint Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fittools-7d9fe-default-rtdb.firebaseio.com%2Fmessage.json)
 ![MIT License](https://img.shields.io/badge/License-MIT-green.svg)
+
 [![itt Community](https://img.shields.io/badge/ITT%20Community-Join%20Chat-26A5E4?logo=telegram)](https://t.me/ittcommunity)
 [![Discord](https://img.shields.io/badge/Discord-Join%20Server-5865F2?logo=discord&logoColor=white)](https://discord.gg/PW3gc57U)
 
@@ -60,8 +59,8 @@ ITT (Install Tweaks Tool) included all Windows 10/11 Software and Windows Tweaks
 </ol>
 
 > [!CAUTION]  
-> Run the script using official commands from this repository. 
-> It's not a portable script, so avoid download it from any sites.
+> **LAUNCH THE SCRIPT USING OFFICIAL COMMANDS ONLY.**  
+> **IT'S NOT PORTABLE, SO DO NOT DOWNLOAD IT ELSEWHERE.**
 
 <pre><code>irm bit.ly/ittea | iex</code></pre>
 <pre><code>irm kutt.it/ea | iex</code></pre>
