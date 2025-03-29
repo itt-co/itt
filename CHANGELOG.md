@@ -1,6 +1,14 @@
-###### 03/01/2025
+###### 04/01/2025
 
-## 🌜 Ramadan Kareem
+## ℹ️ Changelog
+
+##### ✊ Support Palestine - دعم فلسطين
+
+![itt.xName:ps [https://www.palestinercs.org/en/Donation]](https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/ps_flag.jpg)
+
+#### Keep boycotting, keep raising your voice, keep exposing the injustice. Do not let attempts to silence you deter you—truth is stronger than any wall of silence they try to build. Your voice is part of the struggle, and your words carry undeniable power. Freedom does not come through silence but through resistance, awareness, and unwavering determination.
+
+#### استمر في المقاطعة، استمر في رفع الصوت، استمر في فضح الظلم. لا تجعل محاولات تكميم الأفواه تردعك، فالحقيقة أقوى من أي جدار صمت يحاولون بناءه. صوتك هو جزء من النضال، وكلمتك تحمل قوة لا يستهان بها. الحرية لا تأتي بالصمت، بل بالمواجهة، بالوعي، وبإصرار لا ينكسر.
 
 ### 🎬 Watch demo
 
@@ -42,11 +50,3 @@
 ![itt.xName:esg [https://github.com/emadadel4/itt]](https://github.com/user-attachments/assets/edb67270-d9d2-4e94-8873-1c822c3afe2f)
 
 #### Can You Find the Hidden Easter Egg? Open the source code and uncover the secret features waiting for you!
-
-##### ✊ Support Palestine - دعم فلسطين
-
-![itt.xName:ps [https://www.palestinercs.org/en/Donation]](https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/ps_flag.jpg)
-
-#### Do not hesitate to speak up and join the conversation about Palestine. In this age, each of us has a role in raising awareness. Every post or message can inspire or educate others. Do not fear expressing yourself, as words are a powerful force to change reality. Make your platforms space for dialogue and contribute to creating change. Together, we raise the voices of the oppressed and work toward global justice. Let us unite for Palestine and restore hope to those who need it.
-
-#### لا تتردد في قول كلمتك، وشارك في الحديث عن فلسطين في هذا العصر، لكل منا دور في نشر الوعي. كل منشور أو رسالة قد يلهم أو يثقف الآخرين. لا تخف من التعبير، فالكلمات قوة لتغيير الواقع. اجعل منصاتك مساحة للحوار وشارك في صنع التغيير. معًا، نرفع أصوات المظلومين ونعمل من أجل عدالة عالمية. لنتحد من أجل فلسطين ونعيد الأمل لمن يحتاجونه
