@@ -100,7 +100,7 @@ function Startup {
             } while ($true)
         }
  
-        function NewUser {
+        function Usage {
 
             # Fetch current count from Firebase as a string
             $currentCount = Invoke-RestMethod -Uri $UsersCount -Method Get
@@ -112,24 +112,7 @@ function Startup {
             Invoke-RestMethod -Uri $UsersCount -Method Put -Body ($Runs | ConvertTo-Json -Compress) -Headers @{ "Content-Type" = "application/json" }
         
             # Output success
-            Telegram -Message "🎉New User`n🌐 Language: $($itt.Language)`n🖥 Total devices: $(GetCount)"
-        }
-        
-        function Welcome {
-            
-            $currentValue = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction Stop).Runs
-        
-            # Increment value but keep it as a string
-            $newValue = ([int]$currentValue + 1).ToString()
-        
-            # Set the new value in the registry as a string
-            Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value $newValue -Force
-        
-            # Check if it's the first run
-            if ($newValue -eq "1") { NewUser }
-        
-            # Display usage message
-            Write-Host "`n  ITT has been used on $(GetCount) devices worldwide.`n" -ForegroundColor White
+            Telegram -Message "🖥 Usage $($Runs)"
         }
  
         function LOG {
@@ -140,7 +123,8 @@ function Startup {
             Write-Host "  ██║  ██║ Adel ██║    "
             Write-Host "  ██║  ██║      ██║    "
             Write-Host "  ╚═╝  ╚═╝      ╚═╝    "
-            Welcome
+            Usage
+            Write-Host "`n  ITT has been used on $(GetCount) devices worldwide.`n" -ForegroundColor White
         }
         # debug start
         if ($Debug) { return }
