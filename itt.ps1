@@ -7314,11 +7314,11 @@ Start-Sleep 20
 }
 } while ($true)
 }
-function Usage {
+function UsageCount {
 $currentCount = Invoke-RestMethod -Uri $UsersCount -Method Get
 $Runs = ([int]$currentCount + 1).ToString()
 Invoke-RestMethod -Uri $UsersCount -Method Put -Body ($Runs | ConvertTo-Json -Compress) -Headers @{ "Content-Type" = "application/json" }
-Telegram -Message "🖥 Usage $($Runs)"
+Telegram -Message "$($Runs)"
 }
 function LOG {
 Write-Host "  `n` "
@@ -7328,7 +7328,7 @@ Write-Host "  ██║  ██║ Emad ██║    https://github.com/emadadel
 Write-Host "  ██║  ██║ Adel ██║    "
 Write-Host "  ██║  ██║      ██║    "
 Write-Host "  ╚═╝  ╚═╝      ╚═╝    "
-Usage
+UsageCount
 Write-Host "`n  ITT has been used on $(GetCount) devices worldwide.`n" -ForegroundColor White
 }
 LOG
