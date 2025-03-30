@@ -4,28 +4,20 @@
 $MainXaml.SelectNodes("//*[@Name]") | ForEach-Object {
     $name = $_.Name
     $element = $itt["window"].FindName($name)
+
     if ($element) {
         $itt[$name] = $element
-        # Add event handlers based on element type
-        switch ($element.GetType().Name) {
-            "Button" {
-                $element.Add_Click({ Invoke-Button $args[0].Name $args[0].Content })
-            }
-            "MenuItem" {
-                $element.Add_Click({ Invoke-Button $args[0].Name -Content $args[0].Header })
-            }
-            "TextBox" {
-                $element.Add_TextChanged({ Invoke-Button $args[0].Name $args[0].Text })
-            }
-            "ComboBox" {
-                $element.add_SelectionChanged({ Invoke-Button $args[0].Name $args[0].SelectedItem.Content })
-            }
-            "TabControl" {
-                $element.add_SelectionChanged({ Invoke-Button $args[0].Name $args[0].SelectedItem.Name })
-            }
+        $type = $element.GetType().Name
+
+        switch ($type) {
+            "Button" { $element.Add_Click({ Invoke-Button $this.Name $this.Content }) }
+            "MenuItem" { $element.Add_Click({ Invoke-Button $this.Name -Content $this.Header }) }
+            "TextBox" { $element.Add_TextChanged({ Invoke-Button $this.Name $this.Text }) }
+            "ComboBox" { $element.add_SelectionChanged({ Invoke-Button $this.Name $this.SelectedItem.Content }) }
+            "TabControl" { $element.add_SelectionChanged({ Invoke-Button $this.Name $this.SelectedItem.Name }) }
             "CheckBox" {
                 $element.IsChecked = Get-ToggleStatus -ToggleSwitch $name
-                $element.Add_Click({ Invoke-Toggle $args[0].Name })
+                $element.Add_Click({ Invoke-Toggle $this.Name })
             }
         }
     }
