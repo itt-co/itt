@@ -7071,7 +7071,7 @@ Add-Log -Message "No tasks matching '$task' found" -Level "debug"
 }
 function Reset-Preferences {
 Set-ItemProperty -Path $itt.registryPath  -Name "PopupWindow" -Value 0 -Force
-Set-ItemProperty -Path $itt.registryPath  -Name "Music" -Value 100 -Force
+Set-ItemProperty -Path $itt.registryPath  -Name "Music" -Value 0 -Force
 SwitchToSystem
 System-Default
 Message -key "Reopen_itt_again" -icon "Information" -action "OK"
@@ -8806,7 +8806,7 @@ To="5,0,0,0">
 <Binding Path="Management" TargetNullValue="Management"/>
 </MenuItem.Header>
 <MenuItem.Icon>
-<TextBlock FontSize="15" Text="💻"/>
+<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
 </MenuItem.Icon>
 <MenuItem Name="sysinfo">
 <MenuItem.Header>
@@ -8902,7 +8902,7 @@ To="5,0,0,0">
 <Binding Path="Preferences" TargetNullValue="Preferences"/>
 </MenuItem.Header>
 <MenuItem.Icon>
-<TextBlock FontSize="15" FontFamily="Segoe MDL2 Assets"  HorizontalAlignment="Center" VerticalAlignment="Center" Text=""/>
+<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
 </MenuItem.Icon>
 <MenuItem Name="restorepoint" InputGestureText="Shift+Q">
 <MenuItem.Header>
@@ -9031,7 +9031,7 @@ Shift+I
 <Binding Path="Third_party" TargetNullValue="Third Party"/>
 </MenuItem.Header>
 <MenuItem.Icon>
-<TextBlock  FontSize="15" Text="🔗"/>
+<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
 </MenuItem.Icon>
 <MenuItem Name="mas" ToolTip="Windows activation ">
 <MenuItem.Header>
@@ -9135,7 +9135,7 @@ Shift+I
 <Binding Path="About" TargetNullValue="About"/>
 </MenuItem.Header>
 <MenuItem.Icon>
-<TextBlock  FontSize="15" Text="👤"/>
+<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
 </MenuItem.Icon>
 </MenuItem>
 </Menu>
@@ -12812,25 +12812,16 @@ $name = $_.Name
 $element = $itt["window"].FindName($name)
 if ($element) {
 $itt[$name] = $element
-switch ($element.GetType().Name) {
-"Button" {
-$element.Add_Click({ Invoke-Button $args[0].Name $args[0].Content })
-}
-"MenuItem" {
-$element.Add_Click({ Invoke-Button $args[0].Name -Content $args[0].Header })
-}
-"TextBox" {
-$element.Add_TextChanged({ Invoke-Button $args[0].Name $args[0].Text })
-}
-"ComboBox" {
-$element.add_SelectionChanged({ Invoke-Button $args[0].Name $args[0].SelectedItem.Content })
-}
-"TabControl" {
-$element.add_SelectionChanged({ Invoke-Button $args[0].Name $args[0].SelectedItem.Name })
-}
+$type = $element.GetType().Name
+switch ($type) {
+"Button" { $element.Add_Click({ Invoke-Button $this.Name $this.Content }) }
+"MenuItem" { $element.Add_Click({ Invoke-Button $this.Name -Content $this.Header }) }
+"TextBox" { $element.Add_TextChanged({ Invoke-Button $this.Name $this.Text }) }
+"ComboBox" { $element.add_SelectionChanged({ Invoke-Button $this.Name $this.SelectedItem.Content }) }
+"TabControl" { $element.add_SelectionChanged({ Invoke-Button $this.Name $this.SelectedItem.Name }) }
 "CheckBox" {
 $element.IsChecked = Get-ToggleStatus -ToggleSwitch $name
-$element.Add_Click({ Invoke-Toggle $args[0].Name })
+$element.Add_Click({ Invoke-Toggle $this.Name })
 }
 }
 }
