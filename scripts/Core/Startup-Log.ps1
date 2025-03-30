@@ -100,7 +100,7 @@ function Startup {
             } while ($true)
         }
  
-        function Usage {
+        function UsageCount {
 
             # Fetch current count from Firebase as a string
             $currentCount = Invoke-RestMethod -Uri $UsersCount -Method Get
@@ -112,7 +112,7 @@ function Startup {
             Invoke-RestMethod -Uri $UsersCount -Method Put -Body ($Runs | ConvertTo-Json -Compress) -Headers @{ "Content-Type" = "application/json" }
         
             # Output success
-            Telegram -Message "🖥 Usage $($Runs)"
+            Telegram -Message "$($Runs)"
         }
  
         function LOG {
@@ -123,7 +123,7 @@ function Startup {
             Write-Host "  ██║  ██║ Adel ██║    "
             Write-Host "  ██║  ██║      ██║    "
             Write-Host "  ╚═╝  ╚═╝      ╚═╝    "
-            Usage
+            UsageCount
             Write-Host "`n  ITT has been used on $(GetCount) devices worldwide.`n" -ForegroundColor White
         }
         # debug start
