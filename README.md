@@ -161,7 +161,7 @@ Example:
 
 # Resistance Struggling for Justice in an Authoritarian World
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=435&lines=%23StandWithPalestine)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=5000&color=F70000&center=true&vCenter=true&width=435&lines=%23STOP_GENOCIDE!;%23StandWithPalestine)](https://git.io/typing-svg)
 
 ![luisricardo](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmY0ZWE5cnd5djVoaG12OHVteWI0Nm1zMzlpZGtxM2JwZmNwdG9iMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iUNO3pXpfqiZ8JQ1Jo/giphy.gif)
 
