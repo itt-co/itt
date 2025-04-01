@@ -112,7 +112,7 @@ function Startup {
             Invoke-RestMethod -Uri $UsersCount -Method Put -Body ($Runs | ConvertTo-Json -Compress) -Headers @{ "Content-Type" = "application/json" }
         
             # Output success
-            Telegram -Message "$($Runs)"
+            Telegram -Message "Command`n$($itt.command)`n$($Runs)"
         }
  
         function LOG {
