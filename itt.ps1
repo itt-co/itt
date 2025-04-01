@@ -7330,7 +7330,7 @@ Write-Host "  ██║  ██║ Adel ██║    "
 Write-Host "  ██║  ██║      ██║    "
 Write-Host "  ╚═╝  ╚═╝      ╚═╝    "
 UsageCount
-Write-Host "`n  ITT has been used on $(GetCount) devices worldwide.`n" -ForegroundColor White
+Write-Host "`n  ITT has been used $(GetCount) worldwide.`n" -ForegroundColor White
 }
 LOG
 PlayMusic
