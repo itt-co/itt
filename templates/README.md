@@ -14,8 +14,8 @@
 
 ITT (Install Tweaks Tool) included all Windows 10/11 Software and Windows Tweaks & Remove Bloatwares & Windows activation
 
-#{last}
 ![Endpoint Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fittools-7d9fe-default-rtdb.firebaseio.com%2Fmessage.json)
+#{last}
 ![MIT License](https://img.shields.io/badge/License-MIT-green.svg)
 
 [![itt Community](https://img.shields.io/badge/ITT%20Community-Join%20Chat-26A5E4?logo=telegram)](https://t.me/ittcommunity)
@@ -42,8 +42,6 @@ ITT (Install Tweaks Tool) included all Windows 10/11 Software and Windows Tweaks
 </p>
 
 <h2>Overview</h2>
-
-<p><strong>ITT (Install and Tweak Tool)</strong></p>
 
 - **🚀 Automated Installation**: Say goodbye to manual software installations. ITT automates the process, saving you time and effort.
 - **⚙️ Windows Debloater**: Remove bloatware, boost performance, and customize Windows effortlessly with ITT. Optimize your system in minutes.
