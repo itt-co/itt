@@ -23,7 +23,7 @@ $itt = [Hashtable]::Synchronized(@{
     PopupWindow    = "0"
     Language       = "default"
     ittDir         = "$env:ProgramData\itt\"
-
+    command        = "$($MyInvocation.MyCommand.Definition)"
 })
 
 # Ask user for administrator privileges if not already running as admin
