@@ -141,7 +141,7 @@ Example:
 
 <br>
 
-# You're not a developer? 🛠️
+# 🛠️ You're not a developer? 
 
 #### If you'd like to add an app, you can fill out the request form using the following link: [📝 Request Form](https://docs.google.com/forms/d/e/1FAIpQLSeT_hrvfesDE4hb8p9XyvLM4vAsXAYm1csOcmN_lCrQ4OsaUA/viewform?usp=dialog)
 
