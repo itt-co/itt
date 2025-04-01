@@ -14,8 +14,8 @@
 
 ITT (Install Tweaks Tool) included all Windows 10/11 Software and Windows Tweaks & Remove Bloatwares & Windows activation
 
-![Latest update](https://img.shields.io/badge/Latest%20update-04/01/2025-blue)
 ![Endpoint Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fittools-7d9fe-default-rtdb.firebaseio.com%2Fmessage.json)
+![Latest update](https://img.shields.io/badge/Latest%20update-04/01/2025-blue)
 ![MIT License](https://img.shields.io/badge/License-MIT-green.svg)
 
 [![itt Community](https://img.shields.io/badge/ITT%20Community-Join%20Chat-26A5E4?logo=telegram)](https://t.me/ittcommunity)
@@ -42,8 +42,6 @@ ITT (Install Tweaks Tool) included all Windows 10/11 Software and Windows Tweaks
 </p>
 
 <h2>Overview</h2>
-
-<p><strong>ITT (Install and Tweak Tool)</strong></p>
 
 - **🚀 Automated Installation**: Say goodbye to manual software installations. ITT automates the process, saving you time and effort.
 - **⚙️ Windows Debloater**: Remove bloatware, boost performance, and customize Windows effortlessly with ITT. Optimize your system in minutes.
@@ -223,4 +221,3 @@ Other way to support (Boycott)
 <h2>🔑 Keywords</h2>
 
 itt, Install Tweaks Tool, windows10debloater, windows11debloater, windows-optimization, Application Installation, System Optimization, Windows Tools, Automation, System Customization, Software Updates, Silent Installers, PowerShell Scripts, Developer Tools, Game-engine, godotengine, godot, Windows Applications, windows-tweaks, disable-windows-updates, Open-Source, activator-windows, windows-optimization-tool, tweaks, tweaker, Privacy, StandWithPalestine, Security, privacy-policy, fmhy, choco, winget, download, emadadel, emadadel4, Install Tweaks Tool, ITT, Tweaks Installer, Customization Tool, Windows Tweaks, System Tweaks, PC Optimization, Windows Tweaks Installer, Windows Optimization, Windows Customization Tool, System Utility for Windows, Performance Tweaks Windows, Registry Tweaks Windows, Linux Tweaks Installer, Mac OS Tweaks, System Optimization Tool, Multi-Platform Tweaks Tool, Cross-Platform System Tweaks, Open Source Tweaks Tool, GitHub Tweaks Project, Community Tweaks Installer
-
