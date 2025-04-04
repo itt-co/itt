@@ -10,22 +10,19 @@
 
 <img src="https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Images/text_logo.png" width="150px" align="center" style="margin-Right: 15px; border-radius: 15px;">
 
-## `Install Tweaks Tool`
+## Install Tweaks Tool
 
 ITT (Install Tweaks Tool) included all Windows 10/11 Software and Windows Tweaks & Remove Bloatwares & Windows activation
 
 ![Endpoint Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fittools-7d9fe-default-rtdb.firebaseio.com%2Fmessage.json)
 ![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Femadadel4%2Fitt%2F&countColor=%23263759&style=flat)
-![Latest update](https://img.shields.io/badge/Latest%20update-04/01/2025-blue)
+![Latest update](https://img.shields.io/badge/Latest%20update-04/04/2025-blue)
 
 [![itt Community](https://img.shields.io/badge/Telegram%20-Join%20Community-26A5E4?logo=telegram)](https://t.me/ittcommunity)
-[![Discord](https://img.shields.io/badge/Discord-Join%20Community-5865F2?logo=discord&logoColor=white)](https://discord.gg/Twyz2Wd5fB)
+[![Discord](https://img.shields.io/badge/Discord-Join%20Community-5865F2?logo=discord&logoColor=white)](https://discord.gg/PW3gc57U)
 [![Reddit](https://img.shields.io/badge/Reddit-Join%20Community-FF4500?logo=reddit&logoColor=white)](https://www.reddit.com/r/ittea)
 
 [![Arabic](https://img.shields.io/badge/Arabic-red)](/locales/ar.csv) [![Gaeilge](https://img.shields.io/badge/Gaeilge-green)](/locales/ga.csv) [![French](https://img.shields.io/badge/French-blue)](/locales/fr.csv) [![Turkish](https://img.shields.io/badge/Turkish-red)](/locales/tr.csv) [![Chinese](https://img.shields.io/badge/Chinese-red)](/locales/zh.csv) [![Korean](https://img.shields.io/badge/Korean-white)](/locales/ko.csv) [![German](https://img.shields.io/badge/German-red)](/locales/de.csv) [![Russian](https://img.shields.io/badge/Russian-blue)](/locales/ru.csv) [![Spanish](https://img.shields.io/badge/Spanish-red)](/locales/es.csv) [![Italian](https://img.shields.io/badge/Italian-green)](/locales/it.csv) [![Hindi](https://img.shields.io/badge/Hindi-orange)](/locales/hi.csv) [![Add your language](https://img.shields.io/badge/Add%20your%20language-white)](https://docs.google.com/spreadsheets/d/1Muy7iJbRm-7YpJKyS5lzP_v12TrCqlxr8_MY9iTnt-0/edit?usp=sharing)
-
-
-
 
 ###### 🖥️ 406 Apps • ⚙️ 49 Tweaks • 🔧 14 Settings • 💬 109 Quote • 🎵 28 Soundtrack • 🌐 12 Localization
 
@@ -58,13 +55,13 @@ ITT (Install Tweaks Tool) included all Windows 10/11 Software and Windows Tweaks
 </ol>
 
 > [!CAUTION]  
-> **LAUNCH THE SCRIPT FROM THIS REPOSITORY ONLY.**  
-> **IT'S NOT PORTABLE, SO DO NOT DOWNLOAD OR LAUNCH IT ELSEWHERE.**
+> **LAUNCH THE SCRIPT ONLY USING OFFICIAL COMMANDS FROM THIS REPOSITORY.**  
+> **IT'S NOT PORTABLE, SO DO NOT DOWNLOAD OR RUN IT ELSEWHERE.**
 
 <pre><code>irm bit.ly/ittea | iex</code></pre>
-<pre><code>irm kutt.it/ea | iex</code></pre>
-<pre><code>irm bit.ly/emadadel | iex</code></pre>
 <pre><code>irm cutt.ly/ittea | iex</code></pre>
+> [!NOTE]  
+> `cutt.ly` `bit.ly` Those short links direct to the `itt.ps1` file in this repository. You can test them in browser.
  <p>If the URL is blocked in your region try:</p>
 <pre><code>irm emadadel4.github.io/itt.ps1 | iex</code></pre>
 <pre><code>irm raw.githubusercontent.com/emadadel4/ITT/main/itt.ps1 | iex</code></pre>
@@ -168,9 +165,6 @@ Example:
 
 Don’t hesitate to speak up and join the conversation about Palestine. In this age, each of us has a role in raising awareness. Every post or message can inspire or educate others. Don’t fear expressing yourself, as words are a powerful force to change reality. Make your platforms spaces for dialogue and contribute to creating change. Together, we raise the voices of the oppressed and work toward global justice. Let’s unite for Palestine and restore hope to those who need it.
 
- لا تتردد في قول كلمتك، وشارك في الحديث عن فلسطين
-في هذا العصر، لكل منا دور في نشر الوعي. كل منشور أو رسالة قد يلهم أو يثقف الآخرين. لا تخف من التعبير، فالكلمات قوة لتغيير الواقع. اجعل منصاتك مساحة للحوار وشارك في صنع التغيير. معًا، نرفع أصوات المظلومين ونعمل من أجل عدالة عالمية. لنتحد من أجل فلسطين ونعيد الأمل لمن يحتاجونه
-
 <a href="https://www.palestinercs.org/en/Donation" target="blank">
 Donate to the Palestinian Red Crescent
 </a>
@@ -190,20 +184,11 @@ Other way to support (Boycott)
     <a href="https://www.youtube.com/watch?v=kx5kanvn_ug" target="blank">
       <img src="https://img.youtube.com/vi/kx5kanvn_ug/0.jpg" alt="Play Video" style="width: 200px;">
     </a>
-    <a href="https://youtu.be/uPQ9aS5rNd4" target="blank">
-      <img src="https://img.youtube.com/vi/uPQ9aS5rNd4/0.jpg" alt="Play Video" style="width: 200px;">
-    </a>
     <a href="https://youtu.be/GTvsWLVC9QU" target="blank">
       <img src="https://img.youtube.com/vi/GTvsWLVC9QU/0.jpg" alt="Play Video" style="width: 200px;">
     </a>
     <a href="https://youtu.be/mF6B5UVupyA?list=LL" target="blank">
       <img src="https://img.youtube.com/vi/mF6B5UVupyA/0.jpg" alt="Play Video" style="width: 200px;">
-    </a>
-    <a href="https://youtu.be/2klwFNhs1rc" target="blank">
-      <img src="https://img.youtube.com/vi/2klwFNhs1rc/0.jpg" alt="Play Video" style="width: 200px;">
-    </a>
-    <a href="https://youtu.be/7AS6v3hC86Q" target="blank">
-      <img src="https://img.youtube.com/vi/7AS6v3hC86Q/0.jpg" alt="Play Video" style="width: 200px;">
     </a>
   </div>
 </div>
@@ -219,6 +204,3 @@ Other way to support (Boycott)
   إذا لم تستطع رفع الظلم، فعلى الأقل أخبر الجميع عنه.
 </h3>
 
-<h2>🔑 Keywords</h2>
-
-itt, Install Tweaks Tool, windows10debloater, windows11debloater, windows-optimization, Application Installation, System Optimization, Windows Tools, Automation, System Customization, Software Updates, Silent Installers, PowerShell Scripts, Developer Tools, Game-engine, godotengine, godot, Windows Applications, windows-tweaks, disable-windows-updates, Open-Source, activator-windows, windows-optimization-tool, tweaks, tweaker, Privacy, StandWithPalestine, Security, privacy-policy, fmhy, choco, winget, download, emadadel, emadadel4, Install Tweaks Tool, ITT, Tweaks Installer, Customization Tool, Windows Tweaks, System Tweaks, PC Optimization, Windows Tweaks Installer, Windows Optimization, Windows Customization Tool, System Utility for Windows, Performance Tweaks Windows, Registry Tweaks Windows, Linux Tweaks Installer, Mac OS Tweaks, System Optimization Tool, Multi-Platform Tweaks Tool, Cross-Platform System Tweaks, Open Source Tweaks Tool, GitHub Tweaks Project, Community Tweaks Installer
