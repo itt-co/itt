@@ -2,12 +2,6 @@
 
 ## Changelog
 
-##### ✊ Support Palestine - دعم فلسطين
-
-![itt.xName:ps [https://www.palestinercs.org/en/Donation]](https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/ps_flag.jpg)
-
-#### Keep boycotting, keep raising your voice, keep exposing the injustice. Do not let attempts to silence you deter you—truth is stronger than any wall of silence they try to build. Your voice is part of the struggle, and your words carry undeniable power. Freedom does not come through silence but through resistance, awareness, and unwavering determination.
-
 ### 🎬 Watch demo
 
 ![itt.xName:ytv [https://www.youtube.com/watch?v=QmO82OTsU5c]](https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/thumbnail.jpg)
