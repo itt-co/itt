@@ -55,7 +55,6 @@ try {
         Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value 0 -Force
         Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -Force
         Set-ItemProperty -Path $itt.registryPath -Name "backup" -Value 0 -Force
-        Set-ItemProperty -Path $itt.registryPath -Name "Runs" -Value 0 -Force
     }
     try {
         # Attempt to get existing registry values
@@ -63,7 +62,6 @@ try {
         $itt.Locales = (Get-ItemProperty -Path $itt.registryPath -Name "locales" -ErrorAction Stop).locales
         $itt.Music = (Get-ItemProperty -Path $itt.registryPath -Name "Music" -ErrorAction Stop).Music
         $itt.PopupWindow = (Get-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -ErrorAction Stop).PopupWindow
-        $itt.Runs = (Get-ItemProperty -Path $itt.registryPath -Name "Runs" -ErrorAction Stop).Runs
         $itt.backup = (Get-ItemProperty -Path $itt.registryPath -Name "backup" -ErrorAction Stop).backup
     }
     catch {
@@ -75,7 +73,6 @@ try {
         New-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -PropertyType String -Force *> $Null
         New-ItemProperty -Path $itt.registryPath -Name "Music" -Value 0 -PropertyType DWORD -Force *> $Null
         New-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -PropertyType DWORD -Force *> $Null
-        New-ItemProperty -Path $itt.registryPath -Name "Runs" -Value 0 -PropertyType DWORD -Force *> $Null
         New-ItemProperty -Path $itt.registryPath -Name "backup" -Value 0 -PropertyType DWORD -Force *> $Null
     }
     #===========================================================================
