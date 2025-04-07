@@ -16,7 +16,7 @@ ITT (Install Tweaks Tool) included all Windows 10/11 Software and Windows Tweaks
 
 ![Endpoint Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fittools-7d9fe-default-rtdb.firebaseio.com%2Fmessage.json)
 ![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Femadadel4%2Fitt%2F&countColor=%23263759&style=flat)
-![Latest update](https://img.shields.io/badge/Latest%20update-04/07/2025-blue)
+![Latest update](https://img.shields.io/badge/Latest%20update-04/08/2025-blue)
 
 [![itt Community](https://img.shields.io/badge/Telegram%20-Join%20Community-26A5E4?logo=telegram)](https://t.me/ittcommunity)
 [![Discord](https://img.shields.io/badge/Discord-Join%20Community-5865F2?logo=discord&logoColor=white)](https://discord.gg/Twyz2Wd5fB)
@@ -24,7 +24,7 @@ ITT (Install Tweaks Tool) included all Windows 10/11 Software and Windows Tweaks
 
 [![Arabic](https://img.shields.io/badge/Arabic-red)](/locales/ar.csv) [![Gaeilge](https://img.shields.io/badge/Gaeilge-green)](/locales/ga.csv) [![French](https://img.shields.io/badge/French-blue)](/locales/fr.csv) [![Turkish](https://img.shields.io/badge/Turkish-red)](/locales/tr.csv) [![Chinese](https://img.shields.io/badge/Chinese-red)](/locales/zh.csv) [![Korean](https://img.shields.io/badge/Korean-white)](/locales/ko.csv) [![German](https://img.shields.io/badge/German-red)](/locales/de.csv) [![Russian](https://img.shields.io/badge/Russian-blue)](/locales/ru.csv) [![Spanish](https://img.shields.io/badge/Spanish-red)](/locales/es.csv) [![Italian](https://img.shields.io/badge/Italian-green)](/locales/it.csv) [![Hindi](https://img.shields.io/badge/Hindi-orange)](/locales/hi.csv) [![Add your language](https://img.shields.io/badge/Add%20your%20language-white)](https://docs.google.com/spreadsheets/d/1Muy7iJbRm-7YpJKyS5lzP_v12TrCqlxr8_MY9iTnt-0/edit?usp=sharing)
 
-###### 🖥️ 406 Apps • ⚙️ 49 Tweaks • 🔧 14 Settings • 💬 109 Quote • 🎵 28 Soundtrack • 🌐 12 Localization
+###### 🖥️ 406 Apps • ⚙️ 49 Tweaks • 🔧 14 Settings • 💬 110 Quote • 🎵 28 Soundtrack • 🌐 12 Localization
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&center=true&vCenter=true&repeat=false&width=435&lines=Launch+Anytime+Anywhere!)](https://git.io/typing-svg)
 
