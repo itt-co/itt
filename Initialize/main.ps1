@@ -82,8 +82,5 @@ $itt.runspace.Close()
 $script:powershell.Dispose()
 $script:powershell.Stop()
 
-# Wait for new process to exit
-$newProcess.Exit
-
 # Stop transcript logging
 Stop-Transcript *> $null
