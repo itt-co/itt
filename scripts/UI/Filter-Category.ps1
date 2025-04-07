@@ -76,10 +76,3 @@ function FilterByCat {
         $itt.AppsListView.ScrollIntoView($listView.Items[0])
     }
 }
-
-function ClearFilter {
-
-    $itt.AppsListView.Clear()
-    $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.AppsListView.Items)
-    $collectionView.Filter = $null
-}
