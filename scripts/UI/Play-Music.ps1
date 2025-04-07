@@ -19,10 +19,14 @@ function Manage-Music {
             $itt["window"].title = "Install Tweaks Tool " + @("🔊", "🔈")[$volume -eq 0]
         }
         "StopAll" {
-            $itt.mediaPlayer.controls.stop(); $itt.mediaPlayer = $null
-            $itt.runspace.Dispose(); $itt.runspace.Close()
-            $script:powershell.Dispose(); $script:powershell.Stop()
-            $newProcess.exit; [System.GC]::Collect()
+            $itt.mediaPlayer.controls.stop() 
+            $itt.mediaPlayer = $null
+            $itt.runspace.Dispose()
+            $itt.runspace.Close()
+            $script:powershell.Dispose()
+            $script:powershell.Stop()
+            [System.GC]::Collect()
+            [System.GC]::WaitForPendingFinalizers()
         }
         default { Write-Host "Invalid action. Use 'SetVolume' or 'StopAll'." }
     }
