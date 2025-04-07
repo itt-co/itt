@@ -1,5 +1,7 @@
 param (
     [string]$OutputScript = "itt.ps1",
+    [switch]$Realsee,
+    [switch]$Debug,
     [string]$readme = "README.md",
     [string]$Assets = ".\static",
     [string]$Controls = ".\xaml\Controls",
@@ -10,18 +12,19 @@ param (
     [string]$windows = ".\xaml\Views",
     [string]$LoadXamlScript = ".\Initialize\xaml.ps1",
     [string]$Themes = "themes",
-    [switch]$Debug,
-    [switch]$Realsee,
     [string]$ProjectDir = $PSScriptRoot,
-    [string]$localNodePath = "CHANGELOG.md",
-    [string]$NoteUrl = "https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/CHANGELOG.md"
+    [string]$Changlog = "CHANGELOG.md",
+    [string]$ChanglogUrl = "https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/CHANGELOG.md"
 )
 
 try {
     if (Test-Path -Path $OutputScript) {Remove-Item -Path $OutputScript -Force}
+    # Wait until to remove old file
+    Start-Sleep -Seconds 0.1
 }
 catch {
     Write-Host $psitem.Exception.Message
+    break
 }
 
 # Initializeialize synchronized hashtable
@@ -40,7 +43,6 @@ function WriteToScript {
 
         if($Realsee)
         {
-
             $Content = $Content.Trim()
             $Content = $Content -replace '(#\s*debug start[\s\S]*?#\s*debug end)', ''
             $Content = $Content -replace '<#[\s\S]*?#>', ''
@@ -107,19 +109,20 @@ function ProcessDirectory {
         Get-ChildItem $Directory -Recurse -File | ForEach-Object {
         
             if ($Skip -contains $_.Name) {
-                Write-Host "[+] Skip $($_.Name) from ProcessDirectory." -ForegroundColor Yellow
+                Write-Host "[-] Skip $($_.Name) from ProcessDirectory." -ForegroundColor Yellow
                 return
             }
     
             if ($_.DirectoryName -ne $Directory) {
                 AddFileContentToScript -FilePath $_.FullName
-                #Write-Host "[+] Successfully $($_.Name) in final output." -ForegroundColor Yellow    
+                #Write-Host "[-] Successfully $($_.Name) in final output." -ForegroundColor Yellow    
             }
         }
     }
     catch {
         Write-Host "[!] Failed to add '$($_.Name)' to the final output." -ForegroundColor Red
         Write-Host "Error: $_" -ForegroundColor Red
+        break
     }
 }
 # Generate Checkboxex apps/tewaks/settings
@@ -179,7 +182,7 @@ function Sync-JsonFiles {
 
 
         if ($Skip -contains $_.Name) {
-            Write-Host "[+] Skip $($_.Name) from ProcessDirectory." -ForegroundColor Yellow
+            Write-Host "[-] Skip $($_.Name) from ProcessDirectory." -ForegroundColor Yellow
             return
         }
 
@@ -476,6 +479,7 @@ function GenerateClickEventHandlers {
     }
     catch {
         Write-Host $_.Exception.Message # Capture the error message
+        break
     }
 }
 # Generate GenerateInvokeButtons
@@ -524,6 +528,7 @@ function GenerateInvokeButtons {
     }
     catch {
         Write-Host $_.Exception.Message 
+        break
     }
 }
 # Generate Locales
@@ -666,6 +671,7 @@ try {
     }
     catch {
         Write-Error "An error occurred while processing the XAML content: $($_.Exception.Message)"
+        break
     }
     $AppsCheckboxes = GenerateCheckboxes -Items $itt.database.Applications -ContentField "Name" -TagField "Category" -IsCheckedField "check" -TipsField "show"
     $TweaksCheckboxes = GenerateCheckboxes -Items $itt.database.Tweaks -ContentField "Name" -TagField "Category" -IsCheckedField "check"
@@ -702,6 +708,7 @@ try {
     }
     catch {
         Write-Error "Error: $($_.Exception.Message)"
+        break
     }
 
     $AboutWindowXamlContent = $AboutWindowXamlContent -replace "#{names}", (NewCONTRIBUTOR)
@@ -726,7 +733,7 @@ try {
     try {
         $EventWindowXamlContent = (Get-Content -Path $FilePaths["event"] -Raw) -replace "'", "''"
         # debug offline local file
-        $textContent = Get-Content -Path $localNodePath -Raw
+        $textContent = Get-Content -Path $Changlog -Raw
         $xamlContent = ConvertTo-Xaml -text $textContent
         GenerateClickEventHandlers
         $EventWindowXamlContent = $EventWindowXamlContent -replace "UpdateContent", $xamlContent
@@ -734,6 +741,7 @@ try {
     }
     catch {
         Write-Error "Error: $($_.Exception.Message)"
+        break
     }
     WriteToScript -Content @"
 #===========================================================================
@@ -781,9 +789,11 @@ try {
     }
     catch {
         Write-Error "An error occurred: $_"
+        break
     }
 
 }
 catch {
     Write-Error "An error occurred: $_"
+    break
 }
