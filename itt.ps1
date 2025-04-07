@@ -5,7 +5,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "04/07/2025"
+lastupdate     = "04/08/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -8859,7 +8859,7 @@ To="5,0,0,0">
 <Binding Path="Apps_features" TargetNullValue="Programs and Features" />
 </MenuItem.Header>
 <MenuItem.Icon>
-<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
 </MenuItem.Icon>
 </MenuItem>
 <MenuItem Name="taskmgr">
@@ -8899,7 +8899,7 @@ To="5,0,0,0">
 <Binding Path="System_Protection" TargetNullValue="System Protection" />
 </MenuItem.Header>
 <MenuItem.Icon>
-<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text="&#xE81E;"/>
+<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
 </MenuItem.Icon>
 </MenuItem>
 </MenuItem>
@@ -9102,37 +9102,37 @@ Shift+I
 </MenuItem>
 <MenuItem Name="sordum" ToolTip="Collection of free utilities designed to enhance or control various aspects of the Windows operating system" Header="Sordum tools">
 <MenuItem.Icon>
-<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
 </MenuItem.Icon>
 </MenuItem>
 <MenuItem Name="techpowerup" Header="TechPowerUp" ToolTip="Collection of free TechPowerUp utilities.">
 <MenuItem.Icon>
-<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
 </MenuItem.Icon>
 </MenuItem>
 <MenuItem Name="majorgeeks" ToolTip="website that provides trusted, safe, and curated software downloads for Windows users. It focuses on high-quality tools." Header="Major Geeks">
 <MenuItem.Icon>
-<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
 </MenuItem.Icon>
 </MenuItem>
 <MenuItem Name="webtor" ToolTip="Web-based platform that allows users to stream torrent files directly in their browser without needing to download them." Header="Webtor">
 <MenuItem.Icon>
-<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
 </MenuItem.Icon>
 </MenuItem>
 <MenuItem Name="fmhy" ToolTip="The largest collection of free stuff on the internet!" Header="fmhy">
 <MenuItem.Icon>
-<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
 </MenuItem.Icon>
 </MenuItem>
 <MenuItem Name="rapidos" ToolTip="RapidOS is a powerful modification for Windows 10 and 11 that significantly boosts performance." Header="RapidOS">
 <MenuItem.Icon>
-<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
 </MenuItem.Icon>
 </MenuItem>
 <MenuItem Name="asustool" ToolTip="Tool that manages the setup installation for the legacy Aura Sync, LiveDash, AiSuite3" Header="ASUS Setup Tool">
 <MenuItem.Icon>
-<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
 </MenuItem.Icon>
 </MenuItem>
 </MenuItem>
@@ -12377,20 +12377,20 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '04/01/2025'.Trim()
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
 $daysElapsed = (Get-Date) - $storedDate
