@@ -5,7 +5,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "04/05/2025"
+lastupdate     = "04/07/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -17,7 +17,7 @@ ittDir         = "$env:ProgramData\itt\"
 command        = "$($MyInvocation.MyCommand.Definition)"
 })
 if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-$newProcess = Start-Process -FilePath "PowerShell" -ArgumentList "-ExecutionPolicy Bypass -NoProfile -Command `"$($MyInvocation.MyCommand.Definition)`"" -Verb RunAs
+Start-Process -FilePath "PowerShell" -ArgumentList "-ExecutionPolicy Bypass -NoProfile -Command `"$($MyInvocation.MyCommand.Definition)`"" -Verb RunAs
 exit
 }
 $itt.mediaPlayer = New-Object -ComObject WMPlayer.OCX
@@ -7974,11 +7974,6 @@ if ($listView.Items.Count -gt 0) {
 $itt.AppsListView.ScrollIntoView($listView.Items[0])
 }
 }
-function ClearFilter {
-$itt.AppsListView.Clear()
-$collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt.AppsListView.Items)
-$collectionView.Filter = $null
-}
 $KeyEvents = {
 if ($itt.ProcessRunning) { return }
 $modifiers = $_.KeyboardDevice.Modifiers
@@ -8066,10 +8061,14 @@ Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value "$volume" -Force
 $itt["window"].title = "Install Tweaks Tool " + @("🔊", "🔈")[$volume -eq 0]
 }
 "StopAll" {
-$itt.mediaPlayer.controls.stop(); $itt.mediaPlayer = $null
-$itt.runspace.Dispose(); $itt.runspace.Close()
-$script:powershell.Dispose(); $script:powershell.Stop()
-$newProcess.exit; [System.GC]::Collect()
+$itt.mediaPlayer.controls.stop()
+$itt.mediaPlayer = $null
+$itt.runspace.Dispose()
+$itt.runspace.Close()
+$script:powershell.Dispose()
+$script:powershell.Stop()
+[System.GC]::Collect()
+[System.GC]::WaitForPendingFinalizers()
 }
 default { Write-Host "Invalid action. Use 'SetVolume' or 'StopAll'." }
 }
@@ -12378,20 +12377,20 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '04/01/2025'.Trim()
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
-})
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
 $daysElapsed = (Get-Date) - $storedDate
@@ -12854,5 +12853,4 @@ $itt.runspace.Close()
 [System.GC]::WaitForPendingFinalizers()
 $script:powershell.Dispose()
 $script:powershell.Stop()
-$newProcess.Exit
 Stop-Transcript *> $null
