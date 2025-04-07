@@ -72,7 +72,7 @@
                     <Binding Path="Apps_features" TargetNullValue="Programs and Features" />
                 </MenuItem.Header>
                 <MenuItem.Icon>
-                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
 
@@ -118,7 +118,7 @@
                     <Binding Path="System_Protection" TargetNullValue="System Protection" />
                 </MenuItem.Header>
                 <MenuItem.Icon>
-                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text="&#xE81E;"/>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
 
@@ -349,43 +349,43 @@
 
             <MenuItem Name="sordum" ToolTip="Collection of free utilities designed to enhance or control various aspects of the Windows operating system" Header="Sordum tools">
                 <MenuItem.Icon>
-                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
 
             <MenuItem Name="techpowerup" Header="TechPowerUp" ToolTip="Collection of free TechPowerUp utilities.">
                 <MenuItem.Icon>
-                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
 
             <MenuItem Name="majorgeeks" ToolTip="website that provides trusted, safe, and curated software downloads for Windows users. It focuses on high-quality tools." Header="Major Geeks">
                 <MenuItem.Icon>
-                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
 
             <MenuItem Name="webtor" ToolTip="Web-based platform that allows users to stream torrent files directly in their browser without needing to download them." Header="Webtor">
                 <MenuItem.Icon>
-                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
 
             <MenuItem Name="fmhy" ToolTip="The largest collection of free stuff on the internet!" Header="fmhy">
                 <MenuItem.Icon>
-                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
 
             <MenuItem Name="rapidos" ToolTip="RapidOS is a powerful modification for Windows 10 and 11 that significantly boosts performance." Header="RapidOS">
                 <MenuItem.Icon>
-                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
 
             <MenuItem Name="asustool" ToolTip="Tool that manages the setup installation for the legacy Aura Sync, LiveDash, AiSuite3" Header="ASUS Setup Tool">
                 <MenuItem.Icon>
-                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
 
