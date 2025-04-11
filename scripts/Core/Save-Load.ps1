@@ -1,9 +1,3 @@
-# Function to get all CheckBoxes from a StackPanel
-function Get-CheckBoxes {
-    $item.Children[0].Children[0]
-    return $item
-}
-
 # Load JSON data and update the UI
 function Load-SavedFile {
 
@@ -48,25 +42,16 @@ function Load-SavedFile {
 
 # Save selected items to a JSON file
 function Save-File {
-
-    # Check if a process is running
-    if ($itt.ProcessRunning) {
-        Message -key "Please_wait" -icon "warning" -action "OK"
-        return
-    }
-
-    # Create a dictionary for faster lookups
-    $appsDictionary = $itt.database.Applications | ForEach-Object { @{ $_.Name = $_ } }
+    
+    $itt['window'].FindName("AppsCategory").SelectedIndex = 0
+    Show-Selected -ListView "AppsListView" -Mode "Filter"
 
     # Collect checked items
     $items = foreach ($item in $itt.AppsListView.Items) {
         
-        $MyApp = Get-CheckBoxes
-        
-        if ($MyApp.IsChecked -and $appsDictionary.ContainsKey($MyApp.Content)) {
+        if ($item.Children[0].Children[0].IsChecked) {
             [PSCustomObject]@{
-                Name  = $MyApp.Content
-                Check = "true"
+                Name  = $item.Children[0].Children[0].Content
             }
         }
     }
@@ -89,19 +74,9 @@ function Save-File {
             $items | ConvertTo-Json -Compress | Out-File -FilePath $saveFileDialog.FileName -Force
             Write-Host "Saved: $($saveFileDialog.FileName)"
             Message -NoneKey "Saved successfully" -icon "info" -action "OK"
-
-            # Uncheck all checkboxes
-            foreach ($item in $itt.AppsListView.Items) {
-
-                $item.Children[0].Children[0]
-
-                if ($item.IsChecked) {
-                    $item.IsChecked = $false
-                }
-            }
+            Show-Selected -ListView "AppsListView" -Mode "Default"
         }
         catch {
-            Write-Warning "Failed to save file: $_"
             Message -NoneKey "Failed to save file" -icon "error" -action "OK"
         }
     }
