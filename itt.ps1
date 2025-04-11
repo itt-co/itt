@@ -3660,7 +3660,10 @@ UpdateUI -Button "installBtn" -Content "Downloading" -Width "auto"
 $itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
 $itt.ProcessRunning = $true
 foreach ($App in $selectedApps) {
-$itt["window"].Dispatcher.Invoke([action] { $itt.Quotes.Text = "Downloading $($App.Name)"})
+$itt.Quotes.Dispatcher.Invoke([Action] {
+$itt.QuoteIcon.Text = "💬"
+$itt.Quotes.Text = "Downloading $($App.Name)"
+})
 $chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($App.Choco)"
 $ITTFolder = Join-Path $env:ProgramData "itt\downloads\$($App.ITT)"
 Remove-Item -Path "$chocoFolder" -Recurse -Force
