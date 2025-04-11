@@ -74,13 +74,14 @@ function Save-File {
             $items | ConvertTo-Json -Compress | Out-File -FilePath $saveFileDialog.FileName -Force
             Write-Host "Saved: $($saveFileDialog.FileName)"
             Message -NoneKey "Saved successfully" -icon "info" -action "OK"
-            Show-Selected -ListView "AppsListView" -Mode "Default"
         }
         catch {
             Message -NoneKey "Failed to save file" -icon "error" -action "OK"
         }
     }
 
+    # Uncheck checkboxex if user Cancel 
+    Show-Selected -ListView "AppsListView" -Mode "Default"
     # Clear search input
     $itt.Search_placeholder.Visibility = "Visible"
     $itt.SearchInput.Text = $null
