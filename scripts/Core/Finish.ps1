@@ -70,7 +70,7 @@ function Show-Selected {
             $collectionView.Filter = {
                 param ($item)
 
-                # Check if item is selected
+                # Uncheck all checkboxes
                 $item.Children[0].Children[0].IsChecked = $false
             }
 
