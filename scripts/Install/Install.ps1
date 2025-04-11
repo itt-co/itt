@@ -12,6 +12,12 @@ function Invoke-Install {
         6. Executes installation commands for applications using Chocolatey (`Choco`), Winget, or custom download methods.
         7. Updates the UI once the installation is complete and finishes the process.
     #>
+
+        
+    if ($itt.ProcessRunning) {
+        Message -key "Please_wait" -icon "Warning" -action "OK"
+        return
+    }
     
     # Clear Search QUery
     $itt.searchInput.text = $null
@@ -20,14 +26,9 @@ function Invoke-Install {
     # Get Selected apps
     $itt['window'].FindName("AppsCategory").SelectedIndex = 0
     $selectedApps = Get-SelectedItems -Mode "Apps"
-    
-    if ($itt.ProcessRunning) {
-        Message -key "Please_wait" -icon "Warning" -action "OK"
-        return
-    }
 
+    # Show only selected item
     if ($selectedApps.Count -gt 0) {
-        # Show only selected item
         Show-Selected -ListView "AppsListView" -Mode "Filter"
     }
     else {
