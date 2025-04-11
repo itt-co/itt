@@ -58,7 +58,7 @@ function Invoke-Install {
 
         foreach ($App in $selectedApps) {
 
-            $itt["window"].Dispatcher.Invoke([action] { $itt.Quotes.Text = "Downloading $($App.Name)..."})
+            $itt["window"].Dispatcher.Invoke([action] { $itt.Quotes.Text = "Downloading $($App.Name)"})
 
             # Some packages won't install until the package folder is removed.
             $chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($App.Choco)"
