@@ -198,7 +198,6 @@ function Sync-JsonFiles {
     )
     Get-ChildItem $DatabaseDirectory | Where-Object { $_.Extension -eq ".json" } | ForEach-Object {
 
-
         if ($Skip -contains $_.Name) {
             Write-Host "[-] Skip $($_.Name) from ProcessDirectory." -ForegroundColor Yellow
             return
@@ -206,12 +205,16 @@ function Sync-JsonFiles {
 
         # Get the content of the JSON file as raw text
         $json = Get-Content $_.FullName -Raw
+
         # Cache json file into $itt.database
         $itt.database.$($_.BaseName) = $json | ConvertFrom-Json
+
         # Prepare the output with the @' and '@ format
         $output = "`$itt.database.$($_.BaseName) = @'`n$json`n'@ | ConvertFrom-Json"
+
         # Write the output to the script file
-        Write-Output $output | Out-File $OutputScriptPath -Append -Encoding Default
+        #Write-Output $output | Out-File $OutputScriptPath -Append -Encoding Default
+        WriteToScript -Content $output = $OutputScriptPath
     }
 }
 # Update app tweaks etc count.. from README.MD
@@ -576,12 +579,15 @@ function Convert-Locales {
         }
     }
     # Convert the hashtable to JSON format and save it to the specified output path
-    $jsonOutput = $locales | ConvertTo-Json -Depth 10 -Compress
+    $jsonOutput = $locales | ConvertTo-Json -Compress
     # Read existing JSON content if the file exists
+
     $existingJsonOutput = if (Test-Path $jsonOutputPath) { Get-Content $jsonOutputPath -Raw } else { "" }
     # Normalize both JSON outputs for comparison
-    $jsonOutputNormalized = $jsonOutput | ConvertFrom-Json | ConvertTo-Json -Depth 10
-    $existingJsonOutputNormalized = $existingJsonOutput | ConvertFrom-Json | ConvertTo-Json -Depth 10
+
+    $jsonOutputNormalized = $jsonOutput | ConvertFrom-Json | ConvertTo-Json
+    $existingJsonOutputNormalized = $existingJsonOutput | ConvertFrom-Json | ConvertTo-Json 
+    
     # Write the JSON to the specified file only if it has changed
     if ($existingJsonOutputNormalized -ne $jsonOutputNormalized) {
         Set-Content -Path $jsonOutputPath -Value $jsonOutput -Encoding UTF8
@@ -631,7 +637,7 @@ try {
 #===========================================================================
 "@
     Convert-Locales
-    Sync-JsonFiles -DatabaseDirectory $DatabaseDirectory -OutputScriptPath $OutputScript -Skip @("OST.json", "Quotes.json","Applications.json")
+    Sync-JsonFiles -DatabaseDirectory $DatabaseDirectory -OutputScriptPath $OutputScript -Skip @("OST.json", "Quotes.json","Applications.json","Settings.json")
     WriteToScript -Content @"
 #===========================================================================
 #endregion End Database /APPS/TWEEAKS/Quotes/OST/Settings
