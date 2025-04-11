@@ -25,15 +25,18 @@ function Get-SelectedItems {
 
             foreach ($item in $itt.AppsListView.Items) {
                 
-                $child = $item.Children[0].Children[0]
+                $checkbox = $item.Children[0].Children[0]
+                $choco = $item.children[2].Text
+                $winget = $item.children[3].Text
+                $itt = $item.children[4].Text
 
-                if ($appsDict.ContainsKey($child.Content) -and $child.IsChecked) {
+                if ($checkbox.IsChecked) {
 
                     $items += @{
-                        Name    = $appsDict[$child.Content].Name
-                        Choco   = $appsDict[$child.Content].Choco
-                        Winget  = $appsDict[$child.Content].Winget
-                        ITT     = $appsDict[$child.Content].itt
+                        Name    = $checkbox.Content
+                        Choco   = $choco
+                        Winget  = $winget
+                        ITT     = $itt
                         # Add a new download mothed here
                     }
                 }
