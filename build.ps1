@@ -29,7 +29,13 @@ catch {
 
 # Initializeialize synchronized hashtable
 $itt = [Hashtable]::Synchronized(@{})
-$itt.database = @{}
+
+$itt.database = @{
+    Applications = (Get-Content -Path ./static/Database/Applications.json | ConvertFrom-Json)
+    Settings = (Get-Content -Path ./static/Database/Settings.json | ConvertFrom-Json)
+    Tweaks = (Get-Content -Path ./static/Database/Tweaks.json | ConvertFrom-Json)
+}
+
 $global:imageLinkMap = @{}
 $global:TitleContent = ""
 $global:DateContent = ""
@@ -128,7 +134,7 @@ function ProcessDirectory {
 # Generate Checkboxex apps/tewaks/settings
 function GenerateCheckboxes {
     param (
-        [array]$Items,
+        [array]$Database,
         [string]$ContentField,
         [string]$TagField = "",
         [string]$TipsField = "",
@@ -137,14 +143,21 @@ function GenerateCheckboxes {
         [string]$NameField = ""
     )
     Write-Host "[+] Generating Listview Checkboxes..." -ForegroundColor Yellow
+
+
     $Checkboxes = ""
-    foreach ($Item in $Items) {
+
+    foreach ($Item in $Database) {
 
         # Clean description and category to remove special characters
         $CleanedDescription = $Item.Description -replace '[^\w\s./]', ''
         $CleanedCategory = $Item.Category -replace '[^\w\s]', ''
         $CleanedName = $Item.Name -replace '[^a-zA-Z0-9]', ''
         $Content = $Item.$ContentField
+
+        $ChocoPkg = $Item.Choco
+        $WingetPkg = $Item.Winget
+        $ITTPkg = $Item.ITT
 
         # Optional attributes for CheckBox based on fields
         $Tag = if ($TagField) { "Tag=`"$($Item.$TagField)`"" } else { "" }
@@ -164,10 +177,15 @@ function GenerateCheckboxes {
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="$CleanedCategory"/>
             </StackPanel>
             <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="$CleanedDescription."/>
+            <TextBlock Text="$ChocoPkg" Visibility="Collapsed"/>
+            <TextBlock Text="$WingetPkg" Visibility="Collapsed"/>
+            <TextBlock Text="$ITTPkg" Visibility="Collapsed"/>
         </StackPanel>
 "@
     }
     return $Checkboxes
+
+
 }
 # Process each JSON file in the specified directory
 function Sync-JsonFiles {
@@ -613,7 +631,7 @@ try {
 #===========================================================================
 "@
     Convert-Locales
-    Sync-JsonFiles -DatabaseDirectory $DatabaseDirectory -OutputScriptPath $OutputScript -Skip @("OST.json", "Quotes.json")
+    Sync-JsonFiles -DatabaseDirectory $DatabaseDirectory -OutputScriptPath $OutputScript -Skip @("OST.json", "Quotes.json","Applications.json")
     WriteToScript -Content @"
 #===========================================================================
 #endregion End Database /APPS/TWEEAKS/Quotes/OST/Settings
@@ -673,9 +691,9 @@ try {
         Write-Error "An error occurred while processing the XAML content: $($_.Exception.Message)"
         break
     }
-    $AppsCheckboxes = GenerateCheckboxes -Items $itt.database.Applications -ContentField "Name" -TagField "Category" -IsCheckedField "check" -TipsField "show"
-    $TweaksCheckboxes = GenerateCheckboxes -Items $itt.database.Tweaks -ContentField "Name" -TagField "Category" -IsCheckedField "check"
-    $SettingsCheckboxes = GenerateCheckboxes -Items $itt.database.Settings -ContentField "Name" -NameField "Name" -ToggleField "Style=" { StaticResource ToggleSwitchStyle }""
+    $AppsCheckboxes = GenerateCheckboxes -Database $itt.database.Applications -ContentField "Name" -TagField "Category" -IsCheckedField "check" -TipsField "show"
+    $TweaksCheckboxes = GenerateCheckboxes -Database $itt.database.Tweaks -ContentField "Name" -TagField "Category" -IsCheckedField "check"
+    $SettingsCheckboxes = GenerateCheckboxes -Database $itt.database.Settings -ContentField "Name" -NameField "Name" -ToggleField "Style=" { StaticResource ToggleSwitchStyle }""
     $MainXamlContent = $MainXamlContent -replace "{{Apps}}", $AppsCheckboxes 
     $MainXamlContent = $MainXamlContent -replace "{{Tweaks}}", $TweaksCheckboxes 
     $MainXamlContent = $MainXamlContent -replace "{{Settings}}", $SettingsCheckboxes 
