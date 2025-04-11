@@ -14,9 +14,7 @@ function Get-SelectedItems {
         Retrieves and returns a list of selected applications from the `AppsListView`.
     #>
     
-    param (
-        [string]$Mode
-    )
+    param ([string]$Mode)
 
     switch ($Mode) {
         "Apps" {
@@ -66,9 +64,6 @@ function Get-SelectedItems {
                     }
                 }
             }
-        }
-        default {
-            Write-Error "Invalid Mode specified. Please choose 'Apps' or 'Tweaks'."
         }
     }
     return $items
