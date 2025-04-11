@@ -39,7 +39,7 @@
       VirtualizingStackPanel.VirtualizationMode="Recycling"
       VerticalAlignment="Center" 
       HorizontalAlignment="Center" 
-      Visibility="Hidden"
+      Visibility="Collapsed"
       Width="auto">
       <ComboBoxItem Content="{Binding all, TargetNullValue=All}"/>
       <ComboBoxItem Content="Privacy"/>
