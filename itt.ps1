@@ -5,7 +5,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "04/10/2025"
+lastupdate     = "04/11/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -27,6418 +27,2673 @@ if (-not (Test-Path -Path $ittDir)) {New-Item -ItemType Directory -Path $ittDir 
 $logDir = Join-Path $ittDir 'logs'
 $timestamp = Get-Date -Format "yyyy-MM-dd"
 Start-Transcript -Path "$logDir\log_$timestamp.log" -Append -NoClobber *> $null
-$itt.database.Applications = @'
-[
-  {
-    "Name": "Mozilla Firefox",
-    "Description": "A widely-used open-source web browser known for its speed, privacy features, and customization options",
-    "winget": "Mozilla.Firefox",
-    "choco": "firefox",
-    "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
-  },
-  {
-    "Name": "Mozilla Firefox ESR",
-    "Description": "A widely-used open-source web browser known for its speed, privacy features, and customization options",
-    "winget": "Mozilla.Firefox.ESR",
-    "choco": "firefoxesr",
-    "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
-  },
-  {
-    "Name": "Thorium SSE3",
-    "Description": "A web browser designed for smooth and secure browsing experiences",
-    "winget": "Alex313031.Thorium",
-    "choco": "thorium --params /SSE3",
-    "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
-  },
-  {
-    "Name": "Thorium AVX",
-    "Description": "A web browser designed for smooth and secure browsing experiences",
-    "winget": "Alex313031.Thorium.AVX2",
-    "choco": "thorium --params /AVX",
-    "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
-  },
-  {
-    "Name": "Microsoft Edge",
-    "Description": "Microsoft's web browser built for fast and secure internet surfing, integrating seamlessly with Windows ecosystem",
-    "winget": "Microsoft.Edge",
-    "choco": "microsoft-edge",
-    "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
-  },
-  {
-    "Name": "Google Chrome",
-    "Description": "A popular web browser known for its speed, simplicity, and vast ecosystem of extensions",
-    "winget": "Google.Chrome",
-    "choco": "googlechrome",
-    "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
-  },
-  {
-    "Name": "Chromium",
-    "Description": "An open-source web browser project that serves as the foundation for many browsers, including Google Chrome",
-    "winget": "eloston.ungoogled-chromium",
-    "choco": "chromium",
-    "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
-  },
-  {
-    "Name": "Brave",
-    "Description": "A privacy focused web browser that blocks ads and trackers, offering faster and safer browsing experiences",
-    "winget": "Brave.Brave",
-    "choco": "brave",
-    "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
-  },
-  {
-    "Name": "Tor Browser",
-    "Description": "A web browser that prioritizes user privacy by routing internet traffic through a global network of servers, enabling anonymous browsing",
-    "winget": "TorProject.TorBrowser",
-    "choco": "tor-browser",
-    "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
-  },
-  {
-    "Name": "Opera",
-    "Description": "The Opera web browser makes the Web fast and fun, giving you a better web browser experience on any computer",
-    "winget": "Opera.Opera",
-    "choco": "opera",
-    "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
-  },
-  {
-    "Name": "Internet Download Manager",
-    "Description": "A popular download manager tool that accelerates downloads and allows users to organize and schedule downloads efficiently",
-    "winget": "Tonec.InternetDownloadManager",
-    "choco": "internet-download-manager",
-    "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
-  },
-  {
-    "Name": "JDownloader",
-    "Description": "JDownloader is an internet download manager",
-    "winget": "AppWork.JDownloader",
-    "choco": "jdownloader",
-    "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
-  },
-  {
-    "Name": "KLite Mega Codec Full Pack",
-    "Description": "Comprehensive collection of audio and video codecs, filters, and tools, enabling playback of various media formats",
-    "winget": "na",
-    "choco": "k-litecodecpackfull",
-    "itt": "na",
-    "category": "Media",
-    "check": "false"
-  },
-  {
-    "Name": "PotPlayer",
-    "Description": "A multimedia player with a sleek interface and advanced features, supporting a wide range of audio and video formats",
-    "winget": "Daum.PotPlayer",
-    "choco": "potplayer",
-    "itt": "na",
-    "category": "Media",
-    "check": "false"
-  },
-  {
-    "Name": "VLC",
-    "Description": "A versatile media player capable of playing almost any multimedia file format, with support for various streaming protocols",
-    "winget": "VideoLAN.VLC",
-    "choco": "vlc.install",
-    "itt": "na",
-    "category": "Media",
-    "check": "false"
-  },
-  {
-    "Name": "Kodi",
-    "Description": "A powerful open-source media center software that allows users to organize and stream their media collections",
-    "winget": "9NBLGGH4T892",
-    "choco": "kodi",
-    "itt": "na",
-    "category": "Media",
-    "check": "false"
-  },
-  {
-    "Name": "Jellyfin Server",
-    "Description": "An open-source media server software that enables users to stream their media libraries across devices, providing a self-hosted alternative to commercial services",
-    "winget": "Jellyfin.Server",
-    "choco": "jellyfin",
-    "itt": "na",
-    "category": "Media",
-    "check": "false"
-  },
-  {
-    "Name": "Winamp",
-    "Description": "A classic media player known for its customizable interface and extensive plugin support, providing a nostalgic music playback experience",
-    "winget": "Winamp.Winamp",
-    "choco": "winamp",
-    "itt": "na",
-    "category": "Media",
-    "check": "false"
-  },
-  {
-    "Name": "Aimp",
-    "Description": "A lightweight and feature-rich audio player with support for various audio formats and customizable interface themes",
-    "winget": "na",
-    "choco": "na",
-    "itt": "aimp",
-    "category": "Media",
-    "check": "false"
-  },
-  {
-    "Name": "Spotify",
-    "Description": "Spotify is a new way to listen to music",
-    "winget": "Spotify.Spotify",
-    "choco": "spotify",
-    "itt": "na",
-    "category": "Media",
-    "check": "false"
-  },
-  {
-    "Name": "FastStone Image Viewer",
-    "Description": "FastStone Image Viewer is a fast, stable, user-friendly image browser, converter and editor",
-    "winget": "FastStone.Viewer",
-    "choco": "fsviewer",
-    "itt": "na",
-    "category": "Imaging",
-    "check": "false"
-  },
-  {
-    "Name": "OpenOffice",
-    "Description": "An open-source office productivity suite offering word processing, spreadsheet, presentation, and other office tools, compatible with Microsoft Office formats",
-    "winget": "Apache.OpenOffice",
-    "choco": "openoffice",
-    "itt": "na",
-    "category": "Documents",
-    "check": "false"
-  },
-  {
-    "Name": "FoxitReader",
-    "Description": "A lightweight and feature-rich PDF reader with annotation, form filling, and document signing capabilities",
-    "winget": "Foxit.FoxitReader",
-    "choco": "foxitreader",
-    "itt": "na",
-    "category": "Documents",
-    "check": "false"
-  },
-  {
-    "Name": "LibreOffice",
-    "Description": "A powerful open-source office suite providing word processing, spreadsheet, presentation, and other office tools, compatible with Microsoft Office formats",
-    "winget": "Foxit.FoxitReader",
-    "choco": "libreoffice-fresh",
-    "itt": "na",
-    "category": "Documents",
-    "check": "false"
-  },
-  {
-    "Name": "SumatraPDF",
-    "Description": "A lightweight and fast PDF reader with minimalistic design and focus on simplicity and speed",
-    "winget": "SumatraPDF.SumatraPDF",
-    "choco": "sumatrapdf.install",
-    "itt": "na",
-    "category": "Documents",
-    "check": "false"
-  },
-  {
-    "Name": "WinRAR",
-    "Description": "A popular file compression and archiving utility that supports various archive formats and offers advanced features such as encryption and self-extracting archives",
-    "winget": "RARLab.WinRAR",
-    "choco": "winrar",
-    "itt": "na",
-    "category": "Compression",
-    "check": "false"
-  },
-  {
-    "Name": "7Zip",
-    "Description": "An open-source file archiver with a high compression ratio, supporting various archive formats and providing a powerful command-line interface",
-    "winget": "7zip.7zip",
-    "choco": "7zip",
-    "itt": "na",
-    "category": "Compression",
-    "check": "false"
-  },
-  {
-    "Name": "PeaZip",
-    "Description": " PeaZip is a free cross-platform file archiver",
-    "winget": "Giorgiotani.Peazip",
-    "choco": "peazip",
-    "itt": "na",
-    "category": "Compression",
-    "check": "false"
-  },
-  {
-    "Name": "Telegram Desktop",
-    "Description": "A cross-platform messaging app with a focus on speed and security, offering end-to-end encryption and a wide range of features such as group chats, file sharing, and stickers",
-    "winget": "Telegram.TelegramDesktop",
-    "choco": "telegram",
-    "itt": "na",
-    "category": "Communication",
-    "check": "false"
-  },
-  {
-    "Name": "Signal",
-    "Description": "Fast, simple, secure. Privacy that fits in your pocket",
-    "winget": "OpenWhisperSystems.Signal",
-    "choco": "signal",
-    "itt": "na",
-    "category": "Communication",
-    "check": "false"
-  },
-  {
-    "Name": "Meta Messenger",
-    "Description": "A messaging app that allows users to connect with friends and family through text messages, voice calls, and video calls, offering various multimedia sharing features",
-    "winget": "9WZDNCRF0083",
-    "choco": "messenger",
-    "itt": "na",
-    "category": "Communication",
-    "check": "false"
-  },
-  {
-    "Name": "Zoom",
-    "Description": "A video conferencing app that facilitates online meetings, webinars, and virtual events, allowing participants to interact through video, audio, and chat",
-    "winget": "Zoom.ZoomRooms",
-    "choco": "zoom",
-    "itt": "na",
-    "category": "Communication",
-    "check": "false"
-  },
-  {
-    "Name": "Microsoft Teams",
-    "Description": "A collaboration platform that combines workplace chat, video meetings, file storage, and application integration, enhancing teamwork and productivity within organizations",
-    "winget": "Microsoft.Teams",
-    "choco": "microsoft-teams.install",
-    "itt": "na",
-    "category": "Communication",
-    "check": "false"
-  },
-  {
-    "Name": "Discord",
-    "Description": "A VoIP application and digital distribution platform designed for creating communities and connecting gamers, providing text, voice, and video communication features",
-    "winget": "Discord.Discord",
-    "choco": "discord",
-    "itt": "na",
-    "category": "Communication",
-    "check": "false"
-  },
-  {
-    "Name": "TeamViewer",
-    "Description": "A remote access and support software that enables users to remotely control computers, transfer files, and collaborate online, facilitating remote work and IT support",
-    "winget": "TeamViewer.TeamViewer",
-    "choco": "teamviewer",
-    "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
-  },
-  {
-    "Name": "GIMP",
-    "Description": "A free and open-source raster graphics editor used for image retouching and editing, drawing and painting, and converting between different image formats",
-    "winget": "GIMP.GIMP",
-    "choco": "gimp",
-    "itt": "na",
-    "category": "Imaging",
-    "check": "false"
-  },
-  {
-    "Name": "Microsoft Visual C++ Runtime - all versions",
-    "Description": "Microsoft Visual C++ Redistributable installs run-time components of Visual C++ libraries. These components are required to run C++ applications that are developed using Visual Studio and link dynamically to Visual C++ libraries",
-    "winget": "na",
-    "choco": "vcredist-all",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "DirectX",
-    "Description": "DirectX is a collection of APIs for handling tasks related to games and videos.",
-    "winget": "Microsoft.DirectX",
-    "choco": "directx",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "Microsoft Visual C++ 2005 (x86) Redistributable",
-    "Description": "A set of runtime components required to run applications developed with Microsoft Visual C++ 2005, providing libraries, DLLs, and other resources",
-    "winget": "na",
-    "choco": "vcredist2005",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "Microsoft Visual C++ 2005 (x64) Redistributable",
-    "Description": "A set of runtime components required to run 64-bit applications developed with Microsoft Visual C++ 2005, providing libraries, DLLs, and other resources",
-    "winget": "na",
-    "choco": "vcredist2005",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "Microsoft Visual C++ 2008 (x86) Redistributable",
-    "Description": "A set of runtime components required to run applications developed with Microsoft Visual C++ 2008, providing libraries, DLLs, and other resources",
-    "winget": "na",
-    "choco": "vcredist2008",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "Microsoft Visual C++ 2008 (x64) Redistributable",
-    "Description": "A set of runtime components required to run 64-bit applications developed with Microsoft Visual C++ 2008, providing libraries, DLLs, and other resources",
-    "winget": "na",
-    "choco": "vcredist2008",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "Microsoft Visual C++ 2010 (x86) Redistributable",
-    "Description": "A set of runtime components required to run applications developed with Microsoft Visual C++ 2010, providing libraries, DLLs, and other resources",
-    "winget": "na",
-    "choco": "vcredist2010",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "Microsoft Visual C++ 2010 (x64) Redistributable",
-    "Description": "A set of runtime components required to run 64-bit applications developed with Microsoft Visual C++ 2010, providing libraries, DLLs, and other resources",
-    "winget": "na",
-    "choco": "vcredist2010",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "Microsoft Visual C++ 2012 (x86) Redistributable",
-    "Description": "A set of runtime components required to run applications developed with Microsoft Visual C++ 2012, providing libraries, DLLs, and other resources",
-    "winget": "na",
-    "choco": "vcredist2012",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "Microsoft Visual C++ 2012 (x64) Redistributable",
-    "Description": "A set of runtime components required to run 64-bit applications developed with Microsoft Visual C++ 2012, providing libraries, DLLs, and other resources",
-    "winget": "na",
-    "choco": "vcredist2012",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "Microsoft Visual C++ 2013 (x86) Redistributable",
-    "Description": "A set of runtime components required to run applications developed with Microsoft Visual C++ 2013, providing libraries, DLLs, and other resources",
-    "winget": "na",
-    "choco": "vcredist2013",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "Microsoft Visual C++ 2013 (x64) Redistributable",
-    "Description": "A set of runtime components required to run 64-bit applications developed with Microsoft Visual C++ 2013, providing libraries, DLLs, and other resources",
-    "winget": "na",
-    "choco": "vcredist2013",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "Microsoft Visual C++ 2015-2022 (x64) Redistributable",
-    "Description": "A set of runtime components required to run 64-bit applications developed with Microsoft Visual C++ 2015-2022, providing libraries, DLLs, and other resources",
-    "winget": "na",
-    "choco": "vcredist2015",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "Microsoft Visual C++ 2015-2022  (x86) Redistributable",
-    "Description": "A set of runtime components required to run applications developed with Microsoft Visual C++ 2015-2022, providing libraries, DLLs, and other resources",
-    "winget": "na",
-    "choco": "vcredist2015",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "NET Framework All Versions",
-    "Description": "A comprehensive and consistent programming model for building applications that have visually stunning user experiences, seamless and secure communication, and the ability to model a range of business processes",
-    "winget": "na",
-    "choco": "dotnet-all",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "AMD Ryzen Chipset Drivers",
-    "Description": "Supports: AMD Ryzen Threadripper PRO Processor, AMD Ryzen 8000/7040/7000 Series Desktop & Mobile Processors, AMD Ryzen 5000/3rd Gen/2nd Gen Desktop & Threadripper Processors, AMD Ryzen Desktop Processor with Radeon Graphics & Mobile Processor with Radeon Graphics, 7th-Gen AMD A-Series Processors, AMD X670E/X670/B650E/B650/B350/A320/X370/X399/B450/X470/X570/B550/A520/A620/TRX40/TRX50/WRX80/WRX90 Chipsets",
-    "winget": "na",
-    "choco": "amd-ryzen-chipset",
-    "itt": "na",
-    "category": "Drivers",
-    "check": "false"
-  },
-  {
-    "Name": "NVidia Display Driver",
-    "Description": "The software component that allows the operating system and installed software to communicate with and control the NVIDIA graphics processing unit (GPU)",
-    "winget": "na",
-    "choco": "nvidia-display-driver",
-    "itt": "na",
-    "category": "Drivers",
-    "check": "false"
-  },
-  {
-    "Name": "NVIDIA GeForce Experience",
-    "Description": "A cloud-based gaming service provided by NVIDIA that allows users to play video games on supported devices via a remote gaming PC hosted on NVIDIA's servers",
-    "winget": "Nvidia.GeForceExperience",
-    "choco": "geforce-experience",
-    "itt": "na",
-    "category": "Drivers",
-    "check": "false"
-  },
-  {
-    "Name": "Msi Afterburner",
-    "Description": "MSI Afterburner is the ultimate graphics card utility, co-developed by MSI and RivaTuner teams",
-    "winget": "Guru3D.Afterburner",
-    "choco": "msiafterburner",
-    "itt": "na",
-    "category": "Drivers",
-    "check": "false"
-  },
-  {
-    "Name": "NVIDIA PhysX",
-    "Description": "A physics processing unit (PPU) software development kit (SDK) offered by NVIDIA for real-time physics simulations in video games",
-    "winget": "Nvidia.PhysXLegacy",
-    "choco": "physx.legacy",
-    "itt": "na",
-    "category": "Drivers",
-    "check": "false"
-  },
-  {
-    "Name": "Steam",
-    "Description": "A digital distribution platform developed by Valve Corporation for purchasing and playing video games",
-    "winget": "Valve.Steam",
-    "choco": "steam",
-    "itt": "na",
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "Ubisoft Connect",
-    "Description": "A digital distribution, digital rights management, multiplayer, and communications service developed by Ubisoft, providing access to Ubisoft's games, rewards, and social features",
-    "winget": "Ubisoft.Connect",
-    "choco": "ubisoft-connect",
-    "itt": "na",
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "Origin",
-    "Description": " Game store launcher",
-    "winget": "ElectronicArts.Origin",
-    "choco": "origin",
-    "itt": "na",
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "Rockstar Games Launcher",
-    "Description": "Download and play the latest Rockstar Games PC titles",
-    "winget": "na",
-    "choco": "rockstar-launcher",
-    "itt": "na",
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "GameSave Manager",
-    "Description": "A utility tool that allows users to backup, restore, and transfer their game saves between different gaming platforms and directories",
-    "winget": "InsaneMatt.GameSaveManager",
-    "choco": "gamesavemanager",
-    "itt": "na",
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "StreamlabsOBS",
-    "Description": "A free and open-source streaming software built on top of OBS Studio with additional features tailored for streamers, such as built-in alerts, overlays, and chat integration",
-    "winget": "Streamlabs.StreamlabsOBS",
-    "choco": "streamlabs-obs",
-    "itt": "na",
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "OBS Studio",
-    "Description": "A free and open-source software for video recording and live streaming. It offers high performance real-time video/audio capturing and mixing",
-    "winget": "OBSProject.OBSStudio",
-    "choco": "obs-studio.install",
-    "itt": "na",
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "Logitech Gaming Software",
-    "Description": "Logitech Gaming Software lets you customize Logitech G gaming mice, keyboards, headsets and select wheels",
-    "winget": "Logitech.LGS",
-    "choco": "logitechgaming",
-    "itt": "na",
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "Lively Wallpaper",
-    "Description": "A software that allows users to set animated and interactive wallpapers on their Windows desktop, providing various customization options",
-    "winget": "rocksdanister.LivelyWallpaper",
-    "choco": "lively",
-    "itt": "na",
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "Playnite",
-    "Description": "Open source video game library manager and launcher with support for 3rd party libraries like Steam, GOG, Origin, Battle.net and Uplay",
-    "winget": "Playnite.Playnite",
-    "choco": "playnite",
-    "itt": "na",
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "Driver Easy",
-    "Description": "A driver update tool that automatically detects, downloads, and installs device drivers for the user's computer hardware",
-    "winget": "Easeware.DriverEasy",
-    "choco": "drivereasyfree",
-    "itt": "na",
-    "category": "Drivers",
-    "check": "false"
-  },
-  {
-    "Name": "Intel Graphics Windows DCH",
-    "Description": "Intel Graphics Driver for Windows 10",
-    "winget": "na",
-    "choco": "intel-graphics-driver",
-    "itt": "na",
-    "category": "Drivers",
-    "check": "false"
-  },
-  {
-    "Name": "Intel Driver Support Assistant",
-    "Description": "Intel Driver & Support Assistant enables you to scan computing devices for the latest drivers available from Intel",
-    "winget": "Intel.IntelDriverAndSupportAssistant",
-    "choco": "intel-dsa",
-    "itt": "na",
-    "category": "Drivers",
-    "check": "false"
-  },
-  {
-    "Name": "Intel Network Adapter",
-    "Description": "Intel Network Adapter Drivers for Windows 10",
-    "winget": "Intel.WiFiDrivers",
-    "choco": "intel-network-drivers-win10",
-    "itt": "na",
-    "category": "Drivers",
-    "check": "false"
-  },
-  {
-    "Name": "Snappy Driver Installer",
-    "Description": "A free and open-source tool for updating and installing device drivers on Windows, offering offline driver updates and wide hardware support",
-    "winget": "samlab-ws.SnappyDriverInstaller",
-    "choco": "sdio",
-    "itt": "na",
-    "category": "Drivers",
-    "check": "false"
-  },
-  {
-    "Name": "Driver booster",
-    "Description": "Scans and identifies outdated drivers automatically, and downloads and installs the right update for you with just ONE click",
-    "winget": "IObit.DriverBooster",
-    "choco": "driverbooster",
-    "itt": "na",
-    "category": "Drivers",
-    "check": "false"
-  },
-  {
-    "Name": "Driver Genius",
-    "Description": "Professional driver management tool and hardware diagnostics",
-    "winget": "na",
-    "choco": "drivergenius",
-    "itt": "na",
-    "category": "Drivers",
-    "check": "false"
-  },
-  {
-    "Name": "Display Driver Uninstaller",
-    "Description": "Utility to completely remove system drivers",
-    "winget": "Wagnardsoft.DisplayDriverUninstaller",
-    "choco": "ddu",
-    "itt": "na",
-    "category": "Drivers",
-    "check": "false"
-  },
-  {
-    "Name": "Driver Store Explorer",
-    "Description": " Windows driver store utility",
-    "winget": "na",
-    "choco": "rapr",
-    "itt": "na",
-    "category": "Drivers",
-    "check": "false"
-  },
-  {
-    "Name": "1Password",
-    "Description": "A password manager that securely stores login credentials, credit card information, and other sensitive data in an encrypted vault, accessible with a single master password",
-    "winget": "AgileBits.1Password",
-    "choco": "1password",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "AOMEI Partition Assistant Standard",
-    "Description": "AOMEI Partition Assistant Standard allows you to realize disk upgrade/replacement, partition style conversion, OS migration and other disk managements without any difficulties",
-    "winget": "AOMEI.PartitionAssistant",
-    "choco": "partition-assistant-standard",
-    "itt": "na",
-    "category": "Disk Tools",
-    "check": "false"
-  },
-  {
-    "Name": "AOMEI Backupper Standard",
-    "Description": "A backup and recovery software that enables users to create system backups, disk backups, partition backups, and file backups to protect data against system failures and data loss",
-    "winget": "AOMEI.Backupper.Standard",
-    "choco": "backupper-standard",
-    "itt": "na",
-    "category": "Disk Tools",
-    "check": "false"
-  },
-  {
-    "Name": "Recuva recover",
-    "Description": "A data recovery software that helps users retrieve accidentally deleted files, including photos, documents, videos, and more, from various storage devices such as hard drives, USB drives, and memory cards",
-    "winget": "Piriform.Recuva",
-    "choco": "recuva",
-    "itt": "na",
-    "category": "Disk Tools",
-    "check": "false"
-  },
-  {
-    "Name": "CCleaner",
-    "Description": "A system optimization, privacy, and cleaning tool that helps users remove unused files, clean up temporary files, and optimize their Windows PCs for better performance",
-    "winget": "SingularLabs.CCEnhancer",
-    "choco": "ccleaner",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "BCUninstaller",
-    "Description": "A powerful uninstaller tool for Windows that allows users to remove unwanted programs, plugins, and Windows Store apps, along with leftover files and registry entries",
-    "winget": "Klocman.BulkCrapUninstaller",
-    "choco": "bulk-crap-uninstaller",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Easy Context Menu",
-    "Description": "To install Easy Context Menu, run the following command from the command line or from PowerShell:",
-    "winget": "na",
-    "choco": "ecm",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "HWiNFO",
-    "Description": "A hardware information and diagnostic tool that provides detailed information about the hardware components of a computer system, including sensors, temperature, voltage, and more",
-    "winget": "REALiX.HWiNFO",
-    "choco": "hwinfo.install",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Speccy",
-    "Description": "A system information tool that provides detailed information about the hardware and operating system of a computer, including CPU, RAM, motherboard, graphics card, and storage devices",
-    "winget": "Piriform.Speccy",
-    "choco": "speccy",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "FurMark",
-    "Description": "A graphics card stress testing and benchmarking utility that helps users test the stability, cooling, and performance of their GPU by rendering a highly intensive 3D graphics scene",
-    "winget": "Geeks3D.FurMark",
-    "choco": "furmark",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Hard Disk Sentinel",
-    "Description": "A hard disk monitoring and analysis software that helps users monitor the health, performance, and temperature of their hard drives, SSDs, and other storage devices",
-    "winget": "JanosMathe.HardDiskSentinelPro",
-    "choco": "hdsentinel",
-    "itt": "na",
-    "category": "Disk Tools",
-    "check": "false"
-  },
-  {
-    "Name": "CPU-Z",
-    "Description": "A system monitoring utility that provides detailed information about the CPU, motherboard, memory, and other hardware components of a computer system",
-    "winget": "CPUID.CPU-Z",
-    "choco": "cpu-z",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Mem Reduct",
-    "Description": "Lightweight real-time memory management application to monitor and clean system memory on your computer",
-    "winget": "Henry++.MemReduct",
-    "choco": "memreduct",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "HandBrake",
-    "Description": "A free and open-source video transcoder tool that converts video files from one format to another, supporting a wide range of input and output formats",
-    "winget": "HandBrake.HandBrake",
-    "choco": "handbrake.install",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Rufus Portable",
-    "Description": "A utility tool for creating bootable USB drives from ISO images, helping users to install or run operating systems, such as Windows, Linux, or other utilities",
-    "winget": "Rufus.Rufus",
-    "choco": "rufus",
-    "itt": "na",
-    "category": "Portable",
-    "check": "false"
-  },
-  {
-    "Name": "ImgBurn",
-    "Description": "Lightweight CD / DVD burning application",
-    "winget": "LIGHTNINGUK.ImgBurn",
-    "choco": "imgburn",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Virtual CloneDrive",
-    "Description": "A free software that allows users to mount disc images as virtual drives, enabling them to access the content of ISO, BIN, and CCD files without the need for physical discs",
-    "winget": "na",
-    "choco": "virtualclonedrive",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Ultra ISO",
-    "Description": "A powerful ISO image management tool that enables users to create, edit, extract, and burn ISO files, providing a comprehensive solution for managing disk image files",
-    "winget": "EZBSystems.UltraISO",
-    "choco": "ultraiso",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Ventoy",
-    "Description": "An open-source tool for creating bootable USB drives with multiple ISO files, allowing users to boot various operating systems or utilities directly from a single USB drive",
-    "winget": "Ventoy.Ventoy",
-    "choco": "ventoy",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "iVentoy",
-    "Description": "With iVentoy you can boot and install OS on multiple machines at the same time through the network",
-    "winget": "na",
-    "choco": "iventoy",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "AutoHotkey",
-    "Description": "A scripting language for automating repetitive tasks and creating macros on Windows, allowing users to customize keyboard shortcuts, remap keys, and automate mouse actions",
-    "winget": "AutoHotkey.AutoHotkey",
-    "choco": "autohotkey",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Rainmeter",
-    "Description": "A customizable desktop customization tool that displays customizable skins, widgets, and applets on the Windows desktop, providing users with real-time system monitoring and information",
-    "winget": "Rainmeter.Rainmeter",
-    "choco": "rainmeter",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "FxSound",
-    "Description": "An audio enhancer software that improves the sound quality of music, videos, and games on Windows PCs by providing advanced audio processing and customization options",
-    "winget": "FxSoundLLC.FxSound",
-    "choco": "fxsound",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Vysor",
-    "Description": "A screen mirroring and remote control software that enables users to view and control Android devices from Windows PCs, allowing for easy screen sharing, app testing, and troubleshooting",
-    "winget": "Vysor.Vysor",
-    "choco": "vysor",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Unified Remote",
-    "Description": "A remote control app that turns smartphones into universal remote controls for Windows, macOS, and Linux computers, allowing users to control media playback, presentations, and more",
-    "winget": "UnifiedIntents.UnifiedRemote",
-    "choco": "unifiedremote",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "AnyDesk",
-    "Description": "A remote desktop software that allows users to access and control Windows, macOS, Linux, Android, and iOS devices from anywhere, providing secure and reliable remote access",
-    "winget": "AnyDeskSoftwareGmbH.AnyDesk",
-    "choco": "anydesk",
-    "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
-  },
-  {
-    "Name": "Airdroid",
-    "Description": "AirDroid is a free and fast Android device manager app that allows you to access Android phone/tablet from computer remotely and securely. Manage SMS, files, photos and videos, WhatsApp, Line, WeChat and more on computer",
-    "winget": "AirDroid.AirDroid",
-    "choco": "airdroid",
-    "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
-  },
-  {
-    "Name": "UltraViewer",
-    "Description": "Remote control to support your clients / partners from everywhere",
-    "winget": "DucFabulous.UltraViewer",
-    "choco": "ultraviewer",
-    "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
-  },
-  {
-    "Name": "Wireless Network Watcher Portable",
-    "Description": "Wireless Network Watcher is a small utility that scans your wireless network and displays the list of all computers and devices that are currently connected to your network",
-    "winget": "NirSoft.WirelessNetworkWatcher",
-    "choco": "wnetwatcher.portable",
-    "itt": "na",
-    "category": "Portable",
-    "check": "false"
-  },
-  {
-    "Name": "WifiInfoView",
-    "Description": "Wireless Network Watcher is a small utility that scans your wireless network and displays the list of all computers and devices that are currently connected to your network",
-    "winget": "NirSoft.WifiInfoView",
-    "choco": "wifiinfoview",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "WirelessNetView",
-    "Description": "Wireless Network Watcher is a small utility that scans your wireless network and displays the list of all computers and devices that are currently connected to your network",
-    "winget": "na",
-    "choco": "wirelessnetview",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "qBittorrent",
-    "Description": "A free and open-source BitTorrent client for downloading and uploading files via the BitTorrent protocol, providing users with a lightweight and feature-rich torrenting experience",
-    "winget": "qBittorrent.qBittorrent",
-    "choco": "qbittorrent",
-    "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
-  },
-  {
-    "Name": "Google Earth Pro",
-    "Description": "Google Earth Pro on desktop is free for users with advanced feature needs. Import and export GIS data, and go back in time with historical imagery",
-    "winget": "Google.EarthPro",
-    "choco": "googleearthpro",
-    "itt": "na",
-    "category": "Imaging",
-    "check": "false"
-  },
-  {
-    "Name": "XAMPP",
-    "Description": "XAMPP is a free and open-source cross-platform web server solution stack package developed by Apache Friends, consisting mainly of the Apache HTTP Server, MariaDB database, and interpreters for scripts written in the PHP and Perl programming languages",
-    "winget": "ApacheFriends.Xampp.8.2",
-    "choco": "xampp-81",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Visual Studio Professional 2022",
-    "Description": "Visual Studio Professional 2022 is an integrated development environment (IDE) from Microsoft. It is used to develop computer programs, websites, web apps, web services, and mobile apps",
-    "winget": "Microsoft.VisualStudio.2022.Professional",
-    "choco": "visualstudio2022professional",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Visual Studio Community 2022",
-    "Description": "Visual Studio Community 2022 is a free, fully-featured, and extensible IDE for individual developers, open source projects, academic research, education, and small professional teams",
-    "winget": "Microsoft.VisualStudio.2022.Community",
-    "choco": "visualstudio2022community",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Unity Hub",
-    "Description": "Unity is a cross-platform game creation system developed by Unity Technologies and used to develop video games for PC, consoles, mobile",
-    "winget": "Unity.UnityHub",
-    "choco": "unity-hub",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Godot Engine",
-    "Description": "Godot is a feature-packed, cross-platform game engine for creating 2D and 3D games. It provides a comprehensive set of tools and features to develop games efficiently and quickly",
-    "winget": "GodotEngine.GodotEngine",
-    "choco": "godot",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Unity3D Engine",
-    "Description": "Unity is a cross-platform game creation system developed by Unity Technologies and used to develop video games for PC, consoles, mobile",
-    "winget": "Unity.Unity.2020",
-    "choco": "unity",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Blender",
-    "Description": "Blender is a free and open-source professional-grade 3D computer graphics and video compositing program",
-    "winget": "BlenderFoundation.Blender",
-    "choco": "blender",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "VSCode",
-    "Description": "Visual Studio Code is a free source-code editor developed by Microsoft for Windows, Linux, and macOS. It includes support for debugging, embedded Git control, syntax highlighting, intelligent code completion, snippets, and code refactoring",
-    "winget": "Microsoft.VisualStudioCode",
-    "choco": "vscode",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Vim",
-    "Description": "Vim is an advanced text editor that seeks to provide the power of the de-facto Unix editor 'Vi', with a more complete feature set. It's us... Keep Reading",
-    "winget": "vim.vim",
-    "choco": "vim",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Sublime Text 4",
-    "Description": "Sublime Text 4 - The sophisticated text editor for code, markup and prose",
-    "winget": "SublimeHQ.SublimeText.4",
-    "choco": "sublimetext4",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Atom",
-    "Description": "Atom is a text editor that's modern, approachable, yet hackable to the core—a tool you can customize to do anything but also use productively without ever touching a config file",
-    "winget": "GitHub.Atom",
-    "choco": "atom",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "InnoSetup",
-    "Description": "Inno Setup is a free installer for Windows programs. First introduced in 1997, Inno Setup today rivals and even surpasses many commercial installers in feature set and stability",
-    "winget": "JRSoftware.InnoSetup",
-    "choco": "innosetup",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "PyCharm Community Edition",
-    "Description": "PyCharm Community Edition is a free and open-source IDE for Python development. It provides smart code completion, code inspections, on-the-fly error highlighting, and quick-fixes",
-    "winget": "JetBrains.PyCharm.Community",
-    "choco": "pycharm-community",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "PyCharm Professional Edition",
-    "Description": "PyCharm Professional Edition is a powerful IDE for professional Python development. It includes advanced features such as database tools, web development support, and scientific tools integration",
-    "winget": "JetBrains.PyCharm.Professional",
-    "choco": "pycharm",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Jetbrains Rider",
-    "Description": "Rider is a cross-platform .NET IDE developed by JetBrains. It supports C#, VB.NET, F#, ASP.NET, JavaScript, TypeScript, HTML, CSS, and SQL languages and frameworks",
-    "winget": "JetBrains.Rider",
-    "choco": "jetbrains-rider",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "NodeJs LTS",
-    "Description": "Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. LTS (Long Term Support) releases are supported for an extended period and provide stability for production environments",
-    "winget": "OpenJS.NodeJS.LTS",
-    "choco": "nodejs-lts",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Electron",
-    "Description": "Electron, framework lets you write cross-platform desktop applications using JavaScript, HTML and CSS. It is based on io.js and Chromium and is used in the Atom editor",
-    "winget": "na",
-    "choco": "electron",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Electrum LTS",
-    "Description": "Electrum is a lightweight Bitcoin wallet focused on speed and simplicity, with support for hardware wallets and multisig functionality. LTS (Long Term Support) releases provide stability and security updates for an extended period",
-    "winget": "Electrum.Electrum",
-    "choco": "electronim",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Hugo",
-    "Description": "Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites f... Keep Reading",
-    "winget": "Hugo.Hugo",
-    "choco": "hugo",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Hugo Extended",
-    "Description": "Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites f... Keep Reading",
-    "winget": "Hugo.Hugo.Extended",
-    "choco": "hugo-extended",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Notepad++",
-    "Description": "Notepad++ is a free source code editor and Notepad replacement that supports several languages. It offers syntax highlighting, code folding, auto-completion, and other features for efficient code editing",
-    "winget": "Notepad++.Notepad++",
-    "choco": "notepadplusplus",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Windows Terminal",
-    "Description": "Windows Terminal is a modern terminal application for users of command-line tools and shells like Command Prompt, PowerShell, and Windows Subsystem for Linux (WSL). It provides multiple tabs, custom themes, and GPU-accelerated text rendering",
-    "winget": "Microsoft.WindowsTerminal",
-    "choco": "microsoft-windows-terminal",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Powershell 7",
-    "Description": "PowerShell Core is a cross-platform (Windows, Linux, and macOS) automation and configuration tool/framework that works well with your existing tools and is optimized for dealing with structured data (e.g., JSON, CSV, XML, etc.), REST APIs, and object models",
-    "winget": "Microsoft.PowerShell",
-    "choco": "powershell-core",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "x64dbg Portable",
-    "Description": "An open-source x64/x32 debugger for windows",
-    "winget": "na",
-    "choco": "x64dbg.portable",
-    "itt": "na",
-    "category": "Portable",
-    "check": "false"
-  },
-  {
-    "Name": "dnSpy",
-    "Description": "dnSpy is a tool to reverse engineer .NET assemblies. It includes a decompiler, a debugger and an assembly editor (and more) and can be easily extended by writing your own extension. It uses dnlib to read and write assemblies so it can handle obfuscated assemblies (eg. malware) without crashing",
-    "winget": "dnSpyEx.dnSpy",
-    "choco": "dnspy",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Cheat Engine",
-    "Description": "Cheat Engine is an open source tool designed to help you modify single player games",
-    "winget": "na",
-    "choco": "cheatengine",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Python 3.12.6",
-    "Description": "Python is a popular high-level programming language known for its simplicity and versatility. It is used in various fields such as web development, data science, machine learning, and automation",
-    "winget": "Python.Python.3.9",
-    "choco": "python",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Git",
-    "Description": "Git is a free and open-source distributed version control system designed to handle everything from small to very large projects with speed and efficiency",
-    "winget": "Git.Git",
-    "choco": "git",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "GitHub Desktop",
-    "Description": "GitHub Desktop is a seamless way to contribute to projects on GitHub and GitHub Enterprise. It provides an intuitive interface for managing repositories, branching, committing, and merging code changes",
-    "winget": "GitHub.GitHubDesktop",
-    "choco": "github-desktop",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Docker Desktop",
-    "Description": "Docker Desktop is an easy-to-install application for Windows and macOS that enables developers to build, share, and run containerized applications and microservices locally",
-    "winget": "Docker.DockerDesktop",
-    "choco": "docker-desktop",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Docker Compose",
-    "Description": "Docker Compose is a tool for defining and running multi-container Docker applications. It allows you to use a YAML file to configure your application's services, networks, and volumes",
-    "winget": "Docker.DockerCompose",
-    "choco": "docker-compose",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "PowerToys",
-    "Description": "PowerToys is a set of utilities for power users to tune and streamline their Windows experience for greater productivity. It includes tools like FancyZones for window management, PowerRename for batch renaming files, and more",
-    "winget": "Microsoft.PowerToys",
-    "choco": "powertoys",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Notion",
-    "Description": "The all-in-one workspace for your notes, tasks, wikis, and databases",
-    "winget": "Notion.Notion",
-    "choco": "notion",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "FL Studio",
-    "Description": "FL Studio is a digital audio workstation (DAW) developed by Image-Line. It allows you to compose, arrange, record, edit, mix, and master professional-quality music",
-    "winget": "ImageLine.FLStudio",
-    "choco": "ImageLine.FLStudio",
-    "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
-  },
-  {
-    "Name": "Android Debug Bridge",
-    "Description": "Android Debug Bridge (ADB) is a command-line tool that allows you to communicate with an Android device. It is used for various debugging tasks such as installing and debugging apps",
-    "winget": "na",
-    "choco": "adb",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Universal ADB Drivers",
-    "Description": "Universal ADB Drivers are drivers that provide compatibility with a wide range of Android devices for debugging purposes. They allow you to connect your Android device to a computer and use ADB commands",
-    "winget": "na",
-    "choco": "universal-adb-drivers",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Scrcpy",
-    "Description": "Scrcpy is a free and open-source tool that allows you to display and control your Android device from a computer. It provides high-performance screen mirroring and supports various input methods",
-    "winget": "Genymobile.scrcpy",
-    "choco": "scrcpy",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "VirtualBox",
-    "Description": "VirtualBox is a cross-platform virtualization application. It installs on existing Intel or AMD-based computers, whether they are running Windows, Mac, Linux or Solaris operating systems. It extends the capabilities of your existing computer so that it can run multiple operating systems (inside multiple virtual machines) at the same time",
-    "winget": "Oracle.VirtualBox",
-    "choco": "virtualbox",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Oh My Posh",
-    "Description": " Oh my Posh is a custom prompt engine for any shell that has the ability to adjust the prompt string with a function or variable",
-    "winget": "JanDeDobbeleer.OhMyPosh",
-    "choco": "oh-my-posh",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Malwarebytes",
-    "Description": "Multiple layers of malware-crushing tech, including virus protection. Thorough malware and spyware removal. Specialized ransomware protection",
-    "winget": "Malwarebytes.Malwarebytes",
-    "choco": "malwarebytes",
-    "itt": "na",
-    "category": "Security",
-    "check": "false"
-  },
-  {
-    "Name": "Avast Free Antivirus",
-    "Description": "Avast Free Antivirus",
-    "winget": "XPDNZJFNCR1B07",
-    "choco": "avastfreeantivirus",
-    "itt": "na",
-    "category": "Security",
-    "check": "false"
-  },
-  {
-    "Name": "Nerd Fonts - CascadiaCode",
-    "Description": "Nerd Fonts is a project that patches developer targeted fonts with a high number of glyphs (icons)",
-    "winget": "na",
-    "choco": "nerd-fonts-cascadiacode",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Java SE Runtime Environment 8.0.411",
-    "Description": "Java allows you to play online games, chat with people around the world, calculate your mortgage interest, and view images in 3D, just to name a few. It's also integral to the intranet applications and other e-business solutions that are the foundation of corporate computing. Please note you now need a Java License from Oracle to use unless installed for Personal Use and Development Use",
-    "winget": "na",
-    "choco": "jre8",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "Audacity",
-    "Description": "Audacity is free, open source, cross-platform software for recording and editing sounds",
-    "winget": "Audacity.Audacity",
-    "choco": "audacity",
-    "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
-  },
-  {
-    "Name": "MusicBee",
-    "Description": "MusicBee makes it easy to organize, find and play music files on your computer, on portable devices and on the web",
-    "winget": "MusicBee.MusicBee",
-    "choco": "musicbee",
-    "itt": "na",
-    "category": "Media",
-    "check": "false"
-  },
-  {
-    "Name": "Format Factory",
-    "Description": "multifunctional media processing tools",
-    "winget": "na",
-    "choco": "formatfactory",
-    "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
-  },
-  {
-    "Name": "Winaero Tweaker",
-    "Description": "Customize the appearance and behavior of the Windows operating system",
-    "winget": "na",
-    "choco": "winaero-tweaker",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Windows Subsystem for Linux WSL2",
-    "Description": "To install Windows Subsystem for Linux 2, run the following command from the command line or from PowerShell",
-    "winget": "Microsoft.WSL",
-    "choco": "wsl2",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Wamp Server 3.3.5",
-    "Description": "WampServer is a Windows web development environment. It allows you to create web applications",
-    "winget": "na",
-    "choco": "wamp-server",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "MongoDB",
-    "Description": "MongoDB stores data using a flexible document data model that is similar to JSON. Documents contain one or more fields, including arrays, binary data and sub-documents. Fields can vary from document to document. This flexibility allows development teams to evolve the data model rapidly as their application requirements change",
-    "winget": "MongoDB.Server",
-    "choco": "mongodb",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "MPC-BE",
-    "Description": "Media Player Classic - BE is a free and open source audio and video player for Windows",
-    "winget": " MPC-BE.MPC-BE",
-    "choco": "mpc-be",
-    "itt": "na",
-    "category": "Media",
-    "check": "false"
-  },
-  {
-    "Name": "Kdenlive",
-    "Description": "A powerful non-linear video editor",
-    "winget": "KDE.Kdenlive",
-    "choco": "kdenlive",
-    "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
-  },
-  {
-    "Name": "TablePlus",
-    "Description": "Modern, native, and friendly GUI tool for relational databases: MySQL, PostgreSQL, SQLite, MongoDB, Redis, and more",
-    "winget": "TablePlus.TablePlus",
-    "choco": "tableplus",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Hosts File Editor",
-    "Description": "Hosts File Editor makes it easy to change your hosts file as well as archive multiple versions for easy retrieval",
-    "winget": "scottlerch.hosts-file-editor",
-    "choco": "hosts.editor",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Subtitle Edit",
-    "Description": "With SE you can easily adjust a subtitle if it is out of sync with the video in several different ways. You can also use SE for making new subtitles from scratch (do use the time-line/waveform/spectrogram) or translating subtitles",
-    "winget": "9NWH51GWJTKN",
-    "choco": "subtitleedit",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Skype",
-    "Description": "Skype - Install Skype, add your friends as contacts, then call, video call and instant message with them for free. Call people who aren't on Skype too, at really low rates",
-    "winget": "Microsoft.Skype",
-    "choco": "skype",
-    "itt": "na",
-    "category": "Communication",
-    "check": "false"
-  },
-  {
-    "Name": "FileZilla",
-    "Description": "FileZilla Client is a fast and reliable cross-platform FTP, FTPS and SFTP client with lots of useful features and an intuitive graphical user interface",
-    "winget": "na",
-    "choco": "filezilla",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Everything",
-    "Description": "Everything Search Engine - locate files and folders by name instantly",
-    "winget": "voidtools.Everything",
-    "choco": "everything",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Yarn",
-    "Description": "Yarn is a package manager for the npm and bower registries with a few specific focuses",
-    "winget": "Yarn.Yarn",
-    "choco": "yarn",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "VMware Workstation Player",
-    "Description": "VMware Workstation Player™ is a streamlined desktop virtualization application that runs another operating system on the same computer without rebooting. VMware Workstation Player provides a simple user interface, unmatched operating system support, and portability across the VMware ecosystem",
-    "winget": "na",
-    "choco": "vmware-workstation-player",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "HDD Low Level Format Tool",
-    "Description": "Will erase, Low-Level Format and re-certify a SATA, IDE or SCSI hard disk drive with any size of up to 281 474 976 710 655 bytes",
-    "winget": "na",
-    "choco": "llftool",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "BlueStacks",
-    "Description": "Play Android Games on PC",
-    "winget": "BlueStack.BlueStacks",
-    "choco": "bluestacks",
-    "itt": "na",
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "Intel Wireless Bluetooth for Windows 10 and Windows 11",
-    "Description": "Bluetooth for Windows 10 and Windows",
-    "winget": "na",
-    "choco": "intel-bluetooth-drivers",
-    "itt": "na",
-    "category": "Drivers",
-    "check": "false"
-  },
-  {
-    "Name": "Office 365 Business",
-    "Description": "Microsoft 365 (formerly Office 365) is a line of subscription services offered by Microsoft as part of the Microsoft Office product line. The brand encompasses plans that allow use of the Microsoft Office software suite over the life of the subscription, as well as cloud-based software as a service products for business environments, such as hosted Exchange Server, Skype for Business Server, and SharePoint, among others. All Microsoft 365 plans include automatic updates to their respective software at no additional charge, as opposed to conventional licenses for these programs—where new versions require purchase of a new license",
-    "winget": "Microsoft.Office",
-    "choco": "office365business",
-    "itt": "na",
-    "category": "Documents",
-    "check": "false"
-  },
-  {
-    "Name": "Bandicam",
-    "Description": "Bandicam is a closed-source screen capture and screen recording software originally developed by Bandisoft and later by Bandicam Company that can take screenshots or record screen changes. Bandicam consists of three main modes. One is the Screen Recording mode, which can be used for recording a certain area on the PC screen",
-    "winget": "BandicamCompany.Bandicam",
-    "choco": "na",
-    "itt": "na",
-    "category": "Imaging",
-    "check": "false"
-  },
-  {
-    "Name": "QQPlayer",
-    "Description": "QQPlayer media player",
-    "winget": "Tencent.QQPlayer",
-    "choco": "na",
-    "itt": "na",
-    "category": "Media",
-    "check": "false"
-  },
-  {
-    "Name": "4K Video Downloader",
-    "Description": "4K Video Downloader allows downloading videos, playlists, channels and subtitles from YouTube, Facebook, Vimeo and other video sites in high quality",
-    "winget": "OpenMedia.4KVideoDownloader",
-    "choco": "4k-video-downloader",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Active@ Partition Recovery",
-    "Description": "Active@ Partition Recovery is a freeware toolkit that helps to recover deleted and damaged logical drives and partitions within Windows, WinPE (recovery boot disk) and Linux (recovery LiveCD) environments",
-    "winget": "LSoftTechnologies.ActivePartitionRecovery",
-    "choco": "na",
-    "itt": "na",
-    "category": "Disk Tools",
-    "check": "false"
-  },
-  {
-    "Name": "HiSuite",
-    "Description": "HUAWEI HiSuite is the official Android Smart Device Manager tool,HiSuite helps users to connect their HUAWEI smartphones and tablets to PC",
-    "winget": "Huawei.HiSuite",
-    "choco": "na",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Android Studio",
-    "Description": "Android Studio is the official integrated development environment for Google's Android operating system, built on JetBrains IntelliJ IDEA software and designed specifically for Android development",
-    "winget": "Google.AndroidStudio",
-    "choco": "androidstudio",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "LibreWolf",
-    "Description": "LibreWolf is designed to increase protection against tracking and fingerprinting techniques, while also including a few security improvements. This is achieved through our privacy and security oriented settings and patches. LibreWolf also aims to remove all the telemetry, data collection and annoyances, as well as disabling anti-freedom features like DRM",
-    "winget": "LibreWolf.LibreWolf",
-    "choco": "librewolf",
-    "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
-  },
-  {
-    "Name": "Flow Launcher",
-    "Description": "Dedicated to making your workflow flow more seamless. Search everything from applications, files, bookmarks, YouTube, Twitter and more. Flow will continue to evolve, designed to be open and built with the community at heart",
-    "winget": "Flow-Launcher.Flow-Launcher",
-    "choco": "flow-launcher",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "IconsExtract",
-    "Description": "The IconsExtract utility scans the files and folders on your computer, and extract the icons and cursors stored in EXE, DLL, OCX, CPL, and in other file types",
-    "winget": "na",
-    "choco": "iconsext",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "AdGuard Home",
-    "Description": "AdGuard Home is a network-wide software for blocking ads and tracking. After you set it up, it'll cover ALL your home devices, and you don't need any client-side software for that",
-    "winget": "AdGuard.AdGuardHome",
-    "choco": "adguardhome",
-    "itt": "na",
-    "category": "Security",
-    "check": "false"
-  },
-  {
-    "Name": "Burp Suite Community Edition",
-    "Description": "Burp Suite is an integrated platform for performing security testing of web applications. Its various tools work seamlessly together to support the entire testing process, from initial mapping and analysis of an application's attack surface, through to finding and exploiting security vulnerabilities.",
-    "winget": "PortSwigger.BurpSuite.Community",
-    "choco": "burp-suite-free-edition",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "CoreTemp",
-    "Description": "Core Temp is a compact, no fuss, small footprint, yet powerful program to monitor processor temperature and other vital information",
-    "winget": "ALCPU.CoreTemp",
-    "choco": "coretemp",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "ShareX",
-    "Description": "Screen capture, file sharing and productivity tool",
-    "winget": "ShareX.ShareX",
-    "choco": "sharex",
-    "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
-  },
-  {
-    "Name": "ONLY OFFICE",
-    "Description": "ONLYOFFICE is a project developed by experienced IT experts from Ascensio System SIA, leading IT company with headquarters in Riga, Latvia. Originally ONLYOFFICE was designed for internal team collaboration. An attempt to introduce it to a wider audience proved to be successful: ONLYOFFICE received very positive feedback from the Internet community. As a result, its functionality was considerably revised and expanded that brought about a high and stable growth of users from different countries",
-    "winget": "ONLYOFFICE.DesktopEditors",
-    "choco": "onlyoffice",
-    "itt": "na",
-    "category": "Documents",
-    "check": "false"
-  },
-  {
-    "Name": "ESET Internet Security",
-    "Description": "Ideal for modern users concerned about their privacy, who actively use internet for shopping, banking, work and communication",
-    "winget": "ESET.EndpointSecurity",
-    "choco": "eset-internet-security",
-    "itt": "na",
-    "category": "Security",
-    "check": "false"
-  },
-  {
-    "Name": "WinDirStat",
-    "Description": "WinDirStat is a disk usage statistics viewer and cleanup tool for Microsoft Windows",
-    "winget": "WinDirStat.WinDirStat",
-    "choco": "windirstat",
-    "itt": "na",
-    "category": "Disk Tools",
-    "check": "false"
-  },
-  {
-    "Name": "Winmerge",
-    "Description": "WinMerge is an Open Source differencing and merging tool for Windows. WinMerge can compare both  folders and files, presenting differences in a visual text format that is easy to understand and handle",
-    "winget": "WinMerge.WinMerge",
-    "choco": "winmerge",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Wireshark",
-    "Description": "Wireshark is the worlds foremost and widely-used network protocol analyzer. It lets you see whats happening on your network at a microscopic level and is the de facto (and often de jure) standard across many commercial and non-profit enterprises, government agencies, and educational institutions. Wireshark development thrives thanks to the volunteer contributions of networking experts around the globe and is the continuation of a project started by Gerald Combs in 1998",
-    "winget": "WiresharkFoundation.Wireshark",
-    "choco": "wireshark",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "TeraCopy",
-    "Description": "TeraCopy is designed to copy and move files at the maximum possible speed. It skips bad files during the copying process, and then displays them at the end of the transfer so that you can see which ones need attention. TeraCopy can automatically check the copied files for errors by calculating their CRC checksum values. It also provides a lot more information about the files being copied than its Windows counterpart. TeraCopy integrates with Windows Explorer's right-click menu and can be set as the default copy handler",
-    "winget": "CodeSector.TeraCopy",
-    "choco": "teracopy",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "QuickLook",
-    "Description": "Quick Look is among the few features I missed from Mac OS X It enables very quick preview of file by pressing Space key while highlighting it without opening its associated application Then I decide to add this feature to Windows by myself which results this QuickLook project",
-    "winget": "QL-Win.QuickLook",
-    "choco": "quicklook",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "RepoZ",
-    "Description": "RepoZ provides a quick overview of the git repositories on your development machine including their current branch and a short status information It uses the repositories on your machine to create an efficient navigation widget and makes sure youll never loose track of your work along the way",
-    "winget": "AndreasWascher.RepoZ",
-    "choco": "repoz",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Intel Graphics Command Center",
-    "Description": "Dont have time to mess around with settings The Intel Graphics Command Center easily finds and tunes your games complete with recommended settings for your computer Use oneclick optimization for many popular titles and instantly get the most out of your system. (Windows 10 version 1709 or higher,6th Gen Intel Core Platforms or newer)",
-    "winget": "9PLFNLNT3G5G",
-    "choco": "na",
-    "itt": "na",
-    "category": "Drivers",
-    "check": "false"
-  },
-  {
-    "Name": "Go Programming Language",
-    "Description": "Go is expressive concise clean and efficient Its concurrency mechanisms make it easy to write programs that get the most out of multicore and networked machines while its novel type system enables flexible and modular program construction Go compiles quickly to machine code yet has the convenience of garbage collection and the power of runtime reflection Its a fast statically typed compiled language that feels like a dynamically typed interpreted language",
-    "winget": "Language GoLang.Go",
-    "choco": "golang",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Rust",
-    "Description": "Rust is a curlybrace blockstructured expression language It visually resembles the C language family but differs significantly in syntactic and semantic details Its design is oriented toward concerns of programming in the large that is of creating and maintaining boundaries  both abstract and operational  that preserve largesystem integrity availability and concurrency",
-    "winget": "Rustlang.Rust.GNU",
-    "choco": "rust",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Inkscape",
-    "Description": "Inkscape is an opensource vector graphics editor similar to Adobe Illustrator Corel Draw Freehand or Xara X What sets Inkscape apart is its use of Scalable Vector Graphics SVG an open XMLbased W3C standard as the native format",
-    "winget": "Inkscape.Inkscape",
-    "choco": "inkscape",
-    "itt": "na",
-    "category": "Imaging",
-    "check": "false"
-  },
-  {
-    "Name": "Youtube Dl",
-    "Description": "youtubedl is a small commandline program to download videos from YouTubecom and a few more sites It is written in Python and its not platform specific It should work in your Unix box in Windows or in Mac OS X It is released to the public domain which means you can modify it redistribute it or use it however you like",
-    "winget": "youtube-dl.youtube-dl",
-    "choco": "yt-dlp",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Postman",
-    "Description": "Postman helps you be more efficient while working with APIs Using Postman you can construct complex HTTP requests quickly organize them in collections and share them with your coworkers",
-    "winget": "Postman.Postman",
-    "choco": "postman",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Azure CLI",
-    "Description": "The Azure CLI is available across Azure services and is designed to get you working quickly with Azure with an emphasis on automation",
-    "winget": "Microsoft.AzureCLI",
-    "choco": "azure-cli",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "GameMaker Studio",
-    "Description": "GameMaker Studio has everything you need for games development no matter what your level or expertise",
-    "winget": "YoYoGames.GameMaker.Studio.2",
-    "choco": "na",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Charles",
-    "Description": "Charles is an HTTP proxy  HTTP monitor  Reverse Proxy that enables a developer to view all of the HTTP and SSL  HTTPS traffic between their machine and the Internet This includes requests responses and the HTTP headers which contain the cookies and caching information",
-    "winget": "XK72.Charles",
-    "choco": "charles",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Windows Media Player",
-    "Description": "Media Player is designed to make listening to and watching your multimedia content more enjoyable At the heart of Media Player is a fullfeatured music library that allows you to quickly browse and play music as well as create and manage playlists All your content in the music and video folders on your PC will appear automatically in your library",
-    "winget": "9WZDNCRFJ3PT",
-    "choco": "na",
-    "itt": "na",
-    "category": "Media",
-    "check": "false"
-  },
-  {
-    "Name": "espanso",
-    "Description": "A crossplatform Text Expander written in Rust",
-    "winget": "Espanso.Espanso",
-    "choco": "espanso",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Ability Office",
-    "Description": "Ability Office Standard offers 3 core applications essential for home and business Word Processor Spreadsheet and Presentation in one affordable office suite It also includes a Photoalbum and quick application Launcher Just perfect for working from home allowing files to be edited and exchanged with those back in the office and absolutely ideal for students and school children",
-    "winget": "Ability.AbilityOffice.8.Standard",
-    "choco": "abilityoffice",
-    "itt": "na",
-    "category": "Documents",
-    "check": "false"
-  },
-  {
-    "Name": "Winbox",
-    "Description": "Small utility that allows administration of MikroTik RouterOS using a fast and simple GUI",
-    "winget": "Mikrotik.Winbox",
-    "choco": "na",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "SearchMyFiles",
-    "Description": "SearchMyFiles allows you to make a very accurate search that cannot be done with Windows search For Example You can search all files created in the last 10 minutes with size between 500 and 700 bytes",
-    "winget": "NirSoft.SearchMyFiles",
-    "choco": "searchmyfiles",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "iTunes",
-    "Description": "iTunes is the best way to organize and enjoy the music movies and TV shows you already have and shop for the ones you want to get Its home to Apple Music which gives you unlimited access to millions of songs curated playlists1 and Beats 1 radio hosted by Zane Lowe and a team of acclaimed DJs Enjoy all the entertainment iTunes has to offer on your Mac and PC",
-    "winget": "Apple.iTunes",
-    "choco": "itunes",
-    "itt": "na",
-    "category": "Media",
-    "check": "false"
-  },
-  {
-    "Name": "StartIsBack++",
-    "Description": "StartIsBack returns Windows 10 and Windows 8 a real fully featured start menu and start button behaving exactly like the ones in Windows 7",
-    "winget": "StartIsBack.StartIsBack",
-    "choco": "startisback",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Advanced SystemCare Free",
-    "Description": "Over time your computer may accumulate with large quantities of useless temporary and duplicate files Advanced SystemCare 12 will help clean up these junk files and free up your disk space Also you can use our advanced tools to make registry clean for better use",
-    "winget": "XPFFGSS4Z9M2TX",
-    "choco": "afedteated",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Send Anywhere",
-    "Description": "Send Anywhere is a multiplatform file sharing service where users can directly share digital content in real time",
-    "winget": "Estmob.SendAnywhere",
-    "choco": "na",
-    "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
-  },
-  {
-    "Name": "YUMI Legacy",
-    "Description": "YUMI Your Universal Multiboot Installer is the successor to MultibootISOs It can be used to create a Multiboot USB Flash Drive containing multiple operating systems antivirus utilities disc cloning diagnostic tools and more Contrary to MultiBootISOs which used grub to boot ISO files directly from USB YUMI uses syslinux to boot extracted distributions stored on the USB device and reverts to using grub to Boot Multiple ISO files from USB if necessary",
-    "winget": "YumiUsb.Legacy",
-    "choco": "yumi",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "YUMI UEFI",
-    "Description": "YUMI Your Universal Multiboot Installer is the successor to MultibootISOs It can be used to create a Multiboot USB Flash Drive containing multiple operating systems antivirus utilities disc cloning diagnostic tools and more Contrary to MultiBootISOs which used grub to boot ISO files directly from USB YUMI uses syslinux to boot extracted distributions stored on the USB device and reverts to using grub to Boot Multiple ISO files from USB if necessary",
-    "winget": "YumiUsb.UEFI",
-    "choco": "yumi-uefi",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "OP Auto Clicker",
-    "Description": "A fullfledged autoclicker with two modes of autoclicking at your dynamic cursor location or at a prespecified location The maximum amounts of clicked can also be set or left as infinite Hotkeys work in the background for convenience",
-    "winget": "OPAutoClicker.OPAutoClicker",
-    "choco": "autoclicker",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Spotube",
-    "Description": "Spotube is a Flutter based lightweight spotify client It utilizes the power of Spotify  Youtubes public API  creates a hazardless performant  resource friendly User Experience",
-    "winget": "KRTirtho.Spotube",
-    "choco": "spotube",
-    "itt": "na",
-    "category": "Media",
-    "check": "false"
-  },
-  {
-    "Name": "Audio Switcher",
-    "Description": "Easily switch the default audio device input or output on any Windows PC Vista and above Using this application you can switch output OR input sound devices at the click of a button or the press of a key I designed this application to be incredibly small and lightweight There is no bloat it does exactly what it should nothing more nothing less",
-    "winget": "FortyOneLtd.AudioSwitcher",
-    "choco": "audioswitcher",
-    "itt": "na",
-    "category": "Media",
-    "check": "false"
-  },
-  {
-    "Name": "Microsoft Teams Classic Desktop",
-    "Description": "Microsoft Teams is a messaging app for teams where all conversations meetings files and notes can be accessed by everyone all in one place Its a place for collaboration and work to happen in the open",
-    "winget": "na",
-    "choco": "microsoft-teams.install",
-    "itt": "na",
-    "category": "Communication",
-    "check": "false"
-  },
-  {
-    "Name": "Microsoft Windows SDK",
-    "Description": "The Windows 10 SDK for Windows 10 version 1809 provides the latest headers libraries metadata and tools for building Windows 10 apps NoteWindows 10 development targeting Windows 10 version 1903 or later requires Visual Studio 2017 or later This SDK will not be discovered by previous versions of Visual Studio",
-    "winget": "na",
-    "choco": "windows-sdk-10.1",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "RunAsDate Portable",
-    "Description": "RunAsDate is a small utility that allows you to run a program in the date and time that you specify This utility doesnt change the current system date and time of your computer but it only injects the datetime that you specify into the desired application",
-    "winget": "na",
-    "choco": "runasdate",
-    "itt": "na",
-    "category": "Portable",
-    "check": "false"
-  },
-  {
-    "Name": "Visual Studio 2017 Build ",
-    "Description": "These Build Tools allow you to build native and managed MSBuildbased applications without requiring the Visual Studio IDE There are options to install the Visual C compilers and libraries MFC ATL and CCLI support",
-    "winget": "na",
-    "choco": "visualstudio2017buildtools",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "MSEdgeRedirect",
-    "Description": "This tool filters and passes the command line arguments of Microsoft Edge processes into your default browser instead of hooking into the microsoftedge handler this should provide resiliency against future changes Additionally an Image File Execution Options mode is available to operate similarly to the Old EdgeDeflector Additional modes are planned for future versions",
-    "winget": "rcmaehl.MSEdgeRedirect",
-    "choco": "msedgeredirect",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "NET Desktop Runtime 5",
-    "Description": "NET Core is a general purpose development platform maintained by Microsoft and the NET community on GitHub It is crossplatform supporting Windows macOS and Linux and can be used in device cloud and embeddedIoT scenarios This package is required to run Windows Desktop applications with the .NET Runtime",
-    "winget": "Microsoft.DotNet.HostingBundle.5",
-    "choco": "dotnet-5.0-desktopruntime",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "NET Desktop Runtime 3",
-    "Description": "NET Core is a general purpose development platform maintained by Microsoft and the NET community on GitHub It is crossplatform supporting Windows macOS and Linux and can be used in device cloud and embeddedIoT scenarios This package is required to run Windows Desktop applications with the .NET Runtime.",
-    "winget": "dotnetcore-3.0-desktopruntime",
-    "choco": "Microsoft.DotNet.HostingBundle.3_1",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "NET Desktop Runtime 6",
-    "Description": "NET Core is a general purpose development platform maintained by Microsoft and the NET community on GitHub It is crossplatform supporting Windows macOS and Linux and can be used in device cloud and embeddedIoT scenarios This package is required to run Windows Desktop applications with the .NET Runtime.",
-    "winget": "Microsoft.DotNet.HostingBundle.6",
-    "choco": "dotnet-6.0-desktopruntime",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "NET Desktop Runtime 7",
-    "Description": "NET Core is a general purpose development platform maintained by Microsoft and the NET community on GitHub It is crossplatform supporting Windows macOS and Linux and can be used in device cloud and embeddedIoT scenarios This package is required to run Windows Desktop applications with the .NET Runtime.",
-    "winget": "Microsoft.DotNet.AspNetCore.7",
-    "choco": "dotnet-7.0-desktopruntime",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "NET Desktop Runtime 8",
-    "Description": "NET Core is a general purpose development platform maintained by Microsoft and the NET community on GitHub It is crossplatform supporting Windows macOS and Linux and can be used in device cloud and embeddedIoT scenarios This package is required to run Windows Desktop applications with the NET Runtime",
-    "winget": "Microsoft.DotNet.DesktopRuntime.8",
-    "choco": "dotnet-desktopruntime",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "Viber",
-    "Description": "Viber is a mobile application that lets you make free phone calls and send text messages to anyone who also has the application installed You can call or text any Viber user anywhere in the world for free",
-    "winget": "XPFM5P5KDWF0JP",
-    "choco": "viber",
-    "itt": "na",
-    "category": "Communication",
-    "check": "false"
-  },
-  {
-    "Name": "StartAllBack",
-    "Description": "Introducing  StartAllBack Windows 11 from a better timeline Embrace enhance unsweep classic UI from under the rug",
-    "winget": "StartIsBack.StartAllBack",
-    "choco": "startallback",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "DiskGenius Free",
-    "Description": "With powerful capabilities and userfriendly interface DiskGenius Free Edition provides a robust solution for individuals and organizations to seek efficient disk management",
-    "winget": "Eassos.DiskGenius",
-    "choco": "diskgenius",
-    "itt": "na",
-    "category": "Disk Tools",
-    "check": "false"
-  },
-  {
-    "Name": "UNFORMAT",
-    "Description": "UNFORMAT is a software utility created to solve almost all data loss scenarios due to logical failure It can recover deleted files on a disk or restore deleted or damaged partitions and volumes As well as recovers data after using the FORMAT command",
-    "winget": "LSoftTechnologies.UNFORMAT",
-    "choco": "na",
-    "itt": "na",
-    "category": "Disk Tools",
-    "check": "false"
-  },
-  {
-    "Name": "Active@ UNDELETE",
-    "Description": "Active UNDELETE helps you to recover deleted files and restore deleted partitions from a variety of file systems such as FAT NTFS NTFS  EFS MacOS HFS ApFS Linux ext2 ext3 ext4 ZFS Unix UFS Advanced scan algorithms help to restore files even from severely damaged disks Sophisticated userfriendly UI makes navigation through your data a breeze",
-    "winget": "LSoftTechnologies.ActiveUNDELETE",
-    "choco": "na",
-    "itt": "na",
-    "category": "Disk Tools",
-    "check": "false"
-  },
-  {
-    "Name": "HxD Hex Editor",
-    "Description": "HxD is a carefully designed and fast hex editor which additionally to raw disk editing and modifying of main memory RAM handles files of any size",
-    "winget": "MHNexus.HxD",
-    "choco": "hxd",
-    "itt": "na",
-    "category": "Disk Tools",
-    "check": "false"
-  },
-  {
-    "Name": "Epic Games Launcher",
-    "Description": "The Epic Games Launcher is how you obtain the Unreal Game Engine modding tools and other Epic Games like Fortnite and the new Epic Games Store",
-    "winget": "EpicGames.EpicGamesLauncher",
-    "choco": "epicgameslauncher",
-    "itt": "na",
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "Vivaldi",
-    "Description": "The new Vivaldi browser protects you from trackers blocks unwanted ads and puts you in control with unique builtin features Get Vivaldi and browse fast",
-    "winget": "VivaldiTechnologies.Vivaldi",
-    "choco": "vivaldi",
-    "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
-  },
-  {
-    "Name": "Microsoft PC Manager",
-    "Description": "Microsoft PC manager a good way to protect your personal computer and optimize performance provides PC cleanup antivirus and Windows update making your computer safe and secure",
-    "winget": "9PM860492SZD",
-    "choco": "na",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Openshot",
-    "Description": "OpenShot Video Editor is an awardwinning opensource video editor available on Linux Mac and Windows OpenShot can create stunning videos films and animations with an easytouse interface and rich set of features",
-    "winget": "OpenShot.OpenShot",
-    "choco": "openshot",
-    "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
-  },
-  {
-    "Name": "WhatsApp",
-    "Description": "WhatsApp Messenger or simply WhatsApp is an American freeware crossplatform centralized messaging and voiceoverIP VoIP service owned by Facebook Inc It allows users to send text messages and voice messages make voice and video calls and share images documents user locations and other content",
-    "winget": "9NKSQGP7F2NH",
-    "choco": "na",
-    "itt": "na",
-    "category": "Communication",
-    "check": "false"
-  },
-  {
-    "Name": "Paint.NET",
-    "Description": "PaintNET is image and photo editing software for PCs that run Windows",
-    "winget": "dotPDNLLC.paintdotnet",
-    "choco": "paint.net",
-    "itt": "na",
-    "category": "Imaging",
-    "check": "false"
-  },
-  {
-    "Name": "Stretchly",
-    "Description": "stretchly is a crossplatform electron app that reminds you to take breaks when working on your computer By default it runs in your tray and displays a reminder window containing an idea for a microbreak for 20 seconds every 10 minutes",
-    "winget": "Stretchly.Stretchly",
-    "choco": "stretchly",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Microsoft Silverlight",
-    "Description": "Silverlight is a powerful development tool for creating engaging interactive user experiences for Web and mobile applications",
-    "winget": "na",
-    "choco": "silverlight",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "TreeSize",
-    "Description": "Every hard disk is too small if you just wait long enough TreeSize Free tells you where precious disk space has gone",
-    "winget": "JAMSoftware.TreeSize.Free",
-    "choco": "treesizefree",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Dot Net 3.5",
-    "Description": "NET is a free crossplatform opensource developer platform for building many different types of applications",
-    "winget": "Microsoft.DotNet.DesktopRuntime.3_1",
-    "choco": "dotnet3.5",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "Flash Player ActiveX",
-    "Description": "The Adobe Flash Player is freeware software for viewing multimedia executing Rich Internet Applications and streaming video and audio content created on the Adobe Flash platform",
-    "winget": "na",
-    "choco": "flashplayeractivex",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "Google Drive",
-    "Description": "Google Drive  All your files  everywhere Safely store your files and access them from any device Choose folders on your computer to sync with Google Drive or backup to Google Photos and access all of your content directly from your PC or Mac",
-    "winget": "na",
-    "choco": "googledrive",
-    "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
-  },
-  {
-    "Name": "Dot Net 4.5.2",
-    "Description": "The Microsoft NET Framework 452 is a highly compatible inplace update to the Microsoft NET Framework 4 Microsoft NET Framework 45 and Microsoft NET Framework 451",
-    "winget": "na",
-    "choco": "dotnet4.5.2",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "Dropbox",
-    "Description": "Organize all your team's content, tune out distractions, and get everyone coordinated with the world's first smart workspace",
-    "winget": "Dropbox.Dropbox",
-    "choco": "dropbox",
-    "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
-  },
-  {
-    "Name": "cURL",
-    "Description": "Command line tool and library for transferring data with URLs",
-    "winget": "cURL.cURL",
-    "choco": "curl",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "PDF Creator",
-    "Description": "PDFCreator lets you convert any printable document to PDF",
-    "winget": "pdfforge.PDFCreator",
-    "choco": "pdfcreator",
-    "itt": "na",
-    "category": "Documents",
-    "check": "false"
-  },
-  {
-    "Name": "Autoruns",
-    "Description": "This utility shows you what programs are configured to run during system bootup or login",
-    "winget": "Microsoft.Sysinternals.Autoruns",
-    "choco": "autoruns",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Microsoft OneDrive",
-    "Description": "Save your files and photos to OneDrive and access them from any device anywhere",
-    "winget": "Microsoft.OneDrive",
-    "choco": "onedrive",
-    "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
-  },
-  {
-    "Name": "Process Explorer",
-    "Description": "Process Explorer shows you information about which handles and DLLs processes have opened or loaded",
-    "winget": "Microsoft.Sysinternals.ProcessExplorer",
-    "choco": "procexp",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "FFmpeg",
-    "Description": "FFmpeg is a widelyused crossplatform multimedia framework which can process almost all common and many uncommon media formats It has over 1000 internal components to capture decode encode modify combine stream media and it can make use of dozens of external libraries to provide more capabilities",
-    "winget": "Gyan.FFmpeg",
-    "choco": "ffmpeg",
-    "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
-  },
-  {
-    "Name": "OpenVPN Connect",
-    "Description": "The official OpenVPN Connect client software developed and maintained by OpenVPN Inc",
-    "winget": "OpenVPNTechnologies.OpenVPNConnect",
-    "choco": "openvpn-connect",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Git Large File Storage",
-    "Description": "Git Large File Storage LFS replaces large files such as audio samples videos datasets and graphics with text pointers inside Git while storing the file contents on a remote server like GitHubcom or GitHub Enterprise",
-    "winget": "na",
-    "choco": "git-lfs",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Nmap",
-    "Description": "Nmap Network Mapper is a free and open source utility for network discovery and security auditing",
-    "winget": "Insecure.Nmap",
-    "choco": "nmap",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "UltraVNC",
-    "Description": "UltraVNC is an open source application that uses the VNC protocol to control another computer remotely over a network connection UltraVNC allows the use of a remote computer",
-    "winget": "uvncbvba.UltraVnc",
-    "choco": "ultravnc",
-    "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
-  },
-  {
-    "Name": "Plex",
-    "Description": "Plex is a global streaming media service and a clientserver media player platform made by Plex Inc",
-    "winget": "Plex.Plex",
-    "choco": "plex",
-    "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
-  },
-  {
-    "Name": "Plex Media Server",
-    "Description": "Plex Media Server helps you organise your media and stream it to your devices",
-    "winget": "Plex.PlexMediaServer",
-    "choco": "plexmediaserver",
-    "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
-  },
-  {
-    "Name": "Microsoft Visio Viewer",
-    "Description": "By using Microsoft Visio 2016 Viewer Visio users can freely distribute Visio drawings files with a vsdx vsdm vsd vdx vdw vstx vstm vst or vtx extension to team members partners customers or others even if the recipients do not have Visio installed on their computer",
-    "winget": "Microsoft.VisioViewer",
-    "choco": "visioviewer",
-    "itt": "na",
-    "category": "Documents",
-    "check": "false"
-  },
-  {
-    "Name": "Keyn Stroke",
-    "Description": "KeynStroke makes it easy for your audience to follow your actions on the screen",
-    "winget": "na",
-    "choco": "key-n-stroke",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Fing",
-    "Description": "Fing App is a free network scanner that makes you discover all connected devices run internet speed tests and help troubleshoot network and device issues Get Fingbox for more advanced security and protection for your network",
-    "winget": "na",
-    "choco": "fing",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Ryujinx",
-    "Description": "Ryujinx is an opensource Nintendo Switch emulator created by gdkchan and written in C This emulator aims at providing excellent accuracy and performance a userfriendly interface and consistent builds",
-    "winget": "na",
-    "choco": "ryujinx --params '/DesktopShortcut'",
-    "itt": "na",
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "Omnify Hotspot",
-    "Description": "The best virtual router to turn your PC into a WiFi hotspot  repeater WiFi hotspot allows you to create a wireless access point and share your internet Its easy to use and quick to start as you only need to give it a name and password and then connect your smartphone tablet media player ereader printer laptop and other wireless devices The network name can also include Unicode characters and Emojis",
-    "winget": "na",
-    "choco": "omnifyhotspot",
-    "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
-  },
-  {
-    "Name": "MKVToolNix",
-    "Description": "MKVToolNix is a set of tools to create alter and inspect Matroska files under Linux other Unices and Windows",
-    "winget": "MoritzBunkus.MKVToolNix",
-    "choco": "mkvtoolnix",
-    "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
-  },
-  {
-    "Name": "Neat Download Manager",
-    "Description": "Neat Download Manager is a free Internet Download Manager for Windows",
-    "winget": "na",
-    "choco": "na",
-    "itt": "neat",
-    "category": "Web Browsers",
-    "check": "false"
-  },
-  {
-    "Name": "x630ce for all games",
-    "Description": "Xbox 360 Controller Emulator” allows your controller (gamepad, joystick, steering wheel, pedals, etc.) to function on your PC as an Xbox 360 controller. It allows you to remap buttons and axes and to drive cars with steering wheel and pedals or to fly planes with joystick and throttle in games like “Grand Theft Auto” or “Saints Row” • Digitally Signed",
-    "winget": "na",
-    "choco": "na",
-    "itt": "x360ce",
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "Microsoft .NET SDK 7",
-    "Description": "NET is a free crossplatform opensource developer platform for building many different types of applications",
-    "winget": "Microsoft.DotNet.SDK.7",
-    "choco": "dotnet-7.0-sdk",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "Microsoft .NET SDK 8",
-    "Description": "NET is a free crossplatform opensource developer platform for building many different types of applications",
-    "winget": "Microsoft.DotNet.SDK.Preview",
-    "choco": "dotnet-sdk",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "Microsoft ASP.NET Core Runtime 7.0",
-    "Description": "NET is a free crossplatform opensource developer platform for building many different types of applications",
-    "winget": "Microsoft.DotNet.AspNetCore.7",
-    "choco": "dotnet-aspnetruntime",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "HFS HTTP File Server",
-    "Description": "You can use HFS HTTP File Server to send and receive files Its different from classic file sharing because it uses web technology to be more compatible with todays Internet It also differs from classic web servers because its very easy to use and runs right outofthe box",
-    "winget": "na",
-    "choco": "hfs",
-    "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
-  },
-  {
-    "Name": "Cemu",
-    "Description": "Cemu is a highly experimental software to emulate Wii U applications on PC",
-    "winget": "Cemu.Cemu",
-    "choco": "cemu",
-    "itt": "na",
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "Chatterino",
-    "Description": "Chatterino is a chat client for Twitch chat that offers a clean and customizable interface for a better streaming experience",
-    "winget": "ChatterinoTeam.Chatterino",
-    "choco": "chatterino",
-    "itt": "na",
-    "category": "Communication",
-    "check": "false"
-  },
-  {
-    "Name": "Clementine",
-    "Description": "Clementine is a modern music player and library organizer supporting various audio formats and online radio services",
-    "winget": "Clementine.Clementine",
-    "choco": "clementine",
-    "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
-  },
-  {
-    "Name": "Clink",
-    "Description": "Clink is a powerful Bashcompatible commandline interface CLIenhancement for Windows adding features like syntax highlighting and improved history",
-    "winget": "chrisant996.Clink",
-    "choco": "clink",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "CMake",
-    "Description": "CMake is an opensource crossplatform family of tools designed to build test and package software",
-    "winget": "Kitware.CMake",
-    "choco": "cmake",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "CopyQ Clipboard Manager",
-    "Description": "CopyQ is a clipboard manager with advanced features allowing you to store edit and retrieve clipboard history",
-    "winget": "hluk.CopyQ",
-    "choco": "copyq",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Crystal Disk Info",
-    "Description": "Crystal Disk Info is a disk health monitoring tool that provides information about the status and performance of hard drives It helps users anticipate potential issues and monitor drive health",
-    "winget": "CrystalDewWorld.CrystalDiskInfo",
-    "choco": "crystaldiskinfo",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Crystal Disk Mark",
-    "Description": "Crystal Disk Mark is a disk benchmarking tool that measures the read and write speeds of storage devices It helps users assess the performance of their hard drives and SSDs",
-    "winget": "CrystalDewWorld.CrystalDiskMark",
-    "choco": "crystaldiskmark",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Darktable",
-    "Description": "Opensource photo editing tool offering an intuitive interface advanced editing capabilities and a nondestructive workflow for seamless image enhancement",
-    "winget": "darktable.darktable",
-    "choco": "darktable",
-    "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
-  },
-  {
-    "Name": "EA App",
-    "Description": "EA App is a platform for accessing and playing Electronic Arts games",
-    "winget": "ElectronicArts.EADesktop",
-    "choco": "ea-app",
-    "itt": "na",
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "Falkon",
-    "Description": "Falkon is a lightweight and fast web browser with a focus on user privacy and efficiency",
-    "winget": "KDE.Falkon",
-    "choco": "falkon",
-    "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
-  },
-  {
-    "Name": "File Converter",
-    "Description": "File Converter is a very simple tool which allows you to convert and compress one or several files using the context menu in windows explorer",
-    "winget": "AdrienAllard.FileConverter",
-    "choco": "file-converter",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Files",
-    "Description": "Alternative file explorer",
-    "winget": "na",
-    "choco": "files",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Flameshot",
-    "Description": "Flameshot is a powerful yet simple to use screenshot software offering annotation and editing features",
-    "winget": "Flameshot.Flameshot",
-    "choco": "flameshot",
-    "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
-  },
-  {
-    "Name": "Lightshot",
-    "Description": "Ligthshot is an Easytouse lightweight screenshot software tool where you can optionally edit your screenshots using different tools share them via Internet andor save to disk and customize the available options",
-    "winget": "Skillbrains.Lightshot",
-    "choco": "lightshot",
-    "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
-  },
-  {
-    "Name": "F.lux",
-    "Description": "flux adjusts the color temperature of your screen to reduce eye strain during nighttime use",
-    "winget": "flux.flux",
-    "choco": "flux",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "GitHub CLI",
-    "Description": "GitHub CLI is a commandline tool that simplifies working with GitHub directly from the terminal",
-    "winget": "GitHub.cli",
-    "choco": "gh",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "GOG Galaxy",
-    "Description": "GOG Galaxy is a gaming client that offers DRMfree games additional content and more",
-    "winget": "GOG.Galaxy",
-    "choco": "goggalaxy",
-    "itt": "na",
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "Greenshot",
-    "Description": "Greenshot is a lightweight screenshot software tool with builtin image editor and customizable capture options",
-    "winget": "Greenshot.Greenshot",
-    "choco": "greenshot",
-    "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
-  },
-  {
-    "Name": "Hexchat",
-    "Description": "HexChat is a free opensource IRC Internet Relay Chat client with a graphical interface for easy communication",
-    "winget": "HexChat.HexChat",
-    "choco": "hexchat",
-    "itt": "na",
-    "category": "Communication",
-    "check": "false"
-  },
-  {
-    "Name": "HWMonitor",
-    "Description": "HWMonitor is a hardware monitoring program that reads PC systems main health sensors",
-    "winget": "CPUID.HWMonitor",
-    "choco": "hwmonitor",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "ImageGlass",
-    "Description": "ImageGlass is a versatile image viewer with support for various image formats and a focus on simplicity and speed",
-    "winget": "DuongDieuPhap.ImageGlass",
-    "choco": "imageglass",
-    "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
-  },
-  {
-    "Name": "Itch.io",
-    "Description": "Itchio is a digital distribution platform for indie games and creative projects",
-    "winget": "ItchIo.Itch",
-    "choco": "itch",
-    "itt": "na",
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "KDE Connect",
-    "Description": "KDE Connect allows seamless integration between your KDE desktop and mobile devices",
-    "winget": "KDE.KDEConnect",
-    "choco": "kdeconnect-kde",
-    "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
-  },
-  {
-    "Name": "KeePassXC",
-    "Description": "KeePassXC is a crossplatform opensource password manager with strong encryption features",
-    "winget": "KeePassXCTeam.KeePassXC",
-    "choco": "keepassxc",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Lazygit",
-    "Description": "Simple terminal UI for git commands",
-    "winget": "JesseDuffield.lazygit",
-    "choco": "lazygit",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "LocalSend",
-    "Description": "An open source crossplatform alternative to AirDrop",
-    "winget": "LocalSend.LocalSend",
-    "choco": "localsend.install",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Fork",
-    "Description": "Fork  a fast and friendly git client",
-    "winget": "Fork.Fork",
-    "choco": "git-fork",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "PulsarEdit",
-    "Description": "A Communityled HyperHackable Text Editor",
-    "winget": "Pulsar-Edit.Pulsar",
-    "choco": "pulsar",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Shotcut",
-    "Description": "Shotcut is a free open source crossplatform video editor",
-    "winget": "Meltytech.Shotcut",
-    "choco": "Shotcut",
-    "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
-  },
-  {
-    "Name": "PaleMoon",
-    "Description": "Pale Moon is an Open Source Goannabased web browser available for Microsoft Windows and Linux with other operating systems in development focusing on efficiency and ease of use",
-    "winget": "MoonchildProductions.PaleMoon",
-    "choco": "paleMoon",
-    "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
-  },
-  {
-    "Name": "JoyToKey",
-    "Description": "enables PC game controllers to emulate the keyboard and mouse input",
-    "winget": "JTKsoftware.JoyToKey",
-    "choco": "joytokey",
-    "itt": "na",
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "Windows Auto Dark Mode",
-    "Description": "Automatically switches between the dark and light theme of Windows 10 and Windows 11",
-    "winget": "Armin2208.WindowsAutoNightMode",
-    "choco": "auto-dark-mode",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Windows Firewall Control",
-    "Description": "Windows Firewall Control is a powerful tool which extends the functionality of Windows Firewall and provides new extra features which makes Windows Firewall better",
-    "winget": "BiniSoft.WindowsFirewallControl",
-    "choco": "windowsfirewallcontrol",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "TightVNC",
-    "Description": "TightVNC is a free and Open Source remote desktop software that lets you access and control a computer over the network With its intuitive interface you can interact with the remote screen as if you were sitting in front of it You can open files launch applications and perform other actions on the remote desktop almost as if you were physically there",
-    "winget": "GlavSoft.TightVNC",
-    "choco": "TightVNC",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Python Version Manager",
-    "Description": "pyenv for Windows is a simple python version management tool It lets you easily switch between multiple versions of Python",
-    "winget": "na",
-    "choco": "pyenv-win",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Pixi",
-    "Description": "Pixi is a fast software package manager built on top of the existing conda ecosystem Spins up development environments quickly on Windows macOS and Linux Pixi supports Python R CC Rust Ruby and many other languages",
-    "winget": "prefix-dev.pixi",
-    "choco": "pixi",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "VSCodium",
-    "Description": "VSCodium is a communitydriven freelylicensed binary distribution of Microsofts VS Code",
-    "winget": "VSCodium.VSCodium",
-    "choco": "vscodium",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Thonny Python IDE",
-    "Description": "Python IDE for beginners",
-    "winget": "AivarAnnamaa.Thonny",
-    "choco": "thonny",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Poedit",
-    "Description": "Poedit translations editor The best way to translate apps and sites",
-    "winget": "na",
-    "choco": "na",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Adobe Acrobat Reader",
-    "Description": "Adobe Acrobat Reader DC software is the free trusted global standard for viewing printing signing sharing and annotating PDFs Its the only PDF viewer that can open and interact",
-    "winget": "Adobe.Acrobat.Reader.32-bit",
-    "choco": "adobereader",
-    "itt": "na",
-    "category": "Documents",
-    "check": "false"
-  },
-  {
-    "Name": "Flash Player Plugin",
-    "Description": "The Adobe Flash Player is freeware software for viewing multimedia executing Rich Internet Applications and streaming video and audio content created on the Adobe Flash platform",
-    "winget": "na",
-    "choco": "flashplayerplugin",
-    "itt": "na",
-    "category": "Documents",
-    "check": "false"
-  },
-  {
-    "Name": "Sysinternals",
-    "Description": "The Sysinternals Troubleshooting Utilities have been rolled up into a single suite of tools",
-    "winget": "na",
-    "choco": "sysinternals",
-    "itt": "na",
-    "category": "Documents",
-    "check": "false"
-  },
-  {
-    "Name": "SelfishNet",
-    "Description": "Control your internet bandwidth with SelfishNet V3, ARP Spoofing application.",
-    "winget": "na",
-    "choco": "na",
-    "itt": "selfishnet",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "NTLite",
-    "Description": "Integrate updates drivers automate Windows and application setup speedup Windows deployment process and have it all set for the next time",
-    "winget": "Nlitesoft.NTLite",
-    "choco": "ntlite-free",
-    "itt": "na",
-    "category": "Drivers",
-    "check": "false"
-  },
-  {
-    "Name": "Olive Video Editor",
-    "Description": "Olive is a free nonlinear video editor for Windows",
-    "winget": "OliveTeam.OliveVideoEditor",
-    "choco": "olive",
-    "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
-  },
-  {
-    "Name": "Mark Text",
-    "Description": "A simple and elegant opensource markdown editor that focused on speed and usability",
-    "winget": "MarkText.MarkText",
-    "choco": "marktext.portable",
-    "itt": "na",
-    "category": "Portable",
-    "check": "false"
-  },
-  {
-    "Name": "pCloud Drive",
-    "Description": "pCloud is a file hosting service also called cloud storage or online storage founded in Switzerland in 2013",
-    "winget": "pCloudAG.pCloudDrive",
-    "choco": "pcloud",
-    "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
-  },
-  {
-    "Name": "Hurl",
-    "Description": "Hurl is a command line tool that runs HTTP requests defined in a simple plain text format",
-    "winget": "Orange-OpenSource.Hurl",
-    "choco": "hurl",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "File Hash Generator",
-    "Description": "Compute and save MD5 SHA1 SHA2 RIPEMD hashes and CRC1632 checksums for multiple files Calculate hashes and checksums for the whole file or just specified bytes",
-    "winget": "BinaryMark.FileHashGenerator",
-    "choco": "file-hash-generator",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Multimark down",
-    "Description": "MultiMarkdown or MMD, is a tool to help turn minimally marked-up plain text into well formatted documents, including HTML, PDF",
-    "winget": "na",
-    "choco": "multimarkdown",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "PCSX2 Emulator",
-    "Description": "PCSX2 is a free and opensource PlayStation 2 PS2 emulator Its purpose is to emulate the PS2s hardware",
-    "winget": "na",
-    "choco": "pcsx2.portable",
-    "itt": "na",
-    "category": "Portable",
-    "check": "false"
-  },
-  {
-    "Name": "RetroArch",
-    "Description": "RetroArch is a frontend for emulators game engines and media players It enables you to run classic games on a wide range of computers and consoles through its slick graphical interface",
-    "winget": "Libretro.RetroArch",
-    "choco": "retroarch",
-    "itt": "na",
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "Free Virtual Keyboard",
-    "Description": "Free Virtual Keyboard works on any Windows based UMPC with a passive touchscreen Ultramobile PC Tablet PC and Panel PC",
-    "winget": "na",
-    "choco": "free-virtual-keyboard",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "TypeScript for Visual Studio 2017 and 2019",
-    "Description": "This is a standalone power tool release of TypeScript for Visual Studio 2017 and 2019 It includes both the TypeScript experience for Visual Studio and a standalone compiler that can be used from the command line",
-    "winget": "na",
-    "choco": "typescript-vs2017-vs2019",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Caret",
-    "Description": "Beautiful  Clever Markdown Editor Download trial",
-    "winget": "Caret.Caret",
-    "choco": "caret",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "iSpy",
-    "Description": "iSpy is the worlds most popular open source video surveillance application Its compatible with the the vast majority of consumer webcams and IP cameras With more than 2 million users worldwide iSpy works with more cameras and devices than anything else on the market",
-    "winget": "na",
-    "choco": "ispy",
-    "itt": "na",
-    "category": "Imaging",
-    "check": "false"
-  },
-  {
-    "Name": "WavPack",
-    "Description": "WavPack is a completely open audio compression format providing lossless highquality lossy and a unique hybrid compression mode Although the technology is loosely based on previous versions of WavPack the new version 4 format has been designed from the ground up to offer unparalleled performance and functionality",
-    "winget": "na",
-    "choco": "wavpack",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "ProcessThreadsView",
-    "Description": "ProcessThreadsView is a small utility that displays extensive information about all threads of the process that you choose",
-    "winget": "na",
-    "choco": "processthreadsview",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Zulu",
-    "Description": "Zulu is a certified build of OpenJDK that is fully compliant with the Java SE standard Zulu is 100 open source and freely downloadable Now Java developers system administrators and end users can enjoy the full benefits of open source Java with deployment flexibility and control over upgrade timing",
-    "winget": "Azul.Zulu.11.JRE",
-    "choco": "zulu12",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "GitHubReleaseNotesv1",
-    "Description": "Generate Release Notes in MarkDown format from a GitHub project",
-    "winget": "StefHeyenrath.GitHubReleaseNotes",
-    "choco": "githubreleasenotes",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Tome",
-    "Description": "Developing games is all about data With game systems for modifying data and user interfaces for presenting it finding a sophisticated data model is key to creating successful games Even more being able to change this data and iterate on a daytoday basis is mandatory in todays production cycles",
-    "winget": "na",
-    "choco": "tome-editor",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Win32 OpenSSH",
-    "Description": "OpenSSH is a complete implementation of the SSH protocol version 2 for secure remote login command execution and file transfer",
-    "winget": "Microsoft.OpenSSH.Beta",
-    "choco": "openssh",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Komodo Edit",
-    "Description": "Komodo Edit is a free and open source text editor for dynamic programming languages",
-    "winget": "ActiveState.KomodoEdit",
-    "choco": "komodo-edit",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "FreeCAD",
-    "Description": "A free and opensource multiplatform 3D parametric modeler",
-    "winget": "FreeCAD.FreeCAD",
-    "choco": "freecad",
-    "itt": "na",
-    "category": "Imaging",
-    "check": "false"
-  },
-  {
-    "Name": "SQLite",
-    "Description": "SQLite is an inprocess library that implements a selfcontained serverless zeroconfiguration transactional SQL database engine SQLite is an embedded SQL database engine Unlike most other SQL databases SQLite does not have a separate server process SQLite reads and writes directly to ordinary disk files A complete SQL database with multiple tables indices triggers and views is contained in a single disk file",
-    "winget": "SQLite.SQLite",
-    "choco": "sqlite",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "MkDocs",
-    "Description": "MkDocs is a fast simple and downright gorgeous static site generator thats geared towards building project documentation Documentation source files are written in Markdown and configured with a single YAML configuration file",
-    "winget": "na",
-    "choco": "mkdocs",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "MkDocs Material Theme",
-    "Description": "MkDocs is a fast simple and downright gorgeous static site generator thats geared towards building project documentation Documentation source files are written in Markdown and configured with a single YAML configuration file",
-    "winget": "na",
-    "choco": "mkdocs-material",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "PuTTY",
-    "Description": "A free implementation of SSH and Telnet along with an xterm terminal emulator",
-    "winget": "PuTTY.PuTTY",
-    "choco": "putty",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "WinSCP",
-    "Description": "WinSCP is an open source free SFTP client FTP client WebDAV client S3 client and SCP client for Windows Its main function is file transfer between a local and a remote computer Beyond this WinSCP offers scripting and basic file manager functionality",
-    "winget": "WinSCP.WinSCP",
-    "choco": "winscp",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "LibreOffice Still",
-    "Description": "LibreOffice is the free powerpacked Open Source personal productivity suite for Windows macOS and Linux that gives you six featurerich applications for all your document production and data processing needs",
-    "winget": "na",
-    "choco": "libreoffice-still",
-    "itt": "na",
-    "category": "Documents",
-    "check": "false"
-  },
-  {
-    "Name": "Aio Runtimes",
-    "Description": "All in One Runtimes also known as AIO Runtimes is a program that integrates essential runtime packages ensuring the seamless functionality of all programs by installing them automatically",
-    "winget": "na",
-    "choco": "na",
-    "itt": "aio-runtimes",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "Visual-C-Runtimes All in One Oct 2024",
-    "Description": "This archive contains the latest version (Oct 2024) of all VCRedist Visual Studio C++ runtimes, installable with a single click by running the included batch file installer",
-    "winget": "na",
-    "choco": "na",
-    "itt": "vsall",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "GPU-Z",
-    "Description": "GPUZ is a lightweight system utility designed to provide vital information about your video card and graphics processor",
-    "winget": "TechPowerUp.GPU-Z",
-    "choco": "gpu-z",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "MemTest86",
-    "Description": "MemTest86 boots from a USB flash drive and tests the RAM in your computer for faults using a series of comprehensive algorithms and test patterns",
-    "winget": "na",
-    "choco": "na",
-    "itt": "memtest86",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Memtest86 Plus",
-    "Description": "Memtest86 Plus v6 is a unified, free, open-source memory testing tool, released under GNU GPL v2.0. The new v6 code base (originally called PCMemTest) was provided by Martin Whitaker, based on Memtest86+ v5, developed by Sam Demeulemeester. Both are now working on Memtest86+",
-    "winget": "na",
-    "choco": "na",
-    "itt": "memtest86plus",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "VLC Skins",
-    "Description": "Put the downloaded VLT files in the following folder: On Windows: the skins folder in the VLC installation directory (e.g. C:\\Program Files\\VideoLAN\\VLC\\skins) On Linux/Unix: ~/.local/share/vlc/skins2",
-    "winget": "na",
-    "choco": "vlc-skins",
-    "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
-  },
-  {
-    "Name": "GrepWin",
-    "Description": "Regular expression search and replace for Windows",
-    "winget": "StefansTools.grepWin",
-    "choco": "grepwin",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "NICE DCV Server",
-    "Description": "NICE DCV is a remote display protocol that securely streams desktops and apps from cloud or data centers to any device, enabling graphics-intensive applications on Amazon EC2. It's used for HPC workloads and by services like Appstream 2.0 and AWS RoboMaker",
-    "winget": "na",
-    "choco": "nice-dcv-server",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "NTag",
-    "Description": "NTag is a cross platform-graphical tag editor focused on everyday life use cases",
-    "winget": "nrittsti.NTag",
-    "choco": "ntag",
-    "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
-  },
-  {
-    "Name": "Volume2",
-    "Description": "Advanced Windows volume control",
-    "winget": "irzyxa.Volume2Portable",
-    "choco": "volume2",
-    "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
-  },
-  {
-    "Name": "qBittorrent Enhanced Edition",
-    "Description": "[Unofficial] qBittorrent Enhanced, based on qBittorrent",
-    "winget": "wingetinstallc0re100.qBittorrent-Enhanced-Edition",
-    "choco": "qbittorrent-enhanced",
-    "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
-  },
-  {
-    "Name": "Aspia",
-    "Description": "Remote desktop and file transfer tool",
-    "winget": "na",
-    "choco": "na",
-    "itt": "Aspia",
-    "category": "File Sharing",
-    "check": "false"
-  },
-  {
-    "Name": "SimpleTransfer Desktop",
-    "Description": "Simple Transfer is the easiest way of transferring your Photos and Videos to computer and other iOS devices wirelessly or USB. No need for cable, iTunes or extra softwares on your computer!",
-    "winget": "Rambax.SimpleTransfer",
-    "choco": "simpletransfer",
-    "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
-  },
-  {
-    "Name": "Twitch Desktop App",
-    "Description": "Servers - A virtual home for your community to chat, watch, and play with fully customizable text and voice rooms",
-    "winget": "na",
-    "choco": "twitch",
-    "itt": "na",
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "Remote Desktop Manager",
-    "Description": "Remote Connections & Passwords. Everywhere!",
-    "winget": "Devolutions.RemoteDesktopManager",
-    "choco": "rdm",
-    "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
-  },
-  {
-    "Name": "Torrid",
-    "Description": "Torrid is a multi-server, multi-client, multi-tracker Remote Torrent Client which allows any number of installed torrent engines.",
-    "winget": "na",
-    "choco": "torrid",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Mediamonkey",
-    "Description": "Manage small to large collections of audio files, videos and playlists (100,000+), whether on a hard drive, network, or CDs. Rip CDs, download podcasts, lookup artwork and other missing information online, tag almost any audio or video format, and automatically rename/re-organize files on your hard drive",
-    "winget": "VentisMedia.MediaMonkey",
-    "choco": "mediamonkey",
-    "itt": "na",
-    "category": "Media",
-    "check": "false"
-  },
-  {
-    "Name": "MediaInfo",
-    "Description": "Convenient unified display of the most relevent technical and tag data for video and audio files",
-    "winget": "MediaArea.MediaInfo.GUI",
-    "choco": "mediainfo",
-    "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
-  },
-  {
-    "Name": "Universal Media Server",
-    "Description": "Universal Media Server is a DLNA-compliant UPnP Media Server. It is capable of sharing video, audio and images between most modern devices",
-    "winget": "UniversalMediaServer.UniversalMediaServer",
-    "choco": "ums",
-    "itt": "na",
-    "category": "Media",
-    "check": "false"
-  },
-  {
-    "Name": "K-Lite Codec Pack Standard",
-    "Description": "The K-Lite Codec Pack is a collection of DirectShow filters, VFW/ACM codecs, and tools. Codecs and DirectShow filters are needed for encoding and decoding audio and video formats. The K-Lite Codec Pack is designed as a user-friendly solution for playing all your audio and movie files. With the K-Lite Codec Pack you should be able to play all the popular audio and video formats and even several less common formats",
-    "winget": "CodecGuide.K-LiteCodecPack.Standard",
-    "choco": "k-litecodecpack-standard",
-    "itt": "na",
-    "category": "Media",
-    "check": "false"
-  },
-  {
-    "Name": "PowerISO",
-    "Description": "PowerISO provides an all-in-one solution. You can do every thing with your ISO files and disc image files",
-    "winget": "PowerSoftware.PowerISO",
-    "choco": "poweriso",
-    "itt": "na",
-    "category": "Compression",
-    "check": "false"
-  },
-  {
-    "Name": "Screen To Gif",
-    "Description": "This tool allows you to record a selected area of your screen, live feed from your webcam or live drawings from a sketchboard. Afterwards, you can edit and save the animation as a gif, apng, video, psd or png images",
-    "winget": "NickeManarin.ScreenToGif",
-    "choco": "screentogif.portable",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Figma",
-    "Description": "The collaborative interface design tool Build better products as a team. Design, prototype, and gather feedback all in one place with Figma",
-    "winget": "Figma.Figma",
-    "choco": "figma",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "EarTrumpet",
-    "Description": "EarTrumpet is a powerful volume control app for Windows",
-    "winget": "File-New-Project.EarTrumpet",
-    "choco": "eartrumpet",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Visual Studio Code Insiders",
-    "Description": "Microsoft Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications. Microsoft Visual Studio Code is free and available on your favorite platform - Linux, macOS, and Windows",
-    "winget": "Microsoft.VisualStudioCode.Insiders",
-    "choco": "vscode-insiders",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "AyuGramDesktop",
-    "Description": " Desktop Telegram client with good customization and Ghost mode",
-    "winget": "na",
-    "choco": "na",
-    "itt": "ayugramdesktop",
-    "category": "Communication",
-    "check": "false"
-  },
-  {
-    "Name": "Zettlr",
-    "Description": "Zettlr is a supercharged markdown editor that combines many writing editor features and collect them in one application. It aims at speeding up your workflow and help you write without any interruptions",
-    "winget": "Zettlr.Zettlr",
-    "choco": "zettlr",
-    "itt": "na",
-    "category": "Documents",
-    "check": "false"
-  },
-  {
-    "Name": "RustDesk",
-    "Description": "An open-source remote desktop software, works out of the box, no configuration required, written in Rust",
-    "winget": "RustDesk.RustDesk",
-    "choco": "rustdesk",
-    "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
-  },
-  {
-    "Name": "Ente Auth",
-    "Description": "An end-to-end encrypted, cross platform and free app for storing your 2FA codes with cloud backups",
-    "winget": "na",
-    "choco": "ente-auth",
-    "itt": "na",
-    "category": "Security",
-    "check": "false"
-  },
-  {
-    "Name": "SQLiteStudio",
-    "Description": "SQLiteStudio is desktop application for browsing and editing SQLite database files. It is aimed for people, who know what SQLite is, or what relational databases are in general",
-    "winget": "sqlitestudio.pl.SQLiteStudio",
-    "choco": "sqlitestudio",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "DuckStation",
-    "Description": " Fast PlayStation 1 emulator for x86-64/AArch32/AArch64/RV64",
-    "winget": "na",
-    "choco": "na",
-    "itt": "duckstation",
-    "category": "Portable",
-    "check": "false"
-  },
-  {
-    "Name": "Authme - Simple 2FA",
-    "Description": "Simple 2FA desktop application",
-    "winget": "na",
-    "choco": "authme.portable",
-    "itt": "na",
-    "category": "Security",
-    "check": "false"
-  },
-  {
-    "Name": "SuperCopier2",
-    "Description": "SuperCopier2 SuperCopier replaces Windows explorer file copy and adds many features",
-    "winget": "na",
-    "choco": "na",
-    "itt": "supercopier2",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Octopus Deploy",
-    "Description": "Octopus Deploy is a Continuous Delivery platform for complex deployments across your entire stack. Deploy with ease to Kubernetes, Linux, Windows virtual machines, Amazon Web Services, Azure, or Google Cloud. If the Octopus Tentacle agent, SSH, command line, or a web service can speak to it, Octopus can deploy to it",
-    "winget": "OctopusDeploy.Tentacle",
-    "choco": "octopusdeploy.tentacle",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Kindle Previewer",
-    "Description": "Kindle Previewer is a graphical user interface tool that emulates how books display across Kindle devices and apps. Kindle Previewer makes it easy for publishers to preview the layout of a book and make sure its text displays properly for any orientation or font size to ensure publishers produce and submit the highest quality Kindle books",
-    "winget": "na",
-    "choco": "kindlepreviewer",
-    "itt": "na",
-    "category": "Documents",
-    "check": "false"
-  },
-  {
-    "Name": "Interior Design 3D",
-    "Description": "Interior Design 3D is an expert program for home design and floor plan creation",
-    "winget": "AMSSoftware.InteriorDesign3D-e",
-    "choco": "na",
-    "itt": "na",
-    "category": "Imaging",
-    "check": "false"
-  },
-  {
-    "Name": "MeshLab",
-    "Description": "MeshLab is an open source, portable, and extensible system for the processing and editing of unstructured large 3D triangular meshes. It is aimed to help the processing of the typical not-so-small unstructured models",
-    "winget": "CNRISTI.MeshLab",
-    "choco": "meshlab",
-    "itt": "na",
-    "category": "Imaging",
-    "check": "false"
-  },
-  {
-    "Name": "GitKraken",
-    "Description": "Legendary Git GUI client for Windows, Mac & Linux",
-    "winget": "Axosoft.GitKraken",
-    "choco": "gitkraken",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Slack",
-    "Description": "Slack is a collaboration hub for work, no matter what work you do. It's a place where conversations happen, decisions are made, and information is always at your fingertips. With Slack, your team is better connected",
-    "winget": "SlackTechnologies.Slack",
-    "choco": "slack",
-    "itt": "na",
-    "category": "Communication",
-    "check": "false"
-  },
-  {
-    "Name": "Rocket Chat",
-    "Description": "Rocket.Chat is the leading open source team chat software solution. Free, unlimited and completely customizable with on-premises and SaaS cloud hosting",
-    "winget": "RocketChat.RocketChat",
-    "choco": "rocketchat",
-    "itt": "na",
-    "category": "Communication",
-    "check": "false"
-  },
-  {
-    "Name": "TeamSpeak",
-    "Description": "Use crystal clear sound to communicate with your team mates cross-platform with military-grade security. lag-free performance & unparalleled reliability and uptime",
-    "winget": "TeamSpeakSystems.TeamSpeakClient",
-    "choco": "teamspeak",
-    "itt": "na",
-    "category": "Communication",
-    "check": "false"
-  },
-  {
-    "Name": "FFFTP",
-    "Description": "FFFTP is lightweight FTP client software. FFFTP has many useful feature such as directory mirroring, character encdoging conversion, Firewall and SOCK, one-time password support, and so on",
-    "winget": "Sayuri.FFFTP",
-    "choco": "ffftp",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "SmartFTP",
-    "Description": "SmartFTP is a fast and reliable FTP, FTPS, SFTP, HTTP, Amazon S3, WebDAV, Google Drive, Google Cloud Storage, Microsoft OneDrive, Backblaze B2, Telnet, Terminal client with lots of features and a modern user interface",
-    "winget": "SmartSoft.SmartFTP",
-    "choco": "smartftp",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Rclone",
-    "Description": "Rclone (\"rsync for cloud storage\") is a command-line program to sync files and directories to and from different cloud storage providers",
-    "winget": "Rclone.Rclone",
-    "choco": "rclone",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Cyberduck",
-    "Description": "Cyberduck is a libre server and cloud storage browser for Mac and Windows with support for FTP, SFTP, WebDAV, Amazon S3, OpenStack Swift, Backblaze B2, Microsoft Azure & OneDrive, Google Drive and Dropbox",
-    "winget": "Iterate.Cyberduck",
-    "choco": "cyberduck",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "Dolphin",
-    "Description": "Dolphin is an emulator for two recent Nintendo video game consoles: the GameCube and the Wii. It allows PC gamers to enjoy games for these two consoles in full HD (1080p) with several enhancements: compatibility with all PC controllers, turbo speed, networked multiplayer, and even more!",
-    "winget": "DolphinEmulator.Dolphin",
-    "choco": "dolphin",
-    "itt": "na",
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "mGBA",
-    "Description": "mGBA is an open-source Game Boy Advance emulator",
-    "winget": "JeffreyPfau.mGBA",
-    "choco": "mgba",
-    "itt": "na",
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "EmulationStation",
-    "Description": "A graphical and themeable emulator front-end that allows you to access all your favorite games in one place, even without a keyboard!",
-    "winget": "Emulationstation.Emulationstation",
-    "choco": "emulationstation",
-    "itt": "na",
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "ScummVM",
-    "Description": "ScummVM is a program which allows you to run certain classic graphical adventure and role-playing games, provided you already have their data files. The clever part about this: ScummVM just replaces the executables shipped with the games, allowing you to play them on systems for which they were never designed!",
-    "winget": "ScummVM.ScummVM",
-    "choco": "scummvm",
-    "itt": "na",
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "Project64",
-    "Description": "Project64 is a free and open-source emulator for the Nintendo 64 and Nintendo 64 Disk Drive written in C++ currently for Windows",
-    "winget": "Project64.Project64",
-    "choco": "project64",
-    "itt": "na",
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "DOSBox",
-    "Description": "DOSBox is an emulator program which emulates an IBM PC compatible computer running a DOS operating system",
-    "winget": "DOSBox.DOSBox",
-    "choco": "na",
-    "itt": "na",
-    "category": "Gaming",
-    "check": "false"
-  },
-  {
-    "Name": "Kodu Game Lab",
-    "Description": "Kodu Game Lab is a 3D game development environment that is designed to teach kids basic programming principles.",
-    "winget": "InfiniteInstant.KoduGameLab",
-    "choco": "na",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "GDevelop",
-    "Description": "A free and open source nocode game engine designed to be usable by everyone.",
-    "winget": "GDevelop.GDevelop",
-    "choco": "gdevelop",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "MongoDB Tools",
-    "Description": "The MongoDB Database Tools are a collection of command-line utilities for working with a MongoDB deployment",
-    "winget": "MongoDB.DatabaseTools",
-    "choco": "mongodb-database-tools",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "DB Browser for SQLite",
-    "Description": "DB Browser for SQLite (DB4S) is a high quality, visual, open source tool to create, design, and edit database files compatible with SQLite",
-    "winget": "DBBrowserForSQLite.DBBrowserForSQLite",
-    "choco": "sqlitebrowser",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "MySQL",
-    "Description": "The MySQL software delivers a very fast, multithreaded, multi-user, and robust SQL (Structured Query Language) database server. MySQL Server is intended for mission-critical, heavy-load production systems as well as for embedding into mass-deployed software",
-    "winget": "Oracle.MySQL",
-    "choco": "mysql",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "MongoDB Compass",
-    "Description": "Compass is a free interactive tool for querying, optimizing, and analyzing your MongoDB data",
-    "winget": "MongoDB.Compass.Full",
-    "choco": "mongodb-compass",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "MongoDB Compass readonly",
-    "Description": "Compass is a free interactive tool for analyzing your MongoDB data",
-    "winget": "MongoDB.Compass.Readonly",
-    "choco": "mongodb-compass-readonly",
-    "itt": "na",
-    "category": "Development",
-    "check": "false"
-  },
-  {
-    "Name": "IDA free",
-    "Description": "DA is a Windows, Linux or Mac OS X hosted multi-processor disassembler and debugger that offers so many features",
-    "winget": "na",
-    "choco": "ida-free",
-    "itt": "na",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Binary Ninja",
-    "Description": "reverse engineering tool. It supports a number of great features",
-    "winget": "na",
-    "choco": "na",
-    "itt": "binaryninja",
-    "category": "Utilities",
-    "check": "false"
-  },
-  {
-    "Name": "Resource Hacker",
-    "Description": "freeware resource compiler & decompiler for Windows® applications",
-    "winget": "na",
-    "choco": "na",
-    "itt": "resourcehacker",
-    "category": "Portable",
-    "check": "false"
-  },
-  {
-    "Name": "Microsoft Visual C++ Redistributable for Visual Studio 2015-2022",
-    "Description": "Run-time components that are required to run C++ applications that are built by using Visual Studio 2015/2022",
-    "winget": "Microsoft.VCRedist.2015+.x86",
-    "choco": "vcredist140",
-    "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
-  },
-  {
-    "Name": "MPV",
-    "Description": "a free open source and cross-platform media player",
-    "winget": "na",
-    "choco": "mpvio",
-    "itt": "na",
-    "category": "Media",
-    "check": "false"
-  },
-  {
-    "Name": "ZenBrowser",
-    "Description": "The modern, privacy-focused, performance-driven browser built on Firefox",
-    "winget": "Zen-Team.Zen-Browser",
-    "choco": "na",
-    "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
-  },
-  {
-    "Name": "Aegisub",
-    "Description": "Aegisub is a free, cross-platform open source tool for creating and modifying subtitles. Aegisub makes it quick and easy to time subtitles to audio, and features many powerful tools for styling them, including a built-in real-time video preview",
-    "winget": "Aegisub.Aegisub",
-    "choco": "aegisub",
-    "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
-  },
-  {
-    "Name": "AppGroup",
-    "Description": "App Group lets you organize, customize, and launch your apps",
-    "winget": "na",
-    "choco": "na",
-    "itt": "iandiv-appgroup",
-    "category": "Documents",
-    "check": "false"
-  }
-]
-
-'@ | ConvertFrom-Json
 $itt.database.locales = @'
 {"Controls":{"ar":{"name":"عربي","Welcome":"توفر هذه الأداة تسهيلات كبيرة في عملية تثبيت البرامج وتحسين الاداء. انضم إلينا لتساهم في تطويرها وجعلها أكثر اكتمالًا","System_Info":"معلومات النظام","Power_Options":"خيارات الطاقة","Device_Manager":"إدارة الأجهزة","Services":"خدمات","Networks":"شبكات","Apps_features":"التطبيقات و الميزات","Task_Manager":"مدير المهام","Disk_Managment":"إدارة القرص","Msconfig":"تكوين النظام","Environment_Variables":"متغيرات بيئة النظام","Install":"تثبيت","Apply":"تطبيق","Downloading":"...جارٍ التحميل","About":"عن الاداة","Third_party":"ادوات اخرى","Preferences":"التفضيلات","Management":"إدارة الجهاز","Apps":"برامج","Tweaks":"تحسينات","Settings":"إعدادات","Save":"حفظ البرامج","Restore":"أسترجاع البرامج","Music":"الموسيقى","On":"تشغيل ","Off":"كتم","Dark":"ليلا","Light":"نهارا","Use_system_setting":"استخدم إعدادات النظام","Create_desktop_shortcut":"أنشاء أختصار على سطح المكتب","Reset_preferences":" إعادة التفضيلات إلى الوضع الافتراضي","Reopen_itt_again":"يرجى اعادة فتح الاداة مرة اخرى","Theme":"المظهر","Language":"اللغة","MAS":"تفعيل الويندوز","Win_Office":"تحميل ويندوز / أوفيس","IDM":"تفعيل الدونلود مانجر","Browsers_extensions":"أضافات المتصفحات","All":"الكل","Search":"بحث","Create_restore_point":"إنشاء نقطة الاستعادة","Portable_Downloads_Folder":"مجلد التنزيلات المحمولة","Install_msg":"هل تريد تثبيت البرامج التالية","Apply_msg":"هل تريد تطبيق التحسينات التالية","Applying":"...جارٍي التطبيق","Please_wait":"يرجى الانتظار، يوجد عملية في الخلفية","App_empty_select":"اختر على الأقل تطبيقًا لتثبيته","Tweak_empty_select":"اختار على الاقل تحسين واحد لتطبيقه","Last_update":"آخر تحديث","Exit_msg":"هل أنت متأكد من رغبتك في إغلاق البرنامج؟ إذا كان هناك أي تثبيتات، فسيتم إيقافها.","Happy_birthday":"!عيد ميلاد سعيد عماد","My_playlist":"انه عيد ميلادي و قائمة الموسيقى الخاصة بي","Empty_save_msg":"يرجى اختيار تطبيق واحد على الاقل لحفظه"},"de":{"name":"Deutsch","Welcome":"Sparen Sie Zeit indem Sie mehrere Programme gleichzeitig instAllieren und die Leistung Ihres Windows steigern. Schließen Sie sich uns an um dieses Tool zu verbessern und noch besser zu machen. Sie können auch Ihre Lieblings-Musik-Apps und Anpassungen hinzufügen.","Install":"InstAllieren","Apply":"Anwenden","Downloading":"Herunterladen...","About":"Über","Third_party":"Drittanbieter","Preferences":"Einstellungen","Management":"Verwaltung","Apps":"Apps","Tweaks":"Optimierungen","Settings":"Einstellungen","Save":"Speichern","Restore":"Wiederherstellen","Music":"Musik","On":"Ein ","Off":"Aus","Disk_Managment":"Datenträgerverwaltung","Msconfig":"Systemkonfiguration","Environment_Variables":"Umgebungsvariablen","Task_Manager":"Task-Manager","Apps_features":"Apps-FunktiOnen","Networks":"Netzwerke","Services":"Dienste","Device_Manager":"Geräte-Manager","Power_Options":"EnergieoptiOnen","System_Info":"Systeminfo","Use_system_setting":"Systemeinstellungen verwenden","Create_desktop_shortcut":"Desktop-Verknüpfung erstellen","Reset_preferences":"Einstellungen zurücksetzen","Reopen_itt_again":"Bitte ITT erneut öffnen.","Theme":"Thema","Language":"Sprache","MAS":"Microsoft Aktivierungsskripte (MAS)","Win_Office":"Windows / Office ISO herunterladen","IDM":"IDM-Aktivierung","Browsers_extensions":"Browser-Erweiterungen","All":"Alle","Search":"Suchen","Create_restore_point":"Wiederherstellungspunkt erstellen","Portable_Downloads_Folder":"Ordner für tragbare Downloads","Install_msg":"Sind Sie sicher  dass Sie die folgenden Anwendungen instAllieren möchten?","Apply_msg":"Sind Sie sicher dass Sie die folgenden Anpassungen anwenden möchten?","Applying":"Anwenden...","App_empty_select":"Wählen Sie mindestens eine App zur InstAllatiOn aus.","Tweak_empty_select":"Wählen Sie mindestens eine Optimierung zur Anwendung aus.","Please_wait":"Bitte warten ein Prozess läuft im Hintergrund.","Last_update":"Letztes Update","Exit_msg":"Sind Sie sicher dass Sie das Programm schließen möchten? Alle InstAllatiOnen werden abgebrochen.","Happy_birthday":"Alles Gute zum Geburtstag mir!","My_playlist":"Es ist mein Geburtstag und meine Playlist ♪","Empty_save_msg":"Wählen Sie mindestens eine App zum Speichern aus."},"en":{"name":"English","Welcome":"Save time and install all your programs at once and debloat windows. Be part of ITT—contribute to improving this tool with Apps/Tweaks — and more","Install":"Install","Apply":"Apply","Downloading":"Downloading...","About":"About","Third_party":"Third-party","Preferences":"Preferences","Management":"Management","Apps":"Apps","Tweaks":"Tweaks","Settings":"Settings","Save":"Save","Restore":"Restore","Music":"Music","On":"On","Off":"Off","Disk_Managment":"Disk Managment","Msconfig":"System Configuration","Environment_Variables":"Environment Variables","Task_Manager":"Task Manager","Apps_features":"Programs and Features","Networks":"Networks","Services":"Services","Device_Manager":"Device Manager","Power_Options":"Power options","System_Info":"System Info","Use_system_setting":"Use system setting","Create_desktop_shortcut":"Create desktop shortcut","Reset_preferences":"Reset Preferences","Reopen_itt_again":"Please reopen itt again.","Theme":"Theme","Language":"Language","MAS":"Microsoft Activation Scripts (MAS)","Win_Office":"Windows / Office ISO (MAS)","IDM":"IDM Activation (J2TEAM)","Browsers_extensions":"Browsers extensions","All":"All","Search":"Search","Create_restore_point":"Create a restore point","Portable_Downloads_Folder":"Portable Downloads Folder","Install_msg":"Are you sure you want to install the following App(s)","Apply_msg":"Are you sure you want to apply the following Tweak(s)","Applying":"Applying...","App_empty_select":"Please select at least one app to install.","Tweak_empty_select":"Please select at least one tweak to apply.","Please_wait":"Please wait  a process is running in the background","Last_update":"Last update","Exit_msg":"Are you sure you want to close the program? Any ongoing installations will be canceled.","Happy_birthday":"Happy Birthday to me!","My_playlist":"It's my Birthday and My Playlist ♪","Empty_save_msg":"Choose at least One app to save it"},"es":{"name":"Español","Welcome":"Ahorra tiempo instalando varios prograMAS a la vez y mejora el rendimiento de tu Windows. Únete a nosotros para mejorar esta herramienta y hacerla aún mejor. También puedes agregar tus aplicaciOnes Musicales y ajustes favoritos.","Install":"Instalar","Apply":"Aplicar","Downloading":"Descargando...","About":"Acerca de","Third_party":"Terceros","Preferences":"Preferencias","Management":"Gestión","Apps":"AplicaciOnes","Tweaks":"Ajustes","Settings":"COnfiguración","Save":"Guardar","Restore":"Restaurar","Music":"Música","On":"Encendido","Off":"Apagado","Disk_Managment":"Administración de discos","Msconfig":"Configuración del sistema","Environment_Variables":"Variables de entorno","Task_Manager":"Administrador de tareas","Apps_features":"AplicaciOnes-FunciOnes","Networks":"Redes","Services":"Servicios","Device_Manager":"Administrador de dispositivos","Power_Options":"OpciOnes de energía","System_Info":"Información del sistema","Use_system_setting":"Usar la cOnfiguración del sistema","Create_desktop_shortcut":"Crear acceso directo en el escritorio","Reset_preferences":"Restablecer preferencias","Reopen_itt_again":"Vuelve a abrir ITT.","Theme":"Tema","Language":"Idioma","MAS":"Scripts de activación de Microsoft (MAS)","Win_Office":"Descargar ISO de Windows / Office","IDM":"Activación IDM","Browsers_extensions":"ExtensiOnes del navegador","All":"Todos","Search":"Buscar","Create_restore_point":"Crear un punto de restauración","Portable_Downloads_Folder":"Carpeta de descargas portátiles","Install_msg":"¿Estás seguro de que deseas instalar las siguientes aplicaciOnes?","Apply_msg":"¿Estás seguro de que deseas aplicar los siguientes ajustes?","Applying":"Aplicando...","App_empty_select":"SelecciOna al menos una aplicación para instalar.","Tweak_empty_select":"SelecciOna al menos un ajuste para aplicar.","Please_wait":"Por favorespera un proceso se está ejecutando en segundo plano.","Last_update":"Última actualización","Exit_msg":"¿Estás seguro de que deseas cerrar el programa? Si hay instalaciOnes se interrumpirán.","Happy_birthday":"¡Feliz cumpleaños a mí!","My_playlist":"Es mi cumpleaños y mi lista de reproducción ♪","Empty_save_msg":"Elige al menos una aplicación para guardarla."},"fr":{"name":"Français","Welcome":"Gagnez du temps en instAllant plusieurs programmes à la fois et améliorez les performances de votre Windows. Rejoignez-nous pour améliorer cet outil et le rendre encore meilleur. Vous pouvez également ajouter vos applicatiOns Musicales et vos Tweaks préférés.","Install":"InstAller","Apply":"Appliquer","Downloading":"Téléchargement...","About":"À propos","Third_party":"Tiers","Preferences":"Préférences","Management":"GestiOn","Apps":"ApplicatiOns","Tweaks":"OptimisatiOns","Settings":"Paramètres","Save":"Sauvegarder","Restore":"Restaurer","Music":"Musique","On":"Activé ","Off":"Désactivé","Disk_Managment":"GestiOn des disques","Msconfig":"Configuration du système","Environment_Variables":"Variables d'environnement","Task_Manager":"GestiOnnaire des tâches","Apps_features":"ApplicatiOns-FOnctiOnnalités","Networks":"Réseaux","Services":"Services","Device_Manager":"GestiOnnaire de périphériques","Power_Options":"OptiOns d'alimentatiOn","System_Info":"Infos système","Use_system_setting":"Utiliser les paramètres système","Create_desktop_shortcut":"Créer un raccourci sur le bureau","Reset_preferences":"Réinitialiser les préférences","Reopen_itt_again":"Veuillez rouvrir ITT.","Theme":"Thème","Language":"Langue","MAS":"Scripts d'activatiOn Microsoft (MAS)","Win_Office":"Télécharger l'ISO Windows / Office","IDM":"ActivatiOn IDM","Browsers_extensions":"Browsers_extensions de navigateurs","All":"Tout","Search":"Rechercher","Create_restore_point":"Créer un point de restauratiOn","Portable_Downloads_Folder":"Dossier de téléchargements portables","Install_msg":"Êtes-vous sûr de vouloir instAller les applicatiOns suivantes ?","Apply_msg":"Êtes-vous sûr de vouloir appliquer les Tweaks suivants ?","Applying":"ApplicatiOn...","App_empty_select":"Veuillez sélectiOnner au moins une applicatiOn à instAller.","Tweak_empty_select":"Veuillez sélectiOnner au moins un tweak à appliquer.","Please_wait":"Veuillez patienter","Last_update":"Dernière mise à jour  un processus est en cours d'exécutiOn en arrière-plan.","Exit_msg":"Êtes-vous sûr de vouloir fermer le programme ? Si des instAllatiOns sOnt en cours  elles serOnt interrompues.","Happy_birthday":"Joyeux anniversaire à moi !","My_playlist":"C'est mOn anniversaire et ma playlist ♪","Empty_save_msg":"Choisissez au moins une applicatiOn à sauvegarder."},"ga":{"name":"Gaeilge","Welcome":"Sábháil am trí níos mó ná clár amháin a shuiteáil ag an am céanna agus feabhsaigh feidhmíocht do Windows. Bí linn ag feabhsú an uirlis seo agus ag déanamh é níos fearr. Is féidir leat do chuid Apps ceoil agus feabhsúcháin is fearr leat a chur leis freisin.","Install":"Suiteáil","Apply":"Cuir i bhfeidhm","Downloading":"Ag suiteáil...","About":"Faoi","Third_party":"Tríú páirtí","Preferences":"Roghanna","Management":"Bainistíocht","Apps":"Aplaicí","Tweaks":"Feabhsúcháin","Settings":"Socruithe","Save":"Sábháil","Restore":"Athchóirigh","Music":"Ceol","On":"Ar ","Off":"Múchta","Disk_Managment":"Bainistíocht Diosca","Msconfig":"Cumraíocht an Chórais","Environment_Variables":"Variables d'environnement","Task_Manager":"Bainisteoir Tascanna","Apps_features":"Gnéithe Aipeanna","Networks":"LíOnraí","Services":"Seirbhísí","Device_Manager":"Bainisteoir Gléasanna","Power_Options":"Roghanna Cumhachta","System_Info":"Eolas Córas","Use_system_setting":"Úsáid socrú an chórais","Create_desktop_shortcut":"Cruthaigh gearrthagairt deisce","Reset_preferences":"Athshocraigh Roghanna","Reopen_itt_again":"Oscail ITT arís le do thoil.","Theme":"Téama","Language":"Teanga","MAS":"Scripteanna Gníomhachtaithe Microsoft (MAS)","Win_Office":"Íoslódáil ISO Windows / Office","IDM":"Gníomhachtú IDM","Browsers_extensions":"Síntí Brabhsálaí","All":"Uile","Search":"Cuardaigh","Create_restore_point":"Cruthaigh pointe athchóirithe","Portable_Downloads_Folder":"Fillteán Íoslódálacha Inaistrithe","Install_msg":"An bhfuil tú cinnte gur mhaith leat na feidhmchláir seo a shuiteáil","Apply_msg":"An bhfuil tú cinnte gur mhaith leat na feabhsúcháin seo a chur i bhfeidhm","Applying":"Cur i bhfeidhm...","App_empty_select":"Roghnaigh ar a laghad aip amháin le suiteáil.","Tweak_empty_select":"Roghnaigh ar a laghad feabhsúchán amháin le cur i bhfeidhm.","Please_wait":"Fan le do thoil tá próiseas ag rith sa chúlra","Last_update":"An nuashOnrú deireanach","Exit_msg":"An bhfuil tú cinnte gur mhaith leat an clár a dhúnadh? Má tá suiteálacha ar siúl beidh siad curtha ar ceal.","Happy_birthday":"Breithlá ShOna domsa!","My_playlist":"Is é mo Bhreithlá é agus Mo Phléaráca ♪","Empty_save_msg":"Roghnaigh ar a laghad aip amháin chun é a shábháil"},"hi":{"name":"अंग्रेज़ी","Welcome":"एक बार में कई प्रोग्राम इंस्टॉल करके समय बचाएं और अपने विंडोज़ के प्रदर्शन को बढ़ावा दें। इस टूल को बेहतर बनाने और इसे और अच्छा बनाने में हमारा साथ दें। आप अपने पसंदीदा म्यूज़िक ऐप्स और ट्विक्स भी जोड़ सकते हैं।","Install":"इंस्टॉल करें","Apply":"लागू करें","Downloading":"डाउनलोड हो रहा है...","About":"के बारे में","Third_party":"थर्ड-पार्टी","Preferences":"पसंद","Management":"प्रबंधन","Apps":"ऐप्स","Tweaks":"ट्विक्स","Settings":"सेटिंग्स","Save":"सहेजें","Restore":"पुनर्स्थापित करें","Music":"संगीत","On":"चालू ","Off":"बंद","Disk_Managment":"डिस्क प्रबंधन","Msconfig":"सिस्टम कॉन्फ़िगरेशन","Environment_Variables":"एन्विर्बल वार्डियल्स","Task_Manager":"टास्क मैनेजर","Apps_features":"ऐप्स-फीचर्स","Networks":"नेटवर्क्स","Services":"सेवाएँ","Device_Manager":"डिवाइस मैनेजर","Power_Options":"पावर विकल्प","System_Info":"सिस्टम जानकारी","Use_system_setting":"सिस्टम सेटिंग का उपयोग करें","Create_desktop_shortcut":"डेस्कटॉप शॉर्टकट बनाएं","Reset_preferences":"पसंद रीसेट करें","Reopen_itt_again":"कृपया इसे फिर से खोलें।","Theme":"थीम","Language":"भाषा","MAS":"माइक्रोसॉफ्ट एक्टिवेशन स्क्रिप्ट्स (MAS)","Win_Office":"विंडोज़ / ऑफिस ISO (MAS)","IDM":"IDM एक्टिवेशन (WindowsAddict)","Browsers_extensions":"ब्राउज़र एक्सटेंशन","All":"सभी","Search":"खोज","Create_restore_point":"पुनर्स्थापना बिंदु बनाएँ","Portable_Downloads_Folder":"पोर्टेबल डाउनलोड फ़ोल्डर","Install_msg":"क्या आप निश्चित हैं कि आप निम्न ऐप्स इंस्टॉल करना चाहते हैं?","Apply_msg":"क्या आप निश्चित हैं कि आप निम्न ट्विक्स लागू करना चाहते हैं?","Applying":"लागू किया जा रहा है...","App_empty_select":"कृपया कम से कम एक ऐप इंस्टॉल करने के लिए चुनें।","Tweak_empty_select":"कृपया कम से कम एक ट्विक लागू करने के लिए चुनें।","Please_wait":"कृपया प्रतीक्षा करें बैकग्राउंड में एक प्रक्रिया चल रही है","Last_update":"आखिरी अपडेट","Exit_msg":"क्या आप निश्चित हैं कि आप प्रोग्राम बंद करना चाहते हैं? यदि कोई इंस्टॉलेशन चल रहा हो तो वह समाप्त हो जाएगा।","Happy_birthday":"मुझे जन्मदिन की शुभकामनाएँ!","My_playlist":"यह मेरा जन्मदिन है और मेरी प्लेलिस्ट ♪","Empty_save_msg":"कम से कम एक ऐप चुनें और उसे सहेजें।"},"it":{"name":"Italiano","Welcome":"Risparmia tempo installando più programmi contemporaneamente e migliora le prestazioni di Windows. Unisciti a noi per migliorare questo strumento e renderlo migliore. Puoi anche aggiungere le tue app musicali preferite e le personalizzazioni.","Install":"Installa","Apply":"Applica","Downloading":"Download in corso...","About":"Informazioni","Third_party":"Terze parti","Preferences":"Preferenze","Management":"Gestione","Apps":"App","Tweaks":"Personalizzazioni","Settings":"Impostazioni","Save":"Salva","Restore":"Ripristina","Music":"Musica","On":"Acceso","Off":"Spento","Disk_Managment":"Gestione disco","Msconfig":"Configurazione di sistema","Environment_Variables":"Variabili di ambiente","Task_Manager":"Gestore attività","Apps_features":"App-Funzionalità","Networks":"Reti","Services":"Servizi","Device_Manager":"Gestore dispositivi","Power_Options":"Opzioni risparmio energia","System_Info":"Informazioni di sistema","Use_system_setting":"Usa impostazioni di sistema","Create_desktop_shortcut":"Crea collegamento sul desktop","Reset_preferences":"Reimposta preferenze","Reopen_itt_again":"Per favore riapri di nuovo.","Theme":"Tema","Language":"Lingua","MAS":"Microsoft Activation Scripts (MAS)","Win_Office":"Windows / Office ISO (MAS)","IDM":"Attivazione IDM (WindowsAddict)","Browsers_extensions":"Estensioni per browser","All":"Tutti","Search":"Cerca","Create_restore_point":"Crea un punto di ripristino","Portable_Downloads_Folder":"Cartella download portatile","Install_msg":"Sei sicuro di voler installare le seguenti app?","Apply_msg":"Sei sicuro di voler applicare le seguenti personalizzazioni?","Applying":"Applicazione in corso...","App_empty_select":"Seleziona almeno un'app da installare.","Tweak_empty_select":"Seleziona almeno una personalizzazione da applicare.","Please_wait":"Attendere un processo è in corso in background","Last_update":"Ultimo aggiornamento","Exit_msg":"Sei sicuro di voler chiudere il programma? Se ci sono installazioni in corso verranno terminate.","Happy_birthday":"Buon compleanno a me!","My_playlist":"È il mio compleanno e la mia playlist ♪","Empty_save_msg":"Scegli almeno un'app per salvarla."},"ko":{"name":"한국어","Welcome":"여러 프로그램을 한 번에 설치하여 시간을 절약하고 Windows 성능을 향상시킵니다. 도구를 개선하고 우리와 함께 훌륭하게 만들어 보세요.","System_Info":"시스템 정보","Power_Options":"전원 옵션","Device_Manager":"장치 관리자","Services":"서비스","Networks":"네트워크","Apps_features":"앱 기능","Task_Manager":"작업 관리자","Disk_Managment":"디스크 관리","Msconfig":"시스템 구성","Environment_Variables":"연습별 변수","Install":"설치","Apply":"적용","Downloading":"다운로드 중","About":"정보","Third_party":"외부","Preferences":"환경 설정","Management":"관리","Apps":"앱","Tweaks":"설정","Settings":"설정","Save":"선택한 앱 저장","Restore":"선택한 앱 복원","Music":"음악","On":"켜기","Reset_preferences":"환경 설정 초기화","Off":"끄기","Dark":"다크","Light":"라이트","Use_system_setting":"시스템","Create_desktop_shortcut":"바탕화면 바로 가기 만들기","Reopen_itt_again":"ITT를 다시 열어주세요.","Theme":"테마","Language":"언어","MAS":"Microsoft 활성화 스크립트 (MAS)","Win_Office":"Windows / Office ISO 다운로드","IDM":"IDM 활성화","Browsers_extensions":"브라우저 확장 프로그램","All":"모두","Create_restore_point":"복원 지점 생성","Portable_Downloads_Folder":"휴대용 다운로드 폴더","Install_msg":"선택한 앱을 설치하시겠습니까","Apply_msg":"선택한 조정 사항을 적용하시겠습니까","instAlling":"설치 중..","Applying":"적용 중..","App_empty_select":"설치할 적어도 하나의 앱을 선택하십시오","Tweak_empty_select":"조정 사항 적용 대기 중","Please_wait":"배경에서 프로세스가 진행 중입니다. 잠시 기다려주세요.","Last_update":"마지막 업데이트","Exit_msg":"프로그램을 종료하시겠습니까? 진행 중인 설치가 있으면 중단됩니다.","Happy_birthday":"생일 축하합니다 Emad!","My_playlist":"제 생일과 제 플레이리스트 ♪"},"ru":{"name":"Русский","Welcome":"Сэкономьте время устанавливая несколько программ одновременно и улучшите производительность Windows. Присоединяйтесь к нам для улучшения этого инструмента и его совершенствования. Вы также можете добавить свои любимые музыкальные приложения и настройки.","Install":"Установить","Apply":"Применить","Downloading":"Загрузка...","About":"О нас","Third_party":"Сторонние","Preferences":"Настройки","Management":"Управление","Apps":"Приложения","Tweaks":"Настройки","Settings":"Параметры","Save":"Сохранить","Restore":"Восстановить","Music":"Музыка","On":"Вкл ","Off":"Выкл","Disk_Managment":"Управление дисками","Msconfig":"Конфигурация системы","Environment_Variables":"Переменные окружения","Task_Manager":"Диспетчер задач","Apps_features":"Приложения-Функции","Networks":"Сети","Services":"Сервисы","Device_Manager":"Диспетчер устройств","Power_Options":"Энергопитание","System_Info":"Информация о системе","Use_system_setting":"Использовать системные настройки","Create_desktop_shortcut":"Создать ярлык на рабочем столе","Reset_preferences":"Сбросить настройки","Reopen_itt_again":"Пожалуйста перезапустите ITT.","Theme":"Тема","Language":"Язык","MAS":"Microsoft ActivatiOn Scripts (MAS)","Win_Office":"Скачать ISO Windows / Office","IDM":"Активация IDM","Browsers_extensions":"Расширения для браузеров","All":"Все","Search":"Поиск","Create_restore_point":"Создать точку восстановления","Portable_Downloads_Folder":"Папка для портативных загрузок","Install_msg":"Вы уверены что хотите установить следующие приложения?","Apply_msg":"Вы уверены что хотите применить следующие настройки?","Applying":"Применение...","App_empty_select":"Выберите хотя бы одно приложение для установки.","Tweak_empty_select":"Выберите хотя бы одну настройку для применения.","Please_wait":"Подождите выполняется фоновый процесс.","Last_update":"Последнее обновление","Exit_msg":"Вы уверены что хотите закрыть программу? Все установки будут прерваны.","Happy_birthday":"С Днем Рождения меня!","My_playlist":"Это мой день рождения и мой плейлист ♪","Empty_save_msg":"Выберите хотя бы одно приложение для сохранения."},"tr":{"name":"Türkçe","Welcome":"Birden fazla programı aynı anda yükleyerek zaman kazanın ve Windows performansınızı artırın. Bu aracı geliştirmek ve daha da iyileştirmek için bize katılın. Ayrıca favori müzik uygulamalarınızı ve ayarlarınızı da ekleyebilirsiniz.","Install":"Yükle","Apply":"Uygula","Downloading":"İndiriliyor...","About":"Hakkında","Third_party":"Üçüncü Taraf","Preferences":"Tercihler","Management":"Yönetim","Apps":"Uygulamalar","Tweaks":"İnce Ayarlar","Settings":"Ayarlar","Save":"Kayıt Et","Restore":"Geri Yükle","Music":"Müzik","On":"Açık ","Off":"Kapalı","Disk_Managment":"Disk Yönetimi","Msconfig":"Sistem Yapılandırması","Environment_Variables":"Ortam Değişkenleri","Task_Manager":"Görev Yöneticisi","Apps_features":"Uygulamalar-Özellikler","Networks":"Ağlar","Services":"Hizmetler","Device_Manager":"Aygıt Yöneticisi","Power_Options":"Güç Seçenekleri","System_Info":"Sistem Bilgisi","Use_system_setting":"Sistem ayarlarını kullan","Create_desktop_shortcut":"MASaüstü kısayolu oluştur","Reset_preferences":"Tercihleri sıfırla","Reopen_itt_again":"Lütfen ITT'yi tekrar açın.","Theme":"Tema","Language":"Dil","MAS":"Microsoft Etkinleştirme Betikleri (MAS)","Win_Office":"Windows / Office ISO İndir","IDM":"IDM Etkinleştirme","Browsers_extensions":"Tarayıcı Eklentileri","All":"Tümü","Search":"Ara","Create_restore_point":"Geri yükleme noktası oluştur","Portable_Downloads_Folder":"Taşınabilir İndirilenler Klasörü","Install_msg":"Aşağıdaki uygulamaları yüklemek istediğinizden emin misiniz?","Apply_msg":"Aşağıdaki ayarları uygulamak istediğinizden emin misiniz?","Applying":"Uygulanıyor...","App_empty_select":"Lütfen yüklemek için en az bir uygulama seçin.","Tweak_empty_select":"Lütfen uygulamak için en az bir ince ayar seçin.","Please_wait":"Lütfen bekleyin arka planda bir işlem çalışıyor.","Last_update":"SOn güncelleme","Exit_msg":"Programı kapatmak istediğinizden emin misiniz? Herhangi bir kurulum varsa durdurulacak.","Happy_birthday":"Kendime Mutlu Yıllar!","My_playlist":"Benim Doğum Günüm ve Benim Çalma Listem ♪","Empty_save_msg":"Kaydetmek için en az bir uygulama seçin."},"zh":{"name":"中文","Welcome":"通过一次安装多个程序节省时间并提升您的Windows性能。加入我们，改进工具，使其更加优秀。","System_Info":"系统信息","Power_Options":"电源选项","Device_Manager":"设备管理器","Services":"服务","Networks":"网络","Apps_features":"应用特性","Task_Manager":"任务管理器","Disk_Managment":"磁盘管理","Msconfig":"系统配置","Environment_Variables":"环境变量","Install":"安装","Apply":"应用","Downloading":"下载中","About":"关于","Third_party":"第三方","Preferences":"偏好","Management":"管理","Apps":"应用","Tweaks":"调整","Settings":"设置","Save":"保存选定应用","Restore":"恢复选定应用","Music":"音乐","On":"开启","Off":"关闭","Reset_preferences":"重置偏好设置","Dark":"深色","Light":"浅色","Use_system_setting":"系统","Create_desktop_shortcut":"创建桌面快捷方式","Reopen_itt_again":"请重新打开ITT。","Theme":"主题","Language":"语言","MAS":"Microsoft 激活脚本 (MAS)","Win_Office":"下载 Windows / Office ISO","IDM":"IDM 激活","Browsers_extensions":"浏览器扩展","All":"都","Create_restore_point":"创建还原点","Portable_Downloads_Folder":"便携下载文件夹","Install_msg":"是否要安装选定的应用","Apply_msg":"是否要应用选定的调整","instAlling":"安装中..","Applying":"应用中..","App_empty_select":"请选择至少一款要安装的应用","Tweak_empty_select":"请等待调整应用完成","Please_wait":"请等待，后台有进程在进行中。","Last_update":"最后更新","Exit_msg":"您确定要关闭程序吗？如果有任何安装正在进行，它们将被终止。","Happy_birthday":"生日快乐 Emad!","My_playlist":"这是我的生日和我的播放列表 ♪"}}}
-
-'@ | ConvertFrom-Json
-$itt.database.Settings = @'
-[
-  {
-    "Name": "Show file extensions",
-    "description": "Show file extensions in Windows displays the suffix at the end of file names (like .txt, .jpg, .exe), indicating file types and helping users identify which programs can open them, simplifying file management and differentiation",
-    "category": "Protection"
-  },
-  {
-    "Name": "Show Super Hidden",
-    "description": "Show Super Hidden displays files and folders in Windows that are hidden beyond standard hidden files, often system files to prevent accidental changes",
-    "category": "Protection"
-  },
-  {
-    "Name": "Dark Mode",
-    "description": "Dark Mode is a setting that changes the screen to darker colors, reducing eye strain and saving battery life on OLED screens",
-    "category": "Personalize"
-  },
-  {
-    "Name": "NumLook",
-    "description": "Toggle the Num Lock key state when your computer starts",
-    "category": "Protection"
-  },
-  {
-    "Name": "Sticky Keys",
-    "description": "Sticky keys is an accessibility feature of some graphical user interfaces which assists users who have physical disabilities or help users reduce repetitive strain injury",
-    "category": "Accessibility"
-  },
-  {
-    "Name": "Mouse Acceleration",
-    "description": "Cursor movement is affected by the speed of your physical mouse movements",
-    "category": "Accessibility"
-  },
-  {
-    "Name": "End Task On Taskbar Windows 11",
-    "description": "Option to end task when right clicking a program in the taskbar",
-    "category": "Accessibility"
-  },
-  {
-    "Name": "Clear Page File At Shutdown",
-    "description": "Page file in Windows removes sensitive data stored in virtual memory when the system shuts down. This enhances security by ensuring that the data in the page file (which may contain passwords, encryption keys, or other sensitive information) is wiped out and cannot be accessed after rebooting. However, it can increase shutdown time",
-    "category": "Storage "
-  },
-  {
-    "Name": "Auto End Tasks",
-    "description": "Automatically end tasks that are not responding",
-    "category": "Performance"
-  },
-  {
-    "Name": "Performance Options",
-    "description": "Adjust for best performance",
-    "category": "Performance"
-  },
-  {
-    "Name": "Launch To This PC",
-    "description": "Changing the default opening location of File Explorer in Windows allows it to open directly to This PC instead of Quick Access, making it easier to quickly access main drives and system folders",
-    "category": "Accessibility"
-  },
-  {
-    "Name": "Disable Automatic Driver Installation",
-    "description": "Stopping Windows from automatically downloading and installing drivers",
-    "category": "Drivers"
-  },
-  {
-    "Name": "Always show icons never Thumbnail",
-    "description": "Show icons in the file explorer instead of thumbnails",
-    "category": "Performance"
-  },
-  {
-    "Name": "Core Isolation Memory Integrity",
-    "description": "Core Isolation Memory Integrity",
-    "category": "Performance"
-  }
-]
 '@ | ConvertFrom-Json
 $itt.database.Tweaks = @'
 [
-  {
-    "Name": "Disk cleanup",
-    "Description": "Clean temporary files that are not necessary",
-    "Category": "Storage",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [
-      "irm https://raw.githubusercontent.com/emadadel4/WindowsTweaks/refs/heads/main/Disk%20cleanup.ps1 | iex"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
-  },
-  {
-    "Name": "System File Checker",
-    "Description": "sfc /scannow Use the System File Checker tool to repair missing or corrupted system files",
-    "Category": "Fixer",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [
-      "Add-Log -Message 'This may take a few minutes' -Level 'Info' Chkdsk /scan\r\n sfc /scannow\r\n DISM /Online /Cleanup-Image /Restorehealth\r\n sfc /scannow\r\n"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
-  },
-  {
-    "Name": "Restore All Windows Services to Default",
-    "Description": "if you face issues with services, try Restore All Windows Services to Default",
-    "Category": "Fixer",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [
-      "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/emadadel4/WindowsTweaks/refs/heads/main/test.bat' -OutFile $env:TEMP\\script.bat \r\n Start-Process -FilePath 'cmd.exe' -ArgumentList '/c %TMP%\\script.bat && del /f /q %TMP%\\script.bat ' -NoNewWindow -Wait "
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
-  },
-  {
-    "Name": "Super Privacy Disable all Privacy Settings",
-    "Description": "Disable Wifi-Sense & Activity History & ActivityFeed All Telemetry & DataCollection & disable various telemetry and annoyances in Edge",
-    "Category": "Privacy",
-    "Check": "false",
-    "Refresh": "true",
-    "Script": [
-      "Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Application Experience\\Microsoft Compatibility Appraiser' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Application Experience\\ProgramDataUpdater' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Autochk\\Proxy' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Customer Experience Improvement Program\\Consolidator' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Customer Experience Improvement Program\\UsbCeip' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\DiskDiagnostic\\Microsoft-Windows-DiskDiagnosticDataCollector' | Out-Null; schtasks /change /TN '\\Microsoft\\Windows\\Customer Experience Improvement Program\\Consolidator' /DISABLE > NUL 2>&1; schtasks /change /TN '\\Microsoft\\Windows\\DiskDiagnostic\\Microsoft-Windows-DiskDiagnosticDataCollector' /DISABLE > NUL 2>&1; schtasks /change /TN '\\Microsoft\\Windows\\Windows Error Reporting\\QueueReporting' /DISABLE > NUL 2>&1"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\location",
-        "Name": "Value",
-        "Type": "String",
-        "Value": "Deny",
-        "defaultValue": "Deny"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Sensor\\Overrides\\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}",
-        "Name": "SensorPermissionState",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\lfsvc\\Service\\Configuration",
-        "Name": "Status",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SYSTEM\\Maps",
-        "Name": "AutoUpdateEnabled",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
-        "Name": "EnableActivityFeed",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\Software\\Microsoft\\PolicyManager\\default\\WiFi\\AllowAutoConnectToWiFiSenseHotspots",
-        "Name": "Value",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\Windows Error Reporting",
-        "Name": "Disabled",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\Windows Error Reporting",
-        "Name": "Disabled",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
-        "Name": "AllowTelemetry",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
-        "Name": "ContentDeliveryAllowed",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
-        "Name": "OemPreInstalledAppsEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
-        "Name": "PreInstalledAppsEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
-        "Name": "PreInstalledAppsEverEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
-        "Name": "SilentInstalledAppsEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
-        "Name": "SubscribedContent-338387Enabled",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
-        "Name": "SubscribedContent-338388Enabled",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
-        "Name": "SubscribedContent-338389Enabled",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
-        "Name": "SubscribedContent-353698Enabled",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
-        "Name": "SystemPaneSuggestionsEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Siuf\\Rules",
-        "Name": "NumberOfSIUFInPeriod",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
-        "Name": "DoNotShowFeedbackNotifications",
-        "Value": "1",
-        "Type": "DWord",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
-        "Name": "DisableTailoredExperiencesWithDiagnosticData",
-        "Value": "1",
-        "Type": "DWord",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\AdvertisingInfo",
-        "Name": "DisabledByGroupPolicy",
-        "Value": "1",
-        "Type": "DWord",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\Windows Error Reporting",
-        "Name": "Disabled",
-        "Value": "1",
-        "Type": "DWord",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DeliveryOptimization\\Config",
-        "Name": "DODownloadMode",
-        "Value": "1",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Remote Assistance",
-        "Name": "fAllowToGetHelp",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\OperationStatusManager",
-        "Name": "EnthusiastMode",
-        "Value": "1",
-        "Type": "DWord",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
-        "Name": "ShowTaskViewButton",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\People",
-        "Name": "PeopleBand",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
-        "Name": "LaunchTo",
-        "Value": "1",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\FileSystem",
-        "Name": "LongPathsEnabled",
-        "Value": "1",
-        "Type": "DWord",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DriverSearching",
-        "Name": "SearchOrderConfig",
-        "Value": "1",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile",
-        "Name": "SystemResponsiveness",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile",
-        "Name": "NetworkThrottlingIndex",
-        "Value": "4294967295",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\Control Panel\\Desktop",
-        "Name": "MenuShowDelay",
-        "Value": "1",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\Control Panel\\Desktop",
-        "Name": "AutoEndTasks",
-        "Value": "1",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management",
-        "Name": "ClearPageFileAtShutdown",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SYSTEM\\ControlSet001\\Services\\Ndu",
-        "Name": "Start",
-        "Value": "2",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\Control Panel\\Mouse",
-        "Name": "MouseHoverTime",
-        "Value": "400",
-        "Type": "String",
-        "defaultValue": "400"
-      },
-      {
-        "Path": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\LanmanServer\\Parameters",
-        "Name": "IRPStackSize",
-        "Value": "30",
-        "Type": "DWord",
-        "defaultValue": "20"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Feeds",
-        "Name": "EnableFeeds",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Feeds",
-        "Name": "ShellFeedsTaskbarViewMode",
-        "Value": "2",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
-        "Name": "HideSCAMeetNow",
-        "Value": "1",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\UserProfileEngagement",
-        "Name": "ScoobeSystemSettingEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Feeds",
-        "Name": "EnableFeeds",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
-        "Name": "ConnectedSearchPrivacy",
-        "Value": "3",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\Software\\Policies\\Microsoft\\Windows\\Explorer",
-        "Name": "DisableSearchHistory",
-        "Value": "1",
-        "Type": "DWord",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
-        "Name": "AllowSearchToUseLocation",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
-        "Name": "EnableDynamicContentInWSB",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
-        "Name": "DisableWebSearch",
-        "Value": "1",
-        "Type": "DWord",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\Software\\Policies\\Microsoft\\Windows\\Explorer",
-        "Name": "DisableSearchBoxSuggestions",
-        "Value": "1",
-        "Type": "DWord",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
-        "Name": "PreventUnwantedAddIns",
-        "Value": " ",
-        "Type": "String",
-        "defaultValue": " "
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
-        "Name": "PreventRemoteQueries",
-        "Value": "1",
-        "Type": "DWord",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
-        "Name": "AlwaysUseAutoLangDetection",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
-        "Name": "AllowIndexingEncryptedStoresOrItems",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },  
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
-        "Name": "DisableSearchBoxSuggestions",
-        "Value": "1",
-        "Type": "DWord",
-        "defaultValue": "0"
-      },  
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
-        "Name": "CortanaInAmbientMode",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },  
-      {
-        "Path": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
-        "Name": "BingSearchEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },  
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
-        "Name": "ShowCortanaButton",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },  
-      {
-        "Path": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
-        "Name": "CanCortanaBeEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },  
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
-        "Name": "CanCortanaBeEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },  
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
-        "Name": "ConnectedSearchUseWebOverMeteredConnections",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },  
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
-        "Name": "AllowCortanaAboveLock",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },  
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\SearchSettings",
-        "Name": "IsDynamicSearchBoxEnabled",
-        "Value": "1",
-        "Type": "DWord",
-        "defaultValue": "0"
-      },  
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\PolicyManager\\default\\Experience\\AllowCortana",
-        "Name": "value",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },  
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
-        "Name": "AllowSearchToUseLocation",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Speech_OneCore\\Preferences",
-        "Name": "ModelDownloadAllowed",
-        "Value": "0",
-        "Type": "DWord",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\SearchSettings",
-        "Name": "IsDeviceSearchHistoryEnabled",
-        "Value": "1",
-        "Type": "DWord",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Speech_OneCore\\Preferences",
-        "Name": "VoiceActivationOn",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Speech_OneCore\\Preferences",
-        "Name": "VoiceActivationEnableAboveLockscreen",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OOBE",
-        "Name": "DisableVoice",
-        "Value": "1",
-        "Type": "DWord",
-        "DefaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
-        "Name": "AllowCortana",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
-        "Name": "DeviceHistoryEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
-        "Name": "HistoryViewEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\Software\\Microsoft\\Speech_OneCore\\Preferences",
-        "Name": "VoiceActivationDefaultOn",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
-        "Name": "CortanaEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
-        "Name": "CortanaEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\SearchSettings",
-        "Name": "IsMSACloudSearchEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\SearchSettings",
-        "Name": "IsAADCloudSearchEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
-        "Name": "AllowCloudSearch",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
-        "Name": "VoiceShortcut",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
-        "Name": "CortanaConsent",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
-        "Name": "AllowDesktopAnalyticsProcessing",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
-        "Name": "AllowDeviceNameInTelemetry",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
-        "Name": "MicrosoftEdgeDataOptIn",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
-        "Name": "AllowWUfBCloudProcessing",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
-        "Name": "AllowUpdateComplianceProcessing",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
-        "Name": "AllowCommercialDataPipeline",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\Software\\Policies\\Microsoft\\SQMClient\\Windows",
-        "Name": "CEIPEnable",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\DataCollection",
-        "Name": "AllowTelemetry",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
-        "Name": "AllowTelemetry",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\Software\\Policies\\Microsoft\\Windows\\DataCollection",
-        "Name": "DisableOneSettingsDownloads",
-        "Value": "1",
-        "Type": "DWord",
-        "DefaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\Software\\Policies\\Microsoft\\Windows NT\\CurrentVersion\\Software Protection Platform",
-        "Name": "NoGenTicket",
-        "Value": "1",
-        "Type": "DWord",
-        "DefaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\Software\\Policies\\Microsoft\\Windows\\Windows Error Reporting",
-        "Name": "Disabled",
-        "Value": "1",
-        "Type": "DWord",
-        "DefaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\Windows Error Reporting",
-        "Name": "Disabled",
-        "Value": "1",
-        "Type": "DWord",
-        "DefaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\Software\\Microsoft\\Windows\\Windows Error Reporting\\Consent",
-        "Name": "DefaultConsent",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\Software\\Microsoft\\Windows\\Windows Error Reporting\\Consent",
-        "Name": "DefaultOverrideBehavior",
-        "Value": "1",
-        "Type": "DWord",
-        "DefaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\Software\\Microsoft\\Windows\\Windows Error Reporting",
-        "Name": "DontSendAdditionalData",
-        "Value": "1",
-        "Type": "DWord",
-        "DefaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\Software\\Microsoft\\Windows\\Windows Error Reporting",
-        "Name": "LoggingDisabled",
-        "Value": "1",
-        "Type": "DWord",
-        "DefaultValue": "0"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
-        "Name": "ContentDeliveryAllowed",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
-        "Name": "OemPreInstalledAppsEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
-        "Name": "PreInstalledAppsEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
-        "Name": "PreInstalledAppsEverEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
-        "Name": "SilentInstalledAppsEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
-        "Name": "SystemPaneSuggestionsEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\SystemSettings\\AccountNotifications",
-        "Name": "EnableAccountNotifications",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\SystemSettings\\AccountNotifications",
-        "Name": "EnableAccountNotifications",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Notifications\\Settings",
-        "Name": "NOC_GLOBAL_SETTING_TOASTS_ENABLED",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\Software\\Policies\\Microsoft\\Windows\\EdgeUI",
-        "Name": "DisableMFUTracking",
-        "Value": "1",
-        "Type": "DWord",
-        "DefaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\EdgeUI",
-        "Name": "DisableMFUTracking",
-        "Value": "1",
-        "Type": "DWord",
-        "DefaultValue": "0"
-      },
-      {
-        "Path": "HKCU:\\Control Panel\\International\\User Profile",
-        "Name": "HttpAcceptLanguageOptOut",
-        "Value": "1",
-        "Type": "DWord",
-        "DefaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
-        "Name": "PublishUserActivities",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Personalization",
-        "Name": "NoLockScreenCamera",
-        "Value": "1",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\location",
-        "Name": "Value",
-        "Value": "Deny",
-        "Type": "String",
-        "DefaultValue": "Allow"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\webcam",
-        "Name": "Value",
-        "Value": "Deny",
-        "Type": "String",
-        "DefaultValue": "Allow"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\microphone",
-        "Name": "Value",
-        "Value": "Deny",
-        "Type": "String",
-        "DefaultValue": "Allow"
-      },
-      {
-        "Path": "HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\documentsLibrary",
-        "Name": "Value",
-        "Value": "Deny",
-        "Type": "String",
-        "DefaultValue": "Allow"
-      },
-      {
-        "Path": "HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\picturesLibrary",
-        "Name": "Value",
-        "Value": "Deny",
-        "Type": "String",
-        "DefaultValue": "Allow"
-      },
-      {
-        "Path": "HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\videosLibrary",
-        "Name": "Value",
-        "Value": "Deny",
-        "Type": "String",
-        "DefaultValue": "Allow"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\broadFileSystemAccess",
-        "Name": "Value",
-        "Value": "Deny",
-        "Type": "String",
-        "DefaultValue": "Allow"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\userAccountInformation",
-        "Name": "Value",
-        "Value": "Deny",
-        "Type": "String",
-        "DefaultValue": "Allow"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\contacts",
-        "Name": "Value",
-        "Value": "Deny",
-        "Type": "String",
-        "DefaultValue": "Allow"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\phoneCallHistory",
-        "Name": "Value",
-        "Value": "Deny",
-        "Type": "String",
-        "DefaultValue": "Allow"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\chat",
-        "Name": "Value",
-        "Value": "Deny",
-        "Type": "String",
-        "DefaultValue": "Allow"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\email",
-        "Name": "Value",
-        "Value": "Deny",
-        "Type": "String",
-        "DefaultValue": "Allow"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\userDataTasks",
-        "Name": "Value",
-        "Value": "Deny",
-        "Type": "String",
-        "DefaultValue": "Allow"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\appDiagnostics",
-        "Name": "Value",
-        "Value": "Deny",
-        "Type": "String",
-        "DefaultValue": "Allow"
-      },
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Speech_OneCore\\Settings\\VoiceActivation\\UserPreferenceForAllApps",
-        "Name": "AgentActivationEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\AppPrivacy",
-        "Name": "LetAppsAccessPhone",
-        "Value": "2",
-        "Type": "DWord",
-        "DefaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\AppPrivacy",
-        "Name": "LetAppsAccessPhone_UserInControlOfTheseApps",
-        "Value": "",
-        "Type": "REG_MULTI_SZ",
-        "DefaultValue": ""
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\AppPrivacy",
-        "Name": "LetAppsAccessPhone_ForceAllowTheseApps",
-        "Value": "",
-        "Type": "REG_MULTI_SZ",
-        "DefaultValue": ""
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\AppPrivacy",
-        "Name": "LetAppsAccessPhone_ForceDenyTheseApps",
-        "Value": "",
-        "Type": "REG_MULTI_SZ",
-        "DefaultValue": ""
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DeviceAccess\\Global\\{C1D23ACC-752B-43E5-8448-8D0E519CD6D6}",
-        "Name": "Value",
-        "Value": "Deny",
-        "Type": "String",
-        "DefaultValue": "Allow"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\appointments",
-        "Name": "Value",
-        "Value": "Deny",
-        "Type": "String",
-        "DefaultValue": "Allow"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\activity",
-        "Name": "Value",
-        "Value": "Deny",
-        "Type": "String",
-        "DefaultValue": "Allow"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\radios",
-        "Name": "Value",
-        "Value": "Deny",
-        "Type": "String",
-        "DefaultValue": "Allow"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
-        "Name": "EdgeEnhanceImagesEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
-        "Name": "PersonalizationReportingEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
-        "Name": "ShowRecommendationsEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
-        "Name": "HideFirstRunExperience",
-        "Value": "1",
-        "Type": "DWord",
-        "DefaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
-        "Name": "UserFeedbackAllowed",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
-        "Name": "ConfigureDoNotTrack",
-        "Value": "1",
-        "Type": "DWord",
-        "DefaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
-        "Name": "AlternateErrorPagesEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
-        "Name": "EdgeCollectionsEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
-        "Name": "EdgeFollowEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
-        "Name": "EdgeShoppingAssistantEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
-        "Name": "MicrosoftEdgeInsiderPromotionEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
-        "Name": "ShowMicrosoftRewards",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
-        "Name": "WebWidgetAllowed",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
-        "Name": "DiagnosticData",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
-        "Name": "EdgeAssetDeliveryServiceEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
-        "Name": "CryptoWalletEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
-        "Name": "WalletDonationEnabled",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      }
-    ]
-  },
-  {
-    "Name": "Clean Taskbar",
-    "Description": "Disable the (News and interests) and (People icon) Show Search icon only for Windows 10/11",
-    "Category": "Performance",
-    "Check": "false",
-    "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Feeds",
-        "Name": "ShellFeedsTaskbarViewMode",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
-        "Name": "SearchboxTaskbarMode",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "2"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\People",
-        "Name": "PeopleBand",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
-        "Name": "HideSCAMeetNow",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
-        "Name": "NoNewsAndInterests",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\PolicyManager\\default\\NewsAndInterests\\AllowNewsAndInterests",
-        "Name": "value",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Feeds",
-        "Name": "EnableFeeds",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
-        "Name": "ShowCortanaButton",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
-        "Name": "ShowTaskViewButton",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      }
-    ]
-  },
-  {
-    "Name": "Remove Microsoft Apps",
-    "Description": "Uninstalls pre-installed Microsoft apps like Clipchamp, People etc",
-    "Category": "Performance",
-    "Check": "false",
-    "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [
-      "Microsoft.Copilot",
-      "Microsoft.BingNews",
-      "Microsoft.WindowsCamera",
-      "Microsoft.Getstarted",
-      "Microsoft.BingWeather_1.0.6.0_x64__8wekyb3d8bbwe",
-      "MicrosoftWindows.Client.WebExperience_cw5n1h2txyewy",
-      "Microsoft.GetHelp",
-      "Microsoft.AppConnector",
-      "Microsoft.BingFinance",
-      "Microsoft.BingTranslator",
-      "Microsoft.BingSports",
-      "MicrosoftCorporationII.MicrosoftFamily",
-      "Microsoft.BingHealthAndFitness",
-      "Microsoft.BingTravel",
-      "Microsoft.MinecraftUWP",
-      "PowerAutomate",
-      "MicrosoftTeams",
-      "Microsoft.Todos",
-      "Microsoft.AsyncTextService",
-      "Microsoft.GamingServices",
-      "Microsoft.BingFoodAndDrink",
-      "Microsoft.BingWeather",
-      "Microsoft.Messaging",
-      "Microsoft.Microsoft3DViewer",
-      "Microsoft.3DBuilder",
-      "Microsoft.MicrosoftOfficeHub",
-      "Microsoft.MicrosoftSolitaireCollection",
-      "Microsoft.NetworkSpeedTest",
-      "Microsoft.News",
-      "Microsoft.549981C3F5F10",
-      "Microsoft.Office.Lens",
-      "Microsoft.Office.OneNote",
-      "Microsoft.Office.Sway",
-      "Microsoft.OutlookForWindows",
-      "Microsoft.OneConnect",
-      "Microsoft.People",
-      "Microsoft.Print3D",
-      "Microsoft.RemoteDesktop",
-      "Microsoft.SkypeApp",
-      "Microsoft.StorePurchaseApp",
-      "Microsoft.Office.Todo.List",
-      "Microsoft.Whiteboard",
-      "Microsoft.CommsPhone",
-      "Microsoft.windowscommunicationsapps",
-      "Microsoft.WindowsFeedbackHub",
-      "Microsoft.Wallet",
-      "Microsoft.WindowsMaps",
-      "Microsoft.YourPhone",
-      "Microsoft.WindowsSoundRecorder",
-      "Microsoft.Windows.Cortana",
-      "Microsoft.ScreenSketch",
-      "Microsoft.Windows.DevHome",
-      "Microsoft.MixedReality.Portal",
-      "Microsoft.MSPaint",
-      "Microsoft.Getstarted",
-      "Microsoft.ZuneVideo",
-      "Microsoft.ZuneMusic",
-      "EclipseManager",
-      "ActiproSoftwareLLC",
-      "AdobeSystemsIncorporated.AdobePhotoshopExpress",
-      "Duolingo-LearnLanguagesforFree",
-      "PandoraMediaInc",
-      "CandyCrush",
-      "BubbleWitch3Saga",
-      "Wunderlist",
-      "Flipboard",
-      "Twitter",
-      "Facebook",
-      "Minecraft",
-      "Royal Revolt",
-      "Sway",
-      "Disney.37853FC22B2CE",
-      "disney",
-      "Microsoft.549981",
-      "Microsoft.MicrosoftStickyNotes",
-      "TikTok.TikTok_8wekyb3d8bbwe",
-      "TikTok",
-      "Microsoft.NetworkSpeedTest"
-    ],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
-        "Name": "NoStartMenuMorePrograms",
-        "Type": "DWord",
-        "Value": "2",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
-        "Name": "NoStartMenuMorePrograms",
-        "Type": "DWord",
-        "Value": "2",
-        "defaultValue": "1"
-      }
-    ]
-  },
-  {
-    "Name": "Remove Xbox Apps",
-    "Description": "Uninstalls pre-installed Xbox apps",
-    "Category": "Performance",
-    "Check": "false",
-    "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [
-      "Microsoft.XboxApp",
-      "Microsoft.Xbox.TCUI",
-      "Microsoft.XboxGamingOverlay",
-      "Microsoft.XboxGameOverlay",
-      "Microsoft.XboxIdentityProvider",
-      "Microsoft.XboxSpeechToTextOverlay"
-
-    ],
-    "Services": [],
-    "Registry": []
-  },
-  {
-    "Name": "Fix Stutter in games",
-    "Description": "Fix Stutter in Games (Disable GameBarPresenceWriter). Windows 10/11",
-    "Category": "Performance",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [
-      "irm https://raw.githubusercontent.com/emadadel4/Fix-Stutter-in-Games/main/fix.ps1 | iex "
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
-  },
-  {
-    "Name": "Enable the Ultimate Performance Power Plan",
-    "Description": "This will add the Ultimate Performance power plan, to enable it go to the power options",
-    "Category": "Power",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [
-      "powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61; Start-Process powercfg.cpl"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
-  },
-  {
-    "Name": "Reset the TCP/IP Stack",
-    "Description": "If you have an internet issue, reset the network configuration",
-    "Category": "Fixer",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [
-      "netsh int ip reset"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
-  },
-  {
-    "Name": "Setup Auto login",
-    "Description": "Setup auto login Windows username",
-    "Category": "Other",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [
-      "curl.exe -ss \"https://live.sysinternals.com/Autologon.exe\" -o $env:temp\\autologin.exe ; cmd /c $env:temp\\autologin.exe /accepteula"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
-  },
-  {
-    "Name": "Disable Xbox Services",
-    "Description": "Disables all Xbox Services Game Mode and Optimizations for Windowed Games and fix stutter playing smooth",
-    "Category": "Performance",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [
-      "Disable-MMAgent -MemoryCompression | Out-Null",
-      "\r\n        takeown /f C:\\Windows\\System32\\GameBarPresenceWriter.exe\r\n\r\n        takeown /f C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll\r\n\r\n        takeown /f C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll\r\n\r\n        Start-Sleep -Seconds 1\r\n\r\n\r\n        icacls C:\\Windows\\System32\\GameBarPresenceWriter.exe /grant administrators:F\r\n\r\n        icacls C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll /grant administrators:F\r\n\r\n        icacls C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll /grant administrators:F\r\n\r\n        Start-Sleep -Seconds 1\r\n\r\n\r\n        Rename-Item C:\\Windows\\System32\\GameBarPresenceWriter.exe -NewName GameBarPresenceWriter.exe_backup\r\n\r\n        Rename-Item C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll -NewName GameBarPresenceWriter.proxy.dll_backup\r\n\r\n        Rename-Item C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll -NewName Windows.Gaming.UI.GameBar.dll_backup\r\n\r\n      "
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\GameBar",
-        "Name": "AutoGameModeEnabled",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\GameBar",
-        "Name": "AllowAutoGameMode",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\GameBar",
-        "Name": "ShowStartupPanel",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\System\\GameConfigStore",
-        "Name": "GameDVR_Enabled",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\GameBar",
-        "Name": "AppCaptureEnabled",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\GameBar",
-        "Name": "UseNexusForGameBarEnabled",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\GameBar",
-        "Name": "AudioCaptureEnabled",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\GameBar",
-        "Name": "CursorCaptureEnabled",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\Software\\Policies\\Microsoft\\Windows\\GameDVR",
-        "Name": "AllowgameDVR",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\System\\CurrentControlSet\\Services\\xbgm",
-        "Name": "Start",
-        "Type": "DWord",
-        "Value": "4",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKCU:\\System\\GameConfigStore",
-        "Name": "GameDVR_FSEBehaviorMode",
-        "Type": "DWord",
-        "Value": "2",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKCU:\\System\\GameConfigStore",
-        "Name": "GameDVR_HonorUserFSEBehaviorMode",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKCU:\\System\\GameConfigStore",
-        "Name": "GameDVR_FSEBehavior",
-        "Type": "DWord",
-        "Value": "2",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKCU:\\System\\GameConfigStore",
-        "Name": "GameDVR_EFSEFeatureFlags",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKCU:\\System\\GameConfigStore",
-        "Name": "GameDVR_DSEBehavior",
-        "Type": "DWord",
-        "Value": "2",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\DirectX\\UserGpuPreferences",
-        "Name": "DirectXUserGlobalSettings",
-        "Type": "String",
-        "Value": "SwapEffectUpgradeEnable=1;",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\DirectX\\GraphicsSettings",
-        "Name": "",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\DirectX\\GraphicsSettings",
-        "Name": "SwapEffectUpgradeCache",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\SoftwareProtectionPlatform",
-        "Name": "InactivityShutdownDelay",
-        "Type": "DWord",
-        "Value": "4294967295",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\Dwm",
-        "Name": "OverlayTestMode",
-        "Type": "DWord",
-        "Value": "5",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games",
-        "Name": "GPU Priority",
-        "Type": "DWord",
-        "Value": "8",
-        "defaultValue": "8"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games",
-        "Name": "Scheduling Category",
-        "Type": "String",
-        "Value": "High",
-        "defaultValue": "High"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games",
-        "Name": "SFIO Priority",
-        "Type": "String",
-        "Value": "High",
-        "defaultValue": "High"
-      },
-      {
-        "Path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\PriorityControl",
-        "Name": "IRQ8Priority",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
-        "Name": "DisableWindowsConsumerFeatures",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "0"
-      }
-    ]
-  },
-  {
-    "Name": "Disable Start Menu Ads",
-    "Description": "Disable Start menu Ads and Settings",
-    "Category": "Privacy",
-    "Check": "false",
-    "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo",
-        "Name": "Enabled",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
-        "Name": "SystemPaneSuggestionsEnabled",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
-        "Name": "SoftLandingEnabled",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
-        "Name": "ShowSyncProviderNotifications",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      }
-    ]
-  },
-  {
-    "Name": "Disable Windows Web Search",
-    "Description": "Disable web search in Windows by Modify the registry settings related to Windows Search for Windows 10 and 11",
-    "Category": "Privacy",
-    "Check": "false",
-    "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
-        "Name": "BingSearchEnabled",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      }
-    ]
-  },
-  {
-    "Name": "Turn off background Apps",
-    "Description": "Turn off background apps for Windows 10 and 11",
-    "Category": "Performance",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications",
-        "Name": "GlobalUserDisabled",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
-        "Name": "BackgroundAppGlobalToggle",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      }
-    ]
-  },
-  {
-    "Name": "Disable suggestions on Start Menu",
-    "Description": "Disables suggestions on start menu for Windows 10 and 11",
-    "Category": "Privacy",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
-        "Name": "DisableWindowsConsumerFeatures",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "0"
-      }
-    ]
-  },
-  {
-    "Name": "Remove Folder Shortcuts From File Explorer",
-    "Description": "Remove Documents, Videos, Pictures, Desktop. Shortcuts from File Explorer",
-    "Category": "Other",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{f86fa3ab-70d2-4fc7-9c99-fcbf05467f3a}",
-        "Value": "Remove"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}",
-        "Value": "Remove"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}",
-        "Value": "Remove"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{f86fa3ab-70d2-4fc7-9c99-fcbf05467f3a}",
-        "Value": "Remove"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{3dfdf296-dbec-4fb4-81d1-6a3438bcf4de}",
-        "Value": "Remove"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{3dfdf296-dbec-4fb4-81d1-6a3438bcf4de}",
-        "Value": "Remove"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{24ad3ad4-a569-4530-98e1-ab02f9417aa8}",
-        "Value": "Remove"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{24ad3ad4-a569-4530-98e1-ab02f9417aa8}",
-        "Value": "Remove"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{088e3905-0323-4b02-9826-5d99428e115f}",
-        "Value": "Remove"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{088e3905-0323-4b02-9826-5d99428e115f}",
-        "Value": "Remove"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}",
-        "Value": "Remove"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}",
-        "Value": "Remove"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{d3162b92-9365-467a-956b-92703aca08af}",
-        "Value": "Remove"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{d3162b92-9365-467a-956b-92703aca08af}",
-        "Value": "Remove"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer",
-        "Name": "HubMode",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKCR:\\CLSID\\{018D5C66-4533-4307-9B53-224DE2ED1FE6}",
-        "Name": "System.IsPinnedToNameSpaceTree",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKCR:\\Wow6432Node\\CLSID\\{018D5C66-4533-4307-9B53-224DE2ED1FE6}",
-        "Name": "System.IsPinnedToNameSpaceTree",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKCU:\\Software\\Classes\\CLSID\\{031E4825-7B94-4dc3-B131-E946B44C8DD5}",
-        "Name": "System.IsPinnedToNameSpaceTree",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      }
-    ]
-  },
-  {
-    "Name": "Optimize Windows Services",
-    "Description": "Disable (Print Spooler), (Fax), (Diagnostic Policy), (Downloaded Maps Manager), (Windows Error Reporting Service), (Remote Registry) , (Internet Connection Sharing), (Disables Telemetry and Data)",
-    "Category": "Performance",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [
-      {
-        "Name": "Spooler",
-        "StartupType": "Disabled",
-        "DefaultType": "Automatic"
-      },
-      {
-        "Name": "Fax",
-        "StartupType": "Disabled",
-        "DefaultType": "Automatic"
-      },
-      {
-        "Name": "DPS",
-        "StartupType": "Disabled",
-        "DefaultType": "Automatic"
-      },
-      {
-        "Name": "MapsBroker",
-        "StartupType": "Disabled",
-        "DefaultType": "Automatic"
-      },
-      {
-        "Name": "WerSvc",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "RemoteRegistry",
-        "StartupType": "Disabled",
-        "DefaultType": "Disabled"
-      },
-      {
-        "Name": "lmhosts",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "SharedAccess",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      },
-      {
-        "Name": "DiagTrack",
-        "StartupType": "Disabled",
-        "DefaultType": "Manual"
-      }
-    ],
-    "Registry": []
-  },
-  {
-    "Name": "Disable Hibernate",
-    "Description": "Hibernate is a power-saving mode in Microsoft Windows operating systems that allows the system to save the current state of your computer to the hard disk and then power down completely",
-    "Category": "Performance",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [
-      "powercfg.exe /hibernate off"
-    ],
-    "UndoScript": [
-      "powercfg.exe /hibernate on"
-    ],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKLM:\\System\\CurrentControlSet\\Control\\Session Manager\\Power",
-        "Name": "HibernateEnabled",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FlyoutMenuSettings",
-        "Name": "ShowHibernateOption",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      }
-    ]
-  },
-  {
-    "Name": "Disable OneDrive",
-    "Description": "Disabling OneDrive for Windows 10 and 11",
-    "Category": "Performance",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [
-      "OneDrive",
-      "MicrosoftEdge"
-    ],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\OneDrive",
-        "Name": "DisableFileSyncNGSC",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
-        "Name": "OneDrive",
-        "Value": "Remove"
-      }
-    ]
-  },
-  {
-    "Name": "Remove OneDrive",
-    "Description": "Removes OneDrive from the system",
-    "Category": "Performance",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [
-      "irm https://raw.githubusercontent.com/emadadel4/WindowsTweaks/refs/heads/main/OneDrive-Uninstaller.ps1 | iex"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
-  },
-  {
-    "Name": "Remove Microsoft Edge (Not Recommended)",
-    "Description": "Removes Edge from the system",
-    "Category": "Performance",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [
-      "irm https://raw.githubusercontent.com/emadadel4/WindowsTweaks/refs/heads/main/Edge-Remover.ps1 | iex"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
-  },
-  {
-    "Name": "Activate Windows Old Photo Viewer",
-    "Description": "Enables the classic Windows Photo Viewer for Windows 10",
-    "Category": "Classic",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows Photo Viewer\\Capabilities\\FileAssociations",
-        "Name": ".jpg",
-        "Type": "String",
-        "Value": "PhotoViewer.FileAssoc.Tiff",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows Photo Viewer\\Capabilities\\FileAssociations",
-        "Name": ".jpeg",
-        "Type": "String",
-        "Value": "PhotoViewer.FileAssoc.Tiff",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows Photo Viewer\\Capabilities\\FileAssociations",
-        "Name": ".png",
-        "Type": "String",
-        "Value": "PhotoViewer.FileAssoc.Tiff",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows Photo Viewer\\Capabilities\\FileAssociations",
-        "Name": ".bmp",
-        "Type": "String",
-        "Value": "PhotoViewer.FileAssoc.Tiff",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows Photo Viewer\\Capabilities\\FileAssociations",
-        "Name": ".gif",
-        "Type": "String",
-        "Value": "PhotoViewer.FileAssoc.Tiff",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows Photo Viewer\\Capabilities\\FileAssociations",
-        "Name": "ApplicationIcon",
-        "Type": "String",
-        "Value": "C:\\Program Files (x86)\\Windows Photo Viewer\\photoviewer.dll",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows Photo Viewer\\Capabilities\\FileAssociations",
-        "Name": "ApplicationName",
-        "Type": "String",
-        "Value": "Windows Photo Viewer",
-        "defaultValue": "0"
-      }
-    ]
-  },
-  {
-    "Name": "Restore Classic Context Menu Windows 11",
-    "Description": "Restore the old context menu for Windows 11",
-    "Category": "Classic",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKCU:\\Software\\Classes\\CLSID\\",
-        "Name": "{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}",
-        "Type": "String",
-        "Value": "",
-        "defaultValue": ""
-      },
-      {
-        "Path": "HKCU:\\Software\\Classes\\CLSID\\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\\InprocServer32",
-        "Name": "",
-        "Type": "String",
-        "Value": "",
-        "defaultValue": "default"
-      }
-    ]
-  },
-  {
-    "Name": "Remove Copilot in Windows 11",
-    "Description": "Copilot in Windows provides centralized generative AI assistance to your users right from the Windows desktop Copilot in Windows appears as a side bar docked on the Windows desktop and is designed to help users get things done in Windows Copilot in Windows can perform common tasks in Windows like changing Windows settings which makes it different from the browserbased Copilot in Edge",
-    "Category": "Privacy",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKCU:\\Software\\Policies\\Microsoft\\Windows\\WindowsCopilot",
-        "Name": "TurnOffWindowsCopilot",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsCopilot",
-        "Name": "TurnOffWindowsCopilot",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
-        "Name": "HubsSidebarEnabled",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKCU:\\Software\\Policies\\Microsoft\\Windows\\Explorer",
-        "Name": "DisableSearchBoxSuggestions",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer",
-        "Name": "DisableSearchBoxSuggestions",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "0"
-      }
-    ]
-  },
-  {
-    "Name": "Disable Recall Snapshots in Windows 11 24H",
-    "Description": "Recall is an upcoming preview experience exclusive to Copilot+ PCs that will help you easily find and remember things you've seen using natural language",
-    "Category": "Privacy",
-    "Check": "false",
-    "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKCU:\\Software\\Policies\\Microsoft\\Windows\\WindowsAI",
-        "Name": "DisableAIDataAnalysis",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsAI",
-        "Name": "DisableAIDataAnalysis",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "0"
-      }
-    ]
-  },
-  {
-    "Name": "Delete Thumbnail Cache",
-    "Description": "removing the stored image thumbnails on your computer These thumbnails are small versions of images used by the operating system to display image previews quickly Over time the cache can become large or corrupted causing slowdowns or display issues Deleting it can free up space.",
-    "Category": "Performance",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [
-      "Remove-Item \"$env:LocalAppData\\Microsoft\\Windows\\Explorer\\thumbcache*\" -Force -Recurse"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
-  },
-  {
-    "Name": "Old Volume Control in Windows 10",
-    "Description": "The old volume control in Windows 10 refers to the classic audio mixer interface that was used in earlier versions of Windows, before the modern volume control system was introduced.",
-    "Category": "Classic",
-    "Check": "false",
-    "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKLM:\\Software\\Microsoft\\Windows NT\\CurrentVersion\\MTCUVC",
-        "Name": "EnableMtcUvc",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      }
-    ]
-  },
-  {
-    "Name": "Disable Toggle Key Sounds",
-    "Description": "Toggle key sounds in Windows are audio cues that play when you press the Caps Lock, Num Lock, or Scroll Lock keys. These sounds help users identify when these keys are activated or deactivated",
-    "Category": "Classic",
-    "Check": "false",
-    "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKCU:\\Control Panel\\Accessibility\\ToggleKeys",
-        "Name": "Flags",
-        "Type": "String",
-        "Value": "58",
-        "defaultValue": "62"
-      }
-    ]
-  },
-  {
-    "Name": "Disable Homegroup",
-    "Description": "Disables HomeGroup  HomeGroup is a passwordprotected home networking service that lets you share your stuff with other PCs that are currently running and connected to your network",
-    "Category": "Privacy",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [
-      {
-        "Name": "HomeGroupListener",
-        "StartupType": "Manual ",
-        "DefaultType": "Automatic"
-      },
-      {
-        "Name": "HomeGroupProvider",
-        "StartupType": "Manual ",
-        "DefaultType": "Automatic"
-      }
-    ],
-    "Registry": []
-  },
-  {
-    "Name": "Remove Home and Gallery from explorer in Windows 11",
-    "Description": "Removes the Home and Gallery from explorer and sets This PC as default",
-    "Category": "Privacy",
-    "Check": "false",
-    "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
-        "Name": "1",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "1"
-      },
-      {
-        "Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Desktop\\NameSpace\\{e88865ea-0e1c-4e20-9aa6-edcd0212c87c}",
-        "Value": "Remove"
-      },
-      {
-        "Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Desktop\\NameSpace\\{f874310e-b6b7-47dc-bc84-b9e6b38f5903}",
-        "Value": "Remove"
-      }
-    ]
-  },
-  {
-    "Name": "Disable Wifi Sense",
-    "Description": "Wifi Sense is a service that phones home all nearby scanned wifi networks and your location",
-    "Category": "Protection",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\PolicyManager\\default\\WiFi\\AllowWiFiHotSpotReporting",
-        "Name": "value",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\PolicyManager\\default\\WiFi\\AllowAutoConnectToWiFiSenseHotspots",
-        "Name": "value",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\WcmSvc\\wifinetworkmanager\\config",
-        "Name": "AutoConnectAllowedOEM",
-        "Value": "0",
-        "Type": "DWord",
-        "DefaultValue": "1"
-      }
-    ]
-  },
-  {
-    "Name": "Disable Autoplay and Autorun",
-    "Description": "Disabling autoplay in Windows prevents the automatic launch of media or applications when a removable device, such as a USB drive or CD, is connected to the computer",
-    "Category": "Protection",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\AutoplayHandlers",
-        "Name": "DisableAutoplay",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "0"
-      },
-      {
-        "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
-        "Name": "NoDriveTypeAutoRun",
-        "Type": "DWord",
-        "Value": "255",
-        "defaultValue": "255"
-      }
-    ]
-  },
-  {
-    "Name": "Disable SMB Server",
-    "Description": "SMB Server enables file and printer sharing over a network, allowing access to resources on remote computers as if they were local",
-    "Category": "Protection",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [
-      "Set-SmbServerConfiguration -EnableSMB1Protocol $false -Force; Set-SmbServerConfiguration -EnableSMB2Protocol $false -Force"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
-  },
-  {
-    "Name": "Set current network profile to public",
-    "Description": "Deny file sharing, device discovery, etc",
-    "Category": "",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [
-      "Set-NetConnectionProfile -NetworkCategory Public"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
-  },
-  {
-    "Name": "Enable F8 boot menu options",
-    "Description": "Enable F8 boot menu options",
-    "Category": "BIOS",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [
-      "bcdedit /set bootmenupolicy Standard | Out-Null"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
-  },
-  {
-    "Name": "Disable display and sleep mode timeouts",
-    "Description": "If you frequently use your device, disable this",
-    "Category": "Power",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [
-      "\r\n        powercfg /X monitor-timeout-ac 0\r\n        powercfg /X monitor-timeout-dc 0\r\n        powercfg /X standby-timeout-ac 0\r\n        powercfg /X standby-timeout-dc 0\r\n      "
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
-  },
-  {
-    "Name": "Set Wallpaper desktop Quality to 100%",
-    "Description": "It's Microsoft, what should I say!",
-    "Category": "Personalization",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKLM:\\System\\CurrentControlSet\\Control\\CrashControl",
-        "Name": "DisplayParameters",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "0"
-      }
-    ]
-  },
-  {
-    "Name": "Disable Windows Transparency",
-    "Description": "It's Microsoft, what should I say!",
-    "Category": "Performance",
-    "Check": "false",
-    "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
-        "Name": "EnableTransparency",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      }
-    ]
-  },
-  {
-    "Name": "Disable scheduled defragmentation task",
-    "Description": "Defragmentation in Windows optimizes disk performance by reorganizing fragmented data, improving access times and system efficiency",
-    "Category": "Performance",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [
-      "Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Defrag\\ScheduledDefrag' | Out-Null"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
-  },
-  {
-    "Name": "Enable NET 3.5",
-    "Description": "Some old games and applications require .NET Framework 3.5",
-    "Category": "Classic",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [
-      "DISM /Online /Enable-Feature /FeatureName:NetFx3 /All"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
-  },
-  {
-    "Name": "Super Performance",
-    "Description": "All Windows effects disabled and optimized for windowed games. You may need to log out and back in for changes to take effect. You can reset to default settings in Settings Tab",
-    "Category": "Performance",
-    "Check": "false",
-    "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "defaultValue": "1",
-        "Type": "String",
-        "Path": "HKCU:\\Control Panel\\Desktop",
-        "Value": "0",
-        "Name": "DragFullWindows"
-      },
-      {
-        "defaultValue": "1",
-        "Type": "String",
-        "Path": "HKCU:\\Control Panel\\Desktop",
-        "Value": "200",
-        "Name": "MenuShowDelay"
-      },
-      {
-        "defaultValue": "1",
-        "Type": "String",
-        "Path": "HKCU:\\Control Panel\\Desktop\\WindowMetrics",
-        "Value": "0",
-        "Name": "MinAnimate"
-      },
-      {
-        "defaultValue": "1",
-        "Type": "DWord",
-        "Path": "HKCU:\\Control Panel\\Keyboard",
-        "Value": "0",
-        "Name": "KeyboardDelay"
-      },
-      {
-        "defaultValue": "1",
-        "Type": "DWord",
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
-        "Value": "0",
-        "Name": "ListviewAlphaSelect"
-      },
-      {
-        "defaultValue": "1",
-        "Type": "DWord",
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
-        "Value": "0",
-        "Name": "ListviewShadow"
-      },
-      {
-        "defaultValue": "1",
-        "Type": "DWord",
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
-        "Value": "0",
-        "Name": "TaskbarAnimations"
-      },
-      {
-        "defaultValue": "1",
-        "Type": "DWord",
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VisualEffects",
-        "Value": "2",
-        "Name": "VisualFXSetting"
-      },
-      {
-        "defaultValue": "1",
-        "Type": "DWord",
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\DWM",
-        "Value": "0",
-        "Name": "EnableAeroPeek"
-      },
-      {
-        "defaultValue": "1",
-        "Type": "DWord",
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
-        "Value": "0",
-        "Name": "TaskbarMn"
-      },
-      {
-        "defaultValue": "1",
-        "Type": "DWord",
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
-        "Value": "0",
-        "Name": "TaskbarDa"
-      },
-      {
-        "defaultValue": "1",
-        "Type": "DWord",
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
-        "Value": "0",
-        "Name": "ShowTaskViewButton"
-      },
-      {
-        "defaultValue": "1",
-        "Type": "DWord",
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
-        "Value": "0",
-        "Name": "SearchboxTaskbarMode"
-      }
-    ]
-  },
-  {
-    "Name": "Remove Widgets from Taskbar in Windows 11",
-    "Description": "Widgets are one of the new user interface elements in Windows 11 They are used to display dynamic information on the desktop including weather news and other information from various sources",
-    "Category": "Performance",
-    "Check": "false",
-    "Refresh": "true",
-    "Script": [
-      "Install-Winget \r\n winget uninstall 'windows web experience pack' --silent"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Name": "TaskbarDa",
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\TaskbarDeveloperSettings",
-        "defaultValue": "1",
-        "Value": "0",
-        "Type": "DWord"
-      }
-    ]
-  },
-  {
-    "Name": "Unknown",
-    "Description": "Rename Computer name and Username to Unknown. The changes will take effect after you restart the computer",
-    "Category": "Privacy",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [
-      "Rename-Computer -NewName 'Unknown'",
-      "$currentUsername = $env:USERNAME; Rename-LocalUser -Name $currentUsername -NewName 'Unknown'"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
-  },
-  {
-    "Name": "Fix Arabic encoding",
-    "Description": "Fix issues related to strange symbols appearing in Arabic text",
-    "Category": "Fixer",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [
-      "Set-WinSystemLocale -SystemLocale 'ar-EG'"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
-  },
-  {
-    "Name": "Restore Default File Type Associations",
-    "Description": "Restoring default apps for file type associations resets Windows settings, allowing the system to select the appropriate programs by default",
-    "Category": "Fixer",
-    "Check": "false",
-    "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts",
-        "Value": "Remove"
-      }
-    ]
-  },
-  {
-    "Name": "Limit Defender CPU Usage",
-    "Description": "Limits Defender CPU maximum usage at 25% instead of default 50%",
-    "Category": "Performance",
-    "Check": "false",
-    "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Scan",
-        "Name": "AvgCPULoadFactor",
-        "Type": "DWord",
-        "Value": "25",
-        "defaultValue": "0"
-      }
-    ]
-  },
-  {
-    "Name": "Disable HAGS",
-    "Description": "Disables Hardware-Accelerated GPU Scheduling, which may improve performance",
-    "Category": "Performance",
-    "Check": "false",
-    "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKLM:\\SOFTWARE\\CurrentControlSet\\Control\\GraphicsDrivers",
-        "Name": "HwSchMode",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "0"
-      }
-    ]
-  },
-  {
-    "Name": "Disable Fullscreen Optimizations",
-    "Description": "Disables Fullscreen Optimizations, which may improve performance",
-    "Category": "Performance",
-    "Check": "false",
-    "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKCU:\\System\\GameConfigStore",
-        "Name": "GameDVR_DXGIHonorFSEWindowsCompatible",
-        "Type": "DWord",
-        "Value": "1",
-        "defaultValue": "0"
-      }
-    ]
-  }
+{
+"Name": "Disk cleanup",
+"Description": "Clean temporary files that are not necessary",
+"Category": "Storage",
+"Check": "false",
+"Refresh": "false",
+"Script": [
+"irm https://raw.githubusercontent.com/emadadel4/WindowsTweaks/refs/heads/main/Disk%20cleanup.ps1 | iex"
+],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": []
+},
+{
+"Name": "System File Checker",
+"Description": "sfc /scannow Use the System File Checker tool to repair missing or corrupted system files",
+"Category": "Fixer",
+"Check": "false",
+"Refresh": "false",
+"Script": [
+"Add-Log -Message 'This may take a few minutes' -Level 'Info' Chkdsk /scan\r\n sfc /scannow\r\n DISM /Online /Cleanup-Image /Restorehealth\r\n sfc /scannow\r\n"
+],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": []
+},
+{
+"Name": "Restore All Windows Services to Default",
+"Description": "if you face issues with services, try Restore All Windows Services to Default",
+"Category": "Fixer",
+"Check": "false",
+"Refresh": "false",
+"Script": [
+"Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/emadadel4/WindowsTweaks/refs/heads/main/test.bat' -OutFile $env:TEMP\\script.bat \r\n Start-Process -FilePath 'cmd.exe' -ArgumentList '/c %TMP%\\script.bat && del /f /q %TMP%\\script.bat ' -NoNewWindow -Wait "
+],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": []
+},
+{
+"Name": "Super Privacy Disable all Privacy Settings",
+"Description": "Disable Wifi-Sense & Activity History & ActivityFeed All Telemetry & DataCollection & disable various telemetry and annoyances in Edge",
+"Category": "Privacy",
+"Check": "false",
+"Refresh": "true",
+"Script": [
+"Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Application Experience\\Microsoft Compatibility Appraiser' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Application Experience\\ProgramDataUpdater' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Autochk\\Proxy' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Customer Experience Improvement Program\\Consolidator' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Customer Experience Improvement Program\\UsbCeip' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\DiskDiagnostic\\Microsoft-Windows-DiskDiagnosticDataCollector' | Out-Null; schtasks /change /TN '\\Microsoft\\Windows\\Customer Experience Improvement Program\\Consolidator' /DISABLE > NUL 2>&1; schtasks /change /TN '\\Microsoft\\Windows\\DiskDiagnostic\\Microsoft-Windows-DiskDiagnosticDataCollector' /DISABLE > NUL 2>&1; schtasks /change /TN '\\Microsoft\\Windows\\Windows Error Reporting\\QueueReporting' /DISABLE > NUL 2>&1"
+],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\location",
+"Name": "Value",
+"Type": "String",
+"Value": "Deny",
+"defaultValue": "Deny"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Sensor\\Overrides\\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}",
+"Name": "SensorPermissionState",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\lfsvc\\Service\\Configuration",
+"Name": "Status",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKLM:\\SYSTEM\\Maps",
+"Name": "AutoUpdateEnabled",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+"Name": "EnableActivityFeed",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKLM:\\Software\\Microsoft\\PolicyManager\\default\\WiFi\\AllowAutoConnectToWiFiSenseHotspots",
+"Name": "Value",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\Windows Error Reporting",
+"Name": "Disabled",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\Windows Error Reporting",
+"Name": "Disabled",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
+"Name": "AllowTelemetry",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+"Name": "ContentDeliveryAllowed",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+"Name": "OemPreInstalledAppsEnabled",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+"Name": "PreInstalledAppsEnabled",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+"Name": "PreInstalledAppsEverEnabled",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+"Name": "SilentInstalledAppsEnabled",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+"Name": "SubscribedContent-338387Enabled",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+"Name": "SubscribedContent-338388Enabled",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+"Name": "SubscribedContent-338389Enabled",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+"Name": "SubscribedContent-353698Enabled",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+"Name": "SystemPaneSuggestionsEnabled",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Siuf\\Rules",
+"Name": "NumberOfSIUFInPeriod",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
+"Name": "DoNotShowFeedbackNotifications",
+"Value": "1",
+"Type": "DWord",
+"defaultValue": "0"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
+"Name": "DisableTailoredExperiencesWithDiagnosticData",
+"Value": "1",
+"Type": "DWord",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\AdvertisingInfo",
+"Name": "DisabledByGroupPolicy",
+"Value": "1",
+"Type": "DWord",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\Windows Error Reporting",
+"Name": "Disabled",
+"Value": "1",
+"Type": "DWord",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DeliveryOptimization\\Config",
+"Name": "DODownloadMode",
+"Value": "1",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Remote Assistance",
+"Name": "fAllowToGetHelp",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\OperationStatusManager",
+"Name": "EnthusiastMode",
+"Value": "1",
+"Type": "DWord",
+"defaultValue": "0"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+"Name": "ShowTaskViewButton",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\People",
+"Name": "PeopleBand",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+"Name": "LaunchTo",
+"Value": "1",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\FileSystem",
+"Name": "LongPathsEnabled",
+"Value": "1",
+"Type": "DWord",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DriverSearching",
+"Name": "SearchOrderConfig",
+"Value": "1",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile",
+"Name": "SystemResponsiveness",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile",
+"Name": "NetworkThrottlingIndex",
+"Value": "4294967295",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\Control Panel\\Desktop",
+"Name": "MenuShowDelay",
+"Value": "1",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\Control Panel\\Desktop",
+"Name": "AutoEndTasks",
+"Value": "1",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management",
+"Name": "ClearPageFileAtShutdown",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SYSTEM\\ControlSet001\\Services\\Ndu",
+"Name": "Start",
+"Value": "2",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\Control Panel\\Mouse",
+"Name": "MouseHoverTime",
+"Value": "400",
+"Type": "String",
+"defaultValue": "400"
+},
+{
+"Path": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\LanmanServer\\Parameters",
+"Name": "IRPStackSize",
+"Value": "30",
+"Type": "DWord",
+"defaultValue": "20"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Feeds",
+"Name": "EnableFeeds",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Feeds",
+"Name": "ShellFeedsTaskbarViewMode",
+"Value": "2",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
+"Name": "HideSCAMeetNow",
+"Value": "1",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\UserProfileEngagement",
+"Name": "ScoobeSystemSettingEnabled",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Feeds",
+"Name": "EnableFeeds",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+"Name": "ConnectedSearchPrivacy",
+"Value": "3",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKLM:\\Software\\Policies\\Microsoft\\Windows\\Explorer",
+"Name": "DisableSearchHistory",
+"Value": "1",
+"Type": "DWord",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+"Name": "AllowSearchToUseLocation",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+"Name": "EnableDynamicContentInWSB",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+"Name": "DisableWebSearch",
+"Value": "1",
+"Type": "DWord",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\Software\\Policies\\Microsoft\\Windows\\Explorer",
+"Name": "DisableSearchBoxSuggestions",
+"Value": "1",
+"Type": "DWord",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+"Name": "PreventUnwantedAddIns",
+"Value": " ",
+"Type": "String",
+"defaultValue": " "
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+"Name": "PreventRemoteQueries",
+"Value": "1",
+"Type": "DWord",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+"Name": "AlwaysUseAutoLangDetection",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+"Name": "AllowIndexingEncryptedStoresOrItems",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+"Name": "DisableSearchBoxSuggestions",
+"Value": "1",
+"Type": "DWord",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+"Name": "CortanaInAmbientMode",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+"Name": "BingSearchEnabled",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+"Name": "ShowCortanaButton",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+"Name": "CanCortanaBeEnabled",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+"Name": "CanCortanaBeEnabled",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+"Name": "ConnectedSearchUseWebOverMeteredConnections",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+"Name": "AllowCortanaAboveLock",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\SearchSettings",
+"Name": "IsDynamicSearchBoxEnabled",
+"Value": "1",
+"Type": "DWord",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\PolicyManager\\default\\Experience\\AllowCortana",
+"Name": "value",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
+"Name": "AllowSearchToUseLocation",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\Software\\Microsoft\\Speech_OneCore\\Preferences",
+"Name": "ModelDownloadAllowed",
+"Value": "0",
+"Type": "DWord",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\SearchSettings",
+"Name": "IsDeviceSearchHistoryEnabled",
+"Value": "1",
+"Type": "DWord",
+"defaultValue": "0"
+},
+{
+"Path": "HKCU:\\Software\\Microsoft\\Speech_OneCore\\Preferences",
+"Name": "VoiceActivationOn",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKCU:\\Software\\Microsoft\\Speech_OneCore\\Preferences",
+"Name": "VoiceActivationEnableAboveLockscreen",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\OOBE",
+"Name": "DisableVoice",
+"Value": "1",
+"Type": "DWord",
+"DefaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+"Name": "AllowCortana",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
+"Name": "DeviceHistoryEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
+"Name": "HistoryViewEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\Software\\Microsoft\\Speech_OneCore\\Preferences",
+"Name": "VoiceActivationDefaultOn",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
+"Name": "CortanaEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
+"Name": "CortanaEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\SearchSettings",
+"Name": "IsMSACloudSearchEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\SearchSettings",
+"Name": "IsAADCloudSearchEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+"Name": "AllowCloudSearch",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
+"Name": "VoiceShortcut",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
+"Name": "CortanaConsent",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
+"Name": "AllowDesktopAnalyticsProcessing",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
+"Name": "AllowDeviceNameInTelemetry",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
+"Name": "MicrosoftEdgeDataOptIn",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
+"Name": "AllowWUfBCloudProcessing",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
+"Name": "AllowUpdateComplianceProcessing",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
+"Name": "AllowCommercialDataPipeline",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\Software\\Policies\\Microsoft\\SQMClient\\Windows",
+"Name": "CEIPEnable",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\DataCollection",
+"Name": "AllowTelemetry",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection",
+"Name": "AllowTelemetry",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\Software\\Policies\\Microsoft\\Windows\\DataCollection",
+"Name": "DisableOneSettingsDownloads",
+"Value": "1",
+"Type": "DWord",
+"DefaultValue": "0"
+},
+{
+"Path": "HKLM:\\Software\\Policies\\Microsoft\\Windows NT\\CurrentVersion\\Software Protection Platform",
+"Name": "NoGenTicket",
+"Value": "1",
+"Type": "DWord",
+"DefaultValue": "0"
+},
+{
+"Path": "HKLM:\\Software\\Policies\\Microsoft\\Windows\\Windows Error Reporting",
+"Name": "Disabled",
+"Value": "1",
+"Type": "DWord",
+"DefaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\Windows Error Reporting",
+"Name": "Disabled",
+"Value": "1",
+"Type": "DWord",
+"DefaultValue": "0"
+},
+{
+"Path": "HKLM:\\Software\\Microsoft\\Windows\\Windows Error Reporting\\Consent",
+"Name": "DefaultConsent",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\Software\\Microsoft\\Windows\\Windows Error Reporting\\Consent",
+"Name": "DefaultOverrideBehavior",
+"Value": "1",
+"Type": "DWord",
+"DefaultValue": "0"
+},
+{
+"Path": "HKLM:\\Software\\Microsoft\\Windows\\Windows Error Reporting",
+"Name": "DontSendAdditionalData",
+"Value": "1",
+"Type": "DWord",
+"DefaultValue": "0"
+},
+{
+"Path": "HKLM:\\Software\\Microsoft\\Windows\\Windows Error Reporting",
+"Name": "LoggingDisabled",
+"Value": "1",
+"Type": "DWord",
+"DefaultValue": "0"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+"Name": "ContentDeliveryAllowed",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+"Name": "OemPreInstalledAppsEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+"Name": "PreInstalledAppsEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+"Name": "PreInstalledAppsEverEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+"Name": "SilentInstalledAppsEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+"Name": "SystemPaneSuggestionsEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\SystemSettings\\AccountNotifications",
+"Name": "EnableAccountNotifications",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\SystemSettings\\AccountNotifications",
+"Name": "EnableAccountNotifications",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Notifications\\Settings",
+"Name": "NOC_GLOBAL_SETTING_TOASTS_ENABLED",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKCU:\\Software\\Policies\\Microsoft\\Windows\\EdgeUI",
+"Name": "DisableMFUTracking",
+"Value": "1",
+"Type": "DWord",
+"DefaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\EdgeUI",
+"Name": "DisableMFUTracking",
+"Value": "1",
+"Type": "DWord",
+"DefaultValue": "0"
+},
+{
+"Path": "HKCU:\\Control Panel\\International\\User Profile",
+"Name": "HttpAcceptLanguageOptOut",
+"Value": "1",
+"Type": "DWord",
+"DefaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+"Name": "PublishUserActivities",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Personalization",
+"Name": "NoLockScreenCamera",
+"Value": "1",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\location",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\webcam",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\microphone",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\documentsLibrary",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\picturesLibrary",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\videosLibrary",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\broadFileSystemAccess",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\userAccountInformation",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\contacts",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\phoneCallHistory",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\chat",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\email",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\userDataTasks",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\appDiagnostics",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKCU:\\Software\\Microsoft\\Speech_OneCore\\Settings\\VoiceActivation\\UserPreferenceForAllApps",
+"Name": "AgentActivationEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\AppPrivacy",
+"Name": "LetAppsAccessPhone",
+"Value": "2",
+"Type": "DWord",
+"DefaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\AppPrivacy",
+"Name": "LetAppsAccessPhone_UserInControlOfTheseApps",
+"Value": "",
+"Type": "REG_MULTI_SZ",
+"DefaultValue": ""
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\AppPrivacy",
+"Name": "LetAppsAccessPhone_ForceAllowTheseApps",
+"Value": "",
+"Type": "REG_MULTI_SZ",
+"DefaultValue": ""
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\AppPrivacy",
+"Name": "LetAppsAccessPhone_ForceDenyTheseApps",
+"Value": "",
+"Type": "REG_MULTI_SZ",
+"DefaultValue": ""
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DeviceAccess\\Global\\{C1D23ACC-752B-43E5-8448-8D0E519CD6D6}",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\appointments",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\activity",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\radios",
+"Name": "Value",
+"Value": "Deny",
+"Type": "String",
+"DefaultValue": "Allow"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "EdgeEnhanceImagesEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "PersonalizationReportingEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "ShowRecommendationsEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "HideFirstRunExperience",
+"Value": "1",
+"Type": "DWord",
+"DefaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "UserFeedbackAllowed",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "ConfigureDoNotTrack",
+"Value": "1",
+"Type": "DWord",
+"DefaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "AlternateErrorPagesEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "EdgeCollectionsEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "EdgeFollowEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "EdgeShoppingAssistantEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "MicrosoftEdgeInsiderPromotionEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "ShowMicrosoftRewards",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "WebWidgetAllowed",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "DiagnosticData",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "EdgeAssetDeliveryServiceEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "CryptoWalletEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "WalletDonationEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+}
 ]
-
+},
+{
+"Name": "Clean Taskbar",
+"Description": "Disable the (News and interests) and (People icon) Show Search icon only for Windows 10/11",
+"Category": "Performance",
+"Check": "false",
+"Refresh": "true",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Feeds",
+"Name": "ShellFeedsTaskbarViewMode",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "0"
+},
+{
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
+"Name": "SearchboxTaskbarMode",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "2"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\People",
+"Name": "PeopleBand",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
+"Name": "HideSCAMeetNow",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+},
+{
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
+"Name": "NoNewsAndInterests",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\PolicyManager\\default\\NewsAndInterests\\AllowNewsAndInterests",
+"Name": "value",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Feeds",
+"Name": "EnableFeeds",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "0"
+},
+{
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+"Name": "ShowCortanaButton",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+"Name": "ShowTaskViewButton",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+}
+]
+},
+{
+"Name": "Remove Microsoft Apps",
+"Description": "Uninstalls pre-installed Microsoft apps like Clipchamp, People etc",
+"Category": "Performance",
+"Check": "false",
+"Refresh": "true",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [
+"Microsoft.Copilot",
+"Microsoft.BingNews",
+"Microsoft.WindowsCamera",
+"Microsoft.Getstarted",
+"Microsoft.BingWeather_1.0.6.0_x64__8wekyb3d8bbwe",
+"MicrosoftWindows.Client.WebExperience_cw5n1h2txyewy",
+"Microsoft.GetHelp",
+"Microsoft.AppConnector",
+"Microsoft.BingFinance",
+"Microsoft.BingTranslator",
+"Microsoft.BingSports",
+"MicrosoftCorporationII.MicrosoftFamily",
+"Microsoft.BingHealthAndFitness",
+"Microsoft.BingTravel",
+"Microsoft.MinecraftUWP",
+"PowerAutomate",
+"MicrosoftTeams",
+"Microsoft.Todos",
+"Microsoft.AsyncTextService",
+"Microsoft.GamingServices",
+"Microsoft.BingFoodAndDrink",
+"Microsoft.BingWeather",
+"Microsoft.Messaging",
+"Microsoft.Microsoft3DViewer",
+"Microsoft.3DBuilder",
+"Microsoft.MicrosoftOfficeHub",
+"Microsoft.MicrosoftSolitaireCollection",
+"Microsoft.NetworkSpeedTest",
+"Microsoft.News",
+"Microsoft.549981C3F5F10",
+"Microsoft.Office.Lens",
+"Microsoft.Office.OneNote",
+"Microsoft.Office.Sway",
+"Microsoft.OutlookForWindows",
+"Microsoft.OneConnect",
+"Microsoft.People",
+"Microsoft.Print3D",
+"Microsoft.RemoteDesktop",
+"Microsoft.SkypeApp",
+"Microsoft.StorePurchaseApp",
+"Microsoft.Office.Todo.List",
+"Microsoft.Whiteboard",
+"Microsoft.CommsPhone",
+"Microsoft.windowscommunicationsapps",
+"Microsoft.WindowsFeedbackHub",
+"Microsoft.Wallet",
+"Microsoft.WindowsMaps",
+"Microsoft.YourPhone",
+"Microsoft.WindowsSoundRecorder",
+"Microsoft.Windows.Cortana",
+"Microsoft.ScreenSketch",
+"Microsoft.Windows.DevHome",
+"Microsoft.MixedReality.Portal",
+"Microsoft.MSPaint",
+"Microsoft.Getstarted",
+"Microsoft.ZuneVideo",
+"Microsoft.ZuneMusic",
+"EclipseManager",
+"ActiproSoftwareLLC",
+"AdobeSystemsIncorporated.AdobePhotoshopExpress",
+"Duolingo-LearnLanguagesforFree",
+"PandoraMediaInc",
+"CandyCrush",
+"BubbleWitch3Saga",
+"Wunderlist",
+"Flipboard",
+"Twitter",
+"Facebook",
+"Minecraft",
+"Royal Revolt",
+"Sway",
+"Disney.37853FC22B2CE",
+"disney",
+"Microsoft.549981",
+"Microsoft.MicrosoftStickyNotes",
+"TikTok.TikTok_8wekyb3d8bbwe",
+"TikTok",
+"Microsoft.NetworkSpeedTest"
+],
+"Services": [],
+"Registry": [
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
+"Name": "NoStartMenuMorePrograms",
+"Type": "DWord",
+"Value": "2",
+"defaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
+"Name": "NoStartMenuMorePrograms",
+"Type": "DWord",
+"Value": "2",
+"defaultValue": "1"
+}
+]
+},
+{
+"Name": "Remove Xbox Apps",
+"Description": "Uninstalls pre-installed Xbox apps",
+"Category": "Performance",
+"Check": "false",
+"Refresh": "true",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [
+"Microsoft.XboxApp",
+"Microsoft.Xbox.TCUI",
+"Microsoft.XboxGamingOverlay",
+"Microsoft.XboxGameOverlay",
+"Microsoft.XboxIdentityProvider",
+"Microsoft.XboxSpeechToTextOverlay"
+],
+"Services": [],
+"Registry": []
+},
+{
+"Name": "Fix Stutter in games",
+"Description": "Fix Stutter in Games (Disable GameBarPresenceWriter). Windows 10/11",
+"Category": "Performance",
+"Check": "false",
+"Refresh": "false",
+"Script": [
+"irm https://raw.githubusercontent.com/emadadel4/Fix-Stutter-in-Games/main/fix.ps1 | iex "
+],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": []
+},
+{
+"Name": "Enable the Ultimate Performance Power Plan",
+"Description": "This will add the Ultimate Performance power plan, to enable it go to the power options",
+"Category": "Power",
+"Check": "false",
+"Refresh": "false",
+"Script": [
+"powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61; Start-Process powercfg.cpl"
+],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": []
+},
+{
+"Name": "Reset the TCP/IP Stack",
+"Description": "If you have an internet issue, reset the network configuration",
+"Category": "Fixer",
+"Check": "false",
+"Refresh": "false",
+"Script": [
+"netsh int ip reset"
+],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": []
+},
+{
+"Name": "Setup Auto login",
+"Description": "Setup auto login Windows username",
+"Category": "Other",
+"Check": "false",
+"Refresh": "false",
+"Script": [
+"curl.exe -ss \"https://live.sysinternals.com/Autologon.exe\" -o $env:temp\\autologin.exe ; cmd /c $env:temp\\autologin.exe /accepteula"
+],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": []
+},
+{
+"Name": "Disable Xbox Services",
+"Description": "Disables all Xbox Services Game Mode and Optimizations for Windowed Games and fix stutter playing smooth",
+"Category": "Performance",
+"Check": "false",
+"Refresh": "false",
+"Script": [
+"Disable-MMAgent -MemoryCompression | Out-Null",
+"\r\n        takeown /f C:\\Windows\\System32\\GameBarPresenceWriter.exe\r\n\r\n        takeown /f C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll\r\n\r\n        takeown /f C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll\r\n\r\n        Start-Sleep -Seconds 1\r\n\r\n\r\n        icacls C:\\Windows\\System32\\GameBarPresenceWriter.exe /grant administrators:F\r\n\r\n        icacls C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll /grant administrators:F\r\n\r\n        icacls C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll /grant administrators:F\r\n\r\n        Start-Sleep -Seconds 1\r\n\r\n\r\n        Rename-Item C:\\Windows\\System32\\GameBarPresenceWriter.exe -NewName GameBarPresenceWriter.exe_backup\r\n\r\n        Rename-Item C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll -NewName GameBarPresenceWriter.proxy.dll_backup\r\n\r\n        Rename-Item C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll -NewName Windows.Gaming.UI.GameBar.dll_backup\r\n\r\n      "
+],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\GameBar",
+"Name": "AutoGameModeEnabled",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\GameBar",
+"Name": "AllowAutoGameMode",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\GameBar",
+"Name": "ShowStartupPanel",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\System\\GameConfigStore",
+"Name": "GameDVR_Enabled",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\GameBar",
+"Name": "AppCaptureEnabled",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\GameBar",
+"Name": "UseNexusForGameBarEnabled",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\GameBar",
+"Name": "AudioCaptureEnabled",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\GameBar",
+"Name": "CursorCaptureEnabled",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKLM:\\Software\\Policies\\Microsoft\\Windows\\GameDVR",
+"Name": "AllowgameDVR",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKLM:\\System\\CurrentControlSet\\Services\\xbgm",
+"Name": "Start",
+"Type": "DWord",
+"Value": "4",
+"defaultValue": "0"
+},
+{
+"Path": "HKCU:\\System\\GameConfigStore",
+"Name": "GameDVR_FSEBehaviorMode",
+"Type": "DWord",
+"Value": "2",
+"defaultValue": "0"
+},
+{
+"Path": "HKCU:\\System\\GameConfigStore",
+"Name": "GameDVR_HonorUserFSEBehaviorMode",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+},
+{
+"Path": "HKCU:\\System\\GameConfigStore",
+"Name": "GameDVR_FSEBehavior",
+"Type": "DWord",
+"Value": "2",
+"defaultValue": "0"
+},
+{
+"Path": "HKCU:\\System\\GameConfigStore",
+"Name": "GameDVR_EFSEFeatureFlags",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "0"
+},
+{
+"Path": "HKCU:\\System\\GameConfigStore",
+"Name": "GameDVR_DSEBehavior",
+"Type": "DWord",
+"Value": "2",
+"defaultValue": "0"
+},
+{
+"Path": "HKCU:\\Software\\Microsoft\\DirectX\\UserGpuPreferences",
+"Name": "DirectXUserGlobalSettings",
+"Type": "String",
+"Value": "SwapEffectUpgradeEnable=1;",
+"defaultValue": "0"
+},
+{
+"Path": "HKCU:\\Software\\Microsoft\\DirectX\\GraphicsSettings",
+"Name": "",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+},
+{
+"Path": "HKCU:\\Software\\Microsoft\\DirectX\\GraphicsSettings",
+"Name": "SwapEffectUpgradeCache",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\SoftwareProtectionPlatform",
+"Name": "InactivityShutdownDelay",
+"Type": "DWord",
+"Value": "4294967295",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\Dwm",
+"Name": "OverlayTestMode",
+"Type": "DWord",
+"Value": "5",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games",
+"Name": "GPU Priority",
+"Type": "DWord",
+"Value": "8",
+"defaultValue": "8"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games",
+"Name": "Scheduling Category",
+"Type": "String",
+"Value": "High",
+"defaultValue": "High"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games",
+"Name": "SFIO Priority",
+"Type": "String",
+"Value": "High",
+"defaultValue": "High"
+},
+{
+"Path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\PriorityControl",
+"Name": "IRQ8Priority",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
+"Name": "DisableWindowsConsumerFeatures",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+}
+]
+},
+{
+"Name": "Disable Start Menu Ads",
+"Description": "Disable Start menu Ads and Settings",
+"Category": "Privacy",
+"Check": "false",
+"Refresh": "true",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo",
+"Name": "Enabled",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+"Name": "SystemPaneSuggestionsEnabled",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager",
+"Name": "SoftLandingEnabled",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+"Name": "ShowSyncProviderNotifications",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+}
+]
+},
+{
+"Name": "Disable Windows Web Search",
+"Description": "Disable web search in Windows by Modify the registry settings related to Windows Search for Windows 10 and 11",
+"Category": "Privacy",
+"Check": "false",
+"Refresh": "true",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
+"Name": "BingSearchEnabled",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+}
+]
+},
+{
+"Name": "Turn off background Apps",
+"Description": "Turn off background apps for Windows 10 and 11",
+"Category": "Performance",
+"Check": "false",
+"Refresh": "false",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications",
+"Name": "GlobalUserDisabled",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+},
+{
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
+"Name": "BackgroundAppGlobalToggle",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+}
+]
+},
+{
+"Name": "Disable suggestions on Start Menu",
+"Description": "Disables suggestions on start menu for Windows 10 and 11",
+"Category": "Privacy",
+"Check": "false",
+"Refresh": "false",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
+"Name": "DisableWindowsConsumerFeatures",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+}
+]
+},
+{
+"Name": "Remove Folder Shortcuts From File Explorer",
+"Description": "Remove Documents, Videos, Pictures, Desktop. Shortcuts from File Explorer",
+"Category": "Other",
+"Check": "false",
+"Refresh": "false",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{f86fa3ab-70d2-4fc7-9c99-fcbf05467f3a}",
+"Value": "Remove"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}",
+"Value": "Remove"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}",
+"Value": "Remove"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{f86fa3ab-70d2-4fc7-9c99-fcbf05467f3a}",
+"Value": "Remove"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{3dfdf296-dbec-4fb4-81d1-6a3438bcf4de}",
+"Value": "Remove"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{3dfdf296-dbec-4fb4-81d1-6a3438bcf4de}",
+"Value": "Remove"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{24ad3ad4-a569-4530-98e1-ab02f9417aa8}",
+"Value": "Remove"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{24ad3ad4-a569-4530-98e1-ab02f9417aa8}",
+"Value": "Remove"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{088e3905-0323-4b02-9826-5d99428e115f}",
+"Value": "Remove"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{088e3905-0323-4b02-9826-5d99428e115f}",
+"Value": "Remove"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}",
+"Value": "Remove"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}",
+"Value": "Remove"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{d3162b92-9365-467a-956b-92703aca08af}",
+"Value": "Remove"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{d3162b92-9365-467a-956b-92703aca08af}",
+"Value": "Remove"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer",
+"Name": "HubMode",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+},
+{
+"Path": "HKCR:\\CLSID\\{018D5C66-4533-4307-9B53-224DE2ED1FE6}",
+"Name": "System.IsPinnedToNameSpaceTree",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+},
+{
+"Path": "HKCR:\\Wow6432Node\\CLSID\\{018D5C66-4533-4307-9B53-224DE2ED1FE6}",
+"Name": "System.IsPinnedToNameSpaceTree",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+},
+{
+"Path": "HKCU:\\Software\\Classes\\CLSID\\{031E4825-7B94-4dc3-B131-E946B44C8DD5}",
+"Name": "System.IsPinnedToNameSpaceTree",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+}
+]
+},
+{
+"Name": "Optimize Windows Services",
+"Description": "Disable (Print Spooler), (Fax), (Diagnostic Policy), (Downloaded Maps Manager), (Windows Error Reporting Service), (Remote Registry) , (Internet Connection Sharing), (Disables Telemetry and Data)",
+"Category": "Performance",
+"Check": "false",
+"Refresh": "false",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [
+{
+"Name": "Spooler",
+"StartupType": "Disabled",
+"DefaultType": "Automatic"
+},
+{
+"Name": "Fax",
+"StartupType": "Disabled",
+"DefaultType": "Automatic"
+},
+{
+"Name": "DPS",
+"StartupType": "Disabled",
+"DefaultType": "Automatic"
+},
+{
+"Name": "MapsBroker",
+"StartupType": "Disabled",
+"DefaultType": "Automatic"
+},
+{
+"Name": "WerSvc",
+"StartupType": "Disabled",
+"DefaultType": "Manual"
+},
+{
+"Name": "RemoteRegistry",
+"StartupType": "Disabled",
+"DefaultType": "Disabled"
+},
+{
+"Name": "lmhosts",
+"StartupType": "Disabled",
+"DefaultType": "Manual"
+},
+{
+"Name": "SharedAccess",
+"StartupType": "Disabled",
+"DefaultType": "Manual"
+},
+{
+"Name": "DiagTrack",
+"StartupType": "Disabled",
+"DefaultType": "Manual"
+}
+],
+"Registry": []
+},
+{
+"Name": "Disable Hibernate",
+"Description": "Hibernate is a power-saving mode in Microsoft Windows operating systems that allows the system to save the current state of your computer to the hard disk and then power down completely",
+"Category": "Performance",
+"Check": "false",
+"Refresh": "false",
+"Script": [
+"powercfg.exe /hibernate off"
+],
+"UndoScript": [
+"powercfg.exe /hibernate on"
+],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKLM:\\System\\CurrentControlSet\\Control\\Session Manager\\Power",
+"Name": "HibernateEnabled",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FlyoutMenuSettings",
+"Name": "ShowHibernateOption",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+}
+]
+},
+{
+"Name": "Disable OneDrive",
+"Description": "Disabling OneDrive for Windows 10 and 11",
+"Category": "Performance",
+"Check": "false",
+"Refresh": "false",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [
+"OneDrive",
+"MicrosoftEdge"
+],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\OneDrive",
+"Name": "DisableFileSyncNGSC",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+},
+{
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+"Name": "OneDrive",
+"Value": "Remove"
+}
+]
+},
+{
+"Name": "Remove OneDrive",
+"Description": "Removes OneDrive from the system",
+"Category": "Performance",
+"Check": "false",
+"Refresh": "false",
+"Script": [
+"irm https://raw.githubusercontent.com/emadadel4/WindowsTweaks/refs/heads/main/OneDrive-Uninstaller.ps1 | iex"
+],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": []
+},
+{
+"Name": "Remove Microsoft Edge (Not Recommended)",
+"Description": "Removes Edge from the system",
+"Category": "Performance",
+"Check": "false",
+"Refresh": "false",
+"Script": [
+"irm https://raw.githubusercontent.com/emadadel4/WindowsTweaks/refs/heads/main/Edge-Remover.ps1 | iex"
+],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": []
+},
+{
+"Name": "Activate Windows Old Photo Viewer",
+"Description": "Enables the classic Windows Photo Viewer for Windows 10",
+"Category": "Classic",
+"Check": "false",
+"Refresh": "false",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows Photo Viewer\\Capabilities\\FileAssociations",
+"Name": ".jpg",
+"Type": "String",
+"Value": "PhotoViewer.FileAssoc.Tiff",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows Photo Viewer\\Capabilities\\FileAssociations",
+"Name": ".jpeg",
+"Type": "String",
+"Value": "PhotoViewer.FileAssoc.Tiff",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows Photo Viewer\\Capabilities\\FileAssociations",
+"Name": ".png",
+"Type": "String",
+"Value": "PhotoViewer.FileAssoc.Tiff",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows Photo Viewer\\Capabilities\\FileAssociations",
+"Name": ".bmp",
+"Type": "String",
+"Value": "PhotoViewer.FileAssoc.Tiff",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows Photo Viewer\\Capabilities\\FileAssociations",
+"Name": ".gif",
+"Type": "String",
+"Value": "PhotoViewer.FileAssoc.Tiff",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows Photo Viewer\\Capabilities\\FileAssociations",
+"Name": "ApplicationIcon",
+"Type": "String",
+"Value": "C:\\Program Files (x86)\\Windows Photo Viewer\\photoviewer.dll",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows Photo Viewer\\Capabilities\\FileAssociations",
+"Name": "ApplicationName",
+"Type": "String",
+"Value": "Windows Photo Viewer",
+"defaultValue": "0"
+}
+]
+},
+{
+"Name": "Restore Classic Context Menu Windows 11",
+"Description": "Restore the old context menu for Windows 11",
+"Category": "Classic",
+"Check": "false",
+"Refresh": "false",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKCU:\\Software\\Classes\\CLSID\\",
+"Name": "{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}",
+"Type": "String",
+"Value": "",
+"defaultValue": ""
+},
+{
+"Path": "HKCU:\\Software\\Classes\\CLSID\\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\\InprocServer32",
+"Name": "",
+"Type": "String",
+"Value": "",
+"defaultValue": "default"
+}
+]
+},
+{
+"Name": "Remove Copilot in Windows 11",
+"Description": "Copilot in Windows provides centralized generative AI assistance to your users right from the Windows desktop Copilot in Windows appears as a side bar docked on the Windows desktop and is designed to help users get things done in Windows Copilot in Windows can perform common tasks in Windows like changing Windows settings which makes it different from the browserbased Copilot in Edge",
+"Category": "Privacy",
+"Check": "false",
+"Refresh": "false",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKCU:\\Software\\Policies\\Microsoft\\Windows\\WindowsCopilot",
+"Name": "TurnOffWindowsCopilot",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+},
+{
+"Path": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsCopilot",
+"Name": "TurnOffWindowsCopilot",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
+"Name": "HubsSidebarEnabled",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKCU:\\Software\\Policies\\Microsoft\\Windows\\Explorer",
+"Name": "DisableSearchBoxSuggestions",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer",
+"Name": "DisableSearchBoxSuggestions",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+}
+]
+},
+{
+"Name": "Disable Recall Snapshots in Windows 11 24H",
+"Description": "Recall is an upcoming preview experience exclusive to Copilot+ PCs that will help you easily find and remember things you've seen using natural language",
+"Category": "Privacy",
+"Check": "false",
+"Refresh": "true",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKCU:\\Software\\Policies\\Microsoft\\Windows\\WindowsAI",
+"Name": "DisableAIDataAnalysis",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsAI",
+"Name": "DisableAIDataAnalysis",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+}
+]
+},
+{
+"Name": "Delete Thumbnail Cache",
+"Description": "removing the stored image thumbnails on your computer These thumbnails are small versions of images used by the operating system to display image previews quickly Over time the cache can become large or corrupted causing slowdowns or display issues Deleting it can free up space.",
+"Category": "Performance",
+"Check": "false",
+"Refresh": "false",
+"Script": [
+"Remove-Item \"$env:LocalAppData\\Microsoft\\Windows\\Explorer\\thumbcache*\" -Force -Recurse"
+],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": []
+},
+{
+"Name": "Old Volume Control in Windows 10",
+"Description": "The old volume control in Windows 10 refers to the classic audio mixer interface that was used in earlier versions of Windows, before the modern volume control system was introduced.",
+"Category": "Classic",
+"Check": "false",
+"Refresh": "true",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKLM:\\Software\\Microsoft\\Windows NT\\CurrentVersion\\MTCUVC",
+"Name": "EnableMtcUvc",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+}
+]
+},
+{
+"Name": "Disable Toggle Key Sounds",
+"Description": "Toggle key sounds in Windows are audio cues that play when you press the Caps Lock, Num Lock, or Scroll Lock keys. These sounds help users identify when these keys are activated or deactivated",
+"Category": "Classic",
+"Check": "false",
+"Refresh": "true",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKCU:\\Control Panel\\Accessibility\\ToggleKeys",
+"Name": "Flags",
+"Type": "String",
+"Value": "58",
+"defaultValue": "62"
+}
+]
+},
+{
+"Name": "Disable Homegroup",
+"Description": "Disables HomeGroup  HomeGroup is a passwordprotected home networking service that lets you share your stuff with other PCs that are currently running and connected to your network",
+"Category": "Privacy",
+"Check": "false",
+"Refresh": "false",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [
+{
+"Name": "HomeGroupListener",
+"StartupType": "Manual ",
+"DefaultType": "Automatic"
+},
+{
+"Name": "HomeGroupProvider",
+"StartupType": "Manual ",
+"DefaultType": "Automatic"
+}
+],
+"Registry": []
+},
+{
+"Name": "Remove Home and Gallery from explorer in Windows 11",
+"Description": "Removes the Home and Gallery from explorer and sets This PC as default",
+"Category": "Privacy",
+"Check": "false",
+"Refresh": "true",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+"Name": "1",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "1"
+},
+{
+"Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Desktop\\NameSpace\\{e88865ea-0e1c-4e20-9aa6-edcd0212c87c}",
+"Value": "Remove"
+},
+{
+"Path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Desktop\\NameSpace\\{f874310e-b6b7-47dc-bc84-b9e6b38f5903}",
+"Value": "Remove"
+}
+]
+},
+{
+"Name": "Disable Wifi Sense",
+"Description": "Wifi Sense is a service that phones home all nearby scanned wifi networks and your location",
+"Category": "Protection",
+"Check": "false",
+"Refresh": "false",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\PolicyManager\\default\\WiFi\\AllowWiFiHotSpotReporting",
+"Name": "value",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\PolicyManager\\default\\WiFi\\AllowAutoConnectToWiFiSenseHotspots",
+"Name": "value",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\WcmSvc\\wifinetworkmanager\\config",
+"Name": "AutoConnectAllowedOEM",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+}
+]
+},
+{
+"Name": "Disable Autoplay and Autorun",
+"Description": "Disabling autoplay in Windows prevents the automatic launch of media or applications when a removable device, such as a USB drive or CD, is connected to the computer",
+"Category": "Protection",
+"Check": "false",
+"Refresh": "false",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\AutoplayHandlers",
+"Name": "DisableAutoplay",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
+"Name": "NoDriveTypeAutoRun",
+"Type": "DWord",
+"Value": "255",
+"defaultValue": "255"
+}
+]
+},
+{
+"Name": "Disable SMB Server",
+"Description": "SMB Server enables file and printer sharing over a network, allowing access to resources on remote computers as if they were local",
+"Category": "Protection",
+"Check": "false",
+"Refresh": "false",
+"Script": [
+"Set-SmbServerConfiguration -EnableSMB1Protocol $false -Force; Set-SmbServerConfiguration -EnableSMB2Protocol $false -Force"
+],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": []
+},
+{
+"Name": "Set current network profile to public",
+"Description": "Deny file sharing, device discovery, etc",
+"Category": "",
+"Check": "false",
+"Refresh": "false",
+"Script": [
+"Set-NetConnectionProfile -NetworkCategory Public"
+],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": []
+},
+{
+"Name": "Enable F8 boot menu options",
+"Description": "Enable F8 boot menu options",
+"Category": "BIOS",
+"Check": "false",
+"Refresh": "false",
+"Script": [
+"bcdedit /set bootmenupolicy Standard | Out-Null"
+],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": []
+},
+{
+"Name": "Disable display and sleep mode timeouts",
+"Description": "If you frequently use your device, disable this",
+"Category": "Power",
+"Check": "false",
+"Refresh": "false",
+"Script": [
+"\r\n        powercfg /X monitor-timeout-ac 0\r\n        powercfg /X monitor-timeout-dc 0\r\n        powercfg /X standby-timeout-ac 0\r\n        powercfg /X standby-timeout-dc 0\r\n      "
+],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": []
+},
+{
+"Name": "Set Wallpaper desktop Quality to 100%",
+"Description": "It's Microsoft, what should I say!",
+"Category": "Personalization",
+"Check": "false",
+"Refresh": "false",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKLM:\\System\\CurrentControlSet\\Control\\CrashControl",
+"Name": "DisplayParameters",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+}
+]
+},
+{
+"Name": "Disable Windows Transparency",
+"Description": "It's Microsoft, what should I say!",
+"Category": "Performance",
+"Check": "false",
+"Refresh": "true",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+"Name": "EnableTransparency",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+}
+]
+},
+{
+"Name": "Disable scheduled defragmentation task",
+"Description": "Defragmentation in Windows optimizes disk performance by reorganizing fragmented data, improving access times and system efficiency",
+"Category": "Performance",
+"Check": "false",
+"Refresh": "false",
+"Script": [
+"Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Defrag\\ScheduledDefrag' | Out-Null"
+],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": []
+},
+{
+"Name": "Enable NET 3.5",
+"Description": "Some old games and applications require .NET Framework 3.5",
+"Category": "Classic",
+"Check": "false",
+"Refresh": "false",
+"Script": [
+"DISM /Online /Enable-Feature /FeatureName:NetFx3 /All"
+],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": []
+},
+{
+"Name": "Super Performance",
+"Description": "All Windows effects disabled and optimized for windowed games. You may need to log out and back in for changes to take effect. You can reset to default settings in Settings Tab",
+"Category": "Performance",
+"Check": "false",
+"Refresh": "true",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"defaultValue": "1",
+"Type": "String",
+"Path": "HKCU:\\Control Panel\\Desktop",
+"Value": "0",
+"Name": "DragFullWindows"
+},
+{
+"defaultValue": "1",
+"Type": "String",
+"Path": "HKCU:\\Control Panel\\Desktop",
+"Value": "200",
+"Name": "MenuShowDelay"
+},
+{
+"defaultValue": "1",
+"Type": "String",
+"Path": "HKCU:\\Control Panel\\Desktop\\WindowMetrics",
+"Value": "0",
+"Name": "MinAnimate"
+},
+{
+"defaultValue": "1",
+"Type": "DWord",
+"Path": "HKCU:\\Control Panel\\Keyboard",
+"Value": "0",
+"Name": "KeyboardDelay"
+},
+{
+"defaultValue": "1",
+"Type": "DWord",
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+"Value": "0",
+"Name": "ListviewAlphaSelect"
+},
+{
+"defaultValue": "1",
+"Type": "DWord",
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+"Value": "0",
+"Name": "ListviewShadow"
+},
+{
+"defaultValue": "1",
+"Type": "DWord",
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+"Value": "0",
+"Name": "TaskbarAnimations"
+},
+{
+"defaultValue": "1",
+"Type": "DWord",
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VisualEffects",
+"Value": "2",
+"Name": "VisualFXSetting"
+},
+{
+"defaultValue": "1",
+"Type": "DWord",
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\DWM",
+"Value": "0",
+"Name": "EnableAeroPeek"
+},
+{
+"defaultValue": "1",
+"Type": "DWord",
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+"Value": "0",
+"Name": "TaskbarMn"
+},
+{
+"defaultValue": "1",
+"Type": "DWord",
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+"Value": "0",
+"Name": "TaskbarDa"
+},
+{
+"defaultValue": "1",
+"Type": "DWord",
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+"Value": "0",
+"Name": "ShowTaskViewButton"
+},
+{
+"defaultValue": "1",
+"Type": "DWord",
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
+"Value": "0",
+"Name": "SearchboxTaskbarMode"
+}
+]
+},
+{
+"Name": "Remove Widgets from Taskbar in Windows 11",
+"Description": "Widgets are one of the new user interface elements in Windows 11 They are used to display dynamic information on the desktop including weather news and other information from various sources",
+"Category": "Performance",
+"Check": "false",
+"Refresh": "true",
+"Script": [
+"Install-Winget \r\n winget uninstall 'windows web experience pack' --silent"
+],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Name": "TaskbarDa",
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\TaskbarDeveloperSettings",
+"defaultValue": "1",
+"Value": "0",
+"Type": "DWord"
+}
+]
+},
+{
+"Name": "Unknown",
+"Description": "Rename Computer name and Username to Unknown. The changes will take effect after you restart the computer",
+"Category": "Privacy",
+"Check": "false",
+"Refresh": "false",
+"Script": [
+"Rename-Computer -NewName 'Unknown'",
+"$currentUsername = $env:USERNAME; Rename-LocalUser -Name $currentUsername -NewName 'Unknown'"
+],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": []
+},
+{
+"Name": "Fix Arabic encoding",
+"Description": "Fix issues related to strange symbols appearing in Arabic text",
+"Category": "Fixer",
+"Check": "false",
+"Refresh": "false",
+"Script": [
+"Set-WinSystemLocale -SystemLocale 'ar-EG'"
+],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": []
+},
+{
+"Name": "Restore Default File Type Associations",
+"Description": "Restoring default apps for file type associations resets Windows settings, allowing the system to select the appropriate programs by default",
+"Category": "Fixer",
+"Check": "false",
+"Refresh": "true",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts",
+"Value": "Remove"
+}
+]
+},
+{
+"Name": "Limit Defender CPU Usage",
+"Description": "Limits Defender CPU maximum usage at 25% instead of default 50%",
+"Category": "Performance",
+"Check": "false",
+"Refresh": "true",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Scan",
+"Name": "AvgCPULoadFactor",
+"Type": "DWord",
+"Value": "25",
+"defaultValue": "0"
+}
+]
+},
+{
+"Name": "Disable HAGS",
+"Description": "Disables Hardware-Accelerated GPU Scheduling, which may improve performance",
+"Category": "Performance",
+"Check": "false",
+"Refresh": "true",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKLM:\\SOFTWARE\\CurrentControlSet\\Control\\GraphicsDrivers",
+"Name": "HwSchMode",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+}
+]
+},
+{
+"Name": "Disable Fullscreen Optimizations",
+"Description": "Disables Fullscreen Optimizations, which may improve performance",
+"Category": "Performance",
+"Check": "false",
+"Refresh": "true",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKCU:\\System\\GameConfigStore",
+"Name": "GameDVR_DXGIHonorFSEWindowsCompatible",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+}
+]
+}
+]
 '@ | ConvertFrom-Json
 function Invoke-Button {
 Param ([string]$action,[string]$Content)
@@ -6758,20 +3013,21 @@ $collectionView.Filter = $null
 }
 }
 function Get-SelectedItems {
-param (
-[string]$Mode
-)
+param ([string]$Mode)
 switch ($Mode) {
 "Apps" {
 $items = @()
 foreach ($item in $itt.AppsListView.Items) {
-$child = $item.Children[0].Children[0]
-if ($appsDict.ContainsKey($child.Content) -and $child.IsChecked) {
+$checkbox = $item.Children[0].Children[0]
+$choco = $item.children[2].Text
+$winget = $item.children[3].Text
+$itt = $item.children[4].Text
+if ($checkbox.IsChecked) {
 $items += @{
-Name    = $appsDict[$child.Content].Name
-Choco   = $appsDict[$child.Content].Choco
-Winget  = $appsDict[$child.Content].Winget
-ITT     = $appsDict[$child.Content].itt
+Name    = $checkbox.Content
+Choco   = $choco
+Winget  = $winget
+ITT     = $itt
 }
 }
 }
@@ -6793,9 +3049,6 @@ Refresh       = $tweaksDict[$child.Content].Refresh
 }
 }
 }
-}
-default {
-Write-Error "Invalid Mode specified. Please choose 'Apps' or 'Tweaks'."
 }
 }
 return $items
@@ -7086,10 +3339,6 @@ SwitchToSystem
 System-Default
 Message -key "Reopen_itt_again" -icon "Information" -action "OK"
 }
-function Get-CheckBoxes {
-$item.Children[0].Children[0]
-return $item
-}
 function Load-SavedFile {
 if ($itt.ProcessRunning) {
 Message -key "Please_wait" -icon "Warning" -action "OK"
@@ -7116,17 +3365,12 @@ $itt.Search_placeholder.Visibility = "Visible"
 $itt.SearchInput.Text = $null
 }
 function Save-File {
-if ($itt.ProcessRunning) {
-Message -key "Please_wait" -icon "warning" -action "OK"
-return
-}
-$appsDictionary = $itt.database.Applications | ForEach-Object { @{ $_.Name = $_ } }
+$itt['window'].FindName("AppsCategory").SelectedIndex = 0
+Show-Selected -ListView "AppsListView" -Mode "Filter"
 $items = foreach ($item in $itt.AppsListView.Items) {
-$MyApp = Get-CheckBoxes
-if ($MyApp.IsChecked -and $appsDictionary.ContainsKey($MyApp.Content)) {
+if ($item.Children[0].Children[0].IsChecked) {
 [PSCustomObject]@{
-Name  = $MyApp.Content
-Check = "true"
+Name  = $item.Children[0].Children[0].Content
 }
 }
 }
@@ -7143,18 +3387,12 @@ try {
 $items | ConvertTo-Json -Compress | Out-File -FilePath $saveFileDialog.FileName -Force
 Write-Host "Saved: $($saveFileDialog.FileName)"
 Message -NoneKey "Saved successfully" -icon "info" -action "OK"
-foreach ($item in $itt.AppsListView.Items) {
-$item.Children[0].Children[0]
-if ($item.IsChecked) {
-$item.IsChecked = $false
-}
-}
 }
 catch {
-Write-Warning "Failed to save file: $_"
 Message -NoneKey "Failed to save file" -icon "error" -action "OK"
 }
 }
+Show-Selected -ListView "AppsListView" -Mode "Default"
 $itt.Search_placeholder.Visibility = "Visible"
 $itt.SearchInput.Text = $null
 }
@@ -7394,14 +3632,14 @@ Add-Log -Message "PLEASE USE (WINDOWS POWERSHELL) NOT (TERMINAL POWERSHELL 7) TO
 }
 }
 function Invoke-Install {
-$itt.searchInput.text = $null
-$itt.Search_placeholder.Visibility = "Visible"
-$itt['window'].FindName("AppsCategory").SelectedIndex = 0
-$selectedApps = Get-SelectedItems -Mode "Apps"
 if ($itt.ProcessRunning) {
 Message -key "Please_wait" -icon "Warning" -action "OK"
 return
 }
+$itt.searchInput.text = $null
+$itt.Search_placeholder.Visibility = "Visible"
+$itt['window'].FindName("AppsCategory").SelectedIndex = 0
+$selectedApps = Get-SelectedItems -Mode "Apps"
 if ($selectedApps.Count -gt 0) {
 Show-Selected -ListView "AppsListView" -Mode "Filter"
 }
@@ -7422,6 +3660,7 @@ UpdateUI -Button "installBtn" -Content "Downloading" -Width "auto"
 $itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
 $itt.ProcessRunning = $true
 foreach ($App in $selectedApps) {
+$itt["window"].Dispatcher.Invoke([action] { $itt.Quotes.Text = "Downloading $($App.Name)"})
 $chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($App.Choco)"
 $ITTFolder = Join-Path $env:ProgramData "itt\downloads\$($App.ITT)"
 Remove-Item -Path "$chocoFolder" -Recurse -Force
@@ -7978,10 +4217,6 @@ else {
 $collectionView.Filter = $null
 }
 $collectionView.Refresh()
-$listView = $itt['window'].FindName($itt.CurrentList)
-if ($listView.Items.Count -gt 0) {
-$itt.AppsListView.ScrollIntoView($listView.Items[0])
-}
 }
 $KeyEvents = {
 if ($itt.ProcessRunning) { return }
@@ -9197,7 +5432,7 @@ VirtualizingStackPanel.IsVirtualizing="True"
 VirtualizingStackPanel.VirtualizationMode="Recycling"
 VerticalAlignment="Center"
 HorizontalAlignment="Center"
-Visibility="Hidden"
+Visibility="Collapsed"
 Width="auto">
 <ComboBoxItem Content="{Binding all, TargetNullValue=All}"/>
 <ComboBoxItem Content="Privacy"/>
@@ -9267,2443 +5502,3664 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Mozilla Firefox" Tag="Web Browsers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A widelyused opensource web browser known for its speed privacy features and customization options."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A widelyused opensource web browser known for its speed privacy."/>
+<TextBlock Text="firefox" Visibility="Collapsed"/>
+<TextBlock Text="Mozilla.Firefox" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Mozilla Firefox ESR" Tag="Web Browsers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A widelyused opensource web browser known for its speed privacy features and customization options."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A widelyused opensource web browser known for its speed privacy."/>
+<TextBlock Text="firefoxesr" Visibility="Collapsed"/>
+<TextBlock Text="Mozilla.Firefox.ESR" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Thorium SSE3" Tag="Web Browsers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A web browser designed for smooth and secure browsing experiences."/>
+<TextBlock Text="thorium --params /SSE3" Visibility="Collapsed"/>
+<TextBlock Text="Alex313031.Thorium" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Thorium AVX" Tag="Web Browsers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A web browser designed for smooth and secure browsing experiences."/>
+<TextBlock Text="thorium --params /AVX" Visibility="Collapsed"/>
+<TextBlock Text="Alex313031.Thorium.AVX2" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Edge" Tag="Web Browsers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Microsofts web browser built for fast and secure internet surfing integrating seamlessly with Windows ecosystem."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Microsofts web browser built for fast and secure internet surfing."/>
+<TextBlock Text="microsoft-edge" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.Edge" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Google Chrome" Tag="Web Browsers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A popular web browser known for its speed simplicity and vast ecosystem of extensions."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A popular web browser known for its speed simplicity and."/>
+<TextBlock Text="googlechrome" Visibility="Collapsed"/>
+<TextBlock Text="Google.Chrome" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Chromium" Tag="Web Browsers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="An opensource web browser project that serves as the foundation for many browsers including Google Chrome."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="An opensource web browser project that serves as the foundation."/>
+<TextBlock Text="chromium" Visibility="Collapsed"/>
+<TextBlock Text="eloston.ungoogled-chromium" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Brave" Tag="Web Browsers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A privacy focused web browser that blocks ads and trackers offering faster and safer browsing experiences."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A privacy focused web browser that blocks ads and trackers."/>
+<TextBlock Text="brave" Visibility="Collapsed"/>
+<TextBlock Text="Brave.Brave" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Tor Browser" Tag="Web Browsers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A web browser that prioritizes user privacy by routing internet traffic through a global network of servers enabling anonymous browsing."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A web browser that prioritizes user privacy by routing internet."/>
+<TextBlock Text="tor-browser" Visibility="Collapsed"/>
+<TextBlock Text="TorProject.TorBrowser" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Opera" Tag="Web Browsers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The Opera web browser makes the Web fast and fun giving you a better web browser experience on any computer."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The Opera web browser makes the Web fast and fun."/>
+<TextBlock Text="opera" Visibility="Collapsed"/>
+<TextBlock Text="Opera.Opera" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Internet Download Manager" Tag="Web Browsers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A popular download manager tool that accelerates downloads and allows users to organize and schedule downloads efficiently."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A popular download manager tool that accelerates downloads and allows."/>
+<TextBlock Text="internet-download-manager" Visibility="Collapsed"/>
+<TextBlock Text="Tonec.InternetDownloadManager" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="JDownloader" Tag="Web Browsers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="JDownloader is an internet download manager."/>
+<TextBlock Text="jdownloader" Visibility="Collapsed"/>
+<TextBlock Text="AppWork.JDownloader" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="KLite Mega Codec Full Pack" Tag="Media" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Comprehensive collection of audio and video codecs filters and tools enabling playback of various media formats."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Comprehensive collection of audio and video codecs filters and tools."/>
+<TextBlock Text="k-litecodecpackfull" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="PotPlayer" Tag="Media" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A multimedia player with a sleek interface and advanced features supporting a wide range of audio and video formats."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A multimedia player with a sleek interface and advanced features."/>
+<TextBlock Text="potplayer" Visibility="Collapsed"/>
+<TextBlock Text="Daum.PotPlayer" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="VLC" Tag="Media" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A versatile media player capable of playing almost any multimedia file format with support for various streaming protocols."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A versatile media player capable of playing almost any multimedia."/>
+<TextBlock Text="vlc.install" Visibility="Collapsed"/>
+<TextBlock Text="VideoLAN.VLC" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Kodi" Tag="Media" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A powerful opensource media center software that allows users to organize and stream their media collections."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A powerful opensource media center software that allows users to."/>
+<TextBlock Text="kodi" Visibility="Collapsed"/>
+<TextBlock Text="9NBLGGH4T892" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Jellyfin Server" Tag="Media" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="An opensource media server software that enables users to stream their media libraries across devices providing a selfhosted alternative to commercial services."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="An opensource media server software that enables users to stream."/>
+<TextBlock Text="jellyfin" Visibility="Collapsed"/>
+<TextBlock Text="Jellyfin.Server" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Winamp" Tag="Media" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A classic media player known for its customizable interface and extensive plugin support providing a nostalgic music playback experience."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A classic media player known for its customizable interface and."/>
+<TextBlock Text="winamp" Visibility="Collapsed"/>
+<TextBlock Text="Winamp.Winamp" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Aimp" Tag="Media" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A lightweight and featurerich audio player with support for various audio formats and customizable interface themes."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A lightweight and featurerich audio player with support for various."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="aimp" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Spotify" Tag="Media" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Spotify is a new way to listen to music."/>
+<TextBlock Text="spotify" Visibility="Collapsed"/>
+<TextBlock Text="Spotify.Spotify" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="FastStone Image Viewer" Tag="Imaging" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Imaging"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="FastStone Image Viewer is a fast stable userfriendly image browser converter and editor."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="FastStone Image Viewer is a fast stable userfriendly image browser."/>
+<TextBlock Text="fsviewer" Visibility="Collapsed"/>
+<TextBlock Text="FastStone.Viewer" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="OpenOffice" Tag="Documents" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="An opensource office productivity suite offering word processing spreadsheet presentation and other office tools compatible with Microsoft Office formats."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="An opensource office productivity suite offering word processing spreadsheet presentation."/>
+<TextBlock Text="openoffice" Visibility="Collapsed"/>
+<TextBlock Text="Apache.OpenOffice" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="FoxitReader" Tag="Documents" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A lightweight and featurerich PDF reader with annotation form filling and document signing capabilities."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A lightweight and featurerich PDF reader with annotation form filling."/>
+<TextBlock Text="foxitreader" Visibility="Collapsed"/>
+<TextBlock Text="Foxit.FoxitReader" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="LibreOffice" Tag="Documents" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A powerful opensource office suite providing word processing spreadsheet presentation and other office tools compatible with Microsoft Office formats."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A powerful opensource office suite providing word processing spreadsheet presentation."/>
+<TextBlock Text="libreoffice-fresh" Visibility="Collapsed"/>
+<TextBlock Text="Foxit.FoxitReader" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="SumatraPDF" Tag="Documents" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A lightweight and fast PDF reader with minimalistic design and focus on simplicity and speed."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A lightweight and fast PDF reader with minimalistic design and."/>
+<TextBlock Text="sumatrapdf.install" Visibility="Collapsed"/>
+<TextBlock Text="SumatraPDF.SumatraPDF" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="WinRAR" Tag="Compression" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Compression"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A popular file compression and archiving utility that supports various archive formats and offers advanced features such as encryption and selfextracting archives."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A popular file compression and archiving utility that supports various."/>
+<TextBlock Text="winrar" Visibility="Collapsed"/>
+<TextBlock Text="RARLab.WinRAR" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="7Zip" Tag="Compression" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Compression"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="An opensource file archiver with a high compression ratio supporting various archive formats and providing a powerful commandline interface."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="An opensource file archiver with a high compression ratio supporting."/>
+<TextBlock Text="7zip" Visibility="Collapsed"/>
+<TextBlock Text="7zip.7zip" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="PeaZip" Tag="Compression" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Compression"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text=" PeaZip is a free crossplatform file archiver."/>
+<TextBlock Text="peazip" Visibility="Collapsed"/>
+<TextBlock Text="Giorgiotani.Peazip" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Telegram Desktop" Tag="Communication" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A crossplatform messaging app with a focus on speed and security offering endtoend encryption and a wide range of features such as group chats file sharing and stickers."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A crossplatform messaging app with a focus on speed and."/>
+<TextBlock Text="telegram" Visibility="Collapsed"/>
+<TextBlock Text="Telegram.TelegramDesktop" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Signal" Tag="Communication" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Fast simple secure. Privacy that fits in your pocket."/>
+<TextBlock Text="signal" Visibility="Collapsed"/>
+<TextBlock Text="OpenWhisperSystems.Signal" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Meta Messenger" Tag="Communication" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A messaging app that allows users to connect with friends and family through text messages voice calls and video calls offering various multimedia sharing features."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A messaging app that allows users to connect with friends."/>
+<TextBlock Text="messenger" Visibility="Collapsed"/>
+<TextBlock Text="9WZDNCRF0083" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Zoom" Tag="Communication" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A video conferencing app that facilitates online meetings webinars and virtual events allowing participants to interact through video audio and chat."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A video conferencing app that facilitates online meetings webinars and."/>
+<TextBlock Text="zoom" Visibility="Collapsed"/>
+<TextBlock Text="Zoom.ZoomRooms" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Teams" Tag="Communication" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A collaboration platform that combines workplace chat video meetings file storage and application integration enhancing teamwork and productivity within organizations."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A collaboration platform that combines workplace chat video meetings file."/>
+<TextBlock Text="microsoft-teams.install" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.Teams" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Discord" Tag="Communication" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A VoIP application and digital distribution platform designed for creating communities and connecting gamers providing text voice and video communication features."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A VoIP application and digital distribution platform designed for creating."/>
+<TextBlock Text="discord" Visibility="Collapsed"/>
+<TextBlock Text="Discord.Discord" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="TeamViewer" Tag="File Sharing" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A remote access and support software that enables users to remotely control computers transfer files and collaborate online facilitating remote work and IT support."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A remote access and support software that enables users to."/>
+<TextBlock Text="teamviewer" Visibility="Collapsed"/>
+<TextBlock Text="TeamViewer.TeamViewer" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="GIMP" Tag="Imaging" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Imaging"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A free and opensource raster graphics editor used for image retouching and editing drawing and painting and converting between different image formats."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A free and opensource raster graphics editor used for image."/>
+<TextBlock Text="gimp" Visibility="Collapsed"/>
+<TextBlock Text="GIMP.GIMP" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ Runtime - all versions" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Microsoft Visual C Redistributable installs runtime components of Visual C libraries. These components are required to run C applications that are developed using Visual Studio and link dynamically to Visual C libraries."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Microsoft Visual C Redistributable installs runtime components of Visual C."/>
+<TextBlock Text="vcredist-all" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="DirectX" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="DirectX is a collection of APIs for handling tasks related to games and videos.."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="DirectX is a collection of APIs for handling tasks related."/>
+<TextBlock Text="directx" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.DirectX" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ 2005 (x86) Redistributable" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A set of runtime components required to run applications developed with Microsoft Visual C 2005 providing libraries DLLs and other resources."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A set of runtime components required to run applications developed."/>
+<TextBlock Text="vcredist2005" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ 2005 (x64) Redistributable" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A set of runtime components required to run 64bit applications developed with Microsoft Visual C 2005 providing libraries DLLs and other resources."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A set of runtime components required to run 64bit applications."/>
+<TextBlock Text="vcredist2005" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ 2008 (x86) Redistributable" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A set of runtime components required to run applications developed with Microsoft Visual C 2008 providing libraries DLLs and other resources."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A set of runtime components required to run applications developed."/>
+<TextBlock Text="vcredist2008" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ 2008 (x64) Redistributable" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A set of runtime components required to run 64bit applications developed with Microsoft Visual C 2008 providing libraries DLLs and other resources."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A set of runtime components required to run 64bit applications."/>
+<TextBlock Text="vcredist2008" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ 2010 (x86) Redistributable" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A set of runtime components required to run applications developed with Microsoft Visual C 2010 providing libraries DLLs and other resources."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A set of runtime components required to run applications developed."/>
+<TextBlock Text="vcredist2010" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ 2010 (x64) Redistributable" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A set of runtime components required to run 64bit applications developed with Microsoft Visual C 2010 providing libraries DLLs and other resources."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A set of runtime components required to run 64bit applications."/>
+<TextBlock Text="vcredist2010" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ 2012 (x86) Redistributable" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A set of runtime components required to run applications developed with Microsoft Visual C 2012 providing libraries DLLs and other resources."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A set of runtime components required to run applications developed."/>
+<TextBlock Text="vcredist2012" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ 2012 (x64) Redistributable" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A set of runtime components required to run 64bit applications developed with Microsoft Visual C 2012 providing libraries DLLs and other resources."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A set of runtime components required to run 64bit applications."/>
+<TextBlock Text="vcredist2012" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ 2013 (x86) Redistributable" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A set of runtime components required to run applications developed with Microsoft Visual C 2013 providing libraries DLLs and other resources."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A set of runtime components required to run applications developed."/>
+<TextBlock Text="vcredist2013" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ 2013 (x64) Redistributable" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A set of runtime components required to run 64bit applications developed with Microsoft Visual C 2013 providing libraries DLLs and other resources."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A set of runtime components required to run 64bit applications."/>
+<TextBlock Text="vcredist2013" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ 2015-2022 (x64) Redistributable" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A set of runtime components required to run 64bit applications developed with Microsoft Visual C 20152022 providing libraries DLLs and other resources."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A set of runtime components required to run 64bit applications."/>
+<TextBlock Text="vcredist2015" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ 2015-2022  (x86) Redistributable" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A set of runtime components required to run applications developed with Microsoft Visual C 20152022 providing libraries DLLs and other resources."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A set of runtime components required to run applications developed."/>
+<TextBlock Text="vcredist2015" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NET Framework All Versions" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A comprehensive and consistent programming model for building applications that have visually stunning user experiences seamless and secure communication and the ability to model a range of business processes."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A comprehensive and consistent programming model for building applications that."/>
+<TextBlock Text="dotnet-all" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="AMD Ryzen Chipset Drivers" Tag="Drivers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Supports AMD Ryzen Threadripper PRO Processor AMD Ryzen 8000/7040/7000 Series Desktop  Mobile Processors AMD Ryzen 5000/3rd Gen/2nd Gen Desktop  Threadripper Processors AMD Ryzen Desktop Processor with Radeon Graphics  Mobile Processor with Radeon Graphics 7thGen AMD ASeries Processors AMD X670E/X670/B650E/B650/B350/A320/X370/X399/B450/X470/X570/B550/A520/A620/TRX40/TRX50/WRX80/WRX90 Chipsets."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Supports AMD Ryzen Threadripper PRO Processor AMD Ryzen 8000/7040/7000 Series."/>
+<TextBlock Text="amd-ryzen-chipset" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NVidia Display Driver" Tag="Drivers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The software component that allows the operating system and installed software to communicate with and control the NVIDIA graphics processing unit GPU."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The software component that allows the operating system and installed."/>
+<TextBlock Text="nvidia-display-driver" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NVIDIA GeForce Experience" Tag="Drivers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A cloudbased gaming service provided by NVIDIA that allows users to play video games on supported devices via a remote gaming PC hosted on NVIDIAs servers."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A cloudbased gaming service provided by NVIDIA that allows users."/>
+<TextBlock Text="geforce-experience" Visibility="Collapsed"/>
+<TextBlock Text="Nvidia.GeForceExperience" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Msi Afterburner" Tag="Drivers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="MSI Afterburner is the ultimate graphics card utility codeveloped by MSI and RivaTuner teams."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="MSI Afterburner is the ultimate graphics card utility codeveloped by."/>
+<TextBlock Text="msiafterburner" Visibility="Collapsed"/>
+<TextBlock Text="Guru3D.Afterburner" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NVIDIA PhysX" Tag="Drivers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A physics processing unit PPU software development kit SDK offered by NVIDIA for realtime physics simulations in video games."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A physics processing unit PPU software development kit SDK offered."/>
+<TextBlock Text="physx.legacy" Visibility="Collapsed"/>
+<TextBlock Text="Nvidia.PhysXLegacy" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Steam" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A digital distribution platform developed by Valve Corporation for purchasing and playing video games."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A digital distribution platform developed by Valve Corporation for purchasing."/>
+<TextBlock Text="steam" Visibility="Collapsed"/>
+<TextBlock Text="Valve.Steam" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Ubisoft Connect" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A digital distribution digital rights management multiplayer and communications service developed by Ubisoft providing access to Ubisofts games rewards and social features."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A digital distribution digital rights management multiplayer and communications service."/>
+<TextBlock Text="ubisoft-connect" Visibility="Collapsed"/>
+<TextBlock Text="Ubisoft.Connect" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Origin" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text=" Game store launcher."/>
+<TextBlock Text="origin" Visibility="Collapsed"/>
+<TextBlock Text="ElectronicArts.Origin" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Rockstar Games Launcher" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Download and play the latest Rockstar Games PC titles."/>
+<TextBlock Text="rockstar-launcher" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="GameSave Manager" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A utility tool that allows users to backup restore and transfer their game saves between different gaming platforms and directories."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A utility tool that allows users to backup restore and."/>
+<TextBlock Text="gamesavemanager" Visibility="Collapsed"/>
+<TextBlock Text="InsaneMatt.GameSaveManager" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="StreamlabsOBS" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A free and opensource streaming software built on top of OBS Studio with additional features tailored for streamers such as builtin alerts overlays and chat integration."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A free and opensource streaming software built on top of."/>
+<TextBlock Text="streamlabs-obs" Visibility="Collapsed"/>
+<TextBlock Text="Streamlabs.StreamlabsOBS" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="OBS Studio" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A free and opensource software for video recording and live streaming. It offers high performance realtime video/audio capturing and mixing."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A free and opensource software for video recording and live."/>
+<TextBlock Text="obs-studio.install" Visibility="Collapsed"/>
+<TextBlock Text="OBSProject.OBSStudio" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Logitech Gaming Software" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Logitech Gaming Software lets you customize Logitech G gaming mice keyboards headsets and select wheels."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Logitech Gaming Software lets you customize Logitech G gaming mice."/>
+<TextBlock Text="logitechgaming" Visibility="Collapsed"/>
+<TextBlock Text="Logitech.LGS" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Lively Wallpaper" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A software that allows users to set animated and interactive wallpapers on their Windows desktop providing various customization options."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A software that allows users to set animated and interactive."/>
+<TextBlock Text="lively" Visibility="Collapsed"/>
+<TextBlock Text="rocksdanister.LivelyWallpaper" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Playnite" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Open source video game library manager and launcher with support for 3rd party libraries like Steam GOG Origin Battle.net and Uplay."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Open source video game library manager and launcher with support."/>
+<TextBlock Text="playnite" Visibility="Collapsed"/>
+<TextBlock Text="Playnite.Playnite" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Driver Easy" Tag="Drivers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A driver update tool that automatically detects downloads and installs device drivers for the users computer hardware."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A driver update tool that automatically detects downloads and installs."/>
+<TextBlock Text="drivereasyfree" Visibility="Collapsed"/>
+<TextBlock Text="Easeware.DriverEasy" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Intel Graphics Windows DCH" Tag="Drivers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Intel Graphics Driver for Windows 10."/>
+<TextBlock Text="intel-graphics-driver" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Intel Driver Support Assistant" Tag="Drivers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Intel Driver  Support Assistant enables you to scan computing devices for the latest drivers available from Intel."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Intel Driver  Support Assistant enables you to scan computing."/>
+<TextBlock Text="intel-dsa" Visibility="Collapsed"/>
+<TextBlock Text="Intel.IntelDriverAndSupportAssistant" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Intel Network Adapter" Tag="Drivers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Intel Network Adapter Drivers for Windows 10."/>
+<TextBlock Text="intel-network-drivers-win10" Visibility="Collapsed"/>
+<TextBlock Text="Intel.WiFiDrivers" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Snappy Driver Installer" Tag="Drivers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A free and opensource tool for updating and installing device drivers on Windows offering offline driver updates and wide hardware support."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A free and opensource tool for updating and installing device."/>
+<TextBlock Text="sdio" Visibility="Collapsed"/>
+<TextBlock Text="samlab-ws.SnappyDriverInstaller" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Driver booster" Tag="Drivers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Scans and identifies outdated drivers automatically and downloads and installs the right update for you with just ONE click."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Scans and identifies outdated drivers automatically and downloads and installs."/>
+<TextBlock Text="driverbooster" Visibility="Collapsed"/>
+<TextBlock Text="IObit.DriverBooster" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Driver Genius" Tag="Drivers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Professional driver management tool and hardware diagnostics."/>
+<TextBlock Text="drivergenius" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Display Driver Uninstaller" Tag="Drivers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Utility to completely remove system drivers."/>
+<TextBlock Text="ddu" Visibility="Collapsed"/>
+<TextBlock Text="Wagnardsoft.DisplayDriverUninstaller" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Driver Store Explorer" Tag="Drivers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text=" Windows driver store utility."/>
+<TextBlock Text="rapr" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="1Password" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A password manager that securely stores login credentials credit card information and other sensitive data in an encrypted vault accessible with a single master password."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A password manager that securely stores login credentials credit card."/>
+<TextBlock Text="1password" Visibility="Collapsed"/>
+<TextBlock Text="AgileBits.1Password" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="AOMEI Partition Assistant Standard" Tag="Disk Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Disk Tools"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="AOMEI Partition Assistant Standard allows you to realize disk upgrade/replacement partition style conversion OS migration and other disk managements without any difficulties."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="AOMEI Partition Assistant Standard allows you to realize disk upgrade/replacement."/>
+<TextBlock Text="partition-assistant-standard" Visibility="Collapsed"/>
+<TextBlock Text="AOMEI.PartitionAssistant" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="AOMEI Backupper Standard" Tag="Disk Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Disk Tools"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A backup and recovery software that enables users to create system backups disk backups partition backups and file backups to protect data against system failures and data loss."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A backup and recovery software that enables users to create."/>
+<TextBlock Text="backupper-standard" Visibility="Collapsed"/>
+<TextBlock Text="AOMEI.Backupper.Standard" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Recuva recover" Tag="Disk Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Disk Tools"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A data recovery software that helps users retrieve accidentally deleted files including photos documents videos and more from various storage devices such as hard drives USB drives and memory cards."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A data recovery software that helps users retrieve accidentally deleted."/>
+<TextBlock Text="recuva" Visibility="Collapsed"/>
+<TextBlock Text="Piriform.Recuva" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="CCleaner" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A system optimization privacy and cleaning tool that helps users remove unused files clean up temporary files and optimize their Windows PCs for better performance."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A system optimization privacy and cleaning tool that helps users."/>
+<TextBlock Text="ccleaner" Visibility="Collapsed"/>
+<TextBlock Text="SingularLabs.CCEnhancer" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="BCUninstaller" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A powerful uninstaller tool for Windows that allows users to remove unwanted programs plugins and Windows Store apps along with leftover files and registry entries."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A powerful uninstaller tool for Windows that allows users to."/>
+<TextBlock Text="bulk-crap-uninstaller" Visibility="Collapsed"/>
+<TextBlock Text="Klocman.BulkCrapUninstaller" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Easy Context Menu" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="To install Easy Context Menu run the following command from the command line or from PowerShell."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="To install Easy Context Menu run the following command from."/>
+<TextBlock Text="ecm" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="HWiNFO" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A hardware information and diagnostic tool that provides detailed information about the hardware components of a computer system including sensors temperature voltage and more."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A hardware information and diagnostic tool that provides detailed information."/>
+<TextBlock Text="hwinfo.install" Visibility="Collapsed"/>
+<TextBlock Text="REALiX.HWiNFO" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Speccy" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A system information tool that provides detailed information about the hardware and operating system of a computer including CPU RAM motherboard graphics card and storage devices."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A system information tool that provides detailed information about the."/>
+<TextBlock Text="speccy" Visibility="Collapsed"/>
+<TextBlock Text="Piriform.Speccy" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="FurMark" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A graphics card stress testing and benchmarking utility that helps users test the stability cooling and performance of their GPU by rendering a highly intensive 3D graphics scene."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A graphics card stress testing and benchmarking utility that helps."/>
+<TextBlock Text="furmark" Visibility="Collapsed"/>
+<TextBlock Text="Geeks3D.FurMark" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Hard Disk Sentinel" Tag="Disk Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Disk Tools"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A hard disk monitoring and analysis software that helps users monitor the health performance and temperature of their hard drives SSDs and other storage devices."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A hard disk monitoring and analysis software that helps users."/>
+<TextBlock Text="hdsentinel" Visibility="Collapsed"/>
+<TextBlock Text="JanosMathe.HardDiskSentinelPro" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="CPU-Z" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A system monitoring utility that provides detailed information about the CPU motherboard memory and other hardware components of a computer system."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A system monitoring utility that provides detailed information about the."/>
+<TextBlock Text="cpu-z" Visibility="Collapsed"/>
+<TextBlock Text="CPUID.CPU-Z" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Mem Reduct" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Lightweight realtime memory management application to monitor and clean system memory on your computer."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Lightweight realtime memory management application to monitor and clean system."/>
+<TextBlock Text="memreduct" Visibility="Collapsed"/>
+<TextBlock Text="Henry++.MemReduct" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="HandBrake" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A free and opensource video transcoder tool that converts video files from one format to another supporting a wide range of input and output formats."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A free and opensource video transcoder tool that converts video."/>
+<TextBlock Text="handbrake.install" Visibility="Collapsed"/>
+<TextBlock Text="HandBrake.HandBrake" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Rufus Portable" Tag="Portable" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Portable"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A utility tool for creating bootable USB drives from ISO images helping users to install or run operating systems such as Windows Linux or other utilities."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A utility tool for creating bootable USB drives from ISO."/>
+<TextBlock Text="rufus" Visibility="Collapsed"/>
+<TextBlock Text="Rufus.Rufus" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="ImgBurn" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Lightweight CD / DVD burning application."/>
+<TextBlock Text="imgburn" Visibility="Collapsed"/>
+<TextBlock Text="LIGHTNINGUK.ImgBurn" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Virtual CloneDrive" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A free software that allows users to mount disc images as virtual drives enabling them to access the content of ISO BIN and CCD files without the need for physical discs."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A free software that allows users to mount disc images."/>
+<TextBlock Text="virtualclonedrive" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Ultra ISO" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A powerful ISO image management tool that enables users to create edit extract and burn ISO files providing a comprehensive solution for managing disk image files."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A powerful ISO image management tool that enables users to."/>
+<TextBlock Text="ultraiso" Visibility="Collapsed"/>
+<TextBlock Text="EZBSystems.UltraISO" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Ventoy" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="An opensource tool for creating bootable USB drives with multiple ISO files allowing users to boot various operating systems or utilities directly from a single USB drive."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="An opensource tool for creating bootable USB drives with multiple."/>
+<TextBlock Text="ventoy" Visibility="Collapsed"/>
+<TextBlock Text="Ventoy.Ventoy" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="iVentoy" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="With iVentoy you can boot and install OS on multiple machines at the same time through the network."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="With iVentoy you can boot and install OS on multiple."/>
+<TextBlock Text="iventoy" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="AutoHotkey" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A scripting language for automating repetitive tasks and creating macros on Windows allowing users to customize keyboard shortcuts remap keys and automate mouse actions."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A scripting language for automating repetitive tasks and creating macros."/>
+<TextBlock Text="autohotkey" Visibility="Collapsed"/>
+<TextBlock Text="AutoHotkey.AutoHotkey" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Rainmeter" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A customizable desktop customization tool that displays customizable skins widgets and applets on the Windows desktop providing users with realtime system monitoring and information."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A customizable desktop customization tool that displays customizable skins widgets."/>
+<TextBlock Text="rainmeter" Visibility="Collapsed"/>
+<TextBlock Text="Rainmeter.Rainmeter" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="FxSound" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="An audio enhancer software that improves the sound quality of music videos and games on Windows PCs by providing advanced audio processing and customization options."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="An audio enhancer software that improves the sound quality of."/>
+<TextBlock Text="fxsound" Visibility="Collapsed"/>
+<TextBlock Text="FxSoundLLC.FxSound" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Vysor" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A screen mirroring and remote control software that enables users to view and control Android devices from Windows PCs allowing for easy screen sharing app testing and troubleshooting."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A screen mirroring and remote control software that enables users."/>
+<TextBlock Text="vysor" Visibility="Collapsed"/>
+<TextBlock Text="Vysor.Vysor" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Unified Remote" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A remote control app that turns smartphones into universal remote controls for Windows macOS and Linux computers allowing users to control media playback presentations and more."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A remote control app that turns smartphones into universal remote."/>
+<TextBlock Text="unifiedremote" Visibility="Collapsed"/>
+<TextBlock Text="UnifiedIntents.UnifiedRemote" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="AnyDesk" Tag="File Sharing" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A remote desktop software that allows users to access and control Windows macOS Linux Android and iOS devices from anywhere providing secure and reliable remote access."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A remote desktop software that allows users to access and."/>
+<TextBlock Text="anydesk" Visibility="Collapsed"/>
+<TextBlock Text="AnyDeskSoftwareGmbH.AnyDesk" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Airdroid" Tag="File Sharing" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="AirDroid is a free and fast Android device manager app that allows you to access Android phone/tablet from computer remotely and securely. Manage SMS files photos and videos WhatsApp Line WeChat and more on computer."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="AirDroid is a free and fast Android device manager app."/>
+<TextBlock Text="airdroid" Visibility="Collapsed"/>
+<TextBlock Text="AirDroid.AirDroid" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="UltraViewer" Tag="File Sharing" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Remote control to support your clients / partners from everywhere."/>
+<TextBlock Text="ultraviewer" Visibility="Collapsed"/>
+<TextBlock Text="DucFabulous.UltraViewer" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Wireless Network Watcher Portable" Tag="Portable" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Portable"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Wireless Network Watcher is a small utility that scans your wireless network and displays the list of all computers and devices that are currently connected to your network."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Wireless Network Watcher is a small utility that scans your."/>
+<TextBlock Text="wnetwatcher.portable" Visibility="Collapsed"/>
+<TextBlock Text="NirSoft.WirelessNetworkWatcher" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="WifiInfoView" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Wireless Network Watcher is a small utility that scans your wireless network and displays the list of all computers and devices that are currently connected to your network."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Wireless Network Watcher is a small utility that scans your."/>
+<TextBlock Text="wifiinfoview" Visibility="Collapsed"/>
+<TextBlock Text="NirSoft.WifiInfoView" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="WirelessNetView" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Wireless Network Watcher is a small utility that scans your wireless network and displays the list of all computers and devices that are currently connected to your network."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Wireless Network Watcher is a small utility that scans your."/>
+<TextBlock Text="wirelessnetview" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="qBittorrent" Tag="File Sharing" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A free and opensource BitTorrent client for downloading and uploading files via the BitTorrent protocol providing users with a lightweight and featurerich torrenting experience."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A free and opensource BitTorrent client for downloading and uploading."/>
+<TextBlock Text="qbittorrent" Visibility="Collapsed"/>
+<TextBlock Text="qBittorrent.qBittorrent" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Google Earth Pro" Tag="Imaging" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Imaging"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Google Earth Pro on desktop is free for users with advanced feature needs. Import and export GIS data and go back in time with historical imagery."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Google Earth Pro on desktop is free for users with."/>
+<TextBlock Text="googleearthpro" Visibility="Collapsed"/>
+<TextBlock Text="Google.EarthPro" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="XAMPP" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="XAMPP is a free and opensource crossplatform web server solution stack package developed by Apache Friends consisting mainly of the Apache HTTP Server MariaDB database and interpreters for scripts written in the PHP and Perl programming languages."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="XAMPP is a free and opensource crossplatform web server solution."/>
+<TextBlock Text="xampp-81" Visibility="Collapsed"/>
+<TextBlock Text="ApacheFriends.Xampp.8.2" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Visual Studio Professional 2022" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Visual Studio Professional 2022 is an integrated development environment IDE from Microsoft. It is used to develop computer programs websites web apps web services and mobile apps."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Visual Studio Professional 2022 is an integrated development environment IDE."/>
+<TextBlock Text="visualstudio2022professional" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.VisualStudio.2022.Professional" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Visual Studio Community 2022" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Visual Studio Community 2022 is a free fullyfeatured and extensible IDE for individual developers open source projects academic research education and small professional teams."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Visual Studio Community 2022 is a free fullyfeatured and extensible."/>
+<TextBlock Text="visualstudio2022community" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.VisualStudio.2022.Community" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Unity Hub" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Unity is a crossplatform game creation system developed by Unity Technologies and used to develop video games for PC consoles mobile."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Unity is a crossplatform game creation system developed by Unity."/>
+<TextBlock Text="unity-hub" Visibility="Collapsed"/>
+<TextBlock Text="Unity.UnityHub" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Godot Engine" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Godot is a featurepacked crossplatform game engine for creating 2D and 3D games. It provides a comprehensive set of tools and features to develop games efficiently and quickly."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Godot is a featurepacked crossplatform game engine for creating 2D."/>
+<TextBlock Text="godot" Visibility="Collapsed"/>
+<TextBlock Text="GodotEngine.GodotEngine" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Unity3D Engine" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Unity is a crossplatform game creation system developed by Unity Technologies and used to develop video games for PC consoles mobile."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Unity is a crossplatform game creation system developed by Unity."/>
+<TextBlock Text="unity" Visibility="Collapsed"/>
+<TextBlock Text="Unity.Unity.2020" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Blender" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Blender is a free and opensource professionalgrade 3D computer graphics and video compositing program."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Blender is a free and opensource professionalgrade 3D computer graphics."/>
+<TextBlock Text="blender" Visibility="Collapsed"/>
+<TextBlock Text="BlenderFoundation.Blender" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="VSCode" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Visual Studio Code is a free sourcecode editor developed by Microsoft for Windows Linux and macOS. It includes support for debugging embedded Git control syntax highlighting intelligent code completion snippets and code refactoring."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Visual Studio Code is a free sourcecode editor developed by."/>
+<TextBlock Text="vscode" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.VisualStudioCode" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Vim" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Vim is an advanced text editor that seeks to provide the power of the defacto Unix editor Vi with a more complete feature set. Its us... Keep Reading."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Vim is an advanced text editor that seeks to provide."/>
+<TextBlock Text="vim" Visibility="Collapsed"/>
+<TextBlock Text="vim.vim" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Sublime Text 4" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Sublime Text 4  The sophisticated text editor for code markup and prose."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Sublime Text 4  The sophisticated text editor for code."/>
+<TextBlock Text="sublimetext4" Visibility="Collapsed"/>
+<TextBlock Text="SublimeHQ.SublimeText.4" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Atom" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Atom is a text editor thats modern approachable yet hackable to the corea tool you can customize to do anything but also use productively without ever touching a config file."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Atom is a text editor thats modern approachable yet hackable."/>
+<TextBlock Text="atom" Visibility="Collapsed"/>
+<TextBlock Text="GitHub.Atom" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="InnoSetup" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Inno Setup is a free installer for Windows programs. First introduced in 1997 Inno Setup today rivals and even surpasses many commercial installers in feature set and stability."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Inno Setup is a free installer for Windows programs. First."/>
+<TextBlock Text="innosetup" Visibility="Collapsed"/>
+<TextBlock Text="JRSoftware.InnoSetup" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="PyCharm Community Edition" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="PyCharm Community Edition is a free and opensource IDE for Python development. It provides smart code completion code inspections onthefly error highlighting and quickfixes."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="PyCharm Community Edition is a free and opensource IDE for."/>
+<TextBlock Text="pycharm-community" Visibility="Collapsed"/>
+<TextBlock Text="JetBrains.PyCharm.Community" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="PyCharm Professional Edition" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="PyCharm Professional Edition is a powerful IDE for professional Python development. It includes advanced features such as database tools web development support and scientific tools integration."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="PyCharm Professional Edition is a powerful IDE for professional Python."/>
+<TextBlock Text="pycharm" Visibility="Collapsed"/>
+<TextBlock Text="JetBrains.PyCharm.Professional" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Jetbrains Rider" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Rider is a crossplatform .NET IDE developed by JetBrains. It supports C VB.NET F ASP.NET JavaScript TypeScript HTML CSS and SQL languages and frameworks."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Rider is a crossplatform .NET IDE developed by JetBrains. It."/>
+<TextBlock Text="jetbrains-rider" Visibility="Collapsed"/>
+<TextBlock Text="JetBrains.Rider" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NodeJs LTS" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Node.js is a JavaScript runtime built on Chromes V8 JavaScript engine. LTS Long Term Support releases are supported for an extended period and provide stability for production environments."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Node.js is a JavaScript runtime built on Chromes V8 JavaScript."/>
+<TextBlock Text="nodejs-lts" Visibility="Collapsed"/>
+<TextBlock Text="OpenJS.NodeJS.LTS" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Electron" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Electron framework lets you write crossplatform desktop applications using JavaScript HTML and CSS. It is based on io.js and Chromium and is used in the Atom editor."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Electron framework lets you write crossplatform desktop applications using JavaScript."/>
+<TextBlock Text="electron" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Electrum LTS" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Electrum is a lightweight Bitcoin wallet focused on speed and simplicity with support for hardware wallets and multisig functionality. LTS Long Term Support releases provide stability and security updates for an extended period."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Electrum is a lightweight Bitcoin wallet focused on speed and."/>
+<TextBlock Text="electronim" Visibility="Collapsed"/>
+<TextBlock Text="Electrum.Electrum" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Hugo" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Hugo is one of the most popular opensource static site generators. With its amazing speed and flexibility Hugo makes building websites f... Keep Reading."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Hugo is one of the most popular opensource static site."/>
+<TextBlock Text="hugo" Visibility="Collapsed"/>
+<TextBlock Text="Hugo.Hugo" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Hugo Extended" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Hugo is one of the most popular opensource static site generators. With its amazing speed and flexibility Hugo makes building websites f... Keep Reading."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Hugo is one of the most popular opensource static site."/>
+<TextBlock Text="hugo-extended" Visibility="Collapsed"/>
+<TextBlock Text="Hugo.Hugo.Extended" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Notepad++" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Notepad is a free source code editor and Notepad replacement that supports several languages. It offers syntax highlighting code folding autocompletion and other features for efficient code editing."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Notepad is a free source code editor and Notepad replacement."/>
+<TextBlock Text="notepadplusplus" Visibility="Collapsed"/>
+<TextBlock Text="Notepad++.Notepad++" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Windows Terminal" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Windows Terminal is a modern terminal application for users of commandline tools and shells like Command Prompt PowerShell and Windows Subsystem for Linux WSL. It provides multiple tabs custom themes and GPUaccelerated text rendering."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Windows Terminal is a modern terminal application for users of."/>
+<TextBlock Text="microsoft-windows-terminal" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.WindowsTerminal" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Powershell 7" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="PowerShell Core is a crossplatform Windows Linux and macOS automation and configuration tool/framework that works well with your existing tools and is optimized for dealing with structured data e.g. JSON CSV XML etc. REST APIs and object models."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="PowerShell Core is a crossplatform Windows Linux and macOS automation."/>
+<TextBlock Text="powershell-core" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.PowerShell" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="x64dbg Portable" Tag="Portable" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Portable"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="An opensource x64/x32 debugger for windows."/>
+<TextBlock Text="x64dbg.portable" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="dnSpy" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="dnSpy is a tool to reverse engineer .NET assemblies. It includes a decompiler a debugger and an assembly editor and more and can be easily extended by writing your own extension. It uses dnlib to read and write assemblies so it can handle obfuscated assemblies eg. malware without crashing."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="dnSpy is a tool to reverse engineer .NET assemblies. It."/>
+<TextBlock Text="dnspy" Visibility="Collapsed"/>
+<TextBlock Text="dnSpyEx.dnSpy" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Cheat Engine" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Cheat Engine is an open source tool designed to help you modify single player games."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Cheat Engine is an open source tool designed to help."/>
+<TextBlock Text="cheatengine" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Python 3.12.6" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Python is a popular highlevel programming language known for its simplicity and versatility. It is used in various fields such as web development data science machine learning and automation."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Python is a popular highlevel programming language known for its."/>
+<TextBlock Text="python" Visibility="Collapsed"/>
+<TextBlock Text="Python.Python.3.9" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Git" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Git is a free and opensource distributed version control system designed to handle everything from small to very large projects with speed and efficiency."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Git is a free and opensource distributed version control system."/>
+<TextBlock Text="git" Visibility="Collapsed"/>
+<TextBlock Text="Git.Git" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="GitHub Desktop" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="GitHub Desktop is a seamless way to contribute to projects on GitHub and GitHub Enterprise. It provides an intuitive interface for managing repositories branching committing and merging code changes."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="GitHub Desktop is a seamless way to contribute to projects."/>
+<TextBlock Text="github-desktop" Visibility="Collapsed"/>
+<TextBlock Text="GitHub.GitHubDesktop" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Docker Desktop" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Docker Desktop is an easytoinstall application for Windows and macOS that enables developers to build share and run containerized applications and microservices locally."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Docker Desktop is an easytoinstall application for Windows and macOS."/>
+<TextBlock Text="docker-desktop" Visibility="Collapsed"/>
+<TextBlock Text="Docker.DockerDesktop" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Docker Compose" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Docker Compose is a tool for defining and running multicontainer Docker applications. It allows you to use a YAML file to configure your applications services networks and volumes."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Docker Compose is a tool for defining and running multicontainer."/>
+<TextBlock Text="docker-compose" Visibility="Collapsed"/>
+<TextBlock Text="Docker.DockerCompose" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="PowerToys" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="PowerToys is a set of utilities for power users to tune and streamline their Windows experience for greater productivity. It includes tools like FancyZones for window management PowerRename for batch renaming files and more."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="PowerToys is a set of utilities for power users to."/>
+<TextBlock Text="powertoys" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.PowerToys" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Notion" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The allinone workspace for your notes tasks wikis and databases."/>
+<TextBlock Text="notion" Visibility="Collapsed"/>
+<TextBlock Text="Notion.Notion" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="FL Studio" Tag="Media Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="FL Studio is a digital audio workstation DAW developed by ImageLine. It allows you to compose arrange record edit mix and master professionalquality music."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="FL Studio is a digital audio workstation DAW developed by."/>
+<TextBlock Text="ImageLine.FLStudio" Visibility="Collapsed"/>
+<TextBlock Text="ImageLine.FLStudio" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Android Debug Bridge" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Android Debug Bridge ADB is a commandline tool that allows you to communicate with an Android device. It is used for various debugging tasks such as installing and debugging apps."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Android Debug Bridge ADB is a commandline tool that allows."/>
+<TextBlock Text="adb" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Universal ADB Drivers" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Universal ADB Drivers are drivers that provide compatibility with a wide range of Android devices for debugging purposes. They allow you to connect your Android device to a computer and use ADB commands."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Universal ADB Drivers are drivers that provide compatibility with a."/>
+<TextBlock Text="universal-adb-drivers" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Scrcpy" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Scrcpy is a free and opensource tool that allows you to display and control your Android device from a computer. It provides highperformance screen mirroring and supports various input methods."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Scrcpy is a free and opensource tool that allows you."/>
+<TextBlock Text="scrcpy" Visibility="Collapsed"/>
+<TextBlock Text="Genymobile.scrcpy" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="VirtualBox" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="VirtualBox is a crossplatform virtualization application. It installs on existing Intel or AMDbased computers whether they are running Windows Mac Linux or Solaris operating systems. It extends the capabilities of your existing computer so that it can run multiple operating systems inside multiple virtual machines at the same time."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="VirtualBox is a crossplatform virtualization application. It installs on existing."/>
+<TextBlock Text="virtualbox" Visibility="Collapsed"/>
+<TextBlock Text="Oracle.VirtualBox" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Oh My Posh" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text=" Oh my Posh is a custom prompt engine for any shell that has the ability to adjust the prompt string with a function or variable."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text=" Oh my Posh is a custom prompt engine for."/>
+<TextBlock Text="oh-my-posh" Visibility="Collapsed"/>
+<TextBlock Text="JanDeDobbeleer.OhMyPosh" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Malwarebytes" Tag="Security" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Security"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Multiple layers of malwarecrushing tech including virus protection. Thorough malware and spyware removal. Specialized ransomware protection."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Multiple layers of malwarecrushing tech including virus protection. Thorough malware."/>
+<TextBlock Text="malwarebytes" Visibility="Collapsed"/>
+<TextBlock Text="Malwarebytes.Malwarebytes" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Avast Free Antivirus" Tag="Security" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Security"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Avast Free Antivirus."/>
+<TextBlock Text="avastfreeantivirus" Visibility="Collapsed"/>
+<TextBlock Text="XPDNZJFNCR1B07" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Nerd Fonts - CascadiaCode" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Nerd Fonts is a project that patches developer targeted fonts with a high number of glyphs icons."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Nerd Fonts is a project that patches developer targeted fonts."/>
+<TextBlock Text="nerd-fonts-cascadiacode" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Java SE Runtime Environment 8.0.411" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Java allows you to play online games chat with people around the world calculate your mortgage interest and view images in 3D just to name a few. Its also integral to the intranet applications and other ebusiness solutions that are the foundation of corporate computing. Please note you now need a Java License from Oracle to use unless installed for Personal Use and Development Use."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Java allows you to play online games chat with people."/>
+<TextBlock Text="jre8" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Audacity" Tag="Media Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Audacity is free open source crossplatform software for recording and editing sounds."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Audacity is free open source crossplatform software for recording and."/>
+<TextBlock Text="audacity" Visibility="Collapsed"/>
+<TextBlock Text="Audacity.Audacity" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MusicBee" Tag="Media" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="MusicBee makes it easy to organize find and play music files on your computer on portable devices and on the web."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="MusicBee makes it easy to organize find and play music."/>
+<TextBlock Text="musicbee" Visibility="Collapsed"/>
+<TextBlock Text="MusicBee.MusicBee" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Format Factory" Tag="Media Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="multifunctional media processing tools."/>
+<TextBlock Text="formatfactory" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Winaero Tweaker" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Customize the appearance and behavior of the Windows operating system."/>
+<TextBlock Text="winaero-tweaker" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Windows Subsystem for Linux WSL2" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="To install Windows Subsystem for Linux 2 run the following command from the command line or from PowerShell."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="To install Windows Subsystem for Linux 2 run the following."/>
+<TextBlock Text="wsl2" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.WSL" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Wamp Server 3.3.5" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="WampServer is a Windows web development environment. It allows you to create web applications."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="WampServer is a Windows web development environment. It allows you."/>
+<TextBlock Text="wamp-server" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MongoDB" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="MongoDB stores data using a flexible document data model that is similar to JSON. Documents contain one or more fields including arrays binary data and subdocuments. Fields can vary from document to document. This flexibility allows development teams to evolve the data model rapidly as their application requirements change."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="MongoDB stores data using a flexible document data model that."/>
+<TextBlock Text="mongodb" Visibility="Collapsed"/>
+<TextBlock Text="MongoDB.Server" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MPC-BE" Tag="Media" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Media Player Classic  BE is a free and open source audio and video player for Windows."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Media Player Classic  BE is a free and open."/>
+<TextBlock Text="mpc-be" Visibility="Collapsed"/>
+<TextBlock Text=" MPC-BE.MPC-BE" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Kdenlive" Tag="Media Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A powerful nonlinear video editor."/>
+<TextBlock Text="kdenlive" Visibility="Collapsed"/>
+<TextBlock Text="KDE.Kdenlive" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="TablePlus" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Modern native and friendly GUI tool for relational databases MySQL PostgreSQL SQLite MongoDB Redis and more."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Modern native and friendly GUI tool for relational databases MySQL."/>
+<TextBlock Text="tableplus" Visibility="Collapsed"/>
+<TextBlock Text="TablePlus.TablePlus" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Hosts File Editor" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Hosts File Editor makes it easy to change your hosts file as well as archive multiple versions for easy retrieval."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Hosts File Editor makes it easy to change your hosts."/>
+<TextBlock Text="hosts.editor" Visibility="Collapsed"/>
+<TextBlock Text="scottlerch.hosts-file-editor" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Subtitle Edit" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="With SE you can easily adjust a subtitle if it is out of sync with the video in several different ways. You can also use SE for making new subtitles from scratch do use the timeline/waveform/spectrogram or translating subtitles."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="With SE you can easily adjust a subtitle if it."/>
+<TextBlock Text="subtitleedit" Visibility="Collapsed"/>
+<TextBlock Text="9NWH51GWJTKN" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Skype" Tag="Communication" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Skype  Install Skype add your friends as contacts then call video call and instant message with them for free. Call people who arent on Skype too at really low rates."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Skype  Install Skype add your friends as contacts then."/>
+<TextBlock Text="skype" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.Skype" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="FileZilla" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="FileZilla Client is a fast and reliable crossplatform FTP FTPS and SFTP client with lots of useful features and an intuitive graphical user interface."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="FileZilla Client is a fast and reliable crossplatform FTP FTPS."/>
+<TextBlock Text="filezilla" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Everything" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Everything Search Engine  locate files and folders by name instantly."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Everything Search Engine  locate files and folders by name."/>
+<TextBlock Text="everything" Visibility="Collapsed"/>
+<TextBlock Text="voidtools.Everything" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Yarn" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Yarn is a package manager for the npm and bower registries with a few specific focuses."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Yarn is a package manager for the npm and bower."/>
+<TextBlock Text="yarn" Visibility="Collapsed"/>
+<TextBlock Text="Yarn.Yarn" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="VMware Workstation Player" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="VMware Workstation Player is a streamlined desktop virtualization application that runs another operating system on the same computer without rebooting. VMware Workstation Player provides a simple user interface unmatched operating system support and portability across the VMware ecosystem."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="VMware Workstation Player is a streamlined desktop virtualization application that."/>
+<TextBlock Text="vmware-workstation-player" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="HDD Low Level Format Tool" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Will erase LowLevel Format and recertify a SATA IDE or SCSI hard disk drive with any size of up to 281 474 976 710 655 bytes."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Will erase LowLevel Format and recertify a SATA IDE or."/>
+<TextBlock Text="llftool" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="BlueStacks" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Play Android Games on PC."/>
+<TextBlock Text="bluestacks" Visibility="Collapsed"/>
+<TextBlock Text="BlueStack.BlueStacks" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Intel Wireless Bluetooth for Windows 10 and Windows 11" Tag="Drivers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Bluetooth for Windows 10 and Windows."/>
+<TextBlock Text="intel-bluetooth-drivers" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Office 365 Business" Tag="Documents" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Microsoft 365 formerly Office 365 is a line of subscription services offered by Microsoft as part of the Microsoft Office product line. The brand encompasses plans that allow use of the Microsoft Office software suite over the life of the subscription as well as cloudbased software as a service products for business environments such as hosted Exchange Server Skype for Business Server and SharePoint among others. All Microsoft 365 plans include automatic updates to their respective software at no additional charge as opposed to conventional licenses for these programswhere new versions require purchase of a new license."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Microsoft 365 formerly Office 365 is a line of subscription."/>
+<TextBlock Text="office365business" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.Office" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Bandicam" Tag="Imaging" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Imaging"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Bandicam is a closedsource screen capture and screen recording software originally developed by Bandisoft and later by Bandicam Company that can take screenshots or record screen changes. Bandicam consists of three main modes. One is the Screen Recording mode which can be used for recording a certain area on the PC screen."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Bandicam is a closedsource screen capture and screen recording software."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="BandicamCompany.Bandicam" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="QQPlayer" Tag="Media" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="QQPlayer media player."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="Tencent.QQPlayer" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="4K Video Downloader" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="4K Video Downloader allows downloading videos playlists channels and subtitles from YouTube Facebook Vimeo and other video sites in high quality."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="4K Video Downloader allows downloading videos playlists channels and subtitles."/>
+<TextBlock Text="4k-video-downloader" Visibility="Collapsed"/>
+<TextBlock Text="OpenMedia.4KVideoDownloader" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Active@ Partition Recovery" Tag="Disk Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Disk Tools"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Active Partition Recovery is a freeware toolkit that helps to recover deleted and damaged logical drives and partitions within Windows WinPE recovery boot disk and Linux recovery LiveCD environments."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Active Partition Recovery is a freeware toolkit that helps to."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="LSoftTechnologies.ActivePartitionRecovery" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="HiSuite" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="HUAWEI HiSuite is the official Android Smart Device Manager toolHiSuite helps users to connect their HUAWEI smartphones and tablets to PC."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="HUAWEI HiSuite is the official Android Smart Device Manager toolHiSuite."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="Huawei.HiSuite" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Android Studio" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Android Studio is the official integrated development environment for Googles Android operating system built on JetBrains IntelliJ IDEA software and designed specifically for Android development."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Android Studio is the official integrated development environment for Googles."/>
+<TextBlock Text="androidstudio" Visibility="Collapsed"/>
+<TextBlock Text="Google.AndroidStudio" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="LibreWolf" Tag="Web Browsers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="LibreWolf is designed to increase protection against tracking and fingerprinting techniques while also including a few security improvements. This is achieved through our privacy and security oriented settings and patches. LibreWolf also aims to remove all the telemetry data collection and annoyances as well as disabling antifreedom features like DRM."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="LibreWolf is designed to increase protection against tracking and fingerprinting."/>
+<TextBlock Text="librewolf" Visibility="Collapsed"/>
+<TextBlock Text="LibreWolf.LibreWolf" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Flow Launcher" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Dedicated to making your workflow flow more seamless. Search everything from applications files bookmarks YouTube Twitter and more. Flow will continue to evolve designed to be open and built with the community at heart."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Dedicated to making your workflow flow more seamless. Search everything."/>
+<TextBlock Text="flow-launcher" Visibility="Collapsed"/>
+<TextBlock Text="Flow-Launcher.Flow-Launcher" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="IconsExtract" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The IconsExtract utility scans the files and folders on your computer and extract the icons and cursors stored in EXE DLL OCX CPL and in other file types."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The IconsExtract utility scans the files and folders on your."/>
+<TextBlock Text="iconsext" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="AdGuard Home" Tag="Security" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Security"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="AdGuard Home is a networkwide software for blocking ads and tracking. After you set it up itll cover ALL your home devices and you dont need any clientside software for that."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="AdGuard Home is a networkwide software for blocking ads and."/>
+<TextBlock Text="adguardhome" Visibility="Collapsed"/>
+<TextBlock Text="AdGuard.AdGuardHome" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Burp Suite Community Edition" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Burp Suite is an integrated platform for performing security testing of web applications. Its various tools work seamlessly together to support the entire testing process from initial mapping and analysis of an applications attack surface through to finding and exploiting security vulnerabilities.."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Burp Suite is an integrated platform for performing security testing."/>
+<TextBlock Text="burp-suite-free-edition" Visibility="Collapsed"/>
+<TextBlock Text="PortSwigger.BurpSuite.Community" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="CoreTemp" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Core Temp is a compact no fuss small footprint yet powerful program to monitor processor temperature and other vital information."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Core Temp is a compact no fuss small footprint yet."/>
+<TextBlock Text="coretemp" Visibility="Collapsed"/>
+<TextBlock Text="ALCPU.CoreTemp" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="ShareX" Tag="File Sharing" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Screen capture file sharing and productivity tool."/>
+<TextBlock Text="sharex" Visibility="Collapsed"/>
+<TextBlock Text="ShareX.ShareX" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="ONLY OFFICE" Tag="Documents" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="ONLYOFFICE is a project developed by experienced IT experts from Ascensio System SIA leading IT company with headquarters in Riga Latvia. Originally ONLYOFFICE was designed for internal team collaboration. An attempt to introduce it to a wider audience proved to be successful ONLYOFFICE received very positive feedback from the Internet community. As a result its functionality was considerably revised and expanded that brought about a high and stable growth of users from different countries."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="ONLYOFFICE is a project developed by experienced IT experts from."/>
+<TextBlock Text="onlyoffice" Visibility="Collapsed"/>
+<TextBlock Text="ONLYOFFICE.DesktopEditors" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="ESET Internet Security" Tag="Security" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Security"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Ideal for modern users concerned about their privacy who actively use internet for shopping banking work and communication."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Ideal for modern users concerned about their privacy who actively."/>
+<TextBlock Text="eset-internet-security" Visibility="Collapsed"/>
+<TextBlock Text="ESET.EndpointSecurity" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="WinDirStat" Tag="Disk Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Disk Tools"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="WinDirStat is a disk usage statistics viewer and cleanup tool for Microsoft Windows."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="WinDirStat is a disk usage statistics viewer and cleanup tool."/>
+<TextBlock Text="windirstat" Visibility="Collapsed"/>
+<TextBlock Text="WinDirStat.WinDirStat" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Winmerge" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="WinMerge is an Open Source differencing and merging tool for Windows. WinMerge can compare both  folders and files presenting differences in a visual text format that is easy to understand and handle."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="WinMerge is an Open Source differencing and merging tool for."/>
+<TextBlock Text="winmerge" Visibility="Collapsed"/>
+<TextBlock Text="WinMerge.WinMerge" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Wireshark" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Wireshark is the worlds foremost and widelyused network protocol analyzer. It lets you see whats happening on your network at a microscopic level and is the de facto and often de jure standard across many commercial and nonprofit enterprises government agencies and educational institutions. Wireshark development thrives thanks to the volunteer contributions of networking experts around the globe and is the continuation of a project started by Gerald Combs in 1998."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Wireshark is the worlds foremost and widelyused network protocol analyzer.."/>
+<TextBlock Text="wireshark" Visibility="Collapsed"/>
+<TextBlock Text="WiresharkFoundation.Wireshark" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="TeraCopy" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="TeraCopy is designed to copy and move files at the maximum possible speed. It skips bad files during the copying process and then displays them at the end of the transfer so that you can see which ones need attention. TeraCopy can automatically check the copied files for errors by calculating their CRC checksum values. It also provides a lot more information about the files being copied than its Windows counterpart. TeraCopy integrates with Windows Explorers rightclick menu and can be set as the default copy handler."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="TeraCopy is designed to copy and move files at the."/>
+<TextBlock Text="teracopy" Visibility="Collapsed"/>
+<TextBlock Text="CodeSector.TeraCopy" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="QuickLook" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Quick Look is among the few features I missed from Mac OS X It enables very quick preview of file by pressing Space key while highlighting it without opening its associated application Then I decide to add this feature to Windows by myself which results this QuickLook project."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Quick Look is among the few features I missed from."/>
+<TextBlock Text="quicklook" Visibility="Collapsed"/>
+<TextBlock Text="QL-Win.QuickLook" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="RepoZ" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="RepoZ provides a quick overview of the git repositories on your development machine including their current branch and a short status information It uses the repositories on your machine to create an efficient navigation widget and makes sure youll never loose track of your work along the way."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="RepoZ provides a quick overview of the git repositories on."/>
+<TextBlock Text="repoz" Visibility="Collapsed"/>
+<TextBlock Text="AndreasWascher.RepoZ" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Intel Graphics Command Center" Tag="Drivers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Dont have time to mess around with settings The Intel Graphics Command Center easily finds and tunes your games complete with recommended settings for your computer Use oneclick optimization for many popular titles and instantly get the most out of your system. Windows 10 version 1709 or higher6th Gen Intel Core Platforms or newer."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Dont have time to mess around with settings The Intel."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="9PLFNLNT3G5G" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Go Programming Language" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Go is expressive concise clean and efficient Its concurrency mechanisms make it easy to write programs that get the most out of multicore and networked machines while its novel type system enables flexible and modular program construction Go compiles quickly to machine code yet has the convenience of garbage collection and the power of runtime reflection Its a fast statically typed compiled language that feels like a dynamically typed interpreted language."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Go is expressive concise clean and efficient Its concurrency mechanisms."/>
+<TextBlock Text="golang" Visibility="Collapsed"/>
+<TextBlock Text="Language GoLang.Go" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Rust" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Rust is a curlybrace blockstructured expression language It visually resembles the C language family but differs significantly in syntactic and semantic details Its design is oriented toward concerns of programming in the large that is of creating and maintaining boundaries  both abstract and operational  that preserve largesystem integrity availability and concurrency."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Rust is a curlybrace blockstructured expression language It visually resembles."/>
+<TextBlock Text="rust" Visibility="Collapsed"/>
+<TextBlock Text="Rustlang.Rust.GNU" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Inkscape" Tag="Imaging" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Imaging"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Inkscape is an opensource vector graphics editor similar to Adobe Illustrator Corel Draw Freehand or Xara X What sets Inkscape apart is its use of Scalable Vector Graphics SVG an open XMLbased W3C standard as the native format."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Inkscape is an opensource vector graphics editor similar to Adobe."/>
+<TextBlock Text="inkscape" Visibility="Collapsed"/>
+<TextBlock Text="Inkscape.Inkscape" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Youtube Dl" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="youtubedl is a small commandline program to download videos from YouTubecom and a few more sites It is written in Python and its not platform specific It should work in your Unix box in Windows or in Mac OS X It is released to the public domain which means you can modify it redistribute it or use it however you like."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="youtubedl is a small commandline program to download videos from."/>
+<TextBlock Text="yt-dlp" Visibility="Collapsed"/>
+<TextBlock Text="youtube-dl.youtube-dl" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Postman" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Postman helps you be more efficient while working with APIs Using Postman you can construct complex HTTP requests quickly organize them in collections and share them with your coworkers."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Postman helps you be more efficient while working with APIs."/>
+<TextBlock Text="postman" Visibility="Collapsed"/>
+<TextBlock Text="Postman.Postman" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Azure CLI" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The Azure CLI is available across Azure services and is designed to get you working quickly with Azure with an emphasis on automation."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The Azure CLI is available across Azure services and is."/>
+<TextBlock Text="azure-cli" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.AzureCLI" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="GameMaker Studio" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="GameMaker Studio has everything you need for games development no matter what your level or expertise."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="GameMaker Studio has everything you need for games development no."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="YoYoGames.GameMaker.Studio.2" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Charles" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Charles is an HTTP proxy  HTTP monitor  Reverse Proxy that enables a developer to view all of the HTTP and SSL  HTTPS traffic between their machine and the Internet This includes requests responses and the HTTP headers which contain the cookies and caching information."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Charles is an HTTP proxy HTTP monitor Reverse Proxy that."/>
+<TextBlock Text="charles" Visibility="Collapsed"/>
+<TextBlock Text="XK72.Charles" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Windows Media Player" Tag="Media" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Media Player is designed to make listening to and watching your multimedia content more enjoyable At the heart of Media Player is a fullfeatured music library that allows you to quickly browse and play music as well as create and manage playlists All your content in the music and video folders on your PC will appear automatically in your library."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Media Player is designed to make listening to and watching."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="9WZDNCRFJ3PT" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="espanso" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A crossplatform Text Expander written in Rust."/>
+<TextBlock Text="espanso" Visibility="Collapsed"/>
+<TextBlock Text="Espanso.Espanso" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Ability Office" Tag="Documents" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Ability Office Standard offers 3 core applications essential for home and business Word Processor Spreadsheet and Presentation in one affordable office suite It also includes a Photoalbum and quick application Launcher Just perfect for working from home allowing files to be edited and exchanged with those back in the office and absolutely ideal for students and school children."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Ability Office Standard offers 3 core applications essential for home."/>
+<TextBlock Text="abilityoffice" Visibility="Collapsed"/>
+<TextBlock Text="Ability.AbilityOffice.8.Standard" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Winbox" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Small utility that allows administration of MikroTik RouterOS using a fast and simple GUI."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Small utility that allows administration of MikroTik RouterOS using a."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="Mikrotik.Winbox" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="SearchMyFiles" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="SearchMyFiles allows you to make a very accurate search that cannot be done with Windows search For Example You can search all files created in the last 10 minutes with size between 500 and 700 bytes."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="SearchMyFiles allows you to make a very accurate search that."/>
+<TextBlock Text="searchmyfiles" Visibility="Collapsed"/>
+<TextBlock Text="NirSoft.SearchMyFiles" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="iTunes" Tag="Media" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="iTunes is the best way to organize and enjoy the music movies and TV shows you already have and shop for the ones you want to get Its home to Apple Music which gives you unlimited access to millions of songs curated playlists1 and Beats 1 radio hosted by Zane Lowe and a team of acclaimed DJs Enjoy all the entertainment iTunes has to offer on your Mac and PC."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="iTunes is the best way to organize and enjoy the."/>
+<TextBlock Text="itunes" Visibility="Collapsed"/>
+<TextBlock Text="Apple.iTunes" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="StartIsBack++" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="StartIsBack returns Windows 10 and Windows 8 a real fully featured start menu and start button behaving exactly like the ones in Windows 7."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="StartIsBack returns Windows 10 and Windows 8 a real fully."/>
+<TextBlock Text="startisback" Visibility="Collapsed"/>
+<TextBlock Text="StartIsBack.StartIsBack" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Advanced SystemCare Free" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Over time your computer may accumulate with large quantities of useless temporary and duplicate files Advanced SystemCare 12 will help clean up these junk files and free up your disk space Also you can use our advanced tools to make registry clean for better use."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Over time your computer may accumulate with large quantities of."/>
+<TextBlock Text="afedteated" Visibility="Collapsed"/>
+<TextBlock Text="XPFFGSS4Z9M2TX" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Send Anywhere" Tag="File Sharing" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Send Anywhere is a multiplatform file sharing service where users can directly share digital content in real time."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Send Anywhere is a multiplatform file sharing service where users."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="Estmob.SendAnywhere" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="YUMI Legacy" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="YUMI Your Universal Multiboot Installer is the successor to MultibootISOs It can be used to create a Multiboot USB Flash Drive containing multiple operating systems antivirus utilities disc cloning diagnostic tools and more Contrary to MultiBootISOs which used grub to boot ISO files directly from USB YUMI uses syslinux to boot extracted distributions stored on the USB device and reverts to using grub to Boot Multiple ISO files from USB if necessary."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="YUMI Your Universal Multiboot Installer is the successor to MultibootISOs."/>
+<TextBlock Text="yumi" Visibility="Collapsed"/>
+<TextBlock Text="YumiUsb.Legacy" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="YUMI UEFI" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="YUMI Your Universal Multiboot Installer is the successor to MultibootISOs It can be used to create a Multiboot USB Flash Drive containing multiple operating systems antivirus utilities disc cloning diagnostic tools and more Contrary to MultiBootISOs which used grub to boot ISO files directly from USB YUMI uses syslinux to boot extracted distributions stored on the USB device and reverts to using grub to Boot Multiple ISO files from USB if necessary."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="YUMI Your Universal Multiboot Installer is the successor to MultibootISOs."/>
+<TextBlock Text="yumi-uefi" Visibility="Collapsed"/>
+<TextBlock Text="YumiUsb.UEFI" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="OP Auto Clicker" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A fullfledged autoclicker with two modes of autoclicking at your dynamic cursor location or at a prespecified location The maximum amounts of clicked can also be set or left as infinite Hotkeys work in the background for convenience."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A fullfledged autoclicker with two modes of autoclicking at your."/>
+<TextBlock Text="autoclicker" Visibility="Collapsed"/>
+<TextBlock Text="OPAutoClicker.OPAutoClicker" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Spotube" Tag="Media" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Spotube is a Flutter based lightweight spotify client It utilizes the power of Spotify  Youtubes public API  creates a hazardless performant  resource friendly User Experience."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Spotube is a Flutter based lightweight spotify client It utilizes."/>
+<TextBlock Text="spotube" Visibility="Collapsed"/>
+<TextBlock Text="KRTirtho.Spotube" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Audio Switcher" Tag="Media" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Easily switch the default audio device input or output on any Windows PC Vista and above Using this application you can switch output OR input sound devices at the click of a button or the press of a key I designed this application to be incredibly small and lightweight There is no bloat it does exactly what it should nothing more nothing less."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Easily switch the default audio device input or output on."/>
+<TextBlock Text="audioswitcher" Visibility="Collapsed"/>
+<TextBlock Text="FortyOneLtd.AudioSwitcher" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Teams Classic Desktop" Tag="Communication" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Microsoft Teams is a messaging app for teams where all conversations meetings files and notes can be accessed by everyone all in one place Its a place for collaboration and work to happen in the open."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Microsoft Teams is a messaging app for teams where all."/>
+<TextBlock Text="microsoft-teams.install" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Windows SDK" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The Windows 10 SDK for Windows 10 version 1809 provides the latest headers libraries metadata and tools for building Windows 10 apps NoteWindows 10 development targeting Windows 10 version 1903 or later requires Visual Studio 2017 or later This SDK will not be discovered by previous versions of Visual Studio."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The Windows 10 SDK for Windows 10 version 1809 provides."/>
+<TextBlock Text="windows-sdk-10.1" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="RunAsDate Portable" Tag="Portable" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Portable"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="RunAsDate is a small utility that allows you to run a program in the date and time that you specify This utility doesnt change the current system date and time of your computer but it only injects the datetime that you specify into the desired application."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="RunAsDate is a small utility that allows you to run."/>
+<TextBlock Text="runasdate" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Visual Studio 2017 Build " Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="These Build Tools allow you to build native and managed MSBuildbased applications without requiring the Visual Studio IDE There are options to install the Visual C compilers and libraries MFC ATL and CCLI support."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="These Build Tools allow you to build native and managed."/>
+<TextBlock Text="visualstudio2017buildtools" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MSEdgeRedirect" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="This tool filters and passes the command line arguments of Microsoft Edge processes into your default browser instead of hooking into the microsoftedge handler this should provide resiliency against future changes Additionally an Image File Execution Options mode is available to operate similarly to the Old EdgeDeflector Additional modes are planned for future versions."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="This tool filters and passes the command line arguments of."/>
+<TextBlock Text="msedgeredirect" Visibility="Collapsed"/>
+<TextBlock Text="rcmaehl.MSEdgeRedirect" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NET Desktop Runtime 5" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="NET Core is a general purpose development platform maintained by Microsoft and the NET community on GitHub It is crossplatform supporting Windows macOS and Linux and can be used in device cloud and embeddedIoT scenarios This package is required to run Windows Desktop applications with the .NET Runtime."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="NET Core is a general purpose development platform maintained by."/>
+<TextBlock Text="dotnet-5.0-desktopruntime" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.DotNet.HostingBundle.5" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NET Desktop Runtime 3" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="NET Core is a general purpose development platform maintained by Microsoft and the NET community on GitHub It is crossplatform supporting Windows macOS and Linux and can be used in device cloud and embeddedIoT scenarios This package is required to run Windows Desktop applications with the .NET Runtime.."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="NET Core is a general purpose development platform maintained by."/>
+<TextBlock Text="Microsoft.DotNet.HostingBundle.3_1" Visibility="Collapsed"/>
+<TextBlock Text="dotnetcore-3.0-desktopruntime" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NET Desktop Runtime 6" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="NET Core is a general purpose development platform maintained by Microsoft and the NET community on GitHub It is crossplatform supporting Windows macOS and Linux and can be used in device cloud and embeddedIoT scenarios This package is required to run Windows Desktop applications with the .NET Runtime.."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="NET Core is a general purpose development platform maintained by."/>
+<TextBlock Text="dotnet-6.0-desktopruntime" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.DotNet.HostingBundle.6" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NET Desktop Runtime 7" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="NET Core is a general purpose development platform maintained by Microsoft and the NET community on GitHub It is crossplatform supporting Windows macOS and Linux and can be used in device cloud and embeddedIoT scenarios This package is required to run Windows Desktop applications with the .NET Runtime.."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="NET Core is a general purpose development platform maintained by."/>
+<TextBlock Text="dotnet-7.0-desktopruntime" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.DotNet.AspNetCore.7" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NET Desktop Runtime 8" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="NET Core is a general purpose development platform maintained by Microsoft and the NET community on GitHub It is crossplatform supporting Windows macOS and Linux and can be used in device cloud and embeddedIoT scenarios This package is required to run Windows Desktop applications with the NET Runtime."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="NET Core is a general purpose development platform maintained by."/>
+<TextBlock Text="dotnet-desktopruntime" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.DotNet.DesktopRuntime.8" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Viber" Tag="Communication" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Viber is a mobile application that lets you make free phone calls and send text messages to anyone who also has the application installed You can call or text any Viber user anywhere in the world for free."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Viber is a mobile application that lets you make free."/>
+<TextBlock Text="viber" Visibility="Collapsed"/>
+<TextBlock Text="XPFM5P5KDWF0JP" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="StartAllBack" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Introducing  StartAllBack Windows 11 from a better timeline Embrace enhance unsweep classic UI from under the rug."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Introducing StartAllBack Windows 11 from a better timeline Embrace enhance."/>
+<TextBlock Text="startallback" Visibility="Collapsed"/>
+<TextBlock Text="StartIsBack.StartAllBack" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="DiskGenius Free" Tag="Disk Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Disk Tools"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="With powerful capabilities and userfriendly interface DiskGenius Free Edition provides a robust solution for individuals and organizations to seek efficient disk management."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="With powerful capabilities and userfriendly interface DiskGenius Free Edition provides."/>
+<TextBlock Text="diskgenius" Visibility="Collapsed"/>
+<TextBlock Text="Eassos.DiskGenius" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="UNFORMAT" Tag="Disk Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Disk Tools"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="UNFORMAT is a software utility created to solve almost all data loss scenarios due to logical failure It can recover deleted files on a disk or restore deleted or damaged partitions and volumes As well as recovers data after using the FORMAT command."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="UNFORMAT is a software utility created to solve almost all."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="LSoftTechnologies.UNFORMAT" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Active@ UNDELETE" Tag="Disk Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Disk Tools"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Active UNDELETE helps you to recover deleted files and restore deleted partitions from a variety of file systems such as FAT NTFS NTFS  EFS MacOS HFS ApFS Linux ext2 ext3 ext4 ZFS Unix UFS Advanced scan algorithms help to restore files even from severely damaged disks Sophisticated userfriendly UI makes navigation through your data a breeze."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Active UNDELETE helps you to recover deleted files and restore."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="LSoftTechnologies.ActiveUNDELETE" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="HxD Hex Editor" Tag="Disk Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Disk Tools"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="HxD is a carefully designed and fast hex editor which additionally to raw disk editing and modifying of main memory RAM handles files of any size."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="HxD is a carefully designed and fast hex editor which."/>
+<TextBlock Text="hxd" Visibility="Collapsed"/>
+<TextBlock Text="MHNexus.HxD" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Epic Games Launcher" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The Epic Games Launcher is how you obtain the Unreal Game Engine modding tools and other Epic Games like Fortnite and the new Epic Games Store."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The Epic Games Launcher is how you obtain the Unreal."/>
+<TextBlock Text="epicgameslauncher" Visibility="Collapsed"/>
+<TextBlock Text="EpicGames.EpicGamesLauncher" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Vivaldi" Tag="Web Browsers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The new Vivaldi browser protects you from trackers blocks unwanted ads and puts you in control with unique builtin features Get Vivaldi and browse fast."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The new Vivaldi browser protects you from trackers blocks unwanted."/>
+<TextBlock Text="vivaldi" Visibility="Collapsed"/>
+<TextBlock Text="VivaldiTechnologies.Vivaldi" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft PC Manager" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Microsoft PC manager a good way to protect your personal computer and optimize performance provides PC cleanup antivirus and Windows update making your computer safe and secure."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Microsoft PC manager a good way to protect your personal."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="9PM860492SZD" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Openshot" Tag="Media Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="OpenShot Video Editor is an awardwinning opensource video editor available on Linux Mac and Windows OpenShot can create stunning videos films and animations with an easytouse interface and rich set of features."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="OpenShot Video Editor is an awardwinning opensource video editor available."/>
+<TextBlock Text="openshot" Visibility="Collapsed"/>
+<TextBlock Text="OpenShot.OpenShot" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="WhatsApp" Tag="Communication" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="WhatsApp Messenger or simply WhatsApp is an American freeware crossplatform centralized messaging and voiceoverIP VoIP service owned by Facebook Inc It allows users to send text messages and voice messages make voice and video calls and share images documents user locations and other content."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="WhatsApp Messenger or simply WhatsApp is an American freeware crossplatform."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="9NKSQGP7F2NH" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Paint.NET" Tag="Imaging" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Imaging"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="PaintNET is image and photo editing software for PCs that run Windows."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="PaintNET is image and photo editing software for PCs that."/>
+<TextBlock Text="paint.net" Visibility="Collapsed"/>
+<TextBlock Text="dotPDNLLC.paintdotnet" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Stretchly" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="stretchly is a crossplatform electron app that reminds you to take breaks when working on your computer By default it runs in your tray and displays a reminder window containing an idea for a microbreak for 20 seconds every 10 minutes."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="stretchly is a crossplatform electron app that reminds you to."/>
+<TextBlock Text="stretchly" Visibility="Collapsed"/>
+<TextBlock Text="Stretchly.Stretchly" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Silverlight" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Silverlight is a powerful development tool for creating engaging interactive user experiences for Web and mobile applications."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Silverlight is a powerful development tool for creating engaging interactive."/>
+<TextBlock Text="silverlight" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="TreeSize" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Every hard disk is too small if you just wait long enough TreeSize Free tells you where precious disk space has gone."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Every hard disk is too small if you just wait."/>
+<TextBlock Text="treesizefree" Visibility="Collapsed"/>
+<TextBlock Text="JAMSoftware.TreeSize.Free" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Dot Net 3.5" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="NET is a free crossplatform opensource developer platform for building many different types of applications."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="NET is a free crossplatform opensource developer platform for building."/>
+<TextBlock Text="dotnet3.5" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.DotNet.DesktopRuntime.3_1" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Flash Player ActiveX" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The Adobe Flash Player is freeware software for viewing multimedia executing Rich Internet Applications and streaming video and audio content created on the Adobe Flash platform."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The Adobe Flash Player is freeware software for viewing multimedia."/>
+<TextBlock Text="flashplayeractivex" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Google Drive" Tag="File Sharing" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Google Drive  All your files  everywhere Safely store your files and access them from any device Choose folders on your computer to sync with Google Drive or backup to Google Photos and access all of your content directly from your PC or Mac."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Google Drive All your files everywhere Safely store your files."/>
+<TextBlock Text="googledrive" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Dot Net 4.5.2" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The Microsoft NET Framework 452 is a highly compatible inplace update to the Microsoft NET Framework 4 Microsoft NET Framework 45 and Microsoft NET Framework 451."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The Microsoft NET Framework 452 is a highly compatible inplace."/>
+<TextBlock Text="dotnet4.5.2" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Dropbox" Tag="File Sharing" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Organize all your teams content tune out distractions and get everyone coordinated with the worlds first smart workspace."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Organize all your teams content tune out distractions and get."/>
+<TextBlock Text="dropbox" Visibility="Collapsed"/>
+<TextBlock Text="Dropbox.Dropbox" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="cURL" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Command line tool and library for transferring data with URLs."/>
+<TextBlock Text="curl" Visibility="Collapsed"/>
+<TextBlock Text="cURL.cURL" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="PDF Creator" Tag="Documents" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="PDFCreator lets you convert any printable document to PDF."/>
+<TextBlock Text="pdfcreator" Visibility="Collapsed"/>
+<TextBlock Text="pdfforge.PDFCreator" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Autoruns" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="This utility shows you what programs are configured to run during system bootup or login."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="This utility shows you what programs are configured to run."/>
+<TextBlock Text="autoruns" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.Sysinternals.Autoruns" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft OneDrive" Tag="File Sharing" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Save your files and photos to OneDrive and access them from any device anywhere."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Save your files and photos to OneDrive and access them."/>
+<TextBlock Text="onedrive" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.OneDrive" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Process Explorer" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Process Explorer shows you information about which handles and DLLs processes have opened or loaded."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Process Explorer shows you information about which handles and DLLs."/>
+<TextBlock Text="procexp" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.Sysinternals.ProcessExplorer" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="FFmpeg" Tag="Media Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="FFmpeg is a widelyused crossplatform multimedia framework which can process almost all common and many uncommon media formats It has over 1000 internal components to capture decode encode modify combine stream media and it can make use of dozens of external libraries to provide more capabilities."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="FFmpeg is a widelyused crossplatform multimedia framework which can process."/>
+<TextBlock Text="ffmpeg" Visibility="Collapsed"/>
+<TextBlock Text="Gyan.FFmpeg" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="OpenVPN Connect" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The official OpenVPN Connect client software developed and maintained by OpenVPN Inc."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The official OpenVPN Connect client software developed and maintained by."/>
+<TextBlock Text="openvpn-connect" Visibility="Collapsed"/>
+<TextBlock Text="OpenVPNTechnologies.OpenVPNConnect" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Git Large File Storage" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Git Large File Storage LFS replaces large files such as audio samples videos datasets and graphics with text pointers inside Git while storing the file contents on a remote server like GitHubcom or GitHub Enterprise."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Git Large File Storage LFS replaces large files such as."/>
+<TextBlock Text="git-lfs" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Nmap" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Nmap Network Mapper is a free and open source utility for network discovery and security auditing."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Nmap Network Mapper is a free and open source utility."/>
+<TextBlock Text="nmap" Visibility="Collapsed"/>
+<TextBlock Text="Insecure.Nmap" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="UltraVNC" Tag="File Sharing" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="UltraVNC is an open source application that uses the VNC protocol to control another computer remotely over a network connection UltraVNC allows the use of a remote computer."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="UltraVNC is an open source application that uses the VNC."/>
+<TextBlock Text="ultravnc" Visibility="Collapsed"/>
+<TextBlock Text="uvncbvba.UltraVnc" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Plex" Tag="Media Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Plex is a global streaming media service and a clientserver media player platform made by Plex Inc."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Plex is a global streaming media service and a clientserver."/>
+<TextBlock Text="plex" Visibility="Collapsed"/>
+<TextBlock Text="Plex.Plex" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Plex Media Server" Tag="Media Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Plex Media Server helps you organise your media and stream it to your devices."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Plex Media Server helps you organise your media and stream."/>
+<TextBlock Text="plexmediaserver" Visibility="Collapsed"/>
+<TextBlock Text="Plex.PlexMediaServer" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visio Viewer" Tag="Documents" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="By using Microsoft Visio 2016 Viewer Visio users can freely distribute Visio drawings files with a vsdx vsdm vsd vdx vdw vstx vstm vst or vtx extension to team members partners customers or others even if the recipients do not have Visio installed on their computer."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Visio 2016 Viewer Visio users can freely distribute Visio drawings."/>
+<TextBlock Text="visioviewer" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.VisioViewer" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Keyn Stroke" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="KeynStroke makes it easy for your audience to follow your actions on the screen."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="KeynStroke makes it easy for your audience to follow your."/>
+<TextBlock Text="key-n-stroke" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Fing" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Fing App is a free network scanner that makes you discover all connected devices run internet speed tests and help troubleshoot network and device issues Get Fingbox for more advanced security and protection for your network."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Fing App is a free network scanner that makes you."/>
+<TextBlock Text="fing" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Ryujinx" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Ryujinx is an opensource Nintendo Switch emulator created by gdkchan and written in C This emulator aims at providing excellent accuracy and performance a userfriendly interface and consistent builds."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Ryujinx is an opensource Nintendo Switch emulator created by gdkchan."/>
+<TextBlock Text="ryujinx --params" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Omnify Hotspot" Tag="File Sharing" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The best virtual router to turn your PC into a WiFi hotspot  repeater WiFi hotspot allows you to create a wireless access point and share your internet Its easy to use and quick to start as you only need to give it a name and password and then connect your smartphone tablet media player ereader printer laptop and other wireless devices The network name can also include Unicode characters and Emojis."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The best virtual router to turn your PC into a."/>
+<TextBlock Text="omnifyhotspot" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MKVToolNix" Tag="Media Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="MKVToolNix is a set of tools to create alter and inspect Matroska files under Linux other Unices and Windows."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="MKVToolNix is a set of tools to create alter and."/>
+<TextBlock Text="mkvtoolnix" Visibility="Collapsed"/>
+<TextBlock Text="MoritzBunkus.MKVToolNix" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Neat Download Manager" Tag="Web Browsers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Neat Download Manager is a free Internet Download Manager for Windows."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Neat Download Manager is a free Internet Download Manager for."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="neat" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="x630ce for all games" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Xbox 360 Controller Emulator allows your controller gamepad joystick steering wheel pedals etc. to function on your PC as an Xbox 360 controller. It allows you to remap buttons and axes and to drive cars with steering wheel and pedals or to fly planes with joystick and throttle in games like Grand Theft Auto or Saints Row  Digitally Signed."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Xbox 360 Controller Emulator allows your controller gamepad joystick steering."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="x360ce" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft .NET SDK 7" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="NET is a free crossplatform opensource developer platform for building many different types of applications."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="NET is a free crossplatform opensource developer platform for building."/>
+<TextBlock Text="dotnet-7.0-sdk" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.DotNet.SDK.7" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft .NET SDK 8" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="NET is a free crossplatform opensource developer platform for building many different types of applications."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="NET is a free crossplatform opensource developer platform for building."/>
+<TextBlock Text="dotnet-sdk" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.DotNet.SDK.Preview" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft ASP.NET Core Runtime 7.0" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="NET is a free crossplatform opensource developer platform for building many different types of applications."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="NET is a free crossplatform opensource developer platform for building."/>
+<TextBlock Text="dotnet-aspnetruntime" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.DotNet.AspNetCore.7" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="HFS HTTP File Server" Tag="File Sharing" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="You can use HFS HTTP File Server to send and receive files Its different from classic file sharing because it uses web technology to be more compatible with todays Internet It also differs from classic web servers because its very easy to use and runs right outofthe box."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="You can use HFS HTTP File Server to send and."/>
+<TextBlock Text="hfs" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Cemu" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Cemu is a highly experimental software to emulate Wii U applications on PC."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Cemu is a highly experimental software to emulate Wii U."/>
+<TextBlock Text="cemu" Visibility="Collapsed"/>
+<TextBlock Text="Cemu.Cemu" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Chatterino" Tag="Communication" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Chatterino is a chat client for Twitch chat that offers a clean and customizable interface for a better streaming experience."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Chatterino is a chat client for Twitch chat that offers."/>
+<TextBlock Text="chatterino" Visibility="Collapsed"/>
+<TextBlock Text="ChatterinoTeam.Chatterino" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Clementine" Tag="Media Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Clementine is a modern music player and library organizer supporting various audio formats and online radio services."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Clementine is a modern music player and library organizer supporting."/>
+<TextBlock Text="clementine" Visibility="Collapsed"/>
+<TextBlock Text="Clementine.Clementine" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Clink" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Clink is a powerful Bashcompatible commandline interface CLIenhancement for Windows adding features like syntax highlighting and improved history."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Clink is a powerful Bashcompatible commandline interface CLIenhancement for Windows."/>
+<TextBlock Text="clink" Visibility="Collapsed"/>
+<TextBlock Text="chrisant996.Clink" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="CMake" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="CMake is an opensource crossplatform family of tools designed to build test and package software."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="CMake is an opensource crossplatform family of tools designed to."/>
+<TextBlock Text="cmake" Visibility="Collapsed"/>
+<TextBlock Text="Kitware.CMake" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="CopyQ Clipboard Manager" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="CopyQ is a clipboard manager with advanced features allowing you to store edit and retrieve clipboard history."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="CopyQ is a clipboard manager with advanced features allowing you."/>
+<TextBlock Text="copyq" Visibility="Collapsed"/>
+<TextBlock Text="hluk.CopyQ" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Crystal Disk Info" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Crystal Disk Info is a disk health monitoring tool that provides information about the status and performance of hard drives It helps users anticipate potential issues and monitor drive health."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Crystal Disk Info is a disk health monitoring tool that."/>
+<TextBlock Text="crystaldiskinfo" Visibility="Collapsed"/>
+<TextBlock Text="CrystalDewWorld.CrystalDiskInfo" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Crystal Disk Mark" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Crystal Disk Mark is a disk benchmarking tool that measures the read and write speeds of storage devices It helps users assess the performance of their hard drives and SSDs."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Crystal Disk Mark is a disk benchmarking tool that measures."/>
+<TextBlock Text="crystaldiskmark" Visibility="Collapsed"/>
+<TextBlock Text="CrystalDewWorld.CrystalDiskMark" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Darktable" Tag="Media Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Opensource photo editing tool offering an intuitive interface advanced editing capabilities and a nondestructive workflow for seamless image enhancement."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Opensource photo editing tool offering an intuitive interface advanced editing."/>
+<TextBlock Text="darktable" Visibility="Collapsed"/>
+<TextBlock Text="darktable.darktable" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="EA App" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="EA App is a platform for accessing and playing Electronic Arts games."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="EA App is a platform for accessing and playing Electronic."/>
+<TextBlock Text="ea-app" Visibility="Collapsed"/>
+<TextBlock Text="ElectronicArts.EADesktop" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Falkon" Tag="Web Browsers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Falkon is a lightweight and fast web browser with a focus on user privacy and efficiency."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Falkon is a lightweight and fast web browser with a."/>
+<TextBlock Text="falkon" Visibility="Collapsed"/>
+<TextBlock Text="KDE.Falkon" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="File Converter" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="File Converter is a very simple tool which allows you to convert and compress one or several files using the context menu in windows explorer."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="File Converter is a very simple tool which allows you."/>
+<TextBlock Text="file-converter" Visibility="Collapsed"/>
+<TextBlock Text="AdrienAllard.FileConverter" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Files" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Alternative file explorer."/>
+<TextBlock Text="files" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Flameshot" Tag="Media Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Flameshot is a powerful yet simple to use screenshot software offering annotation and editing features."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Flameshot is a powerful yet simple to use screenshot software."/>
+<TextBlock Text="flameshot" Visibility="Collapsed"/>
+<TextBlock Text="Flameshot.Flameshot" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Lightshot" Tag="Media Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Ligthshot is an Easytouse lightweight screenshot software tool where you can optionally edit your screenshots using different tools share them via Internet andor save to disk and customize the available options."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Ligthshot is an Easytouse lightweight screenshot software tool where you."/>
+<TextBlock Text="lightshot" Visibility="Collapsed"/>
+<TextBlock Text="Skillbrains.Lightshot" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="F.lux" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="flux adjusts the color temperature of your screen to reduce eye strain during nighttime use."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="flux adjusts the color temperature of your screen to reduce."/>
+<TextBlock Text="flux" Visibility="Collapsed"/>
+<TextBlock Text="flux.flux" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="GitHub CLI" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="GitHub CLI is a commandline tool that simplifies working with GitHub directly from the terminal."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="GitHub CLI is a commandline tool that simplifies working with."/>
+<TextBlock Text="gh" Visibility="Collapsed"/>
+<TextBlock Text="GitHub.cli" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="GOG Galaxy" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="GOG Galaxy is a gaming client that offers DRMfree games additional content and more."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="GOG Galaxy is a gaming client that offers DRMfree games."/>
+<TextBlock Text="goggalaxy" Visibility="Collapsed"/>
+<TextBlock Text="GOG.Galaxy" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Greenshot" Tag="Media Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Greenshot is a lightweight screenshot software tool with builtin image editor and customizable capture options."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Greenshot is a lightweight screenshot software tool with builtin image."/>
+<TextBlock Text="greenshot" Visibility="Collapsed"/>
+<TextBlock Text="Greenshot.Greenshot" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Hexchat" Tag="Communication" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="HexChat is a free opensource IRC Internet Relay Chat client with a graphical interface for easy communication."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="HexChat is a free opensource IRC Internet Relay Chat client."/>
+<TextBlock Text="hexchat" Visibility="Collapsed"/>
+<TextBlock Text="HexChat.HexChat" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="HWMonitor" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="HWMonitor is a hardware monitoring program that reads PC systems main health sensors."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="HWMonitor is a hardware monitoring program that reads PC systems."/>
+<TextBlock Text="hwmonitor" Visibility="Collapsed"/>
+<TextBlock Text="CPUID.HWMonitor" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="ImageGlass" Tag="Media Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="ImageGlass is a versatile image viewer with support for various image formats and a focus on simplicity and speed."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="ImageGlass is a versatile image viewer with support for various."/>
+<TextBlock Text="imageglass" Visibility="Collapsed"/>
+<TextBlock Text="DuongDieuPhap.ImageGlass" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Itch.io" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Itchio is a digital distribution platform for indie games and creative projects."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Itchio is a digital distribution platform for indie games and."/>
+<TextBlock Text="itch" Visibility="Collapsed"/>
+<TextBlock Text="ItchIo.Itch" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="KDE Connect" Tag="File Sharing" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="KDE Connect allows seamless integration between your KDE desktop and mobile devices."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="KDE Connect allows seamless integration between your KDE desktop and."/>
+<TextBlock Text="kdeconnect-kde" Visibility="Collapsed"/>
+<TextBlock Text="KDE.KDEConnect" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="KeePassXC" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="KeePassXC is a crossplatform opensource password manager with strong encryption features."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="KeePassXC is a crossplatform opensource password manager with strong encryption."/>
+<TextBlock Text="keepassxc" Visibility="Collapsed"/>
+<TextBlock Text="KeePassXCTeam.KeePassXC" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Lazygit" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Simple terminal UI for git commands."/>
+<TextBlock Text="lazygit" Visibility="Collapsed"/>
+<TextBlock Text="JesseDuffield.lazygit" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="LocalSend" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="An open source crossplatform alternative to AirDrop."/>
+<TextBlock Text="localsend.install" Visibility="Collapsed"/>
+<TextBlock Text="LocalSend.LocalSend" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Fork" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Fork  a fast and friendly git client."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Fork a fast and friendly git client."/>
+<TextBlock Text="git-fork" Visibility="Collapsed"/>
+<TextBlock Text="Fork.Fork" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="PulsarEdit" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A Communityled HyperHackable Text Editor."/>
+<TextBlock Text="pulsar" Visibility="Collapsed"/>
+<TextBlock Text="Pulsar-Edit.Pulsar" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Shotcut" Tag="Media Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Shotcut is a free open source crossplatform video editor."/>
+<TextBlock Text="Shotcut" Visibility="Collapsed"/>
+<TextBlock Text="Meltytech.Shotcut" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="PaleMoon" Tag="Web Browsers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Pale Moon is an Open Source Goannabased web browser available for Microsoft Windows and Linux with other operating systems in development focusing on efficiency and ease of use."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Pale Moon is an Open Source Goannabased web browser available."/>
+<TextBlock Text="paleMoon" Visibility="Collapsed"/>
+<TextBlock Text="MoonchildProductions.PaleMoon" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="JoyToKey" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="enables PC game controllers to emulate the keyboard and mouse input."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="enables PC game controllers to emulate the keyboard and mouse."/>
+<TextBlock Text="joytokey" Visibility="Collapsed"/>
+<TextBlock Text="JTKsoftware.JoyToKey" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Windows Auto Dark Mode" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Automatically switches between the dark and light theme of Windows 10 and Windows 11."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Automatically switches between the dark and light theme of Windows."/>
+<TextBlock Text="auto-dark-mode" Visibility="Collapsed"/>
+<TextBlock Text="Armin2208.WindowsAutoNightMode" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Windows Firewall Control" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Windows Firewall Control is a powerful tool which extends the functionality of Windows Firewall and provides new extra features which makes Windows Firewall better."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Windows Firewall Control is a powerful tool which extends the."/>
+<TextBlock Text="windowsfirewallcontrol" Visibility="Collapsed"/>
+<TextBlock Text="BiniSoft.WindowsFirewallControl" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="TightVNC" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="TightVNC is a free and Open Source remote desktop software that lets you access and control a computer over the network With its intuitive interface you can interact with the remote screen as if you were sitting in front of it You can open files launch applications and perform other actions on the remote desktop almost as if you were physically there."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="TightVNC is a free and Open Source remote desktop software."/>
+<TextBlock Text="TightVNC" Visibility="Collapsed"/>
+<TextBlock Text="GlavSoft.TightVNC" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Python Version Manager" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="pyenv for Windows is a simple python version management tool It lets you easily switch between multiple versions of Python."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="pyenv for Windows is a simple python version management tool."/>
+<TextBlock Text="pyenv-win" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Pixi" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Pixi is a fast software package manager built on top of the existing conda ecosystem Spins up development environments quickly on Windows macOS and Linux Pixi supports Python R CC Rust Ruby and many other languages."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Pixi is a fast software package manager built on top."/>
+<TextBlock Text="pixi" Visibility="Collapsed"/>
+<TextBlock Text="prefix-dev.pixi" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="VSCodium" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="VSCodium is a communitydriven freelylicensed binary distribution of Microsofts VS Code."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="VSCodium is a communitydriven freelylicensed binary distribution of Microsofts VS."/>
+<TextBlock Text="vscodium" Visibility="Collapsed"/>
+<TextBlock Text="VSCodium.VSCodium" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Thonny Python IDE" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Python IDE for beginners."/>
+<TextBlock Text="thonny" Visibility="Collapsed"/>
+<TextBlock Text="AivarAnnamaa.Thonny" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Poedit" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Poedit translations editor The best way to translate apps and sites."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Poedit translations editor The best way to translate apps and."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Adobe Acrobat Reader" Tag="Documents" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Adobe Acrobat Reader DC software is the free trusted global standard for viewing printing signing sharing and annotating PDFs Its the only PDF viewer that can open and interact."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Adobe Acrobat Reader DC software is the free trusted global."/>
+<TextBlock Text="adobereader" Visibility="Collapsed"/>
+<TextBlock Text="Adobe.Acrobat.Reader.32-bit" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Flash Player Plugin" Tag="Documents" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The Adobe Flash Player is freeware software for viewing multimedia executing Rich Internet Applications and streaming video and audio content created on the Adobe Flash platform."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The Adobe Flash Player is freeware software for viewing multimedia."/>
+<TextBlock Text="flashplayerplugin" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Sysinternals" Tag="Documents" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The Sysinternals Troubleshooting Utilities have been rolled up into a single suite of tools."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The Sysinternals Troubleshooting Utilities have been rolled up into a."/>
+<TextBlock Text="sysinternals" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="SelfishNet" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Control your internet bandwidth with SelfishNet V3 ARP Spoofing application.."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="selfishnet" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NTLite" Tag="Drivers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Integrate updates drivers automate Windows and application setup speedup Windows deployment process and have it all set for the next time."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Integrate updates drivers automate Windows and application setup speedup Windows."/>
+<TextBlock Text="ntlite-free" Visibility="Collapsed"/>
+<TextBlock Text="Nlitesoft.NTLite" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Olive Video Editor" Tag="Media Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Olive is a free nonlinear video editor for Windows."/>
+<TextBlock Text="olive" Visibility="Collapsed"/>
+<TextBlock Text="OliveTeam.OliveVideoEditor" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Mark Text" Tag="Portable" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Portable"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A simple and elegant opensource markdown editor that focused on speed and usability."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A simple and elegant opensource markdown editor that focused on."/>
+<TextBlock Text="marktext.portable" Visibility="Collapsed"/>
+<TextBlock Text="MarkText.MarkText" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="pCloud Drive" Tag="File Sharing" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="pCloud is a file hosting service also called cloud storage or online storage founded in Switzerland in 2013."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="pCloud is a file hosting service also called cloud storage."/>
+<TextBlock Text="pcloud" Visibility="Collapsed"/>
+<TextBlock Text="pCloudAG.pCloudDrive" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Hurl" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Hurl is a command line tool that runs HTTP requests defined in a simple plain text format."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Hurl is a command line tool that runs HTTP requests."/>
+<TextBlock Text="hurl" Visibility="Collapsed"/>
+<TextBlock Text="Orange-OpenSource.Hurl" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="File Hash Generator" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Compute and save MD5 SHA1 SHA2 RIPEMD hashes and CRC1632 checksums for multiple files Calculate hashes and checksums for the whole file or just specified bytes."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Compute and save MD5 SHA1 SHA2 RIPEMD hashes and CRC1632."/>
+<TextBlock Text="file-hash-generator" Visibility="Collapsed"/>
+<TextBlock Text="BinaryMark.FileHashGenerator" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Multimark down" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="MultiMarkdown or MMD is a tool to help turn minimally markedup plain text into well formatted documents including HTML PDF."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="MultiMarkdown or MMD is a tool to help turn minimally."/>
+<TextBlock Text="multimarkdown" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="PCSX2 Emulator" Tag="Portable" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Portable"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="PCSX2 is a free and opensource PlayStation 2 PS2 emulator Its purpose is to emulate the PS2s hardware."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="PCSX2 is a free and opensource PlayStation 2 PS2 emulator."/>
+<TextBlock Text="pcsx2.portable" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="RetroArch" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="RetroArch is a frontend for emulators game engines and media players It enables you to run classic games on a wide range of computers and consoles through its slick graphical interface."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="RetroArch is a frontend for emulators game engines and media."/>
+<TextBlock Text="retroarch" Visibility="Collapsed"/>
+<TextBlock Text="Libretro.RetroArch" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Free Virtual Keyboard" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Free Virtual Keyboard works on any Windows based UMPC with a passive touchscreen Ultramobile PC Tablet PC and Panel PC."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Free Virtual Keyboard works on any Windows based UMPC with."/>
+<TextBlock Text="free-virtual-keyboard" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="TypeScript for Visual Studio 2017 and 2019" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="This is a standalone power tool release of TypeScript for Visual Studio 2017 and 2019 It includes both the TypeScript experience for Visual Studio and a standalone compiler that can be used from the command line."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="This is a standalone power tool release of TypeScript for."/>
+<TextBlock Text="typescript-vs2017-vs2019" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Caret" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Beautiful  Clever Markdown Editor Download trial."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Beautiful Clever Markdown Editor Download trial."/>
+<TextBlock Text="caret" Visibility="Collapsed"/>
+<TextBlock Text="Caret.Caret" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="iSpy" Tag="Imaging" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Imaging"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="iSpy is the worlds most popular open source video surveillance application Its compatible with the the vast majority of consumer webcams and IP cameras With more than 2 million users worldwide iSpy works with more cameras and devices than anything else on the market."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="iSpy is the worlds most popular open source video surveillance."/>
+<TextBlock Text="ispy" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="WavPack" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="WavPack is a completely open audio compression format providing lossless highquality lossy and a unique hybrid compression mode Although the technology is loosely based on previous versions of WavPack the new version 4 format has been designed from the ground up to offer unparalleled performance and functionality."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="WavPack is a completely open audio compression format providing lossless."/>
+<TextBlock Text="wavpack" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="ProcessThreadsView" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="ProcessThreadsView is a small utility that displays extensive information about all threads of the process that you choose."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="ProcessThreadsView is a small utility that displays extensive information about."/>
+<TextBlock Text="processthreadsview" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Zulu" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Zulu is a certified build of OpenJDK that is fully compliant with the Java SE standard Zulu is 100 open source and freely downloadable Now Java developers system administrators and end users can enjoy the full benefits of open source Java with deployment flexibility and control over upgrade timing."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Zulu is a certified build of OpenJDK that is fully."/>
+<TextBlock Text="zulu12" Visibility="Collapsed"/>
+<TextBlock Text="Azul.Zulu.11.JRE" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="GitHubReleaseNotesv1" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Generate Release Notes in MarkDown format from a GitHub project."/>
+<TextBlock Text="githubreleasenotes" Visibility="Collapsed"/>
+<TextBlock Text="StefHeyenrath.GitHubReleaseNotes" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Tome" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Developing games is all about data With game systems for modifying data and user interfaces for presenting it finding a sophisticated data model is key to creating successful games Even more being able to change this data and iterate on a daytoday basis is mandatory in todays production cycles."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Developing games is all about data With game systems for."/>
+<TextBlock Text="tome-editor" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Win32 OpenSSH" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="OpenSSH is a complete implementation of the SSH protocol version 2 for secure remote login command execution and file transfer."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="OpenSSH is a complete implementation of the SSH protocol version."/>
+<TextBlock Text="openssh" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.OpenSSH.Beta" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Komodo Edit" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Komodo Edit is a free and open source text editor for dynamic programming languages."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Komodo Edit is a free and open source text editor."/>
+<TextBlock Text="komodo-edit" Visibility="Collapsed"/>
+<TextBlock Text="ActiveState.KomodoEdit" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="FreeCAD" Tag="Imaging" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Imaging"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A free and opensource multiplatform 3D parametric modeler."/>
+<TextBlock Text="freecad" Visibility="Collapsed"/>
+<TextBlock Text="FreeCAD.FreeCAD" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="SQLite" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="SQLite is an inprocess library that implements a selfcontained serverless zeroconfiguration transactional SQL database engine SQLite is an embedded SQL database engine Unlike most other SQL databases SQLite does not have a separate server process SQLite reads and writes directly to ordinary disk files A complete SQL database with multiple tables indices triggers and views is contained in a single disk file."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="SQLite is an inprocess library that implements a selfcontained serverless."/>
+<TextBlock Text="sqlite" Visibility="Collapsed"/>
+<TextBlock Text="SQLite.SQLite" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MkDocs" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="MkDocs is a fast simple and downright gorgeous static site generator thats geared towards building project documentation Documentation source files are written in Markdown and configured with a single YAML configuration file."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="MkDocs is a fast simple and downright gorgeous static site."/>
+<TextBlock Text="mkdocs" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MkDocs Material Theme" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="MkDocs is a fast simple and downright gorgeous static site generator thats geared towards building project documentation Documentation source files are written in Markdown and configured with a single YAML configuration file."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="MkDocs is a fast simple and downright gorgeous static site."/>
+<TextBlock Text="mkdocs-material" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="PuTTY" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A free implementation of SSH and Telnet along with an xterm terminal emulator."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A free implementation of SSH and Telnet along with an."/>
+<TextBlock Text="putty" Visibility="Collapsed"/>
+<TextBlock Text="PuTTY.PuTTY" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="WinSCP" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="WinSCP is an open source free SFTP client FTP client WebDAV client S3 client and SCP client for Windows Its main function is file transfer between a local and a remote computer Beyond this WinSCP offers scripting and basic file manager functionality."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="WinSCP is an open source free SFTP client FTP client."/>
+<TextBlock Text="winscp" Visibility="Collapsed"/>
+<TextBlock Text="WinSCP.WinSCP" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="LibreOffice Still" Tag="Documents" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="LibreOffice is the free powerpacked Open Source personal productivity suite for Windows macOS and Linux that gives you six featurerich applications for all your document production and data processing needs."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="LibreOffice is the free powerpacked Open Source personal productivity suite."/>
+<TextBlock Text="libreoffice-still" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Aio Runtimes" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="All in One Runtimes also known as AIO Runtimes is a program that integrates essential runtime packages ensuring the seamless functionality of all programs by installing them automatically."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="All in One Runtimes also known as AIO Runtimes is."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="aio-runtimes" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Visual-C-Runtimes All in One Oct 2024" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="This archive contains the latest version Oct 2024 of all VCRedist Visual Studio C runtimes installable with a single click by running the included batch file installer."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="This archive contains the latest version Oct 2024 of all."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="vsall" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="GPU-Z" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="GPUZ is a lightweight system utility designed to provide vital information about your video card and graphics processor."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="GPUZ is a lightweight system utility designed to provide vital."/>
+<TextBlock Text="gpu-z" Visibility="Collapsed"/>
+<TextBlock Text="TechPowerUp.GPU-Z" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MemTest86" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="MemTest86 boots from a USB flash drive and tests the RAM in your computer for faults using a series of comprehensive algorithms and test patterns."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="MemTest86 boots from a USB flash drive and tests the."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="memtest86" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Memtest86 Plus" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Memtest86 Plus v6 is a unified free opensource memory testing tool released under GNU GPL v2.0. The new v6 code base originally called PCMemTest was provided by Martin Whitaker based on Memtest86 v5 developed by Sam Demeulemeester. Both are now working on Memtest86."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Memtest86 Plus v6 is a unified free opensource memory testing."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="memtest86plus" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="VLC Skins" Tag="Media Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Put the downloaded VLT files in the following folder On Windows the skins folder in the VLC installation directory e.g. CProgram FilesVideoLANVLCskins On Linux/Unix /.local/share/vlc/skins2."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Put the downloaded VLT files in the following folder On."/>
+<TextBlock Text="vlc-skins" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="GrepWin" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Regular expression search and replace for Windows."/>
+<TextBlock Text="grepwin" Visibility="Collapsed"/>
+<TextBlock Text="StefansTools.grepWin" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NICE DCV Server" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="NICE DCV is a remote display protocol that securely streams desktops and apps from cloud or data centers to any device enabling graphicsintensive applications on Amazon EC2. Its used for HPC workloads and by services like Appstream 2.0 and AWS RoboMaker."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="NICE DCV is a remote display protocol that securely streams."/>
+<TextBlock Text="nice-dcv-server" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NTag" Tag="Media Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="NTag is a cross platformgraphical tag editor focused on everyday life use cases."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="NTag is a cross platformgraphical tag editor focused on everyday."/>
+<TextBlock Text="ntag" Visibility="Collapsed"/>
+<TextBlock Text="nrittsti.NTag" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Volume2" Tag="Media Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Advanced Windows volume control."/>
+<TextBlock Text="volume2" Visibility="Collapsed"/>
+<TextBlock Text="irzyxa.Volume2Portable" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="qBittorrent Enhanced Edition" Tag="File Sharing" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Unofficial qBittorrent Enhanced based on qBittorrent."/>
+<TextBlock Text="qbittorrent-enhanced" Visibility="Collapsed"/>
+<TextBlock Text="wingetinstallc0re100.qBittorrent-Enhanced-Edition" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Aspia" Tag="File Sharing" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Remote desktop and file transfer tool."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="Aspia" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="SimpleTransfer Desktop" Tag="File Sharing" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Simple Transfer is the easiest way of transferring your Photos and Videos to computer and other iOS devices wirelessly or USB. No need for cable iTunes or extra softwares on your computer."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Simple Transfer is the easiest way of transferring your Photos."/>
+<TextBlock Text="simpletransfer" Visibility="Collapsed"/>
+<TextBlock Text="Rambax.SimpleTransfer" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Twitch Desktop App" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Servers  A virtual home for your community to chat watch and play with fully customizable text and voice rooms."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Servers  A virtual home for your community to chat."/>
+<TextBlock Text="twitch" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Remote Desktop Manager" Tag="File Sharing" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Remote Connections  Passwords. Everywhere."/>
+<TextBlock Text="rdm" Visibility="Collapsed"/>
+<TextBlock Text="Devolutions.RemoteDesktopManager" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Torrid" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Torrid is a multiserver multiclient multitracker Remote Torrent Client which allows any number of installed torrent engines.."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Torrid is a multiserver multiclient multitracker Remote Torrent Client which."/>
+<TextBlock Text="torrid" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Mediamonkey" Tag="Media" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Manage small to large collections of audio files videos and playlists 100000 whether on a hard drive network or CDs. Rip CDs download podcasts lookup artwork and other missing information online tag almost any audio or video format and automatically rename/reorganize files on your hard drive."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Manage small to large collections of audio files videos and."/>
+<TextBlock Text="mediamonkey" Visibility="Collapsed"/>
+<TextBlock Text="VentisMedia.MediaMonkey" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MediaInfo" Tag="Media Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Convenient unified display of the most relevent technical and tag data for video and audio files."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Convenient unified display of the most relevent technical and tag."/>
+<TextBlock Text="mediainfo" Visibility="Collapsed"/>
+<TextBlock Text="MediaArea.MediaInfo.GUI" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Universal Media Server" Tag="Media" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Universal Media Server is a DLNAcompliant UPnP Media Server. It is capable of sharing video audio and images between most modern devices."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Universal Media Server is a DLNAcompliant UPnP Media Server. It."/>
+<TextBlock Text="ums" Visibility="Collapsed"/>
+<TextBlock Text="UniversalMediaServer.UniversalMediaServer" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="K-Lite Codec Pack Standard" Tag="Media" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The KLite Codec Pack is a collection of DirectShow filters VFW/ACM codecs and tools. Codecs and DirectShow filters are needed for encoding and decoding audio and video formats. The KLite Codec Pack is designed as a userfriendly solution for playing all your audio and movie files. With the KLite Codec Pack you should be able to play all the popular audio and video formats and even several less common formats."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The KLite Codec Pack is a collection of DirectShow filters."/>
+<TextBlock Text="k-litecodecpack-standard" Visibility="Collapsed"/>
+<TextBlock Text="CodecGuide.K-LiteCodecPack.Standard" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="PowerISO" Tag="Compression" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Compression"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="PowerISO provides an allinone solution. You can do every thing with your ISO files and disc image files."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="PowerISO provides an allinone solution. You can do every thing."/>
+<TextBlock Text="poweriso" Visibility="Collapsed"/>
+<TextBlock Text="PowerSoftware.PowerISO" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Screen To Gif" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="This tool allows you to record a selected area of your screen live feed from your webcam or live drawings from a sketchboard. Afterwards you can edit and save the animation as a gif apng video psd or png images."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="This tool allows you to record a selected area of."/>
+<TextBlock Text="screentogif.portable" Visibility="Collapsed"/>
+<TextBlock Text="NickeManarin.ScreenToGif" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Figma" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The collaborative interface design tool Build better products as a team. Design prototype and gather feedback all in one place with Figma."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The collaborative interface design tool Build better products as a."/>
+<TextBlock Text="figma" Visibility="Collapsed"/>
+<TextBlock Text="Figma.Figma" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="EarTrumpet" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="EarTrumpet is a powerful volume control app for Windows."/>
+<TextBlock Text="eartrumpet" Visibility="Collapsed"/>
+<TextBlock Text="File-New-Project.EarTrumpet" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Visual Studio Code Insiders" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Microsoft Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications. Microsoft Visual Studio Code is free and available on your favorite platform  Linux macOS and Windows."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Microsoft Visual Studio Code is a code editor redefined and."/>
+<TextBlock Text="vscode-insiders" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.VisualStudioCode.Insiders" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="AyuGramDesktop" Tag="Communication" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text=" Desktop Telegram client with good customization and Ghost mode."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="ayugramdesktop" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Zettlr" Tag="Documents" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Zettlr is a supercharged markdown editor that combines many writing editor features and collect them in one application. It aims at speeding up your workflow and help you write without any interruptions."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Zettlr is a supercharged markdown editor that combines many writing."/>
+<TextBlock Text="zettlr" Visibility="Collapsed"/>
+<TextBlock Text="Zettlr.Zettlr" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="RustDesk" Tag="File Sharing" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="An opensource remote desktop software works out of the box no configuration required written in Rust."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="An opensource remote desktop software works out of the box."/>
+<TextBlock Text="rustdesk" Visibility="Collapsed"/>
+<TextBlock Text="RustDesk.RustDesk" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Ente Auth" Tag="Security" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Security"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="An endtoend encrypted cross platform and free app for storing your 2FA codes with cloud backups."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="An endtoend encrypted cross platform and free app for storing."/>
+<TextBlock Text="ente-auth" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="SQLiteStudio" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="SQLiteStudio is desktop application for browsing and editing SQLite database files. It is aimed for people who know what SQLite is or what relational databases are in general."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="SQLiteStudio is desktop application for browsing and editing SQLite database."/>
+<TextBlock Text="sqlitestudio" Visibility="Collapsed"/>
+<TextBlock Text="sqlitestudio.pl.SQLiteStudio" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="DuckStation" Tag="Portable" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Portable"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text=" Fast PlayStation 1 emulator for x8664/AArch32/AArch64/RV64."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="duckstation" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Authme - Simple 2FA" Tag="Security" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Security"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Simple 2FA desktop application."/>
+<TextBlock Text="authme.portable" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="SuperCopier2" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="SuperCopier2 SuperCopier replaces Windows explorer file copy and adds many features."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="SuperCopier2 SuperCopier replaces Windows explorer file copy and adds many."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="supercopier2" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Octopus Deploy" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Octopus Deploy is a Continuous Delivery platform for complex deployments across your entire stack. Deploy with ease to Kubernetes Linux Windows virtual machines Amazon Web Services Azure or Google Cloud. If the Octopus Tentacle agent SSH command line or a web service can speak to it Octopus can deploy to it."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Octopus Deploy is a Continuous Delivery platform for complex deployments."/>
+<TextBlock Text="octopusdeploy.tentacle" Visibility="Collapsed"/>
+<TextBlock Text="OctopusDeploy.Tentacle" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Kindle Previewer" Tag="Documents" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Kindle Previewer is a graphical user interface tool that emulates how books display across Kindle devices and apps. Kindle Previewer makes it easy for publishers to preview the layout of a book and make sure its text displays properly for any orientation or font size to ensure publishers produce and submit the highest quality Kindle books."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Kindle Previewer is a graphical user interface tool that emulates."/>
+<TextBlock Text="kindlepreviewer" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Interior Design 3D" Tag="Imaging" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Imaging"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Interior Design 3D is an expert program for home design and floor plan creation."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Interior Design 3D is an expert program for home design."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="AMSSoftware.InteriorDesign3D-e" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MeshLab" Tag="Imaging" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Imaging"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="MeshLab is an open source portable and extensible system for the processing and editing of unstructured large 3D triangular meshes. It is aimed to help the processing of the typical notsosmall unstructured models."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="MeshLab is an open source portable and extensible system for."/>
+<TextBlock Text="meshlab" Visibility="Collapsed"/>
+<TextBlock Text="CNRISTI.MeshLab" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="GitKraken" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Legendary Git GUI client for Windows Mac  Linux."/>
+<TextBlock Text="gitkraken" Visibility="Collapsed"/>
+<TextBlock Text="Axosoft.GitKraken" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Slack" Tag="Communication" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Slack is a collaboration hub for work no matter what work you do. Its a place where conversations happen decisions are made and information is always at your fingertips. With Slack your team is better connected."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Slack is a collaboration hub for work no matter what."/>
+<TextBlock Text="slack" Visibility="Collapsed"/>
+<TextBlock Text="SlackTechnologies.Slack" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Rocket Chat" Tag="Communication" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Rocket.Chat is the leading open source team chat software solution. Free unlimited and completely customizable with onpremises and SaaS cloud hosting."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Rocket.Chat is the leading open source team chat software solution.."/>
+<TextBlock Text="rocketchat" Visibility="Collapsed"/>
+<TextBlock Text="RocketChat.RocketChat" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="TeamSpeak" Tag="Communication" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Use crystal clear sound to communicate with your team mates crossplatform with militarygrade security. lagfree performance  unparalleled reliability and uptime."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Use crystal clear sound to communicate with your team mates."/>
+<TextBlock Text="teamspeak" Visibility="Collapsed"/>
+<TextBlock Text="TeamSpeakSystems.TeamSpeakClient" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="FFFTP" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="FFFTP is lightweight FTP client software. FFFTP has many useful feature such as directory mirroring character encdoging conversion Firewall and SOCK onetime password support and so on."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="FFFTP is lightweight FTP client software. FFFTP has many useful."/>
+<TextBlock Text="ffftp" Visibility="Collapsed"/>
+<TextBlock Text="Sayuri.FFFTP" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="SmartFTP" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="SmartFTP is a fast and reliable FTP FTPS SFTP HTTP Amazon S3 WebDAV Google Drive Google Cloud Storage Microsoft OneDrive Backblaze B2 Telnet Terminal client with lots of features and a modern user interface."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="SmartFTP is a fast and reliable FTP FTPS SFTP HTTP."/>
+<TextBlock Text="smartftp" Visibility="Collapsed"/>
+<TextBlock Text="SmartSoft.SmartFTP" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Rclone" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Rclone rsync for cloud storage is a commandline program to sync files and directories to and from different cloud storage providers."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Rclone rsync for cloud storage is a commandline program to."/>
+<TextBlock Text="rclone" Visibility="Collapsed"/>
+<TextBlock Text="Rclone.Rclone" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Cyberduck" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Cyberduck is a libre server and cloud storage browser for Mac and Windows with support for FTP SFTP WebDAV Amazon S3 OpenStack Swift Backblaze B2 Microsoft Azure  OneDrive Google Drive and Dropbox."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Cyberduck is a libre server and cloud storage browser for."/>
+<TextBlock Text="cyberduck" Visibility="Collapsed"/>
+<TextBlock Text="Iterate.Cyberduck" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Dolphin" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Dolphin is an emulator for two recent Nintendo video game consoles the GameCube and the Wii. It allows PC gamers to enjoy games for these two consoles in full HD 1080p with several enhancements compatibility with all PC controllers turbo speed networked multiplayer and even more."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Dolphin is an emulator for two recent Nintendo video game."/>
+<TextBlock Text="dolphin" Visibility="Collapsed"/>
+<TextBlock Text="DolphinEmulator.Dolphin" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="mGBA" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="mGBA is an opensource Game Boy Advance emulator."/>
+<TextBlock Text="mgba" Visibility="Collapsed"/>
+<TextBlock Text="JeffreyPfau.mGBA" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="EmulationStation" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A graphical and themeable emulator frontend that allows you to access all your favorite games in one place even without a keyboard."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A graphical and themeable emulator frontend that allows you to."/>
+<TextBlock Text="emulationstation" Visibility="Collapsed"/>
+<TextBlock Text="Emulationstation.Emulationstation" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="ScummVM" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="ScummVM is a program which allows you to run certain classic graphical adventure and roleplaying games provided you already have their data files. The clever part about this ScummVM just replaces the executables shipped with the games allowing you to play them on systems for which they were never designed."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="ScummVM is a program which allows you to run certain."/>
+<TextBlock Text="scummvm" Visibility="Collapsed"/>
+<TextBlock Text="ScummVM.ScummVM" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Project64" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Project64 is a free and opensource emulator for the Nintendo 64 and Nintendo 64 Disk Drive written in C currently for Windows."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Project64 is a free and opensource emulator for the Nintendo."/>
+<TextBlock Text="project64" Visibility="Collapsed"/>
+<TextBlock Text="Project64.Project64" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="DOSBox" Tag="Gaming" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="DOSBox is an emulator program which emulates an IBM PC compatible computer running a DOS operating system."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="DOSBox is an emulator program which emulates an IBM PC."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="DOSBox.DOSBox" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Kodu Game Lab" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Kodu Game Lab is a 3D game development environment that is designed to teach kids basic programming principles.."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Kodu Game Lab is a 3D game development environment that."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="InfiniteInstant.KoduGameLab" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="GDevelop" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A free and open source nocode game engine designed to be usable by everyone.."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="A free and open source nocode game engine designed to."/>
+<TextBlock Text="gdevelop" Visibility="Collapsed"/>
+<TextBlock Text="GDevelop.GDevelop" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MongoDB Tools" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The MongoDB Database Tools are a collection of commandline utilities for working with a MongoDB deployment."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The MongoDB Database Tools are a collection of commandline utilities."/>
+<TextBlock Text="mongodb-database-tools" Visibility="Collapsed"/>
+<TextBlock Text="MongoDB.DatabaseTools" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="DB Browser for SQLite" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="DB Browser for SQLite DB4S is a high quality visual open source tool to create design and edit database files compatible with SQLite."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="DB Browser for SQLite DB4S is a high quality visual."/>
+<TextBlock Text="sqlitebrowser" Visibility="Collapsed"/>
+<TextBlock Text="DBBrowserForSQLite.DBBrowserForSQLite" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MySQL" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The MySQL software delivers a very fast multithreaded multiuser and robust SQL Structured Query Language database server. MySQL Server is intended for missioncritical heavyload production systems as well as for embedding into massdeployed software."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The MySQL software delivers a very fast multithreaded multiuser and."/>
+<TextBlock Text="mysql" Visibility="Collapsed"/>
+<TextBlock Text="Oracle.MySQL" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MongoDB Compass" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Compass is a free interactive tool for querying optimizing and analyzing your MongoDB data."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Compass is a free interactive tool for querying optimizing and."/>
+<TextBlock Text="mongodb-compass" Visibility="Collapsed"/>
+<TextBlock Text="MongoDB.Compass.Full" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MongoDB Compass readonly" Tag="Development" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Compass is a free interactive tool for analyzing your MongoDB data."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Compass is a free interactive tool for analyzing your MongoDB."/>
+<TextBlock Text="mongodb-compass-readonly" Visibility="Collapsed"/>
+<TextBlock Text="MongoDB.Compass.Readonly" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="IDA free" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="DA is a Windows Linux or Mac OS X hosted multiprocessor disassembler and debugger that offers so many features."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="DA is a Windows Linux or Mac OS X hosted."/>
+<TextBlock Text="ida-free" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Binary Ninja" Tag="Utilities" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="reverse engineering tool. It supports a number of great features."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="binaryninja" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Resource Hacker" Tag="Portable" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Portable"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="freeware resource compiler  decompiler for Windows applications."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="resourcehacker" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ Redistributable for Visual Studio 2015-2022" Tag="Runtimes" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Runtime components that are required to run C applications that are built by using Visual Studio 2015/2022."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Runtime components that are required to run C applications that."/>
+<TextBlock Text="vcredist140" Visibility="Collapsed"/>
+<TextBlock Text="Microsoft.VCRedist.2015+.x86" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MPV" Tag="Media" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="a free open source and crossplatform media player."/>
+<TextBlock Text="mpvio" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="ZenBrowser" Tag="Web Browsers" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The modern privacyfocused performancedriven browser built on Firefox."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="Zen-Team.Zen-Browser" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Aegisub" Tag="Media Tools" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Aegisub is a free crossplatform open source tool for creating and modifying subtitles. Aegisub makes it quick and easy to time subtitles to audio and features many powerful tools for styling them including a builtin realtime video preview."/>
+<TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Aegisub is a free crossplatform open source tool for creating."/>
+<TextBlock Text="aegisub" Visibility="Collapsed"/>
+<TextBlock Text="Aegisub.Aegisub" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="AppGroup" Tag="Documents" IsChecked="false"   ToolTip="Install it again to update" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="App Group lets you organize customize and launch your apps."/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="na" Visibility="Collapsed"/>
+<TextBlock Text="iandiv-appgroup" Visibility="Collapsed"/>
 </StackPanel>
 </ListView>
 </TabItem>
@@ -11736,294 +9192,441 @@ ScrollViewer.CanContentScroll="True">
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Storage"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Clean temporary files that are not necessary."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="System File Checker" Tag="Fixer" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Fixer"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="sfc /scannow Use the System File Checker tool to repair missing or corrupted system files."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Restore All Windows Services to Default" Tag="Fixer" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Fixer"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="if you face issues with services try Restore All Windows Services to Default."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Super Privacy Disable all Privacy Settings" Tag="Privacy" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Disable WifiSense  Activity History  ActivityFeed All Telemetry  DataCollection  disable various telemetry and annoyances in Edge."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Clean Taskbar" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Disable the News and interests and People icon Show Search icon only for Windows 10/11."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Remove Microsoft Apps" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Uninstalls preinstalled Microsoft apps like Clipchamp People etc."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Remove Xbox Apps" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Uninstalls preinstalled Xbox apps."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Fix Stutter in games" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Fix Stutter in Games Disable GameBarPresenceWriter. Windows 10/11."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Enable the Ultimate Performance Power Plan" Tag="Power" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Power"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="This will add the Ultimate Performance power plan to enable it go to the power options."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Reset the TCP/IP Stack" Tag="Fixer" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Fixer"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="If you have an internet issue reset the network configuration."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Setup Auto login" Tag="Other" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Other"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Setup auto login Windows username."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable Xbox Services" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Disables all Xbox Services Game Mode and Optimizations for Windowed Games and fix stutter playing smooth."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable Start Menu Ads" Tag="Privacy" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Disable Start menu Ads and Settings."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable Windows Web Search" Tag="Privacy" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Disable web search in Windows by Modify the registry settings related to Windows Search for Windows 10 and 11."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Turn off background Apps" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Turn off background apps for Windows 10 and 11."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable suggestions on Start Menu" Tag="Privacy" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Disables suggestions on start menu for Windows 10 and 11."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Remove Folder Shortcuts From File Explorer" Tag="Other" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Other"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Remove Documents Videos Pictures Desktop. Shortcuts from File Explorer."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Optimize Windows Services" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Disable Print Spooler Fax Diagnostic Policy Downloaded Maps Manager Windows Error Reporting Service Remote Registry  Internet Connection Sharing Disables Telemetry and Data."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable Hibernate" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Hibernate is a powersaving mode in Microsoft Windows operating systems that allows the system to save the current state of your computer to the hard disk and then power down completely."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable OneDrive" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Disabling OneDrive for Windows 10 and 11."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Remove OneDrive" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Removes OneDrive from the system."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Remove Microsoft Edge (Not Recommended)" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Removes Edge from the system."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Activate Windows Old Photo Viewer" Tag="Classic" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Classic"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Enables the classic Windows Photo Viewer for Windows 10."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Restore Classic Context Menu Windows 11" Tag="Classic" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Classic"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Restore the old context menu for Windows 11."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Remove Copilot in Windows 11" Tag="Privacy" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Copilot in Windows provides centralized generative AI assistance to your users right from the Windows desktop Copilot in Windows appears as a side bar docked on the Windows desktop and is designed to help users get things done in Windows Copilot in Windows can perform common tasks in Windows like changing Windows settings which makes it different from the browserbased Copilot in Edge."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable Recall Snapshots in Windows 11 24H" Tag="Privacy" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Recall is an upcoming preview experience exclusive to Copilot PCs that will help you easily find and remember things youve seen using natural language."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Delete Thumbnail Cache" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="removing the stored image thumbnails on your computer These thumbnails are small versions of images used by the operating system to display image previews quickly Over time the cache can become large or corrupted causing slowdowns or display issues Deleting it can free up space.."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Old Volume Control in Windows 10" Tag="Classic" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Classic"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="The old volume control in Windows 10 refers to the classic audio mixer interface that was used in earlier versions of Windows before the modern volume control system was introduced.."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable Toggle Key Sounds" Tag="Classic" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Classic"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Toggle key sounds in Windows are audio cues that play when you press the Caps Lock Num Lock or Scroll Lock keys. These sounds help users identify when these keys are activated or deactivated."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable Homegroup" Tag="Privacy" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Disables HomeGroup  HomeGroup is a passwordprotected home networking service that lets you share your stuff with other PCs that are currently running and connected to your network."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Remove Home and Gallery from explorer in Windows 11" Tag="Privacy" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Removes the Home and Gallery from explorer and sets This PC as default."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable Wifi Sense" Tag="Protection" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Protection"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Wifi Sense is a service that phones home all nearby scanned wifi networks and your location."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable Autoplay and Autorun" Tag="Protection" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Protection"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Disabling autoplay in Windows prevents the automatic launch of media or applications when a removable device such as a USB drive or CD is connected to the computer."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable SMB Server" Tag="Protection" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Protection"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="SMB Server enables file and printer sharing over a network allowing access to resources on remote computers as if they were local."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Set current network profile to public" Tag="" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content=""/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Deny file sharing device discovery etc."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Enable F8 boot menu options" Tag="BIOS" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="BIOS"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Enable F8 boot menu options."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable display and sleep mode timeouts" Tag="Power" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Power"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="If you frequently use your device disable this."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Set Wallpaper desktop Quality to 100%" Tag="Personalization" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Personalization"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Its Microsoft what should I say."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable Windows Transparency" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Its Microsoft what should I say."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable scheduled defragmentation task" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Defragmentation in Windows optimizes disk performance by reorganizing fragmented data improving access times and system efficiency."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Enable NET 3.5" Tag="Classic" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Classic"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Some old games and applications require .NET Framework 3.5."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Super Performance" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="All Windows effects disabled and optimized for windowed games. You may need to log out and back in for changes to take effect. You can reset to default settings in Settings Tab."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Remove Widgets from Taskbar in Windows 11" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Widgets are one of the new user interface elements in Windows 11 They are used to display dynamic information on the desktop including weather news and other information from various sources."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Unknown" Tag="Privacy" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Rename Computer name and Username to Unknown. The changes will take effect after you restart the computer."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Fix Arabic encoding" Tag="Fixer" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Fixer"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Fix issues related to strange symbols appearing in Arabic text."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Restore Default File Type Associations" Tag="Fixer" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Fixer"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Restoring default apps for file type associations resets Windows settings allowing the system to select the appropriate programs by default."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Limit Defender CPU Usage" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Limits Defender CPU maximum usage at 25 instead of default 50."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable HAGS" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Disables HardwareAccelerated GPU Scheduling which may improve performance."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable Fullscreen Optimizations" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Disables Fullscreen Optimizations which may improve performance."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>
 </ListView>
 </TabItem>
@@ -12056,84 +9659,126 @@ ScrollViewer.CanContentScroll="True">
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Protection"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Show file extensions in Windows displays the suffix at the end of file names like .txt .jpg .exe indicating file types and helping users identify which programs can open them simplifying file management and differentiation."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Show Super Hidden" Tag=""  Style="{StaticResource ToggleSwitchStyle}" Name="ShowSuperHidden"  FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Protection"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Show Super Hidden displays files and folders in Windows that are hidden beyond standard hidden files often system files to prevent accidental changes."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Dark Mode" Tag=""  Style="{StaticResource ToggleSwitchStyle}" Name="DarkMode"  FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Personalize"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Dark Mode is a setting that changes the screen to darker colors reducing eye strain and saving battery life on OLED screens."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NumLook" Tag=""  Style="{StaticResource ToggleSwitchStyle}" Name="NumLook"  FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Protection"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Toggle the Num Lock key state when your computer starts."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Sticky Keys" Tag=""  Style="{StaticResource ToggleSwitchStyle}" Name="StickyKeys"  FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Accessibility"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Sticky keys is an accessibility feature of some graphical user interfaces which assists users who have physical disabilities or help users reduce repetitive strain injury."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Mouse Acceleration" Tag=""  Style="{StaticResource ToggleSwitchStyle}" Name="MouseAcceleration"  FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Accessibility"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Cursor movement is affected by the speed of your physical mouse movements."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="End Task On Taskbar Windows 11" Tag=""  Style="{StaticResource ToggleSwitchStyle}" Name="EndTaskOnTaskbarWindows11"  FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Accessibility"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Option to end task when right clicking a program in the taskbar."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Clear Page File At Shutdown" Tag=""  Style="{StaticResource ToggleSwitchStyle}" Name="ClearPageFileAtShutdown"  FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Storage "/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Page file in Windows removes sensitive data stored in virtual memory when the system shuts down. This enhances security by ensuring that the data in the page file which may contain passwords encryption keys or other sensitive information is wiped out and cannot be accessed after rebooting. However it can increase shutdown time."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Auto End Tasks" Tag=""  Style="{StaticResource ToggleSwitchStyle}" Name="AutoEndTasks"  FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Automatically end tasks that are not responding."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Performance Options" Tag=""  Style="{StaticResource ToggleSwitchStyle}" Name="PerformanceOptions"  FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Adjust for best performance."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Launch To This PC" Tag=""  Style="{StaticResource ToggleSwitchStyle}" Name="LaunchToThisPC"  FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Accessibility"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Changing the default opening location of File Explorer in Windows allows it to open directly to This PC instead of Quick Access making it easier to quickly access main drives and system folders."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable Automatic Driver Installation" Tag=""  Style="{StaticResource ToggleSwitchStyle}" Name="DisableAutomaticDriverInstallation"  FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Stopping Windows from automatically downloading and installing drivers."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Always show icons never Thumbnail" Tag=""  Style="{StaticResource ToggleSwitchStyle}" Name="AlwaysshowiconsneverThumbnail"  FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Show icons in the file explorer instead of thumbnails."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Core Isolation Memory Integrity" Tag=""  Style="{StaticResource ToggleSwitchStyle}" Name="CoreIsolationMemoryIntegrity"  FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 <TextBlock Width="666" Background="Transparent" Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" TextWrapping="Wrap" Text="Core Isolation Memory Integrity."/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>
 </ListView>
 </TabItem>
@@ -12163,7 +9808,7 @@ Name="applyBtn"
 Content="{Binding Apply, TargetNullValue=Apply}"
 FontSize="16"
 Background="Transparent"
-Visibility="Hidden"
+Visibility="Collapsed"
 HorizontalAlignment="Center"
 VerticalAlignment="Center"
 HorizontalContentAlignment="Center"
@@ -12360,7 +10005,6 @@ TextWrapping="Wrap" HorizontalAlignment="Center" Foreground="{DynamicResource Te
 <StackPanel Margin="20,0,0,0">
 <TextBlock Text="emadadel4" Margin="1" Foreground="{DynamicResource TextColorSecondaryColor2}" />
 <TextBlock Text="yousefmhmd" Margin="1" Foreground="{DynamicResource TextColorSecondaryColor2}" />
-<TextBlock Text="itt-co" Margin="1" Foreground="{DynamicResource TextColorSecondaryColor2}" />
 </StackPanel>
 </ScrollViewer>
 </StackPanel>
@@ -12393,7 +10037,10 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '04/01/2025'.Trim()
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
@@ -12402,11 +10049,8 @@ Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
 $daysElapsed = (Get-Date) - $storedDate
