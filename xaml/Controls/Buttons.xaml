@@ -27,7 +27,7 @@
             Content="{Binding Apply, TargetNullValue=Apply}"
             FontSize="16" 
             Background="Transparent"
-            Visibility="Hidden"
+            Visibility="Collapsed"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             HorizontalContentAlignment="Center"
