@@ -70,9 +70,9 @@ function FilterByCat {
     # Refresh the view
     $collectionView.Refresh()
 
-    # Scroll to top if items exist
-    $listView = $itt['window'].FindName($itt.CurrentList)
-    if ($listView.Items.Count -gt 0) {
-        $itt.AppsListView.ScrollIntoView($listView.Items[0])
-    }
+    # # Scroll to top if items exist
+    # $listView = $itt['window'].FindName($itt.CurrentList)
+    # if ($listView.Items.Count -gt 0) {
+    #     $itt.AppsListView.ScrollIntoView($listView.Items[0])
+    # }
 }
