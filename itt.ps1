@@ -3552,6 +3552,7 @@ Write-Host "  ██║  ██║ Emad ██║    https://github.com/emadadel
 Write-Host "  ██║  ██║ Adel ██║    "
 Write-Host "  ██║  ██║      ██║    "
 Write-Host "  ╚═╝  ╚═╝      ╚═╝    "
+UsageCount
 Write-Host "`n  ITT has been used $(GetCount) times worldwide.`n" -ForegroundColor White
 }
 LOG
