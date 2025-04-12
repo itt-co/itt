@@ -73,33 +73,6 @@ function Startup {
             PlayPreloadedPlaylist
         }
  
-        function Quotes {
-            function Get-Quotes {
-                (Invoke-RestMethod "https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Database/Quotes.json").Quotes | Sort-Object { Get-Random }
-            }
-            
-            function Show-Quote($text, $icon) {
-                $itt.Quotes.Dispatcher.Invoke([Action] { 
-                        $itt.QuoteIcon.Text = $icon
-                        $itt.Quotes.Text = $text
-                    })
-            }
-        
-            Show-Quote $itt.database.locales.Controls.$($itt.Language).welcome "☕"
-            Start-Sleep 20
-            Show-Quote "Can you uncover the hidden secret? Dive into the source code, be the first to discover the feature, and integrate it into the tool" "👁‍🗨"
-            Start-Sleep 18
-            $iconMap = @{quote = "💬"; info = "📢"; music = "🎵"; Cautton = "⚠"; default = "☕" }
-            do {
-                foreach ($q in Get-Quotes) {
-                    $icon = if ($iconMap.ContainsKey($q.type)) { $iconMap[$q.type] } else { $iconMap.default }
-                    $text = "`“$($q.text)`”" + $(if ($q.name) { " ― $($q.name)" } else { "" })
-                    Show-Quote $text $icon
-                    Start-Sleep 20
-                }
-            } while ($true)
-        }
- 
         function UsageCount {
 
             # Fetch current count from Firebase as a string
@@ -123,7 +96,7 @@ function Startup {
             Write-Host "  ██║  ██║ Adel ██║    "
             Write-Host "  ██║  ██║      ██║    "
             Write-Host "  ╚═╝  ╚═╝      ╚═╝    "
-            UsageCount
+            #UsageCount
             Write-Host "`n  ITT has been used $(GetCount) times worldwide.`n" -ForegroundColor White
         }
         # debug start
@@ -131,6 +104,10 @@ function Startup {
         # debug end
         LOG
         PlayMusic
-        Quotes
+        Statusbar -Text $itt.database.locales.Controls.$($itt.Language).welcome  -icon "☕"
+        Start-Sleep 20
+        Statusbar -Text "Can you uncover the hidden secret? Dive into the source code, be the first to discover the feature, and integrate it into the tool" -icon "👁‍🗨"
+        Start-Sleep 18
+        Statusbar -Mode "Quote"
     }
 }
