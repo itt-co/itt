@@ -1,27 +1,18 @@
 [
   {
+    "Name": "Brave",
+    "Description": "A privacy focused web browser that blocks ads and trackers",
+    "winget": "Brave.Brave",
+    "choco": "brave",
+    "itt": "na",
+    "category": "Web Browsers",
+    "check": "false"
+  },
+  {
     "Name": "Mozilla Firefox",
     "Description": "A widely-used open-source web browser known for its speed, privacy",
     "winget": "Mozilla.Firefox",
     "choco": "firefox",
-    "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
-  },
-  {
-    "Name": "Mozilla Firefox ESR",
-    "Description": "A widely-used open-source web browser known for its speed, privacy",
-    "winget": "Mozilla.Firefox.ESR",
-    "choco": "firefoxesr",
-    "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
-  },
-  {
-    "Name": "Thorium SSE3",
-    "Description": "A web browser designed for smooth and secure browsing experiences",
-    "winget": "Alex313031.Thorium",
-    "choco": "thorium --params /SSE3",
     "itt": "na",
     "category": "Web Browsers",
     "check": "false"
@@ -36,15 +27,6 @@
     "check": "false"
   },
   {
-    "Name": "Microsoft Edge",
-    "Description": "Microsoft's web browser built for fast and secure internet surfing",
-    "winget": "Microsoft.Edge",
-    "choco": "microsoft-edge",
-    "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
-  },
-  {
     "Name": "Google Chrome",
     "Description": "A popular web browser known for its speed, simplicity, and",
     "winget": "Google.Chrome",
@@ -54,19 +36,37 @@
     "check": "false"
   },
   {
-    "Name": "Chromium",
-    "Description": "An open-source web browser project that serves as the foundation",
-    "winget": "eloston.ungoogled-chromium",
-    "choco": "chromium",
+    "Name": "Thorium SSE3",
+    "Description": "A web browser designed for smooth and secure browsing experiences",
+    "winget": "Alex313031.Thorium",
+    "choco": "thorium --params /SSE3",
     "itt": "na",
     "category": "Web Browsers",
     "check": "false"
   },
   {
-    "Name": "Brave",
-    "Description": "A privacy focused web browser that blocks ads and trackers",
-    "winget": "Brave.Brave",
-    "choco": "brave",
+    "Name": "Mozilla Firefox ESR",
+    "Description": "A widely-used open-source web browser known for its speed, privacy",
+    "winget": "Mozilla.Firefox.ESR",
+    "choco": "firefoxesr",
+    "itt": "na",
+    "category": "Web Browsers",
+    "check": "false"
+  },
+  {
+    "Name": "Microsoft Edge",
+    "Description": "Microsoft's web browser built for fast and secure internet surfing",
+    "winget": "Microsoft.Edge",
+    "choco": "microsoft-edge",
+    "itt": "na",
+    "category": "Web Browsers",
+    "check": "false"
+  },
+  {
+    "Name": "Chromium",
+    "Description": "An open-source web browser project that serves as the foundation",
+    "winget": "eloston.ungoogled-chromium",
+    "choco": "chromium",
     "itt": "na",
     "category": "Web Browsers",
     "check": "false"
