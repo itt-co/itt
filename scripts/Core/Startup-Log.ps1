@@ -105,8 +105,8 @@ function Startup {
         LOG
         PlayMusic
         Statusbar -Text $itt.database.locales.Controls.$($itt.Language).welcome  -icon "☕"
-        Start-Sleep 20
-        Statusbar -Text "Can you uncover the hidden secret? Dive into the source code, be the first to discover the feature, and integrate it into the tool" -icon "👁‍🗨"
+        Start-Sleep 18
+        Statusbar -Text $itt.database.locales.Controls.$($itt.Language).easter_egg -icon "👁‍🗨"
         Start-Sleep 18
         Statusbar -Mode "Quote"
     }
