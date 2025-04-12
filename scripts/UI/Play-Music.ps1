@@ -2,11 +2,7 @@ function Manage-Music {
 
     <#
         .SYNOPSIS
-        Manages music playback, volume, and related resources in the Install Tweaks Tool.
-
-        .DESCRIPTION
-        This function allows you to control the music volume, stop music playback, and clean up resources.
-        It supports setting the volume, stopping music, and stopping all runspaces and processes.
+        Manages music playback, volume
     #>
 
     param([string]$action, [int]$volume = 0)
