@@ -40,29 +40,16 @@
       <!--End Apply Button-->
     </Grid>
   <!-- Buttons -->
-  <!-- Quote Text & Icon -->
-    <Grid Column="0" Background="Transparent">
-      <StackPanel Orientation="Horizontal">
-        <TextBlock
-          Text="✊"
-          Name="QuoteIcon"
-          Margin="15,0,0,0"
-          FontSize="14"
-          TextAlignment="Center"
-          HorizontalAlignment="Center"
-          VerticalAlignment="Center"
-        />
-        <TextBlock Name="quotes"
+  <!-- Statusbar -->
+    <Grid Column="0">
+        <TextBlock Name="statusbar"
           Text="#StandWithPalestine"
           HorizontalAlignment="Left"
           VerticalAlignment="Center" 
           TextWrapping="Wrap"
-          Padding="8"
-          FontWeight="SemiBold"
-          FlowDirection="LeftToRight"
-          Width="611"
+          Padding="10 0 0 0"
+          Width="auto"
         />
-      </StackPanel>
     </Grid>
-  <!-- Quote Text & Icon -->
+  <!-- Statusbar -->
 </Grid>
