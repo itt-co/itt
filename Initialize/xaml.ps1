@@ -189,6 +189,13 @@ $itt.applyText = $itt["window"].FindName("applyText")
 $itt.applyIcon = $itt["window"].FindName("applyIcon")
 $itt.QuoteIcon = $itt["window"].FindName("QuoteIcon")
 
+
+# Cacheing Applications & Tweaks for quick respnse
+$tweaksDict = @{}
+foreach ($tweak in $itt.database.Tweaks) {
+    $tweaksDict[$tweak.Name] = $tweak
+}
+
 #===========================================================================
 #endregion Initialize WPF Controls
 #===========================================================================
