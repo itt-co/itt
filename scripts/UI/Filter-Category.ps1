@@ -3,8 +3,6 @@ function Search {
     <#
         .SYNOPSIS
         Filters items in the current list view based on the search input.
-        .DESCRIPTION
-        The `Search` function retrieves the text from the search input, converts it to lowercase, and removes any non-alphanumeric characters. It then applies a filter to the items in the currently displayed list view based on the search input. The filter checks if the search input matches any checkbox content within stack panels in the list view.
     #>
 
     $filter = $itt.searchInput.Text.ToLower() -replace '[^\p{L}\p{N}]', ''
