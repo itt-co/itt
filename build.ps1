@@ -172,19 +172,11 @@ function GenerateCheckboxes {
         # Build the CheckBox and its container
         $Checkboxes += @"
         <StackPanel Orientation="Vertical" Margin="10">
-        
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="$Content" $Tag $IsChecked $Toggle $Name $Tips FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="$CleanedCategory"/>
             </StackPanel>
-
-            <TextBlock Width="666"
-            Background="Transparent"
-            Margin="8" Foreground="{DynamicResource TextColorSecondaryColor2}"
-            FontSize="15"
-            TextWrapping="Wrap"
-            Text="$CleanedDescription"/>
-
+            <TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="$CleanedDescription"/>
             <TextBlock Text="$ChocoPkg" Visibility="Collapsed"/>
             <TextBlock Text="$WingetPkg" Visibility="Collapsed"/>
             <TextBlock Text="$ITTPkg" Visibility="Collapsed"/>
@@ -192,8 +184,6 @@ function GenerateCheckboxes {
 "@
     }
     return $Checkboxes
-
-
 }
 # Process each JSON file in the specified directory
 function Sync-JsonFiles {
