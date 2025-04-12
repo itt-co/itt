@@ -1,4 +1,9 @@
 function CreateRestorePoint {
+
+    <#
+        .SYNOPSIS
+        Create Restore Point
+    #>
     
     try {
         
