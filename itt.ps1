@@ -9828,7 +9828,7 @@ Margin="20">
 </Grid>
 <Grid Column="0">
 <TextBlock Name="statusbar"
-Text="#StandWithPalestine"
+Text="✊ #StandWithPalestine"
 HorizontalAlignment="Left"
 VerticalAlignment="Center"
 TextWrapping="Wrap"
