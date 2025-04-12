@@ -3552,7 +3552,6 @@ Write-Host "  ██║  ██║ Emad ██║    https://github.com/emadadel
 Write-Host "  ██║  ██║ Adel ██║    "
 Write-Host "  ██║  ██║      ██║    "
 Write-Host "  ╚═╝  ╚═╝      ╚═╝    "
-UsageCount
 Write-Host "`n  ITT has been used $(GetCount) times worldwide.`n" -ForegroundColor White
 }
 LOG
@@ -10300,7 +10299,7 @@ $functions = @(
 'Disable-Service', 'Uninstall-AppxPackage', 'Finish', 'Message',
 'Notify', 'UpdateUI', 'Install-ITTAChoco',
 'ExecuteCommand', 'Set-Registry', 'Set-Taskbar',
-'Refresh-Explorer', 'Remove-ScheduledTasks','CreateRestorePoint','Set-Taskbar'
+'Refresh-Explorer', 'Remove-ScheduledTasks','CreateRestorePoint','Statusbar'
 )
 foreach ($func in $functions) {
 $command = Get-Command $func -ErrorAction SilentlyContinue
