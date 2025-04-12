@@ -4353,7 +4353,7 @@ $itt.Statusbar.Text = "$Icon $Text"
 switch ($Mode) {
 Default {UpdateText -Text $text -Icon $icon}
 "Quote" {
-$q = (Invoke-RestMethod "C:\Users\Unknown\Documents\GitHub\itt\static\Database\Quotes.json").Quotes | Sort-Object { Get-Random }
+$q = (Invoke-RestMethod "https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Database/Quotes.json").Quotes | Sort-Object { Get-Random }
 $iconMap = @{quote = "💬"; info = "📢"; music = "🎵"; Cautton = "⚠"; default = "☕" }
 $text = "`“$($q.text)`”" + $(if ($q.name) { " ― $($q.name)" } else { "" })
 do {
