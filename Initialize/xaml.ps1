@@ -12,7 +12,7 @@ $functions = @(
     'Disable-Service', 'Uninstall-AppxPackage', 'Finish', 'Message',
     'Notify', 'UpdateUI', 'Install-ITTAChoco',
     'ExecuteCommand', 'Set-Registry', 'Set-Taskbar',
-    'Refresh-Explorer', 'Remove-ScheduledTasks','CreateRestorePoint'
+    'Refresh-Explorer', 'Remove-ScheduledTasks','CreateRestorePoint','Statusbar'
 )
 
 foreach ($func in $functions) {
@@ -179,7 +179,7 @@ $itt.SettingsListView = $itt["window"].FindName("SettingsList")
 
 # Buttons and Inputs
 $itt.Description = $itt["window"].FindName("description")
-$itt.Quotes = $itt["window"].FindName("quotes")
+$itt.Statusbar = $itt["window"].FindName("statusbar")
 $itt.InstallBtn = $itt["window"].FindName("installBtn")
 $itt.ApplyBtn = $itt["window"].FindName("applyBtn")
 $itt.SearchInput = $itt["window"].FindName("searchInput")
@@ -188,18 +188,6 @@ $itt.installIcon = $itt["window"].FindName("installIcon")
 $itt.applyText = $itt["window"].FindName("applyText")
 $itt.applyIcon = $itt["window"].FindName("applyIcon")
 $itt.QuoteIcon = $itt["window"].FindName("QuoteIcon")
-
-# Cacheing Applications & Tweaks for quick respnse
-$appsDict = @{}
-$tweaksDict = @{}
-
-foreach ($app in $itt.database.Applications) {
-    $appsDict[$app.Name] = $app
-}
-
-foreach ($tweak in $itt.database.Tweaks) {
-    $tweaksDict[$tweak.Name] = $tweak
-}
 
 #===========================================================================
 #endregion Initialize WPF Controls
