@@ -1,4 +1,10 @@
 function Add-Log {
+
+    <#
+        .SYNOPSIS
+        Custom Write-Host Display Text with icon and name
+    #>
+
     param ([string]$Message, [string]$Level = "INFO")
 
     $level = $Level.ToUpper()
