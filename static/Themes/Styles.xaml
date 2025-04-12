@@ -101,12 +101,12 @@
                 <ControlTemplate TargetType="CheckBox">
                     <StackPanel Orientation="Horizontal">
                         <!-- Checkbox box -->
-                        <Border Name="CheckRadius" Width="17" Height="17" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="2" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                        <Border Name="CheckRadius" Width="15" Height="15" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="2" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
                             <!-- Checkmark arrow inside the box -->
                             <Path x:Name="CheckMark" Width="13" Height="13" Stretch="Uniform" Stroke="WhiteSmoke" StrokeThickness="3.2" Data="M 0 5 L 4 8 L 10 0" Visibility="Collapsed"/>
                         </Border>
                         <!-- Content beside the checkbox -->
-                        <ContentPresenter Margin="8,0,0,0" VerticalAlignment="Center"/>
+                        <ContentPresenter Margin="8 0 0 0" VerticalAlignment="Center"/>
                     </StackPanel>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
@@ -510,29 +510,41 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="CheckBox">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" Margin="8"/>
-                        <Grid>
-                            <Border Name="Label" Width="40"
-                                    Height="20"
-                                    Background="{DynamicResource Label}"
-                                    CornerRadius="10"
-                                    Margin="1"
-                            />
-                            <Border Name="ToggleSwitchButton"
-                                    Width="12"
-                                    Height="12"
-                                    Background="Black"
-                                    CornerRadius="50"
-                                    Margin="5"
+                    <Grid VerticalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Label (Content) -->
+                        <TextBlock Grid.Column="0"
+                                Text="{TemplateBinding Content}"
+                                VerticalAlignment="Center"
+                                Margin="0,0,10,0"/>
+
+                        <!-- Toggle Switch -->
+                        <Grid Grid.Column="1" Width="40" Height="20">
+                            <Border x:Name="Track"
+                                    Background="{DynamicResource SecondaryPrimaryBackgroundColor}"
+                                    BorderThickness="1.2"
+                                    BorderBrush="{DynamicResource ToggleSwitchBorderBrush}"
+                                    CornerRadius="10"/>
+                            <Ellipse x:Name="Thumb"
+                                    Width="10" Height="10"
+                                    Fill="Black"
                                     HorizontalAlignment="Left"
-                            />
+                                    VerticalAlignment="Center"
+                                    Margin="2,0,0,0"/>
                         </Grid>
-                        <TextBlock>
+
+                        <!-- State Text -->
+                        <TextBlock Grid.Column="2"
+                                VerticalAlignment="Center"
+                                Margin="10,0,0,0">
                             <TextBlock.Style>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="Text" Value="Off"/>
-                                    <Setter Property="Margin" Value="7"/>
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsChecked}" Value="True">
                                             <Setter Property="Text" Value="On"/>
@@ -541,46 +553,47 @@
                                 </Style>
                             </TextBlock.Style>
                         </TextBlock>
-                    </StackPanel>
+                    </Grid>
+
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsChecked" Value="false">
-                            <Trigger.ExitActions>
-                                <RemoveStoryboard BeginStoryboardName="WPFToggleSwitchLeft" />
-                                <BeginStoryboard x:Name="WPFToggleSwitchRight">
+                        <!-- Trigger for Checked State (On) -->
+                        <Trigger Property="IsChecked" Value="True">
+                            <Trigger.EnterActions>
+                                <RemoveStoryboard BeginStoryboardName="ToggleSwitchLeft" />
+                                <BeginStoryboard x:Name="ToggleSwitchRight">
                                     <Storyboard>
-                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
-                                                Storyboard.TargetName="ToggleSwitchButton"
-                                                Duration="0:0:0:0.10"
-                                                From="0,0,0,0"
-                                                To="22,0,0,0">
-                                        </ThicknessAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="Thumb"
+                                                            Storyboard.TargetProperty="Margin"
+                                                            To="22,0,0,0"
+                                                            Duration="0:0:0.1" />
                                     </Storyboard>
                                 </BeginStoryboard>
-                            </Trigger.ExitActions>
-                            <Setter TargetName="ToggleSwitchButton" Property="Background" Value="{DynamicResource ToggleSwitchDisableColor}"/>
-                            <Setter TargetName="Label" Property="BorderBrush" Value="{DynamicResource ToggleSwitchBorderBrush}"/>
-                            <Setter TargetName="Label" Property="BorderThickness" Value="1"/>
+                            </Trigger.EnterActions>
+                            <Setter TargetName="Thumb" Property="Fill" Value="{DynamicResource ToggleSwitchEnableColor}" />
+                            <Setter TargetName="Track" Property="Background" Value="{DynamicResource HighlightColor}" />
+                            <Setter TargetName="Track" Property="BorderBrush" Value="{x:Null}" />
                         </Trigger>
-                        <Trigger Property="IsChecked" Value="true">
-                            <Trigger.ExitActions>
-                                <RemoveStoryboard BeginStoryboardName="WPFToggleSwitchRight" />
-                                <BeginStoryboard x:Name="WPFToggleSwitchLeft">
+
+                        <!-- Trigger for Unchecked State (Off) -->
+                        <Trigger Property="IsChecked" Value="False">
+                            <Trigger.EnterActions>
+                                <RemoveStoryboard BeginStoryboardName="ToggleSwitchRight" />
+                                <BeginStoryboard x:Name="ToggleSwitchLeft">
                                     <Storyboard>
-                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
-                                                Storyboard.TargetName="ToggleSwitchButton"
-                                                Duration="0:0:0:0.10"
-                                                From="22,0,0,0"
-                                                To="5,0,0,0">
-                                        </ThicknessAnimation>
+                                        <ThicknessAnimation Storyboard.TargetName="Thumb"
+                                                            Storyboard.TargetProperty="Margin"
+                                                            To="5,0,0,0"
+                                                            Duration="0:0:0.1" />
                                     </Storyboard>
                                 </BeginStoryboard>
-                            </Trigger.ExitActions>
-                            <Setter TargetName="ToggleSwitchButton" Property="Background" Value="{DynamicResource ToggleSwitchEnableColor}"/>
-                            <Setter TargetName="Label" Property="Background" Value="{DynamicResource HighlightColor}"/>
+                            </Trigger.EnterActions>
+                            <Setter TargetName="Thumb" Property="Fill" Value="{DynamicResource ToggleSwitchDisableColor}" />
                         </Trigger>
+
+                        <!-- Mouse Over Effect -->
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="ToggleSwitchButton" Property="Width" Value="13"/>
-                            <Setter TargetName="ToggleSwitchButton" Property="Height" Value="13"/>
+                            <Setter TargetName="Thumb" Property="Width" Value="11" />
+                            <Setter TargetName="Thumb" Property="Height" Value="11" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
