@@ -28,7 +28,7 @@ function Install-ITTAChoco {
             # Remove-Item -Path $installerPath -Force
         }
         catch {
-            Add-Log -Message "Failed to update ITT Package manager." -Level "error"
+            Add-Log -Message "$_" -Level "error"
         }
     }
 }
