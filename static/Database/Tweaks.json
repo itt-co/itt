@@ -30,6 +30,34 @@
     "Registry": []
   },
   {
+    "Name": "Restore Classic Context Menu Windows 11",
+    "Description": "Restore the old context menu for Windows 11",
+    "Category": "Classic",
+    "Check": "false",
+    "Refresh": "false",
+    "Script": [],
+    "UndoScript": [],
+    "ScheduledTask": [],
+    "AppxPackage": [],
+    "Services": [],
+    "Registry": [
+      {
+        "Path": "HKCU:\\Software\\Classes\\CLSID\\",
+        "Name": "{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}",
+        "Type": "String",
+        "Value": "",
+        "defaultValue": ""
+      },
+      {
+        "Path": "HKCU:\\Software\\Classes\\CLSID\\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\\InprocServer32",
+        "Name": "",
+        "Type": "String",
+        "Value": "",
+        "defaultValue": "default"
+      }
+    ]
+  },
+  {
     "Name": "Restore All Windows Services to Default",
     "Description": "if you face issues with services, try Restore All Windows Services to Default",
     "Category": "Fixer",
@@ -1133,7 +1161,7 @@
   },
   {
     "Name": "Clean Taskbar",
-    "Description": "Disable the (News and interests) and (People icon) Show Search icon only for Windows 10/11",
+    "Description": "Disable icons",
     "Category": "Performance",
     "Check": "false",
     "Refresh": "true",
@@ -1398,7 +1426,7 @@
   },
   {
     "Name": "Disable Xbox Services",
-    "Description": "Disables all Xbox Services Game Mode and Optimizations for Windowed Games and fix stutter playing smooth",
+    "Description": "Disables all Xbox Services Game Mode",
     "Category": "Performance",
     "Check": "false",
     "Refresh": "false",
@@ -1590,7 +1618,7 @@
   },
   {
     "Name": "Disable Start Menu Ads",
-    "Description": "Disable Start menu Ads and Settings",
+    "Description": "Start menu Ads and Settings",
     "Category": "Privacy",
     "Check": "false",
     "Refresh": "true",
@@ -1632,7 +1660,7 @@
   },
   {
     "Name": "Disable Windows Web Search",
-    "Description": "Disable web search in Windows by Modify the registry settings related to Windows Search for Windows 10 and 11",
+    "Description": "Web results in search",
     "Category": "Privacy",
     "Check": "false",
     "Refresh": "true",
@@ -1653,7 +1681,7 @@
   },
   {
     "Name": "Turn off background Apps",
-    "Description": "Turn off background apps for Windows 10 and 11",
+    "Description": "Turn off background apps",
     "Category": "Performance",
     "Check": "false",
     "Refresh": "false",
@@ -1681,7 +1709,7 @@
   },
   {
     "Name": "Disable suggestions on Start Menu",
-    "Description": "Disables suggestions on start menu for Windows 10 and 11",
+    "Description": "Suggestions on start menu",
     "Category": "Privacy",
     "Check": "false",
     "Refresh": "false",
@@ -1702,7 +1730,7 @@
   },
   {
     "Name": "Remove Folder Shortcuts From File Explorer",
-    "Description": "Remove Documents, Videos, Pictures, Desktop. Shortcuts from File Explorer",
+    "Description": "Documents, Videos, Pictures, Desktop. Shortcuts from File Explorer",
     "Category": "Other",
     "Check": "false",
     "Refresh": "false",
@@ -1800,7 +1828,7 @@
   },
   {
     "Name": "Optimize Windows Services",
-    "Description": "Disable (Print Spooler), (Fax), (Diagnostic Policy), (Downloaded Maps Manager), (Windows Error Reporting Service), (Remote Registry) , (Internet Connection Sharing), (Disables Telemetry and Data)",
+    "Description": "(Print Spooler), (Fax), (Diagnostic Policy), (Downloaded Maps Manager), (Windows Error Reporting Service), (Remote Registry) , (Internet Connection Sharing), (Disables Telemetry and Data)",
     "Category": "Performance",
     "Check": "false",
     "Refresh": "false",
@@ -1859,7 +1887,7 @@
   },
   {
     "Name": "Disable Hibernate",
-    "Description": "Hibernate is a power-saving mode in Microsoft Windows operating systems that allows the system to save the current state of your computer",
+    "Description": "Allows the system to save the current state of your computer",
     "Category": "Performance",
     "Check": "false",
     "Refresh": "false",
@@ -1891,7 +1919,7 @@
   },
   {
     "Name": "Disable OneDrive",
-    "Description": "Disabling OneDrive for Windows 10 and 11",
+    "Description": "Disabling OneDrive",
     "Category": "Performance",
     "Check": "false",
     "Refresh": "false",
@@ -1949,8 +1977,8 @@
     "Registry": []
   },
   {
-    "Name": "Activate Windows Old Photo Viewer",
-    "Description": "Enables the classic Windows Photo Viewer for Windows 10",
+    "Name": "Activate Windows Classic Photo Viewer",
+    "Description": "Classic Photo Viewer",
     "Category": "Classic",
     "Check": "false",
     "Refresh": "false",
@@ -2012,36 +2040,8 @@
     ]
   },
   {
-    "Name": "Restore Classic Context Menu Windows 11",
-    "Description": "Restore the old context menu for Windows 11",
-    "Category": "Classic",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKCU:\\Software\\Classes\\CLSID\\",
-        "Name": "{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}",
-        "Type": "String",
-        "Value": "",
-        "defaultValue": ""
-      },
-      {
-        "Path": "HKCU:\\Software\\Classes\\CLSID\\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\\InprocServer32",
-        "Name": "",
-        "Type": "String",
-        "Value": "",
-        "defaultValue": "default"
-      }
-    ]
-  },
-  {
     "Name": "Remove Copilot in Windows 11",
-    "Description": "Copilot in Windows provides centralized generative AI assistance",
+    "Description": "AI assistance",
     "Category": "Privacy",
     "Check": "false",
     "Refresh": "false",
@@ -2090,7 +2090,7 @@
   },
   {
     "Name": "Disable Recall Snapshots in Windows 11 24H",
-    "Description": "Recall is an upcoming preview experience exclusive to Copilot+ PCs that will help you easily find and remember things you've seen using natural language",
+    "Description": "Recall is an upcoming preview experience exclusive to Copilot+",
     "Category": "Privacy",
     "Check": "false",
     "Refresh": "true",
@@ -2118,7 +2118,7 @@
   },
   {
     "Name": "Delete Thumbnail Cache",
-    "Description": "removing the stored image thumbnails on your computer These thumbnails are small versions of images used by the operating system to display image previews quickly Over time the cache can become large or corrupted causing slowdowns or display issues Deleting it can free up space.",
+    "Description": "Removing the stored image thumbnails",
     "Category": "Performance",
     "Check": "false",
     "Refresh": "false",
@@ -2132,8 +2132,8 @@
     "Registry": []
   },
   {
-    "Name": "Old Volume Control in Windows 10",
-    "Description": "The old volume control in Windows 10 refers to the classic audio mixer interface that was used in earlier versions of Windows, before the modern volume control system was introduced.",
+    "Name": "Classic Volume Control",
+    "Description": "The old volume control",
     "Category": "Classic",
     "Check": "false",
     "Refresh": "true",
@@ -2154,7 +2154,7 @@
   },
   {
     "Name": "Disable Toggle Key Sounds",
-    "Description": "Toggle key sounds in Windows are audio cues that play when you press the Caps Lock, Num Lock, or Scroll Lock keys",
+    "Description": "Toggle key sounds are audio cues that play when you press the Caps Lock, Num Lock, or Scroll Lock keys",
     "Category": "Classic",
     "Check": "false",
     "Refresh": "true",
@@ -2175,7 +2175,7 @@
   },
   {
     "Name": "Disable Homegroup",
-    "Description": "Disables HomeGroup  HomeGroup is a passwordprotected home networking service that lets you share your stuff with other PCs",
+    "Description": "HomeGroup is a passwordprotected home networking service that lets you share your stuff with other PCs",
     "Category": "Privacy",
     "Check": "false",
     "Refresh": "false",
@@ -2199,7 +2199,7 @@
   },
   {
     "Name": "Remove Home and Gallery from explorer in Windows 11",
-    "Description": "Removes the Home and Gallery from explorer and sets This PC as default",
+    "Description": "Home and Gallery from explorer and sets This PC as default",
     "Category": "Privacy",
     "Check": "false",
     "Refresh": "true",
@@ -2228,7 +2228,7 @@
   },
   {
     "Name": "Disable Wifi Sense",
-    "Description": "Wifi Sense is a service that phones home all nearby scanned wifi networks and your location",
+    "Description": "Service that phones home all nearby scanned wifi networks and your location",
     "Category": "Protection",
     "Check": "false",
     "Refresh": "false",
@@ -2263,7 +2263,7 @@
   },
   {
     "Name": "Disable Autoplay and Autorun",
-    "Description": "Disabling autoplay in Windows prevents the automatic launch of media or applications when a removable device, such as a USB drive or CD",
+    "Description": "Autoplay in prevents the automatic launch of media or applications when a removable device, such as a USB drive or CD",
     "Category": "Protection",
     "Check": "false",
     "Refresh": "false",
@@ -2306,7 +2306,7 @@
   },
   {
     "Name": "Set current network profile to public",
-    "Description": "Deny file sharing, device discovery, etc",
+    "Description": "Deny file sharing, device discovery",
     "Category": "",
     "Check": "false",
     "Refresh": "false",
@@ -2351,7 +2351,7 @@
   },
   {
     "Name": "Set Wallpaper desktop Quality to 100%",
-    "Description": "It's Microsoft, what should I say!",
+    "Description": "Set Wallpaper desktop Quality",
     "Category": "Personalization",
     "Check": "false",
     "Refresh": "false",
@@ -2372,7 +2372,7 @@
   },
   {
     "Name": "Disable Windows Transparency",
-    "Description": "It's Microsoft, what should I say!",
+    "Description": "Disableing improve performance",
     "Category": "Performance",
     "Check": "false",
     "Refresh": "true",
@@ -2393,7 +2393,7 @@
   },
   {
     "Name": "Disable scheduled defragmentation task",
-    "Description": "Defragmentation in Windows optimizes disk performance",
+    "Description": "Optimizes disk performance",
     "Category": "Performance",
     "Check": "false",
     "Refresh": "false",
@@ -2423,7 +2423,7 @@
   },
   {
     "Name": "Super Performance",
-    "Description": "All Windows effects disabled. You may need to log out and back in for changes to take effect. You can reset to default settings in Settings Tab",
+    "Description": "Disabled all windows effects. You may need to log out and back in for changes to take effect. You can reset to default settings in Settings Tab",
     "Category": "Performance",
     "Check": "false",
     "Refresh": "true",
@@ -2642,7 +2642,7 @@
   },
   {
     "Name": "Disable Fullscreen Optimizations",
-    "Description": "Disables Fullscreen Optimizations, which may improve performance",
+    "Description": "Fullscreen Optimizations, which may improve performance",
     "Category": "Performance",
     "Check": "false",
     "Refresh": "true",
