@@ -9711,7 +9711,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="End Task On Taskbar Windows 11" Tag=""  Style="{StaticResource ToggleSwitchStyle}" Name="EndTaskOnTaskbarWindows11"  FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Accessibility"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Option to end task when right clicking a program in the taskbar"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="End task when right clicking a program in the taskbar"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9720,7 +9720,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Clear Page File At Shutdown" Tag=""  Style="{StaticResource ToggleSwitchStyle}" Name="ClearPageFileAtShutdown"  FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Storage "/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Page file in Windows removes sensitive data stored in virtual memory when the system shuts down"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Removes sensitive data stored in virtual memory when the system shuts down"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9747,7 +9747,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Launch To This PC" Tag=""  Style="{StaticResource ToggleSwitchStyle}" Name="LaunchToThisPC"  FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Accessibility"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Changing the default opening location of File Explorer in Windows allows it to open directly to This PC"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="File Explorer open directly to This PC"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9756,7 +9756,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Disable Automatic Driver Installation" Tag=""  Style="{StaticResource ToggleSwitchStyle}" Name="DisableAutomaticDriverInstallation"  FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Stopping Windows from automatically downloading and installing drivers"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Automatically downloading and installing drivers"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
