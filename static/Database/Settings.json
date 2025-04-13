@@ -31,12 +31,12 @@
   },
   {
     "Name": "End Task On Taskbar Windows 11",
-    "description": "Option to end task when right clicking a program in the taskbar",
+    "description": "End task when right clicking a program in the taskbar",
     "category": "Accessibility"
   },
   {
     "Name": "Clear Page File At Shutdown",
-    "description": "Page file in Windows removes sensitive data stored in virtual memory when the system shuts down",
+    "description": "Removes sensitive data stored in virtual memory when the system shuts down",
     "category": "Storage "
   },
   {
@@ -51,12 +51,12 @@
   },
   {
     "Name": "Launch To This PC",
-    "description": "Changing the default opening location of File Explorer in Windows allows it to open directly to This PC",
+    "description": "File Explorer open directly to This PC",
     "category": "Accessibility"
   },
   {
     "Name": "Disable Automatic Driver Installation",
-    "description": "Stopping Windows from automatically downloading and installing drivers",
+    "description": "Automatically downloading and installing drivers",
     "category": "Drivers"
   },
   {
