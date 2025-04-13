@@ -63,6 +63,34 @@ $itt.database.Tweaks = @'
 "Registry": []
 },
 {
+"Name": "Restore Classic Context Menu Windows 11",
+"Description": "Restore the old context menu for Windows 11",
+"Category": "Classic",
+"Check": "false",
+"Refresh": "false",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKCU:\\Software\\Classes\\CLSID\\",
+"Name": "{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}",
+"Type": "String",
+"Value": "",
+"defaultValue": ""
+},
+{
+"Path": "HKCU:\\Software\\Classes\\CLSID\\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\\InprocServer32",
+"Name": "",
+"Type": "String",
+"Value": "",
+"defaultValue": "default"
+}
+]
+},
+{
 "Name": "Restore All Windows Services to Default",
 "Description": "if you face issues with services, try Restore All Windows Services to Default",
 "Category": "Fixer",
@@ -1166,7 +1194,7 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Clean Taskbar",
-"Description": "Disable the (News and interests) and (People icon) Show Search icon only for Windows 10/11",
+"Description": "Disable icons",
 "Category": "Performance",
 "Check": "false",
 "Refresh": "true",
@@ -1430,7 +1458,7 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Disable Xbox Services",
-"Description": "Disables all Xbox Services Game Mode and Optimizations for Windowed Games and fix stutter playing smooth",
+"Description": "Disables all Xbox Services Game Mode",
 "Category": "Performance",
 "Check": "false",
 "Refresh": "false",
@@ -1622,7 +1650,7 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Disable Start Menu Ads",
-"Description": "Disable Start menu Ads and Settings",
+"Description": "Start menu Ads and Settings",
 "Category": "Privacy",
 "Check": "false",
 "Refresh": "true",
@@ -1664,7 +1692,7 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Disable Windows Web Search",
-"Description": "Disable web search in Windows by Modify the registry settings related to Windows Search for Windows 10 and 11",
+"Description": "Web results in search",
 "Category": "Privacy",
 "Check": "false",
 "Refresh": "true",
@@ -1685,7 +1713,7 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Turn off background Apps",
-"Description": "Turn off background apps for Windows 10 and 11",
+"Description": "Turn off background apps",
 "Category": "Performance",
 "Check": "false",
 "Refresh": "false",
@@ -1713,7 +1741,7 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Disable suggestions on Start Menu",
-"Description": "Disables suggestions on start menu for Windows 10 and 11",
+"Description": "Suggestions on start menu",
 "Category": "Privacy",
 "Check": "false",
 "Refresh": "false",
@@ -1734,7 +1762,7 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Remove Folder Shortcuts From File Explorer",
-"Description": "Remove Documents, Videos, Pictures, Desktop. Shortcuts from File Explorer",
+"Description": "Documents, Videos, Pictures, Desktop. Shortcuts from File Explorer",
 "Category": "Other",
 "Check": "false",
 "Refresh": "false",
@@ -1832,7 +1860,7 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Optimize Windows Services",
-"Description": "Disable (Print Spooler), (Fax), (Diagnostic Policy), (Downloaded Maps Manager), (Windows Error Reporting Service), (Remote Registry) , (Internet Connection Sharing), (Disables Telemetry and Data)",
+"Description": "(Print Spooler), (Fax), (Diagnostic Policy), (Downloaded Maps Manager), (Windows Error Reporting Service), (Remote Registry) , (Internet Connection Sharing), (Disables Telemetry and Data)",
 "Category": "Performance",
 "Check": "false",
 "Refresh": "false",
@@ -1891,7 +1919,7 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Disable Hibernate",
-"Description": "Hibernate is a power-saving mode in Microsoft Windows operating systems that allows the system to save the current state of your computer",
+"Description": "Allows the system to save the current state of your computer",
 "Category": "Performance",
 "Check": "false",
 "Refresh": "false",
@@ -1923,7 +1951,7 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Disable OneDrive",
-"Description": "Disabling OneDrive for Windows 10 and 11",
+"Description": "Disabling OneDrive",
 "Category": "Performance",
 "Check": "false",
 "Refresh": "false",
@@ -1981,8 +2009,8 @@ $itt.database.Tweaks = @'
 "Registry": []
 },
 {
-"Name": "Activate Windows Old Photo Viewer",
-"Description": "Enables the classic Windows Photo Viewer for Windows 10",
+"Name": "Activate Windows Classic Photo Viewer",
+"Description": "Classic Photo Viewer",
 "Category": "Classic",
 "Check": "false",
 "Refresh": "false",
@@ -2044,36 +2072,8 @@ $itt.database.Tweaks = @'
 ]
 },
 {
-"Name": "Restore Classic Context Menu Windows 11",
-"Description": "Restore the old context menu for Windows 11",
-"Category": "Classic",
-"Check": "false",
-"Refresh": "false",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
-"Registry": [
-{
-"Path": "HKCU:\\Software\\Classes\\CLSID\\",
-"Name": "{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}",
-"Type": "String",
-"Value": "",
-"defaultValue": ""
-},
-{
-"Path": "HKCU:\\Software\\Classes\\CLSID\\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\\InprocServer32",
-"Name": "",
-"Type": "String",
-"Value": "",
-"defaultValue": "default"
-}
-]
-},
-{
 "Name": "Remove Copilot in Windows 11",
-"Description": "Copilot in Windows provides centralized generative AI assistance",
+"Description": "AI assistance",
 "Category": "Privacy",
 "Check": "false",
 "Refresh": "false",
@@ -2122,7 +2122,7 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Disable Recall Snapshots in Windows 11 24H",
-"Description": "Recall is an upcoming preview experience exclusive to Copilot+ PCs that will help you easily find and remember things you've seen using natural language",
+"Description": "Recall is an upcoming preview experience exclusive to Copilot+",
 "Category": "Privacy",
 "Check": "false",
 "Refresh": "true",
@@ -2150,7 +2150,7 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Delete Thumbnail Cache",
-"Description": "removing the stored image thumbnails on your computer These thumbnails are small versions of images used by the operating system to display image previews quickly Over time the cache can become large or corrupted causing slowdowns or display issues Deleting it can free up space.",
+"Description": "Removing the stored image thumbnails",
 "Category": "Performance",
 "Check": "false",
 "Refresh": "false",
@@ -2164,8 +2164,8 @@ $itt.database.Tweaks = @'
 "Registry": []
 },
 {
-"Name": "Old Volume Control in Windows 10",
-"Description": "The old volume control in Windows 10 refers to the classic audio mixer interface that was used in earlier versions of Windows, before the modern volume control system was introduced.",
+"Name": "Classic Volume Control",
+"Description": "The old volume control",
 "Category": "Classic",
 "Check": "false",
 "Refresh": "true",
@@ -2186,7 +2186,7 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Disable Toggle Key Sounds",
-"Description": "Toggle key sounds in Windows are audio cues that play when you press the Caps Lock, Num Lock, or Scroll Lock keys",
+"Description": "Toggle key sounds are audio cues that play when you press the Caps Lock, Num Lock, or Scroll Lock keys",
 "Category": "Classic",
 "Check": "false",
 "Refresh": "true",
@@ -2207,7 +2207,7 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Disable Homegroup",
-"Description": "Disables HomeGroup  HomeGroup is a passwordprotected home networking service that lets you share your stuff with other PCs",
+"Description": "HomeGroup is a passwordprotected home networking service that lets you share your stuff with other PCs",
 "Category": "Privacy",
 "Check": "false",
 "Refresh": "false",
@@ -2231,7 +2231,7 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Remove Home and Gallery from explorer in Windows 11",
-"Description": "Removes the Home and Gallery from explorer and sets This PC as default",
+"Description": "Home and Gallery from explorer and sets This PC as default",
 "Category": "Privacy",
 "Check": "false",
 "Refresh": "true",
@@ -2260,7 +2260,7 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Disable Wifi Sense",
-"Description": "Wifi Sense is a service that phones home all nearby scanned wifi networks and your location",
+"Description": "Service that phones home all nearby scanned wifi networks and your location",
 "Category": "Protection",
 "Check": "false",
 "Refresh": "false",
@@ -2295,7 +2295,7 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Disable Autoplay and Autorun",
-"Description": "Disabling autoplay in Windows prevents the automatic launch of media or applications when a removable device, such as a USB drive or CD",
+"Description": "Autoplay in prevents the automatic launch of media or applications when a removable device, such as a USB drive or CD",
 "Category": "Protection",
 "Check": "false",
 "Refresh": "false",
@@ -2338,7 +2338,7 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Set current network profile to public",
-"Description": "Deny file sharing, device discovery, etc",
+"Description": "Deny file sharing, device discovery",
 "Category": "",
 "Check": "false",
 "Refresh": "false",
@@ -2383,7 +2383,7 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Set Wallpaper desktop Quality to 100%",
-"Description": "It's Microsoft, what should I say!",
+"Description": "Set Wallpaper desktop Quality",
 "Category": "Personalization",
 "Check": "false",
 "Refresh": "false",
@@ -2404,7 +2404,7 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Disable Windows Transparency",
-"Description": "It's Microsoft, what should I say!",
+"Description": "Disableing improve performance",
 "Category": "Performance",
 "Check": "false",
 "Refresh": "true",
@@ -2425,7 +2425,7 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Disable scheduled defragmentation task",
-"Description": "Defragmentation in Windows optimizes disk performance",
+"Description": "Optimizes disk performance",
 "Category": "Performance",
 "Check": "false",
 "Refresh": "false",
@@ -2455,7 +2455,7 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Super Performance",
-"Description": "All Windows effects disabled. You may need to log out and back in for changes to take effect. You can reset to default settings in Settings Tab",
+"Description": "Disabled all windows effects. You may need to log out and back in for changes to take effect. You can reset to default settings in Settings Tab",
 "Category": "Performance",
 "Check": "false",
 "Refresh": "true",
@@ -2674,7 +2674,7 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Disable Fullscreen Optimizations",
-"Description": "Disables Fullscreen Optimizations, which may improve performance",
+"Description": "Fullscreen Optimizations, which may improve performance",
 "Category": "Performance",
 "Check": "false",
 "Refresh": "true",
@@ -9205,6 +9205,15 @@ ScrollViewer.CanContentScroll="True">
 <TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
+<CheckBox Content="Restore Classic Context Menu Windows 11" Tag="Classic" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Classic"/>
+</StackPanel>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Restore the old context menu for Windows 11"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
 <CheckBox Content="Restore All Windows Services to Default" Tag="Fixer" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Fixer"/>
 </StackPanel>
@@ -9226,7 +9235,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Clean Taskbar" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Disable the News and interests and People icon Show Search icon only for Windows 10/11"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Disable icons"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9289,7 +9298,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Disable Xbox Services" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Disables all Xbox Services Game Mode and Optimizations for Windowed Games and fix stutter playing smooth"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Disables all Xbox Services Game Mode"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9298,7 +9307,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Disable Start Menu Ads" Tag="Privacy" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Disable Start menu Ads and Settings"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Start menu Ads and Settings"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9307,7 +9316,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Disable Windows Web Search" Tag="Privacy" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Disable web search in Windows by Modify the registry settings related to Windows Search for Windows 10 and 11"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Web results in search"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9316,7 +9325,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Turn off background Apps" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Turn off background apps for Windows 10 and 11"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Turn off background apps"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9325,7 +9334,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Disable suggestions on Start Menu" Tag="Privacy" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Disables suggestions on start menu for Windows 10 and 11"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Suggestions on start menu"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9334,7 +9343,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Remove Folder Shortcuts From File Explorer" Tag="Other" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Other"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Remove Documents Videos Pictures Desktop. Shortcuts from File Explorer"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Documents Videos Pictures Desktop. Shortcuts from File Explorer"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9343,7 +9352,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Optimize Windows Services" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Disable Print Spooler Fax Diagnostic Policy Downloaded Maps Manager Windows Error Reporting Service Remote Registry  Internet Connection Sharing Disables Telemetry and Data"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Print Spooler Fax Diagnostic Policy Downloaded Maps Manager Windows Error Reporting Service Remote Registry  Internet Connection Sharing Disables Telemetry and Data"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9352,7 +9361,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Disable Hibernate" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Hibernate is a powersaving mode in Microsoft Windows operating systems that allows the system to save the current state of your computer"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Allows the system to save the current state of your computer"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9361,7 +9370,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Disable OneDrive" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Disabling OneDrive for Windows 10 and 11"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Disabling OneDrive"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9385,19 +9394,10 @@ ScrollViewer.CanContentScroll="True">
 <TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Activate Windows Old Photo Viewer" Tag="Classic" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<CheckBox Content="Activate Windows Classic Photo Viewer" Tag="Classic" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Classic"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Enables the classic Windows Photo Viewer for Windows 10"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
-<StackPanel Orientation="Horizontal">
-<CheckBox Content="Restore Classic Context Menu Windows 11" Tag="Classic" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-<Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Classic"/>
-</StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Restore the old context menu for Windows 11"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Classic Photo Viewer"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9406,7 +9406,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Remove Copilot in Windows 11" Tag="Privacy" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Copilot in Windows provides centralized generative AI assistance"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="AI assistance"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9415,7 +9415,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Disable Recall Snapshots in Windows 11 24H" Tag="Privacy" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Recall is an upcoming preview experience exclusive to Copilot PCs that will help you easily find and remember things youve seen using natural language"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Recall is an upcoming preview experience exclusive to Copilot"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9424,16 +9424,16 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Delete Thumbnail Cache" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="removing the stored image thumbnails on your computer These thumbnails are small versions of images used by the operating system to display image previews quickly Over time the cache can become large or corrupted causing slowdowns or display issues Deleting it can free up space."/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Removing the stored image thumbnails"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Old Volume Control in Windows 10" Tag="Classic" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<CheckBox Content="Classic Volume Control" Tag="Classic" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Classic"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="The old volume control in Windows 10 refers to the classic audio mixer interface that was used in earlier versions of Windows before the modern volume control system was introduced."/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="The old volume control"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9442,7 +9442,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Disable Toggle Key Sounds" Tag="Classic" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Classic"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Toggle key sounds in Windows are audio cues that play when you press the Caps Lock Num Lock or Scroll Lock keys"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Toggle key sounds are audio cues that play when you press the Caps Lock Num Lock or Scroll Lock keys"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9451,7 +9451,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Disable Homegroup" Tag="Privacy" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Disables HomeGroup  HomeGroup is a passwordprotected home networking service that lets you share your stuff with other PCs"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="HomeGroup is a passwordprotected home networking service that lets you share your stuff with other PCs"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9460,7 +9460,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Remove Home and Gallery from explorer in Windows 11" Tag="Privacy" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Removes the Home and Gallery from explorer and sets This PC as default"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Home and Gallery from explorer and sets This PC as default"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9469,7 +9469,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Disable Wifi Sense" Tag="Protection" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Protection"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Wifi Sense is a service that phones home all nearby scanned wifi networks and your location"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Service that phones home all nearby scanned wifi networks and your location"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9478,7 +9478,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Disable Autoplay and Autorun" Tag="Protection" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Protection"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Disabling autoplay in Windows prevents the automatic launch of media or applications when a removable device such as a USB drive or CD"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Autoplay in prevents the automatic launch of media or applications when a removable device such as a USB drive or CD"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9496,7 +9496,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Set current network profile to public" Tag="" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content=""/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Deny file sharing device discovery etc"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Deny file sharing device discovery"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9523,7 +9523,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Set Wallpaper desktop Quality to 100%" Tag="Personalization" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Personalization"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Its Microsoft what should I say"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Set Wallpaper desktop Quality"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9532,7 +9532,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Disable Windows Transparency" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Its Microsoft what should I say"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Disableing improve performance"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9541,7 +9541,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Disable scheduled defragmentation task" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Defragmentation in Windows optimizes disk performance"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Optimizes disk performance"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9559,7 +9559,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Super Performance" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="All Windows effects disabled. You may need to log out and back in for changes to take effect. You can reset to default settings in Settings Tab"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Disabled all windows effects. You may need to log out and back in for changes to take effect. You can reset to default settings in Settings Tab"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9622,7 +9622,7 @@ ScrollViewer.CanContentScroll="True">
 <CheckBox Content="Disable Fullscreen Optimizations" Tag="Performance" IsChecked="false"    FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Disables Fullscreen Optimizations which may improve performance"/>
+<TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="Fullscreen Optimizations which may improve performance"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -10023,20 +10023,20 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '04/01/2025'.Trim()
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
 $daysElapsed = (Get-Date) - $storedDate
