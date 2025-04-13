@@ -19,8 +19,11 @@ param (
 
 try {
     if (Test-Path -Path $OutputScript) {Remove-Item -Path $OutputScript -Force}
+
     # Wait until to remove old file
-    Start-Sleep -Seconds 0.1
+    Clear-Host
+    Write-Host "[+] Removeing itt.ps1..."
+    Start-Sleep -Seconds 1
 }
 catch {
     Write-Host $psitem.Exception.Message
@@ -77,6 +80,7 @@ function WriteToScript {
     }
     catch {
         Write-Error "An error occurred: $_"
+        break
     }
 }
 # Replace placeholder function
