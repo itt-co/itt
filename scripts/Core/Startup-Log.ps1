@@ -73,6 +73,32 @@ function Startup {
             PlayPreloadedPlaylist
         }
  
+        function Quotes {
+            function Get-Quotes {
+                (Invoke-RestMethod "https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Database/Quotes.json").Quotes | Sort-Object { Get-Random }
+            }
+            
+            function Show-Quote($text, $icon) {
+                $itt.Statusbar.Dispatcher.Invoke([Action] { 
+                        $itt.Statusbar.Text = "$icon $text"
+                    })
+            }
+        
+            Show-Quote $itt.database.locales.Controls.$($itt.Language).welcome "☕"
+            Start-Sleep 5
+            Show-Quote "Can you uncover the hidden secret? Dive into the source code, be the first to discover the feature, and integrate it into the tool" "👁‍🗨"
+            Start-Sleep 5
+            $iconMap = @{quote = "💬"; info = "📢"; music = "🎵"; Cautton = "⚠"; default = "☕" }
+            do {
+                foreach ($q in Get-Quotes) {
+                    $icon = if ($iconMap.ContainsKey($q.type)) { $iconMap[$q.type] } else { $iconMap.default }
+                    $text = "`“$($q.text)`”" + $(if ($q.name) { " ― $($q.name)" } else { "" })
+                    Show-Quote $text $icon
+                    Start-Sleep 20
+                }
+            } while ($true)
+        }
+ 
         function UsageCount {
 
             # Fetch current count from Firebase as a string
@@ -104,10 +130,6 @@ function Startup {
         # debug end
         LOG
         PlayMusic
-        Statusbar -Text $itt.database.locales.Controls.$($itt.Language).welcome  -icon "☕"
-        Start-Sleep 18
-        Statusbar -Text $itt.database.locales.Controls.$($itt.Language).easter_egg -icon "👁‍🗨"
-        Start-Sleep 18
-        Statusbar -Mode "Quote"
+        Quotes
     }
 }
