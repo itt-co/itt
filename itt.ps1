@@ -3538,6 +3538,29 @@ Start-Sleep -Milliseconds 100
 }
 PlayPreloadedPlaylist
 }
+function Quotes {
+function Get-Quotes {
+(Invoke-RestMethod "https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Database/Quotes.json").Quotes | Sort-Object { Get-Random }
+}
+function Show-Quote($text, $icon) {
+$itt.Statusbar.Dispatcher.Invoke([Action] {
+$itt.Statusbar.Text = "$icon $text"
+})
+}
+Show-Quote $itt.database.locales.Controls.$($itt.Language).welcome "☕"
+Start-Sleep 5
+Show-Quote "Can you uncover the hidden secret? Dive into the source code, be the first to discover the feature, and integrate it into the tool" "👁‍🗨"
+Start-Sleep 5
+$iconMap = @{quote = "💬"; info = "📢"; music = "🎵"; Cautton = "⚠"; default = "☕" }
+do {
+foreach ($q in Get-Quotes) {
+$icon = if ($iconMap.ContainsKey($q.type)) { $iconMap[$q.type] } else { $iconMap.default }
+$text = "`“$($q.text)`”" + $(if ($q.name) { " ― $($q.name)" } else { "" })
+Show-Quote $text $icon
+Start-Sleep 20
+}
+} while ($true)
+}
 function UsageCount {
 $currentCount = Invoke-RestMethod -Uri $UsersCount -Method Get
 $Runs = ([int]$currentCount + 1).ToString()
@@ -3557,11 +3580,7 @@ Write-Host "`n  ITT has been used $(GetCount) times worldwide.`n" -ForegroundCol
 }
 LOG
 PlayMusic
-Statusbar -Text $itt.database.locales.Controls.$($itt.Language).welcome  -icon "☕"
-Start-Sleep 18
-Statusbar -Text $itt.database.locales.Controls.$($itt.Language).easter_egg -icon "👁‍🗨"
-Start-Sleep 18
-Statusbar -Mode "Quote"
+Quotes
 }
 }
 function ChangeTap {
@@ -3640,7 +3659,6 @@ UpdateUI -Button "installBtn" -Content "Downloading" -Width "auto"
 $itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
 $itt.ProcessRunning = $true
 foreach ($App in $selectedApps) {
-Statusbar -Text "Downloading $($App.Name)" -icon "💬"
 $chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($App.Choco)"
 $ITTFolder = Join-Path $env:ProgramData "itt\downloads\$($App.ITT)"
 Remove-Item -Path "$chocoFolder" -Recurse -Force
@@ -4339,33 +4357,6 @@ Set-ItemProperty -Path $itt.registryPath -Name "Theme" -Value $Theme -Force
 $itt.Theme = $Theme
 }
 catch { Write-Host "Error: $_" }
-}
-function Statusbar {
-param(
-$Mode,
-[string]$Text,
-[string]$Icon
-)
-function UpdateText {
-$itt.Statusbar.Dispatcher.Invoke([Action] {
-$itt.Statusbar.Text = "$Icon $Text"
-})
-}
-switch ($Mode) {
-Default {UpdateText -Text $text -Icon $icon}
-"Quote" {
-$q = (Invoke-RestMethod "https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Database/Quotes.json").Quotes | Sort-Object { Get-Random }
-$iconMap = @{quote = "💬"; info = "📢"; music = "🎵"; Cautton = "⚠"; default = "☕" }
-$text = "`“$($q.text)`”" + $(if ($q.name) { " ― $($q.name)" } else { "" })
-do {
-foreach ($q in $q) {
-$icon = if ($iconMap.ContainsKey($q.type)) { $iconMap[$q.type] } else { $iconMap.default }
-$text = "`“$($q.text)`”" + $(if ($q.name) { " ― $($q.name)" } else { "" })
-UpdateText -Text $text -Icon $icon
-}
-} while ($true)
-}
-}
 }
 function UpdateUI {
 param([string]$Button,[string]$Content,[string]$Width = "140")
@@ -10300,7 +10291,7 @@ $functions = @(
 'Disable-Service', 'Uninstall-AppxPackage', 'Finish', 'Message',
 'Notify', 'UpdateUI', 'Install-ITTAChoco',
 'ExecuteCommand', 'Set-Registry', 'Set-Taskbar',
-'Refresh-Explorer', 'Remove-ScheduledTasks','CreateRestorePoint','Statusbar'
+'Refresh-Explorer', 'Remove-ScheduledTasks','CreateRestorePoint'
 )
 foreach ($func in $functions) {
 $command = Get-Command $func -ErrorAction SilentlyContinue
