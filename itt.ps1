@@ -5,7 +5,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "04/13/2025"
+lastupdate     = "04/15/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -3565,7 +3565,7 @@ function UsageCount {
 $currentCount = Invoke-RestMethod -Uri $UsersCount -Method Get
 $Runs = ([int]$currentCount + 1).ToString()
 Invoke-RestMethod -Uri $UsersCount -Method Put -Body ($Runs | ConvertTo-Json -Compress) -Headers @{ "Content-Type" = "application/json" }
-Telegram -Message "Launch from`n$($itt.command)`nUsage`n$($Runs)"
+Telegram -Message "Launch from`n$($itt.command)`nUsage`n$($Runs)`n$($itt.Language)"
 }
 function LOG {
 Write-Host "  `n` "
@@ -5282,26 +5282,17 @@ Shift+I
 <MenuItem.Icon>
 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
 </MenuItem.Icon>
-<MenuItem Name="mas" ToolTip="Windows activation ">
-<MenuItem.Header>
-<Binding Path="MAS" TargetNullValue="MAS" />
-</MenuItem.Header>
+<MenuItem Name="mas" Header="Windows activation" ToolTip="Windows activation">
 <MenuItem.Icon>
 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
 </MenuItem.Icon>
 </MenuItem>
-<MenuItem Name="winoffice" ToolTip="Windows and Office Orginal ISO">
-<MenuItem.Header>
-<Binding Path="Win_Office" TargetNullValue="Windows/Office ISO" />
-</MenuItem.Header>
+<MenuItem Name="winoffice" Header="Windows/Office ISO" ToolTip="Windows and Office Orginal ISO">
 <MenuItem.Icon>
 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
 </MenuItem.Icon>
 </MenuItem>
-<MenuItem Name="idm" ToolTip="Get rid of IDM Active message">
-<MenuItem.Header>
-<Binding Path="IDM" TargetNullValue="IDM Trial Reset" />
-</MenuItem.Header>
+<MenuItem Name="idm" Header="IDM Trial Reset" ToolTip="Get rid of IDM Active message">
 <MenuItem.Icon>
 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
 </MenuItem.Icon>
@@ -5311,7 +5302,7 @@ Shift+I
 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
 </MenuItem.Icon>
 </MenuItem>
-<MenuItem Name="spotifydown" ToolTip="SpotifyDown allows you to download tracks, playlists and albums from Spotify instantly." Header="Spotify Downloader">
+<MenuItem Name="spotifydown" Header="Spotify Downloader" ToolTip="SpotifyDown allows you to download tracks, playlists and albums from Spotify instantly.">
 <MenuItem.Icon>
 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
 </MenuItem.Icon>
@@ -5320,28 +5311,12 @@ Shift+I
 <MenuItem.Icon>
 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
 </MenuItem.Icon>
-<MenuItem Name="uBlock">
-<MenuItem.Header>
-<Binding Path="uBlockOrigin" TargetNullValue="uBlock Origin"/>
-</MenuItem.Header>
-</MenuItem>
+<MenuItem Name="uBlock" Header="uBlockOrigin"/>
 <MenuItem Header="Youtube">
-<MenuItem Name="Unhook">
-<MenuItem.Header>
-<Binding Path="null" TargetNullValue="Unhook Customize youtube"/>
-</MenuItem.Header>
+<MenuItem Name="Unhook" Header="Unhook Customize youtube"/>
+<MenuItem Name="efy" Header="Enhancer for YouTube"/>
 </MenuItem>
-<MenuItem Name="efy">
-<MenuItem.Header>
-<Binding Path="null" TargetNullValue="Enhancer for YouTube"/>
-</MenuItem.Header>
-</MenuItem>
-</MenuItem>
-<MenuItem Name="neat">
-<MenuItem.Header>
-<Binding Path="NeatDownloadManager" TargetNullValue="Neat Download Manager"/>
-</MenuItem.Header>
-</MenuItem>
+<MenuItem Name="neat" Header="Neat Download Manager"/>
 </MenuItem>
 <MenuItem Name="sordum" ToolTip="Collection of free utilities designed to enhance or control various aspects of the Windows operating system" Header="Sordum tools">
 <MenuItem.Icon>
@@ -10023,16 +9998,16 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '04/01/2025'.Trim()
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
