@@ -85,16 +85,16 @@ function Startup {
             }
         
             Show-Quote $itt.database.locales.Controls.$($itt.Language).welcome "☕"
-            Start-Sleep 5
-            Show-Quote "Can you uncover the hidden secret? Dive into the source code, be the first to discover the feature, and integrate it into the tool" "👁‍🗨"
-            Start-Sleep 5
+            Start-Sleep 10
+            Show-Quote $itt.database.locales.Controls.$($itt.Language).easter_egg "👁‍🗨"
+            Start-Sleep 10
             $iconMap = @{quote = "💬"; info = "📢"; music = "🎵"; Cautton = "⚠"; default = "☕" }
             do {
                 foreach ($q in Get-Quotes) {
                     $icon = if ($iconMap.ContainsKey($q.type)) { $iconMap[$q.type] } else { $iconMap.default }
                     $text = "`“$($q.text)`”" + $(if ($q.name) { " ― $($q.name)" } else { "" })
                     Show-Quote $text $icon
-                    Start-Sleep 20
+                    Start-Sleep 19
                 }
             } while ($true)
         }
