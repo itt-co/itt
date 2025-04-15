@@ -266,6 +266,7 @@
         </MenuItem>
 
         <MenuItem VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Transparent">
+
             <MenuItem.Header>
                 <Binding Path="Third_party" TargetNullValue="Third Party"/>
             </MenuItem.Header>
@@ -273,29 +274,19 @@
                 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
             </MenuItem.Icon>
 
-            <MenuItem Name="mas" ToolTip="Windows activation ">
-                <MenuItem.Header>
-                    <Binding Path="MAS" TargetNullValue="MAS" />
-                </MenuItem.Header>
+            <MenuItem Name="mas" Header="Windows activation" ToolTip="Windows activation">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
 
-
-            <MenuItem Name="winoffice" ToolTip="Windows and Office Orginal ISO">
-                <MenuItem.Header>
-                    <Binding Path="Win_Office" TargetNullValue="Windows/Office ISO" />
-                </MenuItem.Header>
+            <MenuItem Name="winoffice" Header="Windows/Office ISO" ToolTip="Windows and Office Orginal ISO">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
             
-            <MenuItem Name="idm" ToolTip="Get rid of IDM Active message">
-                <MenuItem.Header>
-                    <Binding Path="IDM" TargetNullValue="IDM Trial Reset" />
-                </MenuItem.Header>
+            <MenuItem Name="idm" Header="IDM Trial Reset" ToolTip="Get rid of IDM Active message">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
@@ -307,44 +298,28 @@
                 </MenuItem.Icon>
             </MenuItem>
 
-            <MenuItem Name="spotifydown" ToolTip="SpotifyDown allows you to download tracks, playlists and albums from Spotify instantly." Header="Spotify Downloader">
+            <MenuItem Name="spotifydown" Header="Spotify Downloader" ToolTip="SpotifyDown allows you to download tracks, playlists and albums from Spotify instantly.">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
 
             <MenuItem Header="{Binding Browsers_extensions}">
+
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
-                <MenuItem Name="uBlock">
-                    <MenuItem.Header>
-                        <Binding Path="uBlockOrigin" TargetNullValue="uBlock Origin"/>
-                    </MenuItem.Header>
+
+                    <MenuItem Name="uBlock" Header="uBlockOrigin"/>
+                    <MenuItem Header="Youtube">
+                    <MenuItem Name="Unhook" Header="Unhook Customize youtube"/>
+                    <MenuItem Name="efy" Header="Enhancer for YouTube"/>
+            
                 </MenuItem>
 
-                <MenuItem Header="Youtube">
+                <MenuItem Name="neat" Header="Neat Download Manager"/>
 
-                    <MenuItem Name="Unhook">
-                        <MenuItem.Header>
-                            <Binding Path="null" TargetNullValue="Unhook Customize youtube"/>
-                        </MenuItem.Header>  
-                    </MenuItem>
 
-                    <MenuItem Name="efy">
-                        <MenuItem.Header>
-                            <Binding Path="null" TargetNullValue="Enhancer for YouTube"/>
-                        </MenuItem.Header>
-                    </MenuItem>
-        
-
-                </MenuItem>
-
-                <MenuItem Name="neat">
-                    <MenuItem.Header>
-                        <Binding Path="NeatDownloadManager" TargetNullValue="Neat Download Manager"/>
-                    </MenuItem.Header>
-                </MenuItem>
             </MenuItem>
 
             <MenuItem Name="sordum" ToolTip="Collection of free utilities designed to enhance or control various aspects of the Windows operating system" Header="Sordum tools">
