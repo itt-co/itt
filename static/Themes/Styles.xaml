@@ -18,7 +18,7 @@
             Storyboard.TargetProperty="Opacity"
             From="1.0" To="0.0"
             Duration="0:0:1"
-            BeginTime="0:0:10" /> 
+            BeginTime="0:0:15" /> 
     </Storyboard>
 <!--Logo Fade in-->
 
