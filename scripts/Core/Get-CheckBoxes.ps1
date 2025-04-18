@@ -24,9 +24,9 @@ function Get-SelectedItems {
             foreach ($item in $itt.AppsListView.Items) {
                 
                 $checkbox = $item.Children[0].Children[0]
-                $choco = $item.children[2].Text
-                $winget = $item.children[3].Text
-                $itt = $item.children[4].Text
+                $choco = $item.children[1].Text
+                $winget = $item.children[2].Text
+                $itt = $item.children[3].Text
 
                 if ($checkbox.IsChecked) {
 
