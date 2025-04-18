@@ -83,7 +83,6 @@ function Create-JsonObject {
         scoop       = "na"
         itt         = "na"
         category    = ""
-        check       = "false"
     }
 
     $downloadMethod = Download-Mthoed
@@ -206,7 +205,6 @@ if (Test-Path $applications) {
             choco       = $item.choco
             itt         = $item.itt
             category    = $item.category
-            check       = $item.check
         }
     }
     # Write the ordered JSON to the file
