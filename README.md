@@ -63,7 +63,7 @@ ITT (Install Tweaks Tool) included most Windows 10/11 Software and Windows Tweak
 > [!NOTE]  
 > `cutt.ly` `bit.ly` Those short links direct to `itt.ps1` file in this repository. You can test them in browser.
  <p>If the URL is blocked in your region try:</p>
-<pre><code>irm emadadel4.github.io/itt.ps1 | iex</code></pre>
+<pre><code>irm emadadel.gitlab.io/itt.ps1  | iex</code></pre>
 <pre><code>irm raw.githubusercontent.com/emadadel4/ITT/main/itt.ps1 | iex</code></pre>
 
 ## ⚡ Quick Install Your Saved Apps (Run as Admin is recommended)
