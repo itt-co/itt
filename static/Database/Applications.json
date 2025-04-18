@@ -5,8 +5,7 @@
     "winget": "Brave.Brave",
     "choco": "brave",
     "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
+    "category": "Web Browsers"
   },
   {
     "Name": "Mozilla Firefox",
@@ -14,8 +13,7 @@
     "winget": "Mozilla.Firefox",
     "choco": "firefox",
     "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
+    "category": "Web Browsers"
   },
   {
     "Name": "Thorium AVX",
@@ -23,8 +21,7 @@
     "winget": "Alex313031.Thorium.AVX2",
     "choco": "thorium --params /AVX",
     "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
+    "category": "Web Browsers"
   },
   {
     "Name": "Google Chrome",
@@ -32,8 +29,7 @@
     "winget": "Google.Chrome",
     "choco": "googlechrome",
     "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
+    "category": "Web Browsers"
   },
   {
     "Name": "Thorium SSE3",
@@ -41,8 +37,7 @@
     "winget": "Alex313031.Thorium",
     "choco": "thorium --params /SSE3",
     "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
+    "category": "Web Browsers"
   },
   {
     "Name": "Mozilla Firefox ESR",
@@ -50,8 +45,7 @@
     "winget": "Mozilla.Firefox.ESR",
     "choco": "firefoxesr",
     "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
+    "category": "Web Browsers"
   },
   {
     "Name": "Microsoft Edge",
@@ -59,8 +53,7 @@
     "winget": "Microsoft.Edge",
     "choco": "microsoft-edge",
     "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
+    "category": "Web Browsers"
   },
   {
     "Name": "Chromium",
@@ -68,8 +61,7 @@
     "winget": "eloston.ungoogled-chromium",
     "choco": "chromium",
     "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
+    "category": "Web Browsers"
   },
   {
     "Name": "Tor Browser",
@@ -77,8 +69,7 @@
     "winget": "TorProject.TorBrowser",
     "choco": "tor-browser",
     "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
+    "category": "Web Browsers"
   },
   {
     "Name": "Opera",
@@ -86,8 +77,7 @@
     "winget": "Opera.Opera",
     "choco": "opera",
     "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
+    "category": "Web Browsers"
   },
   {
     "Name": "Internet Download Manager",
@@ -95,8 +85,7 @@
     "winget": "Tonec.InternetDownloadManager",
     "choco": "internet-download-manager",
     "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
+    "category": "Web Browsers"
   },
   {
     "Name": "JDownloader",
@@ -104,8 +93,7 @@
     "winget": "AppWork.JDownloader",
     "choco": "jdownloader",
     "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
+    "category": "Web Browsers"
   },
   {
     "Name": "KLite Mega Codec Full Pack",
@@ -113,8 +101,7 @@
     "winget": "na",
     "choco": "k-litecodecpackfull",
     "itt": "na",
-    "category": "Media",
-    "check": "false"
+    "category": "Media"
   },
   {
     "Name": "PotPlayer",
@@ -122,8 +109,7 @@
     "winget": "Daum.PotPlayer",
     "choco": "potplayer",
     "itt": "na",
-    "category": "Media",
-    "check": "false"
+    "category": "Media"
   },
   {
     "Name": "VLC",
@@ -131,8 +117,7 @@
     "winget": "VideoLAN.VLC",
     "choco": "vlc.install",
     "itt": "na",
-    "category": "Media",
-    "check": "false"
+    "category": "Media"
   },
   {
     "Name": "Kodi",
@@ -140,8 +125,7 @@
     "winget": "9NBLGGH4T892",
     "choco": "kodi",
     "itt": "na",
-    "category": "Media",
-    "check": "false"
+    "category": "Media"
   },
   {
     "Name": "Jellyfin Server",
@@ -149,8 +133,7 @@
     "winget": "Jellyfin.Server",
     "choco": "jellyfin",
     "itt": "na",
-    "category": "Media",
-    "check": "false"
+    "category": "Media"
   },
   {
     "Name": "Winamp",
@@ -158,8 +141,7 @@
     "winget": "Winamp.Winamp",
     "choco": "winamp",
     "itt": "na",
-    "category": "Media",
-    "check": "false"
+    "category": "Media"
   },
   {
     "Name": "Aimp",
@@ -167,8 +149,7 @@
     "winget": "na",
     "choco": "na",
     "itt": "aimp",
-    "category": "Media",
-    "check": "false"
+    "category": "Media"
   },
   {
     "Name": "Spotify",
@@ -176,8 +157,7 @@
     "winget": "Spotify.Spotify",
     "choco": "spotify",
     "itt": "na",
-    "category": "Media",
-    "check": "false"
+    "category": "Media"
   },
   {
     "Name": "FastStone Image Viewer",
@@ -185,8 +165,7 @@
     "winget": "FastStone.Viewer",
     "choco": "fsviewer",
     "itt": "na",
-    "category": "Imaging",
-    "check": "false"
+    "category": "Imaging"
   },
   {
     "Name": "OpenOffice",
@@ -194,8 +173,7 @@
     "winget": "Apache.OpenOffice",
     "choco": "openoffice",
     "itt": "na",
-    "category": "Documents",
-    "check": "false"
+    "category": "Documents"
   },
   {
     "Name": "FoxitReader",
@@ -203,8 +181,7 @@
     "winget": "Foxit.FoxitReader",
     "choco": "foxitreader",
     "itt": "na",
-    "category": "Documents",
-    "check": "false"
+    "category": "Documents"
   },
   {
     "Name": "LibreOffice",
@@ -212,8 +189,7 @@
     "winget": "Foxit.FoxitReader",
     "choco": "libreoffice-fresh",
     "itt": "na",
-    "category": "Documents",
-    "check": "false"
+    "category": "Documents"
   },
   {
     "Name": "SumatraPDF",
@@ -221,8 +197,7 @@
     "winget": "SumatraPDF.SumatraPDF",
     "choco": "sumatrapdf.install",
     "itt": "na",
-    "category": "Documents",
-    "check": "false"
+    "category": "Documents"
   },
   {
     "Name": "WinRAR",
@@ -230,8 +205,7 @@
     "winget": "RARLab.WinRAR",
     "choco": "winrar",
     "itt": "na",
-    "category": "Compression",
-    "check": "false"
+    "category": "Compression"
   },
   {
     "Name": "7Zip",
@@ -239,8 +213,7 @@
     "winget": "7zip.7zip",
     "choco": "7zip",
     "itt": "na",
-    "category": "Compression",
-    "check": "false"
+    "category": "Compression"
   },
   {
     "Name": "PeaZip",
@@ -248,8 +221,7 @@
     "winget": "Giorgiotani.Peazip",
     "choco": "peazip",
     "itt": "na",
-    "category": "Compression",
-    "check": "false"
+    "category": "Compression"
   },
   {
     "Name": "Telegram Desktop",
@@ -257,8 +229,7 @@
     "winget": "Telegram.TelegramDesktop",
     "choco": "telegram",
     "itt": "na",
-    "category": "Communication",
-    "check": "false"
+    "category": "Communication"
   },
   {
     "Name": "Signal",
@@ -266,8 +237,7 @@
     "winget": "OpenWhisperSystems.Signal",
     "choco": "signal",
     "itt": "na",
-    "category": "Communication",
-    "check": "false"
+    "category": "Communication"
   },
   {
     "Name": "Meta Messenger",
@@ -275,8 +245,7 @@
     "winget": "9WZDNCRF0083",
     "choco": "messenger",
     "itt": "na",
-    "category": "Communication",
-    "check": "false"
+    "category": "Communication"
   },
   {
     "Name": "Zoom",
@@ -284,8 +253,7 @@
     "winget": "Zoom.ZoomRooms",
     "choco": "zoom",
     "itt": "na",
-    "category": "Communication",
-    "check": "false"
+    "category": "Communication"
   },
   {
     "Name": "Microsoft Teams",
@@ -293,8 +261,7 @@
     "winget": "Microsoft.Teams",
     "choco": "microsoft-teams.install",
     "itt": "na",
-    "category": "Communication",
-    "check": "false"
+    "category": "Communication"
   },
   {
     "Name": "Discord",
@@ -302,8 +269,7 @@
     "winget": "Discord.Discord",
     "choco": "discord",
     "itt": "na",
-    "category": "Communication",
-    "check": "false"
+    "category": "Communication"
   },
   {
     "Name": "TeamViewer",
@@ -311,8 +277,7 @@
     "winget": "TeamViewer.TeamViewer",
     "choco": "teamviewer",
     "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
+    "category": "File Sharing"
   },
   {
     "Name": "GIMP",
@@ -320,8 +285,7 @@
     "winget": "GIMP.GIMP",
     "choco": "gimp",
     "itt": "na",
-    "category": "Imaging",
-    "check": "false"
+    "category": "Imaging"
   },
   {
     "Name": "Microsoft Visual C++ Runtime - all versions",
@@ -329,8 +293,7 @@
     "winget": "na",
     "choco": "vcredist-all",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "DirectX",
@@ -338,8 +301,7 @@
     "winget": "Microsoft.DirectX",
     "choco": "directx",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "Microsoft Visual C++ 2005 (x86) Redistributable",
@@ -347,8 +309,7 @@
     "winget": "na",
     "choco": "vcredist2005",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "Microsoft Visual C++ 2005 (x64) Redistributable",
@@ -356,8 +317,7 @@
     "winget": "na",
     "choco": "vcredist2005",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "Microsoft Visual C++ 2008 (x86) Redistributable",
@@ -365,8 +325,7 @@
     "winget": "na",
     "choco": "vcredist2008",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "Microsoft Visual C++ 2008 (x64) Redistributable",
@@ -374,8 +333,7 @@
     "winget": "na",
     "choco": "vcredist2008",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "Microsoft Visual C++ 2010 (x86) Redistributable",
@@ -383,8 +341,7 @@
     "winget": "na",
     "choco": "vcredist2010",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "Microsoft Visual C++ 2010 (x64) Redistributable",
@@ -392,8 +349,7 @@
     "winget": "na",
     "choco": "vcredist2010",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "Microsoft Visual C++ 2012 (x86) Redistributable",
@@ -401,8 +357,7 @@
     "winget": "na",
     "choco": "vcredist2012",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "Microsoft Visual C++ 2012 (x64) Redistributable",
@@ -410,8 +365,7 @@
     "winget": "na",
     "choco": "vcredist2012",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "Microsoft Visual C++ 2013 (x86) Redistributable",
@@ -419,8 +373,7 @@
     "winget": "na",
     "choco": "vcredist2013",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "Microsoft Visual C++ 2013 (x64) Redistributable",
@@ -428,8 +381,7 @@
     "winget": "na",
     "choco": "vcredist2013",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "Microsoft Visual C++ 2015-2022 (x64) Redistributable",
@@ -437,8 +389,7 @@
     "winget": "na",
     "choco": "vcredist2015",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "Microsoft Visual C++ 2015-2022  (x86) Redistributable",
@@ -446,8 +397,7 @@
     "winget": "na",
     "choco": "vcredist2015",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "NET Framework All Versions",
@@ -455,8 +405,7 @@
     "winget": "na",
     "choco": "dotnet-all",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "AMD Ryzen Chipset Drivers",
@@ -464,8 +413,7 @@
     "winget": "na",
     "choco": "amd-ryzen-chipset",
     "itt": "na",
-    "category": "Drivers",
-    "check": "false"
+    "category": "Drivers"
   },
   {
     "Name": "NVidia Display Driver",
@@ -473,8 +421,7 @@
     "winget": "na",
     "choco": "nvidia-display-driver",
     "itt": "na",
-    "category": "Drivers",
-    "check": "false"
+    "category": "Drivers"
   },
   {
     "Name": "NVIDIA GeForce Experience",
@@ -482,8 +429,7 @@
     "winget": "Nvidia.GeForceExperience",
     "choco": "geforce-experience",
     "itt": "na",
-    "category": "Drivers",
-    "check": "false"
+    "category": "Drivers"
   },
   {
     "Name": "Msi Afterburner",
@@ -491,8 +437,7 @@
     "winget": "Guru3D.Afterburner",
     "choco": "msiafterburner",
     "itt": "na",
-    "category": "Drivers",
-    "check": "false"
+    "category": "Drivers"
   },
   {
     "Name": "NVIDIA PhysX",
@@ -500,8 +445,7 @@
     "winget": "Nvidia.PhysXLegacy",
     "choco": "physx.legacy",
     "itt": "na",
-    "category": "Drivers",
-    "check": "false"
+    "category": "Drivers"
   },
   {
     "Name": "Steam",
@@ -509,8 +453,7 @@
     "winget": "Valve.Steam",
     "choco": "steam",
     "itt": "na",
-    "category": "Gaming",
-    "check": "false"
+    "category": "Gaming"
   },
   {
     "Name": "Ubisoft Connect",
@@ -518,8 +461,7 @@
     "winget": "Ubisoft.Connect",
     "choco": "ubisoft-connect",
     "itt": "na",
-    "category": "Gaming",
-    "check": "false"
+    "category": "Gaming"
   },
   {
     "Name": "Origin",
@@ -527,8 +469,7 @@
     "winget": "ElectronicArts.Origin",
     "choco": "origin",
     "itt": "na",
-    "category": "Gaming",
-    "check": "false"
+    "category": "Gaming"
   },
   {
     "Name": "Rockstar Games Launcher",
@@ -536,8 +477,7 @@
     "winget": "na",
     "choco": "rockstar-launcher",
     "itt": "na",
-    "category": "Gaming",
-    "check": "false"
+    "category": "Gaming"
   },
   {
     "Name": "GameSave Manager",
@@ -545,8 +485,7 @@
     "winget": "InsaneMatt.GameSaveManager",
     "choco": "gamesavemanager",
     "itt": "na",
-    "category": "Gaming",
-    "check": "false"
+    "category": "Gaming"
   },
   {
     "Name": "StreamlabsOBS",
@@ -554,8 +493,7 @@
     "winget": "Streamlabs.StreamlabsOBS",
     "choco": "streamlabs-obs",
     "itt": "na",
-    "category": "Gaming",
-    "check": "false"
+    "category": "Gaming"
   },
   {
     "Name": "OBS Studio",
@@ -563,8 +501,7 @@
     "winget": "OBSProject.OBSStudio",
     "choco": "obs-studio.install",
     "itt": "na",
-    "category": "Gaming",
-    "check": "false"
+    "category": "Gaming"
   },
   {
     "Name": "Logitech Gaming Software",
@@ -572,8 +509,7 @@
     "winget": "Logitech.LGS",
     "choco": "logitechgaming",
     "itt": "na",
-    "category": "Gaming",
-    "check": "false"
+    "category": "Gaming"
   },
   {
     "Name": "Lively Wallpaper",
@@ -581,8 +517,7 @@
     "winget": "rocksdanister.LivelyWallpaper",
     "choco": "lively",
     "itt": "na",
-    "category": "Gaming",
-    "check": "false"
+    "category": "Gaming"
   },
   {
     "Name": "Playnite",
@@ -590,8 +525,7 @@
     "winget": "Playnite.Playnite",
     "choco": "playnite",
     "itt": "na",
-    "category": "Gaming",
-    "check": "false"
+    "category": "Gaming"
   },
   {
     "Name": "Driver Easy",
@@ -599,8 +533,7 @@
     "winget": "Easeware.DriverEasy",
     "choco": "drivereasyfree",
     "itt": "na",
-    "category": "Drivers",
-    "check": "false"
+    "category": "Drivers"
   },
   {
     "Name": "Intel Graphics Windows DCH",
@@ -608,8 +541,7 @@
     "winget": "na",
     "choco": "intel-graphics-driver",
     "itt": "na",
-    "category": "Drivers",
-    "check": "false"
+    "category": "Drivers"
   },
   {
     "Name": "Intel Driver Support Assistant",
@@ -617,8 +549,7 @@
     "winget": "Intel.IntelDriverAndSupportAssistant",
     "choco": "intel-dsa",
     "itt": "na",
-    "category": "Drivers",
-    "check": "false"
+    "category": "Drivers"
   },
   {
     "Name": "Intel Network Adapter",
@@ -626,8 +557,7 @@
     "winget": "Intel.WiFiDrivers",
     "choco": "intel-network-drivers-win10",
     "itt": "na",
-    "category": "Drivers",
-    "check": "false"
+    "category": "Drivers"
   },
   {
     "Name": "Snappy Driver Installer",
@@ -635,8 +565,7 @@
     "winget": "samlab-ws.SnappyDriverInstaller",
     "choco": "sdio",
     "itt": "na",
-    "category": "Drivers",
-    "check": "false"
+    "category": "Drivers"
   },
   {
     "Name": "Driver booster",
@@ -644,8 +573,7 @@
     "winget": "IObit.DriverBooster",
     "choco": "driverbooster",
     "itt": "na",
-    "category": "Drivers",
-    "check": "false"
+    "category": "Drivers"
   },
   {
     "Name": "Driver Genius",
@@ -653,8 +581,7 @@
     "winget": "na",
     "choco": "drivergenius",
     "itt": "na",
-    "category": "Drivers",
-    "check": "false"
+    "category": "Drivers"
   },
   {
     "Name": "Display Driver Uninstaller",
@@ -662,8 +589,7 @@
     "winget": "Wagnardsoft.DisplayDriverUninstaller",
     "choco": "ddu",
     "itt": "na",
-    "category": "Drivers",
-    "check": "false"
+    "category": "Drivers"
   },
   {
     "Name": "Driver Store Explorer",
@@ -671,8 +597,7 @@
     "winget": "na",
     "choco": "rapr",
     "itt": "na",
-    "category": "Drivers",
-    "check": "false"
+    "category": "Drivers"
   },
   {
     "Name": "1Password",
@@ -680,8 +605,7 @@
     "winget": "AgileBits.1Password",
     "choco": "1password",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "AOMEI Partition Assistant Standard",
@@ -689,8 +613,7 @@
     "winget": "AOMEI.PartitionAssistant",
     "choco": "partition-assistant-standard",
     "itt": "na",
-    "category": "Disk Tools",
-    "check": "false"
+    "category": "Disk Tools"
   },
   {
     "Name": "AOMEI Backupper Standard",
@@ -698,8 +621,7 @@
     "winget": "AOMEI.Backupper.Standard",
     "choco": "backupper-standard",
     "itt": "na",
-    "category": "Disk Tools",
-    "check": "false"
+    "category": "Disk Tools"
   },
   {
     "Name": "Recuva recover",
@@ -707,8 +629,7 @@
     "winget": "Piriform.Recuva",
     "choco": "recuva",
     "itt": "na",
-    "category": "Disk Tools",
-    "check": "false"
+    "category": "Disk Tools"
   },
   {
     "Name": "CCleaner",
@@ -716,8 +637,7 @@
     "winget": "SingularLabs.CCEnhancer",
     "choco": "ccleaner",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "BCUninstaller",
@@ -725,8 +645,7 @@
     "winget": "Klocman.BulkCrapUninstaller",
     "choco": "bulk-crap-uninstaller",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Easy Context Menu",
@@ -734,8 +653,7 @@
     "winget": "na",
     "choco": "ecm",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "HWiNFO",
@@ -743,8 +661,7 @@
     "winget": "REALiX.HWiNFO",
     "choco": "hwinfo.install",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Speccy",
@@ -752,8 +669,7 @@
     "winget": "Piriform.Speccy",
     "choco": "speccy",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "FurMark",
@@ -761,8 +677,7 @@
     "winget": "Geeks3D.FurMark",
     "choco": "furmark",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Hard Disk Sentinel",
@@ -770,8 +685,7 @@
     "winget": "JanosMathe.HardDiskSentinelPro",
     "choco": "hdsentinel",
     "itt": "na",
-    "category": "Disk Tools",
-    "check": "false"
+    "category": "Disk Tools"
   },
   {
     "Name": "CPU-Z",
@@ -779,8 +693,7 @@
     "winget": "CPUID.CPU-Z",
     "choco": "cpu-z",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Mem Reduct",
@@ -788,8 +701,7 @@
     "winget": "Henry++.MemReduct",
     "choco": "memreduct",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "HandBrake",
@@ -797,8 +709,7 @@
     "winget": "HandBrake.HandBrake",
     "choco": "handbrake.install",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Rufus Portable",
@@ -806,8 +717,7 @@
     "winget": "Rufus.Rufus",
     "choco": "rufus",
     "itt": "na",
-    "category": "Portable",
-    "check": "false"
+    "category": "Portable"
   },
   {
     "Name": "ImgBurn",
@@ -815,8 +725,7 @@
     "winget": "LIGHTNINGUK.ImgBurn",
     "choco": "imgburn",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Virtual CloneDrive",
@@ -824,8 +733,7 @@
     "winget": "na",
     "choco": "virtualclonedrive",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Ultra ISO",
@@ -833,8 +741,7 @@
     "winget": "EZBSystems.UltraISO",
     "choco": "ultraiso",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Ventoy",
@@ -842,8 +749,7 @@
     "winget": "Ventoy.Ventoy",
     "choco": "ventoy",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "iVentoy",
@@ -851,8 +757,7 @@
     "winget": "na",
     "choco": "iventoy",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "AutoHotkey",
@@ -860,8 +765,7 @@
     "winget": "AutoHotkey.AutoHotkey",
     "choco": "autohotkey",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Rainmeter",
@@ -869,8 +773,7 @@
     "winget": "Rainmeter.Rainmeter",
     "choco": "rainmeter",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "FxSound",
@@ -878,8 +781,7 @@
     "winget": "FxSoundLLC.FxSound",
     "choco": "fxsound",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Vysor",
@@ -887,8 +789,7 @@
     "winget": "Vysor.Vysor",
     "choco": "vysor",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Unified Remote",
@@ -896,8 +797,7 @@
     "winget": "UnifiedIntents.UnifiedRemote",
     "choco": "unifiedremote",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "AnyDesk",
@@ -905,8 +805,7 @@
     "winget": "AnyDeskSoftwareGmbH.AnyDesk",
     "choco": "anydesk",
     "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
+    "category": "File Sharing"
   },
   {
     "Name": "Airdroid",
@@ -914,8 +813,7 @@
     "winget": "AirDroid.AirDroid",
     "choco": "airdroid",
     "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
+    "category": "File Sharing"
   },
   {
     "Name": "UltraViewer",
@@ -923,8 +821,7 @@
     "winget": "DucFabulous.UltraViewer",
     "choco": "ultraviewer",
     "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
+    "category": "File Sharing"
   },
   {
     "Name": "Wireless Network Watcher Portable",
@@ -932,8 +829,7 @@
     "winget": "NirSoft.WirelessNetworkWatcher",
     "choco": "wnetwatcher.portable",
     "itt": "na",
-    "category": "Portable",
-    "check": "false"
+    "category": "Portable"
   },
   {
     "Name": "WifiInfoView",
@@ -941,8 +837,7 @@
     "winget": "NirSoft.WifiInfoView",
     "choco": "wifiinfoview",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "WirelessNetView",
@@ -950,8 +845,7 @@
     "winget": "na",
     "choco": "wirelessnetview",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "qBittorrent",
@@ -959,8 +853,7 @@
     "winget": "qBittorrent.qBittorrent",
     "choco": "qbittorrent",
     "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
+    "category": "File Sharing"
   },
   {
     "Name": "Google Earth Pro",
@@ -968,8 +861,7 @@
     "winget": "Google.EarthPro",
     "choco": "googleearthpro",
     "itt": "na",
-    "category": "Imaging",
-    "check": "false"
+    "category": "Imaging"
   },
   {
     "Name": "XAMPP",
@@ -977,8 +869,7 @@
     "winget": "ApacheFriends.Xampp.8.2",
     "choco": "xampp-81",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Visual Studio Professional 2022",
@@ -986,8 +877,7 @@
     "winget": "Microsoft.VisualStudio.2022.Professional",
     "choco": "visualstudio2022professional",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Visual Studio Community 2022",
@@ -995,8 +885,7 @@
     "winget": "Microsoft.VisualStudio.2022.Community",
     "choco": "visualstudio2022community",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Unity Hub",
@@ -1004,8 +893,7 @@
     "winget": "Unity.UnityHub",
     "choco": "unity-hub",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Godot Engine",
@@ -1013,8 +901,7 @@
     "winget": "GodotEngine.GodotEngine",
     "choco": "godot",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Unity3D Engine",
@@ -1022,8 +909,7 @@
     "winget": "Unity.Unity.2020",
     "choco": "unity",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Blender",
@@ -1031,8 +917,7 @@
     "winget": "BlenderFoundation.Blender",
     "choco": "blender",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "VSCode",
@@ -1040,8 +925,7 @@
     "winget": "Microsoft.VisualStudioCode",
     "choco": "vscode",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Vim",
@@ -1049,8 +933,7 @@
     "winget": "vim.vim",
     "choco": "vim",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Sublime Text 4",
@@ -1058,8 +941,7 @@
     "winget": "SublimeHQ.SublimeText.4",
     "choco": "sublimetext4",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Atom",
@@ -1067,8 +949,7 @@
     "winget": "GitHub.Atom",
     "choco": "atom",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "InnoSetup",
@@ -1076,8 +957,7 @@
     "winget": "JRSoftware.InnoSetup",
     "choco": "innosetup",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "PyCharm Community Edition",
@@ -1085,8 +965,7 @@
     "winget": "JetBrains.PyCharm.Community",
     "choco": "pycharm-community",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "PyCharm Professional Edition",
@@ -1094,8 +973,7 @@
     "winget": "JetBrains.PyCharm.Professional",
     "choco": "pycharm",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Jetbrains Rider",
@@ -1103,8 +981,7 @@
     "winget": "JetBrains.Rider",
     "choco": "jetbrains-rider",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "NodeJs LTS",
@@ -1112,8 +989,7 @@
     "winget": "OpenJS.NodeJS.LTS",
     "choco": "nodejs-lts",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Electron",
@@ -1121,8 +997,7 @@
     "winget": "na",
     "choco": "electron",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Electrum LTS",
@@ -1130,8 +1005,7 @@
     "winget": "Electrum.Electrum",
     "choco": "electronim",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Hugo",
@@ -1139,8 +1013,7 @@
     "winget": "Hugo.Hugo",
     "choco": "hugo",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Hugo Extended",
@@ -1148,8 +1021,7 @@
     "winget": "Hugo.Hugo.Extended",
     "choco": "hugo-extended",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Notepad++",
@@ -1157,8 +1029,7 @@
     "winget": "Notepad++.Notepad++",
     "choco": "notepadplusplus",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Windows Terminal",
@@ -1166,8 +1037,7 @@
     "winget": "Microsoft.WindowsTerminal",
     "choco": "microsoft-windows-terminal",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Powershell 7",
@@ -1175,8 +1045,7 @@
     "winget": "Microsoft.PowerShell",
     "choco": "powershell-core",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "x64dbg Portable",
@@ -1184,8 +1053,7 @@
     "winget": "na",
     "choco": "x64dbg.portable",
     "itt": "na",
-    "category": "Portable",
-    "check": "false"
+    "category": "Portable"
   },
   {
     "Name": "dnSpy",
@@ -1193,8 +1061,7 @@
     "winget": "dnSpyEx.dnSpy",
     "choco": "dnspy",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Cheat Engine",
@@ -1202,8 +1069,7 @@
     "winget": "na",
     "choco": "cheatengine",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Python 3.12.6",
@@ -1211,8 +1077,7 @@
     "winget": "Python.Python.3.9",
     "choco": "python",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Git",
@@ -1220,8 +1085,7 @@
     "winget": "Git.Git",
     "choco": "git",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "GitHub Desktop",
@@ -1229,8 +1093,7 @@
     "winget": "GitHub.GitHubDesktop",
     "choco": "github-desktop",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Docker Desktop",
@@ -1238,8 +1101,7 @@
     "winget": "Docker.DockerDesktop",
     "choco": "docker-desktop",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Docker Compose",
@@ -1247,8 +1109,7 @@
     "winget": "Docker.DockerCompose",
     "choco": "docker-compose",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "PowerToys",
@@ -1256,8 +1117,7 @@
     "winget": "Microsoft.PowerToys",
     "choco": "powertoys",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Notion",
@@ -1265,8 +1125,7 @@
     "winget": "Notion.Notion",
     "choco": "notion",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "FL Studio",
@@ -1274,8 +1133,7 @@
     "winget": "ImageLine.FLStudio",
     "choco": "ImageLine.FLStudio",
     "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
+    "category": "Media Tools"
   },
   {
     "Name": "Android Debug Bridge",
@@ -1283,8 +1141,7 @@
     "winget": "na",
     "choco": "adb",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Universal ADB Drivers",
@@ -1292,8 +1149,7 @@
     "winget": "na",
     "choco": "universal-adb-drivers",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Scrcpy",
@@ -1301,8 +1157,7 @@
     "winget": "Genymobile.scrcpy",
     "choco": "scrcpy",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "VirtualBox",
@@ -1310,8 +1165,7 @@
     "winget": "Oracle.VirtualBox",
     "choco": "virtualbox",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Oh My Posh",
@@ -1319,8 +1173,7 @@
     "winget": "JanDeDobbeleer.OhMyPosh",
     "choco": "oh-my-posh",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Malwarebytes",
@@ -1328,8 +1181,7 @@
     "winget": "Malwarebytes.Malwarebytes",
     "choco": "malwarebytes",
     "itt": "na",
-    "category": "Security",
-    "check": "false"
+    "category": "Security"
   },
   {
     "Name": "Avast Free Antivirus",
@@ -1337,8 +1189,7 @@
     "winget": "XPDNZJFNCR1B07",
     "choco": "avastfreeantivirus",
     "itt": "na",
-    "category": "Security",
-    "check": "false"
+    "category": "Security"
   },
   {
     "Name": "Nerd Fonts - CascadiaCode",
@@ -1346,8 +1197,7 @@
     "winget": "na",
     "choco": "nerd-fonts-cascadiacode",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Java SE Runtime Environment 8.0.411",
@@ -1355,8 +1205,7 @@
     "winget": "na",
     "choco": "jre8",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "Audacity",
@@ -1364,8 +1213,7 @@
     "winget": "Audacity.Audacity",
     "choco": "audacity",
     "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
+    "category": "Media Tools"
   },
   {
     "Name": "MusicBee",
@@ -1373,8 +1221,7 @@
     "winget": "MusicBee.MusicBee",
     "choco": "musicbee",
     "itt": "na",
-    "category": "Media",
-    "check": "false"
+    "category": "Media"
   },
   {
     "Name": "Format Factory",
@@ -1382,8 +1229,7 @@
     "winget": "na",
     "choco": "formatfactory",
     "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
+    "category": "Media Tools"
   },
   {
     "Name": "Winaero Tweaker",
@@ -1391,8 +1237,7 @@
     "winget": "na",
     "choco": "winaero-tweaker",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Windows Subsystem for Linux WSL2",
@@ -1400,8 +1245,7 @@
     "winget": "Microsoft.WSL",
     "choco": "wsl2",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Wamp Server 3.3.5",
@@ -1409,8 +1253,7 @@
     "winget": "na",
     "choco": "wamp-server",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "MongoDB",
@@ -1418,8 +1261,7 @@
     "winget": "MongoDB.Server",
     "choco": "mongodb",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "MPC-BE",
@@ -1427,8 +1269,7 @@
     "winget": " MPC-BE.MPC-BE",
     "choco": "mpc-be",
     "itt": "na",
-    "category": "Media",
-    "check": "false"
+    "category": "Media"
   },
   {
     "Name": "Kdenlive",
@@ -1436,8 +1277,7 @@
     "winget": "KDE.Kdenlive",
     "choco": "kdenlive",
     "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
+    "category": "Media Tools"
   },
   {
     "Name": "TablePlus",
@@ -1445,8 +1285,7 @@
     "winget": "TablePlus.TablePlus",
     "choco": "tableplus",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Hosts File Editor",
@@ -1454,8 +1293,7 @@
     "winget": "scottlerch.hosts-file-editor",
     "choco": "hosts.editor",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Subtitle Edit",
@@ -1463,8 +1301,7 @@
     "winget": "9NWH51GWJTKN",
     "choco": "subtitleedit",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Skype",
@@ -1472,8 +1309,7 @@
     "winget": "Microsoft.Skype",
     "choco": "skype",
     "itt": "na",
-    "category": "Communication",
-    "check": "false"
+    "category": "Communication"
   },
   {
     "Name": "FileZilla",
@@ -1481,8 +1317,7 @@
     "winget": "na",
     "choco": "filezilla",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Everything",
@@ -1490,8 +1325,7 @@
     "winget": "voidtools.Everything",
     "choco": "everything",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Yarn",
@@ -1499,8 +1333,7 @@
     "winget": "Yarn.Yarn",
     "choco": "yarn",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "VMware Workstation Player",
@@ -1508,8 +1341,7 @@
     "winget": "na",
     "choco": "vmware-workstation-player",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "HDD Low Level Format Tool",
@@ -1517,8 +1349,7 @@
     "winget": "na",
     "choco": "llftool",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "BlueStacks",
@@ -1526,8 +1357,7 @@
     "winget": "BlueStack.BlueStacks",
     "choco": "bluestacks",
     "itt": "na",
-    "category": "Gaming",
-    "check": "false"
+    "category": "Gaming"
   },
   {
     "Name": "Intel Wireless Bluetooth for Windows 10 and Windows 11",
@@ -1535,8 +1365,7 @@
     "winget": "na",
     "choco": "intel-bluetooth-drivers",
     "itt": "na",
-    "category": "Drivers",
-    "check": "false"
+    "category": "Drivers"
   },
   {
     "Name": "Office 365 Business",
@@ -1544,8 +1373,7 @@
     "winget": "Microsoft.Office",
     "choco": "office365business",
     "itt": "na",
-    "category": "Documents",
-    "check": "false"
+    "category": "Documents"
   },
   {
     "Name": "Bandicam",
@@ -1553,8 +1381,7 @@
     "winget": "BandicamCompany.Bandicam",
     "choco": "na",
     "itt": "na",
-    "category": "Imaging",
-    "check": "false"
+    "category": "Imaging"
   },
   {
     "Name": "QQPlayer",
@@ -1562,8 +1389,7 @@
     "winget": "Tencent.QQPlayer",
     "choco": "na",
     "itt": "na",
-    "category": "Media",
-    "check": "false"
+    "category": "Media"
   },
   {
     "Name": "4K Video Downloader",
@@ -1571,8 +1397,7 @@
     "winget": "OpenMedia.4KVideoDownloader",
     "choco": "4k-video-downloader",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Active@ Partition Recovery",
@@ -1580,8 +1405,7 @@
     "winget": "LSoftTechnologies.ActivePartitionRecovery",
     "choco": "na",
     "itt": "na",
-    "category": "Disk Tools",
-    "check": "false"
+    "category": "Disk Tools"
   },
   {
     "Name": "HiSuite",
@@ -1589,8 +1413,7 @@
     "winget": "Huawei.HiSuite",
     "choco": "na",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Android Studio",
@@ -1598,8 +1421,7 @@
     "winget": "Google.AndroidStudio",
     "choco": "androidstudio",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "LibreWolf",
@@ -1607,8 +1429,7 @@
     "winget": "LibreWolf.LibreWolf",
     "choco": "librewolf",
     "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
+    "category": "Web Browsers"
   },
   {
     "Name": "Flow Launcher",
@@ -1616,8 +1437,7 @@
     "winget": "Flow-Launcher.Flow-Launcher",
     "choco": "flow-launcher",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "IconsExtract",
@@ -1625,8 +1445,7 @@
     "winget": "na",
     "choco": "iconsext",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "AdGuard Home",
@@ -1634,8 +1453,7 @@
     "winget": "AdGuard.AdGuardHome",
     "choco": "adguardhome",
     "itt": "na",
-    "category": "Security",
-    "check": "false"
+    "category": "Security"
   },
   {
     "Name": "Burp Suite Community Edition",
@@ -1643,8 +1461,7 @@
     "winget": "PortSwigger.BurpSuite.Community",
     "choco": "burp-suite-free-edition",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "CoreTemp",
@@ -1652,8 +1469,7 @@
     "winget": "ALCPU.CoreTemp",
     "choco": "coretemp",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "ShareX",
@@ -1661,8 +1477,7 @@
     "winget": "ShareX.ShareX",
     "choco": "sharex",
     "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
+    "category": "File Sharing"
   },
   {
     "Name": "ONLY OFFICE",
@@ -1670,8 +1485,7 @@
     "winget": "ONLYOFFICE.DesktopEditors",
     "choco": "onlyoffice",
     "itt": "na",
-    "category": "Documents",
-    "check": "false"
+    "category": "Documents"
   },
   {
     "Name": "ESET Internet Security",
@@ -1679,8 +1493,7 @@
     "winget": "ESET.EndpointSecurity",
     "choco": "eset-internet-security",
     "itt": "na",
-    "category": "Security",
-    "check": "false"
+    "category": "Security"
   },
   {
     "Name": "WinDirStat",
@@ -1688,8 +1501,7 @@
     "winget": "WinDirStat.WinDirStat",
     "choco": "windirstat",
     "itt": "na",
-    "category": "Disk Tools",
-    "check": "false"
+    "category": "Disk Tools"
   },
   {
     "Name": "Winmerge",
@@ -1697,8 +1509,7 @@
     "winget": "WinMerge.WinMerge",
     "choco": "winmerge",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Wireshark",
@@ -1706,8 +1517,7 @@
     "winget": "WiresharkFoundation.Wireshark",
     "choco": "wireshark",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "TeraCopy",
@@ -1715,8 +1525,7 @@
     "winget": "CodeSector.TeraCopy",
     "choco": "teracopy",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "QuickLook",
@@ -1724,8 +1533,7 @@
     "winget": "QL-Win.QuickLook",
     "choco": "quicklook",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "RepoZ",
@@ -1733,8 +1541,7 @@
     "winget": "AndreasWascher.RepoZ",
     "choco": "repoz",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Intel Graphics Command Center",
@@ -1742,8 +1549,7 @@
     "winget": "9PLFNLNT3G5G",
     "choco": "na",
     "itt": "na",
-    "category": "Drivers",
-    "check": "false"
+    "category": "Drivers"
   },
   {
     "Name": "Go Programming Language",
@@ -1751,8 +1557,7 @@
     "winget": "Language GoLang.Go",
     "choco": "golang",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Rust",
@@ -1760,8 +1565,7 @@
     "winget": "Rustlang.Rust.GNU",
     "choco": "rust",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Inkscape",
@@ -1769,8 +1573,7 @@
     "winget": "Inkscape.Inkscape",
     "choco": "inkscape",
     "itt": "na",
-    "category": "Imaging",
-    "check": "false"
+    "category": "Imaging"
   },
   {
     "Name": "Youtube Dl",
@@ -1778,8 +1581,7 @@
     "winget": "youtube-dl.youtube-dl",
     "choco": "yt-dlp",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Postman",
@@ -1787,8 +1589,7 @@
     "winget": "Postman.Postman",
     "choco": "postman",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Azure CLI",
@@ -1796,8 +1597,7 @@
     "winget": "Microsoft.AzureCLI",
     "choco": "azure-cli",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "GameMaker Studio",
@@ -1805,8 +1605,7 @@
     "winget": "YoYoGames.GameMaker.Studio.2",
     "choco": "na",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Charles",
@@ -1814,8 +1613,7 @@
     "winget": "XK72.Charles",
     "choco": "charles",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Windows Media Player",
@@ -1823,8 +1621,7 @@
     "winget": "9WZDNCRFJ3PT",
     "choco": "na",
     "itt": "na",
-    "category": "Media",
-    "check": "false"
+    "category": "Media"
   },
   {
     "Name": "espanso",
@@ -1832,8 +1629,7 @@
     "winget": "Espanso.Espanso",
     "choco": "espanso",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Ability Office",
@@ -1841,8 +1637,7 @@
     "winget": "Ability.AbilityOffice.8.Standard",
     "choco": "abilityoffice",
     "itt": "na",
-    "category": "Documents",
-    "check": "false"
+    "category": "Documents"
   },
   {
     "Name": "Winbox",
@@ -1850,8 +1645,7 @@
     "winget": "Mikrotik.Winbox",
     "choco": "na",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "SearchMyFiles",
@@ -1859,8 +1653,7 @@
     "winget": "NirSoft.SearchMyFiles",
     "choco": "searchmyfiles",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "iTunes",
@@ -1868,8 +1661,7 @@
     "winget": "Apple.iTunes",
     "choco": "itunes",
     "itt": "na",
-    "category": "Media",
-    "check": "false"
+    "category": "Media"
   },
   {
     "Name": "StartIsBack++",
@@ -1877,8 +1669,7 @@
     "winget": "StartIsBack.StartIsBack",
     "choco": "startisback",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Advanced SystemCare Free",
@@ -1886,8 +1677,7 @@
     "winget": "XPFFGSS4Z9M2TX",
     "choco": "afedteated",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Send Anywhere",
@@ -1895,8 +1685,7 @@
     "winget": "Estmob.SendAnywhere",
     "choco": "na",
     "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
+    "category": "File Sharing"
   },
   {
     "Name": "YUMI Legacy",
@@ -1904,8 +1693,7 @@
     "winget": "YumiUsb.Legacy",
     "choco": "yumi",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "YUMI UEFI",
@@ -1913,8 +1701,7 @@
     "winget": "YumiUsb.UEFI",
     "choco": "yumi-uefi",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "OP Auto Clicker",
@@ -1922,8 +1709,7 @@
     "winget": "OPAutoClicker.OPAutoClicker",
     "choco": "autoclicker",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Spotube",
@@ -1931,8 +1717,7 @@
     "winget": "KRTirtho.Spotube",
     "choco": "spotube",
     "itt": "na",
-    "category": "Media",
-    "check": "false"
+    "category": "Media"
   },
   {
     "Name": "Audio Switcher",
@@ -1940,8 +1725,7 @@
     "winget": "FortyOneLtd.AudioSwitcher",
     "choco": "audioswitcher",
     "itt": "na",
-    "category": "Media",
-    "check": "false"
+    "category": "Media"
   },
   {
     "Name": "Microsoft Teams Classic Desktop",
@@ -1949,8 +1733,7 @@
     "winget": "na",
     "choco": "microsoft-teams.install",
     "itt": "na",
-    "category": "Communication",
-    "check": "false"
+    "category": "Communication"
   },
   {
     "Name": "Microsoft Windows SDK",
@@ -1958,8 +1741,7 @@
     "winget": "na",
     "choco": "windows-sdk-10.1",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "RunAsDate Portable",
@@ -1967,8 +1749,7 @@
     "winget": "na",
     "choco": "runasdate",
     "itt": "na",
-    "category": "Portable",
-    "check": "false"
+    "category": "Portable"
   },
   {
     "Name": "Visual Studio 2017 Build ",
@@ -1976,8 +1757,7 @@
     "winget": "na",
     "choco": "visualstudio2017buildtools",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "MSEdgeRedirect",
@@ -1985,8 +1765,7 @@
     "winget": "rcmaehl.MSEdgeRedirect",
     "choco": "msedgeredirect",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "NET Desktop Runtime 5",
@@ -1994,8 +1773,7 @@
     "winget": "Microsoft.DotNet.HostingBundle.5",
     "choco": "dotnet-5.0-desktopruntime",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "NET Desktop Runtime 3",
@@ -2003,8 +1781,7 @@
     "winget": "dotnetcore-3.0-desktopruntime",
     "choco": "Microsoft.DotNet.HostingBundle.3_1",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "NET Desktop Runtime 6",
@@ -2012,8 +1789,7 @@
     "winget": "Microsoft.DotNet.HostingBundle.6",
     "choco": "dotnet-6.0-desktopruntime",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "NET Desktop Runtime 7",
@@ -2021,8 +1797,7 @@
     "winget": "Microsoft.DotNet.AspNetCore.7",
     "choco": "dotnet-7.0-desktopruntime",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "NET Desktop Runtime 8",
@@ -2030,8 +1805,7 @@
     "winget": "Microsoft.DotNet.DesktopRuntime.8",
     "choco": "dotnet-desktopruntime",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "Viber",
@@ -2039,8 +1813,7 @@
     "winget": "XPFM5P5KDWF0JP",
     "choco": "viber",
     "itt": "na",
-    "category": "Communication",
-    "check": "false"
+    "category": "Communication"
   },
   {
     "Name": "StartAllBack",
@@ -2048,8 +1821,7 @@
     "winget": "StartIsBack.StartAllBack",
     "choco": "startallback",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "DiskGenius Free",
@@ -2057,8 +1829,7 @@
     "winget": "Eassos.DiskGenius",
     "choco": "diskgenius",
     "itt": "na",
-    "category": "Disk Tools",
-    "check": "false"
+    "category": "Disk Tools"
   },
   {
     "Name": "UNFORMAT",
@@ -2066,8 +1837,7 @@
     "winget": "LSoftTechnologies.UNFORMAT",
     "choco": "na",
     "itt": "na",
-    "category": "Disk Tools",
-    "check": "false"
+    "category": "Disk Tools"
   },
   {
     "Name": "Active@ UNDELETE",
@@ -2075,8 +1845,7 @@
     "winget": "LSoftTechnologies.ActiveUNDELETE",
     "choco": "na",
     "itt": "na",
-    "category": "Disk Tools",
-    "check": "false"
+    "category": "Disk Tools"
   },
   {
     "Name": "HxD Hex Editor",
@@ -2084,8 +1853,7 @@
     "winget": "MHNexus.HxD",
     "choco": "hxd",
     "itt": "na",
-    "category": "Disk Tools",
-    "check": "false"
+    "category": "Disk Tools"
   },
   {
     "Name": "Epic Games Launcher",
@@ -2093,8 +1861,7 @@
     "winget": "EpicGames.EpicGamesLauncher",
     "choco": "epicgameslauncher",
     "itt": "na",
-    "category": "Gaming",
-    "check": "false"
+    "category": "Gaming"
   },
   {
     "Name": "Vivaldi",
@@ -2102,8 +1869,7 @@
     "winget": "VivaldiTechnologies.Vivaldi",
     "choco": "vivaldi",
     "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
+    "category": "Web Browsers"
   },
   {
     "Name": "Microsoft PC Manager",
@@ -2111,8 +1877,7 @@
     "winget": "9PM860492SZD",
     "choco": "na",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Openshot",
@@ -2120,8 +1885,7 @@
     "winget": "OpenShot.OpenShot",
     "choco": "openshot",
     "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
+    "category": "Media Tools"
   },
   {
     "Name": "WhatsApp",
@@ -2129,8 +1893,7 @@
     "winget": "9NKSQGP7F2NH",
     "choco": "na",
     "itt": "na",
-    "category": "Communication",
-    "check": "false"
+    "category": "Communication"
   },
   {
     "Name": "Paint.NET",
@@ -2138,8 +1901,7 @@
     "winget": "dotPDNLLC.paintdotnet",
     "choco": "paint.net",
     "itt": "na",
-    "category": "Imaging",
-    "check": "false"
+    "category": "Imaging"
   },
   {
     "Name": "Stretchly",
@@ -2147,8 +1909,7 @@
     "winget": "Stretchly.Stretchly",
     "choco": "stretchly",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Microsoft Silverlight",
@@ -2156,8 +1917,7 @@
     "winget": "na",
     "choco": "silverlight",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "TreeSize",
@@ -2165,8 +1925,7 @@
     "winget": "JAMSoftware.TreeSize.Free",
     "choco": "treesizefree",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Dot Net 3.5",
@@ -2174,8 +1933,7 @@
     "winget": "Microsoft.DotNet.DesktopRuntime.3_1",
     "choco": "dotnet3.5",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "Flash Player ActiveX",
@@ -2183,8 +1941,7 @@
     "winget": "na",
     "choco": "flashplayeractivex",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "Google Drive",
@@ -2192,8 +1949,7 @@
     "winget": "na",
     "choco": "googledrive",
     "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
+    "category": "File Sharing"
   },
   {
     "Name": "Dot Net 4.5.2",
@@ -2201,8 +1957,7 @@
     "winget": "na",
     "choco": "dotnet4.5.2",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "Dropbox",
@@ -2210,8 +1965,7 @@
     "winget": "Dropbox.Dropbox",
     "choco": "dropbox",
     "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
+    "category": "File Sharing"
   },
   {
     "Name": "cURL",
@@ -2219,8 +1973,7 @@
     "winget": "cURL.cURL",
     "choco": "curl",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "PDF Creator",
@@ -2228,8 +1981,7 @@
     "winget": "pdfforge.PDFCreator",
     "choco": "pdfcreator",
     "itt": "na",
-    "category": "Documents",
-    "check": "false"
+    "category": "Documents"
   },
   {
     "Name": "Autoruns",
@@ -2237,8 +1989,7 @@
     "winget": "Microsoft.Sysinternals.Autoruns",
     "choco": "autoruns",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Microsoft OneDrive",
@@ -2246,8 +1997,7 @@
     "winget": "Microsoft.OneDrive",
     "choco": "onedrive",
     "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
+    "category": "File Sharing"
   },
   {
     "Name": "Process Explorer",
@@ -2255,8 +2005,7 @@
     "winget": "Microsoft.Sysinternals.ProcessExplorer",
     "choco": "procexp",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "FFmpeg",
@@ -2264,8 +2013,7 @@
     "winget": "Gyan.FFmpeg",
     "choco": "ffmpeg",
     "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
+    "category": "Media Tools"
   },
   {
     "Name": "OpenVPN Connect",
@@ -2273,8 +2021,7 @@
     "winget": "OpenVPNTechnologies.OpenVPNConnect",
     "choco": "openvpn-connect",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Git Large File Storage",
@@ -2282,8 +2029,7 @@
     "winget": "na",
     "choco": "git-lfs",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Nmap",
@@ -2291,8 +2037,7 @@
     "winget": "Insecure.Nmap",
     "choco": "nmap",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "UltraVNC",
@@ -2300,8 +2045,7 @@
     "winget": "uvncbvba.UltraVnc",
     "choco": "ultravnc",
     "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
+    "category": "File Sharing"
   },
   {
     "Name": "Plex",
@@ -2309,8 +2053,7 @@
     "winget": "Plex.Plex",
     "choco": "plex",
     "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
+    "category": "Media Tools"
   },
   {
     "Name": "Plex Media Server",
@@ -2318,8 +2061,7 @@
     "winget": "Plex.PlexMediaServer",
     "choco": "plexmediaserver",
     "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
+    "category": "Media Tools"
   },
   {
     "Name": "Microsoft Visio Viewer",
@@ -2327,8 +2069,7 @@
     "winget": "Microsoft.VisioViewer",
     "choco": "visioviewer",
     "itt": "na",
-    "category": "Documents",
-    "check": "false"
+    "category": "Documents"
   },
   {
     "Name": "Keyn Stroke",
@@ -2336,8 +2077,7 @@
     "winget": "na",
     "choco": "key-n-stroke",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Fing",
@@ -2345,8 +2085,7 @@
     "winget": "na",
     "choco": "fing",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Ryujinx",
@@ -2354,8 +2093,7 @@
     "winget": "na",
     "choco": "ryujinx --params",
     "itt": "na",
-    "category": "Gaming",
-    "check": "false"
+    "category": "Gaming"
   },
   {
     "Name": "Omnify Hotspot",
@@ -2363,8 +2101,7 @@
     "winget": "na",
     "choco": "omnifyhotspot",
     "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
+    "category": "File Sharing"
   },
   {
     "Name": "MKVToolNix",
@@ -2372,8 +2109,7 @@
     "winget": "MoritzBunkus.MKVToolNix",
     "choco": "mkvtoolnix",
     "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
+    "category": "Media Tools"
   },
   {
     "Name": "Neat Download Manager",
@@ -2381,8 +2117,7 @@
     "winget": "na",
     "choco": "na",
     "itt": "neat",
-    "category": "Web Browsers",
-    "check": "false"
+    "category": "Web Browsers"
   },
   {
     "Name": "x630ce for all games",
@@ -2390,8 +2125,7 @@
     "winget": "na",
     "choco": "na",
     "itt": "x360ce",
-    "category": "Gaming",
-    "check": "false"
+    "category": "Gaming"
   },
   {
     "Name": "Microsoft .NET SDK 7",
@@ -2399,8 +2133,7 @@
     "winget": "Microsoft.DotNet.SDK.7",
     "choco": "dotnet-7.0-sdk",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "Microsoft .NET SDK 8",
@@ -2408,8 +2141,7 @@
     "winget": "Microsoft.DotNet.SDK.Preview",
     "choco": "dotnet-sdk",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "Microsoft ASP.NET Core Runtime 7.0",
@@ -2417,8 +2149,7 @@
     "winget": "Microsoft.DotNet.AspNetCore.7",
     "choco": "dotnet-aspnetruntime",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "HFS HTTP File Server",
@@ -2426,8 +2157,7 @@
     "winget": "na",
     "choco": "hfs",
     "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
+    "category": "File Sharing"
   },
   {
     "Name": "Cemu",
@@ -2435,8 +2165,7 @@
     "winget": "Cemu.Cemu",
     "choco": "cemu",
     "itt": "na",
-    "category": "Gaming",
-    "check": "false"
+    "category": "Gaming"
   },
   {
     "Name": "Chatterino",
@@ -2444,8 +2173,7 @@
     "winget": "ChatterinoTeam.Chatterino",
     "choco": "chatterino",
     "itt": "na",
-    "category": "Communication",
-    "check": "false"
+    "category": "Communication"
   },
   {
     "Name": "Clementine",
@@ -2453,8 +2181,7 @@
     "winget": "Clementine.Clementine",
     "choco": "clementine",
     "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
+    "category": "Media Tools"
   },
   {
     "Name": "Clink",
@@ -2462,8 +2189,7 @@
     "winget": "chrisant996.Clink",
     "choco": "clink",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "CMake",
@@ -2471,8 +2197,7 @@
     "winget": "Kitware.CMake",
     "choco": "cmake",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "CopyQ Clipboard Manager",
@@ -2480,8 +2205,7 @@
     "winget": "hluk.CopyQ",
     "choco": "copyq",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Crystal Disk Info",
@@ -2489,8 +2213,7 @@
     "winget": "CrystalDewWorld.CrystalDiskInfo",
     "choco": "crystaldiskinfo",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Crystal Disk Mark",
@@ -2498,8 +2221,7 @@
     "winget": "CrystalDewWorld.CrystalDiskMark",
     "choco": "crystaldiskmark",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Darktable",
@@ -2507,8 +2229,7 @@
     "winget": "darktable.darktable",
     "choco": "darktable",
     "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
+    "category": "Media Tools"
   },
   {
     "Name": "EA App",
@@ -2516,8 +2237,7 @@
     "winget": "ElectronicArts.EADesktop",
     "choco": "ea-app",
     "itt": "na",
-    "category": "Gaming",
-    "check": "false"
+    "category": "Gaming"
   },
   {
     "Name": "Falkon",
@@ -2525,8 +2245,7 @@
     "winget": "KDE.Falkon",
     "choco": "falkon",
     "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
+    "category": "Web Browsers"
   },
   {
     "Name": "File Converter",
@@ -2534,8 +2253,7 @@
     "winget": "AdrienAllard.FileConverter",
     "choco": "file-converter",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Files",
@@ -2543,8 +2261,7 @@
     "winget": "na",
     "choco": "files",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Flameshot",
@@ -2552,8 +2269,7 @@
     "winget": "Flameshot.Flameshot",
     "choco": "flameshot",
     "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
+    "category": "Media Tools"
   },
   {
     "Name": "Lightshot",
@@ -2561,8 +2277,7 @@
     "winget": "Skillbrains.Lightshot",
     "choco": "lightshot",
     "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
+    "category": "Media Tools"
   },
   {
     "Name": "F.lux",
@@ -2570,8 +2285,7 @@
     "winget": "flux.flux",
     "choco": "flux",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "GitHub CLI",
@@ -2579,8 +2293,7 @@
     "winget": "GitHub.cli",
     "choco": "gh",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "GOG Galaxy",
@@ -2588,8 +2301,7 @@
     "winget": "GOG.Galaxy",
     "choco": "goggalaxy",
     "itt": "na",
-    "category": "Gaming",
-    "check": "false"
+    "category": "Gaming"
   },
   {
     "Name": "Greenshot",
@@ -2597,8 +2309,7 @@
     "winget": "Greenshot.Greenshot",
     "choco": "greenshot",
     "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
+    "category": "Media Tools"
   },
   {
     "Name": "Hexchat",
@@ -2606,8 +2317,7 @@
     "winget": "HexChat.HexChat",
     "choco": "hexchat",
     "itt": "na",
-    "category": "Communication",
-    "check": "false"
+    "category": "Communication"
   },
   {
     "Name": "HWMonitor",
@@ -2615,8 +2325,7 @@
     "winget": "CPUID.HWMonitor",
     "choco": "hwmonitor",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "ImageGlass",
@@ -2624,8 +2333,7 @@
     "winget": "DuongDieuPhap.ImageGlass",
     "choco": "imageglass",
     "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
+    "category": "Media Tools"
   },
   {
     "Name": "Itch.io",
@@ -2633,8 +2341,7 @@
     "winget": "ItchIo.Itch",
     "choco": "itch",
     "itt": "na",
-    "category": "Gaming",
-    "check": "false"
+    "category": "Gaming"
   },
   {
     "Name": "KDE Connect",
@@ -2642,8 +2349,7 @@
     "winget": "KDE.KDEConnect",
     "choco": "kdeconnect-kde",
     "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
+    "category": "File Sharing"
   },
   {
     "Name": "KeePassXC",
@@ -2651,8 +2357,7 @@
     "winget": "KeePassXCTeam.KeePassXC",
     "choco": "keepassxc",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Lazygit",
@@ -2660,8 +2365,7 @@
     "winget": "JesseDuffield.lazygit",
     "choco": "lazygit",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "LocalSend",
@@ -2669,8 +2373,7 @@
     "winget": "LocalSend.LocalSend",
     "choco": "localsend.install",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Fork",
@@ -2678,8 +2381,7 @@
     "winget": "Fork.Fork",
     "choco": "git-fork",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "PulsarEdit",
@@ -2687,8 +2389,7 @@
     "winget": "Pulsar-Edit.Pulsar",
     "choco": "pulsar",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Shotcut",
@@ -2696,8 +2397,7 @@
     "winget": "Meltytech.Shotcut",
     "choco": "Shotcut",
     "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
+    "category": "Media Tools"
   },
   {
     "Name": "PaleMoon",
@@ -2705,8 +2405,7 @@
     "winget": "MoonchildProductions.PaleMoon",
     "choco": "paleMoon",
     "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
+    "category": "Web Browsers"
   },
   {
     "Name": "JoyToKey",
@@ -2714,8 +2413,7 @@
     "winget": "JTKsoftware.JoyToKey",
     "choco": "joytokey",
     "itt": "na",
-    "category": "Gaming",
-    "check": "false"
+    "category": "Gaming"
   },
   {
     "Name": "Windows Auto Dark Mode",
@@ -2723,8 +2421,7 @@
     "winget": "Armin2208.WindowsAutoNightMode",
     "choco": "auto-dark-mode",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Windows Firewall Control",
@@ -2732,8 +2429,7 @@
     "winget": "BiniSoft.WindowsFirewallControl",
     "choco": "windowsfirewallcontrol",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "TightVNC",
@@ -2741,8 +2437,7 @@
     "winget": "GlavSoft.TightVNC",
     "choco": "TightVNC",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Python Version Manager",
@@ -2750,8 +2445,7 @@
     "winget": "na",
     "choco": "pyenv-win",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Pixi",
@@ -2759,8 +2453,7 @@
     "winget": "prefix-dev.pixi",
     "choco": "pixi",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "VSCodium",
@@ -2768,8 +2461,7 @@
     "winget": "VSCodium.VSCodium",
     "choco": "vscodium",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Thonny Python IDE",
@@ -2777,8 +2469,7 @@
     "winget": "AivarAnnamaa.Thonny",
     "choco": "thonny",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Poedit",
@@ -2786,8 +2477,7 @@
     "winget": "na",
     "choco": "na",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Adobe Acrobat Reader",
@@ -2795,8 +2485,7 @@
     "winget": "Adobe.Acrobat.Reader.32-bit",
     "choco": "adobereader",
     "itt": "na",
-    "category": "Documents",
-    "check": "false"
+    "category": "Documents"
   },
   {
     "Name": "Flash Player Plugin",
@@ -2804,8 +2493,7 @@
     "winget": "na",
     "choco": "flashplayerplugin",
     "itt": "na",
-    "category": "Documents",
-    "check": "false"
+    "category": "Documents"
   },
   {
     "Name": "Sysinternals",
@@ -2813,8 +2501,7 @@
     "winget": "na",
     "choco": "sysinternals",
     "itt": "na",
-    "category": "Documents",
-    "check": "false"
+    "category": "Documents"
   },
   {
     "Name": "SelfishNet",
@@ -2822,8 +2509,7 @@
     "winget": "na",
     "choco": "na",
     "itt": "selfishnet",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "NTLite",
@@ -2831,8 +2517,7 @@
     "winget": "Nlitesoft.NTLite",
     "choco": "ntlite-free",
     "itt": "na",
-    "category": "Drivers",
-    "check": "false"
+    "category": "Drivers"
   },
   {
     "Name": "Olive Video Editor",
@@ -2840,8 +2525,7 @@
     "winget": "OliveTeam.OliveVideoEditor",
     "choco": "olive",
     "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
+    "category": "Media Tools"
   },
   {
     "Name": "Mark Text",
@@ -2849,8 +2533,7 @@
     "winget": "MarkText.MarkText",
     "choco": "marktext.portable",
     "itt": "na",
-    "category": "Portable",
-    "check": "false"
+    "category": "Portable"
   },
   {
     "Name": "pCloud Drive",
@@ -2858,8 +2541,7 @@
     "winget": "pCloudAG.pCloudDrive",
     "choco": "pcloud",
     "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
+    "category": "File Sharing"
   },
   {
     "Name": "Hurl",
@@ -2867,8 +2549,7 @@
     "winget": "Orange-OpenSource.Hurl",
     "choco": "hurl",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "File Hash Generator",
@@ -2876,8 +2557,7 @@
     "winget": "BinaryMark.FileHashGenerator",
     "choco": "file-hash-generator",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Multimark down",
@@ -2885,8 +2565,7 @@
     "winget": "na",
     "choco": "multimarkdown",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "PCSX2 Emulator",
@@ -2894,8 +2573,7 @@
     "winget": "na",
     "choco": "pcsx2.portable",
     "itt": "na",
-    "category": "Portable",
-    "check": "false"
+    "category": "Portable"
   },
   {
     "Name": "RetroArch",
@@ -2903,8 +2581,7 @@
     "winget": "Libretro.RetroArch",
     "choco": "retroarch",
     "itt": "na",
-    "category": "Gaming",
-    "check": "false"
+    "category": "Gaming"
   },
   {
     "Name": "Free Virtual Keyboard",
@@ -2912,8 +2589,7 @@
     "winget": "na",
     "choco": "free-virtual-keyboard",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "TypeScript for Visual Studio 2017 and 2019",
@@ -2921,8 +2597,7 @@
     "winget": "na",
     "choco": "typescript-vs2017-vs2019",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Caret",
@@ -2930,8 +2605,7 @@
     "winget": "Caret.Caret",
     "choco": "caret",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "iSpy",
@@ -2939,8 +2613,7 @@
     "winget": "na",
     "choco": "ispy",
     "itt": "na",
-    "category": "Imaging",
-    "check": "false"
+    "category": "Imaging"
   },
   {
     "Name": "WavPack",
@@ -2948,8 +2621,7 @@
     "winget": "na",
     "choco": "wavpack",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "ProcessThreadsView",
@@ -2957,8 +2629,7 @@
     "winget": "na",
     "choco": "processthreadsview",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Zulu",
@@ -2966,8 +2637,7 @@
     "winget": "Azul.Zulu.11.JRE",
     "choco": "zulu12",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "GitHubReleaseNotesv1",
@@ -2975,8 +2645,7 @@
     "winget": "StefHeyenrath.GitHubReleaseNotes",
     "choco": "githubreleasenotes",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Tome",
@@ -2984,8 +2653,7 @@
     "winget": "na",
     "choco": "tome-editor",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Win32 OpenSSH",
@@ -2993,8 +2661,7 @@
     "winget": "Microsoft.OpenSSH.Beta",
     "choco": "openssh",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Komodo Edit",
@@ -3002,8 +2669,7 @@
     "winget": "ActiveState.KomodoEdit",
     "choco": "komodo-edit",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "FreeCAD",
@@ -3011,8 +2677,7 @@
     "winget": "FreeCAD.FreeCAD",
     "choco": "freecad",
     "itt": "na",
-    "category": "Imaging",
-    "check": "false"
+    "category": "Imaging"
   },
   {
     "Name": "SQLite",
@@ -3020,8 +2685,7 @@
     "winget": "SQLite.SQLite",
     "choco": "sqlite",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "MkDocs",
@@ -3029,8 +2693,7 @@
     "winget": "na",
     "choco": "mkdocs",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "MkDocs Material Theme",
@@ -3038,8 +2701,7 @@
     "winget": "na",
     "choco": "mkdocs-material",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "PuTTY",
@@ -3047,8 +2709,7 @@
     "winget": "PuTTY.PuTTY",
     "choco": "putty",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "WinSCP",
@@ -3056,8 +2717,7 @@
     "winget": "WinSCP.WinSCP",
     "choco": "winscp",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "LibreOffice Still",
@@ -3065,8 +2725,7 @@
     "winget": "na",
     "choco": "libreoffice-still",
     "itt": "na",
-    "category": "Documents",
-    "check": "false"
+    "category": "Documents"
   },
   {
     "Name": "Aio Runtimes",
@@ -3074,8 +2733,7 @@
     "winget": "na",
     "choco": "na",
     "itt": "aio-runtimes",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "Visual-C-Runtimes All in One Oct 2024",
@@ -3083,8 +2741,7 @@
     "winget": "na",
     "choco": "na",
     "itt": "vsall",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "GPU-Z",
@@ -3092,8 +2749,7 @@
     "winget": "TechPowerUp.GPU-Z",
     "choco": "gpu-z",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "MemTest86",
@@ -3101,8 +2757,7 @@
     "winget": "na",
     "choco": "na",
     "itt": "memtest86",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Memtest86 Plus",
@@ -3110,8 +2765,7 @@
     "winget": "na",
     "choco": "na",
     "itt": "memtest86plus",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "VLC Skins",
@@ -3119,8 +2773,7 @@
     "winget": "na",
     "choco": "vlc-skins",
     "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
+    "category": "Media Tools"
   },
   {
     "Name": "GrepWin",
@@ -3128,8 +2781,7 @@
     "winget": "StefansTools.grepWin",
     "choco": "grepwin",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "NICE DCV Server",
@@ -3137,8 +2789,7 @@
     "winget": "na",
     "choco": "nice-dcv-server",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "NTag",
@@ -3146,8 +2797,7 @@
     "winget": "nrittsti.NTag",
     "choco": "ntag",
     "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
+    "category": "Media Tools"
   },
   {
     "Name": "Volume2",
@@ -3155,8 +2805,7 @@
     "winget": "irzyxa.Volume2Portable",
     "choco": "volume2",
     "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
+    "category": "Media Tools"
   },
   {
     "Name": "qBittorrent Enhanced Edition",
@@ -3164,8 +2813,7 @@
     "winget": "wingetinstallc0re100.qBittorrent-Enhanced-Edition",
     "choco": "qbittorrent-enhanced",
     "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
+    "category": "File Sharing"
   },
   {
     "Name": "Aspia",
@@ -3173,8 +2821,7 @@
     "winget": "na",
     "choco": "na",
     "itt": "Aspia",
-    "category": "File Sharing",
-    "check": "false"
+    "category": "File Sharing"
   },
   {
     "Name": "SimpleTransfer Desktop",
@@ -3182,8 +2829,7 @@
     "winget": "Rambax.SimpleTransfer",
     "choco": "simpletransfer",
     "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
+    "category": "File Sharing"
   },
   {
     "Name": "Twitch Desktop App",
@@ -3191,8 +2837,7 @@
     "winget": "na",
     "choco": "twitch",
     "itt": "na",
-    "category": "Gaming",
-    "check": "false"
+    "category": "Gaming"
   },
   {
     "Name": "Remote Desktop Manager",
@@ -3200,8 +2845,7 @@
     "winget": "Devolutions.RemoteDesktopManager",
     "choco": "rdm",
     "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
+    "category": "File Sharing"
   },
   {
     "Name": "Torrid",
@@ -3209,8 +2853,7 @@
     "winget": "na",
     "choco": "torrid",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Mediamonkey",
@@ -3218,8 +2861,7 @@
     "winget": "VentisMedia.MediaMonkey",
     "choco": "mediamonkey",
     "itt": "na",
-    "category": "Media",
-    "check": "false"
+    "category": "Media"
   },
   {
     "Name": "MediaInfo",
@@ -3227,8 +2869,7 @@
     "winget": "MediaArea.MediaInfo.GUI",
     "choco": "mediainfo",
     "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
+    "category": "Media Tools"
   },
   {
     "Name": "Universal Media Server",
@@ -3236,8 +2877,7 @@
     "winget": "UniversalMediaServer.UniversalMediaServer",
     "choco": "ums",
     "itt": "na",
-    "category": "Media",
-    "check": "false"
+    "category": "Media"
   },
   {
     "Name": "K-Lite Codec Pack Standard",
@@ -3245,8 +2885,7 @@
     "winget": "CodecGuide.K-LiteCodecPack.Standard",
     "choco": "k-litecodecpack-standard",
     "itt": "na",
-    "category": "Media",
-    "check": "false"
+    "category": "Media"
   },
   {
     "Name": "PowerISO",
@@ -3254,8 +2893,7 @@
     "winget": "PowerSoftware.PowerISO",
     "choco": "poweriso",
     "itt": "na",
-    "category": "Compression",
-    "check": "false"
+    "category": "Compression"
   },
   {
     "Name": "Screen To Gif",
@@ -3263,8 +2901,7 @@
     "winget": "NickeManarin.ScreenToGif",
     "choco": "screentogif.portable",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Figma",
@@ -3272,8 +2909,7 @@
     "winget": "Figma.Figma",
     "choco": "figma",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "EarTrumpet",
@@ -3281,8 +2917,7 @@
     "winget": "File-New-Project.EarTrumpet",
     "choco": "eartrumpet",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Visual Studio Code Insiders",
@@ -3290,8 +2925,7 @@
     "winget": "Microsoft.VisualStudioCode.Insiders",
     "choco": "vscode-insiders",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "AyuGramDesktop",
@@ -3299,8 +2933,7 @@
     "winget": "na",
     "choco": "na",
     "itt": "ayugramdesktop",
-    "category": "Communication",
-    "check": "false"
+    "category": "Communication"
   },
   {
     "Name": "Zettlr",
@@ -3308,8 +2941,7 @@
     "winget": "Zettlr.Zettlr",
     "choco": "zettlr",
     "itt": "na",
-    "category": "Documents",
-    "check": "false"
+    "category": "Documents"
   },
   {
     "Name": "RustDesk",
@@ -3317,8 +2949,7 @@
     "winget": "RustDesk.RustDesk",
     "choco": "rustdesk",
     "itt": "na",
-    "category": "File Sharing",
-    "check": "false"
+    "category": "File Sharing"
   },
   {
     "Name": "Ente Auth",
@@ -3326,8 +2957,7 @@
     "winget": "na",
     "choco": "ente-auth",
     "itt": "na",
-    "category": "Security",
-    "check": "false"
+    "category": "Security"
   },
   {
     "Name": "SQLiteStudio",
@@ -3335,8 +2965,7 @@
     "winget": "sqlitestudio.pl.SQLiteStudio",
     "choco": "sqlitestudio",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "DuckStation",
@@ -3344,8 +2973,7 @@
     "winget": "na",
     "choco": "na",
     "itt": "duckstation",
-    "category": "Portable",
-    "check": "false"
+    "category": "Portable"
   },
   {
     "Name": "Authme - Simple 2FA",
@@ -3353,8 +2981,7 @@
     "winget": "na",
     "choco": "authme.portable",
     "itt": "na",
-    "category": "Security",
-    "check": "false"
+    "category": "Security"
   },
   {
     "Name": "SuperCopier2",
@@ -3362,8 +2989,7 @@
     "winget": "na",
     "choco": "na",
     "itt": "supercopier2",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Octopus Deploy",
@@ -3371,8 +2997,7 @@
     "winget": "OctopusDeploy.Tentacle",
     "choco": "octopusdeploy.tentacle",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Kindle Previewer",
@@ -3380,8 +3005,7 @@
     "winget": "na",
     "choco": "kindlepreviewer",
     "itt": "na",
-    "category": "Documents",
-    "check": "false"
+    "category": "Documents"
   },
   {
     "Name": "Interior Design 3D",
@@ -3389,8 +3013,7 @@
     "winget": "AMSSoftware.InteriorDesign3D-e",
     "choco": "na",
     "itt": "na",
-    "category": "Imaging",
-    "check": "false"
+    "category": "Imaging"
   },
   {
     "Name": "MeshLab",
@@ -3398,8 +3021,7 @@
     "winget": "CNRISTI.MeshLab",
     "choco": "meshlab",
     "itt": "na",
-    "category": "Imaging",
-    "check": "false"
+    "category": "Imaging"
   },
   {
     "Name": "GitKraken",
@@ -3407,8 +3029,7 @@
     "winget": "Axosoft.GitKraken",
     "choco": "gitkraken",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Slack",
@@ -3416,8 +3037,7 @@
     "winget": "SlackTechnologies.Slack",
     "choco": "slack",
     "itt": "na",
-    "category": "Communication",
-    "check": "false"
+    "category": "Communication"
   },
   {
     "Name": "Rocket Chat",
@@ -3425,8 +3045,7 @@
     "winget": "RocketChat.RocketChat",
     "choco": "rocketchat",
     "itt": "na",
-    "category": "Communication",
-    "check": "false"
+    "category": "Communication"
   },
   {
     "Name": "TeamSpeak",
@@ -3434,8 +3053,7 @@
     "winget": "TeamSpeakSystems.TeamSpeakClient",
     "choco": "teamspeak",
     "itt": "na",
-    "category": "Communication",
-    "check": "false"
+    "category": "Communication"
   },
   {
     "Name": "FFFTP",
@@ -3443,8 +3061,7 @@
     "winget": "Sayuri.FFFTP",
     "choco": "ffftp",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "SmartFTP",
@@ -3452,8 +3069,7 @@
     "winget": "SmartSoft.SmartFTP",
     "choco": "smartftp",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Rclone",
@@ -3461,8 +3077,7 @@
     "winget": "Rclone.Rclone",
     "choco": "rclone",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Cyberduck",
@@ -3470,8 +3085,7 @@
     "winget": "Iterate.Cyberduck",
     "choco": "cyberduck",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "Dolphin",
@@ -3479,8 +3093,7 @@
     "winget": "DolphinEmulator.Dolphin",
     "choco": "dolphin",
     "itt": "na",
-    "category": "Gaming",
-    "check": "false"
+    "category": "Gaming"
   },
   {
     "Name": "mGBA",
@@ -3488,8 +3101,7 @@
     "winget": "JeffreyPfau.mGBA",
     "choco": "mgba",
     "itt": "na",
-    "category": "Gaming",
-    "check": "false"
+    "category": "Gaming"
   },
   {
     "Name": "EmulationStation",
@@ -3497,8 +3109,7 @@
     "winget": "Emulationstation.Emulationstation",
     "choco": "emulationstation",
     "itt": "na",
-    "category": "Gaming",
-    "check": "false"
+    "category": "Gaming"
   },
   {
     "Name": "ScummVM",
@@ -3506,8 +3117,7 @@
     "winget": "ScummVM.ScummVM",
     "choco": "scummvm",
     "itt": "na",
-    "category": "Gaming",
-    "check": "false"
+    "category": "Gaming"
   },
   {
     "Name": "Project64",
@@ -3515,8 +3125,7 @@
     "winget": "Project64.Project64",
     "choco": "project64",
     "itt": "na",
-    "category": "Gaming",
-    "check": "false"
+    "category": "Gaming"
   },
   {
     "Name": "DOSBox",
@@ -3524,8 +3133,7 @@
     "winget": "DOSBox.DOSBox",
     "choco": "na",
     "itt": "na",
-    "category": "Gaming",
-    "check": "false"
+    "category": "Gaming"
   },
   {
     "Name": "Kodu Game Lab",
@@ -3533,8 +3141,7 @@
     "winget": "InfiniteInstant.KoduGameLab",
     "choco": "na",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "GDevelop",
@@ -3542,8 +3149,7 @@
     "winget": "GDevelop.GDevelop",
     "choco": "gdevelop",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "MongoDB Tools",
@@ -3551,8 +3157,7 @@
     "winget": "MongoDB.DatabaseTools",
     "choco": "mongodb-database-tools",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "DB Browser for SQLite",
@@ -3560,8 +3165,7 @@
     "winget": "DBBrowserForSQLite.DBBrowserForSQLite",
     "choco": "sqlitebrowser",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "MySQL",
@@ -3569,8 +3173,7 @@
     "winget": "Oracle.MySQL",
     "choco": "mysql",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "MongoDB Compass",
@@ -3578,8 +3181,7 @@
     "winget": "MongoDB.Compass.Full",
     "choco": "mongodb-compass",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "MongoDB Compass readonly",
@@ -3587,8 +3189,7 @@
     "winget": "MongoDB.Compass.Readonly",
     "choco": "mongodb-compass-readonly",
     "itt": "na",
-    "category": "Development",
-    "check": "false"
+    "category": "Development"
   },
   {
     "Name": "IDA free",
@@ -3596,8 +3197,7 @@
     "winget": "na",
     "choco": "ida-free",
     "itt": "na",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Binary Ninja",
@@ -3605,8 +3205,7 @@
     "winget": "na",
     "choco": "na",
     "itt": "binaryninja",
-    "category": "Utilities",
-    "check": "false"
+    "category": "Utilities"
   },
   {
     "Name": "Resource Hacker",
@@ -3614,8 +3213,7 @@
     "winget": "na",
     "choco": "na",
     "itt": "resourcehacker",
-    "category": "Portable",
-    "check": "false"
+    "category": "Portable"
   },
   {
     "Name": "Microsoft Visual C++ Redistributable for Visual Studio 2015-2022",
@@ -3623,8 +3221,7 @@
     "winget": "Microsoft.VCRedist.2015+.x86",
     "choco": "vcredist140",
     "itt": "na",
-    "category": "Runtimes",
-    "check": "false"
+    "category": "Runtimes"
   },
   {
     "Name": "MPV",
@@ -3632,8 +3229,7 @@
     "winget": "na",
     "choco": "mpvio",
     "itt": "na",
-    "category": "Media",
-    "check": "false"
+    "category": "Media"
   },
   {
     "Name": "ZenBrowser",
@@ -3641,8 +3237,7 @@
     "winget": "Zen-Team.Zen-Browser",
     "choco": "na",
     "itt": "na",
-    "category": "Web Browsers",
-    "check": "false"
+    "category": "Web Browsers"
   },
   {
     "Name": "Aegisub",
@@ -3650,8 +3245,7 @@
     "winget": "Aegisub.Aegisub",
     "choco": "aegisub",
     "itt": "na",
-    "category": "Media Tools",
-    "check": "false"
+    "category": "Media Tools"
   },
   {
     "Name": "AppGroup",
@@ -3659,7 +3253,6 @@
     "winget": "na",
     "choco": "na",
     "itt": "iandiv-appgroup",
-    "category": "Documents",
-    "check": "false"
+    "category": "Documents"
   }
 ]
