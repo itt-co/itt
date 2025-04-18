@@ -166,21 +166,20 @@ function GenerateCheckboxes {
         # Optional attributes for CheckBox based on fields
         $Tag = if ($TagField) { "Tag=`"$($Item.$TagField)`"" } else { "" }
 
-        $Tips = if ($TipsField) { "ToolTip=`"Install it again to update`"" } else { "" }
+        #$Tips = if ($TipsField) { "ToolTip=`"Install it again to update`"" } else { "" }
 
         $Name = if ($NameField) { "Name=`"$($CleanedName)`"" } else { "" }
 
         $Toggle = if ($ToggleField) { "Style=`"{StaticResource ToggleSwitchStyle}`"" } else { "" }
-        $IsChecked = if ($IsCheckedField) { "IsChecked=`"$($Item.$IsCheckedField)`"" } else { "" }
+        #$IsChecked = if ($IsCheckedField) { "IsChecked=`"$($Item.$IsCheckedField)`"" } else { "" }
 
         # Build the CheckBox and its container
         $Checkboxes += @"
         <StackPanel Orientation="Vertical" Margin="10">
             <StackPanel Orientation="Horizontal">
-                <CheckBox Content="$Content" $Tag $IsChecked $Toggle $Name $Tips FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="13" Content="$CleanedCategory"/>
+                <CheckBox Content="$Content" $Tag $Toggle $Name ToolTip="$CleanedDescription" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label Margin="5,0,0,0" FontSize="13" Content="$CleanedCategory"/>
             </StackPanel>
-            <TextBlock Width="777" Background="Transparent" Foreground="{DynamicResource TextColorSecondaryColor2}" FontSize="15" TextWrapping="Wrap" Text="$CleanedDescription"/>
             <TextBlock Text="$ChocoPkg" Visibility="Collapsed"/>
             <TextBlock Text="$WingetPkg" Visibility="Collapsed"/>
             <TextBlock Text="$ITTPkg" Visibility="Collapsed"/>
@@ -699,7 +698,7 @@ try {
         Write-Error "An error occurred while processing the XAML content: $($_.Exception.Message)"
         break
     }
-    $AppsCheckboxes = GenerateCheckboxes -Database $itt.database.Applications -ContentField "Name" -TagField "Category" -IsCheckedField "check" -TipsField "show"
+    $AppsCheckboxes = GenerateCheckboxes -Database $itt.database.Applications -ContentField "Name" -TagField "Category"
     $TweaksCheckboxes = GenerateCheckboxes -Database $itt.database.Tweaks -ContentField "Name" -TagField "Category" -IsCheckedField "check"
     $SettingsCheckboxes = GenerateCheckboxes -Database $itt.database.Settings -ContentField "Name" -NameField "Name" -ToggleField "Style=" { StaticResource ToggleSwitchStyle }""
     $MainXamlContent = $MainXamlContent -replace "{{Apps}}", $AppsCheckboxes 
