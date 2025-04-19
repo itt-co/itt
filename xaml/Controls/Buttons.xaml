@@ -9,7 +9,7 @@
         <Button
           Name="installBtn"
           Content="{Binding Install, TargetNullValue=Install}"
-          FontSize="16"
+          FontSize="18"
           Background="Transparent"
           HorizontalAlignment="Center"
           VerticalAlignment="Center"
@@ -25,7 +25,7 @@
           <Button
             Name="applyBtn"
             Content="{Binding Apply, TargetNullValue=Apply}"
-            FontSize="16" 
+            FontSize="18" 
             Background="Transparent"
             Visibility="Collapsed"
             HorizontalAlignment="Center"
