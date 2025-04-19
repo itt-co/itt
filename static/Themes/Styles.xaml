@@ -381,8 +381,9 @@
                 <Border Name="Border" 
                             CornerRadius="6" 
                             BorderThickness="0" 
-                            Height="62"
-                            Width="68"
+                            Height="auto"
+                            Width="auto"
+                            Padding="8"
                             BorderBrush="Transparent" 
                             Background="Transparent" 
                             Margin="5">
