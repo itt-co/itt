@@ -2930,10 +2930,10 @@ function Add-Log {
 param ([string]$Message, [string]$Level = "INFO")
 $level = $Level.ToUpper()
 $colorMap = @{ INFO="White"; WARNING="Yellow"; ERROR="Red"; INSTALLED="White"; APPLY="White"; DEBUG="Yellow" }
-$iconMap  = @{ INFO="+"; WARNING="!"; ERROR="X"; INSTALLED="√"; APPLY="√"; DISABLED="X"; ENABLED="√"; DEBUG="Debug"; ITT="ITT"; Chocolatey="Chocolatey"; Winget="Winget" }
+$iconMap  = @{ INFO="[+]"; WARNING="[!]"; ERROR="[X]"; DEFAULT=$null; DEBUG="Debug"; ITT="ITT"; Chocolatey="Chocolatey"; Winget="Winget" }
 $color = if ($colorMap.ContainsKey($level)) { $colorMap[$level] } else { "White" }
 $icon  = if ($iconMap.ContainsKey($level)) { $iconMap[$level] } else { "i" }
-Write-Host "[$icon] $Message" -ForegroundColor $color
+Write-Host "$icon $Message" -ForegroundColor $color
 }
 function Disable-Service {
 param([array]$tweak)
@@ -2974,7 +2974,7 @@ Notify -title "$title" -msg "ALL INSTALLATIONS COMPLETED SUCCESSFULLY." -icon "I
 }
 "TweaksListView" {
 UpdateUI -Button "ApplyBtn" -Content "Apply" -Width "140"
-Add-Log -Message "Done." -Level "Apply"
+Add-Log -Message "Done." -Level "info"
 Notify -title "$title" -msg "ALL TWEAKS HAVE BEEN APPLIED SUCCESSFULLY." -icon "Info" -time 30000
 }
 }
@@ -3303,7 +3303,7 @@ Write-Error "Failed to install $_"
 }
 }
 function Refresh-Explorer {
-Add-Log -Message "Restart explorer." -Level "Apply"
+Add-Log -Message "Restart explorer." -Level "info"
 Stop-Process -Name explorer -Force
 Start-Sleep -Seconds 1
 if (-not (Get-Process -Name explorer -ErrorAction SilentlyContinue)) {
@@ -3704,7 +3704,7 @@ $itt.ProcessRunning = $true
 UpdateUI -Button "ApplyBtn" -Content "Applying" -Width "auto"
 $itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
 foreach ($tweak in $selectedTweaks) {
-Add-Log -Message "::::$($tweak.Name)::::" -Level "info"
+Add-Log -Message "::::$($tweak.Name)::::" -Level "default"
 $tweak | ForEach-Object {
 if ($_.Script -and $_.Script.Count -gt 0) {
 ExecuteCommand -tweak $tweak.Script
@@ -3770,11 +3770,11 @@ $Enabled,
 Try{
 if ($Enabled -eq $false){
 $value = 1
-Add-Log -Message "Enabled auto end tasks" -Level "Apply"
+Add-Log -Message "Enabled auto end tasks" -Level "info"
 }
 else {
 $value = 0
-Add-Log -Message "Disabled auto end tasks" -Level "Disabled"
+Add-Log -Message "Disabled auto end tasks" -Level "info"
 }
 Set-ItemProperty -Path $Path -Name $name -Value $value -ErrorAction Stop
 }
@@ -3798,11 +3798,11 @@ $Enabled,
 Try{
 if ($Enabled -eq $false){
 $value = 1
-Add-Log -Message "Launch to This PC" -Level "Apply"
+Add-Log -Message "Launch to This PC" -Level "info"
 }
 else {
 $value = 2
-Add-Log -Message "Launch to Quick Access" -Level "Disabled"
+Add-Log -Message "Launch to Quick Access" -Level "info"
 }
 Set-ItemProperty -Path $Path -Name $name -Value $value -ErrorAction Stop
 Refresh-Explorer
@@ -3827,11 +3827,11 @@ $Enabled,
 Try {
 if ($Enabled -eq $false) {
 $value = 1
-Add-Log -Message "Show End Task on taskbar" -Level "Apply"
+Add-Log -Message "Show End Task on taskbar" -Level "info"
 }
 else {
 $value = 0
-Add-Log -Message "Disable End Task on taskbar" -Level "Disabled"
+Add-Log -Message "Disable End Task on taskbar" -Level "info"
 }
 Set-ItemProperty -Path $Path -Name $name -Value $value -ErrorAction Stop
 }
@@ -3851,11 +3851,11 @@ param ($Enabled, $Name = "Enabled", $Path = "HKLM:\SYSTEM\CurrentControlSet\Cont
 Try {
 if ($Enabled -eq $false) {
 $value = 1
-Add-Log -Message "This change require a restart" -Level "Apply"
+Add-Log -Message "This change require a restart" -Level "info"
 }
 else {
 $value = 0
-Add-Log -Message "This change require a restart" -Level "Disabled"
+Add-Log -Message "This change require a restart" -Level "info"
 }
 Set-ItemProperty -Path $Path -Name $Name -Value $value -ErrorAction Stop
 Refresh-Explorer
@@ -3877,7 +3877,7 @@ Try{
 $Theme = (Get-ItemProperty -Path $itt.registryPath -Name "Theme").Theme
 if ($DarkMoveEnabled -eq $false){
 $DarkMoveValue = 0
-Add-Log -Message "Dark Mode" -Level "Apply"
+Add-Log -Message "Dark Mode" -Level "info"
 if($Theme -eq "default")
 {
 $itt['window'].Resources.MergedDictionaries.Add($itt['window'].FindResource("Dark"))
@@ -3886,7 +3886,7 @@ $itt.Theme = "Dark"
 }
 else {
 $DarkMoveValue = 1
-Add-Log -Message "Light Mode" -Level "Disabled"
+Add-Log -Message "Light Mode" -Level "info"
 if($Theme -eq "default")
 {
 $itt['window'].Resources.MergedDictionaries.Add($itt['window'].FindResource("Light"))
@@ -3917,11 +3917,11 @@ $Enabled,
 Try{
 if ($Enabled -eq $false){
 $value = 1
-Add-Log -Message "Enabled auto drivers update" -Level "Apply"
+Add-Log -Message "Enabled auto drivers update" -Level "info"
 }
 else {
 $value = 0
-Add-Log -Message "Disabled auto drivers update" -Level "Disabled"
+Add-Log -Message "Disabled auto drivers update" -Level "info"
 }
 Set-ItemProperty -Path $Path -Name $name -Value $value -ErrorAction Stop
 }
@@ -3947,7 +3947,7 @@ $Threshold2  = 0,
 try {
 if($Mouse -eq $false)
 {
-Add-Log -Message "Mouse Acceleration" -LEVEL "Apply"
+Add-Log -Message "Mouse Acceleration" -Level "info"
 $Speed = 1
 $Threshold1 = 6
 $Threshold2 = 10
@@ -3955,7 +3955,7 @@ $Threshold2 = 10
 $Speed = 0
 $Threshold1 = 0
 $Threshold2 = 0
-Add-Log -Message "Mouse Acceleration" -LEVEL "Disabled"
+Add-Log -Message "Mouse Acceleration" -Level "info"
 }
 Set-ItemProperty -Path $Path -Name MouseSpeed -Value $Speed
 Set-ItemProperty -Path $Path -Name MouseThreshold1 -Value $Threshold1
@@ -3973,12 +3973,12 @@ param(
 try {
 if ($Enabled -eq $false)
 {
-Add-Log -Message "Numlock Enabled" -Level "Apply"
+Add-Log -Message "Numlock Enabled" -Level "info"
 $value = 2
 }
 else
 {
-Add-Log -Message "Numlock Disabled" -Level "Disabled"
+Add-Log -Message "Numlock Disabled" -Level "info"
 $value = 0
 }
 New-PSDrive -PSProvider Registry -Name HKU -Root HKEY_USERS -ErrorAction Stop
@@ -4000,11 +4000,11 @@ $Enabled,
 Try{
 if ($Enabled -eq $false){
 $value = 2
-Add-Log -Message "Enabled auto end tasks" -Level "Apply"
+Add-Log -Message "Enabled auto end tasks" -Level "info"
 }
 else {
 $value = 0
-Add-Log -Message "Disabled auto end tasks" -Level "Disabled"
+Add-Log -Message "Disabled auto end tasks" -Level "info"
 }
 Set-ItemProperty -Path $Path -Name $name -Value $value -ErrorAction Stop
 Refresh-Explorer
@@ -4026,12 +4026,12 @@ Try {
 if ($Enabled -eq $false)
 {
 $value = 1
-Add-Log -Message "Show hidden files , folders etc.." -Level "Apply"
+Add-Log -Message "Show hidden files , folders etc.." -Level "info"
 }
 else
 {
 $value = 2
-Add-Log -Message "Don't Show hidden files , folders etc.." -Level "Disabled"
+Add-Log -Message "Don't Show hidden files , folders etc.." -Level "info"
 }
 $hiddenItemsKey = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"
 Set-ItemProperty -Path $hiddenItemsKey -Name Hidden -Value $value
@@ -4054,11 +4054,11 @@ Param($Enabled)
 Try{
 if ($Enabled -eq $false){
 $value = 0
-Add-Log -Message "Hidden extensions" -Level "Apply"
+Add-Log -Message "Hidden extensions" -Level "info"
 }
 else {
 $value = 1
-Add-Log -Message "Hidden extensions" -Level "Disabled"
+Add-Log -Message "Hidden extensions" -Level "info"
 }
 $Path = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"
 Set-ItemProperty -Path $Path -Name HideFileExt -Value $value
@@ -4080,11 +4080,11 @@ param ($Enabled, $Name = "IconsOnly", $Path = "HKCU:\\SOFTWARE\\Microsoft\\Windo
 Try {
 if ($Enabled -eq $false) {
 $value = 1
-Add-Log -Message "ON" -Level "Apply"
+Add-Log -Message "ON" -Level "info"
 }
 else {
 $value = 0
-Add-Log -Message "OFF" -Level "Disabled"
+Add-Log -Message "OFF" -Level "info"
 }
 Set-ItemProperty -Path $Path -Name $Name -Value $value -ErrorAction Stop
 Refresh-Explorer
@@ -4105,11 +4105,11 @@ Param($Enabled)
 Try{
 if ($Enabled -eq $false){
 $value = 1
-Add-Log -Message "Show End Task on taskbar" -Level "Apply"
+Add-Log -Message "Show End Task on taskbar" -Level "info"
 }
 else {
 $value = 0
-Add-Log -Message "Disable End Task on taskbar" -Level "Disabled"
+Add-Log -Message "Disable End Task on taskbar" -Level "info"
 }
 $Path = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDeveloperSettings\"
 $name = "TaskbarEndTask"
@@ -4139,12 +4139,12 @@ Try {
 if ($Enabled -eq $false){
 $value = 510
 $value2 = 510
-Add-Log -Message "Sticky Keys" -Level "Apply"
+Add-Log -Message "Sticky Keys" -Level "info"
 }
 else {
 $value = 58
 $value2 = 122
-Add-Log -Message "Sticky Keys" -Level "Disabled"
+Add-Log -Message "Sticky Keys" -Level "info"
 }
 $Path = "HKCU:\Control Panel\Accessibility\StickyKeys"
 $Path2 = "HKCU:\Control Panel\Accessibility\Keyboard Response"
