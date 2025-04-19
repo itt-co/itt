@@ -19,7 +19,7 @@ function Finish {
         }
         "TweaksListView" {
             UpdateUI -Button "ApplyBtn" -Content "Apply" -Width "140"
-            Add-Log -Message "Done." -Level "Apply"
+            Add-Log -Message "Done." -Level "info"
             Notify -title "$title" -msg "ALL TWEAKS HAVE BEEN APPLIED SUCCESSFULLY." -icon "Info" -time 30000
         }
     }
