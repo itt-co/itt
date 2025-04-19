@@ -31,7 +31,7 @@ function Install-App {
         param ([string]$Installer,[string]$Source)
 
         if ($Installer -ne 0) {
-            Add-Log -Message "Installation Failed for ($Name). Report the issue in the ITT repository." -Level "$Source"
+            Add-Log -Message "Installation Failed for ($Name). Report the issue in ITT repository." -Level "$Source"
         }
         else {
             Add-Log -Message "Successfully Installed ($Name)" -Level "$Source"
@@ -81,7 +81,7 @@ function Install-App {
                     Log $chocoResult "Chocolatey"
                 }
             }else {
-                Add-Log -Message "Package not found in any repository" -Level "ERROR"
+                Add-Log -Message "Package not found in any package manager" -Level "ERROR"
             }
         }
     }
