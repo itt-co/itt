@@ -10,11 +10,11 @@ function Invoke-Core-Isolation {
     Try {
         if ($Enabled -eq $false) {
             $value = 1
-            Add-Log -Message "This change require a restart" -Level "Apply"
+            Add-Log -Message "This change require a restart" -Level "info"
         }
         else {
             $value = 0
-            Add-Log -Message "This change require a restart" -Level "Disabled"
+            Add-Log -Message "This change require a restart" -Level "info"
         }
         Set-ItemProperty -Path $Path -Name $Name -Value $value -ErrorAction Stop
         Refresh-Explorer
