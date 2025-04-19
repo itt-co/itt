@@ -42,8 +42,8 @@ try {
     <SolidColorBrush x:Key="ToggleSwitchEnableColor" Color="white"/>
     <SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="black"/>
     <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="black"/>
-    <Color x:Key="ListViewCardLeftColor">#f0f0f0</Color>
-    <Color x:Key="ListViewCardRightColor">#ffffff</Color>
+<SolidColorBrush x:Key="itemColor1" Color="#fff1f1f1"/>
+<SolidColorBrush x:Key="itemColor2" Color="#fff1f9f9"/>
     <SolidColorBrush x:Key="logo" Color="black"/>
     <ImageBrush x:Key="BackgroundImage" ImageSource="{x:Null}" Stretch="UniformToFill"/>
     <x:String x:Key="SubText">Sub Text</x:String>
