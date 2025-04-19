@@ -7,11 +7,11 @@ function Invoke-LaunchTo {
         Try{
             if ($Enabled -eq $false){
                 $value = 1
-                Add-Log -Message "Launch to This PC" -Level "Apply"
+                Add-Log -Message "Launch to This PC" -Level "info"
             }
             else {
                 $value = 2
-                Add-Log -Message "Launch to Quick Access" -Level "Disabled"
+                Add-Log -Message "Launch to Quick Access" -Level "info"
             }
         Set-ItemProperty -Path $Path -Name $name -Value $value -ErrorAction Stop
         Refresh-Explorer
