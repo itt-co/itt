@@ -2620,11 +2620,11 @@
     ]
   },
   {
-    "Name": "Disable HAGS",
+    "Name": "Optimizing GPU scheduling",
     "Description": "Disables Hardware-Accelerated GPU Scheduling, which may improve performance",
     "Category": "Performance",
     "Check": "false",
-    "Refresh": "true",
+    "Refresh": "false",
     "Script": [],
     "UndoScript": [],
     "ScheduledTask": [],
@@ -2645,7 +2645,7 @@
     "Description": "Fullscreen Optimizations, which may improve performance",
     "Category": "Performance",
     "Check": "false",
-    "Refresh": "true",
+    "Refresh": "false",
     "Script": [],
     "UndoScript": [],
     "ScheduledTask": [],
@@ -2658,6 +2658,125 @@
         "Type": "DWord",
         "Value": "1",
         "defaultValue": "0"
+      }
+    ]
+  },
+  {
+    "Name": "Optimize Network",
+    "Description": "Optimize network performance",
+    "Category": "Performance",
+    "Check": "false",
+    "Refresh": "false",
+    "Script": [],
+    "UndoScript": [],
+    "ScheduledTask": [],
+    "AppxPackage": [],
+    "Services": [],
+    "Registry": [
+      {
+        "Path": "HKLM:\\System\\CurrentControlSet\\Services\\Tcpip\\Parameters",
+        "Name": "TcpAckFrequency",
+        "Type": "DWord",
+        "Value": "1",
+        "defaultValue": "0"
+      },
+      {
+        "Path": "HKLM:\\System\\CurrentControlSet\\Services\\Tcpip\\Parameters",
+        "Name": "TCPNoDelay",
+        "Type": "DWord",
+        "Value": "1",
+        "defaultValue": "0"
+      }
+    ]
+  },
+  {
+    "Name": "Enable system cache",
+    "Description": "Enabling large system cache can improve performance for certain workloads but may affect system stability",
+    "Category": "Performance",
+    "Check": "false",
+    "Refresh": "false",
+    "Script": [],
+    "UndoScript": [],
+    "ScheduledTask": [],
+    "AppxPackage": [],
+    "Services": [],
+    "Registry": [
+      {
+        "Path": "HKLM:\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management",
+        "Name": "LargeSystemCache",
+        "Type": "DWord",
+        "Value": "1",
+        "defaultValue": "0"
+      }
+    ]
+  },
+  {
+    "Name": "Optimizing NVIDIA GPU settings",
+    "Description": "Optimize NVIDIA GPU settings ",
+    "Category": "Performance",
+    "Check": "false",
+    "Refresh": "false",
+    "Script": [],
+    "UndoScript": [],
+    "ScheduledTask": [],
+    "AppxPackage": [],
+    "Services": [],
+    "Registry": [
+      {
+        "Path": "HKLM:\\Software\\NVIDIA Corporation\\Global\\NvCplApi\\Policies",
+        "Name": "PowerMizerEnable",
+        "Type": "DWord",
+        "Value": "1",
+        "defaultValue": "0"
+      },
+      {
+        "Path": "HKLM:\\Software\\NVIDIA Corporation\\Global\\NvCplApi\\Policies",
+        "Name": "PowerMizerLevel",
+        "Type": "DWord",
+        "Value": "0",
+        "defaultValue": "1"
+      },
+      {
+        "Path": "HKLM:\\Software\\NVIDIA Corporation\\Global\\NvCplApi\\Policies",
+        "Name": "PowerMizerLevelAC",
+        "Type": "DWord",
+        "Value": "0",
+        "defaultValue": "1"
+      }
+    ]
+  },
+  {
+    "Name": "Enable Faster Shutdown",
+    "Description": "Optimize NVIDIA GPU settings ",
+    "Category": "Performance",
+    "Check": "false",
+    "Refresh": "false",
+    "Script": [],
+    "UndoScript": [],
+    "ScheduledTask": [],
+    "AppxPackage": [],
+    "Services": [],
+    "Registry": [
+      {
+        "Path": "HKLM:\\System\\CurrentControlSet\\Control",
+        "Name": "WaitToKillServiceTimeout",
+        "Type": "String",
+        "Value": "2000",
+        "defaultValue": "100"
+      },
+      {
+        "Path": "HKCU:\\Control Panel\\Desktop",
+        "Name": "WaitToKillAppTimeout",
+        "Type": "String",
+        "Value": "2000",
+        "defaultValue": "100"
+      },
+      {
+        "Path": "HKCU:\\Control Panel\\Desktop",
+        "Name": "HungAppTimeout",
+        "Type": "String",
+        "Value": "2000 ",
+        "defaultValue": "100"
       }
     ]
   }
