@@ -25,7 +25,7 @@ function Invoke-DarkMode {
         $Theme = (Get-ItemProperty -Path $itt.registryPath -Name "Theme").Theme
         if ($DarkMoveEnabled -eq $false){
             $DarkMoveValue = 0
-            Add-Log -Message "Dark Mode" -Level "Apply"
+            Add-Log -Message "Dark Mode" -Level "info"
             if($Theme -eq "default")
             {
                 $itt['window'].Resources.MergedDictionaries.Add($itt['window'].FindResource("Dark"))
@@ -34,7 +34,7 @@ function Invoke-DarkMode {
         }
         else {
             $DarkMoveValue = 1
-            Add-Log -Message "Light Mode" -Level "Disabled"
+            Add-Log -Message "Light Mode" -Level "info"
             if($Theme -eq "default")
             {
                 $itt['window'].Resources.MergedDictionaries.Add($itt['window'].FindResource("Light"))
