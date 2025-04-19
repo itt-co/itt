@@ -10,6 +10,7 @@
                     VirtualizingStackPanel.IsContainerVirtualizable="True"
                     VirtualizingStackPanel.IsVirtualizing="True"
                     VirtualizingStackPanel.VirtualizationMode="Recycling"
+                    AlternationCount="2"
                     ScrollViewer.CanContentScroll="True">
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
@@ -29,6 +30,7 @@
                         VirtualizingStackPanel.IsVirtualizing="True"
                         VirtualizingStackPanel.IsContainerVirtualizable="True"
                         VirtualizingStackPanel.VirtualizationMode="Recycling"
+                        AlternationCount="2"
                         ScrollViewer.CanContentScroll="True">
                         <ListView.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -48,6 +50,7 @@
                         VirtualizingStackPanel.IsVirtualizing="True"
                         VirtualizingStackPanel.IsContainerVirtualizable="True"
                         VirtualizingStackPanel.VirtualizationMode="Recycling"
+                        AlternationCount="2"
                         ScrollViewer.CanContentScroll="True">
                         <ListView.ItemsPanel>
                             <ItemsPanelTemplate>
