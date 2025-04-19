@@ -56,36 +56,36 @@
 <!--End Button Style-->
 
 <!--ListViewItem Style-->
-<Style TargetType="ListViewItem">
-    <Setter Property="Margin" Value="0 5 0 0"/>
-    <Setter Property="BorderThickness" Value="0.5"/>
-    <Setter Property="BorderBrush" Value="DarkGray"/>
-    <Setter Property="Padding" Value="0"/>
-    <Setter Property="Template">
-        <Setter.Value>
-            <ControlTemplate TargetType="ListViewItem">
-                <Border Name="bg" 
-                        CornerRadius="6"
-                        Padding="{TemplateBinding Padding}" 
-                        BorderBrush="{TemplateBinding BorderBrush}" 
-                        BorderThickness="{TemplateBinding BorderThickness}" 
-                        Background="{TemplateBinding Background}">
-                    <ContentPresenter HorizontalAlignment="Left" 
-                                      VerticalAlignment="Center" 
-                                      ContentSource="Content"/>
-                </Border>
-            </ControlTemplate>
-        </Setter.Value>
-    </Setter>
-    <Style.Triggers>
-        <Trigger Property="ItemsControl.AlternationIndex" Value="0">
-            <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundColor}" />
-        </Trigger>
-        <Trigger Property="ItemsControl.AlternationIndex" Value="1">
-            <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}" />
-        </Trigger>
-    </Style.Triggers>
-</Style>
+    <Style TargetType="ListViewItem">
+        <Setter Property="Margin" Value="0 5 0 0"/>
+        <Setter Property="BorderThickness" Value="0.5"/>
+        <Setter Property="BorderBrush" Value="DarkGray"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListViewItem">
+                    <Border Name="bg" 
+                            CornerRadius="6"
+                            Padding="{TemplateBinding Padding}" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Left" 
+                                        VerticalAlignment="Center" 
+                                        ContentSource="Content"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundColor}" />
+            </Trigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 <!--End ListViewItem Style-->
 
 <!--CheckBox Style-->
