@@ -35,11 +35,6 @@ ITT (Install Tweaks Tool) included most Windows 10/11 Software and Windows Tweak
     <a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Images/themes.gif"><img src="https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Images/themes.gif" alt="ITT Demo" style="max-width: 100%;"></a>
 </p>
 
-<div align="center">
-    <img src="https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/gitt.gif" alt="My GIF">
-</div>
-</p>
-
 <h2>Overview</h2>
 
 - **🚀 Automated Installation**: Say goodbye to manual software installations. ITT automates the process, saving you time and effort.
