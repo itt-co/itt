@@ -26,12 +26,12 @@ function Invoke-NumLock {
     try {
         if ($Enabled -eq $false)
         { 
-            Add-Log -Message "Numlock Enabled" -Level "Apply"
+            Add-Log -Message "Numlock Enabled" -Level "info"
             $value = 2 
         } 
         else
         { 
-            Add-Log -Message "Numlock Disabled" -Level "Disabled"
+            Add-Log -Message "Numlock Disabled" -Level "info"
              $value = 0
         }
         New-PSDrive -PSProvider Registry -Name HKU -Root HKEY_USERS -ErrorAction Stop

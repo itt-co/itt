@@ -23,12 +23,12 @@ function Invoke-ShowFile {
         if ($Enabled -eq $false)
         { 
            $value = 1
-           Add-Log -Message "Show hidden files , folders etc.." -Level "Apply"
+           Add-Log -Message "Show hidden files , folders etc.." -Level "info"
         } 
         else 
         { 
             $value = 2
-            Add-Log -Message "Don't Show hidden files , folders etc.." -Level "Disabled"
+            Add-Log -Message "Don't Show hidden files , folders etc.." -Level "info"
         }
         $hiddenItemsKey = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"
         # Set registry values to show or hide hidden items

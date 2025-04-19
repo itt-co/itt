@@ -26,11 +26,11 @@ function Invoke-PerformanceOptions {
         Try{
             if ($Enabled -eq $false){
                 $value = 2
-                Add-Log -Message "Enabled auto end tasks" -Level "Apply"
+                Add-Log -Message "Enabled auto end tasks" -Level "info"
             }
             else {
                 $value = 0
-                Add-Log -Message "Disabled auto end tasks" -Level "Disabled"
+                Add-Log -Message "Disabled auto end tasks" -Level "info"
             }
         Set-ItemProperty -Path $Path -Name $name -Value $value -ErrorAction Stop
         Refresh-Explorer

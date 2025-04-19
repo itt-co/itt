@@ -10,11 +10,11 @@ function Invoke-ShowFile-Icons {
     Try {
         if ($Enabled -eq $false) {
             $value = 1
-            Add-Log -Message "ON" -Level "Apply"
+            Add-Log -Message "ON" -Level "info"
         }
         else {
             $value = 0
-            Add-Log -Message "OFF" -Level "Disabled"
+            Add-Log -Message "OFF" -Level "info"
         }
         Set-ItemProperty -Path $Path -Name $Name -Value $value -ErrorAction Stop
         Refresh-Explorer

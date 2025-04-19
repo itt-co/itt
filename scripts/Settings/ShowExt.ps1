@@ -22,11 +22,11 @@ function Invoke-ShowFile-Extensions {
     Try{
         if ($Enabled -eq $false){
             $value = 0
-            Add-Log -Message "Hidden extensions" -Level "Apply"
+            Add-Log -Message "Hidden extensions" -Level "info"
         }
         else {
             $value = 1
-            Add-Log -Message "Hidden extensions" -Level "Disabled"
+            Add-Log -Message "Hidden extensions" -Level "info"
         }
         $Path = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"
         Set-ItemProperty -Path $Path -Name HideFileExt -Value $value

@@ -22,11 +22,11 @@ function Invoke-TaskbarEnd {
     Try{
         if ($Enabled -eq $false){
             $value = 1
-            Add-Log -Message "Show End Task on taskbar" -Level "Apply"
+            Add-Log -Message "Show End Task on taskbar" -Level "info"
         }
         else {
             $value = 0
-            Add-Log -Message "Disable End Task on taskbar" -Level "Disabled"
+            Add-Log -Message "Disable End Task on taskbar" -Level "info"
         }
         $Path = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDeveloperSettings\"
         $name = "TaskbarEndTask"
