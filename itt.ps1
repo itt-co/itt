@@ -5452,15 +5452,8 @@ Margin="30,0,0,0" />
 </Grid>
 </Grid>
 </Grid>
-<TabControl Name="taps" TabStripPlacement="Left" Grid.Row="1" BorderBrush="Transparent" Foreground="White" Background="Transparent">
-<TabItem Name="apps" Header="{Binding apps, TargetNullValue=Apps}" BorderBrush="{x:Null}" >
-<TabItem.HeaderTemplate>
-<DataTemplate>
-<StackPanel Orientation="Vertical" >
-<TextBlock Text="📦" ToolTip="{Binding}"  FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-</StackPanel>
-</DataTemplate>
-</TabItem.HeaderTemplate>
+<TabControl Name="taps" TabStripPlacement="Left" Grid.Row="1" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="{x:Null}">
+<TabItem Name="apps" Header="📦" ToolTip="{Binding apps, TargetNullValue=Apps}" FontSize="18" BorderBrush="{x:Null}" >
 <ListView Name="appslist"
 Grid.Row="1"
 BorderBrush="{x:Null}"
@@ -8735,14 +8728,7 @@ ScrollViewer.CanContentScroll="True">
 </StackPanel>
 </ListView>
 </TabItem>
-<TabItem x:Name="tweeksTab" Header="{Binding tweaks, TargetNullValue=Tweaks}" BorderBrush="{x:Null}" Background="{x:Null}">
-<TabItem.HeaderTemplate>
-<DataTemplate>
-<StackPanel Orientation="Vertical">
-<TextBlock Text="🛠" ToolTip="{Binding}" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="18"/>
-</StackPanel>
-</DataTemplate>
-</TabItem.HeaderTemplate>
+<TabItem x:Name="tweeksTab" Header="🛠" ToolTip="{Binding tweaks, TargetNullValue=Tweaks}"  FontSize="18" BorderBrush="{x:Null}" Background="{x:Null}">
 <ListView Name="tweakslist"
 BorderBrush="{x:Null}"
 Background="{x:Null}"
@@ -9152,14 +9138,7 @@ ScrollViewer.CanContentScroll="True">
 </StackPanel>
 </ListView>
 </TabItem>
-<TabItem x:Name="SettingsTab" Header="{Binding settings, TargetNullValue=Settings}" BorderBrush="{x:Null}" Background="{x:Null}">
-<TabItem.HeaderTemplate>
-<DataTemplate>
-<StackPanel Orientation="Vertical">
-<TextBlock Text="⚙" ToolTip="{Binding}" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="18"/>
-</StackPanel>
-</DataTemplate>
-</TabItem.HeaderTemplate>
+<TabItem x:Name="SettingsTab" Header="⚙" ToolTip="{Binding settings, TargetNullValue=Settings}" FontSize="18" BorderBrush="{x:Null}" Background="{x:Null}">
 <ListView Name="SettingsList"
 BorderBrush="{x:Null}"
 Background="{x:Null}"
