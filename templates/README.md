@@ -33,7 +33,7 @@ ITT (Install Tweaks Tool) included most Windows 10/11 Software and Windows Tweak
 </div>
 
 <p align="center" dir="auto">
-    <a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Images/themes.gif"><img src="https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Images/themes.gif" alt="ITT Demo" style="max-width: 100%;"></a>
+    <a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Images/themes.webp"><img src="https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Images/themes.webp" alt="ITT Demo" style="max-width: 100%;"></a>
 </p>
 
 <h2>Overview</h2>
@@ -71,7 +71,7 @@ Example:
   
 ## 🎬 Watch Demo
 
-[![Watch the video](https://raw.githubusercontent.com/emadadel4/itt/main/static/Images/thumbnail.jpg)](https://www.youtube.com/watch?v=QmO82OTsU5c)
+[![Watch the video](https://raw.githubusercontent.com/emadadel4/itt/main/static/Images/thumbnail.webp)](https://www.youtube.com/watch?v=QmO82OTsU5c)
 
 </div>
 
