@@ -4587,14 +4587,14 @@ ContentSource="Content"/>
 <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor}"/>
 <Setter Property="Margin" Value="0"/>
 <Setter Property="Padding" Value="6"/>
-<Setter Property="BorderThickness" Value="1.2"/>
-<Setter Property="BorderBrush" Value="{DynamicResource TextColorSecondaryColor}"/>
+<Setter Property="BorderThickness" Value="1.5"/>
+<Setter Property="BorderBrush" Value="DarkGray"/>
 <Setter Property="Template">
 <Setter.Value>
 <ControlTemplate TargetType="CheckBox">
 <StackPanel Orientation="Horizontal">
-<Border Name="CheckRadius" Width="15" Height="15" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="2" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
-<Path x:Name="CheckMark" Width="13" Height="13" Stretch="Uniform" Stroke="WhiteSmoke" StrokeThickness="3.2" Data="M 0 5 L 4 8 L 10 0" Visibility="Collapsed"/>
+<Border Name="CheckRadius" Width="16" Height="16" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="2" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+<Path x:Name="CheckMark" Width="13" Height="13" Stretch="Uniform" Stroke="WhiteSmoke"  StrokeThickness="3.0" Data="M 0 5 L 4 8 L 10 0" Visibility="Collapsed"/>
 </Border>
 <ContentPresenter Margin="8 0 0 0" VerticalAlignment="Center"/>
 </StackPanel>
