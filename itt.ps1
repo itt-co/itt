@@ -4728,8 +4728,9 @@ KeyboardNavigation.DirectionalNavigation="Continue"/>
 <Border Name="Border"
 CornerRadius="6"
 BorderThickness="0"
-Height="62"
-Width="68"
+Height="auto"
+Width="auto"
+Padding="8"
 BorderBrush="Transparent"
 Background="Transparent"
 Margin="5">
@@ -9301,7 +9302,7 @@ ScrollViewer.CanContentScroll="True">
 <Button
 Name="installBtn"
 Content="{Binding Install, TargetNullValue=Install}"
-FontSize="16"
+FontSize="18"
 Background="Transparent"
 HorizontalAlignment="Center"
 VerticalAlignment="Center"
@@ -9315,7 +9316,7 @@ Margin="20">
 <Button
 Name="applyBtn"
 Content="{Binding Apply, TargetNullValue=Apply}"
-FontSize="16"
+FontSize="18"
 Background="Transparent"
 Visibility="Collapsed"
 HorizontalAlignment="Center"
