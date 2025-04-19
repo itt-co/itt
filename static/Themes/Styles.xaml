@@ -588,8 +588,8 @@
 
                         <!-- Mouse Over Effect -->
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Thumb" Property="Width" Value="11" />
-                            <Setter TargetName="Thumb" Property="Height" Value="11" />
+                            <Setter TargetName="Track" Property="Background" Value="black" />
+                            <Setter TargetName="Track" Property="Opacity" Value="0.2" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
