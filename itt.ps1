@@ -2652,11 +2652,11 @@ $itt.database.Tweaks = @'
 ]
 },
 {
-"Name": "Disable HAGS",
+"Name": "Optimizing GPU scheduling",
 "Description": "Disables Hardware-Accelerated GPU Scheduling, which may improve performance",
 "Category": "Performance",
 "Check": "false",
-"Refresh": "true",
+"Refresh": "false",
 "Script": [],
 "UndoScript": [],
 "ScheduledTask": [],
@@ -2677,7 +2677,7 @@ $itt.database.Tweaks = @'
 "Description": "Fullscreen Optimizations, which may improve performance",
 "Category": "Performance",
 "Check": "false",
-"Refresh": "true",
+"Refresh": "false",
 "Script": [],
 "UndoScript": [],
 "ScheduledTask": [],
@@ -2690,6 +2690,125 @@ $itt.database.Tweaks = @'
 "Type": "DWord",
 "Value": "1",
 "defaultValue": "0"
+}
+]
+},
+{
+"Name": "Optimize Network",
+"Description": "Optimize network performance",
+"Category": "Performance",
+"Check": "false",
+"Refresh": "false",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKLM:\\System\\CurrentControlSet\\Services\\Tcpip\\Parameters",
+"Name": "TcpAckFrequency",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\System\\CurrentControlSet\\Services\\Tcpip\\Parameters",
+"Name": "TCPNoDelay",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+}
+]
+},
+{
+"Name": "Enable system cache",
+"Description": "Enabling large system cache can improve performance for certain workloads but may affect system stability",
+"Category": "Performance",
+"Check": "false",
+"Refresh": "false",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKLM:\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management",
+"Name": "LargeSystemCache",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+}
+]
+},
+{
+"Name": "Optimizing NVIDIA GPU settings",
+"Description": "Optimize NVIDIA GPU settings ",
+"Category": "Performance",
+"Check": "false",
+"Refresh": "false",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKLM:\\Software\\NVIDIA Corporation\\Global\\NvCplApi\\Policies",
+"Name": "PowerMizerEnable",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\Software\\NVIDIA Corporation\\Global\\NvCplApi\\Policies",
+"Name": "PowerMizerLevel",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKLM:\\Software\\NVIDIA Corporation\\Global\\NvCplApi\\Policies",
+"Name": "PowerMizerLevelAC",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+}
+]
+},
+{
+"Name": "Enable Faster Shutdown",
+"Description": "Optimize NVIDIA GPU settings ",
+"Category": "Performance",
+"Check": "false",
+"Refresh": "false",
+"Script": [],
+"UndoScript": [],
+"ScheduledTask": [],
+"AppxPackage": [],
+"Services": [],
+"Registry": [
+{
+"Path": "HKLM:\\System\\CurrentControlSet\\Control",
+"Name": "WaitToKillServiceTimeout",
+"Type": "String",
+"Value": "2000",
+"defaultValue": "100"
+},
+{
+"Path": "HKCU:\\Control Panel\\Desktop",
+"Name": "WaitToKillAppTimeout",
+"Type": "String",
+"Value": "2000",
+"defaultValue": "100"
+},
+{
+"Path": "HKCU:\\Control Panel\\Desktop",
+"Name": "HungAppTimeout",
+"Type": "String",
+"Value": "2000 ",
+"defaultValue": "100"
 }
 ]
 }
@@ -9121,7 +9240,7 @@ ScrollViewer.CanContentScroll="True">
 <TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Disable HAGS" Tag="Performance"   ToolTip="Disables HardwareAccelerated GPU Scheduling which may improve performance" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<CheckBox Content="Optimizing GPU scheduling" Tag="Performance"   ToolTip="Disables HardwareAccelerated GPU Scheduling which may improve performance" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9130,6 +9249,38 @@ ScrollViewer.CanContentScroll="True">
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable Fullscreen Optimizations" Tag="Performance"   ToolTip="Fullscreen Optimizations which may improve performance" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
+</StackPanel>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Optimize Network" Tag="Performance"   ToolTip="Optimize network performance" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
+</StackPanel>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Enable system cache" Tag="Performance"   ToolTip="Enabling large system cache can improve performance for certain workloads but may affect system stability" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
+</StackPanel>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Optimizing NVIDIA GPU settings" Tag="Performance"   ToolTip="Optimize NVIDIA GPU settings " FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
+</StackPanel>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Enable Faster Shutdown" Tag="Performance"   ToolTip="Optimize NVIDIA GPU settings " FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 <TextBlock Text="" Visibility="Collapsed"/>
