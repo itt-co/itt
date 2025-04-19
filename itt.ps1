@@ -5457,8 +5457,7 @@ Margin="30,0,0,0" />
 <TabItem.HeaderTemplate>
 <DataTemplate>
 <StackPanel Orientation="Vertical" >
-<TextBlock Text="📦"  FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-<TextBlock Text="{Binding}" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="0,5,0,0"/>
+<TextBlock Text="📦" ToolTip="{Binding}"  FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 </StackPanel>
 </DataTemplate>
 </TabItem.HeaderTemplate>
@@ -8740,8 +8739,7 @@ ScrollViewer.CanContentScroll="True">
 <TabItem.HeaderTemplate>
 <DataTemplate>
 <StackPanel Orientation="Vertical">
-<TextBlock Text="🛠"  VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="18"/>
-<TextBlock Text="{Binding}" VerticalAlignment="Center" HorizontalAlignment="Center"  TextWrapping="Wrap" Margin="0,5,0,0"/>
+<TextBlock Text="🛠" ToolTip="{Binding}" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="18"/>
 </StackPanel>
 </DataTemplate>
 </TabItem.HeaderTemplate>
@@ -9158,8 +9156,7 @@ ScrollViewer.CanContentScroll="True">
 <TabItem.HeaderTemplate>
 <DataTemplate>
 <StackPanel Orientation="Vertical">
-<TextBlock Text="⚙" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="18"/>
-<TextBlock Text="{Binding}" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="0,5,0,0"/>
+<TextBlock Text="⚙" ToolTip="{Binding}" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="18"/>
 </StackPanel>
 </DataTemplate>
 </TabItem.HeaderTemplate>
