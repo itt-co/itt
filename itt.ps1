@@ -5008,7 +5008,7 @@ Margin="10,0,0,0">
 <ControlTemplate.Triggers>
 <Trigger Property="IsChecked" Value="True">
 <Trigger.EnterActions>
-<RemoveStoryboard BeginStoryboardName="ToggleSwitchLeft" />
+<RemoveStoryboard BeginStoryboardName="ToggleSwitchLeft"/>
 <BeginStoryboard x:Name="ToggleSwitchRight">
 <Storyboard>
 <ThicknessAnimation Storyboard.TargetName="Thumb"
@@ -5018,13 +5018,13 @@ Duration="0:0:0.1" />
 </Storyboard>
 </BeginStoryboard>
 </Trigger.EnterActions>
-<Setter TargetName="Thumb" Property="Fill" Value="{DynamicResource ToggleSwitchEnableColor}" />
-<Setter TargetName="Track" Property="Background" Value="{DynamicResource HighlightColor}" />
-<Setter TargetName="Track" Property="BorderBrush" Value="{x:Null}" />
+<Setter TargetName="Thumb" Property="Fill" Value="{DynamicResource ToggleSwitchEnableColor}"/>
+<Setter TargetName="Track" Property="Background" Value="{DynamicResource HighlightColor}"/>
+<Setter TargetName="Track" Property="BorderBrush" Value="{x:Null}"/>
 </Trigger>
 <Trigger Property="IsChecked" Value="False">
 <Trigger.EnterActions>
-<RemoveStoryboard BeginStoryboardName="ToggleSwitchRight" />
+<RemoveStoryboard BeginStoryboardName="ToggleSwitchRight"/>
 <BeginStoryboard x:Name="ToggleSwitchLeft">
 <Storyboard>
 <ThicknessAnimation Storyboard.TargetName="Thumb"
@@ -5034,10 +5034,10 @@ Duration="0:0:0.1" />
 </Storyboard>
 </BeginStoryboard>
 </Trigger.EnterActions>
-<Setter TargetName="Thumb" Property="Fill" Value="{DynamicResource ToggleSwitchDisableColor}" />
+<Setter TargetName="Thumb" Property="Fill" Value="{DynamicResource ToggleSwitchDisableColor}"/>
 </Trigger>
 <Trigger Property="IsMouseOver" Value="True">
-<Setter TargetName="Track" Property="Background" Value="black" />
+<Setter TargetName="Track" Property="Background" Value="{DynamicResource HighlightColor}"/>
 <Setter TargetName="Track" Property="Opacity" Value="0.2" />
 </Trigger>
 </ControlTemplate.Triggers>
