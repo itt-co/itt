@@ -4576,10 +4576,10 @@ ContentSource="Content"/>
 </Setter>
 <Style.Triggers>
 <Trigger Property="ItemsControl.AlternationIndex" Value="0">
-<Setter Property="Background" Value="{DynamicResource PrimaryBackgroundColor}" />
+<Setter Property="Background" Value="{DynamicResource itemColor1}" />
 </Trigger>
 <Trigger Property="ItemsControl.AlternationIndex" Value="1">
-<Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}" />
+<Setter Property="Background" Value="{DynamicResource itemColor2}" />
 </Trigger>
 </Style.Triggers>
 </Style>
@@ -4594,7 +4594,7 @@ ContentSource="Content"/>
 <ControlTemplate TargetType="CheckBox">
 <StackPanel Orientation="Horizontal">
 <Border Name="CheckRadius" Width="16" Height="16" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="2" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
-<Path x:Name="CheckMark" Width="13" Height="13" Stretch="Uniform" Stroke="WhiteSmoke"  StrokeThickness="3.0" Data="M 0 5 L 4 8 L 10 0" Visibility="Collapsed"/>
+<Path x:Name="CheckMark" Width="13" Height="13" Stretch="Uniform" Stroke="WhiteSmoke" StrokeThickness="2.6" Data="M 0 5 L 4 8 L 10 0" Visibility="Collapsed"/>
 </Border>
 <ContentPresenter Margin="8 0 0 0" VerticalAlignment="Center"/>
 </StackPanel>
@@ -5061,7 +5061,7 @@ Duration="0:0:0.1" />
 </Style>
 <ResourceDictionary x:Key="Dark">
 <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#2b2d31"/>
-<SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#3c3f44"/>
+<SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#3c3f40"/>
 <SolidColorBrush x:Key="PrimaryButtonForeground" Color="#098fd4" />
 <SolidColorBrush x:Key="PrimaryButtonHighlight" Color="White" />
 <SolidColorBrush x:Key="TextColorPrimary" Color="WhiteSmoke" />
@@ -5077,7 +5077,8 @@ Duration="0:0:0.1" />
 <SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="#c9c9c7"/>
 <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#c9c9c7"/>
 <Color x:Key="ListViewCardLeftColor">#3c3f44</Color>
-<Color x:Key="ListViewCardRightColor">#2b2d31</Color>
+<SolidColorBrush x:Key="itemColor1" Color="#3c3f40"/>
+<SolidColorBrush x:Key="itemColor2" Color="#3c3f45"/>
 <SolidColorBrush x:Key="logo" Color="CornflowerBlue"/>
 <ImageBrush x:Key="BackgroundImage" ImageSource="{x:Null}" Stretch="UniformToFill"/>
 <x:String x:Key="SubText">Install Tweaks Tool</x:String>
@@ -5099,8 +5100,8 @@ Duration="0:0:0.1" />
 <SolidColorBrush x:Key="ToggleSwitchEnableColor" Color="white"/>
 <SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="#c9c9c7"/>
 <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#c9c9c7"/>
-<Color x:Key="ListViewCardLeftColor">#E117181D</Color>
-<Color x:Key="ListViewCardRightColor">#E117181D</Color>
+<SolidColorBrush x:Key="itemColor1" Color="#17183D"/>
+<SolidColorBrush x:Key="itemColor2" Color="#17182D"/>
 <SolidColorBrush x:Key="logo" Color="CornflowerBlue"/>
 <ImageBrush x:Key="BackgroundImage" ImageSource="https://images.hdqwalls.com/wallpapers/the-batman-fan-made-4k-xx.jpg" Stretch="UniformToFill"/>
 <x:String x:Key="SubText">I am not a hero</x:String>
@@ -5122,8 +5123,8 @@ Duration="0:0:0.1" />
 <SolidColorBrush x:Key="ToggleSwitchEnableColor" Color="white"/>
 <SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="black"/>
 <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="black"/>
-<Color x:Key="ListViewCardLeftColor">#f0f0f0</Color>
-<Color x:Key="ListViewCardRightColor">#ffffff</Color>
+<SolidColorBrush x:Key="itemColor1" Color="#fff1f1f1"/>
+<SolidColorBrush x:Key="itemColor2" Color="#fff1f9f9"/>
 <SolidColorBrush x:Key="logo" Color="black"/>
 <ImageBrush x:Key="BackgroundImage" ImageSource="{x:Null}" Stretch="UniformToFill"/>
 <x:String x:Key="SubText">Install Tweaks Tool</x:String>
@@ -5145,8 +5146,8 @@ Duration="0:0:0.1" />
 <SolidColorBrush x:Key="ToggleSwitchEnableColor" Color="white"/>
 <SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="#c9c9c7"/>
 <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#c9c9c7"/>
-<Color x:Key="ListViewCardLeftColor">#D82C211A</Color>
-<Color x:Key="ListViewCardRightColor">#D82C211A</Color>
+<SolidColorBrush x:Key="itemColor1" Color="#2C211A"/>
+<SolidColorBrush x:Key="itemColor2" Color="#2C212D"/>
 <SolidColorBrush x:Key="logo" Color="red"/>
 <ImageBrush x:Key="BackgroundImage" ImageSource="https://w.wallhaven.cc/full/we/wallhaven-wegrj6.jpg" Stretch="UniformToFill"/>
 <x:String x:Key="SubText">#StandWithPalestine</x:String>
