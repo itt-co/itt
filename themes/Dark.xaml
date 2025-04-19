@@ -2,7 +2,7 @@
 <!-- by {emadadel} -->
 <ResourceDictionary x:Key="Dark">
 <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#2b2d31"/>
-<SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#3c3f44"/>
+<SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#3c3f40"/>
 <SolidColorBrush x:Key="PrimaryButtonForeground" Color="#098fd4" />
 <SolidColorBrush x:Key="PrimaryButtonHighlight" Color="White" />
 <SolidColorBrush x:Key="TextColorPrimary" Color="WhiteSmoke" />
@@ -18,7 +18,8 @@
 <SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="#c9c9c7"/>
 <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#c9c9c7"/>
 <Color x:Key="ListViewCardLeftColor">#3c3f44</Color> 
-<Color x:Key="ListViewCardRightColor">#2b2d31</Color>
+<SolidColorBrush x:Key="itemColor1" Color="#3c3f40"/>
+<SolidColorBrush x:Key="itemColor2" Color="#3c3f45"/>
 <SolidColorBrush x:Key="logo" Color="CornflowerBlue"/>
 <ImageBrush x:Key="BackgroundImage" ImageSource="{x:Null}" Stretch="UniformToFill"/>
 <x:String x:Key="SubText">Install Tweaks Tool</x:String>
