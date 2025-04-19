@@ -26,11 +26,11 @@ function Invoke-DisableAutoDrivers {
         Try{
             if ($Enabled -eq $false){
                 $value = 1
-                Add-Log -Message "Enabled auto drivers update" -Level "Apply"
+                Add-Log -Message "Enabled auto drivers update" -Level "info"
             }
             else {
                 $value = 0
-                Add-Log -Message "Disabled auto drivers update" -Level "Disabled"
+                Add-Log -Message "Disabled auto drivers update" -Level "info"
             }
         Set-ItemProperty -Path $Path -Name $name -Value $value -ErrorAction Stop
         }
