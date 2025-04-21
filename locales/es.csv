@@ -43,8 +43,6 @@ Portable_Downloads_Folder,Carpeta de descargas portátiles
 Install_msg,¿Estás seguro de que deseas instalar las siguientes aplicaciOnes?
 Apply_msg,¿Estás seguro de que deseas aplicar los siguientes ajustes?
 Applying,Aplicando...
-App_empty_select,SelecciOna al menos una aplicación para instalar.
-Tweak_empty_select,SelecciOna al menos un ajuste para aplicar.
 Please_wait,Por favorespera un proceso se está ejecutando en segundo plano.
 Last_update,Última actualización
 Exit_msg,¿Estás seguro de que deseas cerrar el programa? Si hay instalaciOnes se interrumpirán.

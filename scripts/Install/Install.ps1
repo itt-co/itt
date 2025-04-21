@@ -27,15 +27,10 @@ function Invoke-Install {
     $itt['window'].FindName("AppsCategory").SelectedIndex = 0
     $selectedApps = Get-SelectedItems -Mode "Apps"
 
-    # Show only selected item
-    if ($selectedApps.Count -gt 0) {
-        Show-Selected -ListView "AppsListView" -Mode "Filter"
-    }
-    else {
-        # Show Message
-        Message -key "App_empty_select" -icon "info" -action "OK"
-        return
-    }
+    # Return if there is no selection
+    if ($selectedApps.Count -le 0) {return}
+
+    Show-Selected -ListView "AppsListView" -Mode "Filter"
 
     if (-not $i) {
         $result = Message -key "Install_msg" -icon "ask" -action "YesNo"
@@ -79,8 +74,6 @@ function Invoke-Install {
         Finish -ListView "AppsListView"
         $itt.ProcessRunning = $false
     }
-
-
 }
 function Invoke-Apply {
 
@@ -110,13 +103,10 @@ function Invoke-Apply {
         return
     }
 
-    if ($selectedTweaks.Count -eq 0) {
-        Message -key "Tweak_empty_select" -icon "info" -action "OK"
-        return
-    }
-    else {
-        Show-Selected -ListView "TweaksListView" -Mode "Filter"
-    }
+    # Return if there is no selection
+    if ($selectedTweaks.Count -le 0) {return}
+
+    Show-Selected -ListView "TweaksListView" -Mode "Filter"
 
     $result = Message -key "Apply_msg" -icon "ask" -action "YesNo"
 

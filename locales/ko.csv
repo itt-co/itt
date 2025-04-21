@@ -45,8 +45,6 @@ Install_msg,선택한 앱을 설치하시겠습니까
 Apply_msg,선택한 조정 사항을 적용하시겠습니까
 instAlling,설치 중..
 Applying,적용 중..
-App_empty_select,설치할 적어도 하나의 앱을 선택하십시오
-Tweak_empty_select,조정 사항 적용 대기 중
 Please_wait,배경에서 프로세스가 진행 중입니다. 잠시 기다려주세요.
 Last_update,마지막 업데이트
 Exit_msg,프로그램을 종료하시겠습니까? 진행 중인 설치가 있으면 중단됩니다.

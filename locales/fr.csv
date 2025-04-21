@@ -43,8 +43,6 @@ Portable_Downloads_Folder,Dossier de téléchargements portables
 Install_msg,Êtes-vous sûr de vouloir instAller les applicatiOns suivantes ?
 Apply_msg,Êtes-vous sûr de vouloir appliquer les Tweaks suivants ?
 Applying,ApplicatiOn...
-App_empty_select,Veuillez sélectiOnner au moins une applicatiOn à instAller.
-Tweak_empty_select,Veuillez sélectiOnner au moins un tweak à appliquer.
 Please_wait,Veuillez patienter
 Last_update,Dernière mise à jour  un processus est en cours d'exécutiOn en arrière-plan.
 Exit_msg,Êtes-vous sûr de vouloir fermer le programme ? Si des instAllatiOns sOnt en cours  elles serOnt interrompues.

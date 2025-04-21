@@ -45,8 +45,6 @@ Install_msg,是否要安装选定的应用
 Apply_msg,是否要应用选定的调整
 instAlling,安装中..
 Applying,应用中..
-App_empty_select,请选择至少一款要安装的应用
-Tweak_empty_select,请等待调整应用完成
 Please_wait,请等待，后台有进程在进行中。
 Last_update,最后更新
 Exit_msg,您确定要关闭程序吗？如果有任何安装正在进行，它们将被终止。
