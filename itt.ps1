@@ -10074,7 +10074,7 @@ $element.Add_Click({ Invoke-Toggle $this.Name })
 }
 $onClosingEvent = {
 param($s, $c)
-$result = Message -title "Are you sure" -key "Exit_msg" -icon "ask" -action "YesNo"
+$result = Message -key "Exit_msg" -icon "ask" -action "YesNo"
 if ($result -eq "Yes") {
 Manage-Music -action "StopAll"
 }
