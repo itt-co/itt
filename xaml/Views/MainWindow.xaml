@@ -13,6 +13,7 @@ Topmost="False"
 ShowInTaskbar = "True" 
 TextOptions.TextFormattingMode="Ideal"
 TextOptions.TextRenderingMode="Auto"
+FontFamily="arial"
 Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico">
 <Window.Resources>
     {{Style}}
