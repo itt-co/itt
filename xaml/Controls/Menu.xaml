@@ -253,16 +253,6 @@
                 </MenuItem.Icon>
             </MenuItem>
             
-            <MenuItem Name="reset">
-                <MenuItem.Header>
-                    <Binding Path="Reset_preferences" TargetNullValue="Reset Preferences" />
-                </MenuItem.Header>
-                <MenuItem.Icon>
-                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
-                </MenuItem.Icon>
-            </MenuItem>
-            
-
         </MenuItem>
 
         <MenuItem VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Transparent">
