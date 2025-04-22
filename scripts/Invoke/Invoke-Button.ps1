@@ -201,12 +201,6 @@ function Invoke-Button {
                 Debug-Message $action
             # debug end
         }
-        "neat" {
-            Start-Process "https://addons.mozilla.org/en-US/firefox/addon/neatdownloadmanager-extension/" 
-            # debug start
-                Debug-Message $action
-            # debug end
-        }
         "winoffice" {
             Start-Process "https://massgrave.dev/genuine-installation-media" 
             # debug start
