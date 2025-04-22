@@ -13,16 +13,14 @@ param (
     [string]$LoadXamlScript = ".\Initialize\xaml.ps1",
     [string]$Themes = "themes",
     [string]$ProjectDir = $PSScriptRoot,
-    [string]$Changlog = "CHANGELOG.md",
-    [string]$ChanglogUrl = "https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/CHANGELOG.md"
+    [string]$Changlog = "CHANGELOG.md"
 )
 
 try {
     if (Test-Path -Path $OutputScript) {Remove-Item -Path $OutputScript -Force}
-
-    # Wait until to remove old file
     Clear-Host
-    Write-Host "[+] Removeing itt.ps1..."
+    Write-Host "[+] Removeing old itt.ps1..."
+    # Wait until to remove old file
     Start-Sleep -Seconds 1
 }
 catch {
@@ -137,6 +135,7 @@ function ProcessDirectory {
 }
 # Generate Checkboxex apps/tewaks/settings
 function GenerateCheckboxes {
+
     param (
         [array]$Database,
         [string]$ContentField,
@@ -146,8 +145,8 @@ function GenerateCheckboxes {
         [string]$ToggleField = "",
         [string]$NameField = ""
     )
-    Write-Host "[+] Generating Listview Checkboxes..." -ForegroundColor Yellow
 
+    Write-Host "[+] Generating Listview Checkboxes..." -ForegroundColor Yellow
 
     $Checkboxes = ""
 
@@ -177,7 +176,7 @@ function GenerateCheckboxes {
         $Checkboxes += @"
         <StackPanel Orientation="Vertical" Margin="10">
             <StackPanel Orientation="Horizontal">
-                <CheckBox Content="$Content" $Tag $Toggle $Name ToolTip="$CleanedDescription" FontWeight="SemiBold" FontSize="15" Foreground="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <CheckBox Content="$Content" $Tag $Toggle $Name ToolTip="$CleanedDescription" Foreground="{DynamicResource TextColorSecondaryColor}"/>
                 <Label Margin="5,0,0,0" FontSize="13" Content="$CleanedCategory"/>
             </StackPanel>
             <TextBlock Text="$ChocoPkg" Visibility="Collapsed"/>
@@ -601,18 +600,12 @@ function Convert-Locales {
 
 # Write script header
 function WriteHeader {
-    WriteToScript -Content @"
-######################################################################################
-#      ___ _____ _____   _____ __  __    _    ____       _    ____  _____ _          #
-#     |_ _|_   _|_   _| | ____|  \/  |  / \  |  _ \     / \  |  _ \| ____| |         #
-#      | |  | |   | |   |  _| | |\/| | / _ \ | | | |   / _ \ | | | |  _| | |         #
-#      | |  | |   | |   | |___| |  | |/ ___ \| |_| |  / ___ \| |_| | |___| |___      #
-#     |___| |_|   |_|   |_____|_|  |_/_/   \_\____/  /_/   \_\____/|_____|_____|     #
-#                Automatically generated from build don't play here :)               # 
-#                              #StandWithPalestine                                   #
-# https://github.com/emadadel4                                                       #
-# https://t.me/emadadel4                                                             #
-######################################################################################
+WriteToScript -Content @"
+<#
+    .NOTES
+    Devloper  : @emadadel
+    Github    : https://github.com/emadadel4
+#>
 "@
 }
 # Main script generation
@@ -665,14 +658,14 @@ try {
 "@
     # Define file paths
     $FilePaths = @{
-        "MainWindow" = Join-Path -Path $windows -ChildPath "MainWindow.xaml"
+        "MainWindow" = Join-Path -Path $windows  -ChildPath "MainWindow.xaml"
         "tabs"       = Join-Path -Path $Controls -ChildPath "tabs.xaml"
         "menu"       = Join-Path -Path $Controls -ChildPath "menu.xaml"
         "catagory"   = Join-Path -Path $Controls -ChildPath "catagory.xaml"
         "search"     = Join-Path -Path $Controls -ChildPath "search.xaml"
         "buttons"    = Join-Path -Path $Controls -ChildPath "buttons.xaml"
-        "Style"      = Join-Path -Path $Assets -ChildPath "Themes/Styles.xaml"
-        "Colors"     = Join-Path -Path $Assets -ChildPath "Themes/Colors.xaml"
+        "Style"      = Join-Path -Path $Assets   -ChildPath "Themes/Styles.xaml"
+        "Colors"     = Join-Path -Path $Assets   -ChildPath "Themes/Colors.xaml"
     }
     # Read and replace placeholders in XAML content
     try {
