@@ -30,7 +30,7 @@ $MainXaml.SelectNodes("//*[@Name]") | ForEach-Object {
 $onClosingEvent = {
     param($s, $c)
     # Show confirmation message box
-    $result = Message -title "Are you sure" -key "Exit_msg" -icon "ask" -action "YesNo"
+    $result = Message -key "Exit_msg" -icon "ask" -action "YesNo"
     if ($result -eq "Yes") {
         Manage-Music -action "StopAll" 
     }
