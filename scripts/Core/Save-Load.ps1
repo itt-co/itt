@@ -1,5 +1,5 @@
-# Load JSON data and update the UI
-function Load-SavedFile {
+# load file.itt
+function Get-file {
 
     # Check if a process is running
     if ($itt.ProcessRunning) {
@@ -69,19 +69,14 @@ function Save-File {
     }
 
     if ($saveFileDialog.ShowDialog() -eq $true) {
-        try {
-            # Save items to JSON file
-            $items | ConvertTo-Json -Compress | Out-File -FilePath $saveFileDialog.FileName -Force
-            Write-Host "Saved: $($saveFileDialog.FileName)"
-            Message -NoneKey "Saved successfully" -icon "info" -action "OK"
-        }
-        catch {
-            Message -NoneKey "Failed to save file" -icon "error" -action "OK"
-        }
+        # Save items to JSON file
+        $items | ConvertTo-Json -Compress | Out-File -FilePath $saveFileDialog.FileName -Force
+        Write-Host "Saved: $($saveFileDialog.FileName)"
     }
 
     # Uncheck checkboxex if user Cancel 
     Show-Selected -ListView "AppsListView" -Mode "Default"
+    
     # Clear search input
     $itt.Search_placeholder.Visibility = "Visible"
     $itt.SearchInput.Text = $null
