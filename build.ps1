@@ -176,7 +176,7 @@ function GenerateCheckboxes {
         $Checkboxes += @"
         <StackPanel Orientation="Vertical" Margin="10">
             <StackPanel Orientation="Horizontal">
-                <CheckBox Content="$Content" $Tag $Toggle $Name ToolTip="$CleanedDescription" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+                <CheckBox Content="$Content" FontSize="14" $Tag $Toggle $Name ToolTip="$CleanedDescription" Foreground="{DynamicResource TextColorSecondaryColor}"/>
                 <Label Margin="5,0,0,0" FontSize="13" Content="$CleanedCategory"/>
             </StackPanel>
             <TextBlock Text="$ChocoPkg" Visibility="Collapsed"/>
