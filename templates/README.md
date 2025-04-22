@@ -71,7 +71,7 @@ Example:
   
 ## 🎬 Watch Demo
 
-[![Watch the video](https://raw.githubusercontent.com/emadadel4/itt/main/static/Images/thumbnail.webp)](https://www.youtube.com/watch?v=QmO82OTsU5c)
+[![Watch the video](https://raw.githubusercontent.com/emadadel4/itt/main/static/Images/thumbnail.jpg)](https://www.youtube.com/watch?v=QmO82OTsU5c)
 
 </div>
 
