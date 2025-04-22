@@ -306,10 +306,7 @@
                     <MenuItem Name="efy" Header="Enhancer for YouTube"/>
             
                 </MenuItem>
-
-                <MenuItem Name="neat" Header="Neat Download Manager"/>
-
-
+                
             </MenuItem>
 
             <MenuItem Name="sordum" ToolTip="Collection of free utilities designed to enhance or control various aspects of the Windows operating system" Header="Sordum tools">
