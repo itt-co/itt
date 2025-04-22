@@ -16,7 +16,7 @@ $KeyEvents = {
             }
             elseif ($modifiers -eq "Shift") { Save-File }
         }
-        "D" { if ($modifiers -eq "Shift") { Load-SavedFile } }
+        "D" { if ($modifiers -eq "Shift") { Get-file } }
         "M" {
             if ($modifiers -eq "Shift") {
                 $global:toggleState = -not $global:toggleState
