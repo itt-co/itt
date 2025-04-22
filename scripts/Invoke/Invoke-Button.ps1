@@ -58,7 +58,7 @@ function Invoke-Button {
             # debug end
         }
         "load" {
-            Load-SavedFile
+            Get-file
             # debug start
                 Debug-Message $action
             # debug end
@@ -240,13 +240,6 @@ function Invoke-Button {
         }
         "dev" {
             About
-            # debug start
-                Debug-Message $action
-            # debug end
-        }
-        # Reset-Preferences
-        "reset"{
-            Reset-Preferences
             # debug start
                 Debug-Message $action
             # debug end
