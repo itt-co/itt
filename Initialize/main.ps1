@@ -39,11 +39,8 @@ $onClosingEvent = {
     }
 }
 
-# Attach event handlers and other operations
-$itt["window"].Add_ContentRendered({
-        Startup
-        Show-Event
-    })
+Startup *> $null
+Show-Event
 
 # Search input events
 $itt.SearchInput.Add_GotFocus({
