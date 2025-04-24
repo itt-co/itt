@@ -60,8 +60,6 @@ Applying,
 Please_wait,
 Last_update,
 Exit_msg,
-Happy_birthday,
-My_playlist,
 Empty_save_msg,
 "@
     # Write the cOntent to the CSV file
