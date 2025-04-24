@@ -2,23 +2,8 @@ function Invoke-StickyKeys {
      <#
         .SYNOPSIS
         Toggles Sticky Keys functionality in Windows.
-        .DESCRIPTION
-        The `Invoke-StickyKeys` function updates the Windows registry settings to enable or disable Sticky Keys based on the `$Enabled` parameter.
-        - If `$Enabled` is `$true`, Sticky Keys is enabled with a specific configuration.
-        - If `$Enabled` is `$false`, Sticky Keys is disabled with a different configuration.
-        - Note: Enabling Sticky Keys may require restarting Windows Explorer.
-        .PARAMETER Enabled
-        A boolean value that determines whether Sticky Keys should be enabled (`$true`) or disabled (`$false`).
-        .EXAMPLE
-            Invoke-StickyKeys -Enabled $true
-        This example enables Sticky Keys with the specified configuration and prompts for a restart of Windows Explorer.
-        .EXAMPLE
-            Invoke-StickyKeys -Enabled $false
-        This example disables Sticky Keys with the specified configuration and prompts for a restart of Windows Explorer.
-        .NOTES
-        - The function requires restarting Windows Explorer to apply the changes.
-        - Administrative privileges might be required depending on system configuration.
     #>
+    
     Param($Enabled)
     Try {
         if ($Enabled -eq $false){

@@ -18,6 +18,9 @@ function Invoke-Toggle {
         "disableautomaticdriverinstallation" { Invoke-DisableAutoDrivers $(Get-ToggleStatus disableautomaticdriverinstallation) }
         "AlwaysshowiconsneverThumbnail" { Invoke-ShowFile-Icons $(Get-ToggleStatus AlwaysshowiconsneverThumbnail) }
         "CoreIsolationMemoryIntegrity" { Invoke-Core-Isolation $(Get-ToggleStatus CoreIsolationMemoryIntegrity) }
+        "WindowsSandbox" { Invoke-WindowsSandbox $(Get-ToggleStatus WindowsSandbox) }
+        "WSL" { Invoke-WindowsSandbox $(Get-ToggleStatus WSL) }
+        "HyperV" { Invoke-HyperV $(Get-ToggleStatus HyperV) }
     }
     # debug start
     Add-Log -Message $debug -Level "debug"
