@@ -3132,15 +3132,13 @@ switch ($Mode) {
 $items = @()
 foreach ($item in $itt.AppsListView.Items) {
 $checkbox = $item.Children[0].Children[0]
-$choco = $item.children[1].Text
-$winget = $item.children[2].Text
-$itt = $item.children[3].Text
+$tags = $item.Children[0].Children[0].Tag -split " \| "
 if ($checkbox.IsChecked) {
 $items += @{
 Name    = $checkbox.Content
-Choco   = $choco
-Winget  = $winget
-ITT     = $itt
+Choco   = $tags[0]
+Winget  = $tags[1]
+ITT     = $tags[2]
 }
 }
 }
@@ -4390,7 +4388,8 @@ param ($item)
 if ($item.Children.Count -lt 1 -or $item.Children[0].Children.Count -lt 1) {
 return $false
 }
-return $item.Children[0].Children[0].Tag -eq $Cat
+$tags = $item.Children[0].Children[0].Tag -split " \| "
+return $tags[3] -eq $Cat
 }
 }
 else {
@@ -5641,3260 +5640,2039 @@ ScrollViewer.CanContentScroll="True">
 </ListView.ItemsPanel>
 <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Brave" FontSize="14" Tag="Web Browsers"   ToolTip="A privacy focused web browser that blocks ads and trackers" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Brave" FontSize="14" Tag="brave | Brave.Brave | na | Web Browsers"   ToolTip="A privacy focused web browser that blocks ads and trackers" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Text="brave" Visibility="Collapsed"/>
-<TextBlock Text="Brave.Brave" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Mozilla Firefox" FontSize="14" Tag="Web Browsers"   ToolTip="A widelyused opensource web browser known for its speed privacy" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Mozilla Firefox" FontSize="14" Tag="firefox | Mozilla.Firefox | na | Web Browsers"   ToolTip="A widelyused opensource web browser known for its speed privacy" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Text="firefox" Visibility="Collapsed"/>
-<TextBlock Text="Mozilla.Firefox" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Thorium AVX" FontSize="14" Tag="Web Browsers"   ToolTip="A web browser designed for smooth and secure browsing experiences" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Thorium AVX" FontSize="14" Tag="thorium --params /AVX | Alex313031.Thorium.AVX2 | na | Web Browsers"   ToolTip="A web browser designed for smooth and secure browsing experiences" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Text="thorium --params /AVX" Visibility="Collapsed"/>
-<TextBlock Text="Alex313031.Thorium.AVX2" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Google Chrome" FontSize="14" Tag="Web Browsers"   ToolTip="A popular web browser known for its speed simplicity and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Google Chrome" FontSize="14" Tag="googlechrome | Google.Chrome | na | Web Browsers"   ToolTip="A popular web browser known for its speed simplicity and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Text="googlechrome" Visibility="Collapsed"/>
-<TextBlock Text="Google.Chrome" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Thorium SSE3" FontSize="14" Tag="Web Browsers"   ToolTip="A web browser designed for smooth and secure browsing experiences" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Thorium SSE3" FontSize="14" Tag="thorium --params /SSE3 | Alex313031.Thorium | na | Web Browsers"   ToolTip="A web browser designed for smooth and secure browsing experiences" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Text="thorium --params /SSE3" Visibility="Collapsed"/>
-<TextBlock Text="Alex313031.Thorium" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Mozilla Firefox ESR" FontSize="14" Tag="Web Browsers"   ToolTip="A widelyused opensource web browser known for its speed privacy" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Mozilla Firefox ESR" FontSize="14" Tag="firefoxesr | Mozilla.Firefox.ESR | na | Web Browsers"   ToolTip="A widelyused opensource web browser known for its speed privacy" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Text="firefoxesr" Visibility="Collapsed"/>
-<TextBlock Text="Mozilla.Firefox.ESR" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Microsoft Edge" FontSize="14" Tag="Web Browsers"   ToolTip="Microsofts web browser built for fast and secure internet surfing" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Microsoft Edge" FontSize="14" Tag="microsoft-edge | Microsoft.Edge | na | Web Browsers"   ToolTip="Microsofts web browser built for fast and secure internet surfing" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Text="microsoft-edge" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.Edge" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Chromium" FontSize="14" Tag="Web Browsers"   ToolTip="An opensource web browser project that serves as the foundation" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Chromium" FontSize="14" Tag="chromium | eloston.ungoogled-chromium | na | Web Browsers"   ToolTip="An opensource web browser project that serves as the foundation" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Text="chromium" Visibility="Collapsed"/>
-<TextBlock Text="eloston.ungoogled-chromium" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Tor Browser" FontSize="14" Tag="Web Browsers"   ToolTip="A web browser that prioritizes user privacy by routing internet" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Tor Browser" FontSize="14" Tag="tor-browser | TorProject.TorBrowser | na | Web Browsers"   ToolTip="A web browser that prioritizes user privacy by routing internet" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Text="tor-browser" Visibility="Collapsed"/>
-<TextBlock Text="TorProject.TorBrowser" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Opera" FontSize="14" Tag="Web Browsers"   ToolTip="The Opera web browser makes the Web fast and fun" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Opera" FontSize="14" Tag="opera | Opera.Opera | na | Web Browsers"   ToolTip="The Opera web browser makes the Web fast and fun" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Text="opera" Visibility="Collapsed"/>
-<TextBlock Text="Opera.Opera" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Internet Download Manager" FontSize="14" Tag="Web Browsers"   ToolTip="A popular download manager tool that accelerates downloads and allows" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Internet Download Manager" FontSize="14" Tag="internet-download-manager | Tonec.InternetDownloadManager | na | Web Browsers"   ToolTip="A popular download manager tool that accelerates downloads and allows" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Text="internet-download-manager" Visibility="Collapsed"/>
-<TextBlock Text="Tonec.InternetDownloadManager" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="JDownloader" FontSize="14" Tag="Web Browsers"   ToolTip="JDownloader is an internet download manager" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="JDownloader" FontSize="14" Tag="jdownloader | AppWork.JDownloader | na | Web Browsers"   ToolTip="JDownloader is an internet download manager" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Text="jdownloader" Visibility="Collapsed"/>
-<TextBlock Text="AppWork.JDownloader" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="KLite Mega Codec Full Pack" FontSize="14" Tag="Media"   ToolTip="Comprehensive collection of audio and video codecs filters and tools" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="KLite Mega Codec Full Pack" FontSize="14" Tag="k-litecodecpackfull | na | na | Media"   ToolTip="Comprehensive collection of audio and video codecs filters and tools" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Text="k-litecodecpackfull" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="PotPlayer" FontSize="14" Tag="Media"   ToolTip="A multimedia player with a sleek interface and advanced features" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="PotPlayer" FontSize="14" Tag="potplayer | Daum.PotPlayer | na | Media"   ToolTip="A multimedia player with a sleek interface and advanced features" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Text="potplayer" Visibility="Collapsed"/>
-<TextBlock Text="Daum.PotPlayer" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="VLC" FontSize="14" Tag="Media"   ToolTip="A versatile media player capable of playing almost any multimedia" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="VLC" FontSize="14" Tag="vlc.install | VideoLAN.VLC | na | Media"   ToolTip="A versatile media player capable of playing almost any multimedia" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Text="vlc.install" Visibility="Collapsed"/>
-<TextBlock Text="VideoLAN.VLC" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Kodi" FontSize="14" Tag="Media"   ToolTip="A powerful opensource media center software that allows users to" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Kodi" FontSize="14" Tag="kodi | 9NBLGGH4T892 | na | Media"   ToolTip="A powerful opensource media center software that allows users to" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Text="kodi" Visibility="Collapsed"/>
-<TextBlock Text="9NBLGGH4T892" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Jellyfin Server" FontSize="14" Tag="Media"   ToolTip="An opensource media server software that enables users to stream" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Jellyfin Server" FontSize="14" Tag="jellyfin | Jellyfin.Server | na | Media"   ToolTip="An opensource media server software that enables users to stream" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Text="jellyfin" Visibility="Collapsed"/>
-<TextBlock Text="Jellyfin.Server" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Winamp" FontSize="14" Tag="Media"   ToolTip="A classic media player known for its customizable interface and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Winamp" FontSize="14" Tag="winamp | Winamp.Winamp | na | Media"   ToolTip="A classic media player known for its customizable interface and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Text="winamp" Visibility="Collapsed"/>
-<TextBlock Text="Winamp.Winamp" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Aimp" FontSize="14" Tag="Media"   ToolTip="A lightweight and featurerich audio player with support for various" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Aimp" FontSize="14" Tag="na | na | aimp | Media"   ToolTip="A lightweight and featurerich audio player with support for various" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="aimp" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Spotify" FontSize="14" Tag="Media"   ToolTip="Spotify is a new way to listen to music" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Spotify" FontSize="14" Tag="spotify | Spotify.Spotify | na | Media"   ToolTip="Spotify is a new way to listen to music" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Text="spotify" Visibility="Collapsed"/>
-<TextBlock Text="Spotify.Spotify" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="FastStone Image Viewer" FontSize="14" Tag="Imaging"   ToolTip="FastStone Image Viewer is a fast stable userfriendly image browser" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="FastStone Image Viewer" FontSize="14" Tag="fsviewer | FastStone.Viewer | na | Imaging"   ToolTip="FastStone Image Viewer is a fast stable userfriendly image browser" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Imaging"/>
 </StackPanel>
-<TextBlock Text="fsviewer" Visibility="Collapsed"/>
-<TextBlock Text="FastStone.Viewer" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="OpenOffice" FontSize="14" Tag="Documents"   ToolTip="An opensource office productivity suite offering word processing spreadsheet presentation" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="OpenOffice" FontSize="14" Tag="openoffice | Apache.OpenOffice | na | Documents"   ToolTip="An opensource office productivity suite offering word processing spreadsheet presentation" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Text="openoffice" Visibility="Collapsed"/>
-<TextBlock Text="Apache.OpenOffice" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="FoxitReader" FontSize="14" Tag="Documents"   ToolTip="A lightweight and featurerich PDF reader with annotation form filling" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="FoxitReader" FontSize="14" Tag="foxitreader | Foxit.FoxitReader | na | Documents"   ToolTip="A lightweight and featurerich PDF reader with annotation form filling" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Text="foxitreader" Visibility="Collapsed"/>
-<TextBlock Text="Foxit.FoxitReader" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="LibreOffice" FontSize="14" Tag="Documents"   ToolTip="A powerful opensource office suite providing word processing spreadsheet presentation" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="LibreOffice" FontSize="14" Tag="libreoffice-fresh | Foxit.FoxitReader | na | Documents"   ToolTip="A powerful opensource office suite providing word processing spreadsheet presentation" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Text="libreoffice-fresh" Visibility="Collapsed"/>
-<TextBlock Text="Foxit.FoxitReader" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="SumatraPDF" FontSize="14" Tag="Documents"   ToolTip="A lightweight and fast PDF reader with minimalistic design and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="SumatraPDF" FontSize="14" Tag="sumatrapdf.install | SumatraPDF.SumatraPDF | na | Documents"   ToolTip="A lightweight and fast PDF reader with minimalistic design and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Text="sumatrapdf.install" Visibility="Collapsed"/>
-<TextBlock Text="SumatraPDF.SumatraPDF" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="WinRAR" FontSize="14" Tag="Compression"   ToolTip="A popular file compression and archiving utility that supports various" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="WinRAR" FontSize="14" Tag="winrar | RARLab.WinRAR | na | Compression"   ToolTip="A popular file compression and archiving utility that supports various" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Compression"/>
 </StackPanel>
-<TextBlock Text="winrar" Visibility="Collapsed"/>
-<TextBlock Text="RARLab.WinRAR" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="7Zip" FontSize="14" Tag="Compression"   ToolTip="An opensource file archiver with a high compression ratio supporting" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="7Zip" FontSize="14" Tag="7zip | 7zip.7zip | na | Compression"   ToolTip="An opensource file archiver with a high compression ratio supporting" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Compression"/>
 </StackPanel>
-<TextBlock Text="7zip" Visibility="Collapsed"/>
-<TextBlock Text="7zip.7zip" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="PeaZip" FontSize="14" Tag="Compression"   ToolTip=" PeaZip is a free crossplatform file archiver" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="PeaZip" FontSize="14" Tag="peazip | Giorgiotani.Peazip | na | Compression"   ToolTip=" PeaZip is a free crossplatform file archiver" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Compression"/>
 </StackPanel>
-<TextBlock Text="peazip" Visibility="Collapsed"/>
-<TextBlock Text="Giorgiotani.Peazip" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Telegram Desktop" FontSize="14" Tag="Communication"   ToolTip="A crossplatform messaging app with a focus on speed and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Telegram Desktop" FontSize="14" Tag="telegram | Telegram.TelegramDesktop | na | Communication"   ToolTip="A crossplatform messaging app with a focus on speed and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Text="telegram" Visibility="Collapsed"/>
-<TextBlock Text="Telegram.TelegramDesktop" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Signal" FontSize="14" Tag="Communication"   ToolTip="Fast simple secure. Privacy that fits in your pocket" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Signal" FontSize="14" Tag="signal | OpenWhisperSystems.Signal | na | Communication"   ToolTip="Fast simple secure. Privacy that fits in your pocket" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Text="signal" Visibility="Collapsed"/>
-<TextBlock Text="OpenWhisperSystems.Signal" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Meta Messenger" FontSize="14" Tag="Communication"   ToolTip="A messaging app that allows users to connect with friends" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Meta Messenger" FontSize="14" Tag="messenger | 9WZDNCRF0083 | na | Communication"   ToolTip="A messaging app that allows users to connect with friends" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Text="messenger" Visibility="Collapsed"/>
-<TextBlock Text="9WZDNCRF0083" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Zoom" FontSize="14" Tag="Communication"   ToolTip="A video conferencing app that facilitates online meetings webinars and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Zoom" FontSize="14" Tag="zoom | Zoom.ZoomRooms | na | Communication"   ToolTip="A video conferencing app that facilitates online meetings webinars and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Text="zoom" Visibility="Collapsed"/>
-<TextBlock Text="Zoom.ZoomRooms" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Microsoft Teams" FontSize="14" Tag="Communication"   ToolTip="A collaboration platform that combines workplace chat video meetings file" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Microsoft Teams" FontSize="14" Tag="microsoft-teams.install | Microsoft.Teams | na | Communication"   ToolTip="A collaboration platform that combines workplace chat video meetings file" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Text="microsoft-teams.install" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.Teams" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Discord" FontSize="14" Tag="Communication"   ToolTip="A VoIP application and digital distribution platform designed for creating" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Discord" FontSize="14" Tag="discord | Discord.Discord | na | Communication"   ToolTip="A VoIP application and digital distribution platform designed for creating" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Text="discord" Visibility="Collapsed"/>
-<TextBlock Text="Discord.Discord" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="TeamViewer" FontSize="14" Tag="File Sharing"   ToolTip="A remote access and support software that enables users to" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="TeamViewer" FontSize="14" Tag="teamviewer | TeamViewer.TeamViewer | na | File Sharing"   ToolTip="A remote access and support software that enables users to" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Text="teamviewer" Visibility="Collapsed"/>
-<TextBlock Text="TeamViewer.TeamViewer" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="GIMP" FontSize="14" Tag="Imaging"   ToolTip="A free and opensource raster graphics editor used for image" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="GIMP" FontSize="14" Tag="gimp | GIMP.GIMP | na | Imaging"   ToolTip="A free and opensource raster graphics editor used for image" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Imaging"/>
 </StackPanel>
-<TextBlock Text="gimp" Visibility="Collapsed"/>
-<TextBlock Text="GIMP.GIMP" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Microsoft Visual C++ Runtime - all versions" FontSize="14" Tag="Runtimes"   ToolTip="Microsoft Visual C Redistributable installs runtime components of Visual C" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Microsoft Visual C++ Runtime - all versions" FontSize="14" Tag="vcredist-all | na | na | Runtimes"   ToolTip="Microsoft Visual C Redistributable installs runtime components of Visual C" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="vcredist-all" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="DirectX" FontSize="14" Tag="Runtimes"   ToolTip="DirectX is a collection of APIs for handling tasks related" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="DirectX" FontSize="14" Tag="directx | Microsoft.DirectX | na | Runtimes"   ToolTip="DirectX is a collection of APIs for handling tasks related" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="directx" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.DirectX" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Microsoft Visual C++ 2005 (x86) Redistributable" FontSize="14" Tag="Runtimes"   ToolTip="A set of runtime components required to run applications developed" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Microsoft Visual C++ 2005 (x86) Redistributable" FontSize="14" Tag="vcredist2005 | na | na | Runtimes"   ToolTip="A set of runtime components required to run applications developed" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="vcredist2005" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Microsoft Visual C++ 2005 (x64) Redistributable" FontSize="14" Tag="Runtimes"   ToolTip="A set of runtime components required to run 64bit applications" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Microsoft Visual C++ 2005 (x64) Redistributable" FontSize="14" Tag="vcredist2005 | na | na | Runtimes"   ToolTip="A set of runtime components required to run 64bit applications" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="vcredist2005" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Microsoft Visual C++ 2008 (x86) Redistributable" FontSize="14" Tag="Runtimes"   ToolTip="A set of runtime components required to run applications developed" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Microsoft Visual C++ 2008 (x86) Redistributable" FontSize="14" Tag="vcredist2008 | na | na | Runtimes"   ToolTip="A set of runtime components required to run applications developed" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="vcredist2008" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Microsoft Visual C++ 2008 (x64) Redistributable" FontSize="14" Tag="Runtimes"   ToolTip="A set of runtime components required to run 64bit applications" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Microsoft Visual C++ 2008 (x64) Redistributable" FontSize="14" Tag="vcredist2008 | na | na | Runtimes"   ToolTip="A set of runtime components required to run 64bit applications" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="vcredist2008" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Microsoft Visual C++ 2010 (x86) Redistributable" FontSize="14" Tag="Runtimes"   ToolTip="A set of runtime components required to run applications developed" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Microsoft Visual C++ 2010 (x86) Redistributable" FontSize="14" Tag="vcredist2010 | na | na | Runtimes"   ToolTip="A set of runtime components required to run applications developed" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="vcredist2010" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Microsoft Visual C++ 2010 (x64) Redistributable" FontSize="14" Tag="Runtimes"   ToolTip="A set of runtime components required to run 64bit applications" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Microsoft Visual C++ 2010 (x64) Redistributable" FontSize="14" Tag="vcredist2010 | na | na | Runtimes"   ToolTip="A set of runtime components required to run 64bit applications" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="vcredist2010" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Microsoft Visual C++ 2012 (x86) Redistributable" FontSize="14" Tag="Runtimes"   ToolTip="A set of runtime components required to run applications developed" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Microsoft Visual C++ 2012 (x86) Redistributable" FontSize="14" Tag="vcredist2012 | na | na | Runtimes"   ToolTip="A set of runtime components required to run applications developed" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="vcredist2012" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Microsoft Visual C++ 2012 (x64) Redistributable" FontSize="14" Tag="Runtimes"   ToolTip="A set of runtime components required to run 64bit applications" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Microsoft Visual C++ 2012 (x64) Redistributable" FontSize="14" Tag="vcredist2012 | na | na | Runtimes"   ToolTip="A set of runtime components required to run 64bit applications" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="vcredist2012" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Microsoft Visual C++ 2013 (x86) Redistributable" FontSize="14" Tag="Runtimes"   ToolTip="A set of runtime components required to run applications developed" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Microsoft Visual C++ 2013 (x86) Redistributable" FontSize="14" Tag="vcredist2013 | na | na | Runtimes"   ToolTip="A set of runtime components required to run applications developed" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="vcredist2013" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Microsoft Visual C++ 2013 (x64) Redistributable" FontSize="14" Tag="Runtimes"   ToolTip="A set of runtime components required to run 64bit applications" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Microsoft Visual C++ 2013 (x64) Redistributable" FontSize="14" Tag="vcredist2013 | na | na | Runtimes"   ToolTip="A set of runtime components required to run 64bit applications" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="vcredist2013" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Microsoft Visual C++ 2015-2022 (x64) Redistributable" FontSize="14" Tag="Runtimes"   ToolTip="A set of runtime components required to run 64bit applications" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Microsoft Visual C++ 2015-2022 (x64) Redistributable" FontSize="14" Tag="vcredist2015 | na | na | Runtimes"   ToolTip="A set of runtime components required to run 64bit applications" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="vcredist2015" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Microsoft Visual C++ 2015-2022  (x86) Redistributable" FontSize="14" Tag="Runtimes"   ToolTip="A set of runtime components required to run applications developed" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Microsoft Visual C++ 2015-2022  (x86) Redistributable" FontSize="14" Tag="vcredist2015 | na | na | Runtimes"   ToolTip="A set of runtime components required to run applications developed" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="vcredist2015" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="NET Framework All Versions" FontSize="14" Tag="Runtimes"   ToolTip="A comprehensive and consistent programming model for building applications that" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="NET Framework All Versions" FontSize="14" Tag="dotnet-all | na | na | Runtimes"   ToolTip="A comprehensive and consistent programming model for building applications that" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="dotnet-all" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="AMD Ryzen Chipset Drivers" FontSize="14" Tag="Drivers"   ToolTip="Supports AMD Ryzen Threadripper PRO Processor AMD Ryzen 8000/7040/7000 Series" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="AMD Ryzen Chipset Drivers" FontSize="14" Tag="amd-ryzen-chipset | na | na | Drivers"   ToolTip="Supports AMD Ryzen Threadripper PRO Processor AMD Ryzen 8000/7040/7000 Series" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Text="amd-ryzen-chipset" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="NVidia Display Driver" FontSize="14" Tag="Drivers"   ToolTip="The software component that allows the operating system and installed" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="NVidia Display Driver" FontSize="14" Tag="nvidia-display-driver | na | na | Drivers"   ToolTip="The software component that allows the operating system and installed" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Text="nvidia-display-driver" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="NVIDIA GeForce Experience" FontSize="14" Tag="Drivers"   ToolTip="A cloudbased gaming service provided by NVIDIA that allows users" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="NVIDIA GeForce Experience" FontSize="14" Tag="geforce-experience | Nvidia.GeForceExperience | na | Drivers"   ToolTip="A cloudbased gaming service provided by NVIDIA that allows users" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Text="geforce-experience" Visibility="Collapsed"/>
-<TextBlock Text="Nvidia.GeForceExperience" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Msi Afterburner" FontSize="14" Tag="Drivers"   ToolTip="MSI Afterburner is the ultimate graphics card utility codeveloped by" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Msi Afterburner" FontSize="14" Tag="msiafterburner | Guru3D.Afterburner | na | Drivers"   ToolTip="MSI Afterburner is the ultimate graphics card utility codeveloped by" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Text="msiafterburner" Visibility="Collapsed"/>
-<TextBlock Text="Guru3D.Afterburner" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="NVIDIA PhysX" FontSize="14" Tag="Drivers"   ToolTip="A physics processing unit PPU software development kit SDK offered" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="NVIDIA PhysX" FontSize="14" Tag="physx.legacy | Nvidia.PhysXLegacy | na | Drivers"   ToolTip="A physics processing unit PPU software development kit SDK offered" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Text="physx.legacy" Visibility="Collapsed"/>
-<TextBlock Text="Nvidia.PhysXLegacy" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Steam" FontSize="14" Tag="Gaming"   ToolTip="A digital distribution platform developed by Valve Corporation for purchasing" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Steam" FontSize="14" Tag="steam | Valve.Steam | na | Gaming"   ToolTip="A digital distribution platform developed by Valve Corporation for purchasing" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Text="steam" Visibility="Collapsed"/>
-<TextBlock Text="Valve.Steam" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Ubisoft Connect" FontSize="14" Tag="Gaming"   ToolTip="A digital distribution digital rights management multiplayer and communications service" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Ubisoft Connect" FontSize="14" Tag="ubisoft-connect | Ubisoft.Connect | na | Gaming"   ToolTip="A digital distribution digital rights management multiplayer and communications service" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Text="ubisoft-connect" Visibility="Collapsed"/>
-<TextBlock Text="Ubisoft.Connect" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Origin" FontSize="14" Tag="Gaming"   ToolTip=" Game store launcher" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Origin" FontSize="14" Tag="origin | ElectronicArts.Origin | na | Gaming"   ToolTip=" Game store launcher" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Text="origin" Visibility="Collapsed"/>
-<TextBlock Text="ElectronicArts.Origin" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Rockstar Games Launcher" FontSize="14" Tag="Gaming"   ToolTip="Download and play the latest Rockstar Games PC titles" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Rockstar Games Launcher" FontSize="14" Tag="rockstar-launcher | na | na | Gaming"   ToolTip="Download and play the latest Rockstar Games PC titles" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Text="rockstar-launcher" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="GameSave Manager" FontSize="14" Tag="Gaming"   ToolTip="A utility tool that allows users to backup restore and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="GameSave Manager" FontSize="14" Tag="gamesavemanager | InsaneMatt.GameSaveManager | na | Gaming"   ToolTip="A utility tool that allows users to backup restore and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Text="gamesavemanager" Visibility="Collapsed"/>
-<TextBlock Text="InsaneMatt.GameSaveManager" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="StreamlabsOBS" FontSize="14" Tag="Gaming"   ToolTip="A free and opensource streaming software built on top of" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="StreamlabsOBS" FontSize="14" Tag="streamlabs-obs | Streamlabs.StreamlabsOBS | na | Gaming"   ToolTip="A free and opensource streaming software built on top of" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Text="streamlabs-obs" Visibility="Collapsed"/>
-<TextBlock Text="Streamlabs.StreamlabsOBS" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="OBS Studio" FontSize="14" Tag="Gaming"   ToolTip="A free and opensource software for video recording and live" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="OBS Studio" FontSize="14" Tag="obs-studio.install | OBSProject.OBSStudio | na | Gaming"   ToolTip="A free and opensource software for video recording and live" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Text="obs-studio.install" Visibility="Collapsed"/>
-<TextBlock Text="OBSProject.OBSStudio" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Logitech Gaming Software" FontSize="14" Tag="Gaming"   ToolTip="Logitech Gaming Software lets you customize Logitech G gaming mice" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Logitech Gaming Software" FontSize="14" Tag="logitechgaming | Logitech.LGS | na | Gaming"   ToolTip="Logitech Gaming Software lets you customize Logitech G gaming mice" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Text="logitechgaming" Visibility="Collapsed"/>
-<TextBlock Text="Logitech.LGS" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Lively Wallpaper" FontSize="14" Tag="Gaming"   ToolTip="A software that allows users to set animated and interactive" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Lively Wallpaper" FontSize="14" Tag="lively | rocksdanister.LivelyWallpaper | na | Gaming"   ToolTip="A software that allows users to set animated and interactive" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Text="lively" Visibility="Collapsed"/>
-<TextBlock Text="rocksdanister.LivelyWallpaper" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Playnite" FontSize="14" Tag="Gaming"   ToolTip="Open source video game library manager and launcher with support" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Playnite" FontSize="14" Tag="playnite | Playnite.Playnite | na | Gaming"   ToolTip="Open source video game library manager and launcher with support" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Text="playnite" Visibility="Collapsed"/>
-<TextBlock Text="Playnite.Playnite" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Driver Easy" FontSize="14" Tag="Drivers"   ToolTip="A driver update tool that automatically detects downloads and installs" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Driver Easy" FontSize="14" Tag="drivereasyfree | Easeware.DriverEasy | na | Drivers"   ToolTip="A driver update tool that automatically detects downloads and installs" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Text="drivereasyfree" Visibility="Collapsed"/>
-<TextBlock Text="Easeware.DriverEasy" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Intel Graphics Windows DCH" FontSize="14" Tag="Drivers"   ToolTip="Intel Graphics Driver for Windows 10" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Intel Graphics Windows DCH" FontSize="14" Tag="intel-graphics-driver | na | na | Drivers"   ToolTip="Intel Graphics Driver for Windows 10" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Text="intel-graphics-driver" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Intel Driver Support Assistant" FontSize="14" Tag="Drivers"   ToolTip="Intel Driver  Support Assistant enables you to scan computing" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Intel Driver Support Assistant" FontSize="14" Tag="intel-dsa | Intel.IntelDriverAndSupportAssistant | na | Drivers"   ToolTip="Intel Driver  Support Assistant enables you to scan computing" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Text="intel-dsa" Visibility="Collapsed"/>
-<TextBlock Text="Intel.IntelDriverAndSupportAssistant" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Intel Network Adapter" FontSize="14" Tag="Drivers"   ToolTip="Intel Network Adapter Drivers for Windows 10" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Intel Network Adapter" FontSize="14" Tag="intel-network-drivers-win10 | Intel.WiFiDrivers | na | Drivers"   ToolTip="Intel Network Adapter Drivers for Windows 10" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Text="intel-network-drivers-win10" Visibility="Collapsed"/>
-<TextBlock Text="Intel.WiFiDrivers" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Snappy Driver Installer" FontSize="14" Tag="Drivers"   ToolTip="A free and opensource tool for updating and installing device" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Snappy Driver Installer" FontSize="14" Tag="sdio | samlab-ws.SnappyDriverInstaller | na | Drivers"   ToolTip="A free and opensource tool for updating and installing device" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Text="sdio" Visibility="Collapsed"/>
-<TextBlock Text="samlab-ws.SnappyDriverInstaller" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Driver booster" FontSize="14" Tag="Drivers"   ToolTip="Scans and identifies outdated drivers automatically and downloads and installs" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Driver booster" FontSize="14" Tag="driverbooster | IObit.DriverBooster | na | Drivers"   ToolTip="Scans and identifies outdated drivers automatically and downloads and installs" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Text="driverbooster" Visibility="Collapsed"/>
-<TextBlock Text="IObit.DriverBooster" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Driver Genius" FontSize="14" Tag="Drivers"   ToolTip="Professional driver management tool and hardware diagnostics" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Driver Genius" FontSize="14" Tag="drivergenius | na | na | Drivers"   ToolTip="Professional driver management tool and hardware diagnostics" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Text="drivergenius" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Display Driver Uninstaller" FontSize="14" Tag="Drivers"   ToolTip="Utility to completely remove system drivers" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Display Driver Uninstaller" FontSize="14" Tag="ddu | Wagnardsoft.DisplayDriverUninstaller | na | Drivers"   ToolTip="Utility to completely remove system drivers" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Text="ddu" Visibility="Collapsed"/>
-<TextBlock Text="Wagnardsoft.DisplayDriverUninstaller" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Driver Store Explorer" FontSize="14" Tag="Drivers"   ToolTip=" Windows driver store utility" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Driver Store Explorer" FontSize="14" Tag="rapr | na | na | Drivers"   ToolTip=" Windows driver store utility" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Text="rapr" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="1Password" FontSize="14" Tag="Utilities"   ToolTip="A password manager that securely stores login credentials credit card" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="1Password" FontSize="14" Tag="1password | AgileBits.1Password | na | Utilities"   ToolTip="A password manager that securely stores login credentials credit card" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="1password" Visibility="Collapsed"/>
-<TextBlock Text="AgileBits.1Password" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="AOMEI Partition Assistant Standard" FontSize="14" Tag="Disk Tools"   ToolTip="AOMEI Partition Assistant Standard allows you to realize disk upgrade/replacement" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="AOMEI Partition Assistant Standard" FontSize="14" Tag="partition-assistant-standard | AOMEI.PartitionAssistant | na | Disk Tools"   ToolTip="AOMEI Partition Assistant Standard allows you to realize disk upgrade/replacement" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Disk Tools"/>
 </StackPanel>
-<TextBlock Text="partition-assistant-standard" Visibility="Collapsed"/>
-<TextBlock Text="AOMEI.PartitionAssistant" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="AOMEI Backupper Standard" FontSize="14" Tag="Disk Tools"   ToolTip="A backup and recovery software that enables users to create" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="AOMEI Backupper Standard" FontSize="14" Tag="backupper-standard | AOMEI.Backupper.Standard | na | Disk Tools"   ToolTip="A backup and recovery software that enables users to create" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Disk Tools"/>
 </StackPanel>
-<TextBlock Text="backupper-standard" Visibility="Collapsed"/>
-<TextBlock Text="AOMEI.Backupper.Standard" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Recuva recover" FontSize="14" Tag="Disk Tools"   ToolTip="A data recovery software that helps users retrieve accidentally deleted" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Recuva recover" FontSize="14" Tag="recuva | Piriform.Recuva | na | Disk Tools"   ToolTip="A data recovery software that helps users retrieve accidentally deleted" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Disk Tools"/>
 </StackPanel>
-<TextBlock Text="recuva" Visibility="Collapsed"/>
-<TextBlock Text="Piriform.Recuva" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="CCleaner" FontSize="14" Tag="Utilities"   ToolTip="A system optimization privacy and cleaning tool that helps users" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="CCleaner" FontSize="14" Tag="ccleaner | SingularLabs.CCEnhancer | na | Utilities"   ToolTip="A system optimization privacy and cleaning tool that helps users" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="ccleaner" Visibility="Collapsed"/>
-<TextBlock Text="SingularLabs.CCEnhancer" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="BCUninstaller" FontSize="14" Tag="Utilities"   ToolTip="A powerful uninstaller tool for Windows that allows users to" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="BCUninstaller" FontSize="14" Tag="bulk-crap-uninstaller | Klocman.BulkCrapUninstaller | na | Utilities"   ToolTip="A powerful uninstaller tool for Windows that allows users to" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="bulk-crap-uninstaller" Visibility="Collapsed"/>
-<TextBlock Text="Klocman.BulkCrapUninstaller" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Easy Context Menu" FontSize="14" Tag="Utilities"   ToolTip="To install Easy Context Menu run the following command from" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Easy Context Menu" FontSize="14" Tag="ecm | na | na | Utilities"   ToolTip="To install Easy Context Menu run the following command from" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="ecm" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="HWiNFO" FontSize="14" Tag="Utilities"   ToolTip="A hardware information and diagnostic tool that provides detailed information" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="HWiNFO" FontSize="14" Tag="hwinfo.install | REALiX.HWiNFO | na | Utilities"   ToolTip="A hardware information and diagnostic tool that provides detailed information" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="hwinfo.install" Visibility="Collapsed"/>
-<TextBlock Text="REALiX.HWiNFO" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Speccy" FontSize="14" Tag="Utilities"   ToolTip="A system information tool that provides detailed information about the" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Speccy" FontSize="14" Tag="speccy | Piriform.Speccy | na | Utilities"   ToolTip="A system information tool that provides detailed information about the" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="speccy" Visibility="Collapsed"/>
-<TextBlock Text="Piriform.Speccy" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="FurMark" FontSize="14" Tag="Utilities"   ToolTip="A graphics card stress testing and benchmarking utility that helps" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="FurMark" FontSize="14" Tag="furmark | Geeks3D.FurMark | na | Utilities"   ToolTip="A graphics card stress testing and benchmarking utility that helps" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="furmark" Visibility="Collapsed"/>
-<TextBlock Text="Geeks3D.FurMark" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Hard Disk Sentinel" FontSize="14" Tag="Disk Tools"   ToolTip="A hard disk monitoring and analysis software that helps users" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Hard Disk Sentinel" FontSize="14" Tag="hdsentinel | JanosMathe.HardDiskSentinelPro | na | Disk Tools"   ToolTip="A hard disk monitoring and analysis software that helps users" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Disk Tools"/>
 </StackPanel>
-<TextBlock Text="hdsentinel" Visibility="Collapsed"/>
-<TextBlock Text="JanosMathe.HardDiskSentinelPro" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="CPU-Z" FontSize="14" Tag="Utilities"   ToolTip="A system monitoring utility that provides detailed information about the" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="CPU-Z" FontSize="14" Tag="cpu-z | CPUID.CPU-Z | na | Utilities"   ToolTip="A system monitoring utility that provides detailed information about the" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="cpu-z" Visibility="Collapsed"/>
-<TextBlock Text="CPUID.CPU-Z" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Mem Reduct" FontSize="14" Tag="Utilities"   ToolTip="Lightweight realtime memory management application to monitor and clean system" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Mem Reduct" FontSize="14" Tag="memreduct | Henry++.MemReduct | na | Utilities"   ToolTip="Lightweight realtime memory management application to monitor and clean system" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="memreduct" Visibility="Collapsed"/>
-<TextBlock Text="Henry++.MemReduct" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="HandBrake" FontSize="14" Tag="Utilities"   ToolTip="A free and opensource video transcoder tool that converts video" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="HandBrake" FontSize="14" Tag="handbrake.install | HandBrake.HandBrake | na | Utilities"   ToolTip="A free and opensource video transcoder tool that converts video" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="handbrake.install" Visibility="Collapsed"/>
-<TextBlock Text="HandBrake.HandBrake" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Rufus Portable" FontSize="14" Tag="Portable"   ToolTip="A utility tool for creating bootable USB drives from ISO" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Rufus Portable" FontSize="14" Tag="rufus | Rufus.Rufus | na | Portable"   ToolTip="A utility tool for creating bootable USB drives from ISO" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Portable"/>
 </StackPanel>
-<TextBlock Text="rufus" Visibility="Collapsed"/>
-<TextBlock Text="Rufus.Rufus" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="ImgBurn" FontSize="14" Tag="Development"   ToolTip="Lightweight CD / DVD burning application" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="ImgBurn" FontSize="14" Tag="imgburn | LIGHTNINGUK.ImgBurn | na | Development"   ToolTip="Lightweight CD / DVD burning application" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="imgburn" Visibility="Collapsed"/>
-<TextBlock Text="LIGHTNINGUK.ImgBurn" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Virtual CloneDrive" FontSize="14" Tag="Utilities"   ToolTip="A free software that allows users to mount disc images" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Virtual CloneDrive" FontSize="14" Tag="virtualclonedrive | na | na | Utilities"   ToolTip="A free software that allows users to mount disc images" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="virtualclonedrive" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Ultra ISO" FontSize="14" Tag="Utilities"   ToolTip="A powerful ISO image management tool that enables users to" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Ultra ISO" FontSize="14" Tag="ultraiso | EZBSystems.UltraISO | na | Utilities"   ToolTip="A powerful ISO image management tool that enables users to" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="ultraiso" Visibility="Collapsed"/>
-<TextBlock Text="EZBSystems.UltraISO" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Ventoy" FontSize="14" Tag="Utilities"   ToolTip="An opensource tool for creating bootable USB drives with multiple" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Ventoy" FontSize="14" Tag="ventoy | Ventoy.Ventoy | na | Utilities"   ToolTip="An opensource tool for creating bootable USB drives with multiple" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="ventoy" Visibility="Collapsed"/>
-<TextBlock Text="Ventoy.Ventoy" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="iVentoy" FontSize="14" Tag="Utilities"   ToolTip="With iVentoy you can boot and install OS on multiple" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="iVentoy" FontSize="14" Tag="iventoy | na | na | Utilities"   ToolTip="With iVentoy you can boot and install OS on multiple" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="iventoy" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="AutoHotkey" FontSize="14" Tag="Utilities"   ToolTip="A scripting language for automating repetitive tasks and creating macros" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="AutoHotkey" FontSize="14" Tag="autohotkey | AutoHotkey.AutoHotkey | na | Utilities"   ToolTip="A scripting language for automating repetitive tasks and creating macros" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="autohotkey" Visibility="Collapsed"/>
-<TextBlock Text="AutoHotkey.AutoHotkey" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Rainmeter" FontSize="14" Tag="Utilities"   ToolTip="A customizable desktop customization tool that displays customizable skins widgets" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Rainmeter" FontSize="14" Tag="rainmeter | Rainmeter.Rainmeter | na | Utilities"   ToolTip="A customizable desktop customization tool that displays customizable skins widgets" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="rainmeter" Visibility="Collapsed"/>
-<TextBlock Text="Rainmeter.Rainmeter" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="FxSound" FontSize="14" Tag="Utilities"   ToolTip="An audio enhancer software that improves the sound quality of" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="FxSound" FontSize="14" Tag="fxsound | FxSoundLLC.FxSound | na | Utilities"   ToolTip="An audio enhancer software that improves the sound quality of" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="fxsound" Visibility="Collapsed"/>
-<TextBlock Text="FxSoundLLC.FxSound" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Vysor" FontSize="14" Tag="Utilities"   ToolTip="A screen mirroring and remote control software that enables users" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Vysor" FontSize="14" Tag="vysor | Vysor.Vysor | na | Utilities"   ToolTip="A screen mirroring and remote control software that enables users" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="vysor" Visibility="Collapsed"/>
-<TextBlock Text="Vysor.Vysor" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Unified Remote" FontSize="14" Tag="Utilities"   ToolTip="A remote control app that turns smartphones into universal remote" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Unified Remote" FontSize="14" Tag="unifiedremote | UnifiedIntents.UnifiedRemote | na | Utilities"   ToolTip="A remote control app that turns smartphones into universal remote" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="unifiedremote" Visibility="Collapsed"/>
-<TextBlock Text="UnifiedIntents.UnifiedRemote" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="AnyDesk" FontSize="14" Tag="File Sharing"   ToolTip="A remote desktop software that allows users to access and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="AnyDesk" FontSize="14" Tag="anydesk | AnyDeskSoftwareGmbH.AnyDesk | na | File Sharing"   ToolTip="A remote desktop software that allows users to access and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Text="anydesk" Visibility="Collapsed"/>
-<TextBlock Text="AnyDeskSoftwareGmbH.AnyDesk" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Airdroid" FontSize="14" Tag="File Sharing"   ToolTip="AirDroid is a free and fast Android device manager app" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Airdroid" FontSize="14" Tag="airdroid | AirDroid.AirDroid | na | File Sharing"   ToolTip="AirDroid is a free and fast Android device manager app" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Text="airdroid" Visibility="Collapsed"/>
-<TextBlock Text="AirDroid.AirDroid" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="UltraViewer" FontSize="14" Tag="File Sharing"   ToolTip="Remote control to support your clients / partners from everywhere" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="UltraViewer" FontSize="14" Tag="ultraviewer | DucFabulous.UltraViewer | na | File Sharing"   ToolTip="Remote control to support your clients / partners from everywhere" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Text="ultraviewer" Visibility="Collapsed"/>
-<TextBlock Text="DucFabulous.UltraViewer" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Wireless Network Watcher Portable" FontSize="14" Tag="Portable"   ToolTip="Wireless Network Watcher is a small utility that scans your" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Wireless Network Watcher Portable" FontSize="14" Tag="wnetwatcher.portable | NirSoft.WirelessNetworkWatcher | na | Portable"   ToolTip="Wireless Network Watcher is a small utility that scans your" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Portable"/>
 </StackPanel>
-<TextBlock Text="wnetwatcher.portable" Visibility="Collapsed"/>
-<TextBlock Text="NirSoft.WirelessNetworkWatcher" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="WifiInfoView" FontSize="14" Tag="Utilities"   ToolTip="Wireless Network Watcher is a small utility that scans your" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="WifiInfoView" FontSize="14" Tag="wifiinfoview | NirSoft.WifiInfoView | na | Utilities"   ToolTip="Wireless Network Watcher is a small utility that scans your" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="wifiinfoview" Visibility="Collapsed"/>
-<TextBlock Text="NirSoft.WifiInfoView" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="WirelessNetView" FontSize="14" Tag="Utilities"   ToolTip="Wireless Network Watcher is a small utility that scans your" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="WirelessNetView" FontSize="14" Tag="wirelessnetview | na | na | Utilities"   ToolTip="Wireless Network Watcher is a small utility that scans your" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="wirelessnetview" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="qBittorrent" FontSize="14" Tag="File Sharing"   ToolTip="A free and opensource BitTorrent client for downloading and uploading" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="qBittorrent" FontSize="14" Tag="qbittorrent | qBittorrent.qBittorrent | na | File Sharing"   ToolTip="A free and opensource BitTorrent client for downloading and uploading" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Text="qbittorrent" Visibility="Collapsed"/>
-<TextBlock Text="qBittorrent.qBittorrent" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Google Earth Pro" FontSize="14" Tag="Imaging"   ToolTip="Google Earth Pro on desktop is free for users with" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Google Earth Pro" FontSize="14" Tag="googleearthpro | Google.EarthPro | na | Imaging"   ToolTip="Google Earth Pro on desktop is free for users with" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Imaging"/>
 </StackPanel>
-<TextBlock Text="googleearthpro" Visibility="Collapsed"/>
-<TextBlock Text="Google.EarthPro" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="XAMPP" FontSize="14" Tag="Development"   ToolTip="XAMPP is a free and opensource crossplatform web server solution" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="XAMPP" FontSize="14" Tag="xampp-81 | ApacheFriends.Xampp.8.2 | na | Development"   ToolTip="XAMPP is a free and opensource crossplatform web server solution" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="xampp-81" Visibility="Collapsed"/>
-<TextBlock Text="ApacheFriends.Xampp.8.2" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Visual Studio Professional 2022" FontSize="14" Tag="Development"   ToolTip="Visual Studio Professional 2022 is an integrated development environment IDE" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Visual Studio Professional 2022" FontSize="14" Tag="visualstudio2022professional | Microsoft.VisualStudio.2022.Professional | na | Development"   ToolTip="Visual Studio Professional 2022 is an integrated development environment IDE" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="visualstudio2022professional" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.VisualStudio.2022.Professional" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Visual Studio Community 2022" FontSize="14" Tag="Development"   ToolTip="Visual Studio Community 2022 is a free fullyfeatured and extensible" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Visual Studio Community 2022" FontSize="14" Tag="visualstudio2022community | Microsoft.VisualStudio.2022.Community | na | Development"   ToolTip="Visual Studio Community 2022 is a free fullyfeatured and extensible" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="visualstudio2022community" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.VisualStudio.2022.Community" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Unity Hub" FontSize="14" Tag="Development"   ToolTip="Unity is a crossplatform game creation system developed by Unity" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Unity Hub" FontSize="14" Tag="unity-hub | Unity.UnityHub | na | Development"   ToolTip="Unity is a crossplatform game creation system developed by Unity" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="unity-hub" Visibility="Collapsed"/>
-<TextBlock Text="Unity.UnityHub" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Godot Engine" FontSize="14" Tag="Development"   ToolTip="Godot is a featurepacked crossplatform game engine for creating 2D" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Godot Engine" FontSize="14" Tag="godot | GodotEngine.GodotEngine | na | Development"   ToolTip="Godot is a featurepacked crossplatform game engine for creating 2D" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="godot" Visibility="Collapsed"/>
-<TextBlock Text="GodotEngine.GodotEngine" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Unity3D Engine" FontSize="14" Tag="Development"   ToolTip="Unity is a crossplatform game creation system developed by Unity" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Unity3D Engine" FontSize="14" Tag="unity | Unity.Unity.2020 | na | Development"   ToolTip="Unity is a crossplatform game creation system developed by Unity" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="unity" Visibility="Collapsed"/>
-<TextBlock Text="Unity.Unity.2020" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Blender" FontSize="14" Tag="Development"   ToolTip="Blender is a free and opensource professionalgrade 3D computer graphics" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Blender" FontSize="14" Tag="blender | BlenderFoundation.Blender | na | Development"   ToolTip="Blender is a free and opensource professionalgrade 3D computer graphics" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="blender" Visibility="Collapsed"/>
-<TextBlock Text="BlenderFoundation.Blender" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="VSCode" FontSize="14" Tag="Development"   ToolTip="Visual Studio Code is a free sourcecode editor developed by" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="VSCode" FontSize="14" Tag="vscode | Microsoft.VisualStudioCode | na | Development"   ToolTip="Visual Studio Code is a free sourcecode editor developed by" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="vscode" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.VisualStudioCode" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Vim" FontSize="14" Tag="Development"   ToolTip="Vim is an advanced text editor that seeks to provide" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Vim" FontSize="14" Tag="vim | vim.vim | na | Development"   ToolTip="Vim is an advanced text editor that seeks to provide" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="vim" Visibility="Collapsed"/>
-<TextBlock Text="vim.vim" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Sublime Text 4" FontSize="14" Tag="Development"   ToolTip="Sublime Text 4  The sophisticated text editor for code" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Sublime Text 4" FontSize="14" Tag="sublimetext4 | SublimeHQ.SublimeText.4 | na | Development"   ToolTip="Sublime Text 4  The sophisticated text editor for code" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="sublimetext4" Visibility="Collapsed"/>
-<TextBlock Text="SublimeHQ.SublimeText.4" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Atom" FontSize="14" Tag="Development"   ToolTip="Atom is a text editor thats modern approachable yet hackable" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Atom" FontSize="14" Tag="atom | GitHub.Atom | na | Development"   ToolTip="Atom is a text editor thats modern approachable yet hackable" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="atom" Visibility="Collapsed"/>
-<TextBlock Text="GitHub.Atom" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="InnoSetup" FontSize="14" Tag="Development"   ToolTip="Inno Setup is a free installer for Windows programs. First" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="InnoSetup" FontSize="14" Tag="innosetup | JRSoftware.InnoSetup | na | Development"   ToolTip="Inno Setup is a free installer for Windows programs. First" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="innosetup" Visibility="Collapsed"/>
-<TextBlock Text="JRSoftware.InnoSetup" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="PyCharm Community Edition" FontSize="14" Tag="Development"   ToolTip="PyCharm Community Edition is a free and opensource IDE for" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="PyCharm Community Edition" FontSize="14" Tag="pycharm-community | JetBrains.PyCharm.Community | na | Development"   ToolTip="PyCharm Community Edition is a free and opensource IDE for" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="pycharm-community" Visibility="Collapsed"/>
-<TextBlock Text="JetBrains.PyCharm.Community" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="PyCharm Professional Edition" FontSize="14" Tag="Development"   ToolTip="PyCharm Professional Edition is a powerful IDE for professional Python" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="PyCharm Professional Edition" FontSize="14" Tag="pycharm | JetBrains.PyCharm.Professional | na | Development"   ToolTip="PyCharm Professional Edition is a powerful IDE for professional Python" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="pycharm" Visibility="Collapsed"/>
-<TextBlock Text="JetBrains.PyCharm.Professional" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Jetbrains Rider" FontSize="14" Tag="Development"   ToolTip="Rider is a crossplatform .NET IDE developed by JetBrains. It" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Jetbrains Rider" FontSize="14" Tag="jetbrains-rider | JetBrains.Rider | na | Development"   ToolTip="Rider is a crossplatform .NET IDE developed by JetBrains. It" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="jetbrains-rider" Visibility="Collapsed"/>
-<TextBlock Text="JetBrains.Rider" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="NodeJs LTS" FontSize="14" Tag="Development"   ToolTip="Node.js is a JavaScript runtime built on Chromes V8 JavaScript" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="NodeJs LTS" FontSize="14" Tag="nodejs-lts | OpenJS.NodeJS.LTS | na | Development"   ToolTip="Node.js is a JavaScript runtime built on Chromes V8 JavaScript" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="nodejs-lts" Visibility="Collapsed"/>
-<TextBlock Text="OpenJS.NodeJS.LTS" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Electron" FontSize="14" Tag="Development"   ToolTip="Electron framework lets you write crossplatform desktop applications using JavaScript" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Electron" FontSize="14" Tag="electron | na | na | Development"   ToolTip="Electron framework lets you write crossplatform desktop applications using JavaScript" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="electron" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Electrum LTS" FontSize="14" Tag="Development"   ToolTip="Electrum is a lightweight Bitcoin wallet focused on speed and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Electrum LTS" FontSize="14" Tag="electronim | Electrum.Electrum | na | Development"   ToolTip="Electrum is a lightweight Bitcoin wallet focused on speed and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="electronim" Visibility="Collapsed"/>
-<TextBlock Text="Electrum.Electrum" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Hugo" FontSize="14" Tag="Development"   ToolTip="Hugo is one of the most popular opensource static site" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Hugo" FontSize="14" Tag="hugo | Hugo.Hugo | na | Development"   ToolTip="Hugo is one of the most popular opensource static site" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="hugo" Visibility="Collapsed"/>
-<TextBlock Text="Hugo.Hugo" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Hugo Extended" FontSize="14" Tag="Development"   ToolTip="Hugo is one of the most popular opensource static site" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Hugo Extended" FontSize="14" Tag="hugo-extended | Hugo.Hugo.Extended | na | Development"   ToolTip="Hugo is one of the most popular opensource static site" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="hugo-extended" Visibility="Collapsed"/>
-<TextBlock Text="Hugo.Hugo.Extended" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Notepad++" FontSize="14" Tag="Development"   ToolTip="Notepad is a free source code editor and Notepad replacement" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Notepad++" FontSize="14" Tag="notepadplusplus | Notepad++.Notepad++ | na | Development"   ToolTip="Notepad is a free source code editor and Notepad replacement" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="notepadplusplus" Visibility="Collapsed"/>
-<TextBlock Text="Notepad++.Notepad++" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Windows Terminal" FontSize="14" Tag="Development"   ToolTip="Windows Terminal is a modern terminal application for users of" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Windows Terminal" FontSize="14" Tag="microsoft-windows-terminal | Microsoft.WindowsTerminal | na | Development"   ToolTip="Windows Terminal is a modern terminal application for users of" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="microsoft-windows-terminal" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.WindowsTerminal" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Powershell 7" FontSize="14" Tag="Development"   ToolTip="PowerShell Core is a crossplatform Windows Linux and macOS automation" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Powershell 7" FontSize="14" Tag="powershell-core | Microsoft.PowerShell | na | Development"   ToolTip="PowerShell Core is a crossplatform Windows Linux and macOS automation" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="powershell-core" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.PowerShell" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="x64dbg Portable" FontSize="14" Tag="Portable"   ToolTip="An opensource x64/x32 debugger for windows" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="x64dbg Portable" FontSize="14" Tag="x64dbg.portable | na | na | Portable"   ToolTip="An opensource x64/x32 debugger for windows" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Portable"/>
 </StackPanel>
-<TextBlock Text="x64dbg.portable" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="dnSpy" FontSize="14" Tag="Development"   ToolTip="dnSpy is a tool to reverse engineer .NET assemblies. It" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="dnSpy" FontSize="14" Tag="dnspy | dnSpyEx.dnSpy | na | Development"   ToolTip="dnSpy is a tool to reverse engineer .NET assemblies. It" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="dnspy" Visibility="Collapsed"/>
-<TextBlock Text="dnSpyEx.dnSpy" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Cheat Engine" FontSize="14" Tag="Development"   ToolTip="Cheat Engine is an open source tool designed to help" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Cheat Engine" FontSize="14" Tag="cheatengine | na | na | Development"   ToolTip="Cheat Engine is an open source tool designed to help" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="cheatengine" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Python 3.12.6" FontSize="14" Tag="Development"   ToolTip="Python is a popular highlevel programming language known for its" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Python 3.12.6" FontSize="14" Tag="python | Python.Python.3.9 | na | Development"   ToolTip="Python is a popular highlevel programming language known for its" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="python" Visibility="Collapsed"/>
-<TextBlock Text="Python.Python.3.9" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Git" FontSize="14" Tag="Development"   ToolTip="Git is a free and opensource distributed version control system" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Git" FontSize="14" Tag="git | Git.Git | na | Development"   ToolTip="Git is a free and opensource distributed version control system" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="git" Visibility="Collapsed"/>
-<TextBlock Text="Git.Git" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="GitHub Desktop" FontSize="14" Tag="Development"   ToolTip="GitHub Desktop is a seamless way to contribute to projects" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="GitHub Desktop" FontSize="14" Tag="github-desktop | GitHub.GitHubDesktop | na | Development"   ToolTip="GitHub Desktop is a seamless way to contribute to projects" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="github-desktop" Visibility="Collapsed"/>
-<TextBlock Text="GitHub.GitHubDesktop" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Docker Desktop" FontSize="14" Tag="Development"   ToolTip="Docker Desktop is an easytoinstall application for Windows and macOS" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Docker Desktop" FontSize="14" Tag="docker-desktop | Docker.DockerDesktop | na | Development"   ToolTip="Docker Desktop is an easytoinstall application for Windows and macOS" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="docker-desktop" Visibility="Collapsed"/>
-<TextBlock Text="Docker.DockerDesktop" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Docker Compose" FontSize="14" Tag="Development"   ToolTip="Docker Compose is a tool for defining and running multicontainer" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Docker Compose" FontSize="14" Tag="docker-compose | Docker.DockerCompose | na | Development"   ToolTip="Docker Compose is a tool for defining and running multicontainer" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="docker-compose" Visibility="Collapsed"/>
-<TextBlock Text="Docker.DockerCompose" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="PowerToys" FontSize="14" Tag="Development"   ToolTip="PowerToys is a set of utilities for power users to" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="PowerToys" FontSize="14" Tag="powertoys | Microsoft.PowerToys | na | Development"   ToolTip="PowerToys is a set of utilities for power users to" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="powertoys" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.PowerToys" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Notion" FontSize="14" Tag="Development"   ToolTip="The allinone workspace for your notes tasks wikis and databases" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Notion" FontSize="14" Tag="notion | Notion.Notion | na | Development"   ToolTip="The allinone workspace for your notes tasks wikis and databases" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="notion" Visibility="Collapsed"/>
-<TextBlock Text="Notion.Notion" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="FL Studio" FontSize="14" Tag="Media Tools"   ToolTip="FL Studio is a digital audio workstation DAW developed by" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="FL Studio" FontSize="14" Tag="ImageLine.FLStudio | ImageLine.FLStudio | na | Media Tools"   ToolTip="FL Studio is a digital audio workstation DAW developed by" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Text="ImageLine.FLStudio" Visibility="Collapsed"/>
-<TextBlock Text="ImageLine.FLStudio" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Android Debug Bridge" FontSize="14" Tag="Development"   ToolTip="Android Debug Bridge ADB is a commandline tool that allows" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Android Debug Bridge" FontSize="14" Tag="adb | na | na | Development"   ToolTip="Android Debug Bridge ADB is a commandline tool that allows" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="adb" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Universal ADB Drivers" FontSize="14" Tag="Development"   ToolTip="Universal ADB Drivers are drivers that provide compatibility with a" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Universal ADB Drivers" FontSize="14" Tag="universal-adb-drivers | na | na | Development"   ToolTip="Universal ADB Drivers are drivers that provide compatibility with a" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="universal-adb-drivers" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Scrcpy" FontSize="14" Tag="Development"   ToolTip="Scrcpy is a free and opensource tool that allows you" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Scrcpy" FontSize="14" Tag="scrcpy | Genymobile.scrcpy | na | Development"   ToolTip="Scrcpy is a free and opensource tool that allows you" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="scrcpy" Visibility="Collapsed"/>
-<TextBlock Text="Genymobile.scrcpy" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="VirtualBox" FontSize="14" Tag="Development"   ToolTip="VirtualBox is a crossplatform virtualization application. It installs on existing" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="VirtualBox" FontSize="14" Tag="virtualbox | Oracle.VirtualBox | na | Development"   ToolTip="VirtualBox is a crossplatform virtualization application. It installs on existing" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="virtualbox" Visibility="Collapsed"/>
-<TextBlock Text="Oracle.VirtualBox" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Oh My Posh" FontSize="14" Tag="Development"   ToolTip=" Oh my Posh is a custom prompt engine for" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Oh My Posh" FontSize="14" Tag="oh-my-posh | JanDeDobbeleer.OhMyPosh | na | Development"   ToolTip=" Oh my Posh is a custom prompt engine for" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="oh-my-posh" Visibility="Collapsed"/>
-<TextBlock Text="JanDeDobbeleer.OhMyPosh" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Malwarebytes" FontSize="14" Tag="Security"   ToolTip="Multiple layers of malwarecrushing tech including virus protection. Thorough malware" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Malwarebytes" FontSize="14" Tag="malwarebytes | Malwarebytes.Malwarebytes | na | Security"   ToolTip="Multiple layers of malwarecrushing tech including virus protection. Thorough malware" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Security"/>
 </StackPanel>
-<TextBlock Text="malwarebytes" Visibility="Collapsed"/>
-<TextBlock Text="Malwarebytes.Malwarebytes" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Avast Free Antivirus" FontSize="14" Tag="Security"   ToolTip="Avast Free Antivirus" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Avast Free Antivirus" FontSize="14" Tag="avastfreeantivirus | XPDNZJFNCR1B07 | na | Security"   ToolTip="Avast Free Antivirus" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Security"/>
 </StackPanel>
-<TextBlock Text="avastfreeantivirus" Visibility="Collapsed"/>
-<TextBlock Text="XPDNZJFNCR1B07" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Nerd Fonts - CascadiaCode" FontSize="14" Tag="Development"   ToolTip="Nerd Fonts is a project that patches developer targeted fonts" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Nerd Fonts - CascadiaCode" FontSize="14" Tag="nerd-fonts-cascadiacode | na | na | Development"   ToolTip="Nerd Fonts is a project that patches developer targeted fonts" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="nerd-fonts-cascadiacode" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Java SE Runtime Environment 8.0.411" FontSize="14" Tag="Runtimes"   ToolTip="Java allows you to play online games chat with people" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Java SE Runtime Environment 8.0.411" FontSize="14" Tag="jre8 | na | na | Runtimes"   ToolTip="Java allows you to play online games chat with people" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="jre8" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Audacity" FontSize="14" Tag="Media Tools"   ToolTip="Audacity is free open source crossplatform software for recording and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Audacity" FontSize="14" Tag="audacity | Audacity.Audacity | na | Media Tools"   ToolTip="Audacity is free open source crossplatform software for recording and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Text="audacity" Visibility="Collapsed"/>
-<TextBlock Text="Audacity.Audacity" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="MusicBee" FontSize="14" Tag="Media"   ToolTip="MusicBee makes it easy to organize find and play music" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="MusicBee" FontSize="14" Tag="musicbee | MusicBee.MusicBee | na | Media"   ToolTip="MusicBee makes it easy to organize find and play music" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Text="musicbee" Visibility="Collapsed"/>
-<TextBlock Text="MusicBee.MusicBee" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Format Factory" FontSize="14" Tag="Media Tools"   ToolTip="multifunctional media processing tools" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Format Factory" FontSize="14" Tag="formatfactory | na | na | Media Tools"   ToolTip="multifunctional media processing tools" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Text="formatfactory" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Winaero Tweaker" FontSize="14" Tag="Utilities"   ToolTip="Customize the appearance and behavior of the Windows operating system" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Winaero Tweaker" FontSize="14" Tag="winaero-tweaker | na | na | Utilities"   ToolTip="Customize the appearance and behavior of the Windows operating system" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="winaero-tweaker" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Windows Subsystem for Linux WSL2" FontSize="14" Tag="Development"   ToolTip="To install Windows Subsystem for Linux 2 run the following" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Windows Subsystem for Linux WSL2" FontSize="14" Tag="wsl2 | Microsoft.WSL | na | Development"   ToolTip="To install Windows Subsystem for Linux 2 run the following" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="wsl2" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.WSL" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Wamp Server 3.3.5" FontSize="14" Tag="Development"   ToolTip="WampServer is a Windows web development environment. It allows you" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Wamp Server 3.3.5" FontSize="14" Tag="wamp-server | na | na | Development"   ToolTip="WampServer is a Windows web development environment. It allows you" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="wamp-server" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="MongoDB" FontSize="14" Tag="Development"   ToolTip="MongoDB stores data using a flexible document data model that" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="MongoDB" FontSize="14" Tag="mongodb | MongoDB.Server | na | Development"   ToolTip="MongoDB stores data using a flexible document data model that" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="mongodb" Visibility="Collapsed"/>
-<TextBlock Text="MongoDB.Server" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="MPC-BE" FontSize="14" Tag="Media"   ToolTip="Media Player Classic  BE is a free and open" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="MPC-BE" FontSize="14" Tag="mpc-be |  MPC-BE.MPC-BE | na | Media"   ToolTip="Media Player Classic  BE is a free and open" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Text="mpc-be" Visibility="Collapsed"/>
-<TextBlock Text=" MPC-BE.MPC-BE" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Kdenlive" FontSize="14" Tag="Media Tools"   ToolTip="A powerful nonlinear video editor" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Kdenlive" FontSize="14" Tag="kdenlive | KDE.Kdenlive | na | Media Tools"   ToolTip="A powerful nonlinear video editor" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Text="kdenlive" Visibility="Collapsed"/>
-<TextBlock Text="KDE.Kdenlive" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="TablePlus" FontSize="14" Tag="Development"   ToolTip="Modern native and friendly GUI tool for relational databases MySQL" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="TablePlus" FontSize="14" Tag="tableplus | TablePlus.TablePlus | na | Development"   ToolTip="Modern native and friendly GUI tool for relational databases MySQL" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="tableplus" Visibility="Collapsed"/>
-<TextBlock Text="TablePlus.TablePlus" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Hosts File Editor" FontSize="14" Tag="Utilities"   ToolTip="Hosts File Editor makes it easy to change your hosts" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Hosts File Editor" FontSize="14" Tag="hosts.editor | scottlerch.hosts-file-editor | na | Utilities"   ToolTip="Hosts File Editor makes it easy to change your hosts" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="hosts.editor" Visibility="Collapsed"/>
-<TextBlock Text="scottlerch.hosts-file-editor" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Subtitle Edit" FontSize="14" Tag="Development"   ToolTip="With SE you can easily adjust a subtitle if it" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Subtitle Edit" FontSize="14" Tag="subtitleedit | 9NWH51GWJTKN | na | Development"   ToolTip="With SE you can easily adjust a subtitle if it" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="subtitleedit" Visibility="Collapsed"/>
-<TextBlock Text="9NWH51GWJTKN" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Skype" FontSize="14" Tag="Communication"   ToolTip="Skype  Install Skype add your friends as contacts then" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Skype" FontSize="14" Tag="skype | Microsoft.Skype | na | Communication"   ToolTip="Skype  Install Skype add your friends as contacts then" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Text="skype" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.Skype" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="FileZilla" FontSize="14" Tag="Development"   ToolTip="FileZilla Client is a fast and reliable crossplatform FTP FTPS" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="FileZilla" FontSize="14" Tag="filezilla | na | na | Development"   ToolTip="FileZilla Client is a fast and reliable crossplatform FTP FTPS" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="filezilla" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Everything" FontSize="14" Tag="Utilities"   ToolTip="Everything Search Engine  locate files and folders by name" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Everything" FontSize="14" Tag="everything | voidtools.Everything | na | Utilities"   ToolTip="Everything Search Engine  locate files and folders by name" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="everything" Visibility="Collapsed"/>
-<TextBlock Text="voidtools.Everything" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Yarn" FontSize="14" Tag="Development"   ToolTip="Yarn is a package manager for the npm and bower" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Yarn" FontSize="14" Tag="yarn | Yarn.Yarn | na | Development"   ToolTip="Yarn is a package manager for the npm and bower" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="yarn" Visibility="Collapsed"/>
-<TextBlock Text="Yarn.Yarn" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="VMware Workstation Player" FontSize="14" Tag="Development"   ToolTip="VMware Workstation Player is a streamlined desktop virtualization application that" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="VMware Workstation Player" FontSize="14" Tag="vmware-workstation-player | na | na | Development"   ToolTip="VMware Workstation Player is a streamlined desktop virtualization application that" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="vmware-workstation-player" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="HDD Low Level Format Tool" FontSize="14" Tag="Utilities"   ToolTip="Will erase LowLevel Format and recertify a SATA IDE or" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="HDD Low Level Format Tool" FontSize="14" Tag="llftool | na | na | Utilities"   ToolTip="Will erase LowLevel Format and recertify a SATA IDE or" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="llftool" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="BlueStacks" FontSize="14" Tag="Gaming"   ToolTip="Play Android Games on PC" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="BlueStacks" FontSize="14" Tag="bluestacks | BlueStack.BlueStacks | na | Gaming"   ToolTip="Play Android Games on PC" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Text="bluestacks" Visibility="Collapsed"/>
-<TextBlock Text="BlueStack.BlueStacks" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Intel Wireless Bluetooth for Windows 10 and Windows 11" FontSize="14" Tag="Drivers"   ToolTip="Bluetooth for Windows 10 and Windows" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Intel Wireless Bluetooth for Windows 10 and Windows 11" FontSize="14" Tag="intel-bluetooth-drivers | na | na | Drivers"   ToolTip="Bluetooth for Windows 10 and Windows" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Text="intel-bluetooth-drivers" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Office 365 Business" FontSize="14" Tag="Documents"   ToolTip="Microsoft 365 formerly Office 365 is a line of subscription" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Office 365 Business" FontSize="14" Tag="office365business | Microsoft.Office | na | Documents"   ToolTip="Microsoft 365 formerly Office 365 is a line of subscription" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Text="office365business" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.Office" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Bandicam" FontSize="14" Tag="Imaging"   ToolTip="Bandicam is a closedsource screen capture and screen recording software" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Bandicam" FontSize="14" Tag="na | BandicamCompany.Bandicam | na | Imaging"   ToolTip="Bandicam is a closedsource screen capture and screen recording software" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Imaging"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="BandicamCompany.Bandicam" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="QQPlayer" FontSize="14" Tag="Media"   ToolTip="QQPlayer media player" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="QQPlayer" FontSize="14" Tag="na | Tencent.QQPlayer | na | Media"   ToolTip="QQPlayer media player" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="Tencent.QQPlayer" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="4K Video Downloader" FontSize="14" Tag="Utilities"   ToolTip="4K Video Downloader allows downloading videos playlists channels and subtitles" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="4K Video Downloader" FontSize="14" Tag="4k-video-downloader | OpenMedia.4KVideoDownloader | na | Utilities"   ToolTip="4K Video Downloader allows downloading videos playlists channels and subtitles" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="4k-video-downloader" Visibility="Collapsed"/>
-<TextBlock Text="OpenMedia.4KVideoDownloader" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Active@ Partition Recovery" FontSize="14" Tag="Disk Tools"   ToolTip="Active Partition Recovery is a freeware toolkit that helps to" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Active@ Partition Recovery" FontSize="14" Tag="na | LSoftTechnologies.ActivePartitionRecovery | na | Disk Tools"   ToolTip="Active Partition Recovery is a freeware toolkit that helps to" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Disk Tools"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="LSoftTechnologies.ActivePartitionRecovery" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="HiSuite" FontSize="14" Tag="Utilities"   ToolTip="HUAWEI HiSuite is the official Android Smart Device Manager toolHiSuite" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="HiSuite" FontSize="14" Tag="na | Huawei.HiSuite | na | Utilities"   ToolTip="HUAWEI HiSuite is the official Android Smart Device Manager toolHiSuite" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="Huawei.HiSuite" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Android Studio" FontSize="14" Tag="Development"   ToolTip="Android Studio is the official integrated development environment for Googles" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Android Studio" FontSize="14" Tag="androidstudio | Google.AndroidStudio | na | Development"   ToolTip="Android Studio is the official integrated development environment for Googles" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="androidstudio" Visibility="Collapsed"/>
-<TextBlock Text="Google.AndroidStudio" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="LibreWolf" FontSize="14" Tag="Web Browsers"   ToolTip="LibreWolf is designed to increase protection against tracking and fingerprinting" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="LibreWolf" FontSize="14" Tag="librewolf | LibreWolf.LibreWolf | na | Web Browsers"   ToolTip="LibreWolf is designed to increase protection against tracking and fingerprinting" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Text="librewolf" Visibility="Collapsed"/>
-<TextBlock Text="LibreWolf.LibreWolf" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Flow Launcher" FontSize="14" Tag="Utilities"   ToolTip="Dedicated to making your workflow flow more seamless. Search everything" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Flow Launcher" FontSize="14" Tag="flow-launcher | Flow-Launcher.Flow-Launcher | na | Utilities"   ToolTip="Dedicated to making your workflow flow more seamless. Search everything" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="flow-launcher" Visibility="Collapsed"/>
-<TextBlock Text="Flow-Launcher.Flow-Launcher" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="IconsExtract" FontSize="14" Tag="Utilities"   ToolTip="The IconsExtract utility scans the files and folders on your" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="IconsExtract" FontSize="14" Tag="iconsext | na | na | Utilities"   ToolTip="The IconsExtract utility scans the files and folders on your" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="iconsext" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="AdGuard Home" FontSize="14" Tag="Security"   ToolTip="AdGuard Home is a networkwide software for blocking ads and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="AdGuard Home" FontSize="14" Tag="adguardhome | AdGuard.AdGuardHome | na | Security"   ToolTip="AdGuard Home is a networkwide software for blocking ads and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Security"/>
 </StackPanel>
-<TextBlock Text="adguardhome" Visibility="Collapsed"/>
-<TextBlock Text="AdGuard.AdGuardHome" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Burp Suite Community Edition" FontSize="14" Tag="Development"   ToolTip="Burp Suite is an integrated platform for performing security testing" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Burp Suite Community Edition" FontSize="14" Tag="burp-suite-free-edition | PortSwigger.BurpSuite.Community | na | Development"   ToolTip="Burp Suite is an integrated platform for performing security testing" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="burp-suite-free-edition" Visibility="Collapsed"/>
-<TextBlock Text="PortSwigger.BurpSuite.Community" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="CoreTemp" FontSize="14" Tag="Utilities"   ToolTip="Core Temp is a compact no fuss small footprint yet" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="CoreTemp" FontSize="14" Tag="coretemp | ALCPU.CoreTemp | na | Utilities"   ToolTip="Core Temp is a compact no fuss small footprint yet" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="coretemp" Visibility="Collapsed"/>
-<TextBlock Text="ALCPU.CoreTemp" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="ShareX" FontSize="14" Tag="File Sharing"   ToolTip="Screen capture file sharing and productivity tool" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="ShareX" FontSize="14" Tag="sharex | ShareX.ShareX | na | File Sharing"   ToolTip="Screen capture file sharing and productivity tool" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Text="sharex" Visibility="Collapsed"/>
-<TextBlock Text="ShareX.ShareX" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="ONLY OFFICE" FontSize="14" Tag="Documents"   ToolTip="ONLYOFFICE is a project developed by experienced IT experts from" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="ONLY OFFICE" FontSize="14" Tag="onlyoffice | ONLYOFFICE.DesktopEditors | na | Documents"   ToolTip="ONLYOFFICE is a project developed by experienced IT experts from" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Text="onlyoffice" Visibility="Collapsed"/>
-<TextBlock Text="ONLYOFFICE.DesktopEditors" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="ESET Internet Security" FontSize="14" Tag="Security"   ToolTip="Ideal for modern users concerned about their privacy who actively" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="ESET Internet Security" FontSize="14" Tag="eset-internet-security | ESET.EndpointSecurity | na | Security"   ToolTip="Ideal for modern users concerned about their privacy who actively" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Security"/>
 </StackPanel>
-<TextBlock Text="eset-internet-security" Visibility="Collapsed"/>
-<TextBlock Text="ESET.EndpointSecurity" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="WinDirStat" FontSize="14" Tag="Disk Tools"   ToolTip="WinDirStat is a disk usage statistics viewer and cleanup tool" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="WinDirStat" FontSize="14" Tag="windirstat | WinDirStat.WinDirStat | na | Disk Tools"   ToolTip="WinDirStat is a disk usage statistics viewer and cleanup tool" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Disk Tools"/>
 </StackPanel>
-<TextBlock Text="windirstat" Visibility="Collapsed"/>
-<TextBlock Text="WinDirStat.WinDirStat" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Winmerge" FontSize="14" Tag="Utilities"   ToolTip="WinMerge is an Open Source differencing and merging tool for" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Winmerge" FontSize="14" Tag="winmerge | WinMerge.WinMerge | na | Utilities"   ToolTip="WinMerge is an Open Source differencing and merging tool for" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="winmerge" Visibility="Collapsed"/>
-<TextBlock Text="WinMerge.WinMerge" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Wireshark" FontSize="14" Tag="Utilities"   ToolTip="Wireshark is the worlds foremost and widelyused network protocol analyzer." Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Wireshark" FontSize="14" Tag="wireshark | WiresharkFoundation.Wireshark | na | Utilities"   ToolTip="Wireshark is the worlds foremost and widelyused network protocol analyzer." Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="wireshark" Visibility="Collapsed"/>
-<TextBlock Text="WiresharkFoundation.Wireshark" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="TeraCopy" FontSize="14" Tag="Utilities"   ToolTip="TeraCopy is designed to copy and move files at the" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="TeraCopy" FontSize="14" Tag="teracopy | CodeSector.TeraCopy | na | Utilities"   ToolTip="TeraCopy is designed to copy and move files at the" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="teracopy" Visibility="Collapsed"/>
-<TextBlock Text="CodeSector.TeraCopy" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="QuickLook" FontSize="14" Tag="Utilities"   ToolTip="Quick Look is among the few features I missed from" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="QuickLook" FontSize="14" Tag="quicklook | QL-Win.QuickLook | na | Utilities"   ToolTip="Quick Look is among the few features I missed from" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="quicklook" Visibility="Collapsed"/>
-<TextBlock Text="QL-Win.QuickLook" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="RepoZ" FontSize="14" Tag="Development"   ToolTip="RepoZ provides a quick overview of the git repositories on" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="RepoZ" FontSize="14" Tag="repoz | AndreasWascher.RepoZ | na | Development"   ToolTip="RepoZ provides a quick overview of the git repositories on" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="repoz" Visibility="Collapsed"/>
-<TextBlock Text="AndreasWascher.RepoZ" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Intel Graphics Command Center" FontSize="14" Tag="Drivers"   ToolTip="Dont have time to mess around with settings The Intel" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Intel Graphics Command Center" FontSize="14" Tag="na | 9PLFNLNT3G5G | na | Drivers"   ToolTip="Dont have time to mess around with settings The Intel" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="9PLFNLNT3G5G" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Go Programming Language" FontSize="14" Tag="Development"   ToolTip="Go is expressive concise clean and efficient Its concurrency mechanisms" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Go Programming Language" FontSize="14" Tag="golang | Language GoLang.Go | na | Development"   ToolTip="Go is expressive concise clean and efficient Its concurrency mechanisms" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="golang" Visibility="Collapsed"/>
-<TextBlock Text="Language GoLang.Go" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Rust" FontSize="14" Tag="Development"   ToolTip="Rust is a curlybrace blockstructured expression language It visually resembles" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Rust" FontSize="14" Tag="rust | Rustlang.Rust.GNU | na | Development"   ToolTip="Rust is a curlybrace blockstructured expression language It visually resembles" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="rust" Visibility="Collapsed"/>
-<TextBlock Text="Rustlang.Rust.GNU" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Inkscape" FontSize="14" Tag="Imaging"   ToolTip="Inkscape is an opensource vector graphics editor similar to Adobe" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Inkscape" FontSize="14" Tag="inkscape | Inkscape.Inkscape | na | Imaging"   ToolTip="Inkscape is an opensource vector graphics editor similar to Adobe" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Imaging"/>
 </StackPanel>
-<TextBlock Text="inkscape" Visibility="Collapsed"/>
-<TextBlock Text="Inkscape.Inkscape" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Youtube Dl" FontSize="14" Tag="Utilities"   ToolTip="youtubedl is a small commandline program to download videos from" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Youtube Dl" FontSize="14" Tag="yt-dlp | youtube-dl.youtube-dl | na | Utilities"   ToolTip="youtubedl is a small commandline program to download videos from" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="yt-dlp" Visibility="Collapsed"/>
-<TextBlock Text="youtube-dl.youtube-dl" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Postman" FontSize="14" Tag="Development"   ToolTip="Postman helps you be more efficient while working with APIs" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Postman" FontSize="14" Tag="postman | Postman.Postman | na | Development"   ToolTip="Postman helps you be more efficient while working with APIs" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="postman" Visibility="Collapsed"/>
-<TextBlock Text="Postman.Postman" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Azure CLI" FontSize="14" Tag="Development"   ToolTip="The Azure CLI is available across Azure services and is" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Azure CLI" FontSize="14" Tag="azure-cli | Microsoft.AzureCLI | na | Development"   ToolTip="The Azure CLI is available across Azure services and is" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="azure-cli" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.AzureCLI" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="GameMaker Studio" FontSize="14" Tag="Development"   ToolTip="GameMaker Studio has everything you need for games development no" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="GameMaker Studio" FontSize="14" Tag="na | YoYoGames.GameMaker.Studio.2 | na | Development"   ToolTip="GameMaker Studio has everything you need for games development no" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="YoYoGames.GameMaker.Studio.2" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Charles" FontSize="14" Tag="Development"   ToolTip="Charles is an HTTP proxy HTTP monitor Reverse Proxy that" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Charles" FontSize="14" Tag="charles | XK72.Charles | na | Development"   ToolTip="Charles is an HTTP proxy HTTP monitor Reverse Proxy that" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="charles" Visibility="Collapsed"/>
-<TextBlock Text="XK72.Charles" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Windows Media Player" FontSize="14" Tag="Media"   ToolTip="Media Player is designed to make listening to and watching" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Windows Media Player" FontSize="14" Tag="na | 9WZDNCRFJ3PT | na | Media"   ToolTip="Media Player is designed to make listening to and watching" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="9WZDNCRFJ3PT" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="espanso" FontSize="14" Tag="Development"   ToolTip="A crossplatform Text Expander written in Rust" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="espanso" FontSize="14" Tag="espanso | Espanso.Espanso | na | Development"   ToolTip="A crossplatform Text Expander written in Rust" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="espanso" Visibility="Collapsed"/>
-<TextBlock Text="Espanso.Espanso" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Ability Office" FontSize="14" Tag="Documents"   ToolTip="Ability Office Standard offers 3 core applications essential for home" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Ability Office" FontSize="14" Tag="abilityoffice | Ability.AbilityOffice.8.Standard | na | Documents"   ToolTip="Ability Office Standard offers 3 core applications essential for home" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Text="abilityoffice" Visibility="Collapsed"/>
-<TextBlock Text="Ability.AbilityOffice.8.Standard" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Winbox" FontSize="14" Tag="Utilities"   ToolTip="Small utility that allows administration of MikroTik RouterOS using a" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Winbox" FontSize="14" Tag="na | Mikrotik.Winbox | na | Utilities"   ToolTip="Small utility that allows administration of MikroTik RouterOS using a" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="Mikrotik.Winbox" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="SearchMyFiles" FontSize="14" Tag="Utilities"   ToolTip="SearchMyFiles allows you to make a very accurate search that" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="SearchMyFiles" FontSize="14" Tag="searchmyfiles | NirSoft.SearchMyFiles | na | Utilities"   ToolTip="SearchMyFiles allows you to make a very accurate search that" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="searchmyfiles" Visibility="Collapsed"/>
-<TextBlock Text="NirSoft.SearchMyFiles" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="iTunes" FontSize="14" Tag="Media"   ToolTip="iTunes is the best way to organize and enjoy the" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="iTunes" FontSize="14" Tag="itunes | Apple.iTunes | na | Media"   ToolTip="iTunes is the best way to organize and enjoy the" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Text="itunes" Visibility="Collapsed"/>
-<TextBlock Text="Apple.iTunes" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="StartIsBack++" FontSize="14" Tag="Utilities"   ToolTip="StartIsBack returns Windows 10 and Windows 8 a real fully" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="StartIsBack++" FontSize="14" Tag="startisback | StartIsBack.StartIsBack | na | Utilities"   ToolTip="StartIsBack returns Windows 10 and Windows 8 a real fully" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="startisback" Visibility="Collapsed"/>
-<TextBlock Text="StartIsBack.StartIsBack" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Advanced SystemCare Free" FontSize="14" Tag="Utilities"   ToolTip="Over time your computer may accumulate with large quantities of" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Advanced SystemCare Free" FontSize="14" Tag="afedteated | XPFFGSS4Z9M2TX | na | Utilities"   ToolTip="Over time your computer may accumulate with large quantities of" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="afedteated" Visibility="Collapsed"/>
-<TextBlock Text="XPFFGSS4Z9M2TX" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Send Anywhere" FontSize="14" Tag="File Sharing"   ToolTip="Send Anywhere is a multiplatform file sharing service where users" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Send Anywhere" FontSize="14" Tag="na | Estmob.SendAnywhere | na | File Sharing"   ToolTip="Send Anywhere is a multiplatform file sharing service where users" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="Estmob.SendAnywhere" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="YUMI Legacy" FontSize="14" Tag="Utilities"   ToolTip="YUMI Your Universal Multiboot Installer is the successor to MultibootISOs" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="YUMI Legacy" FontSize="14" Tag="yumi | YumiUsb.Legacy | na | Utilities"   ToolTip="YUMI Your Universal Multiboot Installer is the successor to MultibootISOs" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="yumi" Visibility="Collapsed"/>
-<TextBlock Text="YumiUsb.Legacy" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="YUMI UEFI" FontSize="14" Tag="Utilities"   ToolTip="YUMI Your Universal Multiboot Installer is the successor to MultibootISOs" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="YUMI UEFI" FontSize="14" Tag="yumi-uefi | YumiUsb.UEFI | na | Utilities"   ToolTip="YUMI Your Universal Multiboot Installer is the successor to MultibootISOs" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="yumi-uefi" Visibility="Collapsed"/>
-<TextBlock Text="YumiUsb.UEFI" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="OP Auto Clicker" FontSize="14" Tag="Utilities"   ToolTip="A fullfledged autoclicker with two modes of autoclicking at your" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="OP Auto Clicker" FontSize="14" Tag="autoclicker | OPAutoClicker.OPAutoClicker | na | Utilities"   ToolTip="A fullfledged autoclicker with two modes of autoclicking at your" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="autoclicker" Visibility="Collapsed"/>
-<TextBlock Text="OPAutoClicker.OPAutoClicker" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Spotube" FontSize="14" Tag="Media"   ToolTip="Spotube is a Flutter based lightweight spotify client It utilizes" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Spotube" FontSize="14" Tag="spotube | KRTirtho.Spotube | na | Media"   ToolTip="Spotube is a Flutter based lightweight spotify client It utilizes" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Text="spotube" Visibility="Collapsed"/>
-<TextBlock Text="KRTirtho.Spotube" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Audio Switcher" FontSize="14" Tag="Media"   ToolTip="Easily switch the default audio device input or output on" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Audio Switcher" FontSize="14" Tag="audioswitcher | FortyOneLtd.AudioSwitcher | na | Media"   ToolTip="Easily switch the default audio device input or output on" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Text="audioswitcher" Visibility="Collapsed"/>
-<TextBlock Text="FortyOneLtd.AudioSwitcher" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Microsoft Teams Classic Desktop" FontSize="14" Tag="Communication"   ToolTip="Microsoft Teams is a messaging app for teams where all" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Microsoft Teams Classic Desktop" FontSize="14" Tag="microsoft-teams.install | na | na | Communication"   ToolTip="Microsoft Teams is a messaging app for teams where all" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Text="microsoft-teams.install" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Microsoft Windows SDK" FontSize="14" Tag="Runtimes"   ToolTip="The Windows 10 SDK for Windows 10 version 1809 provides" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Microsoft Windows SDK" FontSize="14" Tag="windows-sdk-10.1 | na | na | Runtimes"   ToolTip="The Windows 10 SDK for Windows 10 version 1809 provides" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="windows-sdk-10.1" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="RunAsDate Portable" FontSize="14" Tag="Portable"   ToolTip="RunAsDate is a small utility that allows you to run" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="RunAsDate Portable" FontSize="14" Tag="runasdate | na | na | Portable"   ToolTip="RunAsDate is a small utility that allows you to run" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Portable"/>
 </StackPanel>
-<TextBlock Text="runasdate" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Visual Studio 2017 Build " FontSize="14" Tag="Development"   ToolTip="These Build Tools allow you to build native and managed" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Visual Studio 2017 Build " FontSize="14" Tag="visualstudio2017buildtools | na | na | Development"   ToolTip="These Build Tools allow you to build native and managed" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="visualstudio2017buildtools" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="MSEdgeRedirect" FontSize="14" Tag="Utilities"   ToolTip="This tool filters and passes the command line arguments of" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="MSEdgeRedirect" FontSize="14" Tag="msedgeredirect | rcmaehl.MSEdgeRedirect | na | Utilities"   ToolTip="This tool filters and passes the command line arguments of" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="msedgeredirect" Visibility="Collapsed"/>
-<TextBlock Text="rcmaehl.MSEdgeRedirect" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="NET Desktop Runtime 5" FontSize="14" Tag="Runtimes"   ToolTip="NET Core is a general purpose development platform maintained by" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="NET Desktop Runtime 5" FontSize="14" Tag="dotnet-5.0-desktopruntime | Microsoft.DotNet.HostingBundle.5 | na | Runtimes"   ToolTip="NET Core is a general purpose development platform maintained by" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="dotnet-5.0-desktopruntime" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.DotNet.HostingBundle.5" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="NET Desktop Runtime 3" FontSize="14" Tag="Runtimes"   ToolTip="NET Core is a general purpose development platform maintained by" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="NET Desktop Runtime 3" FontSize="14" Tag="Microsoft.DotNet.HostingBundle.3_1 | dotnetcore-3.0-desktopruntime | na | Runtimes"   ToolTip="NET Core is a general purpose development platform maintained by" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="Microsoft.DotNet.HostingBundle.3_1" Visibility="Collapsed"/>
-<TextBlock Text="dotnetcore-3.0-desktopruntime" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="NET Desktop Runtime 6" FontSize="14" Tag="Runtimes"   ToolTip="NET Core is a general purpose development platform maintained by" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="NET Desktop Runtime 6" FontSize="14" Tag="dotnet-6.0-desktopruntime | Microsoft.DotNet.HostingBundle.6 | na | Runtimes"   ToolTip="NET Core is a general purpose development platform maintained by" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="dotnet-6.0-desktopruntime" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.DotNet.HostingBundle.6" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="NET Desktop Runtime 7" FontSize="14" Tag="Runtimes"   ToolTip="NET Core is a general purpose development platform maintained by" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="NET Desktop Runtime 7" FontSize="14" Tag="dotnet-7.0-desktopruntime | Microsoft.DotNet.AspNetCore.7 | na | Runtimes"   ToolTip="NET Core is a general purpose development platform maintained by" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="dotnet-7.0-desktopruntime" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.DotNet.AspNetCore.7" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="NET Desktop Runtime 8" FontSize="14" Tag="Runtimes"   ToolTip="NET Core is a general purpose development platform maintained by" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="NET Desktop Runtime 8" FontSize="14" Tag="dotnet-desktopruntime | Microsoft.DotNet.DesktopRuntime.8 | na | Runtimes"   ToolTip="NET Core is a general purpose development platform maintained by" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="dotnet-desktopruntime" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.DotNet.DesktopRuntime.8" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Viber" FontSize="14" Tag="Communication"   ToolTip="Viber is a mobile application that lets you make free" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Viber" FontSize="14" Tag="viber | XPFM5P5KDWF0JP | na | Communication"   ToolTip="Viber is a mobile application that lets you make free" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Text="viber" Visibility="Collapsed"/>
-<TextBlock Text="XPFM5P5KDWF0JP" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="StartAllBack" FontSize="14" Tag="Utilities"   ToolTip="Introducing StartAllBack Windows 11 from a better timeline Embrace enhance" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="StartAllBack" FontSize="14" Tag="startallback | StartIsBack.StartAllBack | na | Utilities"   ToolTip="Introducing StartAllBack Windows 11 from a better timeline Embrace enhance" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="startallback" Visibility="Collapsed"/>
-<TextBlock Text="StartIsBack.StartAllBack" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="DiskGenius Free" FontSize="14" Tag="Disk Tools"   ToolTip="With powerful capabilities and userfriendly interface DiskGenius Free Edition provides" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="DiskGenius Free" FontSize="14" Tag="diskgenius | Eassos.DiskGenius | na | Disk Tools"   ToolTip="With powerful capabilities and userfriendly interface DiskGenius Free Edition provides" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Disk Tools"/>
 </StackPanel>
-<TextBlock Text="diskgenius" Visibility="Collapsed"/>
-<TextBlock Text="Eassos.DiskGenius" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="UNFORMAT" FontSize="14" Tag="Disk Tools"   ToolTip="UNFORMAT is a software utility created to solve almost all" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="UNFORMAT" FontSize="14" Tag="na | LSoftTechnologies.UNFORMAT | na | Disk Tools"   ToolTip="UNFORMAT is a software utility created to solve almost all" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Disk Tools"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="LSoftTechnologies.UNFORMAT" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Active@ UNDELETE" FontSize="14" Tag="Disk Tools"   ToolTip="Active UNDELETE helps you to recover deleted files and restore" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Active@ UNDELETE" FontSize="14" Tag="na | LSoftTechnologies.ActiveUNDELETE | na | Disk Tools"   ToolTip="Active UNDELETE helps you to recover deleted files and restore" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Disk Tools"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="LSoftTechnologies.ActiveUNDELETE" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="HxD Hex Editor" FontSize="14" Tag="Disk Tools"   ToolTip="HxD is a carefully designed and fast hex editor which" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="HxD Hex Editor" FontSize="14" Tag="hxd | MHNexus.HxD | na | Disk Tools"   ToolTip="HxD is a carefully designed and fast hex editor which" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Disk Tools"/>
 </StackPanel>
-<TextBlock Text="hxd" Visibility="Collapsed"/>
-<TextBlock Text="MHNexus.HxD" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Epic Games Launcher" FontSize="14" Tag="Gaming"   ToolTip="The Epic Games Launcher is how you obtain the Unreal" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Epic Games Launcher" FontSize="14" Tag="epicgameslauncher | EpicGames.EpicGamesLauncher | na | Gaming"   ToolTip="The Epic Games Launcher is how you obtain the Unreal" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Text="epicgameslauncher" Visibility="Collapsed"/>
-<TextBlock Text="EpicGames.EpicGamesLauncher" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Vivaldi" FontSize="14" Tag="Web Browsers"   ToolTip="The new Vivaldi browser protects you from trackers blocks unwanted" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Vivaldi" FontSize="14" Tag="vivaldi | VivaldiTechnologies.Vivaldi | na | Web Browsers"   ToolTip="The new Vivaldi browser protects you from trackers blocks unwanted" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Text="vivaldi" Visibility="Collapsed"/>
-<TextBlock Text="VivaldiTechnologies.Vivaldi" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Microsoft PC Manager" FontSize="14" Tag="Utilities"   ToolTip="Microsoft PC manager a good way to protect your personal" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Microsoft PC Manager" FontSize="14" Tag="na | 9PM860492SZD | na | Utilities"   ToolTip="Microsoft PC manager a good way to protect your personal" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="9PM860492SZD" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Openshot" FontSize="14" Tag="Media Tools"   ToolTip="OpenShot Video Editor is an awardwinning opensource video editor available" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Openshot" FontSize="14" Tag="openshot | OpenShot.OpenShot | na | Media Tools"   ToolTip="OpenShot Video Editor is an awardwinning opensource video editor available" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Text="openshot" Visibility="Collapsed"/>
-<TextBlock Text="OpenShot.OpenShot" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="WhatsApp" FontSize="14" Tag="Communication"   ToolTip="WhatsApp Messenger or simply WhatsApp is an American freeware crossplatform" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="WhatsApp" FontSize="14" Tag="na | 9NKSQGP7F2NH | na | Communication"   ToolTip="WhatsApp Messenger or simply WhatsApp is an American freeware crossplatform" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="9NKSQGP7F2NH" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Paint.NET" FontSize="14" Tag="Imaging"   ToolTip="PaintNET is image and photo editing software for PCs that" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Paint.NET" FontSize="14" Tag="paint.net | dotPDNLLC.paintdotnet | na | Imaging"   ToolTip="PaintNET is image and photo editing software for PCs that" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Imaging"/>
 </StackPanel>
-<TextBlock Text="paint.net" Visibility="Collapsed"/>
-<TextBlock Text="dotPDNLLC.paintdotnet" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Stretchly" FontSize="14" Tag="Utilities"   ToolTip="stretchly is a crossplatform electron app that reminds you to" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Stretchly" FontSize="14" Tag="stretchly | Stretchly.Stretchly | na | Utilities"   ToolTip="stretchly is a crossplatform electron app that reminds you to" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="stretchly" Visibility="Collapsed"/>
-<TextBlock Text="Stretchly.Stretchly" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Microsoft Silverlight" FontSize="14" Tag="Runtimes"   ToolTip="Silverlight is a powerful development tool for creating engaging interactive" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Microsoft Silverlight" FontSize="14" Tag="silverlight | na | na | Runtimes"   ToolTip="Silverlight is a powerful development tool for creating engaging interactive" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="silverlight" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="TreeSize" FontSize="14" Tag="Utilities"   ToolTip="Every hard disk is too small if you just wait" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="TreeSize" FontSize="14" Tag="treesizefree | JAMSoftware.TreeSize.Free | na | Utilities"   ToolTip="Every hard disk is too small if you just wait" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="treesizefree" Visibility="Collapsed"/>
-<TextBlock Text="JAMSoftware.TreeSize.Free" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Dot Net 3.5" FontSize="14" Tag="Runtimes"   ToolTip="NET is a free crossplatform opensource developer platform for building" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Dot Net 3.5" FontSize="14" Tag="dotnet3.5 | Microsoft.DotNet.DesktopRuntime.3_1 | na | Runtimes"   ToolTip="NET is a free crossplatform opensource developer platform for building" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="dotnet3.5" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.DotNet.DesktopRuntime.3_1" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Flash Player ActiveX" FontSize="14" Tag="Runtimes"   ToolTip="The Adobe Flash Player is freeware software for viewing multimedia" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Flash Player ActiveX" FontSize="14" Tag="flashplayeractivex | na | na | Runtimes"   ToolTip="The Adobe Flash Player is freeware software for viewing multimedia" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="flashplayeractivex" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Google Drive" FontSize="14" Tag="File Sharing"   ToolTip="Google Drive All your files everywhere Safely store your files" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Google Drive" FontSize="14" Tag="googledrive | na | na | File Sharing"   ToolTip="Google Drive All your files everywhere Safely store your files" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Text="googledrive" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Dot Net 4.5.2" FontSize="14" Tag="Runtimes"   ToolTip="The Microsoft NET Framework 452 is a highly compatible inplace" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Dot Net 4.5.2" FontSize="14" Tag="dotnet4.5.2 | na | na | Runtimes"   ToolTip="The Microsoft NET Framework 452 is a highly compatible inplace" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="dotnet4.5.2" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Dropbox" FontSize="14" Tag="File Sharing"   ToolTip="Organize all your teams content tune out distractions and get" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Dropbox" FontSize="14" Tag="dropbox | Dropbox.Dropbox | na | File Sharing"   ToolTip="Organize all your teams content tune out distractions and get" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Text="dropbox" Visibility="Collapsed"/>
-<TextBlock Text="Dropbox.Dropbox" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="cURL" FontSize="14" Tag="Development"   ToolTip="Command line tool and library for transferring data with URLs" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="cURL" FontSize="14" Tag="curl | cURL.cURL | na | Development"   ToolTip="Command line tool and library for transferring data with URLs" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="curl" Visibility="Collapsed"/>
-<TextBlock Text="cURL.cURL" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="PDF Creator" FontSize="14" Tag="Documents"   ToolTip="PDFCreator lets you convert any printable document to PDF" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="PDF Creator" FontSize="14" Tag="pdfcreator | pdfforge.PDFCreator | na | Documents"   ToolTip="PDFCreator lets you convert any printable document to PDF" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Text="pdfcreator" Visibility="Collapsed"/>
-<TextBlock Text="pdfforge.PDFCreator" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Autoruns" FontSize="14" Tag="Utilities"   ToolTip="This utility shows you what programs are configured to run" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Autoruns" FontSize="14" Tag="autoruns | Microsoft.Sysinternals.Autoruns | na | Utilities"   ToolTip="This utility shows you what programs are configured to run" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="autoruns" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.Sysinternals.Autoruns" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Microsoft OneDrive" FontSize="14" Tag="File Sharing"   ToolTip="Save your files and photos to OneDrive and access them" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Microsoft OneDrive" FontSize="14" Tag="onedrive | Microsoft.OneDrive | na | File Sharing"   ToolTip="Save your files and photos to OneDrive and access them" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Text="onedrive" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.OneDrive" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Process Explorer" FontSize="14" Tag="Utilities"   ToolTip="Process Explorer shows you information about which handles and DLLs" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Process Explorer" FontSize="14" Tag="procexp | Microsoft.Sysinternals.ProcessExplorer | na | Utilities"   ToolTip="Process Explorer shows you information about which handles and DLLs" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="procexp" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.Sysinternals.ProcessExplorer" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="FFmpeg" FontSize="14" Tag="Media Tools"   ToolTip="FFmpeg is a widelyused crossplatform multimedia framework which can process" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="FFmpeg" FontSize="14" Tag="ffmpeg | Gyan.FFmpeg | na | Media Tools"   ToolTip="FFmpeg is a widelyused crossplatform multimedia framework which can process" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Text="ffmpeg" Visibility="Collapsed"/>
-<TextBlock Text="Gyan.FFmpeg" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="OpenVPN Connect" FontSize="14" Tag="Utilities"   ToolTip="The official OpenVPN Connect client software developed and maintained by" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="OpenVPN Connect" FontSize="14" Tag="openvpn-connect | OpenVPNTechnologies.OpenVPNConnect | na | Utilities"   ToolTip="The official OpenVPN Connect client software developed and maintained by" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="openvpn-connect" Visibility="Collapsed"/>
-<TextBlock Text="OpenVPNTechnologies.OpenVPNConnect" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Git Large File Storage" FontSize="14" Tag="Development"   ToolTip="Git Large File Storage LFS replaces large files such as" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Git Large File Storage" FontSize="14" Tag="git-lfs | na | na | Development"   ToolTip="Git Large File Storage LFS replaces large files such as" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="git-lfs" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Nmap" FontSize="14" Tag="Utilities"   ToolTip="Nmap Network Mapper is a free and open source utility" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Nmap" FontSize="14" Tag="nmap | Insecure.Nmap | na | Utilities"   ToolTip="Nmap Network Mapper is a free and open source utility" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="nmap" Visibility="Collapsed"/>
-<TextBlock Text="Insecure.Nmap" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="UltraVNC" FontSize="14" Tag="File Sharing"   ToolTip="UltraVNC is an open source application that uses the VNC" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="UltraVNC" FontSize="14" Tag="ultravnc | uvncbvba.UltraVnc | na | File Sharing"   ToolTip="UltraVNC is an open source application that uses the VNC" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Text="ultravnc" Visibility="Collapsed"/>
-<TextBlock Text="uvncbvba.UltraVnc" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Plex" FontSize="14" Tag="Media Tools"   ToolTip="Plex is a global streaming media service and a clientserver" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Plex" FontSize="14" Tag="plex | Plex.Plex | na | Media Tools"   ToolTip="Plex is a global streaming media service and a clientserver" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Text="plex" Visibility="Collapsed"/>
-<TextBlock Text="Plex.Plex" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Plex Media Server" FontSize="14" Tag="Media Tools"   ToolTip="Plex Media Server helps you organise your media and stream" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Plex Media Server" FontSize="14" Tag="plexmediaserver | Plex.PlexMediaServer | na | Media Tools"   ToolTip="Plex Media Server helps you organise your media and stream" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Text="plexmediaserver" Visibility="Collapsed"/>
-<TextBlock Text="Plex.PlexMediaServer" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Microsoft Visio Viewer" FontSize="14" Tag="Documents"   ToolTip="Visio 2016 Viewer Visio users can freely distribute Visio drawings" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Microsoft Visio Viewer" FontSize="14" Tag="visioviewer | Microsoft.VisioViewer | na | Documents"   ToolTip="Visio 2016 Viewer Visio users can freely distribute Visio drawings" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Text="visioviewer" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.VisioViewer" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Keyn Stroke" FontSize="14" Tag="Utilities"   ToolTip="KeynStroke makes it easy for your audience to follow your" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Keyn Stroke" FontSize="14" Tag="key-n-stroke | na | na | Utilities"   ToolTip="KeynStroke makes it easy for your audience to follow your" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="key-n-stroke" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Fing" FontSize="14" Tag="Utilities"   ToolTip="Fing App is a free network scanner that makes you" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Fing" FontSize="14" Tag="fing | na | na | Utilities"   ToolTip="Fing App is a free network scanner that makes you" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="fing" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Ryujinx" FontSize="14" Tag="Gaming"   ToolTip="Ryujinx is an opensource Nintendo Switch emulator created by gdkchan" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Ryujinx" FontSize="14" Tag="ryujinx --params | na | na | Gaming"   ToolTip="Ryujinx is an opensource Nintendo Switch emulator created by gdkchan" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Text="ryujinx --params" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Omnify Hotspot" FontSize="14" Tag="File Sharing"   ToolTip="The best virtual router to turn your PC into a" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Omnify Hotspot" FontSize="14" Tag="omnifyhotspot | na | na | File Sharing"   ToolTip="The best virtual router to turn your PC into a" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Text="omnifyhotspot" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="MKVToolNix" FontSize="14" Tag="Media Tools"   ToolTip="MKVToolNix is a set of tools to create alter and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="MKVToolNix" FontSize="14" Tag="mkvtoolnix | MoritzBunkus.MKVToolNix | na | Media Tools"   ToolTip="MKVToolNix is a set of tools to create alter and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Text="mkvtoolnix" Visibility="Collapsed"/>
-<TextBlock Text="MoritzBunkus.MKVToolNix" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Neat Download Manager" FontSize="14" Tag="Web Browsers"   ToolTip="Neat Download Manager is a free Internet Download Manager for" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Neat Download Manager" FontSize="14" Tag="na | na | neat | Web Browsers"   ToolTip="Neat Download Manager is a free Internet Download Manager for" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="neat" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="x630ce for all games" FontSize="14" Tag="Gaming"   ToolTip="Xbox 360 Controller Emulator allows your controller gamepad joystick steering" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="x630ce for all games" FontSize="14" Tag="na | na | x360ce | Gaming"   ToolTip="Xbox 360 Controller Emulator allows your controller gamepad joystick steering" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="x360ce" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Microsoft .NET SDK 7" FontSize="14" Tag="Runtimes"   ToolTip="NET is a free crossplatform opensource developer platform for building" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Microsoft .NET SDK 7" FontSize="14" Tag="dotnet-7.0-sdk | Microsoft.DotNet.SDK.7 | na | Runtimes"   ToolTip="NET is a free crossplatform opensource developer platform for building" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="dotnet-7.0-sdk" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.DotNet.SDK.7" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Microsoft .NET SDK 8" FontSize="14" Tag="Runtimes"   ToolTip="NET is a free crossplatform opensource developer platform for building" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Microsoft .NET SDK 8" FontSize="14" Tag="dotnet-sdk | Microsoft.DotNet.SDK.Preview | na | Runtimes"   ToolTip="NET is a free crossplatform opensource developer platform for building" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="dotnet-sdk" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.DotNet.SDK.Preview" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Microsoft ASP.NET Core Runtime 7.0" FontSize="14" Tag="Runtimes"   ToolTip="NET is a free crossplatform opensource developer platform for building" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Microsoft ASP.NET Core Runtime 7.0" FontSize="14" Tag="dotnet-aspnetruntime | Microsoft.DotNet.AspNetCore.7 | na | Runtimes"   ToolTip="NET is a free crossplatform opensource developer platform for building" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="dotnet-aspnetruntime" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.DotNet.AspNetCore.7" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="HFS HTTP File Server" FontSize="14" Tag="File Sharing"   ToolTip="You can use HFS HTTP File Server to send and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="HFS HTTP File Server" FontSize="14" Tag="hfs | na | na | File Sharing"   ToolTip="You can use HFS HTTP File Server to send and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Text="hfs" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Cemu" FontSize="14" Tag="Gaming"   ToolTip="Cemu is a highly experimental software to emulate Wii U" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Cemu" FontSize="14" Tag="cemu | Cemu.Cemu | na | Gaming"   ToolTip="Cemu is a highly experimental software to emulate Wii U" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Text="cemu" Visibility="Collapsed"/>
-<TextBlock Text="Cemu.Cemu" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Chatterino" FontSize="14" Tag="Communication"   ToolTip="Chatterino is a chat client for Twitch chat that offers" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Chatterino" FontSize="14" Tag="chatterino | ChatterinoTeam.Chatterino | na | Communication"   ToolTip="Chatterino is a chat client for Twitch chat that offers" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Text="chatterino" Visibility="Collapsed"/>
-<TextBlock Text="ChatterinoTeam.Chatterino" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Clementine" FontSize="14" Tag="Media Tools"   ToolTip="Clementine is a modern music player and library organizer supporting" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Clementine" FontSize="14" Tag="clementine | Clementine.Clementine | na | Media Tools"   ToolTip="Clementine is a modern music player and library organizer supporting" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Text="clementine" Visibility="Collapsed"/>
-<TextBlock Text="Clementine.Clementine" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Clink" FontSize="14" Tag="Development"   ToolTip="Clink is a powerful Bashcompatible commandline interface CLIenhancement for Windows" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Clink" FontSize="14" Tag="clink | chrisant996.Clink | na | Development"   ToolTip="Clink is a powerful Bashcompatible commandline interface CLIenhancement for Windows" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="clink" Visibility="Collapsed"/>
-<TextBlock Text="chrisant996.Clink" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="CMake" FontSize="14" Tag="Development"   ToolTip="CMake is an opensource crossplatform family of tools designed to" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="CMake" FontSize="14" Tag="cmake | Kitware.CMake | na | Development"   ToolTip="CMake is an opensource crossplatform family of tools designed to" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="cmake" Visibility="Collapsed"/>
-<TextBlock Text="Kitware.CMake" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="CopyQ Clipboard Manager" FontSize="14" Tag="Utilities"   ToolTip="CopyQ is a clipboard manager with advanced features allowing you" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="CopyQ Clipboard Manager" FontSize="14" Tag="copyq | hluk.CopyQ | na | Utilities"   ToolTip="CopyQ is a clipboard manager with advanced features allowing you" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="copyq" Visibility="Collapsed"/>
-<TextBlock Text="hluk.CopyQ" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Crystal Disk Info" FontSize="14" Tag="Utilities"   ToolTip="Crystal Disk Info is a disk health monitoring tool that" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Crystal Disk Info" FontSize="14" Tag="crystaldiskinfo | CrystalDewWorld.CrystalDiskInfo | na | Utilities"   ToolTip="Crystal Disk Info is a disk health monitoring tool that" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="crystaldiskinfo" Visibility="Collapsed"/>
-<TextBlock Text="CrystalDewWorld.CrystalDiskInfo" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Crystal Disk Mark" FontSize="14" Tag="Utilities"   ToolTip="Crystal Disk Mark is a disk benchmarking tool that measures" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Crystal Disk Mark" FontSize="14" Tag="crystaldiskmark | CrystalDewWorld.CrystalDiskMark | na | Utilities"   ToolTip="Crystal Disk Mark is a disk benchmarking tool that measures" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="crystaldiskmark" Visibility="Collapsed"/>
-<TextBlock Text="CrystalDewWorld.CrystalDiskMark" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Darktable" FontSize="14" Tag="Media Tools"   ToolTip="Opensource photo editing tool offering an intuitive interface advanced editing" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Darktable" FontSize="14" Tag="darktable | darktable.darktable | na | Media Tools"   ToolTip="Opensource photo editing tool offering an intuitive interface advanced editing" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Text="darktable" Visibility="Collapsed"/>
-<TextBlock Text="darktable.darktable" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="EA App" FontSize="14" Tag="Gaming"   ToolTip="EA App is a platform for accessing and playing Electronic" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="EA App" FontSize="14" Tag="ea-app | ElectronicArts.EADesktop | na | Gaming"   ToolTip="EA App is a platform for accessing and playing Electronic" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Text="ea-app" Visibility="Collapsed"/>
-<TextBlock Text="ElectronicArts.EADesktop" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Falkon" FontSize="14" Tag="Web Browsers"   ToolTip="Falkon is a lightweight and fast web browser with a" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Falkon" FontSize="14" Tag="falkon | KDE.Falkon | na | Web Browsers"   ToolTip="Falkon is a lightweight and fast web browser with a" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Text="falkon" Visibility="Collapsed"/>
-<TextBlock Text="KDE.Falkon" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="File Converter" FontSize="14" Tag="Utilities"   ToolTip="File Converter is a very simple tool which allows you" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="File Converter" FontSize="14" Tag="file-converter | AdrienAllard.FileConverter | na | Utilities"   ToolTip="File Converter is a very simple tool which allows you" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="file-converter" Visibility="Collapsed"/>
-<TextBlock Text="AdrienAllard.FileConverter" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Files" FontSize="14" Tag="Utilities"   ToolTip="Alternative file explorer" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Files" FontSize="14" Tag="files | na | na | Utilities"   ToolTip="Alternative file explorer" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="files" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Flameshot" FontSize="14" Tag="Media Tools"   ToolTip="Flameshot is a powerful yet simple to use screenshot software" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Flameshot" FontSize="14" Tag="flameshot | Flameshot.Flameshot | na | Media Tools"   ToolTip="Flameshot is a powerful yet simple to use screenshot software" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Text="flameshot" Visibility="Collapsed"/>
-<TextBlock Text="Flameshot.Flameshot" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Lightshot" FontSize="14" Tag="Media Tools"   ToolTip="Ligthshot is an Easytouse lightweight screenshot software tool where you" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Lightshot" FontSize="14" Tag="lightshot | Skillbrains.Lightshot | na | Media Tools"   ToolTip="Ligthshot is an Easytouse lightweight screenshot software tool where you" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Text="lightshot" Visibility="Collapsed"/>
-<TextBlock Text="Skillbrains.Lightshot" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="F.lux" FontSize="14" Tag="Utilities"   ToolTip="flux adjusts the color temperature of your screen to reduce" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="F.lux" FontSize="14" Tag="flux | flux.flux | na | Utilities"   ToolTip="flux adjusts the color temperature of your screen to reduce" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="flux" Visibility="Collapsed"/>
-<TextBlock Text="flux.flux" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="GitHub CLI" FontSize="14" Tag="Development"   ToolTip="GitHub CLI is a commandline tool that simplifies working with" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="GitHub CLI" FontSize="14" Tag="gh | GitHub.cli | na | Development"   ToolTip="GitHub CLI is a commandline tool that simplifies working with" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="gh" Visibility="Collapsed"/>
-<TextBlock Text="GitHub.cli" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="GOG Galaxy" FontSize="14" Tag="Gaming"   ToolTip="GOG Galaxy is a gaming client that offers DRMfree games" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="GOG Galaxy" FontSize="14" Tag="goggalaxy | GOG.Galaxy | na | Gaming"   ToolTip="GOG Galaxy is a gaming client that offers DRMfree games" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Text="goggalaxy" Visibility="Collapsed"/>
-<TextBlock Text="GOG.Galaxy" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Greenshot" FontSize="14" Tag="Media Tools"   ToolTip="Greenshot is a lightweight screenshot software tool with builtin image" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Greenshot" FontSize="14" Tag="greenshot | Greenshot.Greenshot | na | Media Tools"   ToolTip="Greenshot is a lightweight screenshot software tool with builtin image" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Text="greenshot" Visibility="Collapsed"/>
-<TextBlock Text="Greenshot.Greenshot" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Hexchat" FontSize="14" Tag="Communication"   ToolTip="HexChat is a free opensource IRC Internet Relay Chat client" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Hexchat" FontSize="14" Tag="hexchat | HexChat.HexChat | na | Communication"   ToolTip="HexChat is a free opensource IRC Internet Relay Chat client" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Text="hexchat" Visibility="Collapsed"/>
-<TextBlock Text="HexChat.HexChat" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="HWMonitor" FontSize="14" Tag="Utilities"   ToolTip="HWMonitor is a hardware monitoring program that reads PC systems" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="HWMonitor" FontSize="14" Tag="hwmonitor | CPUID.HWMonitor | na | Utilities"   ToolTip="HWMonitor is a hardware monitoring program that reads PC systems" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="hwmonitor" Visibility="Collapsed"/>
-<TextBlock Text="CPUID.HWMonitor" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="ImageGlass" FontSize="14" Tag="Media Tools"   ToolTip="ImageGlass is a versatile image viewer with support for various" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="ImageGlass" FontSize="14" Tag="imageglass | DuongDieuPhap.ImageGlass | na | Media Tools"   ToolTip="ImageGlass is a versatile image viewer with support for various" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Text="imageglass" Visibility="Collapsed"/>
-<TextBlock Text="DuongDieuPhap.ImageGlass" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Itch.io" FontSize="14" Tag="Gaming"   ToolTip="Itchio is a digital distribution platform for indie games and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Itch.io" FontSize="14" Tag="itch | ItchIo.Itch | na | Gaming"   ToolTip="Itchio is a digital distribution platform for indie games and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Text="itch" Visibility="Collapsed"/>
-<TextBlock Text="ItchIo.Itch" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="KDE Connect" FontSize="14" Tag="File Sharing"   ToolTip="KDE Connect allows seamless integration between your KDE desktop and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="KDE Connect" FontSize="14" Tag="kdeconnect-kde | KDE.KDEConnect | na | File Sharing"   ToolTip="KDE Connect allows seamless integration between your KDE desktop and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Text="kdeconnect-kde" Visibility="Collapsed"/>
-<TextBlock Text="KDE.KDEConnect" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="KeePassXC" FontSize="14" Tag="Utilities"   ToolTip="KeePassXC is a crossplatform opensource password manager with strong encryption" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="KeePassXC" FontSize="14" Tag="keepassxc | KeePassXCTeam.KeePassXC | na | Utilities"   ToolTip="KeePassXC is a crossplatform opensource password manager with strong encryption" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="keepassxc" Visibility="Collapsed"/>
-<TextBlock Text="KeePassXCTeam.KeePassXC" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Lazygit" FontSize="14" Tag="Development"   ToolTip="Simple terminal UI for git commands" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Lazygit" FontSize="14" Tag="lazygit | JesseDuffield.lazygit | na | Development"   ToolTip="Simple terminal UI for git commands" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="lazygit" Visibility="Collapsed"/>
-<TextBlock Text="JesseDuffield.lazygit" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="LocalSend" FontSize="14" Tag="Utilities"   ToolTip="An open source crossplatform alternative to AirDrop" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="LocalSend" FontSize="14" Tag="localsend.install | LocalSend.LocalSend | na | Utilities"   ToolTip="An open source crossplatform alternative to AirDrop" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="localsend.install" Visibility="Collapsed"/>
-<TextBlock Text="LocalSend.LocalSend" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Fork" FontSize="14" Tag="Development"   ToolTip="Fork a fast and friendly git client" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Fork" FontSize="14" Tag="git-fork | Fork.Fork | na | Development"   ToolTip="Fork a fast and friendly git client" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="git-fork" Visibility="Collapsed"/>
-<TextBlock Text="Fork.Fork" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="PulsarEdit" FontSize="14" Tag="Development"   ToolTip="A Communityled HyperHackable Text Editor" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="PulsarEdit" FontSize="14" Tag="pulsar | Pulsar-Edit.Pulsar | na | Development"   ToolTip="A Communityled HyperHackable Text Editor" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="pulsar" Visibility="Collapsed"/>
-<TextBlock Text="Pulsar-Edit.Pulsar" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Shotcut" FontSize="14" Tag="Media Tools"   ToolTip="Shotcut is a free open source crossplatform video editor" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Shotcut" FontSize="14" Tag="Shotcut | Meltytech.Shotcut | na | Media Tools"   ToolTip="Shotcut is a free open source crossplatform video editor" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Text="Shotcut" Visibility="Collapsed"/>
-<TextBlock Text="Meltytech.Shotcut" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="PaleMoon" FontSize="14" Tag="Web Browsers"   ToolTip="Pale Moon is an Open Source Goannabased web browser available" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="PaleMoon" FontSize="14" Tag="paleMoon | MoonchildProductions.PaleMoon | na | Web Browsers"   ToolTip="Pale Moon is an Open Source Goannabased web browser available" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Text="paleMoon" Visibility="Collapsed"/>
-<TextBlock Text="MoonchildProductions.PaleMoon" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="JoyToKey" FontSize="14" Tag="Gaming"   ToolTip="enables PC game controllers to emulate the keyboard and mouse" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="JoyToKey" FontSize="14" Tag="joytokey | JTKsoftware.JoyToKey | na | Gaming"   ToolTip="enables PC game controllers to emulate the keyboard and mouse" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Text="joytokey" Visibility="Collapsed"/>
-<TextBlock Text="JTKsoftware.JoyToKey" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Windows Auto Dark Mode" FontSize="14" Tag="Utilities"   ToolTip="Automatically switches between the dark and light theme of Windows" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Windows Auto Dark Mode" FontSize="14" Tag="auto-dark-mode | Armin2208.WindowsAutoNightMode | na | Utilities"   ToolTip="Automatically switches between the dark and light theme of Windows" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="auto-dark-mode" Visibility="Collapsed"/>
-<TextBlock Text="Armin2208.WindowsAutoNightMode" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Windows Firewall Control" FontSize="14" Tag="Utilities"   ToolTip="Windows Firewall Control is a powerful tool which extends the" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Windows Firewall Control" FontSize="14" Tag="windowsfirewallcontrol | BiniSoft.WindowsFirewallControl | na | Utilities"   ToolTip="Windows Firewall Control is a powerful tool which extends the" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="windowsfirewallcontrol" Visibility="Collapsed"/>
-<TextBlock Text="BiniSoft.WindowsFirewallControl" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="TightVNC" FontSize="14" Tag="Utilities"   ToolTip="TightVNC is a free and Open Source remote desktop software" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="TightVNC" FontSize="14" Tag="TightVNC | GlavSoft.TightVNC | na | Utilities"   ToolTip="TightVNC is a free and Open Source remote desktop software" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="TightVNC" Visibility="Collapsed"/>
-<TextBlock Text="GlavSoft.TightVNC" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Python Version Manager" FontSize="14" Tag="Development"   ToolTip="pyenv for Windows is a simple python version management tool" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Python Version Manager" FontSize="14" Tag="pyenv-win | na | na | Development"   ToolTip="pyenv for Windows is a simple python version management tool" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="pyenv-win" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Pixi" FontSize="14" Tag="Development"   ToolTip="Pixi is a fast software package manager built on top" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Pixi" FontSize="14" Tag="pixi | prefix-dev.pixi | na | Development"   ToolTip="Pixi is a fast software package manager built on top" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="pixi" Visibility="Collapsed"/>
-<TextBlock Text="prefix-dev.pixi" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="VSCodium" FontSize="14" Tag="Development"   ToolTip="VSCodium is a communitydriven freelylicensed binary distribution of Microsofts VS" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="VSCodium" FontSize="14" Tag="vscodium | VSCodium.VSCodium | na | Development"   ToolTip="VSCodium is a communitydriven freelylicensed binary distribution of Microsofts VS" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="vscodium" Visibility="Collapsed"/>
-<TextBlock Text="VSCodium.VSCodium" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Thonny Python IDE" FontSize="14" Tag="Development"   ToolTip="Python IDE for beginners" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Thonny Python IDE" FontSize="14" Tag="thonny | AivarAnnamaa.Thonny | na | Development"   ToolTip="Python IDE for beginners" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="thonny" Visibility="Collapsed"/>
-<TextBlock Text="AivarAnnamaa.Thonny" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Poedit" FontSize="14" Tag="Development"   ToolTip="Poedit translations editor The best way to translate apps and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Poedit" FontSize="14" Tag="na | na | na | Development"   ToolTip="Poedit translations editor The best way to translate apps and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Adobe Acrobat Reader" FontSize="14" Tag="Documents"   ToolTip="Adobe Acrobat Reader DC software is the free trusted global" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Adobe Acrobat Reader" FontSize="14" Tag="adobereader | Adobe.Acrobat.Reader.32-bit | na | Documents"   ToolTip="Adobe Acrobat Reader DC software is the free trusted global" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Text="adobereader" Visibility="Collapsed"/>
-<TextBlock Text="Adobe.Acrobat.Reader.32-bit" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Flash Player Plugin" FontSize="14" Tag="Documents"   ToolTip="The Adobe Flash Player is freeware software for viewing multimedia" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Flash Player Plugin" FontSize="14" Tag="flashplayerplugin | na | na | Documents"   ToolTip="The Adobe Flash Player is freeware software for viewing multimedia" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Text="flashplayerplugin" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Sysinternals" FontSize="14" Tag="Documents"   ToolTip="The Sysinternals Troubleshooting Utilities have been rolled up into a" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Sysinternals" FontSize="14" Tag="sysinternals | na | na | Documents"   ToolTip="The Sysinternals Troubleshooting Utilities have been rolled up into a" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Text="sysinternals" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="SelfishNet" FontSize="14" Tag="Utilities"   ToolTip="Control your internet bandwidth with SelfishNet V3 ARP Spoofing application." Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="SelfishNet" FontSize="14" Tag="na | na | selfishnet | Utilities"   ToolTip="Control your internet bandwidth with SelfishNet V3 ARP Spoofing application." Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="selfishnet" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="NTLite" FontSize="14" Tag="Drivers"   ToolTip="Integrate updates drivers automate Windows and application setup speedup Windows" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="NTLite" FontSize="14" Tag="ntlite-free | Nlitesoft.NTLite | na | Drivers"   ToolTip="Integrate updates drivers automate Windows and application setup speedup Windows" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Text="ntlite-free" Visibility="Collapsed"/>
-<TextBlock Text="Nlitesoft.NTLite" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Olive Video Editor" FontSize="14" Tag="Media Tools"   ToolTip="Olive is a free nonlinear video editor for Windows" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Olive Video Editor" FontSize="14" Tag="olive | OliveTeam.OliveVideoEditor | na | Media Tools"   ToolTip="Olive is a free nonlinear video editor for Windows" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Text="olive" Visibility="Collapsed"/>
-<TextBlock Text="OliveTeam.OliveVideoEditor" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Mark Text" FontSize="14" Tag="Portable"   ToolTip="A simple and elegant opensource markdown editor that focused on" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Mark Text" FontSize="14" Tag="marktext.portable | MarkText.MarkText | na | Portable"   ToolTip="A simple and elegant opensource markdown editor that focused on" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Portable"/>
 </StackPanel>
-<TextBlock Text="marktext.portable" Visibility="Collapsed"/>
-<TextBlock Text="MarkText.MarkText" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="pCloud Drive" FontSize="14" Tag="File Sharing"   ToolTip="pCloud is a file hosting service also called cloud storage" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="pCloud Drive" FontSize="14" Tag="pcloud | pCloudAG.pCloudDrive | na | File Sharing"   ToolTip="pCloud is a file hosting service also called cloud storage" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Text="pcloud" Visibility="Collapsed"/>
-<TextBlock Text="pCloudAG.pCloudDrive" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Hurl" FontSize="14" Tag="Utilities"   ToolTip="Hurl is a command line tool that runs HTTP requests" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Hurl" FontSize="14" Tag="hurl | Orange-OpenSource.Hurl | na | Utilities"   ToolTip="Hurl is a command line tool that runs HTTP requests" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="hurl" Visibility="Collapsed"/>
-<TextBlock Text="Orange-OpenSource.Hurl" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="File Hash Generator" FontSize="14" Tag="Utilities"   ToolTip="Compute and save MD5 SHA1 SHA2 RIPEMD hashes and CRC1632" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="File Hash Generator" FontSize="14" Tag="file-hash-generator | BinaryMark.FileHashGenerator | na | Utilities"   ToolTip="Compute and save MD5 SHA1 SHA2 RIPEMD hashes and CRC1632" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="file-hash-generator" Visibility="Collapsed"/>
-<TextBlock Text="BinaryMark.FileHashGenerator" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Multimark down" FontSize="14" Tag="Utilities"   ToolTip="MultiMarkdown or MMD is a tool to help turn minimally" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Multimark down" FontSize="14" Tag="multimarkdown | na | na | Utilities"   ToolTip="MultiMarkdown or MMD is a tool to help turn minimally" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="multimarkdown" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="PCSX2 Emulator" FontSize="14" Tag="Portable"   ToolTip="PCSX2 is a free and opensource PlayStation 2 PS2 emulator" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="PCSX2 Emulator" FontSize="14" Tag="pcsx2.portable | na | na | Portable"   ToolTip="PCSX2 is a free and opensource PlayStation 2 PS2 emulator" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Portable"/>
 </StackPanel>
-<TextBlock Text="pcsx2.portable" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="RetroArch" FontSize="14" Tag="Gaming"   ToolTip="RetroArch is a frontend for emulators game engines and media" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="RetroArch" FontSize="14" Tag="retroarch | Libretro.RetroArch | na | Gaming"   ToolTip="RetroArch is a frontend for emulators game engines and media" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Text="retroarch" Visibility="Collapsed"/>
-<TextBlock Text="Libretro.RetroArch" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Free Virtual Keyboard" FontSize="14" Tag="Utilities"   ToolTip="Free Virtual Keyboard works on any Windows based UMPC with" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Free Virtual Keyboard" FontSize="14" Tag="free-virtual-keyboard | na | na | Utilities"   ToolTip="Free Virtual Keyboard works on any Windows based UMPC with" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="free-virtual-keyboard" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="TypeScript for Visual Studio 2017 and 2019" FontSize="14" Tag="Development"   ToolTip="This is a standalone power tool release of TypeScript for" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="TypeScript for Visual Studio 2017 and 2019" FontSize="14" Tag="typescript-vs2017-vs2019 | na | na | Development"   ToolTip="This is a standalone power tool release of TypeScript for" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="typescript-vs2017-vs2019" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Caret" FontSize="14" Tag="Development"   ToolTip="Beautiful Clever Markdown Editor Download trial" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Caret" FontSize="14" Tag="caret | Caret.Caret | na | Development"   ToolTip="Beautiful Clever Markdown Editor Download trial" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="caret" Visibility="Collapsed"/>
-<TextBlock Text="Caret.Caret" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="iSpy" FontSize="14" Tag="Imaging"   ToolTip="iSpy is the worlds most popular open source video surveillance" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="iSpy" FontSize="14" Tag="ispy | na | na | Imaging"   ToolTip="iSpy is the worlds most popular open source video surveillance" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Imaging"/>
 </StackPanel>
-<TextBlock Text="ispy" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="WavPack" FontSize="14" Tag="Utilities"   ToolTip="WavPack is a completely open audio compression format providing lossless" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="WavPack" FontSize="14" Tag="wavpack | na | na | Utilities"   ToolTip="WavPack is a completely open audio compression format providing lossless" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="wavpack" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="ProcessThreadsView" FontSize="14" Tag="Utilities"   ToolTip="ProcessThreadsView is a small utility that displays extensive information about" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="ProcessThreadsView" FontSize="14" Tag="processthreadsview | na | na | Utilities"   ToolTip="ProcessThreadsView is a small utility that displays extensive information about" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="processthreadsview" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Zulu" FontSize="14" Tag="Development"   ToolTip="Zulu is a certified build of OpenJDK that is fully" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Zulu" FontSize="14" Tag="zulu12 | Azul.Zulu.11.JRE | na | Development"   ToolTip="Zulu is a certified build of OpenJDK that is fully" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="zulu12" Visibility="Collapsed"/>
-<TextBlock Text="Azul.Zulu.11.JRE" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="GitHubReleaseNotesv1" FontSize="14" Tag="Development"   ToolTip="Generate Release Notes in MarkDown format from a GitHub project" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="GitHubReleaseNotesv1" FontSize="14" Tag="githubreleasenotes | StefHeyenrath.GitHubReleaseNotes | na | Development"   ToolTip="Generate Release Notes in MarkDown format from a GitHub project" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="githubreleasenotes" Visibility="Collapsed"/>
-<TextBlock Text="StefHeyenrath.GitHubReleaseNotes" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Tome" FontSize="14" Tag="Development"   ToolTip="Developing games is all about data With game systems for" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Tome" FontSize="14" Tag="tome-editor | na | na | Development"   ToolTip="Developing games is all about data With game systems for" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="tome-editor" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Win32 OpenSSH" FontSize="14" Tag="Utilities"   ToolTip="OpenSSH is a complete implementation of the SSH protocol version" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Win32 OpenSSH" FontSize="14" Tag="openssh | Microsoft.OpenSSH.Beta | na | Utilities"   ToolTip="OpenSSH is a complete implementation of the SSH protocol version" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="openssh" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.OpenSSH.Beta" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Komodo Edit" FontSize="14" Tag="Development"   ToolTip="Komodo Edit is a free and open source text editor" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Komodo Edit" FontSize="14" Tag="komodo-edit | ActiveState.KomodoEdit | na | Development"   ToolTip="Komodo Edit is a free and open source text editor" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="komodo-edit" Visibility="Collapsed"/>
-<TextBlock Text="ActiveState.KomodoEdit" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="FreeCAD" FontSize="14" Tag="Imaging"   ToolTip="A free and opensource multiplatform 3D parametric modeler" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="FreeCAD" FontSize="14" Tag="freecad | FreeCAD.FreeCAD | na | Imaging"   ToolTip="A free and opensource multiplatform 3D parametric modeler" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Imaging"/>
 </StackPanel>
-<TextBlock Text="freecad" Visibility="Collapsed"/>
-<TextBlock Text="FreeCAD.FreeCAD" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="SQLite" FontSize="14" Tag="Development"   ToolTip="SQLite is an inprocess library that implements a selfcontained serverless" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="SQLite" FontSize="14" Tag="sqlite | SQLite.SQLite | na | Development"   ToolTip="SQLite is an inprocess library that implements a selfcontained serverless" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="sqlite" Visibility="Collapsed"/>
-<TextBlock Text="SQLite.SQLite" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="MkDocs" FontSize="14" Tag="Development"   ToolTip="MkDocs is a fast simple and downright gorgeous static site" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="MkDocs" FontSize="14" Tag="mkdocs | na | na | Development"   ToolTip="MkDocs is a fast simple and downright gorgeous static site" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="mkdocs" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="MkDocs Material Theme" FontSize="14" Tag="Development"   ToolTip="MkDocs is a fast simple and downright gorgeous static site" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="MkDocs Material Theme" FontSize="14" Tag="mkdocs-material | na | na | Development"   ToolTip="MkDocs is a fast simple and downright gorgeous static site" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="mkdocs-material" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="PuTTY" FontSize="14" Tag="Utilities"   ToolTip="A free implementation of SSH and Telnet along with an" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="PuTTY" FontSize="14" Tag="putty | PuTTY.PuTTY | na | Utilities"   ToolTip="A free implementation of SSH and Telnet along with an" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="putty" Visibility="Collapsed"/>
-<TextBlock Text="PuTTY.PuTTY" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="WinSCP" FontSize="14" Tag="Utilities"   ToolTip="WinSCP is an open source free SFTP client FTP client" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="WinSCP" FontSize="14" Tag="winscp | WinSCP.WinSCP | na | Utilities"   ToolTip="WinSCP is an open source free SFTP client FTP client" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="winscp" Visibility="Collapsed"/>
-<TextBlock Text="WinSCP.WinSCP" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="LibreOffice Still" FontSize="14" Tag="Documents"   ToolTip="LibreOffice is the free powerpacked Open Source personal productivity suite" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="LibreOffice Still" FontSize="14" Tag="libreoffice-still | na | na | Documents"   ToolTip="LibreOffice is the free powerpacked Open Source personal productivity suite" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Text="libreoffice-still" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Aio Runtimes" FontSize="14" Tag="Runtimes"   ToolTip="All in One Runtimes also known as AIO Runtimes is" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Aio Runtimes" FontSize="14" Tag="na | na | aio-runtimes | Runtimes"   ToolTip="All in One Runtimes also known as AIO Runtimes is" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="aio-runtimes" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Visual-C-Runtimes All in One Oct 2024" FontSize="14" Tag="Runtimes"   ToolTip="This archive contains the latest version Oct 2024 of all" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Visual-C-Runtimes All in One Oct 2024" FontSize="14" Tag="na | na | vsall | Runtimes"   ToolTip="This archive contains the latest version Oct 2024 of all" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="vsall" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="GPU-Z" FontSize="14" Tag="Utilities"   ToolTip="GPUZ is a lightweight system utility designed to provide vital" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="GPU-Z" FontSize="14" Tag="gpu-z | TechPowerUp.GPU-Z | na | Utilities"   ToolTip="GPUZ is a lightweight system utility designed to provide vital" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="gpu-z" Visibility="Collapsed"/>
-<TextBlock Text="TechPowerUp.GPU-Z" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="MemTest86" FontSize="14" Tag="Utilities"   ToolTip="MemTest86 boots from a USB flash drive and tests the" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="MemTest86" FontSize="14" Tag="na | na | memtest86 | Utilities"   ToolTip="MemTest86 boots from a USB flash drive and tests the" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="memtest86" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Memtest86 Plus" FontSize="14" Tag="Utilities"   ToolTip="Memtest86 Plus v6 is a unified free opensource memory testing" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Memtest86 Plus" FontSize="14" Tag="na | na | memtest86plus | Utilities"   ToolTip="Memtest86 Plus v6 is a unified free opensource memory testing" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="memtest86plus" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="VLC Skins" FontSize="14" Tag="Media Tools"   ToolTip="Put the downloaded VLT files in the following folder On" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="VLC Skins" FontSize="14" Tag="vlc-skins | na | na | Media Tools"   ToolTip="Put the downloaded VLT files in the following folder On" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Text="vlc-skins" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="GrepWin" FontSize="14" Tag="Utilities"   ToolTip="Regular expression search and replace for Windows" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="GrepWin" FontSize="14" Tag="grepwin | StefansTools.grepWin | na | Utilities"   ToolTip="Regular expression search and replace for Windows" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="grepwin" Visibility="Collapsed"/>
-<TextBlock Text="StefansTools.grepWin" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="NICE DCV Server" FontSize="14" Tag="Utilities"   ToolTip="NICE DCV is a remote display protocol that securely streams" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="NICE DCV Server" FontSize="14" Tag="nice-dcv-server | na | na | Utilities"   ToolTip="NICE DCV is a remote display protocol that securely streams" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="nice-dcv-server" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="NTag" FontSize="14" Tag="Media Tools"   ToolTip="NTag is a cross platformgraphical tag editor focused on everyday" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="NTag" FontSize="14" Tag="ntag | nrittsti.NTag | na | Media Tools"   ToolTip="NTag is a cross platformgraphical tag editor focused on everyday" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Text="ntag" Visibility="Collapsed"/>
-<TextBlock Text="nrittsti.NTag" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Volume2" FontSize="14" Tag="Media Tools"   ToolTip="Advanced Windows volume control" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Volume2" FontSize="14" Tag="volume2 | irzyxa.Volume2Portable | na | Media Tools"   ToolTip="Advanced Windows volume control" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Text="volume2" Visibility="Collapsed"/>
-<TextBlock Text="irzyxa.Volume2Portable" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="qBittorrent Enhanced Edition" FontSize="14" Tag="File Sharing"   ToolTip="Unofficial qBittorrent Enhanced based on qBittorrent" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="qBittorrent Enhanced Edition" FontSize="14" Tag="qbittorrent-enhanced | wingetinstallc0re100.qBittorrent-Enhanced-Edition | na | File Sharing"   ToolTip="Unofficial qBittorrent Enhanced based on qBittorrent" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Text="qbittorrent-enhanced" Visibility="Collapsed"/>
-<TextBlock Text="wingetinstallc0re100.qBittorrent-Enhanced-Edition" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Aspia" FontSize="14" Tag="File Sharing"   ToolTip="Remote desktop and file transfer tool" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Aspia" FontSize="14" Tag="na | na | Aspia | File Sharing"   ToolTip="Remote desktop and file transfer tool" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="Aspia" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="SimpleTransfer Desktop" FontSize="14" Tag="File Sharing"   ToolTip="Simple Transfer is the easiest way of transferring your Photos" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="SimpleTransfer Desktop" FontSize="14" Tag="simpletransfer | Rambax.SimpleTransfer | na | File Sharing"   ToolTip="Simple Transfer is the easiest way of transferring your Photos" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Text="simpletransfer" Visibility="Collapsed"/>
-<TextBlock Text="Rambax.SimpleTransfer" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Twitch Desktop App" FontSize="14" Tag="Gaming"   ToolTip="Servers  A virtual home for your community to chat" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Twitch Desktop App" FontSize="14" Tag="twitch | na | na | Gaming"   ToolTip="Servers  A virtual home for your community to chat" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Text="twitch" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Remote Desktop Manager" FontSize="14" Tag="File Sharing"   ToolTip="Remote Connections  Passwords. Everywhere" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Remote Desktop Manager" FontSize="14" Tag="rdm | Devolutions.RemoteDesktopManager | na | File Sharing"   ToolTip="Remote Connections  Passwords. Everywhere" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Text="rdm" Visibility="Collapsed"/>
-<TextBlock Text="Devolutions.RemoteDesktopManager" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Torrid" FontSize="14" Tag="Utilities"   ToolTip="Torrid is a multiserver multiclient multitracker Remote Torrent Client which" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Torrid" FontSize="14" Tag="torrid | na | na | Utilities"   ToolTip="Torrid is a multiserver multiclient multitracker Remote Torrent Client which" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="torrid" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Mediamonkey" FontSize="14" Tag="Media"   ToolTip="Manage small to large collections of audio files videos and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Mediamonkey" FontSize="14" Tag="mediamonkey | VentisMedia.MediaMonkey | na | Media"   ToolTip="Manage small to large collections of audio files videos and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Text="mediamonkey" Visibility="Collapsed"/>
-<TextBlock Text="VentisMedia.MediaMonkey" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="MediaInfo" FontSize="14" Tag="Media Tools"   ToolTip="Convenient unified display of the most relevent technical and tag" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="MediaInfo" FontSize="14" Tag="mediainfo | MediaArea.MediaInfo.GUI | na | Media Tools"   ToolTip="Convenient unified display of the most relevent technical and tag" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Text="mediainfo" Visibility="Collapsed"/>
-<TextBlock Text="MediaArea.MediaInfo.GUI" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Universal Media Server" FontSize="14" Tag="Media"   ToolTip="Universal Media Server is a DLNAcompliant UPnP Media Server. It" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Universal Media Server" FontSize="14" Tag="ums | UniversalMediaServer.UniversalMediaServer | na | Media"   ToolTip="Universal Media Server is a DLNAcompliant UPnP Media Server. It" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Text="ums" Visibility="Collapsed"/>
-<TextBlock Text="UniversalMediaServer.UniversalMediaServer" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="K-Lite Codec Pack Standard" FontSize="14" Tag="Media"   ToolTip="The KLite Codec Pack is a collection of DirectShow filters" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="K-Lite Codec Pack Standard" FontSize="14" Tag="k-litecodecpack-standard | CodecGuide.K-LiteCodecPack.Standard | na | Media"   ToolTip="The KLite Codec Pack is a collection of DirectShow filters" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Text="k-litecodecpack-standard" Visibility="Collapsed"/>
-<TextBlock Text="CodecGuide.K-LiteCodecPack.Standard" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="PowerISO" FontSize="14" Tag="Compression"   ToolTip="PowerISO provides an allinone solution. You can do every thing" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="PowerISO" FontSize="14" Tag="poweriso | PowerSoftware.PowerISO | na | Compression"   ToolTip="PowerISO provides an allinone solution. You can do every thing" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Compression"/>
 </StackPanel>
-<TextBlock Text="poweriso" Visibility="Collapsed"/>
-<TextBlock Text="PowerSoftware.PowerISO" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Screen To Gif" FontSize="14" Tag="Utilities"   ToolTip="This tool allows you to record a selected area of" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Screen To Gif" FontSize="14" Tag="screentogif.portable | NickeManarin.ScreenToGif | na | Utilities"   ToolTip="This tool allows you to record a selected area of" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="screentogif.portable" Visibility="Collapsed"/>
-<TextBlock Text="NickeManarin.ScreenToGif" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Figma" FontSize="14" Tag="Development"   ToolTip="The collaborative interface design tool Build better products as a" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Figma" FontSize="14" Tag="figma | Figma.Figma | na | Development"   ToolTip="The collaborative interface design tool Build better products as a" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="figma" Visibility="Collapsed"/>
-<TextBlock Text="Figma.Figma" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="EarTrumpet" FontSize="14" Tag="Utilities"   ToolTip="EarTrumpet is a powerful volume control app for Windows" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="EarTrumpet" FontSize="14" Tag="eartrumpet | File-New-Project.EarTrumpet | na | Utilities"   ToolTip="EarTrumpet is a powerful volume control app for Windows" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="eartrumpet" Visibility="Collapsed"/>
-<TextBlock Text="File-New-Project.EarTrumpet" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Visual Studio Code Insiders" FontSize="14" Tag="Development"   ToolTip="Microsoft Visual Studio Code is a code editor redefined and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Visual Studio Code Insiders" FontSize="14" Tag="vscode-insiders | Microsoft.VisualStudioCode.Insiders | na | Development"   ToolTip="Microsoft Visual Studio Code is a code editor redefined and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="vscode-insiders" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.VisualStudioCode.Insiders" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="AyuGramDesktop" FontSize="14" Tag="Communication"   ToolTip=" Desktop Telegram client with good customization and Ghost mode" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="AyuGramDesktop" FontSize="14" Tag="na | na | ayugramdesktop | Communication"   ToolTip=" Desktop Telegram client with good customization and Ghost mode" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="ayugramdesktop" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Zettlr" FontSize="14" Tag="Documents"   ToolTip="Zettlr is a supercharged markdown editor that combines many writing" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Zettlr" FontSize="14" Tag="zettlr | Zettlr.Zettlr | na | Documents"   ToolTip="Zettlr is a supercharged markdown editor that combines many writing" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Text="zettlr" Visibility="Collapsed"/>
-<TextBlock Text="Zettlr.Zettlr" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="RustDesk" FontSize="14" Tag="File Sharing"   ToolTip="An opensource remote desktop software works out of the box" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="RustDesk" FontSize="14" Tag="rustdesk | RustDesk.RustDesk | na | File Sharing"   ToolTip="An opensource remote desktop software works out of the box" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="File Sharing"/>
 </StackPanel>
-<TextBlock Text="rustdesk" Visibility="Collapsed"/>
-<TextBlock Text="RustDesk.RustDesk" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Ente Auth" FontSize="14" Tag="Security"   ToolTip="An endtoend encrypted cross platform and free app for storing" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Ente Auth" FontSize="14" Tag="ente-auth | na | na | Security"   ToolTip="An endtoend encrypted cross platform and free app for storing" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Security"/>
 </StackPanel>
-<TextBlock Text="ente-auth" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="SQLiteStudio" FontSize="14" Tag="Development"   ToolTip="SQLiteStudio is desktop application for browsing and editing SQLite database" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="SQLiteStudio" FontSize="14" Tag="sqlitestudio | sqlitestudio.pl.SQLiteStudio | na | Development"   ToolTip="SQLiteStudio is desktop application for browsing and editing SQLite database" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="sqlitestudio" Visibility="Collapsed"/>
-<TextBlock Text="sqlitestudio.pl.SQLiteStudio" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="DuckStation" FontSize="14" Tag="Portable"   ToolTip=" Fast PlayStation 1 emulator for x8664/AArch32/AArch64/RV64" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="DuckStation" FontSize="14" Tag="na | na | duckstation | Portable"   ToolTip=" Fast PlayStation 1 emulator for x8664/AArch32/AArch64/RV64" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Portable"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="duckstation" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Authme - Simple 2FA" FontSize="14" Tag="Security"   ToolTip="Simple 2FA desktop application" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Authme - Simple 2FA" FontSize="14" Tag="authme.portable | na | na | Security"   ToolTip="Simple 2FA desktop application" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Security"/>
 </StackPanel>
-<TextBlock Text="authme.portable" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="SuperCopier2" FontSize="14" Tag="Utilities"   ToolTip="SuperCopier2 SuperCopier replaces Windows explorer file copy and adds many" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="SuperCopier2" FontSize="14" Tag="na | na | supercopier2 | Utilities"   ToolTip="SuperCopier2 SuperCopier replaces Windows explorer file copy and adds many" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="supercopier2" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Octopus Deploy" FontSize="14" Tag="Development"   ToolTip="Octopus Deploy is a Continuous Delivery platform for complex deployments" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Octopus Deploy" FontSize="14" Tag="octopusdeploy.tentacle | OctopusDeploy.Tentacle | na | Development"   ToolTip="Octopus Deploy is a Continuous Delivery platform for complex deployments" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="octopusdeploy.tentacle" Visibility="Collapsed"/>
-<TextBlock Text="OctopusDeploy.Tentacle" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Kindle Previewer" FontSize="14" Tag="Documents"   ToolTip="Kindle Previewer is a graphical user interface tool that emulates" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Kindle Previewer" FontSize="14" Tag="kindlepreviewer | na | na | Documents"   ToolTip="Kindle Previewer is a graphical user interface tool that emulates" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Text="kindlepreviewer" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Interior Design 3D" FontSize="14" Tag="Imaging"   ToolTip="Interior Design 3D is an expert program for home design" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Interior Design 3D" FontSize="14" Tag="na | AMSSoftware.InteriorDesign3D-e | na | Imaging"   ToolTip="Interior Design 3D is an expert program for home design" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Imaging"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="AMSSoftware.InteriorDesign3D-e" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="MeshLab" FontSize="14" Tag="Imaging"   ToolTip="MeshLab is an open source portable and extensible system for" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="MeshLab" FontSize="14" Tag="meshlab | CNRISTI.MeshLab | na | Imaging"   ToolTip="MeshLab is an open source portable and extensible system for" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Imaging"/>
 </StackPanel>
-<TextBlock Text="meshlab" Visibility="Collapsed"/>
-<TextBlock Text="CNRISTI.MeshLab" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="GitKraken" FontSize="14" Tag="Development"   ToolTip="Legendary Git GUI client for Windows Mac  Linux" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="GitKraken" FontSize="14" Tag="gitkraken | Axosoft.GitKraken | na | Development"   ToolTip="Legendary Git GUI client for Windows Mac  Linux" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="gitkraken" Visibility="Collapsed"/>
-<TextBlock Text="Axosoft.GitKraken" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Slack" FontSize="14" Tag="Communication"   ToolTip="Slack is a collaboration hub for work no matter what" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Slack" FontSize="14" Tag="slack | SlackTechnologies.Slack | na | Communication"   ToolTip="Slack is a collaboration hub for work no matter what" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Text="slack" Visibility="Collapsed"/>
-<TextBlock Text="SlackTechnologies.Slack" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Rocket Chat" FontSize="14" Tag="Communication"   ToolTip="Rocket.Chat is the leading open source team chat software solution." Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Rocket Chat" FontSize="14" Tag="rocketchat | RocketChat.RocketChat | na | Communication"   ToolTip="Rocket.Chat is the leading open source team chat software solution." Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Text="rocketchat" Visibility="Collapsed"/>
-<TextBlock Text="RocketChat.RocketChat" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="TeamSpeak" FontSize="14" Tag="Communication"   ToolTip="Use crystal clear sound to communicate with your team mates" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="TeamSpeak" FontSize="14" Tag="teamspeak | TeamSpeakSystems.TeamSpeakClient | na | Communication"   ToolTip="Use crystal clear sound to communicate with your team mates" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Communication"/>
 </StackPanel>
-<TextBlock Text="teamspeak" Visibility="Collapsed"/>
-<TextBlock Text="TeamSpeakSystems.TeamSpeakClient" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="FFFTP" FontSize="14" Tag="Development"   ToolTip="FFFTP is lightweight FTP client software. FFFTP has many useful" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="FFFTP" FontSize="14" Tag="ffftp | Sayuri.FFFTP | na | Development"   ToolTip="FFFTP is lightweight FTP client software. FFFTP has many useful" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="ffftp" Visibility="Collapsed"/>
-<TextBlock Text="Sayuri.FFFTP" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="SmartFTP" FontSize="14" Tag="Development"   ToolTip="SmartFTP is a fast and reliable FTP FTPS SFTP HTTP" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="SmartFTP" FontSize="14" Tag="smartftp | SmartSoft.SmartFTP | na | Development"   ToolTip="SmartFTP is a fast and reliable FTP FTPS SFTP HTTP" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="smartftp" Visibility="Collapsed"/>
-<TextBlock Text="SmartSoft.SmartFTP" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Rclone" FontSize="14" Tag="Development"   ToolTip="Rclone rsync for cloud storage is a commandline program to" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Rclone" FontSize="14" Tag="rclone | Rclone.Rclone | na | Development"   ToolTip="Rclone rsync for cloud storage is a commandline program to" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="rclone" Visibility="Collapsed"/>
-<TextBlock Text="Rclone.Rclone" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Cyberduck" FontSize="14" Tag="Development"   ToolTip="Cyberduck is a libre server and cloud storage browser for" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Cyberduck" FontSize="14" Tag="cyberduck | Iterate.Cyberduck | na | Development"   ToolTip="Cyberduck is a libre server and cloud storage browser for" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="cyberduck" Visibility="Collapsed"/>
-<TextBlock Text="Iterate.Cyberduck" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Dolphin" FontSize="14" Tag="Gaming"   ToolTip="Dolphin is an emulator for two recent Nintendo video game" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Dolphin" FontSize="14" Tag="dolphin | DolphinEmulator.Dolphin | na | Gaming"   ToolTip="Dolphin is an emulator for two recent Nintendo video game" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Text="dolphin" Visibility="Collapsed"/>
-<TextBlock Text="DolphinEmulator.Dolphin" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="mGBA" FontSize="14" Tag="Gaming"   ToolTip="mGBA is an opensource Game Boy Advance emulator" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="mGBA" FontSize="14" Tag="mgba | JeffreyPfau.mGBA | na | Gaming"   ToolTip="mGBA is an opensource Game Boy Advance emulator" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Text="mgba" Visibility="Collapsed"/>
-<TextBlock Text="JeffreyPfau.mGBA" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="EmulationStation" FontSize="14" Tag="Gaming"   ToolTip="A graphical and themeable emulator frontend that allows you to" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="EmulationStation" FontSize="14" Tag="emulationstation | Emulationstation.Emulationstation | na | Gaming"   ToolTip="A graphical and themeable emulator frontend that allows you to" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Text="emulationstation" Visibility="Collapsed"/>
-<TextBlock Text="Emulationstation.Emulationstation" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="ScummVM" FontSize="14" Tag="Gaming"   ToolTip="ScummVM is a program which allows you to run certain" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="ScummVM" FontSize="14" Tag="scummvm | ScummVM.ScummVM | na | Gaming"   ToolTip="ScummVM is a program which allows you to run certain" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Text="scummvm" Visibility="Collapsed"/>
-<TextBlock Text="ScummVM.ScummVM" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Project64" FontSize="14" Tag="Gaming"   ToolTip="Project64 is a free and opensource emulator for the Nintendo" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Project64" FontSize="14" Tag="project64 | Project64.Project64 | na | Gaming"   ToolTip="Project64 is a free and opensource emulator for the Nintendo" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Text="project64" Visibility="Collapsed"/>
-<TextBlock Text="Project64.Project64" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="DOSBox" FontSize="14" Tag="Gaming"   ToolTip="DOSBox is an emulator program which emulates an IBM PC" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="DOSBox" FontSize="14" Tag="na | DOSBox.DOSBox | na | Gaming"   ToolTip="DOSBox is an emulator program which emulates an IBM PC" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Gaming"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="DOSBox.DOSBox" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Kodu Game Lab" FontSize="14" Tag="Development"   ToolTip="Kodu Game Lab is a 3D game development environment that" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Kodu Game Lab" FontSize="14" Tag="na | InfiniteInstant.KoduGameLab | na | Development"   ToolTip="Kodu Game Lab is a 3D game development environment that" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="InfiniteInstant.KoduGameLab" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="GDevelop" FontSize="14" Tag="Development"   ToolTip="A free and open source nocode game engine designed to" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="GDevelop" FontSize="14" Tag="gdevelop | GDevelop.GDevelop | na | Development"   ToolTip="A free and open source nocode game engine designed to" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="gdevelop" Visibility="Collapsed"/>
-<TextBlock Text="GDevelop.GDevelop" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="MongoDB Tools" FontSize="14" Tag="Development"   ToolTip="The MongoDB Database Tools are a collection of commandline utilities" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="MongoDB Tools" FontSize="14" Tag="mongodb-database-tools | MongoDB.DatabaseTools | na | Development"   ToolTip="The MongoDB Database Tools are a collection of commandline utilities" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="mongodb-database-tools" Visibility="Collapsed"/>
-<TextBlock Text="MongoDB.DatabaseTools" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="DB Browser for SQLite" FontSize="14" Tag="Development"   ToolTip="DB Browser for SQLite DB4S is a high quality visual" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="DB Browser for SQLite" FontSize="14" Tag="sqlitebrowser | DBBrowserForSQLite.DBBrowserForSQLite | na | Development"   ToolTip="DB Browser for SQLite DB4S is a high quality visual" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="sqlitebrowser" Visibility="Collapsed"/>
-<TextBlock Text="DBBrowserForSQLite.DBBrowserForSQLite" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="MySQL" FontSize="14" Tag="Development"   ToolTip="The MySQL software delivers a very fast multithreaded multiuser and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="MySQL" FontSize="14" Tag="mysql | Oracle.MySQL | na | Development"   ToolTip="The MySQL software delivers a very fast multithreaded multiuser and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="mysql" Visibility="Collapsed"/>
-<TextBlock Text="Oracle.MySQL" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="MongoDB Compass" FontSize="14" Tag="Development"   ToolTip="Compass is a free interactive tool for querying optimizing and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="MongoDB Compass" FontSize="14" Tag="mongodb-compass | MongoDB.Compass.Full | na | Development"   ToolTip="Compass is a free interactive tool for querying optimizing and" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="mongodb-compass" Visibility="Collapsed"/>
-<TextBlock Text="MongoDB.Compass.Full" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="MongoDB Compass readonly" FontSize="14" Tag="Development"   ToolTip="Compass is a free interactive tool for analyzing your MongoDB" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="MongoDB Compass readonly" FontSize="14" Tag="mongodb-compass-readonly | MongoDB.Compass.Readonly | na | Development"   ToolTip="Compass is a free interactive tool for analyzing your MongoDB" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Development"/>
 </StackPanel>
-<TextBlock Text="mongodb-compass-readonly" Visibility="Collapsed"/>
-<TextBlock Text="MongoDB.Compass.Readonly" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="IDA free" FontSize="14" Tag="Utilities"   ToolTip="DA is a Windows Linux or Mac OS X hosted" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="IDA free" FontSize="14" Tag="ida-free | na | na | Utilities"   ToolTip="DA is a Windows Linux or Mac OS X hosted" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="ida-free" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Binary Ninja" FontSize="14" Tag="Utilities"   ToolTip="reverse engineering tool. It supports a number of great features" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Binary Ninja" FontSize="14" Tag="na | na | binaryninja | Utilities"   ToolTip="reverse engineering tool. It supports a number of great features" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Utilities"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="binaryninja" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Resource Hacker" FontSize="14" Tag="Portable"   ToolTip="freeware resource compiler  decompiler for Windows applications" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Resource Hacker" FontSize="14" Tag="na | na | resourcehacker | Portable"   ToolTip="freeware resource compiler  decompiler for Windows applications" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Portable"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="resourcehacker" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Microsoft Visual C++ Redistributable for Visual Studio 2015-2022" FontSize="14" Tag="Runtimes"   ToolTip="Runtime components that are required to run C applications that" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Microsoft Visual C++ Redistributable for Visual Studio 2015-2022" FontSize="14" Tag="vcredist140 | Microsoft.VCRedist.2015+.x86 | na | Runtimes"   ToolTip="Runtime components that are required to run C applications that" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Runtimes"/>
 </StackPanel>
-<TextBlock Text="vcredist140" Visibility="Collapsed"/>
-<TextBlock Text="Microsoft.VCRedist.2015+.x86" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="MPV" FontSize="14" Tag="Media"   ToolTip="a free open source and crossplatform media player" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="MPV" FontSize="14" Tag="mpvio | na | na | Media"   ToolTip="a free open source and crossplatform media player" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media"/>
 </StackPanel>
-<TextBlock Text="mpvio" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="ZenBrowser" FontSize="14" Tag="Web Browsers"   ToolTip="The modern privacyfocused performancedriven browser built on Firefox" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="ZenBrowser" FontSize="14" Tag="na | Zen-Team.Zen-Browser | na | Web Browsers"   ToolTip="The modern privacyfocused performancedriven browser built on Firefox" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Web Browsers"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="Zen-Team.Zen-Browser" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Aegisub" FontSize="14" Tag="Media Tools"   ToolTip="Aegisub is a free crossplatform open source tool for creating" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Aegisub" FontSize="14" Tag="aegisub | Aegisub.Aegisub | na | Media Tools"   ToolTip="Aegisub is a free crossplatform open source tool for creating" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Media Tools"/>
 </StackPanel>
-<TextBlock Text="aegisub" Visibility="Collapsed"/>
-<TextBlock Text="Aegisub.Aegisub" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="AppGroup" FontSize="14" Tag="Documents"   ToolTip="App Group lets you organize customize and launch your apps" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="AppGroup" FontSize="14" Tag="na | na | iandiv-appgroup | Documents"   ToolTip="App Group lets you organize customize and launch your apps" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Documents"/>
 </StackPanel>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="na" Visibility="Collapsed"/>
-<TextBlock Text="iandiv-appgroup" Visibility="Collapsed"/>
 </StackPanel>
 </ListView>
 </TabItem>
@@ -8916,428 +7694,269 @@ ScrollViewer.CanContentScroll="True">
 </ListView.ItemsPanel>
 <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Disk cleanup" FontSize="14" Tag="Storage"   ToolTip="Clean temporary files that are not necessary" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Disk cleanup" FontSize="14" Tag=" |  |  | Storage"   ToolTip="Clean temporary files that are not necessary" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Storage"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="System File Checker" FontSize="14" Tag="Fixer"   ToolTip="sfc /scannow Use the System File Checker tool to repair missing or corrupted system files" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="System File Checker" FontSize="14" Tag=" |  |  | Fixer"   ToolTip="sfc /scannow Use the System File Checker tool to repair missing or corrupted system files" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Fixer"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Restore Classic Context Menu Windows 11" FontSize="14" Tag="Classic"   ToolTip="Restore the old context menu for Windows 11" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Restore Classic Context Menu Windows 11" FontSize="14" Tag=" |  |  | Classic"   ToolTip="Restore the old context menu for Windows 11" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Classic"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Restore All Windows Services to Default" FontSize="14" Tag="Fixer"   ToolTip="if you face issues with services try Restore All Windows Services to Default" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Restore All Windows Services to Default" FontSize="14" Tag=" |  |  | Fixer"   ToolTip="if you face issues with services try Restore All Windows Services to Default" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Fixer"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Super Privacy Disable all Privacy Settings" FontSize="14" Tag="Privacy"   ToolTip="Disable WifiSense  Activity History  ActivityFeed All Telemetry  DataCollection  disable various telemetry and annoyances in Edge" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Super Privacy Disable all Privacy Settings" FontSize="14" Tag=" |  |  | Privacy"   ToolTip="Disable WifiSense  Activity History  ActivityFeed All Telemetry  DataCollection  disable various telemetry and annoyances in Edge" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Clean Taskbar" FontSize="14" Tag="Performance"   ToolTip="Disable icons" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Clean Taskbar" FontSize="14" Tag=" |  |  | Performance"   ToolTip="Disable icons" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Remove Microsoft Apps" FontSize="14" Tag="Performance"   ToolTip="Uninstalls preinstalled Microsoft apps like Clipchamp People etc" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Remove Microsoft Apps" FontSize="14" Tag=" |  |  | Performance"   ToolTip="Uninstalls preinstalled Microsoft apps like Clipchamp People etc" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Remove Xbox Apps" FontSize="14" Tag="Performance"   ToolTip="Uninstalls preinstalled Xbox apps" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Remove Xbox Apps" FontSize="14" Tag=" |  |  | Performance"   ToolTip="Uninstalls preinstalled Xbox apps" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Fix Stutter in games" FontSize="14" Tag="Performance"   ToolTip="Fix Stutter in Games Disable GameBarPresenceWriter. Windows 10/11" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Fix Stutter in games" FontSize="14" Tag=" |  |  | Performance"   ToolTip="Fix Stutter in Games Disable GameBarPresenceWriter. Windows 10/11" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Enable the Ultimate Performance Power Plan" FontSize="14" Tag="Power"   ToolTip="This will add the Ultimate Performance power plan to enable it go to the power options" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Enable the Ultimate Performance Power Plan" FontSize="14" Tag=" |  |  | Power"   ToolTip="This will add the Ultimate Performance power plan to enable it go to the power options" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Power"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Reset the TCP/IP Stack" FontSize="14" Tag="Fixer"   ToolTip="If you have an internet issue reset the network configuration" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Reset the TCP/IP Stack" FontSize="14" Tag=" |  |  | Fixer"   ToolTip="If you have an internet issue reset the network configuration" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Fixer"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Setup Auto login" FontSize="14" Tag="Other"   ToolTip="Setup auto login Windows username" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Setup Auto login" FontSize="14" Tag=" |  |  | Other"   ToolTip="Setup auto login Windows username" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Other"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Disable Xbox Services" FontSize="14" Tag="Performance"   ToolTip="Disables all Xbox Services Game Mode" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Disable Xbox Services" FontSize="14" Tag=" |  |  | Performance"   ToolTip="Disables all Xbox Services Game Mode" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Disable Start Menu Ads" FontSize="14" Tag="Privacy"   ToolTip="Start menu Ads and Settings" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Disable Start Menu Ads" FontSize="14" Tag=" |  |  | Privacy"   ToolTip="Start menu Ads and Settings" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Disable Windows Web Search" FontSize="14" Tag="Privacy"   ToolTip="Web results in search" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Disable Windows Web Search" FontSize="14" Tag=" |  |  | Privacy"   ToolTip="Web results in search" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Turn off background Apps" FontSize="14" Tag="Performance"   ToolTip="Turn off background apps" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Turn off background Apps" FontSize="14" Tag=" |  |  | Performance"   ToolTip="Turn off background apps" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Disable suggestions on Start Menu" FontSize="14" Tag="Privacy"   ToolTip="Suggestions on start menu" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Disable suggestions on Start Menu" FontSize="14" Tag=" |  |  | Privacy"   ToolTip="Suggestions on start menu" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Remove Folder Shortcuts From File Explorer" FontSize="14" Tag="Other"   ToolTip="Documents Videos Pictures Desktop. Shortcuts from File Explorer" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Remove Folder Shortcuts From File Explorer" FontSize="14" Tag=" |  |  | Other"   ToolTip="Documents Videos Pictures Desktop. Shortcuts from File Explorer" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Other"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Optimize Windows Services" FontSize="14" Tag="Performance"   ToolTip="Print Spooler Fax Diagnostic Policy Downloaded Maps Manager Windows Error Reporting Service Remote Registry  Internet Connection Sharing Disables Telemetry and Data" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Optimize Windows Services" FontSize="14" Tag=" |  |  | Performance"   ToolTip="Print Spooler Fax Diagnostic Policy Downloaded Maps Manager Windows Error Reporting Service Remote Registry  Internet Connection Sharing Disables Telemetry and Data" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Disable Hibernate" FontSize="14" Tag="Performance"   ToolTip="Allows the system to save the current state of your computer" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Disable Hibernate" FontSize="14" Tag=" |  |  | Performance"   ToolTip="Allows the system to save the current state of your computer" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Disable OneDrive" FontSize="14" Tag="Performance"   ToolTip="Disabling OneDrive" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Disable OneDrive" FontSize="14" Tag=" |  |  | Performance"   ToolTip="Disabling OneDrive" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Remove OneDrive" FontSize="14" Tag="Performance"   ToolTip="Removes OneDrive from the system" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Remove OneDrive" FontSize="14" Tag=" |  |  | Performance"   ToolTip="Removes OneDrive from the system" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Remove Microsoft Edge (Not Recommended)" FontSize="14" Tag="Performance"   ToolTip="Removes Edge from the system" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Remove Microsoft Edge (Not Recommended)" FontSize="14" Tag=" |  |  | Performance"   ToolTip="Removes Edge from the system" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Activate Windows Classic Photo Viewer" FontSize="14" Tag="Classic"   ToolTip="Classic Photo Viewer" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Activate Windows Classic Photo Viewer" FontSize="14" Tag=" |  |  | Classic"   ToolTip="Classic Photo Viewer" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Classic"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Remove Copilot in Windows 11" FontSize="14" Tag="Privacy"   ToolTip="AI assistance" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Remove Copilot in Windows 11" FontSize="14" Tag=" |  |  | Privacy"   ToolTip="AI assistance" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Disable Recall Snapshots in Windows 11 24H" FontSize="14" Tag="Privacy"   ToolTip="Recall is an upcoming preview experience exclusive to Copilot" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Disable Recall Snapshots in Windows 11 24H" FontSize="14" Tag=" |  |  | Privacy"   ToolTip="Recall is an upcoming preview experience exclusive to Copilot" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Delete Thumbnail Cache" FontSize="14" Tag="Performance"   ToolTip="Removing the stored image thumbnails" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Delete Thumbnail Cache" FontSize="14" Tag=" |  |  | Performance"   ToolTip="Removing the stored image thumbnails" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Classic Volume Control" FontSize="14" Tag="Classic"   ToolTip="The old volume control" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Classic Volume Control" FontSize="14" Tag=" |  |  | Classic"   ToolTip="The old volume control" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Classic"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Disable Toggle Key Sounds" FontSize="14" Tag="Classic"   ToolTip="Toggle key sounds are audio cues that play when you press the Caps Lock Num Lock or Scroll Lock keys" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Disable Toggle Key Sounds" FontSize="14" Tag=" |  |  | Classic"   ToolTip="Toggle key sounds are audio cues that play when you press the Caps Lock Num Lock or Scroll Lock keys" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Classic"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Disable Homegroup" FontSize="14" Tag="Privacy"   ToolTip="HomeGroup is a passwordprotected home networking service that lets you share your stuff with other PCs" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Disable Homegroup" FontSize="14" Tag=" |  |  | Privacy"   ToolTip="HomeGroup is a passwordprotected home networking service that lets you share your stuff with other PCs" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Remove Home and Gallery from explorer in Windows 11" FontSize="14" Tag="Privacy"   ToolTip="Home and Gallery from explorer and sets This PC as default" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Remove Home and Gallery from explorer in Windows 11" FontSize="14" Tag=" |  |  | Privacy"   ToolTip="Home and Gallery from explorer and sets This PC as default" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Disable Wifi Sense" FontSize="14" Tag="Protection"   ToolTip="Service that phones home all nearby scanned wifi networks and your location" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Disable Wifi Sense" FontSize="14" Tag=" |  |  | Protection"   ToolTip="Service that phones home all nearby scanned wifi networks and your location" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Protection"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Disable Autoplay and Autorun" FontSize="14" Tag="Protection"   ToolTip="Autoplay in prevents the automatic launch of media or applications when a removable device such as a USB drive or CD" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Disable Autoplay and Autorun" FontSize="14" Tag=" |  |  | Protection"   ToolTip="Autoplay in prevents the automatic launch of media or applications when a removable device such as a USB drive or CD" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Protection"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Disable SMB Server" FontSize="14" Tag="Protection"   ToolTip="SMB Server enables file and printer sharing over a network allowing access to resources on remote computers" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Disable SMB Server" FontSize="14" Tag=" |  |  | Protection"   ToolTip="SMB Server enables file and printer sharing over a network allowing access to resources on remote computers" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Protection"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Set current network profile to public" FontSize="14" Tag=""   ToolTip="Deny file sharing device discovery" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Set current network profile to public" FontSize="14" Tag=" |  |  | "   ToolTip="Deny file sharing device discovery" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content=""/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Enable F8 boot menu options" FontSize="14" Tag="BIOS"   ToolTip="Enable F8 boot menu options" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Enable F8 boot menu options" FontSize="14" Tag=" |  |  | BIOS"   ToolTip="Enable F8 boot menu options" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="BIOS"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Disable display and sleep mode timeouts" FontSize="14" Tag="Power"   ToolTip="If you frequently use your device disable this" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Disable display and sleep mode timeouts" FontSize="14" Tag=" |  |  | Power"   ToolTip="If you frequently use your device disable this" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Power"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Set Wallpaper desktop Quality to 100%" FontSize="14" Tag="Personalization"   ToolTip="Set Wallpaper desktop Quality" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Set Wallpaper desktop Quality to 100%" FontSize="14" Tag=" |  |  | Personalization"   ToolTip="Set Wallpaper desktop Quality" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Personalization"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Disable Windows Transparency" FontSize="14" Tag="Performance"   ToolTip="Disableing improve performance" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Disable Windows Transparency" FontSize="14" Tag=" |  |  | Performance"   ToolTip="Disableing improve performance" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Disable scheduled defragmentation task" FontSize="14" Tag="Performance"   ToolTip="Optimizes disk performance" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Disable scheduled defragmentation task" FontSize="14" Tag=" |  |  | Performance"   ToolTip="Optimizes disk performance" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Enable NET 3.5" FontSize="14" Tag="Classic"   ToolTip="Some old games and applications require .NET Framework 3.5" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Enable NET 3.5" FontSize="14" Tag=" |  |  | Classic"   ToolTip="Some old games and applications require .NET Framework 3.5" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Classic"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Super Performance" FontSize="14" Tag="Performance"   ToolTip="Disabled all windows effects. You may need to log out and back in for changes to take effect. You can reset to default settings in Settings Tab" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Super Performance" FontSize="14" Tag=" |  |  | Performance"   ToolTip="Disabled all windows effects. You may need to log out and back in for changes to take effect. You can reset to default settings in Settings Tab" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Remove Widgets from Taskbar in Windows 11" FontSize="14" Tag="Performance"   ToolTip="Widgets are one of the new user interface elements in Windows 11" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Remove Widgets from Taskbar in Windows 11" FontSize="14" Tag=" |  |  | Performance"   ToolTip="Widgets are one of the new user interface elements in Windows 11" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Unknown" FontSize="14" Tag="Privacy"   ToolTip="Rename Computer name and Username to Unknown. The changes will take effect after you restart the computer" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Unknown" FontSize="14" Tag=" |  |  | Privacy"   ToolTip="Rename Computer name and Username to Unknown. The changes will take effect after you restart the computer" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Fix Arabic encoding" FontSize="14" Tag="Fixer"   ToolTip="Fix issues related to strange symbols appearing in Arabic text" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Fix Arabic encoding" FontSize="14" Tag=" |  |  | Fixer"   ToolTip="Fix issues related to strange symbols appearing in Arabic text" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Fixer"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Restore Default File Type Associations" FontSize="14" Tag="Fixer"   ToolTip="Restoring default apps for file type associations resets Windows settings allowing the system to select the appropriate programs by default" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Restore Default File Type Associations" FontSize="14" Tag=" |  |  | Fixer"   ToolTip="Restoring default apps for file type associations resets Windows settings allowing the system to select the appropriate programs by default" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Fixer"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Limit Defender CPU Usage" FontSize="14" Tag="Performance"   ToolTip="Limits Defender CPU maximum usage at 25 instead of default 50" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Limit Defender CPU Usage" FontSize="14" Tag=" |  |  | Performance"   ToolTip="Limits Defender CPU maximum usage at 25 instead of default 50" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Optimizing GPU scheduling" FontSize="14" Tag="Performance"   ToolTip="Disables HardwareAccelerated GPU Scheduling which may improve performance" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Optimizing GPU scheduling" FontSize="14" Tag=" |  |  | Performance"   ToolTip="Disables HardwareAccelerated GPU Scheduling which may improve performance" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Disable Fullscreen Optimizations" FontSize="14" Tag="Performance"   ToolTip="Fullscreen Optimizations which may improve performance" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Disable Fullscreen Optimizations" FontSize="14" Tag=" |  |  | Performance"   ToolTip="Fullscreen Optimizations which may improve performance" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Optimize Network" FontSize="14" Tag="Performance"   ToolTip="Optimize network performance" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Optimize Network" FontSize="14" Tag=" |  |  | Performance"   ToolTip="Optimize network performance" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Enable system cache" FontSize="14" Tag="Performance"   ToolTip="Enabling large system cache can improve performance for certain workloads but may affect system stability" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Enable system cache" FontSize="14" Tag=" |  |  | Performance"   ToolTip="Enabling large system cache can improve performance for certain workloads but may affect system stability" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Optimizing NVIDIA GPU settings" FontSize="14" Tag="Performance"   ToolTip="Optimize NVIDIA GPU settings " Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Optimizing NVIDIA GPU settings" FontSize="14" Tag=" |  |  | Performance"   ToolTip="Optimize NVIDIA GPU settings " Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Enable Faster Shutdown" FontSize="14" Tag="Performance"   ToolTip="Optimize NVIDIA GPU settings " Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Enable Faster Shutdown" FontSize="14" Tag=" |  |  | Performance"   ToolTip="Optimize NVIDIA GPU settings " Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>
 </ListView>
 </TabItem>
@@ -9359,140 +7978,89 @@ ScrollViewer.CanContentScroll="True">
 </ListView.ItemsPanel>
 <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Show file extensions" FontSize="14" Tag="" Style="{StaticResource ToggleSwitchStyle}" Name="Showfileextensions" ToolTip="Show file extensions in Windows displays the suffix at the end of file names like .txt .jpg .exe etc" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Show file extensions" FontSize="14" Tag=" |  |  | Protection" Style="{StaticResource ToggleSwitchStyle}" Name="Showfileextensions" ToolTip="Show file extensions in Windows displays the suffix at the end of file names like .txt .jpg .exe etc" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Protection"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Show Super Hidden" FontSize="14" Tag="" Style="{StaticResource ToggleSwitchStyle}" Name="ShowSuperHidden" ToolTip="Show Super Hidden displays files and folders" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Show Super Hidden" FontSize="14" Tag=" |  |  | Protection" Style="{StaticResource ToggleSwitchStyle}" Name="ShowSuperHidden" ToolTip="Show Super Hidden displays files and folders" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Protection"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Dark Mode" FontSize="14" Tag="" Style="{StaticResource ToggleSwitchStyle}" Name="DarkMode" ToolTip="Dark Mode is a setting that changes the screen to darker colors reducing eye strain and saving battery life on OLED screens" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Dark Mode" FontSize="14" Tag=" |  |  | Personalize" Style="{StaticResource ToggleSwitchStyle}" Name="DarkMode" ToolTip="Dark Mode is a setting that changes the screen to darker colors reducing eye strain and saving battery life on OLED screens" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Personalize"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="NumLook" FontSize="14" Tag="" Style="{StaticResource ToggleSwitchStyle}" Name="NumLook" ToolTip="Toggle the Num Lock key state when your computer starts" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="NumLook" FontSize="14" Tag=" |  |  | Protection" Style="{StaticResource ToggleSwitchStyle}" Name="NumLook" ToolTip="Toggle the Num Lock key state when your computer starts" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Protection"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Sticky Keys" FontSize="14" Tag="" Style="{StaticResource ToggleSwitchStyle}" Name="StickyKeys" ToolTip="Sticky keys is an accessibility feature of some graphical user interfaces which assists users who have physical disabilities" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Sticky Keys" FontSize="14" Tag=" |  |  | Accessibility" Style="{StaticResource ToggleSwitchStyle}" Name="StickyKeys" ToolTip="Sticky keys is an accessibility feature of some graphical user interfaces which assists users who have physical disabilities" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Accessibility"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Mouse Acceleration" FontSize="14" Tag="" Style="{StaticResource ToggleSwitchStyle}" Name="MouseAcceleration" ToolTip="Cursor movement is affected by the speed of your physical mouse movements" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Mouse Acceleration" FontSize="14" Tag=" |  |  | Accessibility" Style="{StaticResource ToggleSwitchStyle}" Name="MouseAcceleration" ToolTip="Cursor movement is affected by the speed of your physical mouse movements" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Accessibility"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="End Task On Taskbar Windows 11" FontSize="14" Tag="" Style="{StaticResource ToggleSwitchStyle}" Name="EndTaskOnTaskbarWindows11" ToolTip="End task when right clicking a program in the taskbar" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="End Task On Taskbar Windows 11" FontSize="14" Tag=" |  |  | Accessibility" Style="{StaticResource ToggleSwitchStyle}" Name="EndTaskOnTaskbarWindows11" ToolTip="End task when right clicking a program in the taskbar" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Accessibility"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Clear Page File At Shutdown" FontSize="14" Tag="" Style="{StaticResource ToggleSwitchStyle}" Name="ClearPageFileAtShutdown" ToolTip="Removes sensitive data stored in virtual memory when the system shuts down" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Clear Page File At Shutdown" FontSize="14" Tag=" |  |  | Storage " Style="{StaticResource ToggleSwitchStyle}" Name="ClearPageFileAtShutdown" ToolTip="Removes sensitive data stored in virtual memory when the system shuts down" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Storage "/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Auto End Tasks" FontSize="14" Tag="" Style="{StaticResource ToggleSwitchStyle}" Name="AutoEndTasks" ToolTip="Automatically end tasks that are not responding" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Auto End Tasks" FontSize="14" Tag=" |  |  | Performance" Style="{StaticResource ToggleSwitchStyle}" Name="AutoEndTasks" ToolTip="Automatically end tasks that are not responding" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Performance Options" FontSize="14" Tag="" Style="{StaticResource ToggleSwitchStyle}" Name="PerformanceOptions" ToolTip="Adjust for best performance" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Performance Options" FontSize="14" Tag=" |  |  | Performance" Style="{StaticResource ToggleSwitchStyle}" Name="PerformanceOptions" ToolTip="Adjust for best performance" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Launch To This PC" FontSize="14" Tag="" Style="{StaticResource ToggleSwitchStyle}" Name="LaunchToThisPC" ToolTip="File Explorer open directly to This PC" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Launch To This PC" FontSize="14" Tag=" |  |  | Accessibility" Style="{StaticResource ToggleSwitchStyle}" Name="LaunchToThisPC" ToolTip="File Explorer open directly to This PC" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Accessibility"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Disable Automatic Driver Installation" FontSize="14" Tag="" Style="{StaticResource ToggleSwitchStyle}" Name="DisableAutomaticDriverInstallation" ToolTip="Automatically downloading and installing drivers" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Disable Automatic Driver Installation" FontSize="14" Tag=" |  |  | Drivers" Style="{StaticResource ToggleSwitchStyle}" Name="DisableAutomaticDriverInstallation" ToolTip="Automatically downloading and installing drivers" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Drivers"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Always show icons never Thumbnail" FontSize="14" Tag="" Style="{StaticResource ToggleSwitchStyle}" Name="AlwaysshowiconsneverThumbnail" ToolTip="Show icons in the file explorer instead of thumbnails" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Always show icons never Thumbnail" FontSize="14" Tag=" |  |  | Performance" Style="{StaticResource ToggleSwitchStyle}" Name="AlwaysshowiconsneverThumbnail" ToolTip="Show icons in the file explorer instead of thumbnails" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Core Isolation Memory Integrity" FontSize="14" Tag="" Style="{StaticResource ToggleSwitchStyle}" Name="CoreIsolationMemoryIntegrity" ToolTip="Core Isolation Memory Integrity" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Core Isolation Memory Integrity" FontSize="14" Tag=" |  |  | Security" Style="{StaticResource ToggleSwitchStyle}" Name="CoreIsolationMemoryIntegrity" ToolTip="Core Isolation Memory Integrity" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Security"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Windows Sandbox" FontSize="14" Tag="" Style="{StaticResource ToggleSwitchStyle}" Name="WindowsSandbox" ToolTip="Windows Sandbox is a feature that allows you to run a sandboxed version of Windows" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Windows Sandbox" FontSize="14" Tag=" |  |  | Features" Style="{StaticResource ToggleSwitchStyle}" Name="WindowsSandbox" ToolTip="Windows Sandbox is a feature that allows you to run a sandboxed version of Windows" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Features"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Windows Subsystem for Linux" FontSize="14" Tag="" Style="{StaticResource ToggleSwitchStyle}" Name="WindowsSubsystemforLinux" ToolTip="Windows Subsystem for Linux is an optional feature of Windows that allows Linux programs to run natively on Windows without the need for a separate virtual machine or dual booting" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Windows Subsystem for Linux" FontSize="14" Tag=" |  |  | Features" Style="{StaticResource ToggleSwitchStyle}" Name="WindowsSubsystemforLinux" ToolTip="Windows Subsystem for Linux is an optional feature of Windows that allows Linux programs to run natively on Windows without the need for a separate virtual machine or dual booting" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Features"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="HyperV Virtualization" FontSize="14" Tag="" Style="{StaticResource ToggleSwitchStyle}" Name="HyperVVirtualization" ToolTip="HyperV is a hardware virtualization product developed by Microsoft that allows users to create and manage virtual machines" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="HyperV Virtualization" FontSize="14" Tag=" |  |  | Features" Style="{StaticResource ToggleSwitchStyle}" Name="HyperVVirtualization" ToolTip="HyperV is a hardware virtualization product developed by Microsoft that allows users to create and manage virtual machines" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Features"/>
 </StackPanel>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
-<TextBlock Text="" Visibility="Collapsed"/>
 </StackPanel>
 </ListView>
 </TabItem>
@@ -9741,7 +8309,7 @@ $itt.event.FindName('date').text = '04/01/2025'.Trim()
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
@@ -9750,7 +8318,7 @@ Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
