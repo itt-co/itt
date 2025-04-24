@@ -3,11 +3,8 @@ function Invoke-HyperV {
     <#
         .SYNOPSIS
         Toggles the visibility of file extensions in Windows Explorer.
-        .DESCRIPTION
-        The `Invoke-ShowFile-Extensions` function updates the Windows registry to show or hide file extensions for known file types in Windows Explorer based on the `$Enabled` parameter.
-        - If `$Enabled` is `$true`, file extensions are shown.
-        - If `$Enabled` is `$false`, file extensions are hidden.
     #>
+    
     Param($Enabled)
 
     Try{

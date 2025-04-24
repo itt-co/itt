@@ -1,5 +1,6 @@
 function Invoke-StickyKeys {
-     <#
+
+    <#
         .SYNOPSIS
         Toggles Sticky Keys functionality in Windows.
     #>

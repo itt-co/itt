@@ -4,6 +4,7 @@ function Invoke-WSL {
         .SYNOPSIS
         Toggles the visibility of file extensions in Windows Explorer.
     #>
+    
     Param($Enabled)
 
     Try{
