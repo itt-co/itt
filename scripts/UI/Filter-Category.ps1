@@ -57,7 +57,9 @@ function FilterByCat {
             }
 
             # Filter by category tag
-            return $item.Children[0].Children[0].Tag -eq $Cat
+            $tags = $item.Children[0].Children[0].Tag -split " \| "
+
+            return $tags[3] -eq $Cat
         }
     }
     else {
