@@ -163,7 +163,7 @@ function GenerateCheckboxes {
         $ITTPkg = $Item.ITT
 
         # Optional attributes for CheckBox based on fields
-        $Tag = if ($TagField) { "Tag=`"$($Item.$TagField)`"" } else { "" }
+        #$Tag = if ($TagField) { "Tag=`"$($Item.$TagField)`"" } else { "" }
 
         #$Tips = if ($TipsField) { "ToolTip=`"Install it again to update`"" } else { "" }
 
@@ -176,12 +176,9 @@ function GenerateCheckboxes {
         $Checkboxes += @"
         <StackPanel Orientation="Vertical" Margin="10">
             <StackPanel Orientation="Horizontal">
-                <CheckBox Content="$Content" FontSize="14" $Tag $Toggle $Name ToolTip="$CleanedDescription" Foreground="{DynamicResource TextColorSecondaryColor}"/>
-                <Label Margin="5,0,0,0" FontSize="13" Content="$CleanedCategory"/>
+                <CheckBox Content="$Content" FontSize="14" Tag="$ChocoPkg | $WingetPkg | $ITTPkg | $CleanedCategory" $Toggle $Name ToolTip="$CleanedDescription" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+                <Label Margin="5,0,0,0" FontSize="13" Content="$($Item.Category)"/>
             </StackPanel>
-            <TextBlock Text="$ChocoPkg" Visibility="Collapsed"/>
-            <TextBlock Text="$WingetPkg" Visibility="Collapsed"/>
-            <TextBlock Text="$ITTPkg" Visibility="Collapsed"/>
         </StackPanel>
 "@
     }
