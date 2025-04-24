@@ -5,7 +5,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "04/22/2025"
+lastupdate     = "04/24/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -3303,6 +3303,33 @@ else {
 return $false
 }
 }
+if ($ToggleSwitch -eq "WindowsSandbox") {
+$WS = Get-WindowsOptionalFeature -Online -FeatureName "Containers-DisposableClientVM"
+if ($WS.State -eq "Enabled") {
+return $true
+}
+else {
+return $false
+}
+}
+if ($ToggleSwitch -eq "WSL") {
+$WSL = Get-WindowsOptionalFeature -Online -FeatureName "Microsoft-Windows-Subsystem-Linux"
+if ($WSL.State -eq "Enabled") {
+return $true
+}
+else {
+return $false
+}
+}
+if ($ToggleSwitch -eq "HyperV") {
+$HyperV = Get-WindowsOptionalFeature -Online -FeatureName "Microsoft-Hyper-V"
+if ($HyperV.State -eq "Enabled") {
+return $true
+}
+else {
+return $false
+}
+}
 }
 function Install-App {
 param ([string]$Name,[string]$Choco,[string]$Winget,[string]$ITT)
@@ -3856,6 +3883,9 @@ Switch -Wildcard ($debug) {
 "disableautomaticdriverinstallation" { Invoke-DisableAutoDrivers $(Get-ToggleStatus disableautomaticdriverinstallation) }
 "AlwaysshowiconsneverThumbnail" { Invoke-ShowFile-Icons $(Get-ToggleStatus AlwaysshowiconsneverThumbnail) }
 "CoreIsolationMemoryIntegrity" { Invoke-Core-Isolation $(Get-ToggleStatus CoreIsolationMemoryIntegrity) }
+"WindowsSandbox" { Invoke-WindowsSandbox $(Get-ToggleStatus WindowsSandbox) }
+"WSL" { Invoke-WindowsSandbox $(Get-ToggleStatus WSL) }
+"HyperV" { Invoke-HyperV $(Get-ToggleStatus HyperV) }
 }
 }
 function Invoke-AutoEndTasks {
@@ -4031,6 +4061,22 @@ Write-Warning $psitem.Exception.ErrorRecord
 Catch{
 Write-Warning "Unable to set $Name due to unhandled exception"
 Write-Warning $psitem.Exception.StackTrace
+}
+}
+function Invoke-HyperV {
+Param($Enabled)
+Try{
+if ($Enabled -eq $false){
+Add-Log -Message "HyperV disabled" -Level "info"
+dism.exe /online /enable-feature /featurename:Microsoft-Hyper-V-All /all /norestart
+}
+else {
+Add-Log -Message "HyperV enabled" -Level "info"
+dism.exe /online /disable-feature /featurename:Microsoft-Hyper-V-All /norestart
+}
+}
+Catch [System.Security.SecurityException] {
+Write-Warning "Unable to set HyperV due to a Security Exception"
 }
 }
 function Invoke-MouseAcceleration {
@@ -4255,6 +4301,40 @@ Write-Warning "Unable to set $Path\$Name to $Value due to a Security Exception"
 }
 Catch{
 Write-Warning "Unable to set $Name due to unhandled exception"
+}
+}
+function Invoke-WindowsSandbox {
+Param($Enabled)
+Try{
+if ($Enabled -eq $false){
+Add-Log -Message "Sandbox disabled" -Level "info"
+Dism /online /Disable-Feature /FeatureName:"Containers-DisposableClientVM"
+}
+else {
+Add-Log -Message "Sandbox enabled" -Level "info"
+Dism /online /Enable-Feature /FeatureName:"Containers-DisposableClientVM" -All
+}
+}
+Catch [System.Security.SecurityException] {
+Write-Warning "Unable to set Windows Sandbox due to a Security Exception"
+}
+}
+function Invoke-WSL {
+Param($Enabled)
+Try{
+if ($Enabled -eq $false){
+Add-Log -Message "WSL2 disabled" -Level "info"
+dism.exe /online /disable-feature /featurename:Microsoft-Windows-Subsystem-Linux /norestart
+dism.exe /online /disable-feature /featurename:VirtualMachinePlatform /norestart
+}
+else {
+Add-Log -Message "WSL2 enabled" -Level "info"
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+}
+}
+Catch [System.Security.SecurityException] {
+Write-Warning "Unable to set WSL2 due to a Security Exception"
 }
 }
 function About {
@@ -9384,7 +9464,31 @@ ScrollViewer.CanContentScroll="True">
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Core Isolation Memory Integrity" FontSize="14" Tag="" Style="{StaticResource ToggleSwitchStyle}" Name="CoreIsolationMemoryIntegrity" ToolTip="Core Isolation Memory Integrity" Foreground="{DynamicResource TextColorSecondaryColor}"/>
-<Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
+<Label Margin="5,0,0,0" FontSize="13" Content="Security"/>
+</StackPanel>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Windows Sandbox" FontSize="14" Tag="" Style="{StaticResource ToggleSwitchStyle}" Name="WindowsSandbox" ToolTip="Windows Sandbox is a feature that allows you to run a sandboxed version of Windows" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<Label Margin="5,0,0,0" FontSize="13" Content="Features"/>
+</StackPanel>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Windows Subsystem for Linux" FontSize="14" Tag="" Style="{StaticResource ToggleSwitchStyle}" Name="WindowsSubsystemforLinux" ToolTip="Windows Subsystem for Linux is an optional feature of Windows that allows Linux programs to run natively on Windows without the need for a separate virtual machine or dual booting" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<Label Margin="5,0,0,0" FontSize="13" Content="Features"/>
+</StackPanel>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+<TextBlock Text="" Visibility="Collapsed"/>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="HyperV Virtualization" FontSize="14" Tag="" Style="{StaticResource ToggleSwitchStyle}" Name="HyperVVirtualization" ToolTip="HyperV is a hardware virtualization product developed by Microsoft that allows users to create and manage virtual machines" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<Label Margin="5,0,0,0" FontSize="13" Content="Features"/>
 </StackPanel>
 <TextBlock Text="" Visibility="Collapsed"/>
 <TextBlock Text="" Visibility="Collapsed"/>
@@ -9637,16 +9741,16 @@ $itt.event.FindName('date').text = '04/01/2025'.Trim()
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
