@@ -191,7 +191,7 @@ function Get-ToggleStatus {
     }
 
     # Windows Sandbox
-    if ($ToggleSwitch -eq "WSL") {
+    if ($ToggleSwitch -eq "WindowsSubsystemforLinux") {
         $WSL = Get-WindowsOptionalFeature -Online -FeatureName "Microsoft-Windows-Subsystem-Linux"
         if ($WSL.State -eq "Enabled") {
             return $true
@@ -202,8 +202,10 @@ function Get-ToggleStatus {
     }   
 
     # HyperV
-    if ($ToggleSwitch -eq "HyperV") {
+    if ($ToggleSwitch -eq "HyperVVirtualization") {
+
         $HyperV = Get-WindowsOptionalFeature -Online -FeatureName "Microsoft-Hyper-V"
+
         if ($HyperV.State -eq "Enabled") {
             return $true
         } 
