@@ -19,8 +19,8 @@ function Invoke-Toggle {
         "AlwaysshowiconsneverThumbnail" { Invoke-ShowFile-Icons $(Get-ToggleStatus AlwaysshowiconsneverThumbnail) }
         "CoreIsolationMemoryIntegrity" { Invoke-Core-Isolation $(Get-ToggleStatus CoreIsolationMemoryIntegrity) }
         "WindowsSandbox" { Invoke-WindowsSandbox $(Get-ToggleStatus WindowsSandbox) }
-        "WSL" { Invoke-WindowsSandbox $(Get-ToggleStatus WSL) }
-        "HyperV" { Invoke-HyperV $(Get-ToggleStatus HyperV) }
+        "WindowsSubsystemforLinux" { Invoke-WindowsSandbox $(Get-ToggleStatus WindowsSubsystemforLinux) }
+        "HyperVVirtualization" { Invoke-HyperV $(Get-ToggleStatus HyperVVirtualization) }
     }
     # debug start
     Add-Log -Message $debug -Level "debug"
