@@ -3701,7 +3701,7 @@ function UsageCount {
 $currentCount = Invoke-RestMethod -Uri $UsersCount -Method Get
 $Runs = ([int]$currentCount + 1).ToString()
 Invoke-RestMethod -Uri $UsersCount -Method Put -Body ($Runs | ConvertTo-Json -Compress) -Headers @{ "Content-Type" = "application/json" }
-Telegram -Message "Launch from`n$($itt.command)`nUsage`n$($Runs)`n$($itt.Language)"
+Telegram -Message "Version: $($itt.Date)`nURL: $($itt.command)`nLang: $($itt.Language)`nTotal Usage: $($Runs)"
 }
 function LOG {
 Write-Host "  `n` "
@@ -3786,7 +3786,7 @@ return
 }
 ITT-ScriptBlock -ArgumentList $selectedApps $i -Debug $debug -ScriptBlock {
 param($selectedApps , $i)
-UpdateUI -Button "installBtn" -Content "Downloading" -Width "auto"
+UpdateUI -Button "installBtn" -Content "Downloading now" -Width "auto"
 $itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
 $itt.ProcessRunning = $true
 foreach ($App in $selectedApps) {
@@ -4562,7 +4562,6 @@ Topmost="False"
 ShowInTaskbar = "True"
 TextOptions.TextFormattingMode="Ideal"
 TextOptions.TextRenderingMode="Auto"
-FontFamily="arial"
 Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico">
 <Window.Resources>
 <Storyboard x:Key="FadeOutStoryboard">
@@ -8107,6 +8106,7 @@ Text="✊ #StandWithPalestine"
 HorizontalAlignment="Left"
 VerticalAlignment="Center"
 TextWrapping="Wrap"
+FontWeight="SemiBold"
 Padding="10 0 0 0"
 Width="auto"
 />
