@@ -24,18 +24,16 @@ function Get-SelectedItems {
             foreach ($item in $itt.AppsListView.Items) {
                 
                 $checkbox = $item.Children[0].Children[0]
-                $choco = $item.children[1].Text
-                $winget = $item.children[2].Text
-                $itt = $item.children[3].Text
+        
+                $tags = $item.Children[0].Children[0].Tag -split " \| "
 
                 if ($checkbox.IsChecked) {
 
                     $items += @{
                         Name    = $checkbox.Content
-                        Choco   = $choco
-                        Winget  = $winget
-                        ITT     = $itt
-                        # Add a new download mothed here
+                        Choco   = $tags[0]
+                        Winget  = $tags[1]
+                        ITT     = $tags[2]
                     }
                 }
             }
