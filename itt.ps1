@@ -3312,7 +3312,7 @@ else {
 return $false
 }
 }
-if ($ToggleSwitch -eq "WSL") {
+if ($ToggleSwitch -eq "WindowsSubsystemforLinux") {
 $WSL = Get-WindowsOptionalFeature -Online -FeatureName "Microsoft-Windows-Subsystem-Linux"
 if ($WSL.State -eq "Enabled") {
 return $true
@@ -3321,7 +3321,7 @@ else {
 return $false
 }
 }
-if ($ToggleSwitch -eq "HyperV") {
+if ($ToggleSwitch -eq "HyperVVirtualization") {
 $HyperV = Get-WindowsOptionalFeature -Online -FeatureName "Microsoft-Hyper-V"
 if ($HyperV.State -eq "Enabled") {
 return $true
@@ -3884,8 +3884,8 @@ Switch -Wildcard ($debug) {
 "AlwaysshowiconsneverThumbnail" { Invoke-ShowFile-Icons $(Get-ToggleStatus AlwaysshowiconsneverThumbnail) }
 "CoreIsolationMemoryIntegrity" { Invoke-Core-Isolation $(Get-ToggleStatus CoreIsolationMemoryIntegrity) }
 "WindowsSandbox" { Invoke-WindowsSandbox $(Get-ToggleStatus WindowsSandbox) }
-"WSL" { Invoke-WindowsSandbox $(Get-ToggleStatus WSL) }
-"HyperV" { Invoke-HyperV $(Get-ToggleStatus HyperV) }
+"WindowsSubsystemforLinux" { Invoke-WindowsSandbox $(Get-ToggleStatus WindowsSubsystemforLinux) }
+"HyperVVirtualization" { Invoke-HyperV $(Get-ToggleStatus HyperVVirtualization) }
 }
 }
 function Invoke-AutoEndTasks {
@@ -9738,16 +9738,16 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '04/01/2025'.Trim()
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
-})
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
