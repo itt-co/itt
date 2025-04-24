@@ -67,6 +67,21 @@
   {
     "Name": "Core Isolation Memory Integrity",
     "description": "Core Isolation Memory Integrity",
-    "category": "Performance"
+    "category": "Security"
+  },
+  {
+    "Name": "Windows Sandbox",
+    "description": "Windows Sandbox is a feature that allows you to run a sandboxed version of Windows",
+    "category": "Features"
+  },
+  {
+    "Name": "Windows Subsystem for Linux",
+    "description": "Windows Subsystem for Linux is an optional feature of Windows that allows Linux programs to run natively on Windows without the need for a separate virtual machine or dual booting",
+    "category": "Features"
+  },
+  {
+    "Name": "HyperV Virtualization",
+    "description": "Hyper-V is a hardware virtualization product developed by Microsoft that allows users to create and manage virtual machines",
+    "category": "Features"
   }
 ]
