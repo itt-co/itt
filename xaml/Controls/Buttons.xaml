@@ -47,6 +47,7 @@
           HorizontalAlignment="Left"
           VerticalAlignment="Center" 
           TextWrapping="Wrap"
+          FontWeight="SemiBold"
           Padding="10 0 0 0"
           Width="auto"
         />
