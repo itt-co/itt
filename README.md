@@ -15,7 +15,7 @@
 ITT (Install Tweaks Tool) included most Windows 10/11 Software and Windows Tweaks & Remove Bloatwares & Windows activation
 
 ![Endpoint Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fittools-7d9fe-default-rtdb.firebaseio.com%2Fmessage.json)
-![Latest update](https://img.shields.io/badge/Latest%20update-04/25/2025-blue)
+![Latest update](https://img.shields.io/badge/Latest%20update-04/26/2025-blue)
 ![Script size](https://img.shields.io/github/size/emadadel4/itt/itt.ps1?label=Script%20size)
 <!-- ![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Femadadel4%2Fitt%2F&countColor=%23263759&style=flat) -->
 
@@ -164,16 +164,9 @@ Example:
 
 Don’t hesitate to speak up and join the conversation about Palestine. In this age, each of us has a role in raising awareness. Every post or message can inspire or educate others. Don’t fear expressing yourself, as words are a powerful force to change reality. Make your platforms spaces for dialogue and contribute to creating change. Together, we raise the voices of the oppressed and work toward global justice. Let’s unite for Palestine and restore hope to those who need it.
 
-<a href="https://www.palestinercs.org/en/Donation" target="blank">
-Donate to the Palestinian Red Crescent
-</a>
+[Donation](https://www.palestinercs.org/en/Donation)
 
-<div style="display: flex; gap: 5px;">
-<a href="https://github.com/boycott4/boycott" target="blank">
-Other way to support (Boycott)
-</a>
-<a href="/docs/Supportar.md" target="blank">
-</div>
+[Other way to support (boycott)](https://boycott4.github.io/boycott/)
 
 ### Recommended videos.
 
