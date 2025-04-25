@@ -5,7 +5,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "04/24/2025"
+lastupdate     = "04/25/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -5117,26 +5117,26 @@ Duration="0:0:0.1" />
 </Style.Triggers>
 </Style>
 <ResourceDictionary x:Key="Dark">
-<SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#2b2d31"/>
-<SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#3c3f40"/>
-<SolidColorBrush x:Key="PrimaryButtonForeground" Color="#098fd4" />
-<SolidColorBrush x:Key="PrimaryButtonHighlight" Color="White" />
-<SolidColorBrush x:Key="TextColorPrimary" Color="WhiteSmoke" />
-<SolidColorBrush x:Key="TextColorSecondaryColor" Color="White"/>
-<SolidColorBrush x:Key="TextColorSecondaryColor2" Color="#bbbbbb"/>
-<SolidColorBrush x:Key="BorderBrush" Color="#2b2d31" />
-<SolidColorBrush x:Key="ButtonBorderColor" Color="#1DB954"/>
-<SolidColorBrush x:Key="Label" Color="#3f3f3f"/>
-<SolidColorBrush x:Key="HighlightColor" Color="CornflowerBlue"/>
-<SolidColorBrush x:Key="ToggleSwitchBackgroundColor" Color="#282828"/>
-<SolidColorBrush x:Key="ToggleSwitchForegroundColor" Color="#282828"/>
+<SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#22272e"/>
+<SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#2d333b"/>
+<SolidColorBrush x:Key="itemColor1" Color="#2d333b"/>
+<SolidColorBrush x:Key="itemColor2" Color="#333942"/>
+<SolidColorBrush x:Key="TextColorPrimary" Color="#adbac7"/>
+<SolidColorBrush x:Key="TextColorSecondaryColor" Color="#cdd9e5"/>
+<SolidColorBrush x:Key="TextColorSecondaryColor2" Color="#768390"/>
+<SolidColorBrush x:Key="PrimaryButtonForeground" Color="#539bf5"/>
+<SolidColorBrush x:Key="PrimaryButtonHighlight" Color="#539bf5"/>
+<SolidColorBrush x:Key="ButtonBorderColor" Color="#539bf5"/>
+<SolidColorBrush x:Key="HighlightColor" Color="#316dca"/>
+<SolidColorBrush x:Key="BorderBrush" Color="#444c56"/>
+<SolidColorBrush x:Key="Label" Color="#373e47"/>
+<SolidColorBrush x:Key="ToggleSwitchBackgroundColor" Color="#373e47"/>
+<SolidColorBrush x:Key="ToggleSwitchForegroundColor" Color="#22272e"/>
 <SolidColorBrush x:Key="ToggleSwitchEnableColor" Color="white"/>
-<SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="#c9c9c7"/>
-<SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#c9c9c7"/>
-<Color x:Key="ListViewCardLeftColor">#3c3f44</Color>
-<SolidColorBrush x:Key="itemColor1" Color="#3c3f40"/>
-<SolidColorBrush x:Key="itemColor2" Color="#3c3f45"/>
-<SolidColorBrush x:Key="logo" Color="CornflowerBlue"/>
+<SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="#768390"/>
+<SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#444c56"/>
+<SolidColorBrush x:Key="logo" Color="#539bf5"/>
+<Color x:Key="ListViewCardLeftColor">#2d333b</Color>
 <ImageBrush x:Key="BackgroundImage" ImageSource="{x:Null}" Stretch="UniformToFill"/>
 <x:String x:Key="SubText">Install Tweaks Tool</x:String>
 </ResourceDictionary>
@@ -5164,25 +5164,25 @@ Duration="0:0:0.1" />
 <x:String x:Key="SubText">I am not a hero</x:String>
 </ResourceDictionary>
 <ResourceDictionary x:Key="Light">
-<SolidColorBrush x:Key="PrimaryBackgroundColor" Color="White"/>
-<SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="WhiteSmoke"/>
-<SolidColorBrush x:Key="PrimaryButtonForeground" Color="#1976d2" />
-<SolidColorBrush x:Key="PrimaryButtonHighlight" Color="White" />
-<SolidColorBrush x:Key="TextColorPrimary" Color="Black" />
-<SolidColorBrush x:Key="TextColorSecondaryColor" Color="Black"/>
-<SolidColorBrush x:Key="TextColorSecondaryColor2" Color="#4B5361"/>
-<SolidColorBrush x:Key="BorderBrush" Color="#FFB3B3B3"/>
-<SolidColorBrush x:Key="ButtonBorderColor" Color="#525FE1"/>
-<SolidColorBrush x:Key="Label" Color="LightBlue"/>
-<SolidColorBrush x:Key="HighlightColor" Color="#098fd4"/>
-<SolidColorBrush x:Key="ToggleSwitchBackgroundColor" Color="#282828"/>
-<SolidColorBrush x:Key="ToggleSwitchForegroundColor" Color="#282828"/>
+<SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#ffffff"/>
+<SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#f6f8fa"/>
+<SolidColorBrush x:Key="itemColor1" Color="#f6f8fa"/>
+<SolidColorBrush x:Key="itemColor2" Color="#ebf0f4"/>
+<SolidColorBrush x:Key="TextColorPrimary" Color="#24292f"/>
+<SolidColorBrush x:Key="TextColorSecondaryColor" Color="#1f2328"/>
+<SolidColorBrush x:Key="TextColorSecondaryColor2" Color="#57606a"/>
+<SolidColorBrush x:Key="PrimaryButtonForeground" Color="#0969da"/>
+<SolidColorBrush x:Key="PrimaryButtonHighlight" Color="#ffffff"/>
+<SolidColorBrush x:Key="ButtonBorderColor" Color="#0969da"/>
+<SolidColorBrush x:Key="HighlightColor" Color="#218bff"/>
+<SolidColorBrush x:Key="BorderBrush" Color="#d0d7de"/>
+<SolidColorBrush x:Key="Label" Color="#d8e0e7"/>
+<SolidColorBrush x:Key="ToggleSwitchBackgroundColor" Color="#d0d7de"/>
+<SolidColorBrush x:Key="ToggleSwitchForegroundColor" Color="#f6f8fa"/>
 <SolidColorBrush x:Key="ToggleSwitchEnableColor" Color="white"/>
-<SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="black"/>
-<SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="black"/>
-<SolidColorBrush x:Key="itemColor1" Color="#fff1f1f1"/>
-<SolidColorBrush x:Key="itemColor2" Color="#fff1f9f9"/>
-<SolidColorBrush x:Key="logo" Color="black"/>
+<SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="#57606a"/>
+<SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#d0d7de"/>
+<SolidColorBrush x:Key="logo" Color="#0969da"/>
 <ImageBrush x:Key="BackgroundImage" ImageSource="{x:Null}" Stretch="UniformToFill"/>
 <x:String x:Key="SubText">Install Tweaks Tool</x:String>
 </ResourceDictionary>
@@ -8309,17 +8309,17 @@ $itt.event.FindName('date').text = '04/01/2025'.Trim()
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
-})
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
 $daysElapsed = (Get-Date) - $storedDate
