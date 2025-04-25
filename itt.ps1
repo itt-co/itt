@@ -5119,8 +5119,6 @@ Duration="0:0:0.1" />
 <ResourceDictionary x:Key="Dark">
 <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#22272e"/>
 <SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#2d333b"/>
-<SolidColorBrush x:Key="itemColor1" Color="#2d333b"/>
-<SolidColorBrush x:Key="itemColor2" Color="#333942"/>
 <SolidColorBrush x:Key="TextColorPrimary" Color="#adbac7"/>
 <SolidColorBrush x:Key="TextColorSecondaryColor" Color="#cdd9e5"/>
 <SolidColorBrush x:Key="TextColorSecondaryColor2" Color="#768390"/>
@@ -5135,39 +5133,38 @@ Duration="0:0:0.1" />
 <SolidColorBrush x:Key="ToggleSwitchEnableColor" Color="white"/>
 <SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="#768390"/>
 <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#444c56"/>
+<SolidColorBrush x:Key="itemColor1" Color="#2d333b"/>
+<SolidColorBrush x:Key="itemColor2" Color="#333942"/>
 <SolidColorBrush x:Key="logo" Color="#539bf5"/>
-<Color x:Key="ListViewCardLeftColor">#2d333b</Color>
 <ImageBrush x:Key="BackgroundImage" ImageSource="{x:Null}" Stretch="UniformToFill"/>
 <x:String x:Key="SubText">Install Tweaks Tool</x:String>
 </ResourceDictionary>
 <ResourceDictionary x:Key="DarkKnight">
-<SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#081015"/>
-<SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#17181D"/>
-<SolidColorBrush x:Key="PrimaryButtonForeground" Color="#004D69" />
-<SolidColorBrush x:Key="PrimaryButtonHighlight" Color="White" />
-<SolidColorBrush x:Key="TextColorPrimary" Color="WhiteSmoke" />
-<SolidColorBrush x:Key="TextColorSecondaryColor" Color="White"/>
-<SolidColorBrush x:Key="TextColorSecondaryColor2" Color="#bbbbbb"/>
-<SolidColorBrush x:Key="BorderBrush" Color="#2b2d31" />
-<SolidColorBrush x:Key="ButtonBorderColor" Color="#1DB954"/>
-<SolidColorBrush x:Key="Label" Color="#3f3f3f"/>
-<SolidColorBrush x:Key="HighlightColor" Color="CornflowerBlue"/>
-<SolidColorBrush x:Key="ToggleSwitchBackgroundColor" Color="#282828"/>
-<SolidColorBrush x:Key="ToggleSwitchForegroundColor" Color="#282828"/>
+<SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#0a0a0a"/>
+<SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#121212"/>
+<SolidColorBrush x:Key="TextColorPrimary" Color="#e6e6e6"/>
+<SolidColorBrush x:Key="TextColorSecondaryColor" Color="#cccccc"/>
+<SolidColorBrush x:Key="TextColorSecondaryColor2" Color="#999999"/>
+<SolidColorBrush x:Key="PrimaryButtonForeground" Color="#00b7ff"/>
+<SolidColorBrush x:Key="PrimaryButtonHighlight" Color="#00b7ff"/>
+<SolidColorBrush x:Key="ButtonBorderColor" Color="#ff0000"/>
+<SolidColorBrush x:Key="HighlightColor" Color="#00b7ff"/>
+<SolidColorBrush x:Key="BorderBrush" Color="#1c1c1c"/>
+<SolidColorBrush x:Key="Label" Color="#2a2a2a"/>
+<SolidColorBrush x:Key="ToggleSwitchBackgroundColor" Color="#1a1a1a"/>
+<SolidColorBrush x:Key="ToggleSwitchForegroundColor" Color="#0f0f0f"/>
 <SolidColorBrush x:Key="ToggleSwitchEnableColor" Color="white"/>
-<SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="#c9c9c7"/>
-<SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#c9c9c7"/>
-<SolidColorBrush x:Key="itemColor1" Color="#17183D"/>
-<SolidColorBrush x:Key="itemColor2" Color="#17182D"/>
-<SolidColorBrush x:Key="logo" Color="CornflowerBlue"/>
-<ImageBrush x:Key="BackgroundImage" ImageSource="https://images.hdqwalls.com/wallpapers/the-batman-fan-made-4k-xx.jpg" Stretch="UniformToFill"/>
+<SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="#666666"/>
+<SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#444444"/>
+<SolidColorBrush x:Key="itemColor1" Color="#141414"/>
+<SolidColorBrush x:Key="itemColor2" Color="#1c1c1c"/>
+<SolidColorBrush x:Key="logo" Color="#00b7ff"/>
+<ImageBrush x:Key="BackgroundImage" ImageSource="https://images.hdqwalls.com/wallpapers/the-batman-fan-made-4k-xx.jpg" Stretch="UniformToFill" Opacity="0.4" />
 <x:String x:Key="SubText">I am not a hero</x:String>
 </ResourceDictionary>
 <ResourceDictionary x:Key="Light">
 <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#ffffff"/>
 <SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#f6f8fa"/>
-<SolidColorBrush x:Key="itemColor1" Color="#f6f8fa"/>
-<SolidColorBrush x:Key="itemColor2" Color="#ebf0f4"/>
 <SolidColorBrush x:Key="TextColorPrimary" Color="#24292f"/>
 <SolidColorBrush x:Key="TextColorSecondaryColor" Color="#1f2328"/>
 <SolidColorBrush x:Key="TextColorSecondaryColor2" Color="#57606a"/>
@@ -5182,31 +5179,33 @@ Duration="0:0:0.1" />
 <SolidColorBrush x:Key="ToggleSwitchEnableColor" Color="white"/>
 <SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="#57606a"/>
 <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#d0d7de"/>
+<SolidColorBrush x:Key="itemColor1" Color="#f6f8fa"/>
+<SolidColorBrush x:Key="itemColor2" Color="#ebf0f4"/>
 <SolidColorBrush x:Key="logo" Color="#0969da"/>
 <ImageBrush x:Key="BackgroundImage" ImageSource="{x:Null}" Stretch="UniformToFill"/>
 <x:String x:Key="SubText">Install Tweaks Tool</x:String>
 </ResourceDictionary>
 <ResourceDictionary x:Key="Palestine">
-<SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#FF1F1F1F"/>
-<SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#2C211A"/>
-<SolidColorBrush x:Key="PrimaryButtonForeground" Color="#FFB80000" />
-<SolidColorBrush x:Key="PrimaryButtonHighlight" Color="White" />
-<SolidColorBrush x:Key="TextColorPrimary" Color="WhiteSmoke" />
-<SolidColorBrush x:Key="TextColorSecondaryColor" Color="White"/>
-<SolidColorBrush x:Key="TextColorSecondaryColor2" Color="#bbbbbb"/>
-<SolidColorBrush x:Key="BorderBrush" Color="#2b2d31" />
-<SolidColorBrush x:Key="ButtonBorderColor" Color="#1DB954"/>
-<SolidColorBrush x:Key="Label" Color="#3f3f3f"/>
-<SolidColorBrush x:Key="HighlightColor" Color="#FFD10D0D"/>
-<SolidColorBrush x:Key="ToggleSwitchBackgroundColor" Color="#282828"/>
-<SolidColorBrush x:Key="ToggleSwitchForegroundColor" Color="#282828"/>
-<SolidColorBrush x:Key="ToggleSwitchEnableColor" Color="white"/>
-<SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="#c9c9c7"/>
-<SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#c9c9c7"/>
-<SolidColorBrush x:Key="itemColor1" Color="#2C211A"/>
-<SolidColorBrush x:Key="itemColor2" Color="#2C212D"/>
-<SolidColorBrush x:Key="logo" Color="red"/>
-<ImageBrush x:Key="BackgroundImage" ImageSource="https://w.wallhaven.cc/full/we/wallhaven-wegrj6.jpg" Stretch="UniformToFill"/>
+<SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#111111"/>
+<SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#1c1c1c"/>
+<SolidColorBrush x:Key="TextColorPrimary" Color="#F5F5F5"/>
+<SolidColorBrush x:Key="TextColorSecondaryColor" Color="#CCCCCC"/>
+<SolidColorBrush x:Key="TextColorSecondaryColor2" Color="#888888"/>
+<SolidColorBrush x:Key="PrimaryButtonForeground" Color="#D70000"/>
+<SolidColorBrush x:Key="PrimaryButtonHighlight" Color="#FFFFFF"/>
+<SolidColorBrush x:Key="ButtonBorderColor" Color="#007A3D"/>
+<SolidColorBrush x:Key="BorderBrush" Color="#2a2a2a"/>
+<SolidColorBrush x:Key="Label" Color="#444444"/>
+<SolidColorBrush x:Key="HighlightColor" Color="#D70000"/>
+<SolidColorBrush x:Key="ToggleSwitchBackgroundColor" Color="#202020"/>
+<SolidColorBrush x:Key="ToggleSwitchForegroundColor" Color="#2b2b2b"/>
+<SolidColorBrush x:Key="ToggleSwitchEnableColor" Color="#007A3D"/>
+<SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="#555555"/>
+<SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#777777"/>
+<SolidColorBrush x:Key="itemColor1" Color="#161616"/>
+<SolidColorBrush x:Key="itemColor2" Color="#1f1f1f"/>
+<SolidColorBrush x:Key="logo" Color="#D70000"/>
+<ImageBrush x:Key="BackgroundImage" ImageSource="https://w.wallhaven.cc/full/we/wallhaven-wegrj6.jpg" Stretch="UniformToFill" Opacity="0.4"/>
 <x:String x:Key="SubText">#StandWithPalestine</x:String>
 </ResourceDictionary>
 </Window.Resources>
@@ -8306,20 +8305,20 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '04/01/2025'.Trim()
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
 $daysElapsed = (Get-Date) - $storedDate
