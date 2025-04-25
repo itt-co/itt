@@ -34,7 +34,7 @@
 
     <!-- Misc -->
     <SolidColorBrush x:Key="logo" Color="#00b7ff"/> 
-    <ImageBrush x:Key="BackgroundImage" ImageSource="https://images.hdqwalls.com/wallpapers/the-batman-fan-made-4k-xx.jpg" Stretch="UniformToFill" />
+    <ImageBrush x:Key="BackgroundImage" ImageSource="https://images.hdqwalls.com/wallpapers/the-batman-fan-made-4k-xx.jpg" Stretch="UniformToFill" Opacity="0.4" />
     <x:String x:Key="SubText">I am not a hero</x:String>
 
 </ResourceDictionary>
