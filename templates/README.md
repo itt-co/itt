@@ -164,16 +164,9 @@ Example:
 
 Don’t hesitate to speak up and join the conversation about Palestine. In this age, each of us has a role in raising awareness. Every post or message can inspire or educate others. Don’t fear expressing yourself, as words are a powerful force to change reality. Make your platforms spaces for dialogue and contribute to creating change. Together, we raise the voices of the oppressed and work toward global justice. Let’s unite for Palestine and restore hope to those who need it.
 
-<a href="https://www.palestinercs.org/en/Donation" target="blank">
-Donate to the Palestinian Red Crescent
-</a>
+[Donation](https://www.palestinercs.org/en/Donation)
 
-<div style="display: flex; gap: 5px;">
-<a href="https://github.com/boycott4/boycott" target="blank">
-Other way to support (Boycott)
-</a>
-<a href="/docs/Supportar.md" target="blank">
-</div>
+[Other way to support (boycott)](https://boycott4.github.io/boycott/)
 
 ### Recommended videos.
 
