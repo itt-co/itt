@@ -43,7 +43,7 @@ ITT (Install Tweaks Tool) included most Windows 10/11 Software and Windows Tweak
 - **🚀 Automated Installation**: Say goodbye to manual software installations. ITT automates the process, saving you time and effort.
 - **⚙️ Windows Debloater**: Remove bloatware, boost performance, and customize Windows effortlessly with ITT. Optimize your system in minutes.
 - **👩‍💻 Developer-Friendly**: Easy-to-use and clear documentation to add a new app or tweaks as you like, you can create a new method to download apps. Be creative. <a href="#-how-to-contribute">How to Contribute</a> or <a href="#%EF%B8%8F-youre-not-a-developer">App Request</a>
-- **🎵 Soundtracks**: Enjoy listening to the best music from games and movies while downloading your programs.
+- **🎵 Soundtracks**: Enjoy listening to best music from games and movies while downloading your programs.
 
 <h2>⚡ Usage</h2>
 
