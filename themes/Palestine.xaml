@@ -3,8 +3,8 @@
 <ResourceDictionary x:Key="Palestine">
 
     <!-- Backgrounds -->
-    <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#111111"/>
-    <SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#1c1c1c"/>
+    <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="black"/>
+    <SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="black"/>
 
     <!-- Text -->
     <SolidColorBrush x:Key="TextColorPrimary" Color="#F5F5F5"/>
@@ -12,29 +12,29 @@
     <SolidColorBrush x:Key="TextColorSecondaryColor2" Color="#888888"/>
 
     <!-- Buttons and Highlights -->
-    <SolidColorBrush x:Key="PrimaryButtonForeground" Color="#D70000"/>
+    <SolidColorBrush x:Key="PrimaryButtonForeground" Color="#00D96D"/>
     <SolidColorBrush x:Key="PrimaryButtonHighlight" Color="#FFFFFF"/>
     <SolidColorBrush x:Key="ButtonBorderColor" Color="#007A3D"/>
 
     <!-- Borders and Labels -->
-    <SolidColorBrush x:Key="BorderBrush" Color="#2a2a2a"/>
+    <SolidColorBrush x:Key="BorderBrush" Color="black"/>
     <SolidColorBrush x:Key="Label" Color="#444444"/>
-    <SolidColorBrush x:Key="HighlightColor" Color="#D70000"/>
+    <SolidColorBrush x:Key="HighlightColor" Color="#00D96D"/>
 
     <!-- Toggle Switch -->
     <SolidColorBrush x:Key="ToggleSwitchBackgroundColor" Color="#202020"/>
     <SolidColorBrush x:Key="ToggleSwitchForegroundColor" Color="#2b2b2b"/>
-    <SolidColorBrush x:Key="ToggleSwitchEnableColor" Color="#007A3D"/>
+    <SolidColorBrush x:Key="ToggleSwitchEnableColor" Color="white"/>
     <SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="#555555"/>
     <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#777777"/>
 
     <!-- ListView -->
-    <SolidColorBrush x:Key="itemColor1" Color="#161616"/>
-    <SolidColorBrush x:Key="itemColor2" Color="#1f1f1f"/>
+    <SolidColorBrush x:Key="itemColor1" Color="#000000"/>
+    <SolidColorBrush x:Key="itemColor2" Color="#000002"/>
 
     <!-- Misc -->
-    <SolidColorBrush x:Key="logo" Color="#D70000"/> <!-- Strong red logo -->
-    <ImageBrush x:Key="BackgroundImage" ImageSource="https://w.wallhaven.cc/full/we/wallhaven-wegrj6.jpg" Stretch="UniformToFill" Opacity="0.4"/>
+    <SolidColorBrush x:Key="logo" Color="#00D96D"/>
+    <ImageBrush x:Key="BackgroundImage" ImageSource="https://w.wallhaven.cc/full/we/wallhaven-wegrj6.jpg" Stretch="UniformToFill" Opacity="0.3"/>
     <x:String x:Key="SubText">#StandWithPalestine</x:String>
 
 </ResourceDictionary>
