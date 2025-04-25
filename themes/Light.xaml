@@ -1,26 +1,36 @@
 <!-- {Light} -->
 <!-- by {emadadel} -->
 <ResourceDictionary x:Key="Light">
- <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="White"/>
- <SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="WhiteSmoke"/>
- <SolidColorBrush x:Key="PrimaryButtonForeground" Color="#1976d2" />
- <SolidColorBrush x:Key="PrimaryButtonHighlight" Color="White" />
- <SolidColorBrush x:Key="TextColorPrimary" Color="Black" />
- <SolidColorBrush x:Key="TextColorSecondaryColor" Color="Black"/>
- <SolidColorBrush x:Key="TextColorSecondaryColor2" Color="#4B5361"/>
- <SolidColorBrush x:Key="BorderBrush" Color="#FFB3B3B3"/>
- <SolidColorBrush x:Key="ButtonBorderColor" Color="#525FE1"/>
- <SolidColorBrush x:Key="Label" Color="LightBlue"/>
- <SolidColorBrush x:Key="HighlightColor" Color="#098fd4"/>
- <SolidColorBrush x:Key="ToggleSwitchBackgroundColor" Color="#282828"/>
- <SolidColorBrush x:Key="ToggleSwitchForegroundColor" Color="#282828"/>
- <SolidColorBrush x:Key="ToggleSwitchEnableColor" Color="white"/>
- <SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="black"/>
- <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="black"/>
-<SolidColorBrush x:Key="itemColor1" Color="#fff1f1f1"/>
-<SolidColorBrush x:Key="itemColor2" Color="#fff1f9f9"/>
- <SolidColorBrush x:Key="logo" Color="black"/>
- <ImageBrush x:Key="BackgroundImage" ImageSource="{x:Null}" Stretch="UniformToFill"/>
- <x:String x:Key="SubText">Install Tweaks Tool</x:String>
+    <!-- Backgrounds -->
+    <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#ffffff"/>
+    <SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#f6f8fa"/>
+    <SolidColorBrush x:Key="itemColor1" Color="#f6f8fa"/>
+    <SolidColorBrush x:Key="itemColor2" Color="#ebf0f4"/>
+
+    <!-- Text -->
+    <SolidColorBrush x:Key="TextColorPrimary" Color="#24292f"/>
+    <SolidColorBrush x:Key="TextColorSecondaryColor" Color="#1f2328"/>
+    <SolidColorBrush x:Key="TextColorSecondaryColor2" Color="#57606a"/>
+
+    <!-- Buttons and Highlights -->
+    <SolidColorBrush x:Key="PrimaryButtonForeground" Color="#0969da"/>
+    <SolidColorBrush x:Key="PrimaryButtonHighlight" Color="#ffffff"/>
+    <SolidColorBrush x:Key="ButtonBorderColor" Color="#0969da"/>
+    <SolidColorBrush x:Key="HighlightColor" Color="#218bff"/>
+
+    <!-- Borders and Labels -->
+    <SolidColorBrush x:Key="BorderBrush" Color="#d0d7de"/>
+    <SolidColorBrush x:Key="Label" Color="#d8e0e7"/>
+
+    <!-- Toggle Switch -->
+    <SolidColorBrush x:Key="ToggleSwitchBackgroundColor" Color="#d0d7de"/>
+    <SolidColorBrush x:Key="ToggleSwitchForegroundColor" Color="#f6f8fa"/>
+    <SolidColorBrush x:Key="ToggleSwitchEnableColor" Color="white"/>
+    <SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="#57606a"/>
+    <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#d0d7de"/>
+
+    <!-- Misc -->
+    <SolidColorBrush x:Key="logo" Color="#0969da"/>
+    <ImageBrush x:Key="BackgroundImage" ImageSource="{x:Null}" Stretch="UniformToFill"/>
+    <x:String x:Key="SubText">Install Tweaks Tool</x:String>
 </ResourceDictionary>
-<!-- {Light} -->
