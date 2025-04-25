@@ -1,11 +1,10 @@
 <!-- {Light} -->
 <!-- by {emadadel} -->
 <ResourceDictionary x:Key="Light">
+
     <!-- Backgrounds -->
     <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#ffffff"/>
     <SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#f6f8fa"/>
-    <SolidColorBrush x:Key="itemColor1" Color="#f6f8fa"/>
-    <SolidColorBrush x:Key="itemColor2" Color="#ebf0f4"/>
 
     <!-- Text -->
     <SolidColorBrush x:Key="TextColorPrimary" Color="#24292f"/>
@@ -29,8 +28,13 @@
     <SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="#57606a"/>
     <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#d0d7de"/>
 
+    <!-- ListView -->
+    <SolidColorBrush x:Key="itemColor1" Color="#f6f8fa"/>
+    <SolidColorBrush x:Key="itemColor2" Color="#ebf0f4"/>
+
     <!-- Misc -->
     <SolidColorBrush x:Key="logo" Color="#0969da"/>
     <ImageBrush x:Key="BackgroundImage" ImageSource="{x:Null}" Stretch="UniformToFill"/>
     <x:String x:Key="SubText">Install Tweaks Tool</x:String>
+
 </ResourceDictionary>

@@ -1,11 +1,10 @@
 <!-- {Dark} -->
 <!-- by {emadadel} -->
 <ResourceDictionary x:Key="Dark">
+
     <!-- Backgrounds -->
     <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#22272e"/>
     <SolidColorBrush x:Key="SecondaryPrimaryBackgroundColor" Color="#2d333b"/>
-    <SolidColorBrush x:Key="itemColor1" Color="#2d333b"/>
-    <SolidColorBrush x:Key="itemColor2" Color="#333942"/>
 
     <!-- Text -->
     <SolidColorBrush x:Key="TextColorPrimary" Color="#adbac7"/>
@@ -18,7 +17,7 @@
     <SolidColorBrush x:Key="ButtonBorderColor" Color="#539bf5"/>
     <SolidColorBrush x:Key="HighlightColor" Color="#316dca"/>
 
-    <!-- Borders and Lines -->
+    <!-- Borders and Labels -->
     <SolidColorBrush x:Key="BorderBrush" Color="#444c56"/>
     <SolidColorBrush x:Key="Label" Color="#373e47"/>
 
@@ -29,9 +28,13 @@
     <SolidColorBrush x:Key="ToggleSwitchDisableColor" Color="#768390"/>
     <SolidColorBrush x:Key="ToggleSwitchBorderBrush" Color="#444c56"/>
 
+    <!-- ListView -->
+    <SolidColorBrush x:Key="itemColor1" Color="#2d333b"/>
+    <SolidColorBrush x:Key="itemColor2" Color="#333942"/>
+
     <!-- Misc -->
     <SolidColorBrush x:Key="logo" Color="#539bf5"/>
-    <Color x:Key="ListViewCardLeftColor">#2d333b</Color>
     <ImageBrush x:Key="BackgroundImage" ImageSource="{x:Null}" Stretch="UniformToFill"/>
     <x:String x:Key="SubText">Install Tweaks Tool</x:String>
+
 </ResourceDictionary>
