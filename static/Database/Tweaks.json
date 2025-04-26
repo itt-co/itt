@@ -2550,7 +2550,7 @@
     ]
   },
   {
-    "Name": "Unknown",
+    "Name": "Set Username to Unknown",
     "Description": "Rename Computer name and Username to Unknown. The changes will take effect after you restart the computer",
     "Category": "Privacy",
     "Check": "false",
