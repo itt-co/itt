@@ -5,7 +5,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "04/25/2025"
+lastupdate     = "04/27/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -2582,7 +2582,7 @@ $itt.database.Tweaks = @'
 ]
 },
 {
-"Name": "Unknown",
+"Name": "Set Username to Unknown",
 "Description": "Rename Computer name and Username to Unknown. The changes will take effect after you restart the computer",
 "Category": "Privacy",
 "Check": "false",
@@ -7907,7 +7907,7 @@ ScrollViewer.CanContentScroll="True">
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Unknown" FontSize="14" Tag=" |  |  | Privacy"   ToolTip="Rename Computer name and Username to Unknown. The changes will take effect after you restart the computer" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Set Username to Unknown" FontSize="14" Tag=" |  |  | Privacy"   ToolTip="Rename Computer name and Username to Unknown. The changes will take effect after you restart the computer" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
@@ -8305,16 +8305,16 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '04/01/2025'.Trim()
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
