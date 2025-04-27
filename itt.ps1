@@ -4513,10 +4513,11 @@ $itt.Theme = $Theme
 catch { Write-Host "Error: $_" }
 }
 function UpdateUI {
-param([string]$Button, [string]$Content, [string]$Width = "140")
+param([string]$Button,[string]$Content,[string]$Width = "140")
+$key = $itt.database.locales.Controls.$($itt.Language).$Content
 $itt['window'].Dispatcher.Invoke([Action]{
 $itt.$Button.Width = $Width
-$itt.$Button.Content = $itt.database.locales.Controls.$($itt.Language).$Content -or $Content
+$itt.$Button.Content = "$key"
 })
 }
 $MainWindowXaml = '

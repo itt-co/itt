@@ -1,13 +1,17 @@
 function UpdateUI {
-
+    
     <#
         .SYNOPSIS
-        Update button Content and width
+        Update interface elements, including a button's width, text, and associated icons.
+        .DESCRIPTION
     #>
+
+    param([string]$Button,[string]$Content,[string]$Width = "140")
     
-    param([string]$Button, [string]$Content, [string]$Width = "140")
+    $key = $itt.database.locales.Controls.$($itt.Language).$Content
+
     $itt['window'].Dispatcher.Invoke([Action]{
         $itt.$Button.Width = $Width
-        $itt.$Button.Content = $itt.database.locales.Controls.$($itt.Language).$Content -or $Content
+        $itt.$Button.Content = "$key"
     })
 }
