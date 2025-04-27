@@ -8,7 +8,8 @@ function UpdateUI {
     param([string]$Button,[string]$Content,[string]$Width = "140")
     
     $key = $itt.database.locales.Controls.$($itt.Language).$Content
-
+    
+    # Check if the localized string (key) exists in the locales
     $text = if (-not $key) { $Content } else { $key }
 
     $itt['window'].Dispatcher.Invoke([Action]{
