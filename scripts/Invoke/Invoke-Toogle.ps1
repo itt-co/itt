@@ -1,4 +1,9 @@
 function Invoke-Toggle {
+
+    <#
+        .SYNOPSIS
+        Toggles various system settings based on the provided debug string input.
+    #>
     
     Param ([string]$debug)
 
