@@ -1948,21 +1948,6 @@
     "Registry": []
   },
   {
-    "Name": "Remove Microsoft Edge (Not Recommended)",
-    "Description": "Removes Edge from the system",
-    "Category": "Performance",
-    "Check": "false",
-    "Refresh": "false",
-    "Script": [
-      "irm https://raw.githubusercontent.com/emadadel4/WindowsTweaks/refs/heads/main/Edge-Remover.ps1 | iex"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
-  },
-  {
     "Name": "Activate Windows Classic Photo Viewer",
     "Description": "Classic Photo Viewer",
     "Category": "Classic",
