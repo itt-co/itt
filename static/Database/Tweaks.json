@@ -1618,7 +1618,7 @@
   },
   {
     "Name": "Disable Start Menu Ads",
-    "Description": "Start menu Ads and Settings",
+    "Description": "Start menu Ads and web search",
     "Category": "Privacy",
     "Check": "false",
     "Refresh": "true",
@@ -1628,6 +1628,13 @@
     "AppxPackage": [],
     "Services": [],
     "Registry": [
+      {
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
+        "Name": "BingSearchEnabled",
+        "Type": "DWord",
+        "Value": "0",
+        "defaultValue": "1"
+      },
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo",
         "Name": "Enabled",
@@ -1652,27 +1659,6 @@
       {
         "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
         "Name": "ShowSyncProviderNotifications",
-        "Type": "DWord",
-        "Value": "0",
-        "defaultValue": "1"
-      }
-    ]
-  },
-  {
-    "Name": "Disable Windows Web Search",
-    "Description": "Web results in search",
-    "Category": "Privacy",
-    "Check": "false",
-    "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": [
-      {
-        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
-        "Name": "BingSearchEnabled",
         "Type": "DWord",
         "Value": "0",
         "defaultValue": "1"
