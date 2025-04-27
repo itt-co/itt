@@ -3656,7 +3656,7 @@ Show-Quote $itt.database.locales.Controls.$($itt.Language).welcome "☕"
 Start-Sleep 16
 Show-Quote $itt.database.locales.Controls.$($itt.Language).easter_egg "👁‍🗨"
 Start-Sleep 16
-$iconMap = @{quote = "🗯"; info = "📢"; music = "🎵"; Cautton = "⚠"; default = "☕" }
+$iconMap = @{quote = "💬"; info = "📢"; music = "🎵"; Cautton = "⚠"; default = "☕" }
 do {
 foreach ($q in Get-Quotes) {
 $icon = if ($iconMap.ContainsKey($q.type)) { $iconMap[$q.type] } else { $iconMap.default }
