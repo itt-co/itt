@@ -3311,9 +3311,11 @@ function Log {
 param ([string]$Installer,[string]$Source)
 if ($Installer -ne 0) {
 Add-Log -Message "Installation Failed for ($Name). Report the issue in ITT repository." -Level "$Source"
+return $false
 }
 else {
 Add-Log -Message "Successfully Installed ($Name)" -Level "$Source"
+return $true
 }
 }
 $wingetArgs = "install --id $Winget --silent --accept-source-agreements --accept-package-agreements --force"
@@ -3649,22 +3651,18 @@ function Quotes {
 function Get-Quotes {
 (Invoke-RestMethod "https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Database/Quotes.json").Quotes | Sort-Object { Get-Random }
 }
-function Show-Quote($text, $icon) {
-$itt.Statusbar.Dispatcher.Invoke([Action] {
-$itt.Statusbar.Text = "$icon $text"
-})
-}
+function Show-Quote($text, $icon) {$itt.Statusbar.Dispatcher.Invoke([Action] { $itt.Statusbar.Text = "$icon $text"})}
 Show-Quote $itt.database.locales.Controls.$($itt.Language).welcome "☕"
-Start-Sleep 10
+Start-Sleep 16
 Show-Quote $itt.database.locales.Controls.$($itt.Language).easter_egg "👁‍🗨"
-Start-Sleep 10
-$iconMap = @{quote = "💬"; info = "📢"; music = "🎵"; Cautton = "⚠"; default = "☕" }
+Start-Sleep 16
+$iconMap = @{quote = "🗯"; info = "📢"; music = "🎵"; Cautton = "⚠"; default = "☕" }
 do {
 foreach ($q in Get-Quotes) {
 $icon = if ($iconMap.ContainsKey($q.type)) { $iconMap[$q.type] } else { $iconMap.default }
 $text = "`“$($q.text)`”" + $(if ($q.name) { " ― $($q.name)" } else { "" })
 Show-Quote $text $icon
-Start-Sleep 19
+Start-Sleep 22
 }
 } while ($true)
 }
@@ -3761,14 +3759,18 @@ UpdateUI -Button "installBtn" -Content "Downloading" -Width "auto"
 $itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
 $itt.ProcessRunning = $true
 foreach ($App in $selectedApps) {
-$itt.Statusbar.Dispatcher.Invoke([Action]{$itt.Statusbar.Text = "💬 Downloading $($App.Name)"})
 $chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($App.Choco)"
 $ITTFolder = Join-Path $env:ProgramData "itt\downloads\$($App.ITT)"
 Remove-Item -Path "$chocoFolder" -Recurse -Force
 Remove-Item -Path "$chocoFolder.install" -Recurse -Force
 Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
 Remove-Item -Path "$ITTFolder" -Recurse -Force
-Install-App -Name $App.Name -Winget $App.Winget -Choco $App.Choco -itt $App.ITT
+$Install_result = Install-App -Name $App.Name -Winget $App.Winget -Choco $App.Choco -itt $App.ITT
+if ($Install_result) {
+$itt.Statusbar.Dispatcher.Invoke([Action]{$itt.Statusbar.Text = "✔ $($App.Name) Installed successfully "})
+} else {
+$itt.Statusbar.Dispatcher.Invoke([Action]{$itt.Statusbar.Text = "✖ $($App.Name) Installation failed "})
+}
 }
 Finish -ListView "AppsListView"
 $itt.ProcessRunning = $false
@@ -8272,17 +8274,17 @@ $itt.event.FindName('date').text = '04/01/2025'.Trim()
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
-})
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
 $daysElapsed = (Get-Date) - $storedDate
@@ -8537,7 +8539,7 @@ $functions = @(
 'Disable-Service', 'Uninstall-AppxPackage', 'Finish', 'Message',
 'Notify', 'UpdateUI', 'Install-ITTAChoco',
 'ExecuteCommand', 'Set-Registry', 'Set-Taskbar',
-'Refresh-Explorer', 'Remove-ScheduledTasks','CreateRestorePoint'
+'Refresh-Explorer', 'Remove-ScheduledTasks','CreateRestorePoint','Set-Statusbar'
 )
 foreach ($func in $functions) {
 $command = Get-Command $func -ErrorAction SilentlyContinue
