@@ -78,23 +78,19 @@ function Startup {
                 (Invoke-RestMethod "https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Database/Quotes.json").Quotes | Sort-Object { Get-Random }
             }
             
-            function Show-Quote($text, $icon) {
-                $itt.Statusbar.Dispatcher.Invoke([Action] { 
-                        $itt.Statusbar.Text = "$icon $text"
-                    })
-            }
+            function Show-Quote($text, $icon) {$itt.Statusbar.Dispatcher.Invoke([Action] { $itt.Statusbar.Text = "$icon $text"})}
         
             Show-Quote $itt.database.locales.Controls.$($itt.Language).welcome "☕"
-            Start-Sleep 10
+            Start-Sleep 16
             Show-Quote $itt.database.locales.Controls.$($itt.Language).easter_egg "👁‍🗨"
-            Start-Sleep 10
-            $iconMap = @{quote = "💬"; info = "📢"; music = "🎵"; Cautton = "⚠"; default = "☕" }
+            Start-Sleep 16
+            $iconMap = @{quote = "🗯"; info = "📢"; music = "🎵"; Cautton = "⚠"; default = "☕" }
             do {
                 foreach ($q in Get-Quotes) {
                     $icon = if ($iconMap.ContainsKey($q.type)) { $iconMap[$q.type] } else { $iconMap.default }
                     $text = "`“$($q.text)`”" + $(if ($q.name) { " ― $($q.name)" } else { "" })
                     Show-Quote $text $icon
-                    Start-Sleep 19
+                    Start-Sleep 22
                 }
             } while ($true)
         }
