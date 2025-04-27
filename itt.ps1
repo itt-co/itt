@@ -8539,7 +8539,7 @@ $functions = @(
 'Disable-Service', 'Uninstall-AppxPackage', 'Finish', 'Message',
 'Notify', 'UpdateUI', 'Install-ITTAChoco',
 'ExecuteCommand', 'Set-Registry', 'Set-Taskbar',
-'Refresh-Explorer', 'Remove-ScheduledTasks','CreateRestorePoint','Set-Statusbar'
+'Refresh-Explorer', 'Remove-ScheduledTasks','CreateRestorePoint'
 )
 foreach ($func in $functions) {
 $command = Get-Command $func -ErrorAction SilentlyContinue
