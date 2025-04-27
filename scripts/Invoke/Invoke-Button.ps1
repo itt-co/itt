@@ -4,7 +4,7 @@ function Invoke-Button {
         .SYNOPSIS
             Handles various button actions and commands based on the specified action parameter.
         .DESCRIPTION
-            The `Invoke-Button` function executes different actions depending on the input parameter. It manages operations such as installing apps.
+            The `Invoke-Button` function executes different actions depending on the input parameter.
         .EXAMPLE
             Invoke-Button -action "sysinfo"
     #>
