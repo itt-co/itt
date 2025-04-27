@@ -1650,7 +1650,7 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Disable Start Menu Ads",
-"Description": "Start menu Ads and Settings",
+"Description": "Start menu Ads and web search",
 "Category": "Privacy",
 "Check": "false",
 "Refresh": "true",
@@ -1660,6 +1660,13 @@ $itt.database.Tweaks = @'
 "AppxPackage": [],
 "Services": [],
 "Registry": [
+{
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
+"Name": "BingSearchEnabled",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
 {
 "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo",
 "Name": "Enabled",
@@ -1684,27 +1691,6 @@ $itt.database.Tweaks = @'
 {
 "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
 "Name": "ShowSyncProviderNotifications",
-"Type": "DWord",
-"Value": "0",
-"defaultValue": "1"
-}
-]
-},
-{
-"Name": "Disable Windows Web Search",
-"Description": "Web results in search",
-"Category": "Privacy",
-"Check": "false",
-"Refresh": "true",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
-"Registry": [
-{
-"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
-"Name": "BingSearchEnabled",
 "Type": "DWord",
 "Value": "0",
 "defaultValue": "1"
@@ -4638,6 +4624,9 @@ ContentSource="Content"/>
 <Trigger Property="ItemsControl.AlternationIndex" Value="1">
 <Setter Property="Background" Value="{DynamicResource itemColor2}" />
 </Trigger>
+<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+<BeginStoryboard Storyboard="{StaticResource FadeOutStoryboard}" />
+</EventTrigger>
 </Style.Triggers>
 </Style>
 <Style TargetType="CheckBox">
@@ -7757,12 +7746,7 @@ ScrollViewer.CanContentScroll="True">
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Disable Start Menu Ads" FontSize="14" Tag=" |  |  | Privacy"   ToolTip="Start menu Ads and Settings" Foreground="{DynamicResource TextColorSecondaryColor}"/>
-<Label Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
-</StackPanel>
-</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
-<StackPanel Orientation="Horizontal">
-<CheckBox Content="Disable Windows Web Search" FontSize="14" Tag=" |  |  | Privacy"   ToolTip="Web results in search" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<CheckBox Content="Disable Start Menu Ads" FontSize="14" Tag=" |  |  | Privacy"   ToolTip="Start menu Ads and web search" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
@@ -8305,20 +8289,20 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '04/01/2025'.Trim()
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
 $daysElapsed = (Get-Date) - $storedDate
