@@ -2,7 +2,7 @@ function UpdateUI {
 
     <#
         .SYNOPSIS
-        Updates  button's Content and width
+        Update button Content and width
     #>
     
     param([string]$Button, [string]$Content, [string]$Width = "140")
