@@ -34,9 +34,6 @@ Create_desktop_shortcut,바탕화면 바로 가기 만들기
 Reopen_itt_again,ITT를 다시 열어주세요.
 Theme,테마
 Language,언어
-MAS,Microsoft 활성화 스크립트 (MAS)
-Win_Office,Windows / Office ISO 다운로드
-IDM,IDM 활성화
 Browsers_extensions,브라우저 확장 프로그램
 All,모두
 Create_restore_point,복원 지점 생성
@@ -48,6 +45,4 @@ Applying,적용 중..
 Please_wait,배경에서 프로세스가 진행 중입니다. 잠시 기다려주세요.
 Last_update,마지막 업데이트
 Exit_msg,프로그램을 종료하시겠습니까? 진행 중인 설치가 있으면 중단됩니다.
-Happy_birthday,생일 축하합니다 Emad!
-My_playlist,제 생일과 제 플레이리스트 ♪
 easter_egg,隠された秘密を見つけられますか？ソースコードに飛び込んで、最初に機能を発見し、ツールに統合しましょう。
