@@ -32,9 +32,11 @@ function Install-App {
 
         if ($Installer -ne 0) {
             Add-Log -Message "Installation Failed for ($Name). Report the issue in ITT repository." -Level "$Source"
+            return $false
         }
         else {
             Add-Log -Message "Successfully Installed ($Name)" -Level "$Source"
+            return $true
         }
     }
 
