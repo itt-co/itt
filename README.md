@@ -88,7 +88,7 @@ Example:
 │   ├── scripts/     > Program functionality (e.g. install , scriptblock, utility scripts)
 │   ├── templates/   > template files (e.g. readme.md or other templates)
 │   ├── themes/      > Theme files defining the visual style of the application
-│   ├── xaml/        >  UI element and windows  
+│   ├── xaml/        > UI element and windows  
 ```
 
 1. **Make sure you have PowerShell 7 installed (recommended) for building. is available on ITT**
