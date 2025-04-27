@@ -79,6 +79,18 @@ Example:
 
 # 🤝 How to Contribute
 
+### Project Structure:
+```
+├── itt/
+│   ├── static/      > Static files (e.g. apps, settings, images, etc)
+│   ├── Initialize/  > Scripts to set up default registry keys and start the WPF app window
+│   ├── locales/     > Localization files for different languages
+│   ├── scripts/     > Program functionality (e.g. install , scriptblock, utility scripts)
+│   ├── templates/   > template files (e.g. readme.md or other templates)
+│   ├── themes/      > Theme files defining the visual style of the application
+│   ├── xaml/        > UI element and windows  
+```
+
 1. **Make sure you have PowerShell 7 installed (recommended) for building. is available on ITT**
 
 2. **Fork the repository and clone it using [Github desktop](https://desktop.github.com/download/). is available on ITT**
