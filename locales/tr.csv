@@ -43,10 +43,8 @@ Portable_Downloads_Folder,Taşınabilir İndirilenler Klasörü
 Install_msg,Aşağıdaki uygulamaları yüklemek istediğinizden emin misiniz?
 Apply_msg,Aşağıdaki ayarları uygulamak istediğinizden emin misiniz?
 Applying,Uygulanıyor...
-Please_wait,Lütfen bekleyin arka planda bir işlem çalışıyor.
+Please_wait,Lütfen bekleyin arka planda bir işlem çalışıyor
 Last_update,SOn güncelleme
-Exit_msg,Programı kapatmak istediğinizden emin misiniz? Herhangi bir kurulum varsa durdurulacak.
-Happy_birthday,Kendime Mutlu Yıllar!
-My_playlist,Benim Doğum Günüm ve Benim Çalma Listem ♪
-Empty_save_msg,Kaydetmek için en az bir uygulama seçin.
-easter_egg, Gizli sırrı keşfedebilir misin? Kaynağa dal, özelliği ilk keşfeden ol ve araca entegre et.
+Exit_msg,Programı kapatmak istediğinizden emin misiniz? Herhangi bir kurulum varsa durdurulacak
+Empty_save_msg,Kaydetmek için en az bir uygulama seçin
+easter_egg, Gizli sırrı keşfedebilir misin? Kaynağa dal özelliği ilk keşfeden ol ve araca entegre et
