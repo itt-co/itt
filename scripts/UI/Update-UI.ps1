@@ -3,7 +3,6 @@ function UpdateUI {
     <#
         .SYNOPSIS
         Update interface elements, including a button's width, text, and associated icons.
-        .DESCRIPTION
     #>
 
     param([string]$Button,[string]$Content,[string]$Width = "140")
