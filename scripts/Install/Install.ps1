@@ -53,7 +53,6 @@ function Invoke-Install {
 
         foreach ($App in $selectedApps) {
 
-            $itt.Statusbar.Dispatcher.Invoke([Action]{$itt.Statusbar.Text = "💬 Downloading $($App.Name)"})
 
             # Some packages won't install until the package folder is removed.
             $chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($App.Choco)"
@@ -64,7 +63,13 @@ function Invoke-Install {
             Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
             Remove-Item -Path "$ITTFolder" -Recurse -Force
             
-            Install-App -Name $App.Name -Winget $App.Winget -Choco $App.Choco -itt $App.ITT
+            $Install_result = Install-App -Name $App.Name -Winget $App.Winget -Choco $App.Choco -itt $App.ITT
+
+            if ($Install_result) {
+                $itt.Statusbar.Dispatcher.Invoke([Action]{$itt.Statusbar.Text = "✔ $($App.Name) Installed successfully "})
+            } else {
+                $itt.Statusbar.Dispatcher.Invoke([Action]{$itt.Statusbar.Text = "✖ $($App.Name) Installation failed "})
+            }
             
             # debug start
             if ($Debug) { Add-Log -Message "$($App.Choco) | $($App.Winget) | $($App.ITT)"  -Level "debug" }
