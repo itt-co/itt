@@ -32,9 +32,6 @@ Reset_preferences,Réinitialiser les préférences
 Reopen_itt_again,Veuillez rouvrir ITT.
 Theme,Thème
 Language,Langue
-MAS,Scripts d'activatiOn Microsoft (MAS)
-Win_Office,Télécharger l'ISO Windows / Office
-IDM,ActivatiOn IDM
 Browsers_extensions,Browsers_extensions de navigateurs
 All,Tout
 Search,Rechercher
@@ -46,7 +43,5 @@ Applying,ApplicatiOn...
 Please_wait,Veuillez patienter
 Last_update,Dernière mise à jour  un processus est en cours d'exécutiOn en arrière-plan.
 Exit_msg,Êtes-vous sûr de vouloir fermer le programme ? Si des instAllatiOns sOnt en cours  elles serOnt interrompues.
-Happy_birthday,Joyeux anniversaire à moi !
-My_playlist,C'est mOn anniversaire et ma playlist ♪
 Empty_save_msg,Choisissez au moins une applicatiOn à sauvegarder.
 easter_egg, Peux-tu découvrir le secret caché ? Plonge dans le code source, sois le premier à découvrir la fonctionnalité et intègre-la dans l'outil.
