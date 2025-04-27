@@ -53,6 +53,7 @@ function Invoke-Install {
 
         foreach ($App in $selectedApps) {
 
+            $itt.Statusbar.Dispatcher.Invoke([Action]{$itt.Statusbar.Text = "⬇ Current task: Downloading $($App.Name) "})
 
             # Some packages won't install until the package folder is removed.
             $chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($App.Choco)"
