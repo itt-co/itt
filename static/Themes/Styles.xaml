@@ -84,6 +84,9 @@
             <Trigger Property="ItemsControl.AlternationIndex" Value="1">
                 <Setter Property="Background" Value="{DynamicResource itemColor2}" />
             </Trigger>
+            <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                <BeginStoryboard Storyboard="{StaticResource FadeOutStoryboard}" />
+            </EventTrigger>
         </Style.Triggers>
     </Style>
 <!--End ListViewItem Style-->
