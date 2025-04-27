@@ -79,7 +79,7 @@ Example:
 
 # 🤝 How to Contribute
 
-# Project Structure:
+### Project Structure:
 ```
 ├── itt/
 │   ├── static/       #   Static files (e.g., apps, settings, images, etc)
