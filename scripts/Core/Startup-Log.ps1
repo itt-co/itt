@@ -90,7 +90,7 @@ function Startup {
                     $icon = if ($iconMap.ContainsKey($q.type)) { $iconMap[$q.type] } else { $iconMap.default }
                     $text = "`“$($q.text)`”" + $(if ($q.name) { " ― $($q.name)" } else { "" })
                     Show-Quote $text $icon
-                    Start-Sleep 22
+                    Start-Sleep 25
                 }
             } while ($true)
         }
