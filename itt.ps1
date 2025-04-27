@@ -1980,21 +1980,6 @@ $itt.database.Tweaks = @'
 "Registry": []
 },
 {
-"Name": "Remove Microsoft Edge (Not Recommended)",
-"Description": "Removes Edge from the system",
-"Category": "Performance",
-"Check": "false",
-"Refresh": "false",
-"Script": [
-"irm https://raw.githubusercontent.com/emadadel4/WindowsTweaks/refs/heads/main/Edge-Remover.ps1 | iex"
-],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
-"Registry": []
-},
-{
 "Name": "Activate Windows Classic Photo Viewer",
 "Description": "Classic Photo Viewer",
 "Category": "Classic",
@@ -7782,11 +7767,6 @@ ScrollViewer.CanContentScroll="True">
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Remove OneDrive" FontSize="14" Tag=" |  |  | Performance"   ToolTip="Removes OneDrive from the system" Foreground="{DynamicResource TextColorSecondaryColor}"/>
-<Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
-</StackPanel>
-</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
-<StackPanel Orientation="Horizontal">
-<CheckBox Content="Remove Microsoft Edge (Not Recommended)" FontSize="14" Tag=" |  |  | Performance"   ToolTip="Removes Edge from the system" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
