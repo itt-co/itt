@@ -82,13 +82,13 @@ Example:
 ### Project Structure:
 ```
 ├── itt/
-│   ├── static/       #   Static files (e.g., apps, settings, images, etc)
-│   ├── Initialize/   #   Initialization scripts to set up default registry keys and start the WPF app window
-│   ├── locales/      #   Localization files for different languages
-│   ├── scripts/      #   Program functionality (e.g., install , scriptblock, utility scripts)
-│   ├── templates/    #   template files (e.g., readme.md or other templates)
-│   ├── themes/       #   Theme files defining the visual style of the application
-│   ├── xaml/         #   XAML UI Windows and controls
+│   ├── static/      > Static files (e.g. apps, settings, images, etc)
+│   ├── Initialize/  > Scripts to set up default registry keys and start the WPF app window
+│   ├── locales/     > Localization files for different languages
+│   ├── scripts/     > Program functionality (e.g. install , scriptblock, utility scripts)
+│   ├── templates/   > template files (e.g. readme.md or other templates)
+│   ├── themes/      > Theme files defining the visual style of the application
+│   ├── xaml/        > XAML UI Windows and controls
 ```
 
 1. **Make sure you have PowerShell 7 installed (recommended) for building. is available on ITT**
