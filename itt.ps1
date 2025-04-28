@@ -3443,13 +3443,6 @@ Add-Log -Message "No tasks matching '$task' found" -Level "debug"
 }
 }
 }
-function Reset-Preferences {
-Set-ItemProperty -Path $itt.registryPath  -Name "PopupWindow" -Value 0 -Force
-Set-ItemProperty -Path $itt.registryPath  -Name "Music" -Value 0 -Force
-SwitchToSystem
-System-Default
-Message -key "Reopen_itt_again" -icon "Information" -action "OK"
-}
 function Get-file {
 if ($itt.ProcessRunning) {
 Message -key "Please_wait" -icon "Warning" -action "OK"
