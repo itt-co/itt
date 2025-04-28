@@ -3254,5 +3254,13 @@
     "choco": "na",
     "itt": "iandiv-appgroup",
     "category": "Documents"
+  },
+  {
+    "Name": "Quran Companion",
+    "Description": "Free and open-source desktop Quran reader and player",
+    "winget": "na",
+    "choco": "na",
+    "itt": "yf-qc",
+    "category": "Documents"
   }
 ]
