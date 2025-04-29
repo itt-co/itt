@@ -5,7 +5,7 @@ function System-Default {
         $dc = $itt.database.locales.Controls.$shortCulture
 
         if (-not $dc -or [string]::IsNullOrWhiteSpace($dc)) {
-            Set-Statusbar -Text "Is not supported yet, fallback to English"
+            Set-Statusbar -Text "Your default system language is not supported yet, fallback to English"
             $dc = $itt.database.locales.Controls.en
         }
         
