@@ -2750,5 +2750,13 @@
         "defaultValue": "100"
       }
     ]
+  },
+  {
+    "Name": "Super Control Panel",
+    "Description": "Create Super Control Panel shortcut on Disktop",
+    "Category": "Other",
+    "Check": "false",
+    "Refresh": "false",
+    "Script": ["New-Item -Path \"$env:USERPROFILE\\Desktop\\GodMode.{ED7BA470-8E54-465E-825C-99712043E01C}\" -ItemType Directory"]
   }
 ]
