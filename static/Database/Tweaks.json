@@ -2753,10 +2753,42 @@
   },
   {
     "Name": "Super Control Panel",
-    "Description": "Create Super Control Panel shortcut on Disktop",
-    "Category": "Other",
+    "Description": "Create Super Control Panel shortcut on Desktop",
+    "Category": "Personalization",
     "Check": "false",
     "Refresh": "false",
     "Script": ["New-Item -Path \"$env:USERPROFILE\\Desktop\\GodMode.{ED7BA470-8E54-465E-825C-99712043E01C}\" -ItemType Directory"]
+  },
+  {
+    "Name": "Detailed BSoD",
+    "Description": "You will see a detailed Blue Screen of Death (BSOD) with more information",
+    "Category": "Fixer",
+    "Check": "false",
+    "Refresh": "false",
+    "Script": [],
+    "Registry": [
+      {
+        "Path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\CrashControl",
+        "Name": "DisplayParameters",
+        "Type": "DWord",
+        "Value": "1",
+        "defaultValue": "0"
+      },
+      {
+        "Path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\CrashControl",
+        "Name": "DisableEmoticon",
+        "Type": "DWord",
+        "Value": "1",
+        "defaultValue": "0"
+      }
+    ]
+  },
+  {
+    "Name": "Disable Powershell 7 Telemetry",
+    "Description": "Tell Powershell 7 to not send Telemetry Data",
+    "Category": "Privacy",
+    "Check": "false",
+    "Refresh": "false",
+    "Script": []
   }
 ]
