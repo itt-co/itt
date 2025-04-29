@@ -2785,11 +2785,43 @@ $itt.database.Tweaks = @'
 },
 {
 "Name": "Super Control Panel",
-"Description": "Create Super Control Panel shortcut on Disktop",
-"Category": "Other",
+"Description": "Create Super Control Panel shortcut on Desktop",
+"Category": "Personalization",
 "Check": "false",
 "Refresh": "false",
 "Script": ["New-Item -Path \"$env:USERPROFILE\\Desktop\\GodMode.{ED7BA470-8E54-465E-825C-99712043E01C}\" -ItemType Directory"]
+},
+{
+"Name": "Detailed BSoD",
+"Description": "You will see a detailed Blue Screen of Death (BSOD) with more information",
+"Category": "Fixer",
+"Check": "false",
+"Refresh": "false",
+"Script": [],
+"Registry": [
+{
+"Path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\CrashControl",
+"Name": "DisplayParameters",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\CrashControl",
+"Name": "DisableEmoticon",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+}
+]
+},
+{
+"Name": "Disable Powershell 7 Telemetry",
+"Description": "Tell Powershell 7 to not send Telemetry Data",
+"Category": "Privacy",
+"Check": "false",
+"Refresh": "false",
+"Script": []
 }
 ]
 '@ | ConvertFrom-Json
@@ -7930,8 +7962,18 @@ ScrollViewer.CanContentScroll="True">
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Super Control Panel" FontSize="14" Tag=" |  |  | Other"   ToolTip="Create Super Control Panel shortcut on Disktop" Foreground="{DynamicResource TextColorSecondaryColor}"/>
-<Label Margin="5,0,0,0" FontSize="13" Content="Other"/>
+<CheckBox Content="Super Control Panel" FontSize="14" Tag=" |  |  | Personalization"   ToolTip="Create Super Control Panel shortcut on Desktop" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<Label Margin="5,0,0,0" FontSize="13" Content="Personalization"/>
+</StackPanel>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Detailed BSoD" FontSize="14" Tag=" |  |  | Fixer"   ToolTip="You will see a detailed Blue Screen of Death BSOD with more information" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<Label Margin="5,0,0,0" FontSize="13" Content="Fixer"/>
+</StackPanel>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Disable Powershell 7 Telemetry" FontSize="14" Tag=" |  |  | Privacy"   ToolTip="Tell Powershell 7 to not send Telemetry Data" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<Label Margin="5,0,0,0" FontSize="13" Content="Privacy"/>
 </StackPanel>
 </StackPanel>
 </ListView>
