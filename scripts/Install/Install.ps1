@@ -67,9 +67,10 @@ function Invoke-Install {
             $Install_result = Install-App -Name $App.Name -Winget $App.Winget -Choco $App.Choco -itt $App.ITT
 
             if ($Install_result) {
-                $itt.Statusbar.Dispatcher.Invoke([Action]{$itt.Statusbar.Text = "✔ $($App.Name) Installed successfully "})
+                Set-Statusbar -Text "✔ $($App.Name) Installed successfully "
+
             } else {
-                $itt.Statusbar.Dispatcher.Invoke([Action]{$itt.Statusbar.Text = "✖ $($App.Name) Installation failed "})
+                Set-Statusbar -Text "✖ $($App.Name) Installation failed "
             }
             
             # debug start
