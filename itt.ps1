@@ -3641,20 +3641,18 @@ Start-Sleep -Milliseconds 100
 PlayPreloadedPlaylist
 }
 function Quotes {
-function Get-Quotes {
-(Invoke-RestMethod "https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Database/Quotes.json").Quotes | Sort-Object { Get-Random }
-}
-function Show-Quote($text, $icon) {$itt.Statusbar.Dispatcher.Invoke([Action] { $itt.Statusbar.Text = "$icon $text"})}
-Show-Quote $itt.database.locales.Controls.$($itt.Language).welcome "☕"
-Start-Sleep 16
-Show-Quote $itt.database.locales.Controls.$($itt.Language).easter_egg "👁‍🗨"
-Start-Sleep 16
+function Get-Quotes {(Invoke-RestMethod "https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Database/Quotes.json").Quotes | Sort-Object { Get-Random }}
+function Show-Quote($text, $icon) {}
+Set-Statusbar -Text "☕ $($itt.database.locales.Controls.$($itt.Language).welcome)"
+Start-Sleep 18
+Set-Statusbar -Text "👁‍🗨 $($itt.database.locales.Controls.$($itt.Language).easter_egg)"
+Start-Sleep 18
 $iconMap = @{quote = "💬"; info = "📢"; music = "🎵"; Cautton = "⚠"; default = "☕" }
 do {
 foreach ($q in Get-Quotes) {
 $icon = if ($iconMap.ContainsKey($q.type)) { $iconMap[$q.type] } else { $iconMap.default }
 $text = "`“$($q.text)`”" + $(if ($q.name) { " ― $($q.name)" } else { "" })
-Show-Quote $text $icon
+Set-Statusbar -Text "$icon $text"
 Start-Sleep 25
 }
 } while ($true)
@@ -3752,7 +3750,7 @@ UpdateUI -Button "installBtn" -Content "Downloading" -Width "auto"
 $itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
 $itt.ProcessRunning = $true
 foreach ($App in $selectedApps) {
-$itt.Statusbar.Dispatcher.Invoke([Action]{$itt.Statusbar.Text = "⬇ Current task: Downloading $($App.Name) "})
+Set-Statusbar -Text "⬇ Current task: Downloading $($App.Name)"
 $chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($App.Choco)"
 $ITTFolder = Join-Path $env:ProgramData "itt\downloads\$($App.ITT)"
 Remove-Item -Path "$chocoFolder" -Recurse -Force
@@ -4467,7 +4465,7 @@ function System-Default {
 try {
 $dc = $itt.database.locales.Controls.$shortCulture
 if (-not $dc -or [string]::IsNullOrWhiteSpace($dc)) {
-Add-Log -Message "This language ($shortCulture) is not supported yet, fallback to English" -Level "Info"
+Set-Statusbar -Text "Your default system language is not supported yet, fallback to English"
 $dc = $itt.database.locales.Controls.en
 }
 $itt["window"].DataContext = $dc
@@ -4482,8 +4480,8 @@ param ([string]$lang)
 if ($lang -eq "default") { System-Default }
 else {
 $itt.Language = $lang
+$itt["window"].DataContext = $itt.database.locales.Controls.$($itt.Language)
 Set-ItemProperty -Path $itt.registryPath -Name "locales" -Value $lang -Force
-$itt["window"].DataContext = $itt.database.locales.Controls.$lang
 }
 }
 function SwitchToSystem {
@@ -4506,12 +4504,15 @@ $itt.Theme = $Theme
 }
 catch { Write-Host "Error: $_" }
 }
+function Set-Statusbar {
+param ([string]$Text)
+$itt.Statusbar.Dispatcher.Invoke([Action]{$itt.Statusbar.Text = $Text })
+}
 function UpdateUI {
 param([string]$Button,[string]$Content,[string]$Width = "140")
-$key = $itt.database.locales.Controls.$($itt.Language).$Content
 $itt['window'].Dispatcher.Invoke([Action]{
 $itt.$Button.Width = $Width
-$itt.$Button.Content = "$key"
+$itt.$Button.Content = $itt.database.locales.Controls.$($itt.Language).$Content
 })
 }
 $MainWindowXaml = '
@@ -5095,7 +5096,7 @@ Duration="0:0:0.1" />
 <SolidColorBrush x:Key="PrimaryButtonForeground" Color="#539bf5"/>
 <SolidColorBrush x:Key="PrimaryButtonHighlight" Color="#539bf5"/>
 <SolidColorBrush x:Key="ButtonBorderColor" Color="#539bf5"/>
-<SolidColorBrush x:Key="HighlightColor" Color="#316dca"/>
+<SolidColorBrush x:Key="HighlightColor" Color="#539bf5"/>
 <SolidColorBrush x:Key="BorderBrush" Color="#444c56"/>
 <SolidColorBrush x:Key="Label" Color="#373e47"/>
 <SolidColorBrush x:Key="ToggleSwitchBackgroundColor" Color="#373e47"/>
@@ -8267,20 +8268,20 @@ function Show-Event {
 $itt.event = [Windows.Markup.XamlReader]::Load((New-Object System.Xml.XmlNodeReader $event))
 $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Theme))
 $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
-$itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
+$itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 1 -Force; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '04/01/2025'.Trim()
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
-})
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
@@ -8291,9 +8292,6 @@ if (($daysElapsed.Days -ge 1) -and (($itt.PopupWindow -ne "0") -or $i)) {return}
 $itt.event.Add_PreViewKeyDown({ if ($_.Key -eq "Escape") { $itt.event.Close() } })
 if ($daysElapsed.Days -lt 1){$itt.event.FindName('DisablePopup').Visibility = 'Hidden'}
 $itt.event.ShowDialog() | Out-Null
-}
-function DisablePopup {
-Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 1 -Force
 }
 $EventWindowXaml = '<Window
 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -8538,7 +8536,7 @@ $functions = @(
 'Disable-Service', 'Uninstall-AppxPackage', 'Finish', 'Message',
 'Notify', 'UpdateUI', 'Install-ITTAChoco',
 'ExecuteCommand', 'Set-Registry', 'Set-Taskbar',
-'Refresh-Explorer', 'Remove-ScheduledTasks','CreateRestorePoint'
+'Refresh-Explorer', 'Remove-ScheduledTasks','CreateRestorePoint','Set-Statusbar'
 )
 foreach ($func in $functions) {
 $command = Get-Command $func -ErrorAction SilentlyContinue
