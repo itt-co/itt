@@ -12,7 +12,7 @@ $functions = @(
     'Disable-Service', 'Uninstall-AppxPackage', 'Finish', 'Message',
     'Notify', 'UpdateUI', 'Install-ITTAChoco',
     'ExecuteCommand', 'Set-Registry', 'Set-Taskbar',
-    'Refresh-Explorer', 'Remove-ScheduledTasks','CreateRestorePoint'
+    'Refresh-Explorer', 'Remove-ScheduledTasks','CreateRestorePoint','Set-Statusbar'
 )
 
 foreach ($func in $functions) {
