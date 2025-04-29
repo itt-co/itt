@@ -74,22 +74,20 @@ function Startup {
         }
  
         function Quotes {
-            function Get-Quotes {
-                (Invoke-RestMethod "https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Database/Quotes.json").Quotes | Sort-Object { Get-Random }
-            }
+            function Get-Quotes {(Invoke-RestMethod "https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Database/Quotes.json").Quotes | Sort-Object { Get-Random }}
             
-            function Show-Quote($text, $icon) {$itt.Statusbar.Dispatcher.Invoke([Action] { $itt.Statusbar.Text = "$icon $text"})}
+            function Show-Quote($text, $icon) {}
         
-            Show-Quote $itt.database.locales.Controls.$($itt.Language).welcome "☕"
-            Start-Sleep 16
-            Show-Quote $itt.database.locales.Controls.$($itt.Language).easter_egg "👁‍🗨"
-            Start-Sleep 16
+            Set-Statusbar -Text "☕ $($itt.database.locales.Controls.$($itt.Language).welcome)"
+            Start-Sleep 18
+            Set-Statusbar -Text "👁‍🗨 $($itt.database.locales.Controls.$($itt.Language).easter_egg)"
+            Start-Sleep 18
             $iconMap = @{quote = "💬"; info = "📢"; music = "🎵"; Cautton = "⚠"; default = "☕" }
             do {
                 foreach ($q in Get-Quotes) {
                     $icon = if ($iconMap.ContainsKey($q.type)) { $iconMap[$q.type] } else { $iconMap.default }
                     $text = "`“$($q.text)`”" + $(if ($q.name) { " ― $($q.name)" } else { "" })
-                    Show-Quote $text $icon
+                    Set-Statusbar -Text "$icon $text"
                     Start-Sleep 25
                 }
             } while ($true)
@@ -120,6 +118,7 @@ function Startup {
             Write-Host "  ╚═╝  ╚═╝      ╚═╝    "
             UsageCount
             Write-Host "`n  ITT has been used $(GetCount) times worldwide.`n" -ForegroundColor White
+            #Set-Statusbar -Text "🎉 ITT has been used 50 times worldwide."
         }
         # debug start
         if ($Debug) { return }
