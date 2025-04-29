@@ -1,11 +1,16 @@
 function System-Default {
+
     try {
+
         $dc = $itt.database.locales.Controls.$shortCulture
+
         if (-not $dc -or [string]::IsNullOrWhiteSpace($dc)) {
-            Add-Log -Message "This language ($shortCulture) is not supported yet, fallback to English" -Level "Info"
+            Set-Statusbar -Text "Is not supported yet, fallback to English"
             $dc = $itt.database.locales.Controls.en
         }
+        
         $itt["window"].DataContext = $dc
+
         Set-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -Force
     }
     catch {
@@ -18,7 +23,7 @@ function Set-Language {
     if ($lang -eq "default") { System-Default }
     else {
         $itt.Language = $lang
+        $itt["window"].DataContext = $itt.database.locales.Controls.$($itt.Language)
         Set-ItemProperty -Path $itt.registryPath -Name "locales" -Value $lang -Force
-        $itt["window"].DataContext = $itt.database.locales.Controls.$lang
     }
 }
