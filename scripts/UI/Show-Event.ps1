@@ -5,7 +5,7 @@ function Show-Event {
     $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Theme))
 
     $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
-    $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ DisablePopup; $itt.event.Close() })
+    $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 1 -Force; $itt.event.Close() })
 
     #{title}
     #{contorlshandler}
@@ -18,8 +18,4 @@ function Show-Event {
     if ($daysElapsed.Days -lt 1){$itt.event.FindName('DisablePopup').Visibility = 'Hidden'}
     $itt.event.ShowDialog() | Out-Null
 
-}
-
-function DisablePopup {
-    Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 1 -Force
 }
