@@ -4,24 +4,17 @@ function CreateRestorePoint {
         .SYNOPSIS
         Create Restore Point
     #>
-    
+
     try {
-        
-        Add-Log -Message "Creating Restore point..." -Level "INFO"
-        Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\SystemRestore" -Name "SystemRestorePointCreationFrequency" -Value 0 -Type DWord -Force
-        powershell.exe -Command {
-
-            $Date = Get-Date -Format "yyyyMMdd-hhmmss-tt"
-            $RestorePointName = "ITT-$Date"
+        Set-Statusbar -Text "✋ Please wait Creating a restore point..."
+        Set-ItemProperty "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\SystemRestore" "SystemRestorePointCreationFrequency" 0 -Type DWord -Force
+        powershell.exe -NoProfile -Command {
             Enable-ComputerRestore -Drive $env:SystemDrive
-            Checkpoint-Computer -Description $RestorePointName -RestorePointType "MODIFY_SETTINGS"
-            exit
+            Checkpoint-Computer -Description ("ITT-" + (Get-Date -Format "yyyyMMdd-hhmmss-tt")) -RestorePointType "MODIFY_SETTINGS"
         }
-
-        Set-ItemProperty -Path $itt.registryPath  -Name "backup" -Value 1 -Force
-        Add-Log -Message "Created successfully" -Level "INFO"
-    }
-    catch {
-        Add-Log -Message "Error: $_" -Level "ERROR"
+        Set-ItemProperty $itt.registryPath "backup" 1 -Force
+        Set-Statusbar -Text "✔ Created successfully. Applying tweaks..."
+    } catch {
+        Add-Log "Error: $_" "ERROR"
     }
 }
