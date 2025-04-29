@@ -2994,27 +2994,23 @@ return $handle
 }
 function CreateRestorePoint {
 try {
-Add-Log -Message "Creating Restore point..." -Level "INFO"
-Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\SystemRestore" -Name "SystemRestorePointCreationFrequency" -Value 0 -Type DWord -Force
-powershell.exe -Command {
-$Date = Get-Date -Format "yyyyMMdd-hhmmss-tt"
-$RestorePointName = "ITT-$Date"
+Set-Statusbar -Text "✋ Please wait Creating a restore point..."
+Set-ItemProperty "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\SystemRestore" "SystemRestorePointCreationFrequency" 0 -Type DWord -Force
+powershell.exe -NoProfile -Command {
 Enable-ComputerRestore -Drive $env:SystemDrive
-Checkpoint-Computer -Description $RestorePointName -RestorePointType "MODIFY_SETTINGS"
-exit
+Checkpoint-Computer -Description ("ITT-" + (Get-Date -Format "yyyyMMdd-hhmmss-tt")) -RestorePointType "MODIFY_SETTINGS"
 }
-Set-ItemProperty -Path $itt.registryPath  -Name "backup" -Value 1 -Force
-Add-Log -Message "Created successfully" -Level "INFO"
-}
-catch {
-Add-Log -Message "Error: $_" -Level "ERROR"
+Set-ItemProperty $itt.registryPath "backup" 1 -Force
+Set-Statusbar -Text "✔ Created successfully. Applying tweaks..."
+} catch {
+Add-Log "Error: $_" "ERROR"
 }
 }
 function Add-Log {
-param ([string]$Message, [string]$Level = "INFO")
+param ([string]$Message, [string]$Level = "Default")
 $level = $Level.ToUpper()
 $colorMap = @{ INFO="White"; WARNING="Yellow"; ERROR="Red"; INSTALLED="White"; APPLY="White"; DEBUG="Yellow" }
-$iconMap  = @{ INFO="[+]"; WARNING="[!]"; ERROR="[X]"; DEFAULT=$null; DEBUG="[Debug]"; ITT="[ITT]"; Chocolatey="[Chocolatey]"; Winget="[Winget]" }
+$iconMap  = @{ INFO="[+]"; WARNING="[!]"; ERROR="[X]"; DEFAULT=""; DEBUG="[Debug]"; ITT="[ITT]"; Chocolatey="[Chocolatey]"; Winget="[Winget]" }
 $color = if ($colorMap.ContainsKey($level)) { $colorMap[$level] } else { "White" }
 $icon  = if ($iconMap.ContainsKey($level)) { $iconMap[$level] } else { "i" }
 Write-Host "$icon $Message" -ForegroundColor $color
@@ -3054,12 +3050,15 @@ param (
 switch ($ListView) {
 "AppsListView" {
 UpdateUI -Button "InstallBtn" -Content "Install" -Width "140"
-Notify -title "$title" -msg "ALL INSTALLATIONS COMPLETED SUCCESSFULLY." -icon "Info" -time 30000
+Notify -title "$title" -msg "All installations have finished" -icon "Info" -time 30000
+Add-Log -Message "::::All installations have finished::::"
+Set-Statusbar -Text "✔ All installations have finished"
 }
 "TweaksListView" {
 UpdateUI -Button "ApplyBtn" -Content "Apply" -Width "140"
-Add-Log -Message "Done." -Level "info"
-Notify -title "$title" -msg "ALL TWEAKS HAVE BEEN APPLIED SUCCESSFULLY." -icon "Info" -time 30000
+Add-Log -Message "::::All tweaks have finished::::"
+Set-Statusbar -Text "✔ All tweaks have finished"
+Notify -title "$title" -msg "All tweaks have finished" -icon "Info" -time 30000
 }
 }
 $itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "None" -value 0.01 -icon "done" })
@@ -3759,9 +3758,9 @@ Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
 Remove-Item -Path "$ITTFolder" -Recurse -Force
 $Install_result = Install-App -Name $App.Name -Winget $App.Winget -Choco $App.Choco -itt $App.ITT
 if ($Install_result) {
-$itt.Statusbar.Dispatcher.Invoke([Action]{$itt.Statusbar.Text = "✔ $($App.Name) Installed successfully "})
+Set-Statusbar -Text "✔ $($App.Name) Installed successfully "
 } else {
-$itt.Statusbar.Dispatcher.Invoke([Action]{$itt.Statusbar.Text = "✖ $($App.Name) Installation failed "})
+Set-Statusbar -Text "✖ $($App.Name) Installation failed "
 }
 }
 Finish -ListView "AppsListView"
@@ -8277,13 +8276,13 @@ Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
