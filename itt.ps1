@@ -2782,6 +2782,14 @@ $itt.database.Tweaks = @'
 "defaultValue": "100"
 }
 ]
+},
+{
+"Name": "Super Control Panel",
+"Description": "Create Super Control Panel shortcut on Disktop",
+"Category": "Other",
+"Check": "false",
+"Refresh": "false",
+"Script": ["New-Item -Path \"$env:USERPROFILE\\Desktop\\GodMode.{ED7BA470-8E54-465E-825C-99712043E01C}\" -ItemType Directory"]
 }
 ]
 '@ | ConvertFrom-Json
@@ -7919,6 +7927,11 @@ ScrollViewer.CanContentScroll="True">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Enable Faster Shutdown" FontSize="14" Tag=" |  |  | Performance"   ToolTip="Optimize NVIDIA GPU settings " Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <Label Margin="5,0,0,0" FontSize="13" Content="Performance"/>
+</StackPanel>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Super Control Panel" FontSize="14" Tag=" |  |  | Other"   ToolTip="Create Super Control Panel shortcut on Disktop" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<Label Margin="5,0,0,0" FontSize="13" Content="Other"/>
 </StackPanel>
 </StackPanel>
 </ListView>
