@@ -15,7 +15,7 @@
     <SolidColorBrush x:Key="PrimaryButtonForeground" Color="#00b7ff"/>
     <SolidColorBrush x:Key="PrimaryButtonHighlight" Color="#00b7ff"/> 
     <SolidColorBrush x:Key="ButtonBorderColor" Color="#ff0000"/>
-    <SolidColorBrush x:Key="HighlightColor" Color="#00b7ff"/>     
+    <SolidColorBrush x:Key="HighlightColor" Color="#218bff"/>     
 
     <!-- Borders and Labels -->
     <SolidColorBrush x:Key="BorderBrush" Color="#1c1c1c"/>
