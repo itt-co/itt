@@ -96,16 +96,17 @@
         <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor}"/>
         <Setter Property="Margin" Value="0"/>
         <Setter Property="Padding" Value="6"/>
+        <Setter Property="Background" Value="{x:Null}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="BorderBrush" Value="DarkGray"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="CheckBox">
                     <StackPanel Orientation="Horizontal">
-                        <Border Name="CheckRadius" Width="28" Height="28" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="4" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                        <Border Name="CheckRadius" Width="20" Height="20" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="5" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
                             <Grid>
-                                <TextBlock x:Name="CheckIcon" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" />
-                                <Path x:Name="CheckMark" Width="Auto" Margin="5" Height="Auto" Stretch="Uniform" Stroke="White" StrokeThickness="2" Data="M 0 5 L 4 8 L 10 0" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="CheckIcon" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17" />
+                                <Path x:Name="CheckMark" Width="Auto" Margin="4" Height="Auto" Stretch="Uniform" Stroke="White" StrokeThickness="2" Data="M 0 5 L 4 8 L 10 0" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </Grid>
                         </Border>
                         <ContentPresenter Margin="8 0 0 0" VerticalAlignment="Center"/>
@@ -116,11 +117,9 @@
                             <Setter Property="Background" Value="{DynamicResource PrimaryButtonForeground}"/>
                             <Setter TargetName="CheckIcon" Property="Visibility" Value="Hidden"/>
                         </Trigger>
-                        <Trigger Property="IsChecked" Value="False">
-                            <Setter Property="Background" Value="{DynamicResource PrimaryButtonForeground}"/>
-                        </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource HighlightColor}"/>
+                            <Setter TargetName="CheckIcon" Property="Foreground" Value="{DynamicResource HighlightColor}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource HighlightColor}"/>
                             <Setter Property="Cursor" Value="Hand"/>
                         </Trigger>
 
@@ -514,6 +513,7 @@
 
 <!--ToggleSwitchStyle Style-->
     <Style x:Key="ToggleSwitchStyle" TargetType="CheckBox">
+    <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="CheckBox">
