@@ -12,14 +12,14 @@
     <SolidColorBrush x:Key="TextColorSecondaryColor2" Color="#888888"/>
 
     <!-- Buttons and Highlights -->
-    <SolidColorBrush x:Key="PrimaryButtonForeground" Color="#00D96D"/>
+    <SolidColorBrush x:Key="PrimaryButtonForeground" Color="#00D99D"/>
     <SolidColorBrush x:Key="PrimaryButtonHighlight" Color="#FFFFFF"/>
     <SolidColorBrush x:Key="ButtonBorderColor" Color="#007A3D"/>
+    <SolidColorBrush x:Key="HighlightColor" Color="#00D96D"/>
 
     <!-- Borders and Labels -->
     <SolidColorBrush x:Key="BorderBrush" Color="black"/>
     <SolidColorBrush x:Key="Label" Color="#444444"/>
-    <SolidColorBrush x:Key="HighlightColor" Color="#00D96D"/>
 
     <!-- Toggle Switch -->
     <SolidColorBrush x:Key="ToggleSwitchBackgroundColor" Color="#202020"/>
