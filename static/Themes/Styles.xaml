@@ -55,7 +55,18 @@
     </Style>
 <!--End Button Style-->
 
-<!--ListViewItem Style-->
+<!--ListView Style-->
+    <Style TargetType="ListView">
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+        <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="SelectionMode" Value="Single"/>
+        <Setter Property="VirtualizingStackPanel.VirtualizationMode" Value="Recycling"/>
+        <Setter Property="VirtualizingStackPanel.IsVirtualizing" Value="True"/>
+        <Setter Property="VirtualizingStackPanel.IsContainerVirtualizable" Value="True"/>
+        <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+    </Style>
+
     <Style TargetType="ListViewItem">
         <Setter Property="Margin" Value="0 5 0 0"/>
         <Setter Property="BorderThickness" Value="0.5"/>
@@ -80,16 +91,20 @@
         <Style.Triggers>
             <Trigger Property="ItemsControl.AlternationIndex" Value="0">
                 <Setter Property="Background" Value="{DynamicResource itemColor1}" />
+                <Setter Property="BorderBrush" Value="DarkGray"/>
+                <Setter Property="BorderThickness" Value="0.8"/>
             </Trigger>
             <Trigger Property="ItemsControl.AlternationIndex" Value="1">
                 <Setter Property="Background" Value="{DynamicResource itemColor2}" />
+                <Setter Property="BorderBrush" Value="DarkGray"/>
+                <Setter Property="BorderThickness" Value="0.8"/>
             </Trigger>
             <EventTrigger RoutedEvent="FrameworkElement.Loaded">
                 <BeginStoryboard Storyboard="{StaticResource FadeOutStoryboard}" />
             </EventTrigger>
         </Style.Triggers>
     </Style>
-<!--End ListViewItem Style-->
+<!--End ListView Style-->
 
 <!--CheckBox Style-->
     <Style TargetType="CheckBox">
@@ -382,7 +397,17 @@
 <!--End Scrollbar Thumbs-->
 
 <!--TabControl Style-->
+    <Style TargetType="TabControl">
+        <Setter Property="TabStripPlacement" Value="Left"/>
+        <Setter Property="Foreground" Value="{x:Null}"/>
+        <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+    </Style>
+
     <Style TargetType="TabItem">
+        <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TabItem">
