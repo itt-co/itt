@@ -41,9 +41,9 @@ function Invoke-Install {
         return
     }
 
-    ITT-ScriptBlock -ArgumentList $selectedApps $i -Debug $debug -ScriptBlock {
+    ITT-ScriptBlock -ArgumentList $selectedApps $i $source -Debug $debug -ScriptBlock {
 
-        param($selectedApps , $i)
+        param($selectedApps , $i, $source)
 
         UpdateUI -Button "installBtn" -Content "Downloading" -Width "auto"
 
@@ -64,13 +64,14 @@ function Invoke-Install {
             Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
             Remove-Item -Path "$ITTFolder" -Recurse -Force
             
-            $Install_result = Install-App -Name $App.Name -Winget $App.Winget -Choco $App.Choco -itt $App.ITT
+            $Install_result = Install-App -Source $itt.PackgeManager -Name $App.Name -Winget $App.Winget -Choco $App.Choco -itt $App.ITT
 
-            if ($Install_result) {
-                Set-Statusbar -Text "✔ $($App.Name) Installed successfully "
-
+            if ($Install_result.Success) {
+                Set-Statusbar -Text "✔ $($Install_result.Message)"
+                Add-Log -Message "$($Install_result.Message)" -Level "info"
             } else {
-                Set-Statusbar -Text "✖ $($App.Name) Installation failed "
+                Set-Statusbar -Text "✖ $($Install_result.Message)"
+                Add-Log -Message "$($Install_result.Message)" -Level "ERROR"
             }
             
             # debug start
