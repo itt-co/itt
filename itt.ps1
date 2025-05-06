@@ -2841,6 +2841,15 @@ FilterByCat($itt["window"].FindName($itt.CurrentCategory).SelectedItem.Content)
 "searchInput" {
 Search
 }
+"auto" {
+Set-ItemProperty -Path $itt.registryPath -Name "source" -Value "$action" -Force
+}
+"choco" {
+Set-ItemProperty -Path $itt.registryPath -Name "source" -Value "$action" -Force
+}
+"winget" {
+Set-ItemProperty -Path $itt.registryPath -Name "source" -Value "$action" -Force
+}
 "systemlang" {
 Set-Language -lang "default"
 }
@@ -3092,12 +3101,12 @@ switch ($ListView) {
 UpdateUI -Button "InstallBtn" -Content "Install" -Width "140"
 Notify -title "$title" -msg "All installations have finished" -icon "Info" -time 30000
 Add-Log -Message "::::All installations have finished::::"
-Set-Statusbar -Text "✔ All installations have finished"
+Set-Statusbar -Text "[i] All installations have finished"
 }
 "TweaksListView" {
 UpdateUI -Button "ApplyBtn" -Content "Apply" -Width "140"
 Add-Log -Message "::::All tweaks have finished::::"
-Set-Statusbar -Text "✔ All tweaks have finished"
+Set-Statusbar -Text "[i] All tweaks have finished"
 Notify -title "$title" -msg "All tweaks have finished" -icon "Info" -time 30000
 }
 }
@@ -3340,7 +3349,10 @@ return $false
 }
 }
 function Install-App {
-param ([string]$Name,[string]$Choco,[string]$Winget,[string]$ITT)
+param ([string]$Source, [string]$Name,[string]$Choco,[string]$Winget,[string]$ITT)
+$wingetArgs = "install --id $Winget --silent --accept-source-agreements --accept-package-agreements --force"
+$chocoArgs = "install $Choco --confirm --acceptlicense -q --ignore-http-cache --limit-output --allowemptychecksumsecure --ignorechecksum --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests"
+$ittArgs = "install $ITT -y"
 function Install-AppWithInstaller {
 param ([string]$Installer,[string]$InstallArgs)
 $process = Start-Process -FilePath $Installer -ArgumentList $InstallArgs -NoNewWindow -Wait -PassThru
@@ -3349,17 +3361,31 @@ return $process.ExitCode
 function Log {
 param ([string]$Installer,[string]$Source)
 if ($Installer -ne 0) {
-Add-Log -Message "Installation Failed for ($Name). Report the issue in ITT repository." -Level "$Source"
-return $false
+return @{ Success = $false; Message = "Installation Failed for ($Name). Report the issue in ITT repository." }
 }
 else {
-Add-Log -Message "Successfully Installed ($Name)" -Level "$Source"
-return $true
+return @{ Success = $true; Message = "Successfully Installed ($Name)" }
 }
 }
-$wingetArgs = "install --id $Winget --silent --accept-source-agreements --accept-package-agreements --force"
-$chocoArgs = "install $Choco --confirm --acceptlicense -q --ignore-http-cache --limit-output --allowemptychecksumsecure --ignorechecksum --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests"
-$ittArgs = "install $ITT -y"
+if($Source -ne "auto")
+{
+if($Choco -eq "na")
+{
+return @{ Success = $false; Message = "$Name is not avalbile on $Source" }
+}
+if($Winget -eq "na")
+{
+return @{ Success = $false; Message = "$Name is not avalbile on $Source" }
+}
+switch ($Source) {
+"choco" {
+Install-AppWithInstaller "$Source" $chocoArgs
+}
+"winget" {
+Install-AppWithInstaller "$Source" $wingetArgs
+}
+}
+}
 if ($Choco -eq "na" -and $Winget -eq "na" -and $itt -ne "na") {
 Install-ITTAChoco
 Add-Log -Message "Attempting to install $Name." -Level "ITT"
@@ -3783,8 +3809,8 @@ if ($result -eq "no") {
 Show-Selected -ListView "AppsListView" -Mode "Default"
 return
 }
-ITT-ScriptBlock -ArgumentList $selectedApps $i -Debug $debug -ScriptBlock {
-param($selectedApps , $i)
+ITT-ScriptBlock -ArgumentList $selectedApps $i $source -Debug $debug -ScriptBlock {
+param($selectedApps , $i, $source)
 UpdateUI -Button "installBtn" -Content "Downloading" -Width "auto"
 $itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
 $itt.ProcessRunning = $true
@@ -3796,11 +3822,13 @@ Remove-Item -Path "$chocoFolder" -Recurse -Force
 Remove-Item -Path "$chocoFolder.install" -Recurse -Force
 Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
 Remove-Item -Path "$ITTFolder" -Recurse -Force
-$Install_result = Install-App -Name $App.Name -Winget $App.Winget -Choco $App.Choco -itt $App.ITT
-if ($Install_result) {
-Set-Statusbar -Text "✔ $($App.Name) Installed successfully "
+$Install_result = Install-App -Source $itt.PackgeManager -Name $App.Name -Winget $App.Winget -Choco $App.Choco -itt $App.ITT
+if ($Install_result.Success) {
+Set-Statusbar -Text "✔ $($Install_result.Message)"
+Add-Log -Message "$($Install_result.Message)" -Level "info"
 } else {
-Set-Statusbar -Text "✖ $($App.Name) Installation failed "
+Set-Statusbar -Text "✖ $($Install_result.Message)"
+Add-Log -Message "$($Install_result.Message)" -Level "ERROR"
 }
 }
 Finish -ListView "AppsListView"
@@ -5383,6 +5411,14 @@ Duration="0:0:0.1" />
 <MenuItem.Icon>
 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
 </MenuItem.Icon>
+</MenuItem>
+<MenuItem Header="Package Manager" ToolTip="Select Package Manager">
+<MenuItem.Icon>
+<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+</MenuItem.Icon>
+<MenuItem Name="auto" Header="Auto" ToolTip="Automatically install using the best available method"/>
+<MenuItem Name="choco" Header="Choco" />
+<MenuItem Name="winget" Header="Winget"/>
 </MenuItem>
 <MenuItem Header="{Binding Portable_Downloads_Folder}">
 <MenuItem.Icon>
@@ -8331,21 +8367,21 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.The
 $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 1 -Force; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
-$itt.event.FindName('date').text = '04/01/2025'.Trim()
+$itt.event.FindName('date').text = '06/05/2025'.Trim()
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
 $daysElapsed = (Get-Date) - $storedDate
@@ -8495,6 +8531,13 @@ HorizontalAlignment="Left" />
 <Grid Row="1" Background="Transparent" Margin="20">
 <ScrollViewer Name="ScrollViewer" VerticalScrollBarVisibility="Auto" Height="Auto">
 <StackPanel Orientation="Vertical">
+<TextBlock Text='' • 📦 Package manager'' FontSize=''20'' Margin=''0,44,0,30'' Foreground=''{DynamicResource PrimaryButtonForeground}'' FontWeight=''bold'' TextWrapping=''Wrap''/>
+<Image x:Name=''preview'' Cursor=''Hand'' Margin=''8'' Height=''Auto'' Width=''400''>
+<Image.Source>
+<BitmapImage UriSource=''https://github.com/user-attachments/assets/4e5b1040-313f-49cb-8f43-2127ef5d53ac''/>
+</Image.Source>
+</Image>
+<TextBlock Text=''Select the package manager used to install packages'' FontSize=''16'' Margin=''25,25,35,0''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
 <TextBlock Text=''🎬 Watch demo'' FontSize=''20'' Margin=''0,18,0,30'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
 <Image x:Name=''ytv'' Cursor=''Hand'' Margin=''8'' Height=''Auto'' Width=''400''>
 <Image.Source>
@@ -8541,13 +8584,9 @@ HorizontalAlignment="Left" />
 <StackPanel Orientation=''Vertical''>
 <TextBlock Text=''• Ctrl+G: Close application.'' Margin=''35,0,0,0'' FontSize=''16'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
 </StackPanel>
-<TextBlock Text='' • ⚡ Quick Install Your Saved Apps'' FontSize=''20'' Margin=''0,44,0,30'' Foreground=''{DynamicResource PrimaryButtonForeground}'' FontWeight=''bold'' TextWrapping=''Wrap''/>
-<Image x:Name=''preview'' Cursor=''Hand'' Margin=''8'' Height=''Auto'' Width=''400''>
-<Image.Source>
-<BitmapImage UriSource=''https://github.com/user-attachments/assets/47a321fb-6a8f-4d29-a9a4-bf69d82763a7''/>
-</Image.Source>
-</Image>
-<TextBlock Text=''You can install your saved apps at any time using the command (Run as Admin is recommended)'' FontSize=''16'' Margin=''25,25,35,0''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
+<StackPanel Orientation=''Vertical''>
+<TextBlock Text=''• '' Margin=''35,0,0,0'' FontSize=''16'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
+</StackPanel>
 <Image x:Name=''preview2'' Cursor=''Hand'' Margin=''8'' Height=''Auto'' Width=''400''>
 <Image.Source>
 <BitmapImage UriSource=''https://github.com/user-attachments/assets/2a4fedc7-1d0e-419d-940c-b784edc7d1d1''/>
@@ -8627,6 +8666,7 @@ Set-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -Force
 Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value 0 -Force
 Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -Force
 Set-ItemProperty -Path $itt.registryPath -Name "backup" -Value 0 -Force
+Set-ItemProperty -Path $itt.registryPath -Name "source" -Value "auto" -Force
 }
 try {
 $itt.Theme = (Get-ItemProperty -Path $itt.registryPath -Name "Theme" -ErrorAction Stop).Theme
@@ -8634,6 +8674,7 @@ $itt.Locales = (Get-ItemProperty -Path $itt.registryPath -Name "locales" -ErrorA
 $itt.Music = (Get-ItemProperty -Path $itt.registryPath -Name "Music" -ErrorAction Stop).Music
 $itt.PopupWindow = (Get-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -ErrorAction Stop).PopupWindow
 $itt.backup = (Get-ItemProperty -Path $itt.registryPath -Name "backup" -ErrorAction Stop).backup
+$itt.PackgeManager = (Get-ItemProperty -Path $itt.registryPath -Name "source" -ErrorAction Stop).source
 }
 catch {
 New-ItemProperty -Path $itt.registryPath -Name "Theme" -Value "default" -PropertyType String -Force *> $Null
@@ -8641,6 +8682,7 @@ New-ItemProperty -Path $itt.registryPath -Name "locales" -Value "default" -Prope
 New-ItemProperty -Path $itt.registryPath -Name "Music" -Value 0 -PropertyType DWORD -Force *> $Null
 New-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -PropertyType DWORD -Force *> $Null
 New-ItemProperty -Path $itt.registryPath -Name "backup" -Value 0 -PropertyType DWORD -Force *> $Null
+New-ItemProperty -Path $itt.registryPath -Name "source" -Value "auto" -PropertyType String -Force *> $Null
 }
 try {
 $Locales = switch ($itt.Locales) {
