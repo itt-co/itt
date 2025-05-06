@@ -41,8 +41,20 @@ function Invoke-Button {
                 Debug-Message $action
             # debug end
         }
-        "$action" {
-            Set-ItemProperty -Path $itt.registryPath -Name "packgemanager" -Value "$action" -Force
+        "auto" {
+            Set-ItemProperty -Path $itt.registryPath -Name "source" -Value "$action" -Force
+            # debug start
+                Write-Host $action
+            # debug end
+        }
+        "choco" {
+            Set-ItemProperty -Path $itt.registryPath -Name "source" -Value "$action" -Force
+            # debug start
+                Write-Host $action
+            # debug end
+        }
+        "winget" {
+            Set-ItemProperty -Path $itt.registryPath -Name "source" -Value "$action" -Force
             # debug start
                 Write-Host $action
             # debug end
