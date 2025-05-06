@@ -2,7 +2,7 @@
 
 ## Changelog
 
-##### 📦 Package manager
+### 📦 Package manager
 
 ![itt.xName:preview [https://github.com/emadadel4/itt]](https://github.com/user-attachments/assets/4e5b1040-313f-49cb-8f43-2127ef5d53ac)
 
