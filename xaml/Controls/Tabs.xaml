@@ -1,17 +1,8 @@
 <!--TabControl-->
-    <TabControl Name="taps" TabStripPlacement="Left" Grid.Row="1" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="{x:Null}">
+    <TabControl Name="taps" Grid.Row="1" >
             <TabItem Name="apps" Header="📦" ToolTip="{Binding apps, TargetNullValue=Apps}" FontSize="18" BorderBrush="{x:Null}" >
                 <ListView Name="appslist" 
-                    Grid.Row="1" 
-                    BorderBrush="{x:Null}" 
-                    Background="{x:Null}"
-                    SelectionMode="Single"
-                    SnapsToDevicePixels="True"
-                    VirtualizingStackPanel.IsContainerVirtualizable="True"
-                    VirtualizingStackPanel.IsVirtualizing="True"
-                    VirtualizingStackPanel.VirtualizationMode="Recycling"
-                    AlternationCount="2"
-                    ScrollViewer.CanContentScroll="True">
+                    AlternationCount="2">
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <VirtualizingStackPanel />
@@ -21,17 +12,9 @@
                 </ListView>
             </TabItem>
 
-            <TabItem x:Name="tweeksTab" Header="🛠" ToolTip="{Binding tweaks, TargetNullValue=Tweaks}"  FontSize="18" BorderBrush="{x:Null}" Background="{x:Null}">
+            <TabItem x:Name="tweeksTab" Header="🛠" ToolTip="{Binding tweaks, TargetNullValue=Tweaks}">
                    <ListView Name="tweakslist" 
-                        BorderBrush="{x:Null}" 
-                        Background="{x:Null}"
-                        SelectionMode="Single"
-                        SnapsToDevicePixels="True"
-                        VirtualizingStackPanel.IsVirtualizing="True"
-                        VirtualizingStackPanel.IsContainerVirtualizable="True"
-                        VirtualizingStackPanel.VirtualizationMode="Recycling"
-                        AlternationCount="2"
-                        ScrollViewer.CanContentScroll="True">
+                        AlternationCount="2">
                         <ListView.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <VirtualizingStackPanel />
@@ -41,17 +24,9 @@
                     </ListView>
             </TabItem>
 
-            <TabItem x:Name="SettingsTab" Header="⚙" ToolTip="{Binding settings, TargetNullValue=Settings}" FontSize="18" BorderBrush="{x:Null}" Background="{x:Null}">
+            <TabItem x:Name="SettingsTab" Header="⚙" ToolTip="{Binding settings, TargetNullValue=Settings}">
                     <ListView Name="SettingsList" 
-                        BorderBrush="{x:Null}" 
-                        Background="{x:Null}"
-                        SelectionMode="Single"
-                        SnapsToDevicePixels="True"
-                        VirtualizingStackPanel.IsVirtualizing="True"
-                        VirtualizingStackPanel.IsContainerVirtualizable="True"
-                        VirtualizingStackPanel.VirtualizationMode="Recycling"
-                        AlternationCount="2"
-                        ScrollViewer.CanContentScroll="True">
+                        AlternationCount="2">
                         <ListView.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <VirtualizingStackPanel />
