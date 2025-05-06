@@ -17,12 +17,12 @@ function Finish {
             UpdateUI -Button "InstallBtn" -Content "Install" -Width "140"
             Notify -title "$title" -msg "All installations have finished" -icon "Info" -time 30000
             Add-Log -Message "::::All installations have finished::::"
-            Set-Statusbar -Text "✔ All installations have finished"
+            Set-Statusbar -Text "[i] All installations have finished"
         }
         "TweaksListView" {
             UpdateUI -Button "ApplyBtn" -Content "Apply" -Width "140"
             Add-Log -Message "::::All tweaks have finished::::"
-            Set-Statusbar -Text "✔ All tweaks have finished"
+            Set-Statusbar -Text "[i] All tweaks have finished"
             Notify -title "$title" -msg "All tweaks have finished" -icon "Info" -time 30000
         }
     }
