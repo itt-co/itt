@@ -5,7 +5,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "05/04/2025"
+lastupdate     = "05/06/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -4617,6 +4617,16 @@ BeginTime="0:0:15" />
 </Trigger>
 </Style.Triggers>
 </Style>
+<Style TargetType="ListView">
+<Setter Property="BorderBrush" Value="{x:Null}"/>
+<Setter Property="Background" Value="{x:Null}"/>
+<Setter Property="SelectionMode" Value="Single"/>
+<Setter Property="VirtualizingStackPanel.VirtualizationMode" Value="Recycling"/>
+<Setter Property="VirtualizingStackPanel.IsVirtualizing" Value="True"/>
+<Setter Property="VirtualizingStackPanel.IsContainerVirtualizable" Value="True"/>
+<Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+<Setter Property="SnapsToDevicePixels" Value="True"/>
+</Style>
 <Style TargetType="ListViewItem">
 <Setter Property="Margin" Value="0 5 0 0"/>
 <Setter Property="BorderThickness" Value="0.5"/>
@@ -4641,9 +4651,13 @@ ContentSource="Content"/>
 <Style.Triggers>
 <Trigger Property="ItemsControl.AlternationIndex" Value="0">
 <Setter Property="Background" Value="{DynamicResource itemColor1}" />
+<Setter Property="BorderBrush" Value="DarkGray"/>
+<Setter Property="BorderThickness" Value="0.8"/>
 </Trigger>
 <Trigger Property="ItemsControl.AlternationIndex" Value="1">
 <Setter Property="Background" Value="{DynamicResource itemColor2}" />
+<Setter Property="BorderBrush" Value="DarkGray"/>
+<Setter Property="BorderThickness" Value="0.8"/>
 </Trigger>
 <EventTrigger RoutedEvent="FrameworkElement.Loaded">
 <BeginStoryboard Storyboard="{StaticResource FadeOutStoryboard}" />
@@ -4914,7 +4928,16 @@ KeyboardNavigation.DirectionalNavigation="Continue"/>
 <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
 <Setter Property="HorizontalScrollBarVisibility" Value="Hidden"/>
 </Style>
+<Style TargetType="TabControl">
+<Setter Property="TabStripPlacement" Value="Left"/>
+<Setter Property="Foreground" Value="{x:Null}"/>
+<Setter Property="Background" Value="{x:Null}"/>
+<Setter Property="BorderBrush" Value="{x:Null}"/>
+</Style>
 <Style TargetType="TabItem">
+<Setter Property="Background" Value="{x:Null}"/>
+<Setter Property="FontSize" Value="18"/>
+<Setter Property="BorderBrush" Value="{x:Null}"/>
 <Setter Property="Template">
 <Setter.Value>
 <ControlTemplate TargetType="TabItem">
@@ -5637,19 +5660,10 @@ Margin="30,0,0,0" />
 </Grid>
 </Grid>
 </Grid>
-<TabControl Name="taps" TabStripPlacement="Left" Grid.Row="1" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="{x:Null}">
+<TabControl Name="taps" Grid.Row="1" >
 <TabItem Name="apps" Header="📦" ToolTip="{Binding apps, TargetNullValue=Apps}" FontSize="18" BorderBrush="{x:Null}" >
 <ListView Name="appslist"
-Grid.Row="1"
-BorderBrush="{x:Null}"
-Background="{x:Null}"
-SelectionMode="Single"
-SnapsToDevicePixels="True"
-VirtualizingStackPanel.IsContainerVirtualizable="True"
-VirtualizingStackPanel.IsVirtualizing="True"
-VirtualizingStackPanel.VirtualizationMode="Recycling"
-AlternationCount="2"
-ScrollViewer.CanContentScroll="True">
+AlternationCount="2">
 <ListView.ItemsPanel>
 <ItemsPanelTemplate>
 <VirtualizingStackPanel />
@@ -7698,17 +7712,9 @@ ScrollViewer.CanContentScroll="True">
 </StackPanel>
 </ListView>
 </TabItem>
-<TabItem x:Name="tweeksTab" Header="🛠" ToolTip="{Binding tweaks, TargetNullValue=Tweaks}"  FontSize="18" BorderBrush="{x:Null}" Background="{x:Null}">
+<TabItem x:Name="tweeksTab" Header="🛠" ToolTip="{Binding tweaks, TargetNullValue=Tweaks}">
 <ListView Name="tweakslist"
-BorderBrush="{x:Null}"
-Background="{x:Null}"
-SelectionMode="Single"
-SnapsToDevicePixels="True"
-VirtualizingStackPanel.IsVirtualizing="True"
-VirtualizingStackPanel.IsContainerVirtualizable="True"
-VirtualizingStackPanel.VirtualizationMode="Recycling"
-AlternationCount="2"
-ScrollViewer.CanContentScroll="True">
+AlternationCount="2">
 <ListView.ItemsPanel>
 <ItemsPanelTemplate>
 <VirtualizingStackPanel />
@@ -7987,17 +7993,9 @@ ScrollViewer.CanContentScroll="True">
 </StackPanel>
 </ListView>
 </TabItem>
-<TabItem x:Name="SettingsTab" Header="⚙" ToolTip="{Binding settings, TargetNullValue=Settings}" FontSize="18" BorderBrush="{x:Null}" Background="{x:Null}">
+<TabItem x:Name="SettingsTab" Header="⚙" ToolTip="{Binding settings, TargetNullValue=Settings}">
 <ListView Name="SettingsList"
-BorderBrush="{x:Null}"
-Background="{x:Null}"
-SelectionMode="Single"
-SnapsToDevicePixels="True"
-VirtualizingStackPanel.IsVirtualizing="True"
-VirtualizingStackPanel.IsContainerVirtualizable="True"
-VirtualizingStackPanel.VirtualizationMode="Recycling"
-AlternationCount="2"
-ScrollViewer.CanContentScroll="True">
+AlternationCount="2">
 <ListView.ItemsPanel>
 <ItemsPanelTemplate>
 <VirtualizingStackPanel />
@@ -8334,9 +8332,6 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 1 -Force; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '04/01/2025'.Trim()
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
@@ -8344,6 +8339,9 @@ $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
