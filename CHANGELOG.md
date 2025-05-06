@@ -1,6 +1,12 @@
-###### 04/01/2025
+###### 06/05/2025
 
 ## Changelog
+
+##### ⚡ Quick Install Your Saved Apps
+
+![itt.xName:preview [https://github.com/emadadel4/itt]](https://github.com/user-attachments/assets/4e5b1040-313f-49cb-8f43-2127ef5d53ac)
+
+#### Select the package manager used to install packages
 
 ### 🎬 Watch demo
 
@@ -21,17 +27,12 @@
 - Shift+Q: Restore point.
 - Shift+I: ITT Shortcut.
 - Ctrl+G: Close application.
-
-##### ⚡ Quick Install Your Saved Apps
-
-![itt.xName:preview [https://github.com/emadadel4/itt]](https://github.com/user-attachments/assets/47a321fb-6a8f-4d29-a9a4-bf69d82763a7)
-
-#### You can install your saved apps at any time using the command (Run as Admin is recommended)
-
+- 
 ![itt.xName:preview2 [https://github.com/emadadel4/itt]](https://github.com/user-attachments/assets/2a4fedc7-1d0e-419d-940c-b784edc7d1d1)
 
 
 ##### 📥 Download any Youtube video
+
 
 ![itt.xName:shell [https://www.youtube.com/watch?v=nI7rUhWeOrA]](https://raw.githubusercontent.com/emadadel4/ShellTube/main/demo.jpg)
 
