@@ -141,6 +141,17 @@
                 </MenuItem.Icon>
             </MenuItem>
             
+            <MenuItem Header="Package Manager" ToolTip="Select Package Manager">
+
+                <MenuItem.Icon>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+                </MenuItem.Icon>
+
+                <MenuItem Name="auto" Header="Auto" ToolTip="Automatically install using the best available method"/>
+                <MenuItem Name="choco" Header="Choco" />
+                <MenuItem Name="winget" Header="Winget"/>
+
+            </MenuItem>
 
             <MenuItem Header="{Binding Portable_Downloads_Folder}">
                 <MenuItem.Icon>
