@@ -14,7 +14,12 @@ function Install-App {
         Install-App -Name "Google Chrome" -Choco "googlechrome" -Winget "Google.Chrome"
     #>
 
-    param ([string]$Name,[string]$Choco,[string]$Winget,[string]$ITT)
+    param ([string]$Source, [string]$Name,[string]$Choco,[string]$Winget,[string]$ITT)
+    
+    # Arguments
+    $wingetArgs = "install --id $Winget --silent --accept-source-agreements --accept-package-agreements --force"
+    $chocoArgs = "install $Choco --confirm --acceptlicense -q --ignore-http-cache --limit-output --allowemptychecksumsecure --ignorechecksum --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests"
+    $ittArgs = "install $ITT -y"
 
     # Helper function to install an app using a specific installer
     function Install-AppWithInstaller {
@@ -31,19 +36,36 @@ function Install-App {
         param ([string]$Installer,[string]$Source)
 
         if ($Installer -ne 0) {
-            Add-Log -Message "Installation Failed for ($Name). Report the issue in ITT repository." -Level "$Source"
-            return $false
+            return @{ Success = $false; Message = "Installation Failed for ($Name). Report the issue in ITT repository." }
         }
         else {
-            Add-Log -Message "Successfully Installed ($Name)" -Level "$Source"
-            return $true
+            return @{ Success = $true; Message = "Successfully Installed ($Name)" }
         }
     }
 
-    # Common Winget Arguments
-    $wingetArgs = "install --id $Winget --silent --accept-source-agreements --accept-package-agreements --force"
-    $chocoArgs = "install $Choco --confirm --acceptlicense -q --ignore-http-cache --limit-output --allowemptychecksumsecure --ignorechecksum --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests"
-    $ittArgs = "install $ITT -y"
+    if($Source -ne "auto")
+    {
+
+        if($Choco -eq "na")
+        {         
+            return @{ Success = $false; Message = "$Name is not avalbile on $Source" }
+        }
+
+        if($Winget -eq "na")
+        {         
+            return @{ Success = $false; Message = "$Name is not avalbile on $Source" }
+        }
+
+        switch ($Source) {
+
+            "choco" { 
+                Install-AppWithInstaller "$Source" $chocoArgs
+            }
+            "winget" {
+               Install-AppWithInstaller "$Source" $wingetArgs
+            }
+        }
+    }
 
     # TODO: If Chocolatey is 'none', use Winget
     if ($Choco -eq "na" -and $Winget -eq "na" -and $itt -ne "na") {
