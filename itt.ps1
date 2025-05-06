@@ -8531,7 +8531,7 @@ HorizontalAlignment="Left" />
 <Grid Row="1" Background="Transparent" Margin="20">
 <ScrollViewer Name="ScrollViewer" VerticalScrollBarVisibility="Auto" Height="Auto">
 <StackPanel Orientation="Vertical">
-<TextBlock Text='' • 📦 Package manager'' FontSize=''20'' Margin=''0,44,0,30'' Foreground=''{DynamicResource PrimaryButtonForeground}'' FontWeight=''bold'' TextWrapping=''Wrap''/>
+<TextBlock Text=''📦 Package manager'' FontSize=''20'' Margin=''0,18,0,30'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
 <Image x:Name=''preview'' Cursor=''Hand'' Margin=''8'' Height=''Auto'' Width=''400''>
 <Image.Source>
 <BitmapImage UriSource=''https://github.com/user-attachments/assets/4e5b1040-313f-49cb-8f43-2127ef5d53ac''/>
