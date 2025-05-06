@@ -55,6 +55,7 @@ try {
         Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value 0 -Force
         Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -Force
         Set-ItemProperty -Path $itt.registryPath -Name "backup" -Value 0 -Force
+        Set-ItemProperty -Path $itt.registryPath -Name "source" -Value "auto" -Force
     }
     try {
         # Attempt to get existing registry values
@@ -63,6 +64,7 @@ try {
         $itt.Music = (Get-ItemProperty -Path $itt.registryPath -Name "Music" -ErrorAction Stop).Music
         $itt.PopupWindow = (Get-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -ErrorAction Stop).PopupWindow
         $itt.backup = (Get-ItemProperty -Path $itt.registryPath -Name "backup" -ErrorAction Stop).backup
+        $itt.PackgeManager = (Get-ItemProperty -Path $itt.registryPath -Name "source" -ErrorAction Stop).source
     }
     catch {
         # Creating missing registry keys
@@ -74,6 +76,8 @@ try {
         New-ItemProperty -Path $itt.registryPath -Name "Music" -Value 0 -PropertyType DWORD -Force *> $Null
         New-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 0 -PropertyType DWORD -Force *> $Null
         New-ItemProperty -Path $itt.registryPath -Name "backup" -Value 0 -PropertyType DWORD -Force *> $Null
+        New-ItemProperty -Path $itt.registryPath -Name "source" -Value "auto" -PropertyType String -Force *> $Null
+
     }
     #===========================================================================
     #endregion Create default keys
