@@ -19,8 +19,7 @@ Write-Host "
 #region Begin Prompt user to choose download method
 #===========================================================================
 $Mthoed = @{
-    1 = "API [Choco/Winget] Recommended"
-    2 = "ITT [in development]"
+    1 = "API [Choco/Winget/ITT]"
 }
 do {
 
@@ -80,8 +79,8 @@ function Create-JsonObject {
         description = $Description
         winget      = "na"
         choco       = "na"
-        scoop       = "na"
         itt         = "na"
+        scoop       = "na"
         category    = ""
     }
 
@@ -98,45 +97,34 @@ function Download-Mthoed {
     # Handle the selected method
     switch ($userInput) {
 
-        "API [Choco/Winget] Recommended" {
+        "API [Choco/Winget/ITT]" {
 
-            # Prompt the user for input
-            $choco = Read-Host "Enter Chocolatey package name"
+            # choco input 
+                $choco = Read-Host "Enter Chocolatey package name"
+                $choco = ($choco -replace "choco install", "" -replace ",,", ",").Trim()
+                if ($choco -eq "") { $choco = "na" }  # Set default value if empty
+            # choco Prompt 
 
-            $choco = ($choco -replace "choco install", "" -replace ",,", ",").Trim()
+            # winget input
+                $winget = Read-Host "Enter winget package"
+                if ($winget -eq "") { $winget = "na" }  # Set default value if empty
+                $cleanedWinget = $winget -replace "winget install -e --id", "" -replace "\s+", ""
+            # winget input
 
-            if ($choco -eq "") { $choco = "na" }  # Set default value if empty
+            
+            # itt input 
+                $itt = Read-Host "Enter itt package name"
+                if ($itt -eq "") { $itt = "na" }  # Set default value if empty
+            # itt input 
 
-            Check -choco $choco
-
-            # Prompt the user for input
-            $winget = Read-Host "Enter winget package"
-
-            if ($winget -eq "") { $winget = "na" }  # Set default value if empty
-
-            # Remove the string 'winget install -e --id' and any spaces from the input
-            $cleanedWinget = $winget -replace "winget install -e --id", "" -replace "\s+", ""
+            # Check if there is dublicate 
+            Check -itt $itt -choco $choco -winget $winget
 
             Check -winget $cleanedWinget
             return @{
                 winget       = $cleanedWinget
                 choco        = $choco
-                itt          = "na"
-            }
-        }
-
-        "ITT [in development]" {
-
-            # Prompt the user for input
-            $itt = Read-Host "Enter itt package name"
-            if ($itt -eq "") { $itt = "na" }  # Set default value if empty
-
-            Check -itt $itt
-
-            return @{
-                winget  = "na"
-                choco   = "na"
-                itt     = "$itt"
+                itt          = "$itt"
             }
         }
     }
