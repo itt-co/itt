@@ -47,7 +47,8 @@ function Check {
     param (
         [string]$choco,
         [string]$winget,
-        [string]$itt
+        [string]$itt,
+        [string]$scoop
     )
 
     $jsonContent = Get-Content -Path $applications -Raw | ConvertFrom-Json
@@ -64,6 +65,10 @@ function Check {
 
         }elseif ($item.itt -eq $itt -and $item.itt -ne "na") {
             Write-Host "($itt) already exists!" -ForegroundColor Yellow
+            exit
+        }
+        elseif ($item.scoop -eq $scoop -and $item.scoop -ne "na") {
+            Write-Host "($scoop) already exists!" -ForegroundColor Yellow
             exit
         }
     }
@@ -90,6 +95,7 @@ function Create-JsonObject {
     $jsonObject.itt = $downloadMethod.itt
     $jsonObject.winget = $downloadMethod.winget
     $jsonObject.choco = $downloadMethod.choco
+    $jsonObject.scoop = $downloadMethod.scoop
     $jsonObject.category += Category
     return $jsonObject
 }
@@ -111,19 +117,24 @@ function Download-Mthoed {
                 $cleanedWinget = $winget -replace "winget install -e --id", "" -replace "\s+", ""
             # winget input
 
-            
+            # itt scoop 
+                $itt = Read-Host "Enter scoop package name"
+                if ($scoop -eq "") { $scoop = "na" }  # Set default value if empty
+            # itt scoop 
+                 
             # itt input 
                 $itt = Read-Host "Enter itt package name"
                 if ($itt -eq "") { $itt = "na" }  # Set default value if empty
             # itt input 
 
             # Check if there is dublicate 
-            Check -itt $itt -choco $choco -winget $winget
+            Check -itt $itt -choco $choco -winget $winget -scoop $scoop
 
             return @{
                 winget       = $cleanedWinget
                 choco        = $choco
-                itt          = "$itt"
+                itt          = $itt
+                scoop        = $scoop
             }
         }
     }
@@ -191,6 +202,7 @@ if (Test-Path $applications) {
             winget      = $item.winget
             choco       = $item.choco
             itt         = $item.itt
+            scoop       = $item.scoop
             category    = $item.category
         }
     }
@@ -200,7 +212,7 @@ if (Test-Path $applications) {
 } 
 else {
     Write-Host "The file $applications does not exist!" -ForegroundColor Red
-    break
+    exit
 }
 #===========================================================================
 #endregion end output json file
