@@ -120,7 +120,6 @@ function Download-Mthoed {
             # Check if there is dublicate 
             Check -itt $itt -choco $choco -winget $winget
 
-            Check -winget $cleanedWinget
             return @{
                 winget       = $cleanedWinget
                 choco        = $choco
