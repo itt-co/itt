@@ -196,10 +196,11 @@ if (Test-Path $applications) {
     }
     # Write the ordered JSON to the file
     $jsonOutput | ConvertTo-Json -Depth 20 | Out-File -FilePath $applications -Encoding utf8
-    Write-Host "Added successfully, Don't forget to build and test it before push commit" -ForegroundColor Green
+    Write-Host "Added successfully, Don't forget to build and test it before PR!" -ForegroundColor Green
 } 
 else {
     Write-Host "The file $applications does not exist!" -ForegroundColor Red
+    break
 }
 #===========================================================================
 #endregion end output json file
