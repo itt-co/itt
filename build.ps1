@@ -793,20 +793,15 @@ try {
 "@
 
     Write-Host "[+] Build Successful." -ForegroundColor Yellow
-
     Update-Readme
 
     try {
-        $script = "& '$ProjectDir\$OutputScript'"
-        $pwsh = if (Get-Command pwsh -ErrorAction SilentlyContinue) { "pwsh" } else { "powershell" }
-        $wt = if (Get-Command wt.exe -ErrorAction SilentlyContinue) { "wt.exe" } else { $pwsh }
-        Start-Process $wt -ArgumentList "$pwsh -NoProfile -Command $script -Debug"
+        ./itt.ps1 -Debug
     }
     catch {
         Write-Error "An error occurred: $_"
         break
     }
-
 }
 catch {
     Write-Error "An error occurred: $_"
