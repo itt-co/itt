@@ -796,16 +796,14 @@ try {
     Update-Readme
 
     try {
-        if($Debug)
-        {
-            ./itt.ps1 -Debug
-        }
 
         if($Realsee)
         {
             ./itt.ps1 -release
-        }
 
+        }else{
+            ./itt.ps1 -debug
+        }
     }
     catch {
         Write-Error "An error occurred: $_"
