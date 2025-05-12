@@ -1,8 +1,47 @@
 <!--TabControl-->
     <TabControl Name="taps" Grid.Row="1" >
             <TabItem Name="apps" Header="📦" ToolTip="{Binding apps, TargetNullValue=Apps}" FontSize="18" BorderBrush="{x:Null}" >
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                        <!--AppsCategory-->
+                            <ComboBox 
+                                SelectedIndex="0" 
+                                Name="AppsCategory" 
+                                Grid.Row="0"
+                                VirtualizingStackPanel.IsVirtualizing="True"
+                                VirtualizingStackPanel.VirtualizationMode="Recycling"
+                                VerticalAlignment="Center" 
+                                HorizontalAlignment="Center" 
+                                Width="auto">
+                                <ComboBoxItem Content="{Binding all, TargetNullValue=All}"/>
+                                <ComboBoxItem Content="Web Browsers"/>
+                                <ComboBoxItem Content="Media"/>
+                                <ComboBoxItem Content="Media Tools"/>
+                                <ComboBoxItem Content="Documents"/>
+                                <ComboBoxItem Content="Compression"/>
+                                <ComboBoxItem Content="Communication"/>
+                                <ComboBoxItem Content="File Sharing"/>
+                                <ComboBoxItem Content="Imaging"/>
+                                <ComboBoxItem Content="Gaming"/>
+                                <ComboBoxItem Content="Utilities"/>
+                                <ComboBoxItem Content="Disk Tools"/>
+                                <ComboBoxItem Content="Development"/>
+                                <ComboBoxItem Content="Security"/>
+                                <ComboBoxItem Content="Portable"/>
+                                <ComboBoxItem Content="Runtimes"/>
+                                <ComboBoxItem Content="Drivers"/>
+                            </ComboBox>
+                        <!--End AppsCategory-->
+
                 <ListView Name="appslist" 
-                    AlternationCount="2">
+                    AlternationCount="2"
+                    Grid.Row="1">
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <VirtualizingStackPanel />
@@ -10,10 +49,45 @@
                     </ListView.ItemsPanel>
                     {{Apps}}
                 </ListView>
+
+            </Grid> 
+
             </TabItem>
 
             <TabItem x:Name="tweeksTab" Header="🛠" ToolTip="{Binding tweaks, TargetNullValue=Tweaks}">
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!--TwaeksCategory-->
+                        <ComboBox 
+                            SelectedIndex="0" 
+                            Name="TwaeksCategory" 
+                            Grid.Row="0" 
+                            IsReadOnly="True"
+                            VirtualizingStackPanel.IsVirtualizing="True"
+                            VirtualizingStackPanel.VirtualizationMode="Recycling"
+                            VerticalAlignment="Center" 
+                            HorizontalAlignment="Center" 
+                            Visibility="Collapsed"
+                            Width="auto">
+                            <ComboBoxItem Content="{Binding all, TargetNullValue=All}"/>
+                            <ComboBoxItem Content="Privacy"/>
+                            <ComboBoxItem Content="Fixer"/>
+                            <ComboBoxItem Content="Performance"/>
+                            <ComboBoxItem Content="Personalization"/>
+                            <ComboBoxItem Content="Power"/>
+                            <ComboBoxItem Content="Protection"/>
+                            <ComboBoxItem Content="Classic"/>
+                        </ComboBox>
+                    <!--End TwaeksCategory-->
+
                    <ListView Name="tweakslist" 
+                        Grid.Row="1"
                         AlternationCount="2">
                         <ListView.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -22,6 +96,9 @@
                         </ListView.ItemsPanel>
                         {{Tweaks}}
                     </ListView>
+
+                </Grid>
+                
             </TabItem>
 
             <TabItem x:Name="SettingsTab" Header="⚙" ToolTip="{Binding settings, TargetNullValue=Settings}">
@@ -35,5 +112,8 @@
                         {{Settings}}
                     </ListView>
             </TabItem>
+
     </TabControl>
 <!--End TabControl-->
+
+
