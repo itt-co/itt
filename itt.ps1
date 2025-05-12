@@ -5,7 +5,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "05/11/2025"
+lastupdate     = "05/12/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -4590,7 +4590,7 @@ x:Name="Window"
 Title="Install Tweaks Tool"
 WindowStartupLocation = "CenterScreen"
 Background="{DynamicResource PrimaryBackgroundColor}"
-Height="700" Width="1000"
+Height="750" Width="1100"
 MinHeight="600"
 MinWidth="900"
 Topmost="False"
@@ -4999,90 +4999,64 @@ ContentSource="Header"
 </Setter.Value>
 </Setter>
 </Style>
-<Style TargetType="ComboBox">
-<Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
-<Setter Property="BorderBrush" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
+<Style  TargetType="ComboBox">
+<Setter Property="Focusable" Value="True"/>
 <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor}"/>
-<Setter Property="BorderThickness" Value="1"/>
-<Setter Property="Padding" Value="6,3"/>
-<Setter Property="HorizontalContentAlignment" Value="Left"/>
-<Setter Property="VerticalContentAlignment" Value="Center"/>
-<Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
-<Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+<Setter Property="BorderThickness" Value="0"/>
+<Setter Property="Margin" Value="0 0 0 2"/>
+<Setter Property="FontSize" Value="12"/>
+<Setter Property="Background" Value="Transparent"/>
+<Setter Property="HorizontalAlignment" Value="Center"/>
+<Setter Property="VerticalAlignment" Value="Center"/>
 <Setter Property="Template">
 <Setter.Value>
 <ControlTemplate TargetType="ComboBox">
-<Grid>
-<ToggleButton
-Name="ToggleButton"
-Grid.Column="2"
-Focusable="false"
-IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
-ClickMode="Press"
-Background="Transparent"
-BorderBrush="Transparent">
-<ToggleButton.Template>
-<ControlTemplate TargetType="ToggleButton">
-<Border Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
-<Grid>
-<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-<Path x:Name="Arrow" Data="M 0 0 L 4 4 L 8 0 Z" Fill="{DynamicResource TextColorSecondaryColor}" HorizontalAlignment="Right" Margin="5" VerticalAlignment="Center"/>
-</Grid>
+<Border Background="{TemplateBinding Background}"
+BorderBrush="{TemplateBinding BorderBrush}"
+BorderThickness="{TemplateBinding BorderThickness}"
+Padding="5">
+<ItemsPresenter/>
 </Border>
 </ControlTemplate>
-</ToggleButton.Template>
-</ToggleButton>
+</Setter.Value>
+</Setter>
+<Setter Property="ItemsPanel">
+<Setter.Value>
+<ItemsPanelTemplate>
+<WrapPanel Orientation="Horizontal"/>
+</ItemsPanelTemplate>
+</Setter.Value>
+</Setter>
+</Style>
+<Style TargetType="ComboBoxItem">
+<Setter Property="Margin" Value="5"/>
+<Setter Property="Padding" Value="8,4"/>
+<Setter Property="Background" Value="Transparent"/>
+<Setter Property="Cursor" Value="Hand"/>
+<Setter Property="HorizontalContentAlignment" Value="Left"/>
+<Setter Property="Template">
+<Setter.Value>
+<ControlTemplate TargetType="ComboBoxItem">
+<Border x:Name="Bd"
+Background="{TemplateBinding Background}"
+CornerRadius="4"
+Padding="{TemplateBinding Padding}">
+<StackPanel Orientation="Horizontal" VerticalAlignment="Center">
 <ContentPresenter
-Name="ContentSite"
-IsHitTestVisible="False"
-Content="{TemplateBinding SelectionBoxItem}"
-ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
-ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
-Margin="3,3,23,3"
 VerticalAlignment="Center"
-HorizontalAlignment="Left"/>
-<TextBox
-x:Name="PART_EditableTextBox"
-Style="{x:Null}"
-HorizontalAlignment="Left"
-VerticalAlignment="Center"
-Margin="3,3,23,3"
-Focusable="True"
-Background="Transparent"
-Visibility="Hidden"
-IsReadOnly="{TemplateBinding IsReadOnly}"/>
-<Popup
-Name="Popup"
-Placement="Bottom"
-IsOpen="{TemplateBinding IsDropDownOpen}"
-AllowsTransparency="True"
-Focusable="False"
-PopupAnimation="Slide">
-<Grid
-Name="DropDown"
-SnapsToDevicePixels="True"
-MinWidth="{TemplateBinding ActualWidth}"
-MaxHeight="{TemplateBinding MaxDropDownHeight}">
-<Border
-x:Name="DropDownBorder"
-Background="{DynamicResource SecondaryPrimaryBackgroundColor}"
-BorderBrush="Gray"
-BorderThickness="1"/>
-<ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
-<StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained"/>
-</ScrollViewer>
-</Grid>
-</Popup>
-</Grid>
+HorizontalAlignment="Stretch"
+TextBlock.TextAlignment="Left"
+RecognizesAccessKey="True"/>
+</StackPanel>
+</Border>
 <ControlTemplate.Triggers>
-<Trigger Property="HasItems" Value="false">
-<Setter TargetName="DropDownBorder" Property="MinHeight" Value="95"/>
+<Trigger Property="IsSelected" Value="True">
+<Setter TargetName="Bd" Property="Background" Value="{DynamicResource HighlightColor}"/>
+<Setter Property="Foreground" Value="White"/>
 </Trigger>
-<Trigger Property="IsEnabled" Value="false">
-<Setter Property="Foreground" Value="Gray"/>
-</Trigger>
-<Trigger Property="IsGrouping" Value="true">
-<Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+<Trigger Property="IsMouseOver" Value="True">
+<Setter TargetName="Bd" Property="Background" Value="{DynamicResource HighlightColor}"/>
+<Setter Property="Foreground" Value="White"/>
 </Trigger>
 </ControlTemplate.Triggers>
 </ControlTemplate>
@@ -5618,55 +5592,6 @@ Shift+I
 <ColumnDefinition Width="Auto"/>
 <ColumnDefinition Width="Auto"/>
 </Grid.ColumnDefinitions>
-<ComboBox
-SelectedIndex="0"
-Name="AppsCategory"
-Grid.Column="0"
-VirtualizingStackPanel.IsVirtualizing="True"
-VirtualizingStackPanel.VirtualizationMode="Recycling"
-IsReadOnly="True"
-VerticalAlignment="Center"
-HorizontalAlignment="Center"
-Width="auto">
-<ComboBoxItem Content="{Binding all, TargetNullValue=All}"/>
-<ComboBoxItem Content="GPU Drivers"/>
-<ComboBoxItem Content="Web Browsers"/>
-<ComboBoxItem Content="Media"/>
-<ComboBoxItem Content="Media Tools"/>
-<ComboBoxItem Content="Documents"/>
-<ComboBoxItem Content="Compression"/>
-<ComboBoxItem Content="Communication"/>
-<ComboBoxItem Content="File Sharing"/>
-<ComboBoxItem Content="Imaging"/>
-<ComboBoxItem Content="Gaming"/>
-<ComboBoxItem Content="Utilities"/>
-<ComboBoxItem Content="Disk Tools"/>
-<ComboBoxItem Content="Development"/>
-<ComboBoxItem Content="Security"/>
-<ComboBoxItem Content="Portable"/>
-<ComboBoxItem Content="Runtimes"/>
-<ComboBoxItem Content="Drivers"/>
-</ComboBox>
-<ComboBox
-SelectedIndex="0"
-Name="TwaeksCategory"
-Grid.Column="0"
-IsReadOnly="True"
-VirtualizingStackPanel.IsVirtualizing="True"
-VirtualizingStackPanel.VirtualizationMode="Recycling"
-VerticalAlignment="Center"
-HorizontalAlignment="Center"
-Visibility="Collapsed"
-Width="auto">
-<ComboBoxItem Content="{Binding all, TargetNullValue=All}"/>
-<ComboBoxItem Content="Privacy"/>
-<ComboBoxItem Content="Fixer"/>
-<ComboBoxItem Content="Performance"/>
-<ComboBoxItem Content="Personalization"/>
-<ComboBoxItem Content="Power"/>
-<ComboBoxItem Content="Protection"/>
-<ComboBoxItem Content="Classic"/>
-</ComboBox>
 <Grid HorizontalAlignment="Left" Grid.Column="1" VerticalAlignment="Center">
 <TextBox Padding="8"
 Width="120"
@@ -5698,8 +5623,41 @@ Margin="30,0,0,0" />
 </Grid>
 <TabControl Name="taps" Grid.Row="1" >
 <TabItem Name="apps" Header="📦" ToolTip="{Binding apps, TargetNullValue=Apps}" FontSize="18" BorderBrush="{x:Null}" >
+<Grid>
+<Grid.RowDefinitions>
+<RowDefinition Height="Auto"/>
+<RowDefinition Height="*"/>
+</Grid.RowDefinitions>
+<ComboBox
+SelectedIndex="0"
+Name="AppsCategory"
+Grid.Row="0"
+VirtualizingStackPanel.IsVirtualizing="True"
+VirtualizingStackPanel.VirtualizationMode="Recycling"
+VerticalAlignment="Center"
+HorizontalAlignment="Center"
+Width="auto">
+<ComboBoxItem Content="{Binding all, TargetNullValue=All}"/>
+<ComboBoxItem Content="Web Browsers"/>
+<ComboBoxItem Content="Media"/>
+<ComboBoxItem Content="Media Tools"/>
+<ComboBoxItem Content="Documents"/>
+<ComboBoxItem Content="Compression"/>
+<ComboBoxItem Content="Communication"/>
+<ComboBoxItem Content="File Sharing"/>
+<ComboBoxItem Content="Imaging"/>
+<ComboBoxItem Content="Gaming"/>
+<ComboBoxItem Content="Utilities"/>
+<ComboBoxItem Content="Disk Tools"/>
+<ComboBoxItem Content="Development"/>
+<ComboBoxItem Content="Security"/>
+<ComboBoxItem Content="Portable"/>
+<ComboBoxItem Content="Runtimes"/>
+<ComboBoxItem Content="Drivers"/>
+</ComboBox>
 <ListView Name="appslist"
-AlternationCount="2">
+AlternationCount="2"
+Grid.Row="1">
 <ListView.ItemsPanel>
 <ItemsPanelTemplate>
 <VirtualizingStackPanel />
@@ -7747,9 +7705,36 @@ AlternationCount="2">
 </StackPanel>
 </StackPanel>
 </ListView>
+</Grid>
 </TabItem>
 <TabItem x:Name="tweeksTab" Header="🛠" ToolTip="{Binding tweaks, TargetNullValue=Tweaks}">
+<Grid>
+<Grid.RowDefinitions>
+<RowDefinition Height="Auto"/>
+<RowDefinition Height="*"/>
+</Grid.RowDefinitions>
+<ComboBox
+SelectedIndex="0"
+Name="TwaeksCategory"
+Grid.Row="0"
+IsReadOnly="True"
+VirtualizingStackPanel.IsVirtualizing="True"
+VirtualizingStackPanel.VirtualizationMode="Recycling"
+VerticalAlignment="Center"
+HorizontalAlignment="Center"
+Visibility="Collapsed"
+Width="auto">
+<ComboBoxItem Content="{Binding all, TargetNullValue=All}"/>
+<ComboBoxItem Content="Privacy"/>
+<ComboBoxItem Content="Fixer"/>
+<ComboBoxItem Content="Performance"/>
+<ComboBoxItem Content="Personalization"/>
+<ComboBoxItem Content="Power"/>
+<ComboBoxItem Content="Protection"/>
+<ComboBoxItem Content="Classic"/>
+</ComboBox>
 <ListView Name="tweakslist"
+Grid.Row="1"
 AlternationCount="2">
 <ListView.ItemsPanel>
 <ItemsPanelTemplate>
@@ -8028,6 +8013,7 @@ AlternationCount="2">
 </StackPanel>
 </StackPanel>
 </ListView>
+</Grid>
 </TabItem>
 <TabItem x:Name="SettingsTab" Header="⚙" ToolTip="{Binding settings, TargetNullValue=Settings}">
 <ListView Name="SettingsList"
@@ -8371,17 +8357,17 @@ $itt.event.FindName('date').text = '04/11/2025'.Trim()
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
 $daysElapsed = (Get-Date) - $storedDate
