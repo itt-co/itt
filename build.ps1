@@ -658,7 +658,7 @@ try {
         "MainWindow" = Join-Path -Path $windows  -ChildPath "MainWindow.xaml"
         "tabs"       = Join-Path -Path $Controls -ChildPath "tabs.xaml"
         "menu"       = Join-Path -Path $Controls -ChildPath "menu.xaml"
-        "catagory"   = Join-Path -Path $Controls -ChildPath "catagory.xaml"
+        # "catagory"   = Join-Path -Path $Controls -ChildPath "catagory.xaml"
         "search"     = Join-Path -Path $Controls -ChildPath "search.xaml"
         "buttons"    = Join-Path -Path $Controls -ChildPath "buttons.xaml"
         "Style"      = Join-Path -Path $Assets   -ChildPath "Themes/Styles.xaml"
@@ -673,7 +673,7 @@ try {
         $ColorsXamlContent = Get-Content -Path $FilePaths["Colors"] -Raw
         $MenuXamlContent = Get-Content -Path $FilePaths["menu"] -Raw
         $ButtonsXamlContent = Get-Content -Path $FilePaths["buttons"] -Raw
-        $CatagoryXamlContent = Get-Content -Path $FilePaths["catagory"] -Raw
+        # $CatagoryXamlContent = Get-Content -Path $FilePaths["catagory"] -Raw
         $searchXamlContent = Get-Content -Path $FilePaths["search"] -Raw
         # Replace placeholders with actual content
         $MainXamlContent = $MainXamlContent -replace "{{Tabs}}", $AppXamlContent
