@@ -9,13 +9,10 @@
         <Button
           Name="installBtn"
           Content="{Binding Install, TargetNullValue=Install}"
-          FontSize="18"
-          Background="Transparent"
           HorizontalAlignment="Center"
           VerticalAlignment="Center"
           HorizontalContentAlignment="Center"
           VerticalContentAlignment="Center"
-          Cursor="Hand"
           Width="140" 
           Height="45" 
           Margin="20">
@@ -25,14 +22,12 @@
           <Button
             Name="applyBtn"
             Content="{Binding Apply, TargetNullValue=Apply}"
-            FontSize="18" 
             Background="Transparent"
             Visibility="Collapsed"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center"
-            Cursor="Hand"
             Width="140" 
             Height="45" 
             Margin="20">
