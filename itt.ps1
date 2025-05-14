@@ -5,7 +5,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "05/12/2025"
+lastupdate     = "05/14/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -4619,15 +4619,13 @@ BeginTime="0:0:15" />
 <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
 <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor2}"/>
 <Setter Property="BorderBrush" Value="Transparent"/>
-<Setter Property="BorderThickness" Value="1"/>
-<Setter Property="Padding" Value="10,5"/>
-<Setter Property="FontSize" Value="16"/>
-<Setter Property="Cursor" Value="Hand"/>
+<Setter Property="Padding" Value="8"/>
+<Setter Property="FontSize" Value="14"/>
 <Setter Property="Template">
 <Setter.Value>
 <ControlTemplate TargetType="Button">
 <Grid>
-<Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" CornerRadius="25">
+<Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="25">
 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
 </Border>
 </Grid>
@@ -4637,8 +4635,7 @@ BeginTime="0:0:15" />
 <Style.Triggers>
 <Trigger Property="IsMouseOver" Value="True">
 <Setter Property="Background" Value="{DynamicResource HighlightColor}"/>
-<Setter Property="Foreground" Value="{DynamicResource HighlightColor}"/>
-<Setter Property="BorderBrush" Value="{DynamicResource HighlightColor}"/>
+<Setter Property="Foreground" Value="White"/>
 </Trigger>
 <Trigger Property="IsPressed" Value="True">
 <Setter Property="Background" Value="{DynamicResource PressedButtonColor}"/>
@@ -4801,8 +4798,6 @@ CornerRadius="8">
 <Style TargetType="MenuItem">
 <Setter Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}"/>
 <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor}"/>
-<Setter Property="Margin" Value="1"/>
-<Setter Property="Padding" Value="0"/>
 <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
 <Setter Property="BorderThickness" Value="1"/>
 <Setter Property="Template">
@@ -5003,18 +4998,16 @@ ContentSource="Header"
 <Setter Property="Focusable" Value="True"/>
 <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor}"/>
 <Setter Property="BorderThickness" Value="0"/>
-<Setter Property="Margin" Value="0 0 0 2"/>
+<Setter Property="Margin" Value="0 0 0 1"/>
 <Setter Property="FontSize" Value="12"/>
 <Setter Property="Background" Value="Transparent"/>
-<Setter Property="HorizontalAlignment" Value="Center"/>
-<Setter Property="VerticalAlignment" Value="Center"/>
+<Setter Property="HorizontalAlignment" Value="Left"/>
 <Setter Property="Template">
 <Setter.Value>
 <ControlTemplate TargetType="ComboBox">
 <Border Background="{TemplateBinding Background}"
 BorderBrush="{TemplateBinding BorderBrush}"
-BorderThickness="{TemplateBinding BorderThickness}"
-Padding="5">
+BorderThickness="{TemplateBinding BorderThickness}">
 <ItemsPresenter/>
 </Border>
 </ControlTemplate>
@@ -5023,14 +5016,14 @@ Padding="5">
 <Setter Property="ItemsPanel">
 <Setter.Value>
 <ItemsPanelTemplate>
-<WrapPanel Orientation="Horizontal"/>
+<WrapPanel Orientation="Horizontal" HorizontalAlignment="Left"/>
 </ItemsPanelTemplate>
 </Setter.Value>
 </Setter>
 </Style>
 <Style TargetType="ComboBoxItem">
-<Setter Property="Margin" Value="5"/>
-<Setter Property="Padding" Value="8,4"/>
+<Setter Property="Margin" Value="2"/>
+<Setter Property="Padding" Value="5"/>
 <Setter Property="Background" Value="Transparent"/>
 <Setter Property="Cursor" Value="Hand"/>
 <Setter Property="HorizontalContentAlignment" Value="Left"/>
@@ -5039,12 +5032,11 @@ Padding="5">
 <ControlTemplate TargetType="ComboBoxItem">
 <Border x:Name="Bd"
 Background="{TemplateBinding Background}"
-CornerRadius="4"
+CornerRadius="5"
 Padding="{TemplateBinding Padding}">
-<StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+<StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
 <ContentPresenter
-VerticalAlignment="Center"
-HorizontalAlignment="Stretch"
+HorizontalAlignment="Left"
 TextBlock.TextAlignment="Left"
 RecognizesAccessKey="True"/>
 </StackPanel>
@@ -8121,13 +8113,10 @@ AlternationCount="2">
 <Button
 Name="installBtn"
 Content="{Binding Install, TargetNullValue=Install}"
-FontSize="18"
-Background="Transparent"
 HorizontalAlignment="Center"
 VerticalAlignment="Center"
 HorizontalContentAlignment="Center"
 VerticalContentAlignment="Center"
-Cursor="Hand"
 Width="140"
 Height="45"
 Margin="20">
@@ -8135,14 +8124,12 @@ Margin="20">
 <Button
 Name="applyBtn"
 Content="{Binding Apply, TargetNullValue=Apply}"
-FontSize="18"
 Background="Transparent"
 Visibility="Collapsed"
 HorizontalAlignment="Center"
 VerticalAlignment="Center"
 HorizontalContentAlignment="Center"
 VerticalContentAlignment="Center"
-Cursor="Hand"
 Width="140"
 Height="45"
 Margin="20">
@@ -8354,17 +8341,17 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 1 -Force; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '04/11/2025'.Trim()
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
-})
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
