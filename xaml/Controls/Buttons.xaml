@@ -22,7 +22,6 @@
           <Button
             Name="applyBtn"
             Content="{Binding Apply, TargetNullValue=Apply}"
-            Background="Transparent"
             Visibility="Collapsed"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
