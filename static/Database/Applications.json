@@ -5,7 +5,7 @@
     "winget": "Brave.Brave",
     "choco": "brave",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/brave",
     "category": "Web Browsers"
   },
   {
@@ -14,7 +14,7 @@
     "winget": "Mozilla.Firefox",
     "choco": "firefox",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/firefox",
     "category": "Web Browsers"
   },
   {
@@ -23,7 +23,7 @@
     "winget": "Alex313031.Thorium.AVX2",
     "choco": "thorium --params /AVX",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "versions/thorium-avx2",
     "category": "Web Browsers"
   },
   {
@@ -32,7 +32,7 @@
     "winget": "Google.Chrome",
     "choco": "googlechrome",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/googlechrome",
     "category": "Web Browsers"
   },
   {
@@ -41,7 +41,7 @@
     "winget": "Alex313031.Thorium",
     "choco": "thorium --params /SSE3",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/thorium",
     "category": "Web Browsers"
   },
   {
@@ -50,7 +50,7 @@
     "winget": "Mozilla.Firefox.ESR",
     "choco": "firefoxesr",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/firefox-esr",
     "category": "Web Browsers"
   },
   {
@@ -68,7 +68,7 @@
     "winget": "eloston.ungoogled-chromium",
     "choco": "chromium",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/chromium",
     "category": "Web Browsers"
   },
   {
@@ -77,7 +77,7 @@
     "winget": "TorProject.TorBrowser",
     "choco": "tor-browser",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/tor-browser",
     "category": "Web Browsers"
   },
   {
@@ -86,7 +86,7 @@
     "winget": "Opera.Opera",
     "choco": "opera",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/opera",
     "category": "Web Browsers"
   },
   {
@@ -95,7 +95,7 @@
     "winget": "Tonec.InternetDownloadManager",
     "choco": "internet-download-manager",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/abdownloadmanager",
     "category": "Web Browsers"
   },
   {
@@ -104,7 +104,7 @@
     "winget": "AppWork.JDownloader",
     "choco": "jdownloader",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/jdownloader",
     "category": "Web Browsers"
   },
   {
@@ -113,7 +113,7 @@
     "winget": "na",
     "choco": "k-litecodecpackfull",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "nonportable/k-lite-codec-pack-full-np",
     "category": "Media"
   },
   {
@@ -122,7 +122,7 @@
     "winget": "Daum.PotPlayer",
     "choco": "potplayer",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/potplayer",
     "category": "Media"
   },
   {
@@ -131,7 +131,7 @@
     "winget": "VideoLAN.VLC",
     "choco": "vlc.install",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/vlc",
     "category": "Media"
   },
   {
@@ -140,7 +140,7 @@
     "winget": "9NBLGGH4T892",
     "choco": "kodi",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/kodi",
     "category": "Media"
   },
   {
@@ -149,7 +149,7 @@
     "winget": "Jellyfin.Server",
     "choco": "jellyfin",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/jellyfin",
     "category": "Media"
   },
   {
@@ -167,7 +167,7 @@
     "winget": "na",
     "choco": "na",
     "itt": "aimp",
-    "scoop": "na",
+    "scoop": "extras/aimp",
     "category": "Media"
   },
   {
@@ -176,7 +176,7 @@
     "winget": "Spotify.Spotify",
     "choco": "spotify",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/spotify",
     "category": "Media"
   },
   {
@@ -185,7 +185,7 @@
     "winget": "FastStone.Viewer",
     "choco": "fsviewer",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/fsviewer",
     "category": "Imaging"
   },
   {
@@ -194,7 +194,7 @@
     "winget": "Apache.OpenOffice",
     "choco": "openoffice",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/openoffice",
     "category": "Documents"
   },
   {
@@ -203,7 +203,7 @@
     "winget": "Foxit.FoxitReader",
     "choco": "foxitreader",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/foxit-reader",
     "category": "Documents"
   },
   {
@@ -212,7 +212,7 @@
     "winget": "Foxit.FoxitReader",
     "choco": "libreoffice-fresh",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/libreoffice",
     "category": "Documents"
   },
   {
@@ -221,7 +221,7 @@
     "winget": "SumatraPDF.SumatraPDF",
     "choco": "sumatrapdf.install",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/sumatrapdf",
     "category": "Documents"
   },
   {
@@ -230,7 +230,7 @@
     "winget": "RARLab.WinRAR",
     "choco": "winrar",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/winrar",
     "category": "Compression"
   },
   {
@@ -239,7 +239,7 @@
     "winget": "7zip.7zip",
     "choco": "7zip",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/7zip",
     "category": "Compression"
   },
   {
@@ -248,7 +248,7 @@
     "winget": "Giorgiotani.Peazip",
     "choco": "peazip",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/peazip",
     "category": "Compression"
   },
   {
@@ -257,7 +257,7 @@
     "winget": "Telegram.TelegramDesktop",
     "choco": "telegram",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/telegram",
     "category": "Communication"
   },
   {
@@ -266,7 +266,7 @@
     "winget": "OpenWhisperSystems.Signal",
     "choco": "signal",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/signal",
     "category": "Communication"
   },
   {
@@ -284,7 +284,7 @@
     "winget": "Zoom.ZoomRooms",
     "choco": "zoom",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/zoom",
     "category": "Communication"
   },
   {
@@ -293,7 +293,7 @@
     "winget": "Microsoft.Teams",
     "choco": "microsoft-teams.install",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/microsoft-teams",
     "category": "Communication"
   },
   {
@@ -302,7 +302,7 @@
     "winget": "Discord.Discord",
     "choco": "discord",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/discord",
     "category": "Communication"
   },
   {
@@ -311,7 +311,7 @@
     "winget": "TeamViewer.TeamViewer",
     "choco": "teamviewer",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/teamviewer",
     "category": "File Sharing"
   },
   {
@@ -320,7 +320,7 @@
     "winget": "GIMP.GIMP",
     "choco": "gimp",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/gimp",
     "category": "Imaging"
   },
   {
