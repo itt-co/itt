@@ -329,7 +329,7 @@
     "winget": "na",
     "choco": "vcredist-all",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/vcredist-aio",
     "category": "Runtimes"
   },
   {
@@ -347,7 +347,7 @@
     "winget": "na",
     "choco": "vcredist2005",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/vcredist2005",
     "category": "Runtimes"
   },
   {
@@ -365,7 +365,7 @@
     "winget": "na",
     "choco": "vcredist2008",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/vcredist2008",
     "category": "Runtimes"
   },
   {
@@ -374,7 +374,7 @@
     "winget": "na",
     "choco": "vcredist2008",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/vcredist2008",
     "category": "Runtimes"
   },
   {
@@ -383,7 +383,7 @@
     "winget": "na",
     "choco": "vcredist2010",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/vcredist2010",
     "category": "Runtimes"
   },
   {
@@ -392,7 +392,7 @@
     "winget": "na",
     "choco": "vcredist2010",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/vcredist2010",
     "category": "Runtimes"
   },
   {
@@ -401,7 +401,7 @@
     "winget": "na",
     "choco": "vcredist2012",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/vcredist2012",
     "category": "Runtimes"
   },
   {
@@ -410,7 +410,7 @@
     "winget": "na",
     "choco": "vcredist2012",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/vcredist2012",
     "category": "Runtimes"
   },
   {
@@ -419,7 +419,7 @@
     "winget": "na",
     "choco": "vcredist2013",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/vcredist2013",
     "category": "Runtimes"
   },
   {
@@ -428,7 +428,7 @@
     "winget": "na",
     "choco": "vcredist2013",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/vcredist2013",
     "category": "Runtimes"
   },
   {
@@ -437,7 +437,7 @@
     "winget": "na",
     "choco": "vcredist2015",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/vcredist2015",
     "category": "Runtimes"
   },
   {
@@ -446,7 +446,7 @@
     "winget": "na",
     "choco": "vcredist2015",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/vcredist2015",
     "category": "Runtimes"
   },
   {
@@ -473,7 +473,7 @@
     "winget": "na",
     "choco": "nvidia-display-driver",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "nonportable/nvidia-display-driver-np",
     "category": "Drivers"
   },
   {
