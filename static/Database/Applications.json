@@ -689,7 +689,7 @@
     "winget": "Piriform.Recuva",
     "choco": "recuva",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/recuva",
     "category": "Disk Tools"
   },
   {
@@ -698,7 +698,7 @@
     "winget": "SingularLabs.CCEnhancer",
     "choco": "ccleaner",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/ccleaner",
     "category": "Utilities"
   },
   {
@@ -707,7 +707,7 @@
     "winget": "Klocman.BulkCrapUninstaller",
     "choco": "bulk-crap-uninstaller",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/bulk-crap-uninstaller",
     "category": "Utilities"
   },
   {
@@ -716,7 +716,7 @@
     "winget": "na",
     "choco": "ecm",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/easy-context-menu",
     "category": "Utilities"
   },
   {
@@ -725,7 +725,7 @@
     "winget": "REALiX.HWiNFO",
     "choco": "hwinfo.install",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/hwinfo",
     "category": "Utilities"
   },
   {
@@ -734,7 +734,7 @@
     "winget": "Piriform.Speccy",
     "choco": "speccy",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/speccy",
     "category": "Utilities"
   },
   {
@@ -743,7 +743,7 @@
     "winget": "Geeks3D.FurMark",
     "choco": "furmark",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/furmark",
     "category": "Utilities"
   },
   {
@@ -752,7 +752,7 @@
     "winget": "JanosMathe.HardDiskSentinelPro",
     "choco": "hdsentinel",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/hard-disk-sentinel",
     "category": "Disk Tools"
   },
   {
@@ -761,7 +761,7 @@
     "winget": "CPUID.CPU-Z",
     "choco": "cpu-z",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/cpu-z",
     "category": "Utilities"
   },
   {
@@ -770,7 +770,7 @@
     "winget": "Henry++.MemReduct",
     "choco": "memreduct",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/memreduct",
     "category": "Utilities"
   },
   {
@@ -779,7 +779,7 @@
     "winget": "HandBrake.HandBrake",
     "choco": "handbrake.install",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/handbrake",
     "category": "Utilities"
   },
   {
@@ -788,7 +788,7 @@
     "winget": "Rufus.Rufus",
     "choco": "rufus",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/rufus",
     "category": "Portable"
   },
   {
@@ -797,7 +797,7 @@
     "winget": "LIGHTNINGUK.ImgBurn",
     "choco": "imgburn",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/imgburn",
     "category": "Development"
   },
   {
@@ -815,7 +815,7 @@
     "winget": "EZBSystems.UltraISO",
     "choco": "ultraiso",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/ultraiso",
     "category": "Utilities"
   },
   {
@@ -824,7 +824,7 @@
     "winget": "Ventoy.Ventoy",
     "choco": "ventoy",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/ventoy",
     "category": "Utilities"
   },
   {
@@ -842,7 +842,7 @@
     "winget": "AutoHotkey.AutoHotkey",
     "choco": "autohotkey",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/autohotkey",
     "category": "Utilities"
   },
   {
@@ -851,7 +851,7 @@
     "winget": "Rainmeter.Rainmeter",
     "choco": "rainmeter",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/rainmeter",
     "category": "Utilities"
   },
   {
@@ -887,7 +887,7 @@
     "winget": "AnyDeskSoftwareGmbH.AnyDesk",
     "choco": "anydesk",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/anydesk",
     "category": "File Sharing"
   },
   {
@@ -896,7 +896,7 @@
     "winget": "AirDroid.AirDroid",
     "choco": "airdroid",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/airdroid",
     "category": "File Sharing"
   },
   {
@@ -914,7 +914,7 @@
     "winget": "NirSoft.WirelessNetworkWatcher",
     "choco": "wnetwatcher.portable",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "nirsoft/wnetwatcher",
     "category": "Portable"
   },
   {
@@ -923,7 +923,7 @@
     "winget": "NirSoft.WifiInfoView",
     "choco": "wifiinfoview",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "nirsoft/wifiinfoview",
     "category": "Utilities"
   },
   {
@@ -932,7 +932,7 @@
     "winget": "na",
     "choco": "wirelessnetview",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "nirsoft/wirelessnetview",
     "category": "Utilities"
   },
   {
@@ -941,7 +941,7 @@
     "winget": "qBittorrent.qBittorrent",
     "choco": "qbittorrent",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/qbittorrent",
     "category": "File Sharing"
   },
   {
@@ -959,7 +959,7 @@
     "winget": "ApacheFriends.Xampp.8.2",
     "choco": "xampp-81",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/xampp",
     "category": "Development"
   },
   {
@@ -986,7 +986,7 @@
     "winget": "Unity.UnityHub",
     "choco": "unity-hub",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "nonportable/unity-hub-np",
     "category": "Development"
   },
   {
@@ -995,7 +995,7 @@
     "winget": "GodotEngine.GodotEngine",
     "choco": "godot",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/godot",
     "category": "Development"
   },
   {
@@ -1022,7 +1022,7 @@
     "winget": "Microsoft.VisualStudioCode",
     "choco": "vscode",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/vscode",
     "category": "Development"
   },
   {
@@ -1031,7 +1031,7 @@
     "winget": "vim.vim",
     "choco": "vim",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/vim",
     "category": "Development"
   },
   {
@@ -1040,7 +1040,7 @@
     "winget": "SublimeHQ.SublimeText.4",
     "choco": "sublimetext4",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/sublime-text",
     "category": "Development"
   },
   {
@@ -1049,7 +1049,7 @@
     "winget": "GitHub.Atom",
     "choco": "atom",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/atom",
     "category": "Development"
   },
   {
@@ -1058,7 +1058,7 @@
     "winget": "JRSoftware.InnoSetup",
     "choco": "innosetup",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "nonportable/innosetup-np",
     "category": "Development"
   },
   {
@@ -1076,7 +1076,7 @@
     "winget": "JetBrains.PyCharm.Professional",
     "choco": "pycharm",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/pycharm",
     "category": "Development"
   },
   {
@@ -1085,7 +1085,7 @@
     "winget": "JetBrains.Rider",
     "choco": "jetbrains-rider",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/rider",
     "category": "Development"
   },
   {
@@ -1094,7 +1094,7 @@
     "winget": "OpenJS.NodeJS.LTS",
     "choco": "nodejs-lts",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "main/nodejs-lts",
     "category": "Development"
   },
   {
@@ -1103,7 +1103,7 @@
     "winget": "na",
     "choco": "electron",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/electron",
     "category": "Development"
   },
   {
@@ -1121,7 +1121,7 @@
     "winget": "Hugo.Hugo",
     "choco": "hugo",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "main/hugo",
     "category": "Development"
   },
   {
@@ -1130,7 +1130,7 @@
     "winget": "Hugo.Hugo.Extended",
     "choco": "hugo-extended",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "main/hugo-extended",
     "category": "Development"
   },
   {
@@ -1139,7 +1139,7 @@
     "winget": "Notepad++.Notepad++",
     "choco": "notepadplusplus",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/notepadplusplus",
     "category": "Development"
   },
   {
@@ -1148,7 +1148,7 @@
     "winget": "Microsoft.WindowsTerminal",
     "choco": "microsoft-windows-terminal",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/windows-terminal",
     "category": "Development"
   },
   {
@@ -1166,7 +1166,7 @@
     "winget": "na",
     "choco": "x64dbg.portable",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/x64dbg",
     "category": "Portable"
   },
   {
@@ -1175,7 +1175,7 @@
     "winget": "dnSpyEx.dnSpy",
     "choco": "dnspy",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/dnspy",
     "category": "Development"
   },
   {
@@ -1184,7 +1184,7 @@
     "winget": "na",
     "choco": "cheatengine",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/cheat-engine",
     "category": "Development"
   },
   {
@@ -1193,7 +1193,7 @@
     "winget": "Python.Python.3.9",
     "choco": "python",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "main/python",
     "category": "Development"
   },
   {
@@ -1202,7 +1202,7 @@
     "winget": "Git.Git",
     "choco": "git",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "main/git",
     "category": "Development"
   },
   {
@@ -1229,7 +1229,7 @@
     "winget": "Docker.DockerCompose",
     "choco": "docker-compose",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "main/docker-compose",
     "category": "Development"
   },
   {
@@ -1238,7 +1238,7 @@
     "winget": "Microsoft.PowerToys",
     "choco": "powertoys",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/powertoys",
     "category": "Development"
   },
   {
@@ -1247,7 +1247,7 @@
     "winget": "Notion.Notion",
     "choco": "notion",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/notion",
     "category": "Development"
   },
   {
@@ -1283,7 +1283,7 @@
     "winget": "Genymobile.scrcpy",
     "choco": "scrcpy",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "main/scrcpy",
     "category": "Development"
   },
   {
@@ -1292,7 +1292,7 @@
     "winget": "Oracle.VirtualBox",
     "choco": "virtualbox",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "nonportable/virtualbox-np",
     "category": "Development"
   },
   {
@@ -1301,7 +1301,7 @@
     "winget": "JanDeDobbeleer.OhMyPosh",
     "choco": "oh-my-posh",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "main/oh-my-posh",
     "category": "Development"
   },
   {
@@ -1328,7 +1328,7 @@
     "winget": "na",
     "choco": "nerd-fonts-cascadiacode",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "nerd-fonts/CascadiaCode-NF",
     "category": "Development"
   },
   {
@@ -1346,7 +1346,7 @@
     "winget": "Audacity.Audacity",
     "choco": "audacity",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/audacity",
     "category": "Media Tools"
   },
   {
@@ -1355,7 +1355,7 @@
     "winget": "MusicBee.MusicBee",
     "choco": "musicbee",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/musicbee",
     "category": "Media"
   },
   {
@@ -1364,7 +1364,7 @@
     "winget": "na",
     "choco": "formatfactory",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/format-factory",
     "category": "Media Tools"
   },
   {
@@ -1373,7 +1373,7 @@
     "winget": "na",
     "choco": "winaero-tweaker",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/winaero-tweaker",
     "category": "Utilities"
   },
   {
@@ -1391,7 +1391,7 @@
     "winget": "na",
     "choco": "wamp-server",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/uwamp",
     "category": "Development"
   },
   {
@@ -1400,7 +1400,7 @@
     "winget": "MongoDB.Server",
     "choco": "mongodb",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "main/mongodb",
     "category": "Development"
   },
   {
@@ -1409,7 +1409,7 @@
     "winget": " MPC-BE.MPC-BE",
     "choco": "mpc-be",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/mpc-be",
     "category": "Media"
   },
   {
@@ -1418,7 +1418,7 @@
     "winget": "KDE.Kdenlive",
     "choco": "kdenlive",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/kdenlive",
     "category": "Media Tools"
   },
   {
@@ -1427,7 +1427,7 @@
     "winget": "TablePlus.TablePlus",
     "choco": "tableplus",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/tableplus",
     "category": "Development"
   },
   {
@@ -1436,7 +1436,7 @@
     "winget": "scottlerch.hosts-file-editor",
     "choco": "hosts.editor",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/hosts-file-editor",
     "category": "Utilities"
   },
   {
@@ -1445,7 +1445,7 @@
     "winget": "9NWH51GWJTKN",
     "choco": "subtitleedit",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/subtitleedit",
     "category": "Development"
   },
   {
@@ -1463,7 +1463,7 @@
     "winget": "na",
     "choco": "filezilla",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/filezilla",
     "category": "Development"
   },
   {
@@ -1472,7 +1472,7 @@
     "winget": "voidtools.Everything",
     "choco": "everything",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/everything",
     "category": "Utilities"
   },
   {
@@ -1481,7 +1481,7 @@
     "winget": "Yarn.Yarn",
     "choco": "yarn",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "main/yarn",
     "category": "Development"
   },
   {
@@ -1490,7 +1490,7 @@
     "winget": "na",
     "choco": "vmware-workstation-player",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "nonportable/vmware-workstation-player-np",
     "category": "Development"
   },
   {
@@ -1508,17 +1508,8 @@
     "winget": "BlueStack.BlueStacks",
     "choco": "bluestacks",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "nonportable/bluestacks-np",
     "category": "Gaming"
-  },
-  {
-    "Name": "Intel Wireless Bluetooth for Windows 10 and Windows 11",
-    "Description": "Bluetooth for Windows 10 and Windows",
-    "winget": "na",
-    "choco": "intel-bluetooth-drivers",
-    "itt": "na",
-    "scoop": "na",
-    "category": "Drivers"
   },
   {
     "Name": "Office 365 Business",
@@ -1526,7 +1517,7 @@
     "winget": "Microsoft.Office",
     "choco": "office365business",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "nonportable/office-365-apps-np",
     "category": "Documents"
   },
   {
@@ -1580,7 +1571,7 @@
     "winget": "Google.AndroidStudio",
     "choco": "androidstudio",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/android-studio",
     "category": "Development"
   },
   {
@@ -1589,7 +1580,7 @@
     "winget": "LibreWolf.LibreWolf",
     "choco": "librewolf",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/librewolf",
     "category": "Web Browsers"
   },
   {
@@ -1598,7 +1589,7 @@
     "winget": "Flow-Launcher.Flow-Launcher",
     "choco": "flow-launcher",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/flow-launcher",
     "category": "Utilities"
   },
   {
