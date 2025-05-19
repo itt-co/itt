@@ -7715,6 +7715,11 @@ Grid.Row="1">
 <CheckBox Content="FastCopy" FontSize="15" Tag="fastcopy | FastCopy.FastCopy | na | Utilities"   ToolTip="The Fastest Copy/Delete Software on Windows"/>
 <TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
 </StackPanel>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Forkgram" FontSize="15" Tag="forkgram | na | na | Portable"   ToolTip="Fork of Telegram Desktop messaging app"/>
+<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Portable"/>
+</StackPanel>
 </StackPanel>
 </ListView>
 </Grid>
