@@ -491,7 +491,7 @@
     "winget": "Guru3D.Afterburner",
     "choco": "msiafterburner",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/msiafterburner",
     "category": "Drivers"
   },
   {
@@ -509,7 +509,7 @@
     "winget": "Valve.Steam",
     "choco": "steam",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "versions/steam",
     "category": "Gaming"
   },
   {
@@ -518,7 +518,7 @@
     "winget": "Ubisoft.Connect",
     "choco": "ubisoft-connect",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "versions/ubisoftconnect",
     "category": "Gaming"
   },
   {
@@ -527,7 +527,7 @@
     "winget": "ElectronicArts.Origin",
     "choco": "origin",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "versions/origin",
     "category": "Gaming"
   },
   {
@@ -536,7 +536,7 @@
     "winget": "na",
     "choco": "rockstar-launcher",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "versions/rockstarlauncher",
     "category": "Gaming"
   },
   {
@@ -554,7 +554,7 @@
     "winget": "Streamlabs.StreamlabsOBS",
     "choco": "streamlabs-obs",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/streamlabs-obs",
     "category": "Gaming"
   },
   {
@@ -563,7 +563,7 @@
     "winget": "OBSProject.OBSStudio",
     "choco": "obs-studio.install",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/obs-studio",
     "category": "Gaming"
   },
   {
@@ -572,7 +572,7 @@
     "winget": "Logitech.LGS",
     "choco": "logitechgaming",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "nonportable/logitech-gaming-software-np",
     "category": "Gaming"
   },
   {
@@ -581,7 +581,7 @@
     "winget": "rocksdanister.LivelyWallpaper",
     "choco": "lively",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/lively",
     "category": "Gaming"
   },
   {
@@ -590,7 +590,7 @@
     "winget": "Playnite.Playnite",
     "choco": "playnite",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/playnite",
     "category": "Gaming"
   },
   {
@@ -598,15 +598,6 @@
     "Description": "A driver update tool that automatically detects, downloads, and installs",
     "winget": "Easeware.DriverEasy",
     "choco": "drivereasyfree",
-    "itt": "na",
-    "scoop": "na",
-    "category": "Drivers"
-  },
-  {
-    "Name": "Intel Graphics Windows DCH",
-    "Description": "Intel Graphics Driver for Windows 10",
-    "winget": "na",
-    "choco": "intel-graphics-driver",
     "itt": "na",
     "scoop": "na",
     "category": "Drivers"
@@ -621,21 +612,12 @@
     "category": "Drivers"
   },
   {
-    "Name": "Intel Network Adapter",
-    "Description": "Intel Network Adapter Drivers for Windows 10",
-    "winget": "Intel.WiFiDrivers",
-    "choco": "intel-network-drivers-win10",
-    "itt": "na",
-    "scoop": "na",
-    "category": "Drivers"
-  },
-  {
     "Name": "Snappy Driver Installer",
     "Description": "A free and open-source tool for updating and installing device",
     "winget": "samlab-ws.SnappyDriverInstaller",
     "choco": "sdio",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/snappy-driver-installer-origin",
     "category": "Drivers"
   },
   {
@@ -662,7 +644,7 @@
     "winget": "Wagnardsoft.DisplayDriverUninstaller",
     "choco": "ddu",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/ddu",
     "category": "Drivers"
   },
   {
@@ -671,7 +653,7 @@
     "winget": "na",
     "choco": "rapr",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/driverstoreexplorer",
     "category": "Drivers"
   },
   {
