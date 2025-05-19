@@ -3706,5 +3706,14 @@
     "itt": "na",
     "scoop": "na",
     "category": "Utilities"
+  },
+  {
+    "Name": "Forkgram",
+    "Description": "Fork of Telegram Desktop messaging app",
+    "winget": "na",
+    "choco": "forkgram",
+    "itt": "na",
+    "scoop": null,
+    "category": "Portable"
   }
 ]
