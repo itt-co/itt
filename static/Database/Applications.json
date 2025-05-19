@@ -2282,7 +2282,7 @@
     "winget": "Plex.PlexMediaServer",
     "choco": "plexmediaserver",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "main/plex-server",
     "category": "Media Tools"
   },
   {
@@ -2318,7 +2318,7 @@
     "winget": "na",
     "choco": "ryujinx --params",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "games/ryujinx",
     "category": "Gaming"
   },
   {
@@ -2336,7 +2336,7 @@
     "winget": "MoritzBunkus.MKVToolNix",
     "choco": "mkvtoolnix",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/mkvtoolnix",
     "category": "Media Tools"
   },
   {
@@ -2345,7 +2345,7 @@
     "winget": "na",
     "choco": "na",
     "itt": "neat",
-    "scoop": "na",
+    "scoop": "extras/neatdownloadmanager",
     "category": "Web Browsers"
   },
   {
