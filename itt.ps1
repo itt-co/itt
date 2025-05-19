@@ -5,7 +5,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "05/18/2025"
+lastupdate     = "05/19/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -7695,6 +7695,26 @@ Grid.Row="1">
 <CheckBox Content="Quran Companion" FontSize="15" Tag="na | na | yf-qc | Documents"   ToolTip="Free and opensource desktop Quran reader and player"/>
 <TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Documents"/>
 </StackPanel>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Cursor" FontSize="15" Tag="cursoride | na | na | Development"   ToolTip="Cursor is an AIfirst Code Editor"/>
+<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+</StackPanel>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Reason" FontSize="15" Tag="reasonstudios-reason13 | na | na | Media Tools"   ToolTip="A modular DAW and plugin for music production"/>
+<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media Tools"/>
+</StackPanel>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Ruby" FontSize="15" Tag="ruby | RubyInstallerTeam.Ruby.3.1 | na | Development"   ToolTip="Ruby  A dynamic open source programming language focusing on simplicity and productivity"/>
+<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+</StackPanel>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="FastCopy" FontSize="15" Tag="fastcopy | FastCopy.FastCopy | na | Utilities"   ToolTip="The Fastest Copy/Delete Software on Windows"/>
+<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+</StackPanel>
 </StackPanel>
 </ListView>
 </Grid>
@@ -8340,19 +8360,19 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 1 -Force; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '04/11/2025'.Trim()
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
-})
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
