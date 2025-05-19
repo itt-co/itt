@@ -1607,7 +1607,7 @@
     "winget": "AdGuard.AdGuardHome",
     "choco": "adguardhome",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/adguardian",
     "category": "Security"
   },
   {
@@ -1616,7 +1616,7 @@
     "winget": "PortSwigger.BurpSuite.Community",
     "choco": "burp-suite-free-edition",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "nonportable/burp-suite-community-np",
     "category": "Development"
   },
   {
@@ -1625,7 +1625,7 @@
     "winget": "ALCPU.CoreTemp",
     "choco": "coretemp",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/coretemp",
     "category": "Utilities"
   },
   {
@@ -1634,7 +1634,7 @@
     "winget": "ShareX.ShareX",
     "choco": "sharex",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/sharex",
     "category": "File Sharing"
   },
   {
@@ -1643,7 +1643,7 @@
     "winget": "ONLYOFFICE.DesktopEditors",
     "choco": "onlyoffice",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/onlyoffice-desktopeditors",
     "category": "Documents"
   },
   {
@@ -1661,7 +1661,7 @@
     "winget": "WinDirStat.WinDirStat",
     "choco": "windirstat",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/windirstat",
     "category": "Disk Tools"
   },
   {
@@ -1670,7 +1670,7 @@
     "winget": "WinMerge.WinMerge",
     "choco": "winmerge",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/winmerge",
     "category": "Utilities"
   },
   {
@@ -1679,7 +1679,7 @@
     "winget": "WiresharkFoundation.Wireshark",
     "choco": "wireshark",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/wireshark",
     "category": "Utilities"
   },
   {
@@ -1688,7 +1688,7 @@
     "winget": "CodeSector.TeraCopy",
     "choco": "teracopy",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "nonportable/teracopy-np",
     "category": "Utilities"
   },
   {
@@ -1697,7 +1697,7 @@
     "winget": "QL-Win.QuickLook",
     "choco": "quicklook",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/quicklook",
     "category": "Utilities"
   },
   {
@@ -1710,21 +1710,12 @@
     "category": "Development"
   },
   {
-    "Name": "Intel Graphics Command Center",
-    "Description": "Dont have time to mess around with settings The Intel",
-    "winget": "9PLFNLNT3G5G",
-    "choco": "na",
-    "itt": "na",
-    "scoop": "na",
-    "category": "Drivers"
-  },
-  {
     "Name": "Go Programming Language",
     "Description": "Go is expressive concise clean and efficient Its concurrency mechanisms",
     "winget": "Language GoLang.Go",
     "choco": "golang",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "main/go",
     "category": "Development"
   },
   {
@@ -1733,7 +1724,7 @@
     "winget": "Rustlang.Rust.GNU",
     "choco": "rust",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "main/rust",
     "category": "Development"
   },
   {
@@ -1742,7 +1733,7 @@
     "winget": "Inkscape.Inkscape",
     "choco": "inkscape",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/inkscape",
     "category": "Imaging"
   },
   {
@@ -1751,7 +1742,7 @@
     "winget": "youtube-dl.youtube-dl",
     "choco": "yt-dlp",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "main/youtube-dl",
     "category": "Utilities"
   },
   {
@@ -1760,7 +1751,7 @@
     "winget": "Postman.Postman",
     "choco": "postman",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/postman",
     "category": "Development"
   },
   {
@@ -1769,7 +1760,7 @@
     "winget": "Microsoft.AzureCLI",
     "choco": "azure-cli",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "main/azure-cli",
     "category": "Development"
   },
   {
@@ -1805,7 +1796,7 @@
     "winget": "Espanso.Espanso",
     "choco": "espanso",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "main/espanso",
     "category": "Development"
   },
   {
@@ -1823,7 +1814,7 @@
     "winget": "Mikrotik.Winbox",
     "choco": "na",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/winbox",
     "category": "Utilities"
   },
   {
@@ -1832,7 +1823,7 @@
     "winget": "NirSoft.SearchMyFiles",
     "choco": "searchmyfiles",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "nirsoft/searchmyfiles",
     "category": "Utilities"
   },
   {
@@ -1877,7 +1868,7 @@
     "winget": "YumiUsb.Legacy",
     "choco": "yumi",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/yumi",
     "category": "Utilities"
   },
   {
@@ -1886,7 +1877,7 @@
     "winget": "YumiUsb.UEFI",
     "choco": "yumi-uefi",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/yumi-uefi",
     "category": "Utilities"
   },
   {
@@ -1895,7 +1886,7 @@
     "winget": "OPAutoClicker.OPAutoClicker",
     "choco": "autoclicker",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/autoclicker",
     "category": "Utilities"
   },
   {
@@ -1904,7 +1895,7 @@
     "winget": "KRTirtho.Spotube",
     "choco": "spotube",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/spotube",
     "category": "Media"
   },
   {
@@ -1913,7 +1904,7 @@
     "winget": "FortyOneLtd.AudioSwitcher",
     "choco": "audioswitcher",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/audioswitcher",
     "category": "Media"
   },
   {
@@ -1940,11 +1931,11 @@
     "winget": "na",
     "choco": "runasdate",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "nirsoft/runasdate",
     "category": "Portable"
   },
   {
-    "Name": "Visual Studio 2017 Build ",
+    "Name": "Visual Studio 2017 Build",
     "Description": "These Build Tools allow you to build native and managed",
     "winget": "na",
     "choco": "visualstudio2017buildtools",
@@ -1958,7 +1949,7 @@
     "winget": "rcmaehl.MSEdgeRedirect",
     "choco": "msedgeredirect",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/msedgeredirect",
     "category": "Utilities"
   },
   {
@@ -1976,7 +1967,7 @@
     "winget": "dotnetcore-3.0-desktopruntime",
     "choco": "Microsoft.DotNet.HostingBundle.3_1",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "versions/windowsdesktop-runtime-3.1",
     "category": "Runtimes"
   },
   {
@@ -1985,7 +1976,7 @@
     "winget": "Microsoft.DotNet.HostingBundle.6",
     "choco": "dotnet-6.0-desktopruntime",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "versions/windowsdesktop-runtime-6.0",
     "category": "Runtimes"
   },
   {
@@ -1994,7 +1985,7 @@
     "winget": "Microsoft.DotNet.AspNetCore.7",
     "choco": "dotnet-7.0-desktopruntime",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "versions/windowsdesktop-runtime-7.0",
     "category": "Runtimes"
   },
   {
@@ -2003,7 +1994,7 @@
     "winget": "Microsoft.DotNet.DesktopRuntime.8",
     "choco": "dotnet-desktopruntime",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/windowsdesktop-runtime",
     "category": "Runtimes"
   },
   {
@@ -2057,7 +2048,7 @@
     "winget": "MHNexus.HxD",
     "choco": "hxd",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/hxd",
     "category": "Disk Tools"
   },
   {
@@ -2075,7 +2066,7 @@
     "winget": "VivaldiTechnologies.Vivaldi",
     "choco": "vivaldi",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/vivaldi",
     "category": "Web Browsers"
   },
   {
@@ -2093,7 +2084,7 @@
     "winget": "OpenShot.OpenShot",
     "choco": "openshot",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/openshot",
     "category": "Media Tools"
   },
   {
@@ -2111,7 +2102,7 @@
     "winget": "dotPDNLLC.paintdotnet",
     "choco": "paint.net",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/paint.net",
     "category": "Imaging"
   },
   {
@@ -2120,7 +2111,7 @@
     "winget": "Stretchly.Stretchly",
     "choco": "stretchly",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/stretchly",
     "category": "Utilities"
   },
   {
@@ -2138,7 +2129,7 @@
     "winget": "JAMSoftware.TreeSize.Free",
     "choco": "treesizefree",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/treesize-free",
     "category": "Utilities"
   },
   {
@@ -2147,7 +2138,7 @@
     "winget": "Microsoft.DotNet.DesktopRuntime.3_1",
     "choco": "dotnet3.5",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "versions/de4dot-net35",
     "category": "Runtimes"
   },
   {
@@ -2156,7 +2147,7 @@
     "winget": "na",
     "choco": "flashplayeractivex",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/flashplayer-sa",
     "category": "Runtimes"
   },
   {
@@ -2165,7 +2156,7 @@
     "winget": "na",
     "choco": "googledrive",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "main/gdrive",
     "category": "File Sharing"
   },
   {
@@ -2183,7 +2174,7 @@
     "winget": "Dropbox.Dropbox",
     "choco": "dropbox",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "nonportable/dropbox-np",
     "category": "File Sharing"
   },
   {
@@ -2192,7 +2183,7 @@
     "winget": "cURL.cURL",
     "choco": "curl",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "main/curl",
     "category": "Development"
   },
   {
@@ -2201,7 +2192,7 @@
     "winget": "pdfforge.PDFCreator",
     "choco": "pdfcreator",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "nonportable/pdf24-creator-np",
     "category": "Documents"
   },
   {
@@ -2210,7 +2201,7 @@
     "winget": "Microsoft.Sysinternals.Autoruns",
     "choco": "autoruns",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "sysinternals/autoruns",
     "category": "Utilities"
   },
   {
@@ -2228,7 +2219,7 @@
     "winget": "Microsoft.Sysinternals.ProcessExplorer",
     "choco": "procexp",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "sysinternals/process-explorer",
     "category": "Utilities"
   },
   {
@@ -2237,7 +2228,7 @@
     "winget": "Gyan.FFmpeg",
     "choco": "ffmpeg",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "main/ffmpeg",
     "category": "Media Tools"
   },
   {
@@ -2246,7 +2237,7 @@
     "winget": "OpenVPNTechnologies.OpenVPNConnect",
     "choco": "openvpn-connect",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/openvpn-connect",
     "category": "Utilities"
   },
   {
@@ -2264,7 +2255,7 @@
     "winget": "Insecure.Nmap",
     "choco": "nmap",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "main/nmap",
     "category": "Utilities"
   },
   {
@@ -2273,7 +2264,7 @@
     "winget": "uvncbvba.UltraVnc",
     "choco": "ultravnc",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/ultravnc",
     "category": "File Sharing"
   },
   {
@@ -2282,7 +2273,7 @@
     "winget": "Plex.Plex",
     "choco": "plex",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/plex-desktop",
     "category": "Media Tools"
   },
   {
