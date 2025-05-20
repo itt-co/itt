@@ -82,10 +82,10 @@ function Create-JsonObject {
     $jsonObject = @{
         name        = $Name
         description = $Description
-        winget      = "na"
         choco       = "na"
-        itt         = "na"
+        winget      = "na"
         scoop       = "na"
+        itt         = "na"
         category    = ""
     }
 
@@ -118,7 +118,7 @@ function Download-Mthoed {
             # winget input
 
             # itt scoop 
-                $itt = Read-Host "Enter scoop package name"
+                $scoop = Read-Host "Enter scoop package name"
                 if ($scoop -eq "") { $scoop = "na" }  # Set default value if empty
             # itt scoop 
                  
@@ -199,10 +199,10 @@ if (Test-Path $applications) {
         $jsonOutput += [PSCustomObject]@{
             Name        = $item.Name
             Description = $item.Description
-            winget      = $item.winget
             choco       = $item.choco
-            itt         = $item.itt
+            winget      = $item.winget
             scoop       = $item.scoop
+            itt         = $item.itt
             category    = $item.category
         }
     }
