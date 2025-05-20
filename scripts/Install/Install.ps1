@@ -56,15 +56,15 @@ function Invoke-Install {
             Set-Statusbar -Text "⬇ Current task: Downloading $($App.Name)"
 
             # Some packages won't install until the package folder is removed.
-            $chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($App.Choco)"
-            $ITTFolder = Join-Path $env:ProgramData "itt\downloads\$($App.ITT)"
+            #$chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($App.Choco)"
+            #$ITTFolder = Join-Path $env:ProgramData "itt\downloads\$($App.ITT)"
 
-            Remove-Item -Path "$chocoFolder" -Recurse -Force
-            Remove-Item -Path "$chocoFolder.install" -Recurse -Force
-            Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
-            Remove-Item -Path "$ITTFolder" -Recurse -Force
+            #Remove-Item -Path "$chocoFolder" -Recurse -Force
+            #Remove-Item -Path "$chocoFolder.install" -Recurse -Force
+            #Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
+            #Remove-Item -Path "$ITTFolder" -Recurse -Force
             
-            $Install_result = Install-App -Source $itt.PackgeManager -Name $App.Name -Winget $App.Winget -Choco $App.Choco -itt $App.ITT
+            $Install_result = Install-App -Source $itt.PackgeManager -Name $App.Name -Choco $App.Choco -Scoop $App.Scoop -Winget $App.Winget -itt $App.ITT
 
             if ($Install_result.Success) {
                 Set-Statusbar -Text "✔ $($Install_result.Message)"
@@ -75,7 +75,7 @@ function Invoke-Install {
             }
             
             # debug start
-            if ($Debug) { Add-Log -Message "$($App.Choco) | $($App.Winget) | $($App.ITT)"  -Level "debug" }
+            if ($Debug) { Add-Log -Message "$($App.Choco) | $($App.Scoop) | $($App.Winget) | $($App.ITT)"  -Level "debug" }
             # debug end
         }
 
