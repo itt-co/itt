@@ -14,12 +14,13 @@ function Install-App {
         Install-App -Name "Google Chrome" -Choco "googlechrome" -Winget "Google.Chrome"
     #>
 
-    param ([string]$Source, [string]$Name,[string]$Choco,[string]$Winget,[string]$ITT)
+    param ([string]$Source, [string]$Name,[string]$Choco,[string]$Scoop,[string]$Winget,[string]$ITT)
     
     # Arguments
     $wingetArgs = "install --id $Winget --silent --accept-source-agreements --accept-package-agreements --force"
     $chocoArgs = "install $Choco --confirm --acceptlicense -q --ignore-http-cache --limit-output --allowemptychecksumsecure --ignorechecksum --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests"
     $ittArgs = "install $ITT -y"
+    $scoopArgs = "install $Scoop --confirm"
 
     # Helper function to install an app using a specific installer
     function Install-AppWithInstaller {
@@ -67,8 +68,8 @@ function Install-App {
         }
     }
 
-    # TODO: If Chocolatey is 'none', use Winget
-    if ($Choco -eq "na" -and $Winget -eq "na" -and $itt -ne "na") {
+    # TODO: if all package managers are 'none', use itt
+    if ($Choco -eq "na" -and $Winget -eq "na" -and $itt -ne "na" -and $scoop -eq "na") {
 
         Install-ITTAChoco
         Add-Log -Message "Attempting to install $Name." -Level "ITT"
@@ -77,8 +78,9 @@ function Install-App {
     }
     else 
     {
-        # TODO: if choco is 'none' and winget is not 'none', use winget
-        if ($Choco -eq "na" -and $Winget -ne "na") 
+        # TODO: if choco is 'none' and Scoop is equal to 'none' and winget is NOT 'none', use winget
+        # Skip choco and scoop
+        if ($Choco -eq "na" -and $Scoop -eq "na" -and $Winget -ne "na") 
         {
             Install-Winget
             Add-Log -Message "Attempting to install $Name." -Level "Winget"
@@ -88,24 +90,42 @@ function Install-App {
         }
         else 
         {
-            # TODO: If choco is not 'none' and winget is not 'none', use choco first and fallback to winget
-            if ($Choco -ne "na" -or $Winget -ne "na") 
+            # TODO: If choco is not equal to 'none' and winget is not equal to 'none', use choco first and fallback to scoop and if scoop is failed, use winget for last try
+            if ($Choco -ne "na" -or $Winget -ne "na" -or $Scoop -ne "na") 
             {
-                Install-ITTAChoco
+                Install-Dependencies -PKGMan "choco"
                 Add-Log -Message "Attempting to install $Name." -Level "Chocolatey"
                 $chocoResult = Install-AppWithInstaller "choco" $chocoArgs
 
                 if ($chocoResult -ne 0) {
-                    Install-Winget
-                    Add-Log -Message "installation failed, Falling back to Winget." -Level "Chocolatey"
-                    Start-Process -FilePath "winget" -ArgumentList "settings --enable InstallerHashOverride" -NoNewWindow -Wait -PassThru
-                    $wingetResult = Install-AppWithInstaller "winget" $wingetArgs
-                    Log $wingetResult "Winget"
-                }else {
+
+                    Add-Log -Message "installation failed, Falling back to Scoop." -Level "info"
+
+                    Install-Dependencies -PKGMan "scoop"
+
+                    $scoopResult = Install-AppWithInstaller "scoop" $scoopArgs
+
+                    Log $scoopResult "Scoop"
+
+                    if ($scoopResult -ne 0) {
+
+                        Install-Dependencies -PKGMan "winget"
+
+                        Add-Log -Message "installation failed, Falling back to Winget." -Level "info"
+
+                        $wingetResult = Install-AppWithInstaller "winget" $wingetArgs
+
+                        Log $wingetResult "Winget"
+                    }
+                }
+                else 
+                {
                     Log $chocoResult "Chocolatey"
                 }
-            }else {
-                Add-Log -Message "Package not found in any package manager" -Level "ERROR"
+            }
+            else 
+            {
+                Add-Log -Message "$Name is not available in any package manager" -Level "info"
             }
         }
     }
