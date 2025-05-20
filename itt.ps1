@@ -2843,13 +2843,13 @@ FilterByCat($itt["window"].FindName($itt.CurrentCategory).SelectedItem.Content)
 Search
 }
 "auto" {
-Set-ItemProperty -Path $itt.registryPath -Name "source" -Value "$action" -Force
+Set-ItemProperty -Path $itt.registryPath -Name "source" -Value "auto" -Force
 }
 "choco" {
-Set-ItemProperty -Path $itt.registryPath -Name "source" -Value "$action" -Force
+Set-ItemProperty -Path $itt.registryPath -Name "source" -Value "choco" -Force
 }
 "winget" {
-Set-ItemProperty -Path $itt.registryPath -Name "source" -Value "$action" -Force
+Set-ItemProperty -Path $itt.registryPath -Name "source" -Value "winget" -Force
 }
 "systemlang" {
 Set-Language -lang "default"
@@ -3468,7 +3468,7 @@ Add-Log -Message "$_" -Level "error"
 "choco" {
 if (-not (Get-Command choco -ErrorAction SilentlyContinue))
 {
-Add-Log -Message "Checking dependencies This won't take a minute..." -Level "INFO"
+Add-Log -Message "Installing dependencies... This might take few seconds" -Level "INFO"
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1')) *> $null
 }
 }
@@ -3502,8 +3502,8 @@ Write-Error "Failed to install $_"
 "scoop" {
 if (-not (Get-Command scoop -ErrorAction SilentlyContinue))
 {
-Write-Host "installing scoop..."
-iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
+Add-Log -Message "Installing scoop... This might take few seconds" -Level "info"
+Invoke-Expression "& {$(Invoke-RestMethod get.scoop.sh)} -RunAsAdmin"
 scoop bucket add extras
 }
 }
@@ -3849,44 +3849,6 @@ catch
 Add-Log -Message "PLEASE USE (WINDOWS POWERSHELL) NOT (TERMINAL POWERSHELL 7) TO UNINSTALL $NAME." -Level "WARNING"
 }
 }
-function Invoke-Install {
-if ($itt.ProcessRunning) {
-Message -key "Please_wait" -icon "Warning" -action "OK"
-return
-}
-$itt.searchInput.text = $null
-$itt.Search_placeholder.Visibility = "Visible"
-$itt['window'].FindName("AppsCategory").SelectedIndex = 0
-$selectedApps = Get-SelectedItems -Mode "Apps"
-if ($selectedApps.Count -le 0) {return}
-Show-Selected -ListView "AppsListView" -Mode "Filter"
-if (-not $i) {
-$result = Message -key "Install_msg" -icon "ask" -action "YesNo"
-}
-if ($result -eq "no") {
-Show-Selected -ListView "AppsListView" -Mode "Default"
-return
-}
-ITT-ScriptBlock -ArgumentList $selectedApps $i $source -Debug $debug -ScriptBlock {
-param($selectedApps , $i, $source)
-UpdateUI -Button "installBtn" -Content "Downloading" -Width "auto"
-$itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
-$itt.ProcessRunning = $true
-foreach ($App in $selectedApps) {
-Set-Statusbar -Text "⬇ Current task: Downloading $($App.Name)"
-$Install_result = Install-App -Source $itt.PackgeManager -Name $App.Name -Choco $App.Choco -Scoop $App.Scoop -Winget $App.Winget -itt $App.ITT
-if ($Install_result.Success) {
-Set-Statusbar -Text "✔ $($Install_result.Message)"
-Add-Log -Message "$($Install_result.Message)" -Level "info"
-} else {
-Set-Statusbar -Text "✖ $($Install_result.Message)"
-Add-Log -Message "$($Install_result.Message)" -Level "ERROR"
-}
-}
-Finish -ListView "AppsListView"
-$itt.ProcessRunning = $false
-}
-}
 function Invoke-Apply {
 $itt.searchInput.text = $null
 $itt.Search_placeholder.Visibility = "Visible"
@@ -3946,6 +3908,52 @@ Refresh-Explorer
 }
 $itt.ProcessRunning = $false
 Finish -ListView "TweaksListView"
+}
+}
+function Invoke-Install {
+if ($itt.ProcessRunning) {
+Message -key "Please_wait" -icon "Warning" -action "OK"
+return
+}
+$itt.searchInput.text = $null
+$itt.Search_placeholder.Visibility = "Visible"
+$itt['window'].FindName("AppsCategory").SelectedIndex = 0
+$selectedApps = Get-SelectedItems -Mode "Apps"
+if ($selectedApps.Count -le 0) {return}
+Show-Selected -ListView "AppsListView" -Mode "Filter"
+if (-not $i) {
+$result = Message -key "Install_msg" -icon "ask" -action "YesNo"
+}
+if ($result -eq "no") {
+Show-Selected -ListView "AppsListView" -Mode "Default"
+return
+}
+$itt.PackgeManager = (Get-ItemProperty -Path $itt.registryPath -Name "source" -ErrorAction Stop).source
+ITT-ScriptBlock -ArgumentList $selectedApps $i $source -Debug $debug -ScriptBlock {
+param($selectedApps , $i, $source)
+UpdateUI -Button "installBtn" -Content "Downloading" -Width "auto"
+$itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
+$itt.ProcessRunning = $true
+foreach ($App in $selectedApps) {
+Write-Host $source
+Set-Statusbar -Text "⬇ Current task: Downloading $($App.Name)"
+$chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($App.Choco)"
+$ITTFolder = Join-Path $env:ProgramData "itt\downloads\$($App.ITT)"
+Remove-Item -Path "$chocoFolder" -Recurse -Force
+Remove-Item -Path "$chocoFolder.install" -Recurse -Force
+Remove-Item -Path "$env:TEMP\chocolatey" -Recurse -Force
+Remove-Item -Path "$ITTFolder" -Recurse -Force
+$Install_result = Install-App -Source $itt.PackgeManager -Name $App.Name -Choco $App.Choco -Scoop $App.Scoop -Winget $App.Winget -itt $App.ITT
+if ($Install_result.Success) {
+Set-Statusbar -Text "✔ $($Install_result.Message)"
+Add-Log -Message "$($Install_result.Message)" -Level "info"
+} else {
+Set-Statusbar -Text "✖ $($Install_result.Message)"
+Add-Log -Message "$($Install_result.Message)" -Level "ERROR"
+}
+}
+Finish -ListView "AppsListView"
+$itt.ProcessRunning = $false
 }
 }
 function Invoke-Toggle {
@@ -8387,19 +8395,19 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 1 -Force; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '04/11/2025'.Trim()
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
