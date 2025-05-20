@@ -3,15 +3,6 @@ function Install-App {
     <#
         .SYNOPSIS
         Installs an application using either Chocolatey or Winget package managers.
-
-        .DESCRIPTION
-        The Install-App function automates the installation of applications using Chocolatey and Winget. 
-        It first attempts to install the application with Chocolatey if provided. If Chocolatey is not 
-        available or fails, it falls back to Winget for installation. The function also logs the 
-        installation attempts, successes, and failures.
-
-        .EXAMPLE
-        Install-App -Name "Google Chrome" -Choco "googlechrome" -Winget "Google.Chrome"
     #>
 
     param ([string]$Source, [string]$Name,[string]$Choco,[string]$Scoop,[string]$Winget,[string]$ITT)
@@ -46,19 +37,24 @@ function Install-App {
 
     if($Source -ne "auto")
     {
+
         switch ($Source) {
 
             "choco" { 
                 Install-Dependencies -PKGMan "choco"
-                Install-AppWithInstaller "$Source" $chocoArgs
+                Install-AppWithInstaller "choco" $chocoArgs
+                return Log $LASTEXITCODE "Chocolatey"
             }
             "winget" {
+                Install-Winget
                 Install-Dependencies -PKGMan "winget"
-                Install-AppWithInstaller "$Source" $wingetArgs
+                Install-AppWithInstaller "winget" $wingetArgs
+                return Log $LASTEXITCODE "Winget"
             }
             "scoop" {
                 Install-Dependencies -PKGMan "scoop"
-                Install-AppWithInstaller "$Source" $scoopArgs
+                scoop install $scoopArgs --skip-hash-check
+                return Log $LASTEXITCODE "Scoop"
             }
         }
     }
@@ -77,9 +73,12 @@ function Install-App {
         # Skip choco and scoop
         if ($Choco -eq "na" -and $Scoop -eq "na" -and $Winget -ne "na") 
         {
-            Install-Winget
             Add-Log -Message "Attempting to install $Name." -Level "Winget"
+
+            Install-Winget
+            
             Start-Process -FilePath "winget" -ArgumentList "settings --enable InstallerHashOverride" -NoNewWindow -Wait -PassThru
+            
             $wingetResult = Install-AppWithInstaller "winget" $wingetArgs
             Log $wingetResult "Winget"
         }
@@ -88,8 +87,10 @@ function Install-App {
             # TODO: If choco is not equal to 'none' and winget is not equal to 'none', use choco first and fallback to scoop and if scoop is failed, use winget for last try
             if ($Choco -ne "na" -or $Winget -ne "na" -or $Scoop -ne "na") 
             {
-                Install-Dependencies -PKGMan "choco"
                 Add-Log -Message "Attempting to install $Name." -Level "Chocolatey"
+
+                Install-Dependencies -PKGMan "choco"
+
                 $chocoResult = Install-AppWithInstaller "choco" $chocoArgs
 
                 if ($chocoResult -ne 0) {
