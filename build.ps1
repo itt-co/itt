@@ -159,6 +159,7 @@ function GenerateCheckboxes {
         $Content = $Item.$ContentField
 
         $ChocoPkg = $Item.Choco
+        $ScoopPkg = $Item.Scoop
         $WingetPkg = $Item.Winget
         $ITTPkg = $Item.ITT
 
@@ -176,7 +177,7 @@ function GenerateCheckboxes {
         $Checkboxes += @"
         <StackPanel Orientation="Vertical" Margin="10">
             <StackPanel Orientation="Horizontal">
-                <CheckBox Content="$Content" FontSize="15" Tag="$ChocoPkg | $WingetPkg | $ITTPkg | $CleanedCategory" $Toggle $Name ToolTip="$CleanedDescription"/>
+                <CheckBox Content="$Content" FontSize="15" Tag="$ChocoPkg|$ScoopPkg|$WingetPkg|$ITTPkg|$CleanedCategory" $Toggle $Name ToolTip="$CleanedDescription"/>
                 <TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 $($Item.Category)"/>
             </StackPanel>
         </StackPanel>
