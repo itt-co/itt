@@ -20,7 +20,7 @@ function Install-App {
     $wingetArgs = "install --id $Winget --silent --accept-source-agreements --accept-package-agreements --force"
     $chocoArgs = "install $Choco --confirm --acceptlicense -q --ignore-http-cache --limit-output --allowemptychecksumsecure --ignorechecksum --allowemptychecksum --usepackagecodes --ignoredetectedreboot --ignore-checksums --ignore-reboot-requests"
     $ittArgs = "install $ITT -y"
-    $scoopArgs = "install $Scoop --confirm"
+    $scoopArgs = "$Scoop"
 
     # Helper function to install an app using a specific installer
     function Install-AppWithInstaller {
@@ -65,6 +65,9 @@ function Install-App {
             "winget" {
                Install-AppWithInstaller "$Source" $wingetArgs
             }
+            "scoop" {
+               Install-AppWithInstaller "$Source" $scoopArgs
+            }
         }
     }
 
@@ -103,19 +106,16 @@ function Install-App {
 
                     Install-Dependencies -PKGMan "scoop"
 
-                    $scoopResult = Install-AppWithInstaller "scoop" $scoopArgs
+                    scoop install $scoopArgs --skip-hash-check
 
-                    Log $scoopResult "Scoop"
-
-                    if ($scoopResult -ne 0) {
-
-                        Install-Dependencies -PKGMan "winget"
+                    if ($LASTEXITCODE -ne 0) {
 
                         Add-Log -Message "installation failed, Falling back to Winget." -Level "info"
-
+                        Install-Dependencies -PKGMan "winget"
                         $wingetResult = Install-AppWithInstaller "winget" $wingetArgs
-
                         Log $wingetResult "Winget"
+                    }else {
+                        Log $LASTEXITCODE "Scoop"
                     }
                 }
                 else 
