@@ -53,12 +53,6 @@ function Invoke-Button {
                 Write-Host $action
             # debug end
         }
-        "scoop" {
-            Set-ItemProperty -Path $itt.registryPath -Name "source" -Value "scoop" -Force
-            # debug start
-                Write-Host $action
-            # debug end
-        }
         "winget" {
             Set-ItemProperty -Path $itt.registryPath -Name "source" -Value "winget" -Force
             # debug start
