@@ -83,8 +83,8 @@ function Create-JsonObject {
         name        = $Name
         description = $Description
         choco       = "na"
-        winget      = "na"
         scoop       = "na"
+        winget      = "na"
         itt         = "na"
         category    = ""
     }
@@ -131,10 +131,10 @@ function Download-Mthoed {
             Check -itt $itt -choco $choco -winget $winget -scoop $scoop
 
             return @{
-                winget       = $cleanedWinget
                 choco        = $choco
-                itt          = $itt
+                winget       = $cleanedWinget
                 scoop        = $scoop
+                itt          = $itt
             }
         }
     }
@@ -200,8 +200,8 @@ if (Test-Path $applications) {
             Name        = $item.Name
             Description = $item.Description
             choco       = $item.choco
-            winget      = $item.winget
             scoop       = $item.scoop
+            winget      = $item.winget
             itt         = $item.itt
             category    = $item.category
         }
