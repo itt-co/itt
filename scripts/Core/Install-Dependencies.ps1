@@ -35,7 +35,7 @@ function Install-Dependencies {
 
             if (-not (Get-Command choco -ErrorAction SilentlyContinue))
             {
-                Add-Log -Message "Checking dependencies This won't take a minute..." -Level "INFO"
+                Add-Log -Message "Installing dependencies... This might take few seconds" -Level "INFO"
                 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1')) *> $null
             }
         }
@@ -78,8 +78,8 @@ function Install-Dependencies {
 
             if (-not (Get-Command scoop -ErrorAction SilentlyContinue))
             {
-                Write-Host "installing scoop..."
-                iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
+                Add-Log -Message "Installing scoop... This might take few seconds" -Level "info"
+                Invoke-Expression "& {$(Invoke-RestMethod get.scoop.sh)} -RunAsAdmin"
                 scoop bucket add extras
             }
         }
