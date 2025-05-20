@@ -3661,14 +3661,5 @@
     "scoop": "extras/forkgram",
     "itt": "na",
     "category": "Portable"
-  },
-  {
-    "Name": "test",
-    "Description": "test",
-    "choco": "t",
-    "winget": "t",
-    "scoop": null,
-    "itt": "1",
-    "category": "Web Browsers"
   }
 ]
