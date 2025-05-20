@@ -46,27 +46,19 @@ function Install-App {
 
     if($Source -ne "auto")
     {
-
-        if($Choco -eq "na")
-        {         
-            return @{ Success = $false; Message = "$Name is not avalbile on $Source" }
-        }
-
-        if($Winget -eq "na")
-        {         
-            return @{ Success = $false; Message = "$Name is not avalbile on $Source" }
-        }
-
         switch ($Source) {
 
             "choco" { 
+                Install-Dependencies -PKGMan "choco"
                 Install-AppWithInstaller "$Source" $chocoArgs
             }
             "winget" {
-               Install-AppWithInstaller "$Source" $wingetArgs
+                Install-Dependencies -PKGMan "winget"
+                Install-AppWithInstaller "$Source" $wingetArgs
             }
             "scoop" {
-               Install-AppWithInstaller "$Source" $scoopArgs
+                Install-Dependencies -PKGMan "scoop"
+                Install-AppWithInstaller "$Source" $scoopArgs
             }
         }
     }
