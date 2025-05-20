@@ -2504,7 +2504,8 @@
     "Check": "false",
     "Refresh": "true",
     "Script": [
-      "Install-Winget \r\n winget uninstall 'windows web experience pack' --silent"
+      "Install-Dependencies 'winget'",
+      "winget uninstall 'windows web experience pack' --silent"
     ],
     "UndoScript": [],
     "ScheduledTask": [],
