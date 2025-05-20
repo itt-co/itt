@@ -3379,7 +3379,6 @@ Install-AppWithInstaller "choco" $chocoArgs
 return Log $LASTEXITCODE "Chocolatey"
 }
 "winget" {
-Install-Winget
 Install-Dependencies -PKGMan "winget"
 Install-AppWithInstaller "winget" $wingetArgs
 return Log $LASTEXITCODE "Winget"
@@ -8404,10 +8403,10 @@ Start-Process('https://github.com/emadadel4/itt')
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
