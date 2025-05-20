@@ -3375,15 +3375,19 @@ if($Source -ne "auto")
 switch ($Source) {
 "choco" {
 Install-Dependencies -PKGMan "choco"
-Install-AppWithInstaller "$Source" $chocoArgs
+Install-AppWithInstaller "choco" $chocoArgs
+return Log $LASTEXITCODE "Chocolatey"
 }
 "winget" {
+Install-Winget
 Install-Dependencies -PKGMan "winget"
-Install-AppWithInstaller "$Source" $wingetArgs
+Install-AppWithInstaller "winget" $wingetArgs
+return Log $LASTEXITCODE "Winget"
 }
 "scoop" {
 Install-Dependencies -PKGMan "scoop"
-Install-AppWithInstaller "$Source" $scoopArgs
+scoop install $scoopArgs --skip-hash-check
+return Log $LASTEXITCODE "Scoop"
 }
 }
 }
@@ -3397,8 +3401,8 @@ else
 {
 if ($Choco -eq "na" -and $Scoop -eq "na" -and $Winget -ne "na")
 {
-Install-Winget
 Add-Log -Message "Attempting to install $Name." -Level "Winget"
+Install-Winget
 Start-Process -FilePath "winget" -ArgumentList "settings --enable InstallerHashOverride" -NoNewWindow -Wait -PassThru
 $wingetResult = Install-AppWithInstaller "winget" $wingetArgs
 Log $wingetResult "Winget"
@@ -3407,8 +3411,8 @@ else
 {
 if ($Choco -ne "na" -or $Winget -ne "na" -or $Scoop -ne "na")
 {
-Install-Dependencies -PKGMan "choco"
 Add-Log -Message "Attempting to install $Name." -Level "Chocolatey"
+Install-Dependencies -PKGMan "choco"
 $chocoResult = Install-AppWithInstaller "choco" $chocoArgs
 if ($chocoResult -ne 0) {
 Add-Log -Message "installation failed, Falling back to Scoop." -Level "info"
@@ -8383,17 +8387,17 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 1 -Force; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '04/11/2025'.Trim()
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
