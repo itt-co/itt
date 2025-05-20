@@ -46,7 +46,6 @@ function Install-App {
                 return Log $LASTEXITCODE "Chocolatey"
             }
             "winget" {
-                Install-Winget
                 Install-Dependencies -PKGMan "winget"
                 Install-AppWithInstaller "winget" $wingetArgs
                 return Log $LASTEXITCODE "Winget"
