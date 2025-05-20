@@ -3299,7 +3299,7 @@
     "winget": "na",
     "choco": "authme.portable",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/authme",
     "category": "Security"
   },
   {
@@ -3326,7 +3326,7 @@
     "winget": "na",
     "choco": "kindlepreviewer",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/kcc",
     "category": "Documents"
   },
   {
@@ -3335,7 +3335,7 @@
     "winget": "AMSSoftware.InteriorDesign3D-e",
     "choco": "na",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/sweethome3d",
     "category": "Imaging"
   },
   {
@@ -3344,7 +3344,7 @@
     "winget": "CNRISTI.MeshLab",
     "choco": "meshlab",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/meshlab",
     "category": "Imaging"
   },
   {
@@ -3353,7 +3353,7 @@
     "winget": "Axosoft.GitKraken",
     "choco": "gitkraken",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/gitkraken",
     "category": "Development"
   },
   {
@@ -3362,7 +3362,7 @@
     "winget": "SlackTechnologies.Slack",
     "choco": "slack",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/slack",
     "category": "Communication"
   },
   {
@@ -3371,7 +3371,7 @@
     "winget": "RocketChat.RocketChat",
     "choco": "rocketchat",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/rocketchat-client",
     "category": "Communication"
   },
   {
@@ -3380,7 +3380,7 @@
     "winget": "TeamSpeakSystems.TeamSpeakClient",
     "choco": "teamspeak",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/teamspeak3",
     "category": "Communication"
   },
   {
@@ -3407,7 +3407,7 @@
     "winget": "Rclone.Rclone",
     "choco": "rclone",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "main/rclone",
     "category": "Development"
   },
   {
@@ -3416,7 +3416,7 @@
     "winget": "Iterate.Cyberduck",
     "choco": "cyberduck",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/cyberduck",
     "category": "Development"
   },
   {
@@ -3425,7 +3425,7 @@
     "winget": "DolphinEmulator.Dolphin",
     "choco": "dolphin",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/dolphin",
     "category": "Gaming"
   },
   {
@@ -3434,7 +3434,7 @@
     "winget": "JeffreyPfau.mGBA",
     "choco": "mgba",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "games/mgba",
     "category": "Gaming"
   },
   {
@@ -3452,7 +3452,7 @@
     "winget": "ScummVM.ScummVM",
     "choco": "scummvm",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "games/scummvm",
     "category": "Gaming"
   },
   {
@@ -3461,7 +3461,7 @@
     "winget": "Project64.Project64",
     "choco": "project64",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "games/project64",
     "category": "Gaming"
   },
   {
@@ -3470,7 +3470,7 @@
     "winget": "DOSBox.DOSBox",
     "choco": "na",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "main/dosbox",
     "category": "Gaming"
   },
   {
@@ -3488,7 +3488,7 @@
     "winget": "GDevelop.GDevelop",
     "choco": "gdevelop",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/gdevelop",
     "category": "Development"
   },
   {
@@ -3497,7 +3497,7 @@
     "winget": "MongoDB.DatabaseTools",
     "choco": "mongodb-database-tools",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "main/mongodb-database-tools",
     "category": "Development"
   },
   {
@@ -3515,7 +3515,7 @@
     "winget": "Oracle.MySQL",
     "choco": "mysql",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "main/mysql",
     "category": "Development"
   },
   {
@@ -3524,7 +3524,7 @@
     "winget": "MongoDB.Compass.Full",
     "choco": "mongodb-compass",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/mongodb-compass",
     "category": "Development"
   },
   {
@@ -3542,7 +3542,7 @@
     "winget": "na",
     "choco": "ida-free",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/ida-free",
     "category": "Utilities"
   },
   {
@@ -3560,7 +3560,7 @@
     "winget": "na",
     "choco": "na",
     "itt": "resourcehacker",
-    "scoop": "na",
+    "scoop": "extras/resource-hacker",
     "category": "Portable"
   },
   {
@@ -3578,7 +3578,7 @@
     "winget": "na",
     "choco": "mpvio",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/mpv",
     "category": "Media"
   },
   {
@@ -3596,7 +3596,7 @@
     "winget": "Aegisub.Aegisub",
     "choco": "aegisub",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/aegisub",
     "category": "Media Tools"
   },
   {
@@ -3623,7 +3623,7 @@
     "winget": "na",
     "choco": "cursoride",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/cursor",
     "category": "Development"
   },
   {
@@ -3641,7 +3641,7 @@
     "winget": "RubyInstallerTeam.Ruby.3.1",
     "choco": "ruby",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "main/ruby",
     "category": "Development"
   },
   {
@@ -3650,7 +3650,7 @@
     "winget": "FastCopy.FastCopy",
     "choco": "fastcopy",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/fastcopy",
     "category": "Utilities"
   },
   {
@@ -3659,7 +3659,7 @@
     "winget": "na",
     "choco": "forkgram",
     "itt": "na",
-    "scoop": "na",
+    "scoop": "extras/forkgram",
     "category": "Portable"
   }
 ]
