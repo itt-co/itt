@@ -42,20 +42,19 @@ function Install-App {
 
             "choco" { 
                 Install-Dependencies -PKGMan "choco"
-                Install-AppWithInstaller "choco" $chocoArgs
-                return Log $LASTEXITCODE "Chocolatey"
+                $LASTEXITCODE = Install-AppWithInstaller "choco" $chocoArgs
             }
             "winget" {
                 Install-Dependencies -PKGMan "winget"
-                Install-AppWithInstaller "winget" $wingetArgs
-                return Log $LASTEXITCODE "Winget"
+                $LASTEXITCODE = Install-AppWithInstaller "winget" $wingetArgs
             }
             "scoop" {
                 Install-Dependencies -PKGMan "scoop"
-                scoop install $scoopArgs --skip-hash-check
-                return Log $LASTEXITCODE "Scoop"
+                $LASTEXITCODE = scoop install $scoopArgs
             }
         }
+
+        return Log $LASTEXITCODE $Source
     }
 
     # TODO: if all package managers are 'none', use itt
