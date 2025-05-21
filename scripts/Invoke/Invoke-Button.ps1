@@ -43,18 +43,21 @@ function Invoke-Button {
         }
         "auto" {
             Set-ItemProperty -Path $itt.registryPath -Name "source" -Value "auto" -Force
+            Set-Statusbar -Text "Switched to auto"
             # debug start
                 Write-Host $action
             # debug end
         }
         "choco" {
             Set-ItemProperty -Path $itt.registryPath -Name "source" -Value "choco" -Force
+            Set-Statusbar -Text "Switched to choco"
             # debug start
                 Write-Host $action
             # debug end
         }
         "winget" {
             Set-ItemProperty -Path $itt.registryPath -Name "source" -Value "winget" -Force
+            Set-Statusbar -Text "Switched to winget"
             # debug start
                 Write-Host $action
             # debug end
