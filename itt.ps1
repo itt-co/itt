@@ -2844,15 +2844,15 @@ Search
 }
 "auto" {
 Set-ItemProperty -Path $itt.registryPath -Name "source" -Value "auto" -Force
-Set-Statusbar -Text "Switched to auto"
+Set-Statusbar -Text "📢 Switched to auto"
 }
 "choco" {
 Set-ItemProperty -Path $itt.registryPath -Name "source" -Value "choco" -Force
-Set-Statusbar -Text "Switched to choco"
+Set-Statusbar -Text "📢 Switched to choco"
 }
 "winget" {
 Set-ItemProperty -Path $itt.registryPath -Name "source" -Value "winget" -Force
-Set-Statusbar -Text "Switched to winget"
+Set-Statusbar -Text "📢 Switched to winget"
 }
 "systemlang" {
 Set-Language -lang "default"
@@ -8419,20 +8419,20 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 1 -Force; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '04/11/2025'.Trim()
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
 $daysElapsed = (Get-Date) - $storedDate
