@@ -79,7 +79,8 @@ function Install-Dependencies {
             if (-not (Get-Command scoop -ErrorAction SilentlyContinue))
             {
                 Add-Log -Message "Installing scoop... This might take few seconds" -Level "info"
-                Invoke-Expression "& {$(Invoke-RestMethod get.scoop.sh)} -RunAsAdmin"
+                Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+                Invoke-WebRequest -useb get.scoop.sh | Invoke-Expression
                 scoop bucket add extras
             }
         }
