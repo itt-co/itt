@@ -3500,7 +3500,8 @@ Write-Error "Failed to install $_"
 if (-not (Get-Command scoop -ErrorAction SilentlyContinue))
 {
 Add-Log -Message "Installing scoop... This might take few seconds" -Level "info"
-Invoke-Expression "& {$(Invoke-RestMethod get.scoop.sh)} -RunAsAdmin"
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+Invoke-WebRequest -useb get.scoop.sh | Invoke-Expression
 scoop bucket add extras
 }
 }
@@ -7747,6 +7748,11 @@ Grid.Row="1">
 <CheckBox Content="Forkgram" FontSize="15" Tag="forkgram|extras/forkgram|na|na|Portable"   ToolTip="Fork of Telegram Desktop messaging app"/>
 <TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Portable"/>
 </StackPanel>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="DriverView" FontSize="15" Tag="driverview|extras/driverview|na|na|Utilities"   ToolTip="Loaded Windows Drivers List"/>
+<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+</StackPanel>
 </StackPanel>
 </ListView>
 </Grid>
@@ -8392,10 +8398,7 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 1 -Force; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '04/11/2025'.Trim()
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
@@ -8404,7 +8407,10 @@ Start-Process('https://github.com/emadadel4/itt')
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
