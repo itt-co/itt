@@ -3661,5 +3661,14 @@
     "winget": "na",
     "itt": "na",
     "category": "Portable"
+  },
+  {
+    "Name": "DriverView",
+    "Description": "Loaded Windows Drivers List",
+    "choco": "driverview",
+    "scoop": "extras/driverview",
+    "winget": "na",
+    "itt": "na",
+    "category": "Utilities"
   }
 ]
