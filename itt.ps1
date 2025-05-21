@@ -7753,6 +7753,11 @@ Grid.Row="1">
 <CheckBox Content="DriverView" FontSize="15" Tag="driverview|extras/driverview|na|na|Utilities"   ToolTip="Loaded Windows Drivers List"/>
 <TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
 </StackPanel>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="RegScanner" FontSize="15" Tag="regscanner|nirsoft/regscanner|na|na|Utilities"   ToolTip="Scan and find values in the Registry"/>
+<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+</StackPanel>
 </StackPanel>
 </ListView>
 </Grid>
@@ -8401,17 +8406,17 @@ $itt.event.FindName('date').text = '04/11/2025'.Trim()
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
-})
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
-})
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
 $daysElapsed = (Get-Date) - $storedDate
