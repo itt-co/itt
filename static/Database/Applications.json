@@ -3670,5 +3670,14 @@
     "winget": "na",
     "itt": "na",
     "category": "Utilities"
+  },
+  {
+    "Name": "RegScanner",
+    "Description": "Scan and find values in the Registry",
+    "choco": "regscanner",
+    "scoop": "nirsoft/regscanner",
+    "winget": "na",
+    "itt": "na",
+    "category": "Utilities"
   }
 ]
