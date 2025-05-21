@@ -5,7 +5,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "05/20/2025"
+lastupdate     = "05/21/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -3375,20 +3375,18 @@ if($Source -ne "auto")
 switch ($Source) {
 "choco" {
 Install-Dependencies -PKGMan "choco"
-Install-AppWithInstaller "choco" $chocoArgs
-return Log $LASTEXITCODE "Chocolatey"
+$LASTEXITCODE = Install-AppWithInstaller "choco" $chocoArgs
 }
 "winget" {
 Install-Dependencies -PKGMan "winget"
-Install-AppWithInstaller "winget" $wingetArgs
-return Log $LASTEXITCODE "Winget"
+$LASTEXITCODE = Install-AppWithInstaller "winget" $wingetArgs
 }
 "scoop" {
 Install-Dependencies -PKGMan "scoop"
-scoop install $scoopArgs --skip-hash-check
-return Log $LASTEXITCODE "Scoop"
+$LASTEXITCODE = scoop install $scoopArgs
 }
 }
+return Log $LASTEXITCODE $Source
 }
 if ($Choco -eq "na" -and $Winget -eq "na" -and $itt -ne "na" -and $scoop -eq "na") {
 Install-ITTAChoco
@@ -8400,11 +8398,11 @@ Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
-})
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
