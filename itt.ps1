@@ -4476,7 +4476,6 @@ $gpuInfo = Get-CimInstance Win32_VideoController | Where-Object { $_.Status -eq 
 $encodedName = [System.Web.HttpUtility]::UrlEncode($gpuInfo) -replace '\+', '%20'
 if (-not $gpuInfo) {
 Write-Host "No GPU detected"
-exit
 }
 if ($gpuInfo -match "NVIDIA") {
 Start-Process "https://www.nvidia.com/en-us/drivers/"
