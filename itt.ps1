@@ -106,7 +106,7 @@ $itt.database.Tweaks = @'
 "Registry": []
 },
 {
-"Name": "Super Privacy Disable all Privacy Settings",
+"Name": "Super Privacy Disable all Privacy Settings and Telemetry",
 "Description": "Disable Wifi-Sense & Activity History & ActivityFeed All Telemetry & DataCollection & disable various telemetry and annoyances in Edge",
 "Category": "Privacy",
 "Check": "false",
@@ -125,6 +125,55 @@ $itt.database.Tweaks = @'
 "Type": "String",
 "Value": "Deny",
 "defaultValue": "Deny"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\DataCollection",
+"Name": "Start_TrackProgs",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKCR:\\Software\\Microsoft\\Windows\\CurrentVersion\\Privacy",
+"Name": "TailoredExperiencesWithDiagnosticDataEnabled",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKCR:\\Software\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo",
+"Name": "Enabled",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKCR:\\Software\\Microsoft\\Speech_OneCore\\Settings\\OnlineSpeechPrivacy",
+"Name": "HasAccepted",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKCR:\\Software\\Microsoft\\Input\\TIPC",
+"Name": "Enabled",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
+"Path": "HKCR:\\Software\\Microsoft\\InputPersonalization",
+"Name": "RestrictImplicitInkCollection",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
+},
+{
+"Path": "HKCR:\\Software\\Microsoft\\InputPersonalization",
+"Name": "RestrictImplicitTextCollection",
+"Type": "DWord",
+"Value": "1",
+"defaultValue": "0"
 },
 {
 "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Sensor\\Overrides\\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}",
@@ -1186,6 +1235,20 @@ $itt.database.Tweaks = @'
 {
 "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
 "Name": "WalletDonationEnabled",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKCR:\\Software\\Microsoft\\Personalization\\Settings",
+"Name": "AcceptedPrivacyPolicy",
+"Value": "0",
+"Type": "DWord",
+"DefaultValue": "1"
+},
+{
+"Path": "HKCR:\\Software\\Microsoft\\InputPersonalization\\TrainedDataStore",
+"Name": "HarvestContacts",
 "Value": "0",
 "Type": "DWord",
 "DefaultValue": "1"
@@ -3556,10 +3619,10 @@ Write-Error "Failed to install $_"
 }
 function Refresh-Explorer {
 Add-Log -Message "Restart explorer." -Level "info"
-Stop-Process -Name explorer -Force
+Stop-Process -processName: Explorer -Force
 Start-Sleep -Seconds 1
-if (-not (Get-Process -Name explorer -ErrorAction SilentlyContinue)) {
-Start-Process explorer.exe -Verb RunAs
+if (-not (Get-Process -processName: Explorer)) {
+Start-Process explorer.exe
 }
 }
 function Remove-ScheduledTasks {
@@ -7858,7 +7921,7 @@ AlternationCount="2">
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Super Privacy Disable all Privacy Settings" FontSize="15" Tag="||||Privacy"   ToolTip="Disable WifiSense  Activity History  ActivityFeed All Telemetry  DataCollection  disable various telemetry and annoyances in Edge"/>
+<CheckBox Content="Super Privacy Disable all Privacy Settings and Telemetry" FontSize="15" Tag="||||Privacy"   ToolTip="Disable WifiSense  Activity History  ActivityFeed All Telemetry  DataCollection  disable various telemetry and annoyances in Edge"/>
 <TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Privacy"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
@@ -8443,20 +8506,20 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 1 -Force; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '04/11/2025'.Trim()
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
 $daysElapsed = (Get-Date) - $storedDate
