@@ -2100,6 +2100,13 @@
         "defaultValue": "0"
       },
       {
+        "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "Name": "ShowCopilotButton",
+        "Type": "DWord",
+        "Value": "0",
+        "defaultValue": "1"
+      },
+      {
         "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
         "Name": "HubsSidebarEnabled",
         "Type": "DWord",
@@ -2147,6 +2154,13 @@
         "Type": "DWord",
         "Value": "1",
         "defaultValue": "0"
+      },
+      {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsAI",
+        "Name": "AllowRecallEnablement",
+        "Type": "DWord",
+        "Value": "0",
+        "defaultValue": "1"
       }
     ]
   },
