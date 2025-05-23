@@ -2132,6 +2132,13 @@ $itt.database.Tweaks = @'
 "defaultValue": "0"
 },
 {
+"Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+"Name": "ShowCopilotButton",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
+},
+{
 "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Edge",
 "Name": "HubsSidebarEnabled",
 "Type": "DWord",
@@ -2179,6 +2186,13 @@ $itt.database.Tweaks = @'
 "Type": "DWord",
 "Value": "1",
 "defaultValue": "0"
+},
+{
+"Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsAI",
+"Name": "AllowRecallEnablement",
+"Type": "DWord",
+"Value": "0",
+"defaultValue": "1"
 }
 ]
 },
@@ -8506,6 +8520,12 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 1 -Force; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '04/11/2025'.Trim()
+$itt.event.FindName('ytv').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+})
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
@@ -8514,12 +8534,6 @@ Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
-})
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
 $daysElapsed = (Get-Date) - $storedDate
