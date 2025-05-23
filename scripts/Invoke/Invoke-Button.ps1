@@ -293,6 +293,12 @@ function Invoke-Button {
                 Debug-Message $action
             # debug end
         }
+        "finddriver"{
+            Find-Driver
+            # debug start
+                Debug-Message $action
+            # debug end
+        }
         "taps"{
             ChangeTap
             # debug start

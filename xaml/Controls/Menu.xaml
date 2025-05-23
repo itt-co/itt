@@ -274,6 +274,12 @@
             <MenuItem.Icon>
                 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
             </MenuItem.Icon>
+            
+            <MenuItem Name="finddriver" Header="Find GPU Driver" ToolTip="Find GPU Driver on official manufacturer website">
+                <MenuItem.Icon>
+                    <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+                </MenuItem.Icon>
+            </MenuItem>
 
             <MenuItem Name="mas" Header="Windows activation" ToolTip="Windows activation">
                 <MenuItem.Icon>
