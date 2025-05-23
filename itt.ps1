@@ -5,7 +5,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "05/21/2025"
+lastupdate     = "05/23/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -3013,6 +3013,9 @@ Start-Process ("https://webtor.io/")
 "spotifydown"{
 Start-Process ("https://spotidownloader.com/")
 }
+"finddriver"{
+Find-Driver
+}
 "taps"{
 ChangeTap
 }
@@ -4468,6 +4471,23 @@ $Shortcut.Arguments = "-ExecutionPolicy Bypass -NoProfile -Command ""irm raw.git
 $Shortcut.IconLocation = "$localIconPath"
 $Shortcut.Save()
 }
+function Find-Driver {
+$gpuInfo = Get-CimInstance Win32_VideoController | Where-Object { $_.Status -eq "OK" } | Select-Object -First 1 -ExpandProperty Name
+$encodedName = [System.Web.HttpUtility]::UrlEncode($gpuInfo) -replace '\+', '%20'
+if (-not $gpuInfo) {
+Write-Host "No GPU detected"
+exit
+}
+if ($gpuInfo -match "NVIDIA") {
+Start-Process "https://www.nvidia.com/en-us/drivers/"
+}
+elseif ($gpuInfo -match "AMD" -or $gpuInfo -match "Radeon") {
+Start-Process "https://www.amd.com/en/support/download/drivers.html"
+}
+elseif ($gpuInfo -match "Intel") {
+Start-Process "https://www.intel.com/content/www/us/en/search.html?ws=idsa-suggested#q=$encodedName&sort=relevancy&f:@tabfilter=[Downloads]"
+}
+}
 function Search {
 $filter = $itt.searchInput.Text.ToLower() -replace '[^\p{L}\p{N}]', ''
 $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt['window'].FindName($itt.currentList).Items)
@@ -5573,6 +5593,11 @@ Shift+I
 <MenuItem.Icon>
 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
 </MenuItem.Icon>
+<MenuItem Name="finddriver" Header="Find GPU Driver" ToolTip="Find GPU Driver on official manufacturer website">
+<MenuItem.Icon>
+<TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
+</MenuItem.Icon>
+</MenuItem>
 <MenuItem Name="mas" Header="Windows activation" ToolTip="Windows activation">
 <MenuItem.Icon>
 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
@@ -8419,6 +8444,12 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 1 -Force; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '04/11/2025'.Trim()
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
 $itt.event.FindName('ytv').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
 })
@@ -8426,12 +8457,6 @@ $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
