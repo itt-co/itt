@@ -5,7 +5,6 @@ function Find-Driver {
 
     if (-not $gpuInfo) {
         Write-Host "No GPU detected"
-        exit
     }
 
 
