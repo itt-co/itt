@@ -19,23 +19,23 @@
                                 VerticalAlignment="Center" 
                                 HorizontalAlignment="Center" 
                                 Width="auto">
-                                <ComboBoxItem Content="{Binding all, TargetNullValue=All}"/>
-                                <ComboBoxItem Content="Web Browsers"/>
-                                <ComboBoxItem Content="Media"/>
-                                <ComboBoxItem Content="Media Tools"/>
-                                <ComboBoxItem Content="Documents"/>
-                                <ComboBoxItem Content="Compression"/>
-                                <ComboBoxItem Content="Communication"/>
-                                <ComboBoxItem Content="File Sharing"/>
-                                <ComboBoxItem Content="Imaging"/>
-                                <ComboBoxItem Content="Gaming"/>
-                                <ComboBoxItem Content="Utilities"/>
-                                <ComboBoxItem Content="Disk Tools"/>
-                                <ComboBoxItem Content="Development"/>
-                                <ComboBoxItem Content="Security"/>
-                                <ComboBoxItem Content="Portable"/>
-                                <ComboBoxItem Content="Runtimes"/>
-                                <ComboBoxItem Content="Drivers"/>
+                                <ComboBoxItem Tag="All" Content="{Binding all, TargetNullValue=All}"/>
+                                <ComboBoxItem Tag="Web Browsers" Content="{Binding web_browsers, TargetNullValue=Web Browsers}"/>
+                                <ComboBoxItem Tag="Media" Content="{Binding media, TargetNullValue=Media}"/>
+                                <ComboBoxItem Tag="Media Tools" Content="{Binding media_tools, TargetNullValue=Media Tools}"/>
+                                <ComboBoxItem Tag="Documents" Content="{Binding documents, TargetNullValue=Documents}"/>
+                                <ComboBoxItem Tag="Compression" Content="{Binding compression, TargetNullValue=Compression}"/>
+                                <ComboBoxItem Tag="Communication" Content="{Binding communication, TargetNullValue=Communication}"/>
+                                <ComboBoxItem Tag="File Sharing" Content="{Binding file_sharing, TargetNullValue=File Sharing}"/>
+                                <ComboBoxItem Tag="Imaging" Content="{Binding imaging, TargetNullValue=Imaging}"/>
+                                <ComboBoxItem Tag="Gaming" Content="{Binding gaming, TargetNullValue=Gaming}"/>
+                                <ComboBoxItem Tag="Utilities" Content="{Binding utilities, TargetNullValue=Utilities}"/>
+                                <ComboBoxItem Tag="Disk Tools" Content="{Binding disk_tools, TargetNullValue=Disk Tools}"/>
+                                <ComboBoxItem Tag="Development" Content="{Binding development, TargetNullValue=Development}"/>
+                                <ComboBoxItem Tag="Security" Content="{Binding security, TargetNullValue=Security}"/>
+                                <ComboBoxItem Tag="Portable" Content="{Binding portable, TargetNullValue=Portable}"/>
+                                <ComboBoxItem Tag="Runtimes" Content="{Binding runtimes, TargetNullValue=Runtimes}"/>
+                                <ComboBoxItem Tag="Drivers" Content="{Binding drivers, TargetNullValue=Drivers}"/>
                             </ComboBox>
                         <!--End AppsCategory-->
 

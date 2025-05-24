@@ -29,11 +29,10 @@ function Invoke-Button {
             # debug end
         }
         "$($itt.CurrentCategory)" {
-            FilterByCat($itt["window"].FindName($itt.CurrentCategory).SelectedItem.Content)
+            FilterByCat($itt["window"].FindName($itt.CurrentCategory).SelectedItem.Tag)
             # debug start
                 Debug-Message $action
             # debug end
-
         }
         "searchInput" {
             Search

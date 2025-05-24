@@ -45,3 +45,20 @@ Last_update,SOn güncelleme
 Exit_msg,Programı kapatmak istediğinizden emin misiniz? Herhangi bir kurulum varsa durdurulacak
 Empty_save_msg,Kaydetmek için en az bir uygulama seçin
 easter_egg, Gizli sırrı keşfedebilir misin? Kaynağa dal özelliği ilk keşfeden ol ve araca entegre et
+system_protection,Sistem koruması
+web_browsers,🌐 Web Tarayıcıları  
+media,🎬 Medya  
+media_tools,🎚 Medya Araçları  
+documents,📃 Belgeler  
+compression,📀 Sıkıştırma  
+communication,📞 İletişim  
+file_sharing,📁 Dosya Paylaşımı  
+imaging,📷 Görüntü İşleme  
+gaming,🎮 Oyun  
+utilities,🔨 Araçlar  
+disk_tools,💽 Disk Araçları  
+development,👩‍💻 Geliştirme  
+security,🛡 Güvenlik  
+portable,💼 Taşınabilir  
+runtimes,📈 Çalışma Zamanı  
+drivers,🔌 Sürücüler  
