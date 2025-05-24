@@ -5,7 +5,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "05/23/2025"
+lastupdate     = "05/24/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -8520,16 +8520,13 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 1 -Force; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '04/11/2025'.Trim()
-$itt.event.FindName('ytv').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=QmO82OTsU5c')
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
@@ -8690,12 +8687,6 @@ HorizontalAlignment="Left" />
 </Image.Source>
 </Image>
 <TextBlock Text=''Select the package manager used to install packages'' FontSize=''16'' Margin=''25,25,35,0''  Foreground=''{DynamicResource TextColorSecondaryColor2}''  TextWrapping=''Wrap''/>
-<TextBlock Text=''🎬 Watch demo'' FontSize=''20'' Margin=''0,18,0,30'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
-<Image x:Name=''ytv'' Cursor=''Hand'' Margin=''8'' Height=''Auto'' Width=''400''>
-<Image.Source>
-<BitmapImage UriSource=''https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/thumbnail.jpg''/>
-</Image.Source>
-</Image>
 <TextBlock Text='' • Keyboard Shortcuts'' FontSize=''20'' Margin=''0,44,0,30'' Foreground=''{DynamicResource PrimaryButtonForeground}'' FontWeight=''bold'' TextWrapping=''Wrap''/>
 <StackPanel Orientation=''Vertical''>
 <TextBlock Text=''• Ctrl+A: Clear category filter.'' Margin=''35,0,0,0'' FontSize=''16'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
