@@ -58,11 +58,13 @@ ITT (Install Tweaks Tool) included most Windows 10/11 Software and Windows Tweak
 > **IT'S NOT PORTABLE, SO DO NOT DOWNLOAD OR RUN IT FROM ELSEWHERE.**
 
 <pre><code>irm bit.ly/ittea | iex</code></pre>
-> [!NOTE]  
-> `bit.ly` this short link direct to `itt.ps1` file in this repository. You can test them in browser.
+
 <p>If the URL is blocked in your region try:</p>
 <pre><code>irm emadadel4.github.io/itt.ps1 | iex</code></pre>
 <pre><code>irm raw.githubusercontent.com/emadadel4/itt/main/itt.ps1 | iex</code></pre>
+
+> [!NOTE]  
+> `bit.ly` this short link direct to `itt.ps1` file in this repository. You can test them in browser.
 
 ## ⚡ Quick Install Your Saved Apps (Run as Admin is recommended)
 Example:
