@@ -69,14 +69,6 @@ ITT (Install Tweaks Tool) included most Windows 10/11 Software and Windows Tweak
 Example:
 <pre><code>iex "& { $(irm bit.ly/ittea) } -i .\myapps.itt"</code></pre>
 
-<div align="center">
-  
-## 🎬 Watch Demo
-
-[![Watch the video](https://raw.githubusercontent.com/emadadel4/itt/main/static/Images/thumbnail.jpg)](https://www.youtube.com/watch?v=QmO82OTsU5c)
-
-</div>
-
 # 🤝 How to Contribute
 
 ### Project Structure:
