@@ -8,10 +8,6 @@
 
 #### Select the package manager used to install packages
 
-### 🎬 Watch demo
-
-![itt.xName:ytv [https://www.youtube.com/watch?v=QmO82OTsU5c]](https://raw.githubusercontent.com/emadadel4/ITT/refs/heads/main/static/Images/thumbnail.jpg)
-
 ##### Keyboard Shortcuts
 
 - Ctrl+A: Clear category filter.
@@ -30,9 +26,7 @@
 - 
 ![itt.xName:preview2 [https://github.com/emadadel4/itt]](https://github.com/user-attachments/assets/2a4fedc7-1d0e-419d-940c-b784edc7d1d1)
 
-
 ##### 📥 Download any Youtube video
-
 
 ![itt.xName:shell [https://www.youtube.com/watch?v=nI7rUhWeOrA]](https://raw.githubusercontent.com/emadadel4/ShellTube/main/demo.jpg)
 
