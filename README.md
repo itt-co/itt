@@ -15,7 +15,7 @@
 ITT (Install Tweaks Tool) included most Windows 10/11 Software and Windows Tweaks & Remove Bloatwares & Windows activation
 
 ![Endpoint Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fittools-7d9fe-default-rtdb.firebaseio.com%2Fmessage.json)
-![Latest update](https://img.shields.io/badge/Latest%20update-05/23/2025-blue)
+![Latest update](https://img.shields.io/badge/Latest%20update-05/24/2025-blue)
 ![Script size](https://img.shields.io/github/size/emadadel4/itt/itt.ps1?label=Script%20size)
 <!-- ![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Femadadel4%2Fitt%2F&countColor=%23263759&style=flat) -->
 
@@ -68,14 +68,6 @@ ITT (Install Tweaks Tool) included most Windows 10/11 Software and Windows Tweak
 ## ⚡ Quick Install Your Saved Apps (Run as Admin is recommended)
 Example:
 <pre><code>iex "& { $(irm bit.ly/ittea) } -i .\myapps.itt"</code></pre>
-
-<div align="center">
-  
-## 🎬 Watch Demo
-
-[![Watch the video](https://raw.githubusercontent.com/emadadel4/itt/main/static/Images/thumbnail.jpg)](https://www.youtube.com/watch?v=QmO82OTsU5c)
-
-</div>
 
 # 🤝 How to Contribute
 
