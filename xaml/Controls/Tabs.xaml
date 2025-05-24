@@ -76,13 +76,13 @@
                             Visibility="Collapsed"
                             Width="auto">
                             <ComboBoxItem Content="{Binding all, TargetNullValue=All}"/>
-                            <ComboBoxItem Content="Privacy"/>
-                            <ComboBoxItem Content="Fixer"/>
-                            <ComboBoxItem Content="Performance"/>
-                            <ComboBoxItem Content="Personalization"/>
-                            <ComboBoxItem Content="Power"/>
-                            <ComboBoxItem Content="Protection"/>
-                            <ComboBoxItem Content="Classic"/>
+                            <ComboBoxItem Tag="Privacy" Content="{Binding privacy, TargetNullValue=Privacy}"/>
+                            <ComboBoxItem Tag="Fixer" Content="{Binding fixer, TargetNullValue=Fixer}"/>
+                            <ComboBoxItem Tag="Performance" Content="{Binding performance, TargetNullValue=Performance}"/>
+                            <ComboBoxItem Tag="Personalization" Content="{Binding personalization, TargetNullValue=Personalization}"/>
+                            <ComboBoxItem Tag="Power" Content="{Binding power, TargetNullValue=Power}"/>
+                            <ComboBoxItem Tag="Protection" Content="{Binding protection, TargetNullValue=Protection}"/>
+                            <ComboBoxItem Tag="Classic" Content="{Binding classic, TargetNullValue=Classic}"/>
                         </ComboBox>
                     <!--End TwaeksCategory-->
 
