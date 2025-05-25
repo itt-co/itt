@@ -4882,10 +4882,10 @@ ContentSource="Content"/>
 <Setter Property="Foreground" Value="{DynamicResource HighlightColor}"/>
 <Setter Property="Cursor" Value="Hand"/>
 </Trigger>
-<DataTrigger Binding="{Binding SelectedItem.Header, ElementName=taps}" Value="📦">
+<DataTrigger Binding="{Binding SelectedItem.Tag, ElementName=taps}" Value="apps">
 <Setter TargetName="CheckIcon" Property="Text" Value="📦"/>
 </DataTrigger>
-<DataTrigger Binding="{Binding SelectedItem.Header, ElementName=taps}" Value="🛠">
+<DataTrigger Binding="{Binding SelectedItem.Tag, ElementName=taps}" Value="tweaks">
 <Setter TargetName="CheckIcon" Property="Text" Value="🛠"/>
 </DataTrigger>
 </ControlTemplate.Triggers>
@@ -5145,8 +5145,8 @@ ContentSource="Header"
 </Border>
 <ControlTemplate.Triggers>
 <Trigger Property="IsSelected" Value="True">
-<Setter TargetName="Border" Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}" />
-<Setter Property="Foreground" Value="{DynamicResource HighlightColor}" />
+<Setter TargetName="Border" Property="Background" Value="{DynamicResource HighlightColor}" />
+<Setter Property="Foreground" Value="White" />
 </Trigger>
 <Trigger Property="IsSelected" Value="False">
 <Setter TargetName="Border" Property="Background" Value="Transparent" />
@@ -5781,7 +5781,15 @@ Margin="30,0,0,0" />
 </Grid>
 </Grid>
 <TabControl Name="taps" Grid.Row="1" >
-<TabItem Name="apps" Header="📦" ToolTip="{Binding apps, TargetNullValue=Apps}" FontSize="18" BorderBrush="{x:Null}" >
+<TabItem Name="apps" Header="{Binding apps, TargetNullValue=Apps}" Tag="apps" BorderBrush="{x:Null}" >
+<TabItem.HeaderTemplate>
+<DataTemplate>
+<StackPanel Orientation="Vertical" >
+<TextBlock Text="📦" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+<TextBlock Text="{Binding}" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+</StackPanel>
+</DataTemplate>
+</TabItem.HeaderTemplate>
 <Grid>
 <Grid.RowDefinitions>
 <RowDefinition Height="Auto"/>
@@ -7871,7 +7879,15 @@ Grid.Row="1">
 </ListView>
 </Grid>
 </TabItem>
-<TabItem x:Name="tweeksTab" Header="🛠" ToolTip="{Binding tweaks, TargetNullValue=Tweaks}">
+<TabItem x:Name="tweeksTab" Header="{Binding tweaks, TargetNullValue=Tweaks}" Tag="tweaks">
+<TabItem.HeaderTemplate>
+<DataTemplate>
+<StackPanel Orientation="Vertical">
+<TextBlock Text="🛠" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="18"/>
+<TextBlock Text="{Binding}" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center"  TextWrapping="Wrap" Margin="0,5,0,0"/>
+</StackPanel>
+</DataTemplate>
+</TabItem.HeaderTemplate>
 <Grid>
 <Grid.RowDefinitions>
 <RowDefinition Height="Auto"/>
@@ -8179,7 +8195,15 @@ AlternationCount="2">
 </ListView>
 </Grid>
 </TabItem>
-<TabItem x:Name="SettingsTab" Header="⚙" ToolTip="{Binding settings, TargetNullValue=Settings}">
+<TabItem x:Name="SettingsTab" Header="{Binding settings, TargetNullValue=Settings}">
+<TabItem.HeaderTemplate>
+<DataTemplate>
+<StackPanel Orientation="Vertical">
+<TextBlock Text="⚙" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="18"/>
+<TextBlock Text="{Binding}" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+</StackPanel>
+</DataTemplate>
+</TabItem.HeaderTemplate>
 <ListView Name="SettingsList"
 AlternationCount="2">
 <ListView.ItemsPanel>
@@ -8515,14 +8539,14 @@ $itt.event.FindName('date').text = '04/11/2025'.Trim()
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
 $daysElapsed = (Get-Date) - $storedDate
