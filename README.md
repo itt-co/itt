@@ -64,7 +64,7 @@ ITT (Install Tweaks Tool) included most Windows 10/11 Software and Windows Tweak
 <pre><code>irm raw.githubusercontent.com/emadadel4/itt/main/itt.ps1 | iex</code></pre>
 
 > [!NOTE]  
-> All links point directly to the [itt.ps1](https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/itt.ps1)  file in this repository. You can test them in browser, make sure the link starts with https.
+> All links point directly to the [itt.ps1](https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/itt.ps1)  file in this repository. You can test them in browser, make sure the link starts with https://
 
 ## ⚡ Quick Install Your Saved Apps (Run as Admin is recommended)
 Example:
