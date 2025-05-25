@@ -136,10 +136,10 @@
                         </Trigger>
 
                         <!-- DataTrigger based on the selected tab header -->
-                        <DataTrigger Binding="{Binding SelectedItem.Header, ElementName=taps}" Value="📦">
+                        <DataTrigger Binding="{Binding SelectedItem.Tag, ElementName=taps}" Value="apps">
                             <Setter TargetName="CheckIcon" Property="Text" Value="📦"/>
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding SelectedItem.Header, ElementName=taps}" Value="🛠">
+                        <DataTrigger Binding="{Binding SelectedItem.Tag, ElementName=taps}" Value="tweaks">
                             <Setter TargetName="CheckIcon" Property="Text" Value="🛠"/>
                         </DataTrigger>
                     </ControlTemplate.Triggers>
@@ -424,8 +424,8 @@
                 </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource SecondaryPrimaryBackgroundColor}" />
-                            <Setter Property="Foreground" Value="{DynamicResource HighlightColor}" />
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource HighlightColor}" />
+                            <Setter Property="Foreground" Value="White" />
                         </Trigger>
                         <Trigger Property="IsSelected" Value="False">
                             <Setter TargetName="Border" Property="Background" Value="Transparent" />
