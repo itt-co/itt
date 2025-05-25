@@ -66,14 +66,14 @@
 
     <Style TargetType="ListViewItem">
         <Setter Property="Margin" Value="0 5 0 0"/>
-        <Setter Property="BorderThickness" Value="0.5"/>
+        <Setter Property="BorderThickness" Value="0.3"/>
         <Setter Property="BorderBrush" Value="DarkGray"/>
         <Setter Property="Padding" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListViewItem">
                     <Border Name="bg" 
-                            CornerRadius="6"
+                            CornerRadius="0"
                             Padding="{TemplateBinding Padding}" 
                             BorderBrush="{TemplateBinding BorderBrush}" 
                             BorderThickness="{TemplateBinding BorderThickness}" 
@@ -89,12 +89,12 @@
             <Trigger Property="ItemsControl.AlternationIndex" Value="0">
                 <Setter Property="Background" Value="{DynamicResource itemColor1}" />
                 <Setter Property="BorderBrush" Value="DarkGray"/>
-                <Setter Property="BorderThickness" Value="0.8"/>
+                <Setter Property="BorderThickness" Value="0.7"/>
             </Trigger>
             <Trigger Property="ItemsControl.AlternationIndex" Value="1">
                 <Setter Property="Background" Value="{DynamicResource itemColor2}" />
                 <Setter Property="BorderBrush" Value="DarkGray"/>
-                <Setter Property="BorderThickness" Value="0.8"/>
+                <Setter Property="BorderThickness" Value="0.7"/>
             </Trigger>
             <EventTrigger RoutedEvent="FrameworkElement.Loaded">
                 <BeginStoryboard Storyboard="{StaticResource FadeOutStoryboard}" />
@@ -443,7 +443,7 @@
         <Setter Property="Focusable" Value="True"/>
         <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor}"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Margin" Value="0 0 0 1"/>
+        <Setter Property="Margin" Value="5"/>
         <Setter Property="FontSize" Value="12"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
@@ -478,7 +478,7 @@
                 <ControlTemplate TargetType="ComboBoxItem">
                     <Border x:Name="Bd"
                             Background="{TemplateBinding Background}"
-                            CornerRadius="5"
+                            CornerRadius="3"
                             Padding="{TemplateBinding Padding}">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                             <ContentPresenter
