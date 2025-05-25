@@ -1,6 +1,16 @@
 <!--TabControl-->
     <TabControl Name="taps" Grid.Row="1" >
-            <TabItem Name="apps" Header="📦" ToolTip="{Binding apps, TargetNullValue=Apps}" FontSize="18" BorderBrush="{x:Null}" >
+
+            <TabItem Name="apps" Header="{Binding apps, TargetNullValue=Apps}" Tag="apps" BorderBrush="{x:Null}" >
+
+            <TabItem.HeaderTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" >
+                            <TextBlock Text="📦" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding}" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </DataTemplate>
+            </TabItem.HeaderTemplate>
 
                 <Grid>
 
@@ -54,7 +64,17 @@
 
             </TabItem>
 
-            <TabItem x:Name="tweeksTab" Header="🛠" ToolTip="{Binding tweaks, TargetNullValue=Tweaks}">
+            <TabItem x:Name="tweeksTab" Header="{Binding tweaks, TargetNullValue=Tweaks}" Tag="tweaks">
+
+                <TabItem.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="🛠" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="18"/>
+                                <TextBlock Text="{Binding}" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center"  TextWrapping="Wrap" Margin="0,5,0,0"/>
+                            </StackPanel>
+                        </DataTemplate>
+                </TabItem.HeaderTemplate>
+            
 
                 <Grid>
 
@@ -101,7 +121,17 @@
                 
             </TabItem>
 
-            <TabItem x:Name="SettingsTab" Header="⚙" ToolTip="{Binding settings, TargetNullValue=Settings}">
+                <TabItem x:Name="SettingsTab" Header="{Binding settings, TargetNullValue=Settings}">
+                    <TabItem.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="⚙" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="18"/>
+                                <TextBlock Text="{Binding}" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </DataTemplate>
+                </TabItem.HeaderTemplate>
+
+
                     <ListView Name="SettingsList" 
                         AlternationCount="2">
                         <ListView.ItemsPanel>
