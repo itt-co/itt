@@ -66,29 +66,29 @@ Exit_msg,Are you sure you want to close the program? Any ongoing installations w
 Empty_save_msg,Choose at least One app to save it
 easter_egg,Can you uncover the hidden secret? Dive into the source code be the first to discover the feature and integrate it into the tool
 system_protection,System protection
-web_browsers,🌐 Web Browsers
-media,🎬 Media
-media_tools,🎚 Media Tools
-documents,📃 Documents
-compression,📀 Compression
-communication,📞 Communication
-file_sharing,📁 File Sharing
-imaging,📷 Imaging
-gaming,🎮 Gaming
-utilities,🔨 Utilities
-disk_tools,💽 Disk Tools
-development,👩‍💻 Development
-security,🛡 Security
-portable,💼 Portable
-runtimes,📈 Runtimes
-drivers,🔌 Drivers
-privacy,🔒 Privacy
-fixer,🔧 Fixer
-performance,⚡ Performance
-personalization,🎨 Personalization
-power,🔋 Power
-protection,🛡 Protection
-classic,🕰 Classic
+web_browsers,Web Browsers
+media,Media
+media_tools,Media Tools
+documents,Documents
+compression,Compression
+communication,Communication
+file_sharing,File Sharing
+imaging,Imaging
+gaming,Gaming
+utilities,Utilities
+disk_tools,Disk Tools
+development,Development
+security,Security
+portable,Portable
+runtimes,Runtimes
+drivers,Drivers
+privacy,Privacy
+fixer,Fixer
+performance,Performance
+personalization,Personalization
+power,Power
+protection,Protection
+classic,Classic
 "@
     # Write the cOntent to the CSV file
     $csvFilePath = "locales/$csvFilePath.csv"
