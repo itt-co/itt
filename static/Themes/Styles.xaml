@@ -73,7 +73,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="ListViewItem">
                     <Border Name="bg" 
-                            CornerRadius="0"
+                            CornerRadius="4"
                             Padding="{TemplateBinding Padding}" 
                             BorderBrush="{TemplateBinding BorderBrush}" 
                             BorderThickness="{TemplateBinding BorderThickness}" 
@@ -126,10 +126,12 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="CheckMark" Property="Visibility" Value="Visible"/>
-                            <Setter Property="Background" Value="{DynamicResource PrimaryButtonForeground}"/>
+                            <Setter Property="Background" Value="{DynamicResource HighlightColor}"/>
                             <Setter TargetName="CheckIcon" Property="Visibility" Value="Hidden"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource HighlightColor}"/>
+                            <Setter TargetName="CheckMark" Property="Visibility" Value="Visible"/>
                             <Setter TargetName="CheckIcon" Property="Foreground" Value="{DynamicResource HighlightColor}"/>
                             <Setter Property="Foreground" Value="{DynamicResource HighlightColor}"/>
                             <Setter Property="Cursor" Value="Hand"/>
