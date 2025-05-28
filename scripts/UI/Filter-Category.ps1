@@ -24,8 +24,6 @@ function FilterByCat {
 
     param ($Cat)
 
-    $Cat = ($Cat -replace "^\P{L}+", "").Trim()
-
     $collectionView = [System.Windows.Data.CollectionViewSource]::GetDefaultView($itt['window'].FindName($itt.CurrentList).Items)
 
     if ($Cat -eq "All" -or [string]::IsNullOrWhiteSpace($Cat)) {
