@@ -4629,7 +4629,15 @@ elseif ($modifiers -eq "Shift") { ITTShortcut }
 "C" { if ($modifiers -eq "Shift") { Start-Process explorer.exe $env:ProgramData\chocolatey\lib } }
 "T" { if ($modifiers -eq "Shift") { Start-Process explorer.exe $env:ProgramData\itt } }
 "G" { if ($modifiers -eq "Ctrl") { $this.Close() } }
-"F" { if ($modifiers -eq "Ctrl") { $itt.SearchInput.Focus() } }
+"F" {
+if ($modifiers -eq "Ctrl") {
+if ($itt.SearchInput.IsFocused) {
+$itt.SearchInput.MoveFocus((New-Object System.Windows.Input.TraversalRequest([System.Windows.Input.FocusNavigationDirection]::Next)))
+} else {
+$itt.SearchInput.Focus()
+}
+}
+}
 "Escape" {
 $itt.SearchInput.MoveFocus([System.Windows.Input.TraversalRequest]::New([System.Windows.Input.FocusNavigationDirection]::Next))
 $itt.SearchInput.Text = $null
@@ -8662,14 +8670,14 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 1 -Force; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '04/11/2025'.Trim()
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
@@ -8834,7 +8842,7 @@ HorizontalAlignment="Left" />
 <TextBlock Text=''• Ctrl+A: Clear category filter.'' Margin=''35,0,0,0'' FontSize=''16'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
 </StackPanel>
 <StackPanel Orientation=''Vertical''>
-<TextBlock Text=''• Ctrl+F: Enter search mode.'' Margin=''35,0,0,0'' FontSize=''16'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
+<TextBlock Text=''• Ctrl+F: toggle search mode.'' Margin=''35,0,0,0'' FontSize=''16'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
 </StackPanel>
 <StackPanel Orientation=''Vertical''>
 <TextBlock Text=''• Ctrl+Q: Switch to Apps.'' Margin=''35,0,0,0'' FontSize=''16'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
@@ -8861,6 +8869,9 @@ HorizontalAlignment="Left" />
 <TextBlock Text=''• Shift+P: Open Choco folder.'' Margin=''35,0,0,0'' FontSize=''16'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
 </StackPanel>
 <StackPanel Orientation=''Vertical''>
+<TextBlock Text=''• Shift+T: Open ITT folder.'' Margin=''35,0,0,0'' FontSize=''16'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
+</StackPanel>
+<StackPanel Orientation=''Vertical''>
 <TextBlock Text=''• Shift+Q: Restore point.'' Margin=''35,0,0,0'' FontSize=''16'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
 </StackPanel>
 <StackPanel Orientation=''Vertical''>
@@ -8868,9 +8879,6 @@ HorizontalAlignment="Left" />
 </StackPanel>
 <StackPanel Orientation=''Vertical''>
 <TextBlock Text=''• Ctrl+G: Close application.'' Margin=''35,0,0,0'' FontSize=''16'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
-</StackPanel>
-<StackPanel Orientation=''Vertical''>
-<TextBlock Text=''• '' Margin=''35,0,0,0'' FontSize=''16'' Foreground=''{DynamicResource TextColorSecondaryColor2}'' TextWrapping=''Wrap''/>
 </StackPanel>
 <Image x:Name=''preview2'' Cursor=''Hand'' Margin=''8'' Height=''Auto'' Width=''400''>
 <Image.Source>
