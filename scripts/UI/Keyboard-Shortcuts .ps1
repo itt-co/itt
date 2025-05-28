@@ -42,7 +42,17 @@ $KeyEvents = {
         "C" { if ($modifiers -eq "Shift") { Start-Process explorer.exe $env:ProgramData\chocolatey\lib } }
         "T" { if ($modifiers -eq "Shift") { Start-Process explorer.exe $env:ProgramData\itt } }
         "G" { if ($modifiers -eq "Ctrl") { $this.Close() } }
-        "F" { if ($modifiers -eq "Ctrl") { $itt.SearchInput.Focus() } }
+
+        "F" {
+            if ($modifiers -eq "Ctrl") {
+                if ($itt.SearchInput.IsFocused) {
+                    $itt.SearchInput.MoveFocus((New-Object System.Windows.Input.TraversalRequest([System.Windows.Input.FocusNavigationDirection]::Next)))
+                } else {
+                    $itt.SearchInput.Focus()
+                }
+            }
+        }
+
         "Escape" {
             $itt.SearchInput.MoveFocus([System.Windows.Input.TraversalRequest]::New([System.Windows.Input.FocusNavigationDirection]::Next))
             $itt.SearchInput.Text = $null
