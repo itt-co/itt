@@ -42,7 +42,6 @@ $KeyEvents = {
         "C" { if ($modifiers -eq "Shift") { Start-Process explorer.exe $env:ProgramData\chocolatey\lib } }
         "T" { if ($modifiers -eq "Shift") { Start-Process explorer.exe $env:ProgramData\itt } }
         "G" { if ($modifiers -eq "Ctrl") { $this.Close() } }
-
         "F" {
             if ($modifiers -eq "Ctrl") {
                 if ($itt.SearchInput.IsFocused) {
@@ -51,12 +50,6 @@ $KeyEvents = {
                     $itt.SearchInput.Focus()
                 }
             }
-        }
-
-        "Escape" {
-            $itt.SearchInput.MoveFocus([System.Windows.Input.TraversalRequest]::New([System.Windows.Input.FocusNavigationDirection]::Next))
-            $itt.SearchInput.Text = $null
-            $itt["window"].FindName("search_placeholder").Visibility = "Visible"
         }
         "A" {
             if ($modifiers -eq "Ctrl" -and ($itt.CurrentCategory -eq "AppsCategory" -or $itt.CurrentCategory -eq "TwaeksCategory")) {
