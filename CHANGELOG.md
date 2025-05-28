@@ -11,7 +11,7 @@
 ##### Keyboard Shortcuts
 
 - Ctrl+A: Clear category filter.
-- Ctrl+F: Enter search mode.
+- Ctrl+F: toggle search mode.
 - Ctrl+Q: Switch to Apps.
 - Ctrl+W: Switch to Tweaks.
 - Ctrl+E: Switch to Settings.
@@ -20,10 +20,11 @@
 - Shift+D: Load save file.
 - Shift+M: Toggle music.
 - Shift+P: Open Choco folder.
+- Shift+T: Open ITT folder.
 - Shift+Q: Restore point.
 - Shift+I: ITT Shortcut.
 - Ctrl+G: Close application.
-- 
+
 ![itt.xName:preview2 [https://github.com/emadadel4/itt]](https://github.com/user-attachments/assets/2a4fedc7-1d0e-419d-940c-b784edc7d1d1)
 
 ##### 📥 Download any Youtube video
