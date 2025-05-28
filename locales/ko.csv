@@ -35,7 +35,7 @@ Reopen_itt_again,ITT를 다시 열어주세요.
 Theme,테마
 Language,언어
 Browsers_extensions,브라우저 확장 프로그램
-All,🏷 모두
+All,모두
 Create_restore_point,복원 지점 생성
 Portable_Downloads_Folder,휴대용 다운로드 폴더
 Install_msg,선택한 앱을 설치하시겠습니까
@@ -45,28 +45,28 @@ Applying,적용 중..
 Please_wait,배경에서 프로세스가 진행 중입니다. 잠시 기다려주세요.
 Last_update,마지막 업데이트
 Exit_msg,프로그램을 종료하시겠습니까? 진행 중인 설치가 있으면 중단됩니다.
-easter_egg,隠された秘密を見つけられますか？ソースコードに飛び込んで、最初に機能を発見し、ツールに統合しましょう
+easter_egg,숨겨진 비밀을 발견할 수 있습니다. 소스 코드에 뛰어들고, 최초로 기능을 발견하고 도구에 통합하세요
 system_protection,웹 보호
-web_browsers,🌐 웹 브라우저
-media,🎬 미디어
-media_tools,🎚 미디어 도구
-documents,📃 문서
-compression,📀 압축
-communication,📞 커뮤니케이션
-file_sharing,📁 파일 공유
-imaging,📷 이미지 처리
-gaming,🎮 게임
-utilities,🔨 유틸리티
-disk_tools,💽 디스크 도구
-development,👩‍💻 개발
-security,🛡 보안
-portable,💼 포터블
-runtimes,📈 런타임
-drivers,🔌 드라이버
-privacy,🔒 개인정보 보호
-fixer,🔧 수리공
-performance,⚡ 성능
-personalization,🎨 개인화
-power,🔋 전력
-protection,🛡 보호
-classic,🕰 클래식
+web_browsers,웹 브라우저
+media,미디어
+media_tools,미디어 도구
+documents,문서
+compression,압축
+communication,커뮤니케이션
+file_sharing,파일 공유
+imaging,이미지 처리
+gaming,게임
+utilities,유틸리티
+disk_tools,디스크 도구
+development,개발
+security,보호
+portable,포터블
+runtimes,런타임
+drivers,드라이버
+privacy,개인 정보 보호
+fixer,수리공
+performance,성능
+personalization,개인화
+power,전력
+protection,보호
+classic,클래식
