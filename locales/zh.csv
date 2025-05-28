@@ -35,7 +35,7 @@ Reopen_itt_again,请重新打开ITT。
 Theme,主题
 Language,语言
 Browsers_extensions,浏览器扩展
-All,🏷 都
+All,都
 Create_restore_point,创建还原点
 Portable_Downloads_Folder,便携下载文件夹
 Install_msg,是否要安装选定的应用
@@ -47,26 +47,26 @@ Last_update,最后更新
 Exit_msg,您确定要关闭程序吗？如果有任何安装正在进行，它们将被终止。
 easter_egg, 你能发现隐藏的秘密吗？深入源代码，成为第一个发现功能的人，并将其集成到工具中
 system_protection,系统保护
-web_browsers,🌐 网页浏览器
-media,🎬 媒体
-media_tools,🎚 媒体工具
-documents,📃 文档
-compression,📀 压缩
-communication,📞 通讯
-file_sharing,📁 文件共享
-imaging,📷 图像处理
-gaming,🎮 游戏
-utilities,🔨 实用工具
-disk_tools,💽 磁盘工具
-development,👩‍💻 开发
-security,🛡 安全
-portable,💼 便携版
-runtimes,📈 运行时
-drivers,🔌 驱动程序
-privacy,🔒 隐私
-fixer,🔧 修复工具
-performance,⚡ 性能
-personalization,🎨 个性化
-power,🔋 电力
-protection,🛡 保护
-classic,🕰 经典
+web_browsers,网页浏览器
+media,媒体
+media_tools,媒体工具
+documents,文档
+compression,压缩
+communication,通讯
+file_sharing,文件共享
+imaging,图像处理
+gaming,游戏
+utilities,实用工具
+disk_tools,磁盘工具
+development,开发
+security,安全
+portable,便携版
+runtimes,运行时
+drivers,驱动程序
+privacy,隐私
+fixer,修复工具
+performance,性能
+personalization,个性化
+power,电力
+protection,保护
+classic,经典
