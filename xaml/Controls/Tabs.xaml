@@ -29,24 +29,128 @@
                                 VerticalAlignment="Center" 
                                 HorizontalAlignment="Center" 
                                 Width="auto">
-                                <ComboBoxItem Tag="All" Content="{Binding all, TargetNullValue=All}"/>
-                                <ComboBoxItem Tag="Web Browsers" Content="{Binding web_browsers, TargetNullValue=Web Browsers}"/>
-                                <ComboBoxItem Tag="Media" Content="{Binding media, TargetNullValue=Media}"/>
-                                <ComboBoxItem Tag="Media Tools" Content="{Binding media_tools, TargetNullValue=Media Tools}"/>
-                                <ComboBoxItem Tag="Documents" Content="{Binding documents, TargetNullValue=Documents}"/>
-                                <ComboBoxItem Tag="Compression" Content="{Binding compression, TargetNullValue=Compression}"/>
-                                <ComboBoxItem Tag="Communication" Content="{Binding communication, TargetNullValue=Communication}"/>
-                                <ComboBoxItem Tag="File Sharing" Content="{Binding file_sharing, TargetNullValue=File Sharing}"/>
-                                <ComboBoxItem Tag="Imaging" Content="{Binding imaging, TargetNullValue=Imaging}"/>
-                                <ComboBoxItem Tag="Gaming" Content="{Binding gaming, TargetNullValue=Gaming}"/>
-                                <ComboBoxItem Tag="Utilities" Content="{Binding utilities, TargetNullValue=Utilities}"/>
-                                <ComboBoxItem Tag="Disk Tools" Content="{Binding disk_tools, TargetNullValue=Disk Tools}"/>
-                                <ComboBoxItem Tag="Development" Content="{Binding development, TargetNullValue=Development}"/>
-                                <ComboBoxItem Tag="Security" Content="{Binding security, TargetNullValue=Security}"/>
-                                <ComboBoxItem Tag="Portable" Content="{Binding portable, TargetNullValue=Portable}"/>
-                                <ComboBoxItem Tag="Runtimes" Content="{Binding runtimes, TargetNullValue=Runtimes}"/>
-                                <ComboBoxItem Tag="Drivers" Content="{Binding drivers, TargetNullValue=Drivers}"/>
+
+                                <ComboBoxItem Tag="All">
+                                    <TextBlock>
+                                        <Run Text="🏷 "/>
+                                        <Run Text="{Binding all, TargetNullValue=All}"/>
+                                    </TextBlock>
+                                </ComboBoxItem>
+
+                                <ComboBoxItem Tag="Web Browsers">
+                                    <TextBlock>
+                                        <Run Text="🌐 "/>
+                                        <Run Text="{Binding web_browsers, TargetNullValue=Web Browsers}"/>
+                                    </TextBlock>
+                                </ComboBoxItem>
+
+                                <ComboBoxItem Tag="Media">
+                                    <TextBlock>
+                                        <Run Text="🎬 "/>
+                                        <Run Text="{Binding media, TargetNullValue=Media}"/>
+                                    </TextBlock>
+                                </ComboBoxItem>
+
+                                <ComboBoxItem Tag="Media Tools">
+                                    <TextBlock>
+                                        <Run Text="🎚 "/>
+                                        <Run Text="{Binding media_tools, TargetNullValue=Media Tools}"/>
+                                    </TextBlock>
+                                </ComboBoxItem>
+
+                                <ComboBoxItem Tag="Documents">
+                                    <TextBlock>
+                                        <Run Text="📃 "/>
+                                        <Run Text="{Binding documents, TargetNullValue=Documents}"/>
+                                    </TextBlock>
+                                </ComboBoxItem>
+
+                                <ComboBoxItem Tag="Compression">
+                                    <TextBlock>
+                                        <Run Text="📀 "/>
+                                        <Run Text="{Binding compression, TargetNullValue=Compression}"/>
+                                    </TextBlock>
+                                </ComboBoxItem>
+
+                                <ComboBoxItem Tag="Communication">
+                                    <TextBlock>
+                                        <Run Text="📞 "/>
+                                        <Run Text="{Binding communication, TargetNullValue=Communication}"/>
+                                    </TextBlock>
+                                </ComboBoxItem>
+
+                                <ComboBoxItem Tag="File Sharing">
+                                    <TextBlock>
+                                        <Run Text="📁 "/>
+                                        <Run Text="{Binding file_sharing, TargetNullValue=File Sharing}"/>
+                                    </TextBlock>
+                                </ComboBoxItem>
+
+                                <ComboBoxItem Tag="Imaging">
+                                    <TextBlock>
+                                        <Run Text="📷 "/>
+                                        <Run Text="{Binding imaging, TargetNullValue=Imaging}"/>
+                                    </TextBlock>
+                                </ComboBoxItem>
+
+                                <ComboBoxItem Tag="Gaming">
+                                    <TextBlock>
+                                        <Run Text="🎮 "/>
+                                        <Run Text="{Binding gaming, TargetNullValue=Gaming}"/>
+                                    </TextBlock>
+                                </ComboBoxItem>
+
+                                <ComboBoxItem Tag="Utilities">
+                                    <TextBlock>
+                                        <Run Text="🔨 "/>
+                                        <Run Text="{Binding utilities, TargetNullValue=Utilities}"/>
+                                    </TextBlock>
+                                </ComboBoxItem>
+
+                                <ComboBoxItem Tag="Disk Tools">
+                                    <TextBlock>
+                                        <Run Text="💽"/>
+                                        <Run Text="{Binding disk_tools, TargetNullValue=Disk Tools}"/>
+                                    </TextBlock>
+                                </ComboBoxItem>
+
+                                <ComboBoxItem Tag="Development">
+                                    <TextBlock>
+                                        <Run Text="👩‍💻 "/>
+                                        <Run Text="{Binding development, TargetNullValue=Development}"/>
+                                    </TextBlock>
+                                </ComboBoxItem>
+
+                                <ComboBoxItem Tag="Security">
+                                    <TextBlock>
+                                        <Run Text="🛡 "/>
+                                        <Run Text="{Binding security, TargetNullValue=Security}"/>
+                                    </TextBlock>
+                                </ComboBoxItem>
+
+                                <ComboBoxItem Tag="Portable">
+                                    <TextBlock>
+                                        <Run Text="💼 "/>
+                                        <Run Text="{Binding portable, TargetNullValue=Portable}"/>
+                                    </TextBlock>
+                                </ComboBoxItem>
+
+                                <ComboBoxItem Tag="Runtimes">
+                                    <TextBlock>
+                                        <Run Text="📈 "/>
+                                        <Run Text="{Binding runtimes, TargetNullValue=Runtimes}"/>
+                                    </TextBlock>
+                                </ComboBoxItem>
+
+                                <ComboBoxItem Tag="Drivers">
+                                    <TextBlock>
+                                        <Run Text="🔌 "/>
+                                        <Run Text="{Binding drivers, TargetNullValue=Drivers}"/>
+                                    </TextBlock>
+                                </ComboBoxItem>
+
                             </ComboBox>
+
                         <!--End AppsCategory-->
 
                 <ListView Name="appslist" 
