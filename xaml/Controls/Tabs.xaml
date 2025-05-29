@@ -109,7 +109,7 @@
 
                                 <ComboBoxItem Tag="Disk Tools">
                                     <TextBlock Foreground="{Binding RelativeSource={RelativeSource AncestorType=ComboBoxItem}, Path=Foreground}">
-                                        <Run Text="💽"/>
+                                        <Run Text="💽 "/>
                                         <Run Text="{Binding disk_tools, TargetNullValue=Disk Tools}"/>
                                     </TextBlock>
                                 </ComboBoxItem>
