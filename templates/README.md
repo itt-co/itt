@@ -24,7 +24,7 @@ ITT (Install Tweaks Tool) included most Windows 10/11 Software and Windows Tweak
 [![Discord](https://img.shields.io/badge/Discord-Join%20Community-5865F2?logo=discord&logoColor=white)](https://discord.gg/Twyz2Wd5fB)
 [![Reddit](https://img.shields.io/badge/Reddit-Join%20Community-FF4500?logo=reddit&logoColor=white)](https://www.reddit.com/r/ittea)
 
-[![Arabic](https://img.shields.io/badge/Arabic-red)](/locales/ar.csv) [![French](https://img.shields.io/badge/French-blue)](/locales/fr.csv) [![Turkish](https://img.shields.io/badge/Turkish-red)](/locales/tr.csv) [![Chinese](https://img.shields.io/badge/Chinese-red)](/locales/zh.csv) [![Korean](https://img.shields.io/badge/Korean-white)](/locales/ko.csv) [![German](https://img.shields.io/badge/German-red)](/locales/de.csv) [![Russian](https://img.shields.io/badge/Russian-blue)](/locales/ru.csv) [![Spanish](https://img.shields.io/badge/Spanish-red)](/locales/es.csv) [![Italian](https://img.shields.io/badge/Italian-green)](/locales/it.csv) [![Hindi](https://img.shields.io/badge/Hindi-orange)](/locales/hi.csv) [![Add your language](https://img.shields.io/badge/Add%20translate-white)](https://docs.google.com/spreadsheets/d/1Muy7iJbRm-7YpJKyS5lzP_v12TrCqlxr8_MY9iTnt-0/edit?usp=sharing)
+[![Arabic](https://img.shields.io/badge/Arabic-red)](/locales/ar.csv) [![French](https://img.shields.io/badge/French-blue)](/locales/fr.csv) [![Turkish](https://img.shields.io/badge/Turkish-red)](/locales/tr.csv) [![Chinese](https://img.shields.io/badge/Chinese-red)](/locales/zh.csv) [![Korean](https://img.shields.io/badge/Korean-white)](/locales/ko.csv) [![German](https://img.shields.io/badge/German-red)](/locales/de.csv) [![Russian](https://img.shields.io/badge/Russian-blue)](/locales/ru.csv) [![Spanish](https://img.shields.io/badge/Spanish-red)](/locales/es.csv) [![Italian](https://img.shields.io/badge/Italian-green)](/locales/it.csv) [![Hindi](https://img.shields.io/badge/Hindi-orange)](/locales/hi.csv)
 
 ###### 📦 #{a} Apps • ⚙️ #{t} Tweaks • 🔧 #{s} Settings • 💬 #{q} Quote • 🎵 #{OST} Soundtrack • 🌐 #{loc} Localization
 
@@ -75,13 +75,15 @@ Example:
 ### Project Structure:
 ```
 ├── itt/
-│   ├── static/      > Static files (e.g. apps, settings, images, etc)
-│   ├── Initialize/  > Scripts to set up default registry keys and start the WPF app window
+│   ├── static/      > Static files (e.g., apps, settings, images, etc.)
+│   ├── Initialize/  > Scripts to set up default registry keys and launch the WPF app window
 │   ├── locales/     > Localization files for different languages
-│   ├── scripts/     > Program functionality (e.g. install , scriptblock, utility scripts)
-│   ├── templates/   > template files (e.g. readme.md or other templates)
-│   ├── themes/      > Theme files defining the visual style of the application
-│   ├── xaml/        > UI element and windows  
+│   ├── scripts/     > Core functionality scripts (e.g., install, script blocks, utility scripts)
+│   ├── templates/   > Template files (e.g., README.md or other templates)
+│   ├── themes/      > Theme files that define the application's visual style
+│   ├── xaml/        > UI elements and windows (XAML files)
+│   ├── build.ps1    > Builds the project and generates the final output script
+│   └── itt.ps1      > This is the script that you run using the commands above
 ```
 
 1. **Make sure you have PowerShell 7 installed (recommended) for building. is available on ITT**
@@ -142,14 +144,6 @@ Example:
 > Test your changes before you submit the Pull Request
 
 <br>
-
-# 🛠️ You're not a developer? 
-
-#### If you'd like to add an app, you can fill out the request form using the following link: [📝 Request Form](https://docs.google.com/forms/d/e/1FAIpQLSeT_hrvfesDE4hb8p9XyvLM4vAsXAYm1csOcmN_lCrQ4OsaUA/viewform?usp=dialog)
-
-#### Help translate ITT to your native language: [🌍 Add Your Language](https://docs.google.com/spreadsheets/d/1Muy7iJbRm-7YpJKyS5lzP_v12TrCqlxr8_MY9iTnt-0/edit?usp=sharing)
-
-<br>
 <br>
 
 # 🌟 Support
@@ -158,8 +152,6 @@ Example:
 
 [![Stargazers repo roster for @emadadel4/itt](https://reporoster.com/stars/dark/emadadel4/itt)](https://github.com/emadadel4/itt/stargazers)
 
-<br>
-<br>
 
 # Resistance Struggling for Justice in an Authoritarian World
 
