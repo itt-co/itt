@@ -5,7 +5,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "05/29/2025"
+lastupdate     = "06/04/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -7964,6 +7964,21 @@ Grid.Row="1">
 <CheckBox Content="RegScanner" FontSize="15" Tag="regscanner|nirsoft/regscanner|na|na|Utilities"   ToolTip="Scan and find values in the Registry"/>
 <TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
 </StackPanel>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Windsurf" FontSize="15" Tag="windsurf|extras/windsurf|Codeium.Windsurf|na|Development"   ToolTip="The first agentic IDE and then some. The Windsurf Editor is where the work of developers and AI truly flow together"/>
+<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+</StackPanel>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Deluge" FontSize="15" Tag="deluge|extras/deluge|DelugeTeam.Deluge|na|File Sharing"   ToolTip="Fullfeatured lightweight BitTorrent client"/>
+<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 File Sharing"/>
+</StackPanel>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Evernote" FontSize="15" Tag="evernote|na|Evernote.Evernote|na|Documents"   ToolTip="A crossplatform freemium app designed for note taking organizing and archiving"/>
+<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Documents"/>
+</StackPanel>
 </StackPanel>
 </ListView>
 </Grid>
@@ -8668,14 +8683,14 @@ $itt.event.FindName('date').text = '04/11/2025'.Trim()
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
 $daysElapsed = (Get-Date) - $storedDate
