@@ -3700,7 +3700,7 @@
   },
   {
     "Name": "Evernote",
-    "Description": "A cross-platform, freemium app designed for note taking, organizing, and archiving.",
+    "Description": "A cross-platform, freemium app designed for note taking, organizing, and archiving",
     "choco": "evernote",
     "scoop": "na",
     "winget": "Evernote.Evernote",
