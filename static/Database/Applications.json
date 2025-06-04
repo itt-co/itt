@@ -3679,5 +3679,32 @@
     "winget": "na",
     "itt": "na",
     "category": "Utilities"
+  },
+  {
+    "Name": "Windsurf",
+    "Description": "The first agentic IDE, and then some. The Windsurf Editor is where the work of developers and AI truly flow together",
+    "choco": "windsurf",
+    "scoop": "extras/windsurf",
+    "winget": "Codeium.Windsurf",
+    "itt": "na",
+    "category": "Development"
+  },
+  {
+    "Name": "Deluge",
+    "Description": "Full-featured, lightweight BitTorrent client",
+    "choco": "deluge",
+    "scoop": "extras/deluge",
+    "winget": "DelugeTeam.Deluge",
+    "itt": "na",
+    "category": "File Sharing"
+  },
+  {
+    "Name": "Evernote",
+    "Description": "A cross-platform, freemium app designed for note taking, organizing, and archiving.",
+    "choco": "evernote",
+    "scoop": "na",
+    "winget": "Evernote.Evernote",
+    "itt": "na",
+    "category": "Documents"
   }
 ]
