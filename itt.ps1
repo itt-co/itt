@@ -5,7 +5,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "06/04/2025"
+lastupdate     = "06/05/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -8679,11 +8679,14 @@ $itt.event.Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.The
 $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 1 -Force; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
-$itt.event.FindName('date').text = '04/11/2025'.Trim()
+$itt.event.FindName('date').text = '06/08/2025'.Trim()
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('eid').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
@@ -8840,6 +8843,12 @@ HorizontalAlignment="Left" />
 <Grid Row="1" Background="Transparent" Margin="20">
 <ScrollViewer Name="ScrollViewer" VerticalScrollBarVisibility="Auto" Height="Auto">
 <StackPanel Orientation="Vertical">
+<TextBlock Text=''🥩 Eid Adha Mubarak'' FontSize=''20'' Margin=''0,18,0,30'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
+<Image x:Name=''eid'' Cursor=''Hand'' Margin=''8'' Height=''Auto'' Width=''400''>
+<Image.Source>
+<BitmapImage UriSource=''https://github.com/user-attachments/assets/58f1801e-2455-4939-a1c0-52a5e2ee1fba''/>
+</Image.Source>
+</Image>
 <TextBlock Text=''📦 Package manager'' FontSize=''20'' Margin=''0,18,0,30'' FontWeight=''Bold'' Foreground=''{DynamicResource PrimaryButtonForeground}'' TextWrapping=''Wrap''/>
 <Image x:Name=''preview'' Cursor=''Hand'' Margin=''8'' Height=''Auto'' Width=''400''>
 <Image.Source>
