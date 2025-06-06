@@ -5,7 +5,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "06/05/2025"
+lastupdate     = "06/06/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -4530,11 +4530,10 @@ $itt.about.Add_PreViewKeyDown({ if ($_.Key -eq "Escape") { $itt.about.Close() } 
 $itt['about'].Resources.MergedDictionaries.Clear()
 $itt["about"].Resources.MergedDictionaries.Add($itt["window"].FindResource($itt.Theme))
 $itt.about.FindName('ver').Text = "Last update $($itt.lastupdate)"
-$itt.about.FindName("telegram").Add_Click({ Start-Process("https://t.me/emadadel4") })
-$itt.about.FindName("github").Add_Click({ Start-Process("https://github.com/emadadel4/itt") })
-$itt.about.FindName("blog").Add_Click({ Start-Process("https://emadadel4.github.io") })
-$itt.about.FindName("yt").Add_Click({ Start-Process("https://www.youtube.com/@emadadel4") })
-$itt.about.FindName("coffee").Add_Click({ Start-Process("https://buymeacoffee.com/emadadel") })
+$itt.about.FindName("telegram").Add_MouseLeftButtonDown({ Start-Process("https://t.me/emadadel4") })
+$itt.about.FindName("github").Add_MouseLeftButtonDown({ Start-Process("https://github.com/emadadel4/itt") })
+$itt.about.FindName("blog").Add_MouseLeftButtonDown({ Start-Process("https://emadadel4.github.io") })
+$itt.about.FindName("coffee").Add_MouseLeftButtonDown({ Start-Process("https://buymeacoffee.com/emadadel") })
 $itt.about.DataContext = $itt.database.locales.Controls.$($itt.Language)
 $itt.about.ShowDialog() | Out-Null
 }
@@ -8496,10 +8495,10 @@ Title="{Binding About, TargetNullValue=About}"
 WindowStartupLocation="CenterScreen"
 Background="{DynamicResource PrimaryBackgroundColor}"
 WindowStyle="ToolWindow"
-Height="555" Width="455"
+Height="400" Width="400"
 ShowInTaskbar="True"
-MinHeight="555"
-MinWidth="455"
+MinHeight="400"
+MinWidth="400"
 ResizeMode="NoResize"
 Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/icon.ico">
 <Window.Resources>
@@ -8577,98 +8576,42 @@ Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/icon.ico">
 </Setter.Value>
 </Setter>
 </Style>
-<Style TargetType="Button">
-<Setter Property="Background" Value="{DynamicResource PrimaryButtonForeground}"/>
-<Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor2}"/>
-<Setter Property="BorderBrush" Value="Transparent"/>
-<Setter Property="BorderThickness" Value="1"/>
-<Setter Property="Template">
-<Setter.Value>
-<ControlTemplate TargetType="Button">
-<Border CornerRadius="20" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
-<ContentPresenter HorizontalAlignment="Center"
-VerticalAlignment="Center"/>
-</Border>
-</ControlTemplate>
-</Setter.Value>
-</Setter>
-<Style.Triggers>
-<Trigger Property="IsMouseOver" Value="True">
-<Setter Property="Background" Value="{DynamicResource HighlightColor}"/>
-<Setter Property="Foreground" Value="{DynamicResource PrimaryButtonHighlight}"/>
-</Trigger>
-</Style.Triggers>
-</Style>
 </Window.Resources>
 <Grid Margin="8">
 <Grid.RowDefinitions>
-<RowDefinition Height="Auto"/>
-<RowDefinition Height="Auto"/>
-<RowDefinition Height="Auto"/>
+<RowDefinition Height="auto"/>
+<RowDefinition Height="auto"/>
+<RowDefinition Height="*"/>
 </Grid.RowDefinitions>
 <Grid Grid.Row="0">
 <StackPanel Orientation="Vertical">
-<Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/logo.png"
-Height="90" Width="Auto" HorizontalAlignment="Center" Margin="0"/>
+<TextBlock Text="itt" VerticalAlignment="Center" FontFamily="arial" FontWeight="bold" FontSize="88" Margin="0 2 0 0" Foreground="{DynamicResource logo}" TextAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource logoText}"/>
 <TextBlock
-Text="Made with ♥ by Emad Adel"
-TextWrapping="Wrap"
+Text="Made by Emad Adel"
 HorizontalAlignment="Center"
-Margin="0,5,0,5"
-Width="355"
-Padding="8"
-Foreground="{DynamicResource TextColorSecondaryColor2}"
-FontSize="14"
+Foreground="{DynamicResource TextColorSecondaryColor}"
 TextAlignment="Center"
 />
 <TextBlock
 Name="ver"
-Text="9/1/1998"
-FontSize="14"
 TextAlignment="Center"
-Foreground="{DynamicResource TextColorSecondaryColor2}"
-/>
-<TextBlock
-Text="ITT created to simplify software installation and Windows tweaks, making it easier for others to use their computers. It is an open-source project, and you can contribute to make it better by adding your favorite apps and more."
-TextWrapping="Wrap"
-HorizontalAlignment="Center"
-Margin="0,2,0,2"
-Width="355" Padding="8"
-Foreground="{DynamicResource TextColorSecondaryColor2}"
-FontSize="14"
-TextAlignment="Center"
+Foreground="{DynamicResource TextColorSecondaryColor}"
 />
 </StackPanel>
 </Grid>
-<Grid Grid.Row="1">
-<StackPanel Orientation="Vertical">
-<TextBlock Text="Contributors"
-TextWrapping="Wrap" HorizontalAlignment="Center" Foreground="{DynamicResource TextColorSecondaryColor2}" Margin="0,5,0,5" FontSize="12" FontStyle="Italic" TextAlignment="Center"/>
-<ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" Height="103">
-<StackPanel Margin="20,0,0,0">
-<TextBlock Text="emadadel4" Margin="1" Foreground="{DynamicResource TextColorSecondaryColor2}" />
-<TextBlock Text="yousefmhmd" Margin="1" Foreground="{DynamicResource TextColorSecondaryColor2}" />
+<StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="center" Margin="0 5 0 5">
+<TextBlock Text="Github" Foreground="{DynamicResource TextColorSecondaryColor}" Name="github" Cursor="Hand" Margin="5"/>
+<TextBlock Text="Telegrm" Foreground="{DynamicResource TextColorSecondaryColor}" Name="telegram" Cursor="Hand" Margin="5"/>
+<TextBlock Text="Blog" Foreground="{DynamicResource TextColorSecondaryColor}" Name="blog" Cursor="Hand" Margin="5"/>
+<TextBlock Text="Coffee" Foreground="{DynamicResource TextColorSecondaryColor}" Name="coffee" Cursor="Hand" Margin="5"/>
+</StackPanel>
+<TextBlock Grid.Row="2" Text="Contributors" TextWrapping="Wrap" HorizontalAlignment="center" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+<ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" Height="90">
+<StackPanel Margin="5,0,0,0">
+<TextBlock Text="emadadel4" Margin="1" Foreground="{DynamicResource TextColorSecondaryColor}" />
+<TextBlock Text="yousefmhmd" Margin="1" Foreground="{DynamicResource TextColorSecondaryColor}" />
 </StackPanel>
 </ScrollViewer>
-</StackPanel>
-</Grid>
-<StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,20,0,0">
-<Button Width="38" Height="38" Name="github" Cursor="Hand" Margin="5">
-<Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/github.png"/>
-</Button>
-<Button Width="38" Height="38" Name="telegram" Cursor="Hand" Margin="5">
-<Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/telegram.png"/>
-</Button>
-<Button Width="38" Height="38"  Cursor="Hand" Name="yt" Margin="5">
-<Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/youtube.png"/>
-</Button>
-<Button Width="38" Height="38" Name="blog" Cursor="Hand" Margin="5">
-<Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/blog.png"/>
-</Button>
-<Button Width="38" Height="38" Name="coffee" Cursor="Hand" Margin="5">
-<Image Source="https://cdn.buymeacoffee.com/assets/homepage/meta/apple-icon-120x120.png"/>
-</Button>
-</StackPanel>
 </Grid>
 </Window>
 '
@@ -8680,20 +8623,20 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 1 -Force; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '06/08/2025'.Trim()
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('eid').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
 $daysElapsed = (Get-Date) - $storedDate
