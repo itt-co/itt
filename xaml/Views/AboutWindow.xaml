@@ -5,10 +5,10 @@
     WindowStartupLocation="CenterScreen"
     Background="{DynamicResource PrimaryBackgroundColor}"
     WindowStyle="ToolWindow"
-    Height="555" Width="455"
+    Height="400" Width="400"
     ShowInTaskbar="True"
-    MinHeight="555"
-    MinWidth="455"
+    MinHeight="400"
+    MinWidth="400"
     ResizeMode="NoResize"
     Icon="https://raw.githubusercontent.com/emadadel4/ITT/main/icon.ico">
     <Window.Resources>
@@ -88,109 +88,53 @@
               </Setter>
           </Style>
       <!--End Scrollbar Thumbs-->
-      <!--Button Style-->
-        <Style TargetType="Button">
-          <Setter Property="Background" Value="{DynamicResource PrimaryButtonForeground}"/>
-          <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor2}"/>
-          <Setter Property="BorderBrush" Value="Transparent"/>
-          <Setter Property="BorderThickness" Value="1"/>
-          <Setter Property="Template">
-              <Setter.Value>
-                  <ControlTemplate TargetType="Button">
-                      <Border CornerRadius="20" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
-                          <ContentPresenter HorizontalAlignment="Center"
-                                              VerticalAlignment="Center"/>
-                      </Border>
-                  </ControlTemplate>
-              </Setter.Value>
-          </Setter>
-          <Style.Triggers>
-              <Trigger Property="IsMouseOver" Value="True">
-                  <Setter Property="Background" Value="{DynamicResource HighlightColor}"/>
-                  <Setter Property="Foreground" Value="{DynamicResource PrimaryButtonHighlight}"/>
-              </Trigger>
-          </Style.Triggers>
-        </Style>
-      <!--End Button Style-->
     </Window.Resources>
   <Grid Margin="8">
       <!-- Define rows and columns for layout -->
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/> <!-- Logo -->
-            <RowDefinition Height="Auto"/> <!-- Contribute Names -->
-            <RowDefinition Height="Auto"/> <!-- Icons -->
+            <RowDefinition Height="auto"/> <!-- Logo -->
+            <RowDefinition Height="auto"/> <!-- Links Section -->
+            <RowDefinition Height="*"/> <!-- Contribute Names -->
         </Grid.RowDefinitions>
       <!-- Define rows and columns for layout -->
       <!-- Logo Section -->
         <Grid Grid.Row="0">
             <StackPanel Orientation="Vertical">
-                <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Images/logo.png" 
-                Height="90" Width="Auto" HorizontalAlignment="Center" Margin="0"/>
+
+                <TextBlock Text="itt" VerticalAlignment="Center" FontFamily="arial" FontWeight="bold" FontSize="88" Margin="0 2 0 0" Foreground="{DynamicResource logo}" TextAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource logoText}"/>
+
                 <TextBlock  
-                    Text="Made with ♥ by Emad Adel"
-                    TextWrapping="Wrap" 
+                    Text="Made by Emad Adel"
                     HorizontalAlignment="Center" 
-                    Margin="0,5,0,5" 
-                    Width="355" 
-                    Padding="8" 
-                    Foreground="{DynamicResource TextColorSecondaryColor2}" 
-                    FontSize="14" 
+                    Foreground="{DynamicResource TextColorSecondaryColor}" 
                     TextAlignment="Center"
                 />
                 <TextBlock 
                     Name="ver" 
-                    Text="9/1/1998" 
-                    FontSize="14" 
                     TextAlignment="Center" 
-                    Foreground="{DynamicResource TextColorSecondaryColor2}" 
-                />
-                <!-- Description Section -->
-                <TextBlock  
-                    Text="ITT created to simplify software installation and Windows tweaks, making it easier for others to use their computers. It is an open-source project, and you can contribute to make it better by adding your favorite apps and more."
-                    TextWrapping="Wrap" 
-                    HorizontalAlignment="Center" 
-                    Margin="0,2,0,2" 
-                    Width="355" Padding="8" 
-                    Foreground="{DynamicResource TextColorSecondaryColor2}" 
-                    FontSize="14" 
-                    TextAlignment="Center"
+                    Foreground="{DynamicResource TextColorSecondaryColor}" 
                 />
             </StackPanel>
         </Grid>
+
+        <!-- Links Section -->
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="center" Margin="0 5 0 5">
+                <TextBlock Text="Github" Foreground="{DynamicResource TextColorSecondaryColor}" Name="github" Cursor="Hand" Margin="5"/>
+                <TextBlock Text="Telegrm" Foreground="{DynamicResource TextColorSecondaryColor}" Name="telegram" Cursor="Hand" Margin="5"/>
+                <TextBlock Text="Blog" Foreground="{DynamicResource TextColorSecondaryColor}" Name="blog" Cursor="Hand" Margin="5"/>
+                <TextBlock Text="Coffee" Foreground="{DynamicResource TextColorSecondaryColor}" Name="coffee" Cursor="Hand" Margin="5"/>
+            </StackPanel>
+        <!-- Social Icons Section End -->
+
       <!-- Logo Section End -->
       <!-- Contribute Names Section -->
-        <Grid Grid.Row="1">
-          <StackPanel Orientation="Vertical">
-              <!-- Contribute Names Section -->
-              <TextBlock Text="Contributors"
-              TextWrapping="Wrap" HorizontalAlignment="Center" Foreground="{DynamicResource TextColorSecondaryColor2}" Margin="0,5,0,5" FontSize="12" FontStyle="Italic" TextAlignment="Center"/>
-              <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" Height="103">
-                <StackPanel Margin="20,0,0,0">
+            <TextBlock Grid.Row="2" Text="Contributors" TextWrapping="Wrap" HorizontalAlignment="center" Foreground="{DynamicResource TextColorSecondaryColor}"/>
+            <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" Height="90">
+                <StackPanel Margin="5,0,0,0">
                     #{names}
                 </StackPanel>
-                </ScrollViewer>
-          </StackPanel>
-        </Grid>
+            </ScrollViewer>
       <!-- Contribute Names Section End -->
-      <!-- Social Media Icons Section -->
-        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,20,0,0">
-            <Button Width="38" Height="38" Name="github" Cursor="Hand" Margin="5">
-                <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/github.png"/>
-            </Button>
-            <Button Width="38" Height="38" Name="telegram" Cursor="Hand" Margin="5">
-              <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/telegram.png"/>
-          </Button>
-            <Button Width="38" Height="38"  Cursor="Hand" Name="yt" Margin="5">
-                <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/youtube.png"/>
-            </Button>
-            <Button Width="38" Height="38" Name="blog" Cursor="Hand" Margin="5">
-                <Image Source="https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/blog.png"/>
-            </Button>
-            <Button Width="38" Height="38" Name="coffee" Cursor="Hand" Margin="5">
-              <Image Source="https://cdn.buymeacoffee.com/assets/homepage/meta/apple-icon-120x120.png"/>
-          </Button>
-        </StackPanel>
-      <!-- Social Icons Section End -->
   </Grid>
 </Window>
 
