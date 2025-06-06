@@ -90,6 +90,7 @@
       <!--End Scrollbar Thumbs-->
     </Window.Resources>
   <Grid Margin="8">
+
       <!-- Define rows and columns for layout -->
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/> <!-- Logo -->
@@ -97,25 +98,27 @@
             <RowDefinition Height="*"/> <!-- Contribute Names -->
         </Grid.RowDefinitions>
       <!-- Define rows and columns for layout -->
-      <!-- Logo Section -->
-        <Grid Grid.Row="0">
-            <StackPanel Orientation="Vertical">
 
-                <TextBlock Text="itt" VerticalAlignment="Center" FontFamily="arial" FontWeight="bold" FontSize="88" Margin="0 2 0 0" Foreground="{DynamicResource logo}" TextAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource logoText}"/>
+        <!-- Logo Section -->
+            <Grid Grid.Row="0">
+                <StackPanel Orientation="Vertical">
 
-                <TextBlock  
-                    Text="Made by Emad Adel"
-                    HorizontalAlignment="Center" 
-                    Foreground="{DynamicResource TextColorSecondaryColor}" 
-                    TextAlignment="Center"
-                />
-                <TextBlock 
-                    Name="ver" 
-                    TextAlignment="Center" 
-                    Foreground="{DynamicResource TextColorSecondaryColor}" 
-                />
-            </StackPanel>
-        </Grid>
+                    <TextBlock Text="itt" VerticalAlignment="Center" FontFamily="arial" FontWeight="bold" FontSize="88" Margin="0 2 0 0" Foreground="{DynamicResource logo}" TextAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource logoText}"/>
+
+                    <TextBlock  
+                        Text="Made by Emad Adel"
+                        HorizontalAlignment="Center" 
+                        Foreground="{DynamicResource TextColorSecondaryColor}" 
+                        TextAlignment="Center"
+                    />
+                    <TextBlock 
+                        Name="ver" 
+                        TextAlignment="Center" 
+                        Foreground="{DynamicResource TextColorSecondaryColor}" 
+                    />
+                </StackPanel>
+            </Grid>
+        <!-- Logo Section -->
 
         <!-- Links Section -->
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="center" Margin="0 5 0 5">
@@ -124,17 +127,17 @@
                 <TextBlock Text="Blog" Foreground="{DynamicResource TextColorSecondaryColor}" Name="blog" Cursor="Hand" Margin="5"/>
                 <TextBlock Text="Coffee" Foreground="{DynamicResource TextColorSecondaryColor}" Name="coffee" Cursor="Hand" Margin="5"/>
             </StackPanel>
-        <!-- Social Icons Section End -->
+        <!-- Links Section End -->
 
-      <!-- Logo Section End -->
-      <!-- Contribute Names Section -->
+        <!-- Contribute Names Section -->
             <TextBlock Grid.Row="2" Text="Contributors" TextWrapping="Wrap" HorizontalAlignment="center" Foreground="{DynamicResource TextColorSecondaryColor}"/>
             <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" Height="90">
                 <StackPanel Margin="5,0,0,0">
                     #{names}
                 </StackPanel>
             </ScrollViewer>
-      <!-- Contribute Names Section End -->
+        <!-- Contribute Names Section End -->
+
   </Grid>
 </Window>
 
