@@ -5,7 +5,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "06/06/2025"
+lastupdate     = "06/07/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -4533,7 +4533,6 @@ $itt.about.FindName('ver').Text = "Last update $($itt.lastupdate)"
 $itt.about.FindName("telegram").Add_MouseLeftButtonDown({ Start-Process("https://t.me/emadadel4") })
 $itt.about.FindName("github").Add_MouseLeftButtonDown({ Start-Process("https://github.com/emadadel4/itt") })
 $itt.about.FindName("blog").Add_MouseLeftButtonDown({ Start-Process("https://emadadel4.github.io") })
-$itt.about.FindName("coffee").Add_MouseLeftButtonDown({ Start-Process("https://buymeacoffee.com/emadadel") })
 $itt.about.DataContext = $itt.database.locales.Controls.$($itt.Language)
 $itt.about.ShowDialog() | Out-Null
 }
@@ -8603,7 +8602,6 @@ Foreground="{DynamicResource TextColorSecondaryColor}"
 <TextBlock Text="Github" Foreground="{DynamicResource TextColorSecondaryColor}" Name="github" Cursor="Hand" Margin="5"/>
 <TextBlock Text="Telegrm" Foreground="{DynamicResource TextColorSecondaryColor}" Name="telegram" Cursor="Hand" Margin="5"/>
 <TextBlock Text="Blog" Foreground="{DynamicResource TextColorSecondaryColor}" Name="blog" Cursor="Hand" Margin="5"/>
-<TextBlock Text="Coffee" Foreground="{DynamicResource TextColorSecondaryColor}" Name="coffee" Cursor="Hand" Margin="5"/>
 </StackPanel>
 <TextBlock Grid.Row="2" Text="Contributors" TextWrapping="Wrap" HorizontalAlignment="center" Foreground="{DynamicResource TextColorSecondaryColor}"/>
 <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" Height="90">
@@ -8623,7 +8621,7 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 1 -Force; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '06/08/2025'.Trim()
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('eid').add_MouseLeftButtonDown({
@@ -8632,10 +8630,10 @@ Start-Process('https://github.com/emadadel4/itt')
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
