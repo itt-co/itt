@@ -12,7 +12,6 @@ function About {
     $itt.about.FindName("telegram").Add_MouseLeftButtonDown({ Start-Process("https://t.me/emadadel4") })
     $itt.about.FindName("github").Add_MouseLeftButtonDown({ Start-Process("https://github.com/emadadel4/itt") })
     $itt.about.FindName("blog").Add_MouseLeftButtonDown({ Start-Process("https://emadadel4.github.io") })
-    $itt.about.FindName("coffee").Add_MouseLeftButtonDown({ Start-Process("https://buymeacoffee.com/emadadel") })
     # Set data context language
     $itt.about.DataContext = $itt.database.locales.Controls.$($itt.Language)
     # Show window
