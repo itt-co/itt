@@ -125,7 +125,6 @@
                 <TextBlock Text="Github" Foreground="{DynamicResource TextColorSecondaryColor}" Name="github" Cursor="Hand" Margin="5"/>
                 <TextBlock Text="Telegrm" Foreground="{DynamicResource TextColorSecondaryColor}" Name="telegram" Cursor="Hand" Margin="5"/>
                 <TextBlock Text="Blog" Foreground="{DynamicResource TextColorSecondaryColor}" Name="blog" Cursor="Hand" Margin="5"/>
-                <TextBlock Text="Coffee" Foreground="{DynamicResource TextColorSecondaryColor}" Name="coffee" Cursor="Hand" Margin="5"/>
             </StackPanel>
         <!-- Links Section End -->
 
