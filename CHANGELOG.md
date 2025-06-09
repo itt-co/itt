@@ -2,10 +2,6 @@
 
 ## Changelog
 
-### 🥩 Eid Adha Mubarak 
-
-![itt.xName:eid [https://github.com/emadadel4/itt]](https://github.com/user-attachments/assets/58f1801e-2455-4939-a1c0-52a5e2ee1fba)
-
 ### 📦 Package manager
 
 ![itt.xName:preview [https://github.com/emadadel4/itt]](https://github.com/user-attachments/assets/4e5b1040-313f-49cb-8f43-2127ef5d53ac)
