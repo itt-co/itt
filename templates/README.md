@@ -8,7 +8,9 @@
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Images/logo.png" width="200px" align="center">
+<a href="#">
+  <img src="https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Images/logo.png" alt="itt" width="200" />
+</a>
 
 ## Install Tweaks Tool
 
