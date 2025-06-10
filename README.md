@@ -12,7 +12,7 @@
   <img src="https://raw.githubusercontent.com/emadadel4/itt/refs/heads/main/static/Images/logo.png" alt="itt" width="200" />
 </a>
 
-## Install Tweaks Tool
+# Install Tweaks Tool
 
 ITT (Install Tweaks Tool) included most Windows 10/11 Software and Windows Tweaks & Remove Bloatwares & Windows activation
 
