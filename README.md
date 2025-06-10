@@ -169,7 +169,7 @@ Example:
 <!-- Links -->
 <h3 align="left">
 
-[Palestine Red Crescent Society](https://www.palestinercs.org/en/Donation)
+[Palestine Red Crescent Society](https://www.palestinercs.org/en/Donation) /
 [Other ways to support (Boycott)](https://boycott4.github.io/boycott/)
 </h3>
 
