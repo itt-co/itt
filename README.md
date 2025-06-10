@@ -144,7 +144,7 @@ Example:
 <br>
 <br>
 
-# Resistance Struggling for Justice in an Authoritarian World 
+# Resist for Justice in a World Ruled by Authoritarian Regimes - قاوم من أجل العدالة في عالم تحكمه الأنظمة الاستبدادية
 
 <h1 align="left">
   <a href="https://git.io/typing-svg">
