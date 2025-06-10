@@ -144,49 +144,66 @@ Example:
 <br>
 <br>
 
-# 🌟 Support
+# Resistance Struggling for Justice in an Authoritarian World 
+
+<h1 align="left">
+  <a href="https://git.io/typing-svg">
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=5000&color=F70000&width=435&lines=%23STOP_GENOCIDE!;%23StandWithPalestine" alt="Typing SVG" />
+  </a>
+</h1>
+
+<p align="left">
+<a href="https://www.palestinercs.org/en/Donation" target="_blank">
+  <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmY0ZWE5cnd5djVoaG12OHVteWI0Nm1zMzlpZGtxM2JwZmNwdG9iMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iUNO3pXpfqiZ8JQ1Jo/giphy.gif" width="270" alt="Palestine GIF" />
+</a>
+<a href="https://www.reddit.com/r/Palestine/wiki/donate/" target="_blank">
+  <img src="https://styles.redditmedia.com/t5_2qhak/styles/image_widget_78cydyzl3ktb1.png" width="339" alt="Stand with Palestine" />
+</a>
+</p>
+
+<h3 align="left">
+  Don’t hesitate to speak up and join the conversation about Palestine. In this age, each of us has a role in raising awareness. Every post or message can inspire or educate others. Don’t fear expressing yourself, as words are a powerful force to change reality.
+  Make your platforms spaces for dialogue and contribute to creating change. Together, we raise the voices of the oppressed and work toward global justice. Let’s unite for Palestine and restore hope to those who need it.
+</h3>
+
+<!-- Links -->
+<h3 align="left">
+
+[Palestine Red Crescent Society](https://www.palestinercs.org/en/Donation)
+[Other ways to support (Boycott)](https://boycott4.github.io/boycott/)
+</h3>
+
+<!-- Recommended Videos -->
+<h3 align="left">Recommended Videos</h3>
+<div style="display: flex; gap: 10px; flex-wrap: wrap;">
+  <a href="https://www.youtube.com/watch?v=kx5kanvn_ug" target="_blank">
+    <img src="https://img.youtube.com/vi/kx5kanvn_ug/0.jpg" alt="Video 1" style="width: 200px;">
+  </a>
+  <a href="https://youtu.be/GTvsWLVC9QU" target="_blank">
+    <img src="https://img.youtube.com/vi/GTvsWLVC9QU/0.jpg" alt="Video 2" style="width: 200px;">
+  </a>
+  <a href="https://youtu.be/mF6B5UVupyA?list=LL" target="_blank">
+    <img src="https://img.youtube.com/vi/mF6B5UVupyA/0.jpg" alt="Video 3" style="width: 200px;">
+  </a>
+</div>
+
+<!-- Note -->
+<h3 align="left"><i>"YouTube continues to remove recommended videos!"</i></h3>
+
+<!-- Quote -->
+<h3 align="center">
+If you can't lift the injustice, at least tell everyone about it.<br>
+.إذا لم تستطع رفع الظلم، على الاقل اخبر الجميع عنه
+</h3>
+
+<br>
+<br>
+
+# 🌟 Support Project
 
 **Love the project?** Show your support by clicking the ⭐ (top right) and joining our community of [stargazers](https://github.com/emadadel4/itt/stargazers)!
 
 [![Stargazers repo roster for @emadadel4/itt](https://reporoster.com/stars/dark/emadadel4/itt)](https://github.com/emadadel4/itt/stargazers)
 
 
-# Resistance Struggling for Justice in an Authoritarian World
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=5000&color=F70000&width=435&lines=%23STOP_GENOCIDE!;%23StandWithPalestine)](https://git.io/typing-svg)
-
-![luisricardo](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmY0ZWE5cnd5djVoaG12OHVteWI0Nm1zMzlpZGtxM2JwZmNwdG9iMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iUNO3pXpfqiZ8JQ1Jo/giphy.gif)
-
-Don’t hesitate to speak up and join the conversation about Palestine. In this age, each of us has a role in raising awareness. Every post or message can inspire or educate others. Don’t fear expressing yourself, as words are a powerful force to change reality. Make your platforms spaces for dialogue and contribute to creating change. Together, we raise the voices of the oppressed and work toward global justice. Let’s unite for Palestine and restore hope to those who need it.
-
-[Donation](https://www.palestinercs.org/en/Donation)
-
-[Other way to support (boycott)](https://boycott4.github.io/boycott/)
-
-### Recommended videos.
-
-<div align="left">
-
-<div>
-    <a href="https://www.youtube.com/watch?v=kx5kanvn_ug" target="blank">
-      <img src="https://img.youtube.com/vi/kx5kanvn_ug/0.jpg" alt="Play Video" style="width: 200px;">
-    </a>
-    <a href="https://youtu.be/GTvsWLVC9QU" target="blank">
-      <img src="https://img.youtube.com/vi/GTvsWLVC9QU/0.jpg" alt="Play Video" style="width: 200px;">
-    </a>
-    <a href="https://youtu.be/mF6B5UVupyA?list=LL" target="blank">
-      <img src="https://img.youtube.com/vi/mF6B5UVupyA/0.jpg" alt="Play Video" style="width: 200px;">
-    </a>
-  </div>
-</div>
-
-<div align="center">
-<br>
- "YouTube continues to remove recommended videos!"
-</div>
-
-<h3 align="center">
-  If you can't lift the injustice, at least tell everyone about it.
-  
-  إذا لم تستطع رفع الظلم، فعلى الأقل أخبر الجميع عنه.
-</h3>
