@@ -1,44 +1,33 @@
- <!--Menu-->
+ <!-- Begin Menu section-->
     <Menu Grid.Row="0" Grid.Column="0" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Left" BorderThickness="0">
         <MenuItem Background="Transparent" BorderBrush="Transparent" BorderThickness="0"  IsEnabled="False" ToolTip="Emad Adel">
             <MenuItem.Icon>
                 <Border Background="Transparent" CornerRadius="10" Height="89" Width="89">
                     <StackPanel Orientation="Vertical">
                         <TextBlock Text="itt" VerticalAlignment="Center"  TextAlignment="Center" HorizontalAlignment="Center" Style="{DynamicResource logoText}"/>
-                        <TextBlock Text="{DynamicResource SubText}" FontFamily="Arial" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Normal" FontSize="9" Style="{DynamicResource logoText}" />
+                        <TextBlock Text="{DynamicResource SubText}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Normal" FontSize="9" Style="{DynamicResource logoText}" />
                     </StackPanel>
                 </Border>
             </MenuItem.Icon>
         </MenuItem>
 
-        <MenuItem VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="Transparent">
-            <MenuItem.Header>
-                <Binding Path="Management" TargetNullValue="Management"/>
-            </MenuItem.Header>
+        <MenuItem Header="{Binding Management, TargetNullValue=Management}" VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="Transparent">
             <MenuItem.Icon>
                 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
             </MenuItem.Icon>
 
-            <MenuItem Name="sysinfo">
-                <MenuItem.Header>
-                    <Binding Path="System_Info" TargetNullValue="System Info" />
-                </MenuItem.Header>
+            <MenuItem Name="sysinfo" Header="{Binding System_Info, TargetNullValue=System Info}" >
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
             
-            
-            <MenuItem Name="poweroption">
-                <MenuItem.Header>
-                    <Binding Path="Power_Options" TargetNullValue="Power Options" />
-                </MenuItem.Header>
+            <MenuItem Name="poweroption" Header="{Binding Power_Options, TargetNullValue=Power Options}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
             
-
             <MenuItem Name="deviceManager">
                 <MenuItem.Header>
                     <Binding Path="Device_Manager" TargetNullValue="Device Manager" />
@@ -49,74 +38,50 @@
             </MenuItem>
             
 
-            <MenuItem Name="services">
-                <MenuItem.Header>
-                    <Binding Path="Services" TargetNullValue="Services" />
-                </MenuItem.Header>
+            <MenuItem Name="services" Header="{Binding Services, TargetNullValue=Services}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
 
-            <MenuItem Name="network">
-                <MenuItem.Header>
-                    <Binding Path="Networks" TargetNullValue="Networks" />
-                </MenuItem.Header>
+            <MenuItem Name="network" Header="{Binding Networks, TargetNullValue=Networks}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
 
-            <MenuItem Name="appsfeatures">
-                <MenuItem.Header>
-                    <Binding Path="Apps_features" TargetNullValue="Programs and Features" />
-                </MenuItem.Header>
+            <MenuItem Name="appsfeatures" Header="{Binding Apps_features, TargetNullValue=Programs and Features}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
 
-            <MenuItem Name="taskmgr">
-                <MenuItem.Header>
-                    <Binding Path="Task_Manager" TargetNullValue="Task Manager" />
-                </MenuItem.Header>
+            <MenuItem Name="taskmgr" Header="{Binding Task_Manager, TargetNullValue=Task Manager}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
             
 
-            <MenuItem Name="diskmgmt">
-                <MenuItem.Header>
-                    <Binding Path="Disk_Managment" TargetNullValue="Disk Management" />
-                </MenuItem.Header>
+            <MenuItem Name="diskmgmt" Header="{Binding Disk_Managment, TargetNullValue=Disk Management}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
             
-            <MenuItem Name="msconfig">
-                <MenuItem.Header>
-                    <Binding Path="Msconfig" TargetNullValue="System Configuration" />
-                </MenuItem.Header>
+            <MenuItem Name="msconfig" Header="{Binding Msconfig, TargetNullValue=System Configuration}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
 
-            <MenuItem Name="ev">
-                <MenuItem.Header>
-                    <Binding Path="Environment_Variables" TargetNullValue="Environment Variables" />
-                </MenuItem.Header>
+            <MenuItem Name="ev" Header="{Binding Environment_Variables, TargetNullValue=Environment Variables}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text="&#xE81E;"/>
                 </MenuItem.Icon>
             </MenuItem>
 
-            <MenuItem Name="spp">
-                <MenuItem.Header>
-                    <Binding Path="System_Protection" TargetNullValue="System Protection" />
-                </MenuItem.Header>
+            <MenuItem Name="spp" Header="{Binding System_Protection, TargetNullValue=System Protection}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
@@ -124,30 +89,24 @@
 
         </MenuItem>
 
-        <MenuItem VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="Transparent">
-            <MenuItem.Header>
-                <Binding Path="Preferences" TargetNullValue="Preferences"/>
-            </MenuItem.Header>
+        <MenuItem Header="{Binding Preferences, TargetNullValue=Preferences}" VerticalAlignment="Center" HorizontalAlignment="Left" BorderBrush="Transparent">
             <MenuItem.Icon>
                  <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
             </MenuItem.Icon>
 
-            <MenuItem Name="restorepoint" InputGestureText="Shift+Q">
-                <MenuItem.Header>
-                    <Binding Path="Create_restore_point" TargetNullValue="Restore Point" />
-                </MenuItem.Header>
+            <MenuItem Name="restorepoint" Header="{Binding Create_restore_point, TargetNullValue=Restore Point}" InputGestureText="Shift+Q">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
             
-            <MenuItem Header="Package Manager" ToolTip="Select Package Manager">
+            <MenuItem Header="{Binding package_manager, TargetNullValue=Package Manager}" ToolTip="Select Package Manager">
 
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
 
-                <MenuItem Name="auto" Header="Auto" ToolTip="Automatically install using the best available method"/>
+                <MenuItem Name="auto" Header="{Binding auto, TargetNullValue=Auto}" ToolTip="Automatically install using the best available method" />
                 <MenuItem Name="choco" Header="Choco" />
                 <MenuItem Name="winget" Header="Winget"/>
 
@@ -172,20 +131,14 @@
 
             </MenuItem>
 
-            <MenuItem Name="save" InputGestureText="Shift+S" ToolTip="Save selected apps">
-                <MenuItem.Header>
-                    <Binding Path="Save" TargetNullValue="Save" />
-                </MenuItem.Header>
+            <MenuItem Name="save" Header="{Binding Save, TargetNullValue=Save}" ToolTip="Save selected apps" InputGestureText="Shift+S">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
             
 
-            <MenuItem Name="load" InputGestureText="Shift+D" ToolTip="Restore selected apps">
-                <MenuItem.Header>
-                    <Binding Path="Restore" TargetNullValue="Restore" />
-                </MenuItem.Header>
+            <MenuItem Name="load" Header="{Binding Restore, TargetNullValue=Restore}" ToolTip="Restore selected apps" InputGestureText="Shift+D">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
@@ -195,41 +148,24 @@
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
-                <MenuItem Name="systheme">
-                    <MenuItem.Header>
-                        <Binding Path="Use_system_setting" TargetNullValue="System Setting" />
-                    </MenuItem.Header>
-                </MenuItem>
+                <MenuItem Name="systheme" Header="{Binding Use_system_setting, TargetNullValue=System}" ToolTip="Use system theme if available" />
                 {{ThemesKeys}}
             </MenuItem>
             
 
             <!-- Music section -->
-            <MenuItem Header="{Binding Music}">
+            <MenuItem Header="{Binding Music, TargetNullValue=Music}">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
 
-                <MenuItem Name="moff">
-                    <MenuItem.Header>
-                        <Binding Path="off" TargetNullValue="Off" />
-                    </MenuItem.Header>
-                    <MenuItem.InputGestureText>
-                        Shift+N
-                    </MenuItem.InputGestureText>
+                <MenuItem Name="moff" Header="{Binding off, TargetNullValue=Off}" InputGestureText="Shift+N">
                     <MenuItem.Icon>
                         <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                     </MenuItem.Icon>
                 </MenuItem>
-                
 
-                <MenuItem Name="mon">
-                    <MenuItem.Header>
-                        <Binding Path="on" TargetNullValue="On" />
-                    </MenuItem.Header>
-                    <MenuItem.InputGestureText>
-                        Shift+F
-                    </MenuItem.InputGestureText>
+                <MenuItem Name="mon" Header="{Binding on, TargetNullValue=On}" InputGestureText="Shift+F">
                     <MenuItem.Icon>
                         <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                     </MenuItem.Icon>
@@ -238,27 +174,17 @@
             </MenuItem>
             <!-- Music section -->
 
-
-            <MenuItem Header="{Binding Language}">
+            <MenuItem Header="{Binding Language, TargetNullValue=Language}">
                     <MenuItem.Icon>
                         <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                     </MenuItem.Icon>
 
-                    <MenuItem Name="systemlang">
-                        <MenuItem.Header>
-                            <Binding Path="Use_system_setting" TargetNullValue="System Language" />
-                        </MenuItem.Header>
+                    <MenuItem Name="systemlang" Header="{Binding Use_system_setting, TargetNullValue=System Language}">
                     </MenuItem>
                     {{LocalesKeys}}
             </MenuItem>
 
-            <MenuItem Name="ittshortcut">
-                <MenuItem.Header>
-                    <Binding Path="Create_desktop_shortcut" TargetNullValue="Create Shortcut" />
-                </MenuItem.Header>
-                <MenuItem.InputGestureText>
-                    Shift+I
-                </MenuItem.InputGestureText>
+            <MenuItem Name="ittshortcut" Header="{Binding Create_desktop_shortcut, TargetNullValue=Create Shortcut}" InputGestureText="Shift+I">
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
                 </MenuItem.Icon>
@@ -266,11 +192,8 @@
             
         </MenuItem>
 
-        <MenuItem VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Transparent">
+        <MenuItem Header="{Binding Third_party, TargetNullValue=Third Party}" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Transparent">
 
-            <MenuItem.Header>
-                <Binding Path="Third_party" TargetNullValue="Third Party"/>
-            </MenuItem.Header>
             <MenuItem.Icon>
                 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
             </MenuItem.Icon>
@@ -311,7 +234,7 @@
                 </MenuItem.Icon>
             </MenuItem>
 
-            <MenuItem Header="{Binding Browsers_extensions}">
+            <MenuItem Header="{Binding Browsers_extensions, TargetNullValue=Browsers Extensions}">
 
                 <MenuItem.Icon>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
@@ -367,17 +290,13 @@
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="16" Text=""/>
                 </MenuItem.Icon>
             </MenuItem>
-
         </MenuItem>
 
-        <MenuItem Name="dev" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Transparent">
-            <MenuItem.Header>
-                <Binding Path="About" TargetNullValue="About"/>
-            </MenuItem.Header>
+        <MenuItem Name="dev" Header="{Binding About, TargetNullValue=About}" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Transparent">
             <MenuItem.Icon>
                 <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" Text=""/>
             </MenuItem.Icon>
         </MenuItem>
 
     </Menu>
-<!--End Menu-->
+<!--End Menu section-->
