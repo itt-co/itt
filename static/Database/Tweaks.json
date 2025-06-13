@@ -7,12 +7,7 @@
     "Refresh": "false",
     "Script": [
       "irm https://raw.githubusercontent.com/emadadel4/WindowsTweaks/refs/heads/main/Disk%20cleanup.ps1 | iex"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
+    ]
   },
   {
     "Name": "System File Checker",
@@ -22,12 +17,7 @@
     "Refresh": "false",
     "Script": [
       "Add-Log -Message 'This may take a few minutes' -Level 'Info' Chkdsk /scan\r\n sfc /scannow\r\n DISM /Online /Cleanup-Image /Restorehealth\r\n sfc /scannow\r\n"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
+    ]
   },
   {
     "Name": "Restore Classic Context Menu Windows 11",
@@ -35,11 +25,6 @@
     "Category": "Classic",
     "Check": "false",
     "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKCU:\\Software\\Classes\\CLSID\\",
@@ -65,12 +50,7 @@
     "Refresh": "false",
     "Script": [
       "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/emadadel4/WindowsTweaks/refs/heads/main/test.bat' -OutFile $env:TEMP\\script.bat \r\n Start-Process -FilePath 'cmd.exe' -ArgumentList '/c %TMP%\\script.bat && del /f /q %TMP%\\script.bat ' -NoNewWindow -Wait "
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
+    ]
   },
   {
     "Name": "Super Privacy Disable all Privacy Settings and Telemetry",
@@ -81,10 +61,6 @@
     "Script": [
       "Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Application Experience\\Microsoft Compatibility Appraiser' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Application Experience\\ProgramDataUpdater' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Autochk\\Proxy' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Customer Experience Improvement Program\\Consolidator' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Customer Experience Improvement Program\\UsbCeip' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\DiskDiagnostic\\Microsoft-Windows-DiskDiagnosticDataCollector' | Out-Null; schtasks /change /TN '\\Microsoft\\Windows\\Customer Experience Improvement Program\\Consolidator' /DISABLE > NUL 2>&1; schtasks /change /TN '\\Microsoft\\Windows\\DiskDiagnostic\\Microsoft-Windows-DiskDiagnosticDataCollector' /DISABLE > NUL 2>&1; schtasks /change /TN '\\Microsoft\\Windows\\Windows Error Reporting\\QueueReporting' /DISABLE > NUL 2>&1"
     ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\location",
@@ -1228,11 +1204,6 @@
     "Category": "Performance",
     "Check": "false",
     "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Feeds",
@@ -1305,9 +1276,6 @@
     "Category": "Performance",
     "Check": "false",
     "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
     "AppxPackage": [
       "Microsoft.Copilot",
       "Microsoft.BingNews",
@@ -1388,7 +1356,6 @@
       "TikTok",
       "Microsoft.NetworkSpeedTest"
     ],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
@@ -1412,9 +1379,6 @@
     "Category": "Performance",
     "Check": "false",
     "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
     "AppxPackage": [
       "Microsoft.XboxApp",
       "Microsoft.Xbox.TCUI",
@@ -1423,9 +1387,7 @@
       "Microsoft.XboxIdentityProvider",
       "Microsoft.XboxSpeechToTextOverlay"
 
-    ],
-    "Services": [],
-    "Registry": []
+    ]
   },
   {
     "Name": "Fix Stutter in games",
@@ -1435,12 +1397,7 @@
     "Refresh": "false",
     "Script": [
       "irm https://raw.githubusercontent.com/emadadel4/Fix-Stutter-in-Games/main/fix.ps1 | iex "
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
+    ]
   },
   {
     "Name": "Enable the Ultimate Performance Power Plan",
@@ -1450,12 +1407,7 @@
     "Refresh": "false",
     "Script": [
       "powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61; Start-Process powercfg.cpl"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
+    ]
   },
   {
     "Name": "Reset the TCP/IP Stack",
@@ -1465,12 +1417,7 @@
     "Refresh": "false",
     "Script": [
       "netsh int ip reset"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
+    ]
   },
   {
     "Name": "Setup Auto login",
@@ -1480,12 +1427,7 @@
     "Refresh": "false",
     "Script": [
       "curl.exe -ss \"https://live.sysinternals.com/Autologon.exe\" -o $env:temp\\autologin.exe ; cmd /c $env:temp\\autologin.exe /accepteula"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
+    ]
   },
   {
     "Name": "Disable Xbox Services",
@@ -1497,10 +1439,6 @@
       "Disable-MMAgent -MemoryCompression | Out-Null",
       "\r\n        takeown /f C:\\Windows\\System32\\GameBarPresenceWriter.exe\r\n\r\n        takeown /f C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll\r\n\r\n        takeown /f C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll\r\n\r\n        Start-Sleep -Seconds 1\r\n\r\n\r\n        icacls C:\\Windows\\System32\\GameBarPresenceWriter.exe /grant administrators:F\r\n\r\n        icacls C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll /grant administrators:F\r\n\r\n        icacls C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll /grant administrators:F\r\n\r\n        Start-Sleep -Seconds 1\r\n\r\n\r\n        Rename-Item C:\\Windows\\System32\\GameBarPresenceWriter.exe -NewName GameBarPresenceWriter.exe_backup\r\n\r\n        Rename-Item C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll -NewName GameBarPresenceWriter.proxy.dll_backup\r\n\r\n        Rename-Item C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll -NewName Windows.Gaming.UI.GameBar.dll_backup\r\n\r\n      "
     ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKCU:\\SOFTWARE\\Microsoft\\GameBar",
@@ -1685,11 +1623,6 @@
     "Category": "Privacy",
     "Check": "false",
     "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
@@ -1734,11 +1667,6 @@
     "Category": "Performance",
     "Check": "false",
     "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications",
@@ -1762,11 +1690,6 @@
     "Category": "Privacy",
     "Check": "false",
     "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
@@ -1783,11 +1706,6 @@
     "Category": "Other",
     "Check": "false",
     "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{f86fa3ab-70d2-4fc7-9c99-fcbf05467f3a}",
@@ -1881,10 +1799,6 @@
     "Category": "Performance",
     "Check": "false",
     "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
     "Services": [
       {
         "Name": "Spooler",
@@ -1931,8 +1845,7 @@
         "StartupType": "Disabled",
         "DefaultType": "Manual"
       }
-    ],
-    "Registry": []
+    ]
   },
   {
     "Name": "Disable Hibernate",
@@ -1946,9 +1859,6 @@
     "UndoScript": [
       "powercfg.exe /hibernate on"
     ],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKLM:\\System\\CurrentControlSet\\Control\\Session Manager\\Power",
@@ -1972,14 +1882,10 @@
     "Category": "Performance",
     "Check": "false",
     "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
     "ScheduledTask": [
       "OneDrive",
       "MicrosoftEdge"
     ],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\OneDrive",
@@ -2003,12 +1909,7 @@
     "Refresh": "false",
     "Script": [
       "irm https://raw.githubusercontent.com/emadadel4/WindowsTweaks/refs/heads/main/OneDrive-Uninstaller.ps1 | iex"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
+    ]
   },
   {
     "Name": "Activate Windows Classic Photo Viewer",
@@ -2016,11 +1917,6 @@
     "Category": "Classic",
     "Check": "false",
     "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows Photo Viewer\\Capabilities\\FileAssociations",
@@ -2079,11 +1975,6 @@
     "Category": "Privacy",
     "Check": "false",
     "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKCU:\\Software\\Policies\\Microsoft\\Windows\\WindowsCopilot",
@@ -2135,11 +2026,6 @@
     "Category": "Privacy",
     "Check": "false",
     "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKCU:\\Software\\Policies\\Microsoft\\Windows\\WindowsAI",
@@ -2172,12 +2058,7 @@
     "Refresh": "false",
     "Script": [
       "Remove-Item \"$env:LocalAppData\\Microsoft\\Windows\\Explorer\\thumbcache*\" -Force -Recurse"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
+    ]
   },
   {
     "Name": "Classic Volume Control",
@@ -2185,11 +2066,6 @@
     "Category": "Classic",
     "Check": "false",
     "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKLM:\\Software\\Microsoft\\Windows NT\\CurrentVersion\\MTCUVC",
@@ -2206,11 +2082,6 @@
     "Category": "Classic",
     "Check": "false",
     "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKCU:\\Control Panel\\Accessibility\\ToggleKeys",
@@ -2227,10 +2098,6 @@
     "Category": "Privacy",
     "Check": "false",
     "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
     "Services": [
       {
         "Name": "HomeGroupListener",
@@ -2242,8 +2109,7 @@
         "StartupType": "Manual ",
         "DefaultType": "Automatic"
       }
-    ],
-    "Registry": []
+    ]
   },
   {
     "Name": "Remove Home and Gallery from explorer in Windows 11",
@@ -2251,11 +2117,6 @@
     "Category": "Privacy",
     "Check": "false",
     "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
@@ -2280,11 +2141,6 @@
     "Category": "Protection",
     "Check": "false",
     "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKLM:\\SOFTWARE\\Microsoft\\PolicyManager\\default\\WiFi\\AllowWiFiHotSpotReporting",
@@ -2315,11 +2171,6 @@
     "Category": "Protection",
     "Check": "false",
     "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\AutoplayHandlers",
@@ -2345,12 +2196,7 @@
     "Refresh": "false",
     "Script": [
       "Set-SmbServerConfiguration -EnableSMB1Protocol $false -Force; Set-SmbServerConfiguration -EnableSMB2Protocol $false -Force"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
+    ]
   },
   {
     "Name": "Set current network profile to public",
@@ -2360,12 +2206,7 @@
     "Refresh": "false",
     "Script": [
       "Set-NetConnectionProfile -NetworkCategory Public"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
+    ]
   },
   {
     "Name": "Enable F8 boot menu options",
@@ -2375,12 +2216,7 @@
     "Refresh": "false",
     "Script": [
       "bcdedit /set bootmenupolicy Standard | Out-Null"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
+    ]
   },
   {
     "Name": "Disable display and sleep mode timeouts",
@@ -2390,12 +2226,7 @@
     "Refresh": "false",
     "Script": [
       "\r\n        powercfg /X monitor-timeout-ac 0\r\n        powercfg /X monitor-timeout-dc 0\r\n        powercfg /X standby-timeout-ac 0\r\n        powercfg /X standby-timeout-dc 0\r\n      "
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
+    ]
   },
   {
     "Name": "Set Wallpaper desktop Quality to 100%",
@@ -2403,11 +2234,6 @@
     "Category": "Personalization",
     "Check": "false",
     "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKLM:\\System\\CurrentControlSet\\Control\\CrashControl",
@@ -2424,11 +2250,6 @@
     "Category": "Performance",
     "Check": "false",
     "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
@@ -2447,12 +2268,7 @@
     "Refresh": "false",
     "Script": [
       "Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Defrag\\ScheduledDefrag' | Out-Null"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
+    ]
   },
   {
     "Name": "Enable NET 3.5",
@@ -2462,12 +2278,7 @@
     "Refresh": "false",
     "Script": [
       "DISM /Online /Enable-Feature /FeatureName:NetFx3 /All"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
+    ]
   },
   {
     "Name": "Super Performance",
@@ -2475,11 +2286,6 @@
     "Category": "Performance",
     "Check": "false",
     "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "defaultValue": "1",
@@ -2584,10 +2390,6 @@
       "Install-Dependencies 'winget'",
       "winget uninstall 'windows web experience pack' --silent"
     ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Name": "TaskbarDa",
@@ -2607,12 +2409,7 @@
     "Script": [
       "Rename-Computer -NewName 'Unknown'",
       "$currentUsername = $env:USERNAME; Rename-LocalUser -Name $currentUsername -NewName 'Unknown'"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
+    ]
   },
   {
     "Name": "Fix Arabic encoding",
@@ -2622,12 +2419,7 @@
     "Refresh": "false",
     "Script": [
       "Set-WinSystemLocale -SystemLocale 'ar-EG'"
-    ],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
-    "Registry": []
+    ]
   },
   {
     "Name": "Restore Default File Type Associations",
@@ -2635,11 +2427,6 @@
     "Category": "Fixer",
     "Check": "false",
     "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts",
@@ -2653,11 +2440,6 @@
     "Category": "Performance",
     "Check": "false",
     "Refresh": "true",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Scan",
@@ -2674,11 +2456,6 @@
     "Category": "Performance",
     "Check": "false",
     "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKLM:\\SOFTWARE\\CurrentControlSet\\Control\\GraphicsDrivers",
@@ -2695,11 +2472,6 @@
     "Category": "Performance",
     "Check": "false",
     "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKCU:\\System\\GameConfigStore",
@@ -2716,11 +2488,6 @@
     "Category": "Performance",
     "Check": "false",
     "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKLM:\\System\\CurrentControlSet\\Services\\Tcpip\\Parameters",
@@ -2744,11 +2511,6 @@
     "Category": "Performance",
     "Check": "false",
     "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKLM:\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management",
@@ -2765,11 +2527,6 @@
     "Category": "Performance",
     "Check": "false",
     "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKLM:\\Software\\NVIDIA Corporation\\Global\\NvCplApi\\Policies",
@@ -2800,11 +2557,6 @@
     "Category": "Performance",
     "Check": "false",
     "Refresh": "false",
-    "Script": [],
-    "UndoScript": [],
-    "ScheduledTask": [],
-    "AppxPackage": [],
-    "Services": [],
     "Registry": [
       {
         "Path": "HKLM:\\System\\CurrentControlSet\\Control",
@@ -2843,7 +2595,6 @@
     "Category": "Fixer",
     "Check": "false",
     "Refresh": "false",
-    "Script": [],
     "Registry": [
       {
         "Path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\CrashControl",
@@ -2866,8 +2617,7 @@
     "Description": "Tell Powershell 7 to not send Telemetry Data",
     "Category": "Privacy",
     "Check": "false",
-    "Refresh": "false",
-    "Script": []
+    "Refresh": "false"
   },
   {
     "Name": "Debloat Brave",
