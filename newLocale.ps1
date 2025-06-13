@@ -90,6 +90,7 @@ power,Power
 protection,Protection
 classic,Classic
 auto,Auto
+package_manager,Package Manager
 "@
     # Write the cOntent to the CSV file
     $csvFilePath = "locales/$csvFilePath.csv"
