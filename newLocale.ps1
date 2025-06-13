@@ -89,6 +89,7 @@ personalization,Personalization
 power,Power
 protection,Protection
 classic,Classic
+auto,Auto
 "@
     # Write the cOntent to the CSV file
     $csvFilePath = "locales/$csvFilePath.csv"
