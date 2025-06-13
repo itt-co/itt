@@ -40,12 +40,7 @@ $itt.database.Tweaks = @'
 "Refresh": "false",
 "Script": [
 "irm https://raw.githubusercontent.com/emadadel4/WindowsTweaks/refs/heads/main/Disk%20cleanup.ps1 | iex"
-],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
-"Registry": []
+]
 },
 {
 "Name": "System File Checker",
@@ -55,12 +50,7 @@ $itt.database.Tweaks = @'
 "Refresh": "false",
 "Script": [
 "Add-Log -Message 'This may take a few minutes' -Level 'Info' Chkdsk /scan\r\n sfc /scannow\r\n DISM /Online /Cleanup-Image /Restorehealth\r\n sfc /scannow\r\n"
-],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
-"Registry": []
+]
 },
 {
 "Name": "Restore Classic Context Menu Windows 11",
@@ -68,11 +58,6 @@ $itt.database.Tweaks = @'
 "Category": "Classic",
 "Check": "false",
 "Refresh": "false",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKCU:\\Software\\Classes\\CLSID\\",
@@ -98,12 +83,7 @@ $itt.database.Tweaks = @'
 "Refresh": "false",
 "Script": [
 "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/emadadel4/WindowsTweaks/refs/heads/main/test.bat' -OutFile $env:TEMP\\script.bat \r\n Start-Process -FilePath 'cmd.exe' -ArgumentList '/c %TMP%\\script.bat && del /f /q %TMP%\\script.bat ' -NoNewWindow -Wait "
-],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
-"Registry": []
+]
 },
 {
 "Name": "Super Privacy Disable all Privacy Settings and Telemetry",
@@ -114,10 +94,6 @@ $itt.database.Tweaks = @'
 "Script": [
 "Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Application Experience\\Microsoft Compatibility Appraiser' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Application Experience\\ProgramDataUpdater' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Autochk\\Proxy' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Customer Experience Improvement Program\\Consolidator' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Customer Experience Improvement Program\\UsbCeip' | Out-Null; Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\DiskDiagnostic\\Microsoft-Windows-DiskDiagnosticDataCollector' | Out-Null; schtasks /change /TN '\\Microsoft\\Windows\\Customer Experience Improvement Program\\Consolidator' /DISABLE > NUL 2>&1; schtasks /change /TN '\\Microsoft\\Windows\\DiskDiagnostic\\Microsoft-Windows-DiskDiagnosticDataCollector' /DISABLE > NUL 2>&1; schtasks /change /TN '\\Microsoft\\Windows\\Windows Error Reporting\\QueueReporting' /DISABLE > NUL 2>&1"
 ],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\CapabilityAccessManager\\ConsentStore\\location",
@@ -1261,11 +1237,6 @@ $itt.database.Tweaks = @'
 "Category": "Performance",
 "Check": "false",
 "Refresh": "true",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Feeds",
@@ -1338,9 +1309,6 @@ $itt.database.Tweaks = @'
 "Category": "Performance",
 "Check": "false",
 "Refresh": "true",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
 "AppxPackage": [
 "Microsoft.Copilot",
 "Microsoft.BingNews",
@@ -1421,7 +1389,6 @@ $itt.database.Tweaks = @'
 "TikTok",
 "Microsoft.NetworkSpeedTest"
 ],
-"Services": [],
 "Registry": [
 {
 "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
@@ -1445,9 +1412,6 @@ $itt.database.Tweaks = @'
 "Category": "Performance",
 "Check": "false",
 "Refresh": "true",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
 "AppxPackage": [
 "Microsoft.XboxApp",
 "Microsoft.Xbox.TCUI",
@@ -1455,9 +1419,7 @@ $itt.database.Tweaks = @'
 "Microsoft.XboxGameOverlay",
 "Microsoft.XboxIdentityProvider",
 "Microsoft.XboxSpeechToTextOverlay"
-],
-"Services": [],
-"Registry": []
+]
 },
 {
 "Name": "Fix Stutter in games",
@@ -1467,12 +1429,7 @@ $itt.database.Tweaks = @'
 "Refresh": "false",
 "Script": [
 "irm https://raw.githubusercontent.com/emadadel4/Fix-Stutter-in-Games/main/fix.ps1 | iex "
-],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
-"Registry": []
+]
 },
 {
 "Name": "Enable the Ultimate Performance Power Plan",
@@ -1482,12 +1439,7 @@ $itt.database.Tweaks = @'
 "Refresh": "false",
 "Script": [
 "powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61; Start-Process powercfg.cpl"
-],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
-"Registry": []
+]
 },
 {
 "Name": "Reset the TCP/IP Stack",
@@ -1497,12 +1449,7 @@ $itt.database.Tweaks = @'
 "Refresh": "false",
 "Script": [
 "netsh int ip reset"
-],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
-"Registry": []
+]
 },
 {
 "Name": "Setup Auto login",
@@ -1512,12 +1459,7 @@ $itt.database.Tweaks = @'
 "Refresh": "false",
 "Script": [
 "curl.exe -ss \"https://live.sysinternals.com/Autologon.exe\" -o $env:temp\\autologin.exe ; cmd /c $env:temp\\autologin.exe /accepteula"
-],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
-"Registry": []
+]
 },
 {
 "Name": "Disable Xbox Services",
@@ -1529,10 +1471,6 @@ $itt.database.Tweaks = @'
 "Disable-MMAgent -MemoryCompression | Out-Null",
 "\r\n        takeown /f C:\\Windows\\System32\\GameBarPresenceWriter.exe\r\n\r\n        takeown /f C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll\r\n\r\n        takeown /f C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll\r\n\r\n        Start-Sleep -Seconds 1\r\n\r\n\r\n        icacls C:\\Windows\\System32\\GameBarPresenceWriter.exe /grant administrators:F\r\n\r\n        icacls C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll /grant administrators:F\r\n\r\n        icacls C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll /grant administrators:F\r\n\r\n        Start-Sleep -Seconds 1\r\n\r\n\r\n        Rename-Item C:\\Windows\\System32\\GameBarPresenceWriter.exe -NewName GameBarPresenceWriter.exe_backup\r\n\r\n        Rename-Item C:\\Windows\\System32\\GameBarPresenceWriter.proxy.dll -NewName GameBarPresenceWriter.proxy.dll_backup\r\n\r\n        Rename-Item C:\\Windows\\System32\\Windows.Gaming.UI.GameBar.dll -NewName Windows.Gaming.UI.GameBar.dll_backup\r\n\r\n      "
 ],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKCU:\\SOFTWARE\\Microsoft\\GameBar",
@@ -1717,11 +1655,6 @@ $itt.database.Tweaks = @'
 "Category": "Privacy",
 "Check": "false",
 "Refresh": "true",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
@@ -1766,11 +1699,6 @@ $itt.database.Tweaks = @'
 "Category": "Performance",
 "Check": "false",
 "Refresh": "false",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications",
@@ -1794,11 +1722,6 @@ $itt.database.Tweaks = @'
 "Category": "Privacy",
 "Check": "false",
 "Refresh": "false",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\CloudContent",
@@ -1815,11 +1738,6 @@ $itt.database.Tweaks = @'
 "Category": "Other",
 "Check": "false",
 "Refresh": "false",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\NameSpace\\{f86fa3ab-70d2-4fc7-9c99-fcbf05467f3a}",
@@ -1913,10 +1831,6 @@ $itt.database.Tweaks = @'
 "Category": "Performance",
 "Check": "false",
 "Refresh": "false",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
 "Services": [
 {
 "Name": "Spooler",
@@ -1963,8 +1877,7 @@ $itt.database.Tweaks = @'
 "StartupType": "Disabled",
 "DefaultType": "Manual"
 }
-],
-"Registry": []
+]
 },
 {
 "Name": "Disable Hibernate",
@@ -1978,9 +1891,6 @@ $itt.database.Tweaks = @'
 "UndoScript": [
 "powercfg.exe /hibernate on"
 ],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKLM:\\System\\CurrentControlSet\\Control\\Session Manager\\Power",
@@ -2004,14 +1914,10 @@ $itt.database.Tweaks = @'
 "Category": "Performance",
 "Check": "false",
 "Refresh": "false",
-"Script": [],
-"UndoScript": [],
 "ScheduledTask": [
 "OneDrive",
 "MicrosoftEdge"
 ],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\OneDrive",
@@ -2035,12 +1941,7 @@ $itt.database.Tweaks = @'
 "Refresh": "false",
 "Script": [
 "irm https://raw.githubusercontent.com/emadadel4/WindowsTweaks/refs/heads/main/OneDrive-Uninstaller.ps1 | iex"
-],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
-"Registry": []
+]
 },
 {
 "Name": "Activate Windows Classic Photo Viewer",
@@ -2048,11 +1949,6 @@ $itt.database.Tweaks = @'
 "Category": "Classic",
 "Check": "false",
 "Refresh": "false",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKLM:\\SOFTWARE\\Microsoft\\Windows Photo Viewer\\Capabilities\\FileAssociations",
@@ -2111,11 +2007,6 @@ $itt.database.Tweaks = @'
 "Category": "Privacy",
 "Check": "false",
 "Refresh": "false",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKCU:\\Software\\Policies\\Microsoft\\Windows\\WindowsCopilot",
@@ -2167,11 +2058,6 @@ $itt.database.Tweaks = @'
 "Category": "Privacy",
 "Check": "false",
 "Refresh": "true",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKCU:\\Software\\Policies\\Microsoft\\Windows\\WindowsAI",
@@ -2204,12 +2090,7 @@ $itt.database.Tweaks = @'
 "Refresh": "false",
 "Script": [
 "Remove-Item \"$env:LocalAppData\\Microsoft\\Windows\\Explorer\\thumbcache*\" -Force -Recurse"
-],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
-"Registry": []
+]
 },
 {
 "Name": "Classic Volume Control",
@@ -2217,11 +2098,6 @@ $itt.database.Tweaks = @'
 "Category": "Classic",
 "Check": "false",
 "Refresh": "true",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKLM:\\Software\\Microsoft\\Windows NT\\CurrentVersion\\MTCUVC",
@@ -2238,11 +2114,6 @@ $itt.database.Tweaks = @'
 "Category": "Classic",
 "Check": "false",
 "Refresh": "true",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKCU:\\Control Panel\\Accessibility\\ToggleKeys",
@@ -2259,10 +2130,6 @@ $itt.database.Tweaks = @'
 "Category": "Privacy",
 "Check": "false",
 "Refresh": "false",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
 "Services": [
 {
 "Name": "HomeGroupListener",
@@ -2274,8 +2141,7 @@ $itt.database.Tweaks = @'
 "StartupType": "Manual ",
 "DefaultType": "Automatic"
 }
-],
-"Registry": []
+]
 },
 {
 "Name": "Remove Home and Gallery from explorer in Windows 11",
@@ -2283,11 +2149,6 @@ $itt.database.Tweaks = @'
 "Category": "Privacy",
 "Check": "false",
 "Refresh": "true",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
@@ -2312,11 +2173,6 @@ $itt.database.Tweaks = @'
 "Category": "Protection",
 "Check": "false",
 "Refresh": "false",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKLM:\\SOFTWARE\\Microsoft\\PolicyManager\\default\\WiFi\\AllowWiFiHotSpotReporting",
@@ -2347,11 +2203,6 @@ $itt.database.Tweaks = @'
 "Category": "Protection",
 "Check": "false",
 "Refresh": "false",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\AutoplayHandlers",
@@ -2377,12 +2228,7 @@ $itt.database.Tweaks = @'
 "Refresh": "false",
 "Script": [
 "Set-SmbServerConfiguration -EnableSMB1Protocol $false -Force; Set-SmbServerConfiguration -EnableSMB2Protocol $false -Force"
-],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
-"Registry": []
+]
 },
 {
 "Name": "Set current network profile to public",
@@ -2392,12 +2238,7 @@ $itt.database.Tweaks = @'
 "Refresh": "false",
 "Script": [
 "Set-NetConnectionProfile -NetworkCategory Public"
-],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
-"Registry": []
+]
 },
 {
 "Name": "Enable F8 boot menu options",
@@ -2407,12 +2248,7 @@ $itt.database.Tweaks = @'
 "Refresh": "false",
 "Script": [
 "bcdedit /set bootmenupolicy Standard | Out-Null"
-],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
-"Registry": []
+]
 },
 {
 "Name": "Disable display and sleep mode timeouts",
@@ -2422,12 +2258,7 @@ $itt.database.Tweaks = @'
 "Refresh": "false",
 "Script": [
 "\r\n        powercfg /X monitor-timeout-ac 0\r\n        powercfg /X monitor-timeout-dc 0\r\n        powercfg /X standby-timeout-ac 0\r\n        powercfg /X standby-timeout-dc 0\r\n      "
-],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
-"Registry": []
+]
 },
 {
 "Name": "Set Wallpaper desktop Quality to 100%",
@@ -2435,11 +2266,6 @@ $itt.database.Tweaks = @'
 "Category": "Personalization",
 "Check": "false",
 "Refresh": "false",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKLM:\\System\\CurrentControlSet\\Control\\CrashControl",
@@ -2456,11 +2282,6 @@ $itt.database.Tweaks = @'
 "Category": "Performance",
 "Check": "false",
 "Refresh": "true",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
@@ -2479,12 +2300,7 @@ $itt.database.Tweaks = @'
 "Refresh": "false",
 "Script": [
 "Disable-ScheduledTask -TaskName 'Microsoft\\Windows\\Defrag\\ScheduledDefrag' | Out-Null"
-],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
-"Registry": []
+]
 },
 {
 "Name": "Enable NET 3.5",
@@ -2494,12 +2310,7 @@ $itt.database.Tweaks = @'
 "Refresh": "false",
 "Script": [
 "DISM /Online /Enable-Feature /FeatureName:NetFx3 /All"
-],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
-"Registry": []
+]
 },
 {
 "Name": "Super Performance",
@@ -2507,11 +2318,6 @@ $itt.database.Tweaks = @'
 "Category": "Performance",
 "Check": "false",
 "Refresh": "true",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "defaultValue": "1",
@@ -2616,10 +2422,6 @@ $itt.database.Tweaks = @'
 "Install-Dependencies 'winget'",
 "winget uninstall 'windows web experience pack' --silent"
 ],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Name": "TaskbarDa",
@@ -2639,12 +2441,7 @@ $itt.database.Tweaks = @'
 "Script": [
 "Rename-Computer -NewName 'Unknown'",
 "$currentUsername = $env:USERNAME; Rename-LocalUser -Name $currentUsername -NewName 'Unknown'"
-],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
-"Registry": []
+]
 },
 {
 "Name": "Fix Arabic encoding",
@@ -2654,12 +2451,7 @@ $itt.database.Tweaks = @'
 "Refresh": "false",
 "Script": [
 "Set-WinSystemLocale -SystemLocale 'ar-EG'"
-],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
-"Registry": []
+]
 },
 {
 "Name": "Restore Default File Type Associations",
@@ -2667,11 +2459,6 @@ $itt.database.Tweaks = @'
 "Category": "Fixer",
 "Check": "false",
 "Refresh": "true",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts",
@@ -2685,11 +2472,6 @@ $itt.database.Tweaks = @'
 "Category": "Performance",
 "Check": "false",
 "Refresh": "true",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Scan",
@@ -2706,11 +2488,6 @@ $itt.database.Tweaks = @'
 "Category": "Performance",
 "Check": "false",
 "Refresh": "false",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKLM:\\SOFTWARE\\CurrentControlSet\\Control\\GraphicsDrivers",
@@ -2727,11 +2504,6 @@ $itt.database.Tweaks = @'
 "Category": "Performance",
 "Check": "false",
 "Refresh": "false",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKCU:\\System\\GameConfigStore",
@@ -2748,11 +2520,6 @@ $itt.database.Tweaks = @'
 "Category": "Performance",
 "Check": "false",
 "Refresh": "false",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKLM:\\System\\CurrentControlSet\\Services\\Tcpip\\Parameters",
@@ -2776,11 +2543,6 @@ $itt.database.Tweaks = @'
 "Category": "Performance",
 "Check": "false",
 "Refresh": "false",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKLM:\\System\\CurrentControlSet\\Control\\Session Manager\\Memory Management",
@@ -2797,11 +2559,6 @@ $itt.database.Tweaks = @'
 "Category": "Performance",
 "Check": "false",
 "Refresh": "false",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKLM:\\Software\\NVIDIA Corporation\\Global\\NvCplApi\\Policies",
@@ -2832,11 +2589,6 @@ $itt.database.Tweaks = @'
 "Category": "Performance",
 "Check": "false",
 "Refresh": "false",
-"Script": [],
-"UndoScript": [],
-"ScheduledTask": [],
-"AppxPackage": [],
-"Services": [],
 "Registry": [
 {
 "Path": "HKLM:\\System\\CurrentControlSet\\Control",
@@ -2875,7 +2627,6 @@ $itt.database.Tweaks = @'
 "Category": "Fixer",
 "Check": "false",
 "Refresh": "false",
-"Script": [],
 "Registry": [
 {
 "Path": "HKLM:\\SYSTEM\\CurrentControlSet\\Control\\CrashControl",
@@ -2898,8 +2649,7 @@ $itt.database.Tweaks = @'
 "Description": "Tell Powershell 7 to not send Telemetry Data",
 "Category": "Privacy",
 "Check": "false",
-"Refresh": "false",
-"Script": []
+"Refresh": "false"
 },
 {
 "Name": "Debloat Brave",
@@ -8587,17 +8337,17 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 1 -Force; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '06/08/2025'.Trim()
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
 $daysElapsed = (Get-Date) - $storedDate
