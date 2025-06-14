@@ -25,16 +25,24 @@ function Create-JsonObject {
         UndoScript          = @()
         Services            = @()
     }
+
     $jsonObject.Category += Category
+
+
     $addRemoveCommands = Read-Host "Do you want to add 'Command' in this tweak? (y/n)"
+
     if ($addRemoveCommands -eq "y") {
         $jsonObject.Script += Add-Commands
     }
+
+
     # Prompt user to add items to specific properties
     $addRemoveTasks = (Read-Host "Do you want to add 'Remove ScheduledTask' in this tweak? (y/n)").ToLower()
+    
     if ($addRemoveTasks -eq "y") {
         $jsonObject.ScheduledTask += Add-RemoveTasks
     }
+
     $addRegistry = Read-Host "Do you want to Modify 'Registry' in this tweak? (y/n)"
     if ($addRegistry -eq "y") {
         $jsonObject.Registry += Add-Registry
@@ -199,20 +207,24 @@ if (Test-Path $outputFilePath) {
     $existingJson += $newJsonObject
     # Convert back to JSON format while maintaining the property order
     $jsonOutput = @()
+    $excludedIfEmpty = @("Script", "UndoScript", "ScheduledTask", "AppxPackage", "Services", "Registry")
     foreach ($item in $existingJson) {
-        $jsonOutput += [PSCustomObject]@{
-            Name               = $item.Name
-            Description        = $item.Description
-            Category           = $item.Category
-            Check              = $item.Check
-            Refresh            = $item.Refresh
-            Script             = $item.Script
-            UndoScript         = $item.UndoScript
-            ScheduledTask      = $item.ScheduledTask
-            AppxPackage        = $item.AppxPackage
-            Services           = $item.Services
-            Registry           = $item.Registry
+        $entry = [ordered]@{}
+    
+        $entry["Name"]        = $item.Name
+        $entry["Description"] = $item.Description
+        $entry["Category"]    = $item.Category
+        $entry["Check"]       = $item.Check
+        $entry["Refresh"]     = $item.Refresh
+    
+        foreach ($key in $excludedIfEmpty) {
+            $value = $item.$key
+            if ($null -ne $value -and $value.Count -gt 0) {
+                $entry[$key] = $value
+            }
         }
+    
+        $jsonOutput += [PSCustomObject]$entry
     }
     # Write the ordered JSON to the file
     $jsonOutput | ConvertTo-Json -Depth 20 | Out-File -FilePath $outputFilePath -Encoding utf8
