@@ -48,7 +48,7 @@ function Invoke-Install {
 
             Write-Host $source
 
-            Set-Statusbar -Text "⬇ Current task: Downloading $($App.Name)"
+            Set-Statusbar -Text "ℹ Current task: Downloading $($App.Name)"
 
             # Some packages won't install until the package folder is removed.
             $chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($App.Choco)"

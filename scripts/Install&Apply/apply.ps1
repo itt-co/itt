@@ -33,7 +33,11 @@ function Invoke-Apply {
 
         param($selectedTweaks, $debug)
 
-        if((Get-ItemProperty -Path $itt.registryPath -Name "backup" -ErrorAction Stop).backup -eq 0){CreateRestorePoint} 
+        if((Get-ItemProperty -Path $itt.registryPath -Name "backup" -ErrorAction Stop).backup -eq 0){
+            UpdateUI -Button "ApplyBtn" -NonKey "Please Wait..." -Width "auto"
+            Set-Statusbar -Text "ℹ Current task: Creating Restore Point..."
+            CreateRestorePoint
+        } 
         
         $itt.ProcessRunning = $true
 
