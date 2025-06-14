@@ -495,77 +495,77 @@
         "Value": "0",
         "Type": "DWord",
         "defaultValue": "1"
-      },  
+      },
       {
         "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
         "Name": "DisableSearchBoxSuggestions",
         "Value": "1",
         "Type": "DWord",
         "defaultValue": "0"
-      },  
+      },
       {
         "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
         "Name": "CortanaInAmbientMode",
         "Value": "0",
         "Type": "DWord",
         "defaultValue": "1"
-      },  
+      },
       {
         "Path": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
         "Name": "BingSearchEnabled",
         "Value": "0",
         "Type": "DWord",
         "defaultValue": "1"
-      },  
+      },
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
         "Name": "ShowCortanaButton",
         "Value": "0",
         "Type": "DWord",
         "defaultValue": "1"
-      },  
+      },
       {
         "Path": "HKCU:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
         "Name": "CanCortanaBeEnabled",
         "Value": "0",
         "Type": "DWord",
         "defaultValue": "1"
-      },  
+      },
       {
         "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
         "Name": "CanCortanaBeEnabled",
         "Value": "0",
         "Type": "DWord",
         "defaultValue": "1"
-      },  
+      },
       {
         "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
         "Name": "ConnectedSearchUseWebOverMeteredConnections",
         "Value": "0",
         "Type": "DWord",
         "defaultValue": "1"
-      },  
+      },
       {
         "Path": "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
         "Name": "AllowCortanaAboveLock",
         "Value": "0",
         "Type": "DWord",
         "defaultValue": "1"
-      },  
+      },
       {
         "Path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\SearchSettings",
         "Name": "IsDynamicSearchBoxEnabled",
         "Value": "1",
         "Type": "DWord",
         "defaultValue": "0"
-      },  
+      },
       {
         "Path": "HKLM:\\SOFTWARE\\Microsoft\\PolicyManager\\default\\Experience\\AllowCortana",
         "Name": "value",
         "Value": "0",
         "Type": "DWord",
         "defaultValue": "1"
-      },  
+      },
       {
         "Path": "HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
         "Name": "AllowSearchToUseLocation",
@@ -1386,7 +1386,6 @@
       "Microsoft.XboxGameOverlay",
       "Microsoft.XboxIdentityProvider",
       "Microsoft.XboxSpeechToTextOverlay"
-
     ]
   },
   {
@@ -2587,7 +2586,9 @@
     "Category": "Personalization",
     "Check": "false",
     "Refresh": "false",
-    "Script": ["New-Item -Path \"$env:USERPROFILE\\Desktop\\GodMode.{ED7BA470-8E54-465E-825C-99712043E01C}\" -ItemType Directory"]
+    "Script": [
+      "New-Item -Path \"$env:USERPROFILE\\Desktop\\GodMode.{ED7BA470-8E54-465E-825C-99712043E01C}\" -ItemType Directory"
+    ]
   },
   {
     "Name": "Detailed BSoD",
