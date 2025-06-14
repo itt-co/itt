@@ -10,11 +10,11 @@ function Invoke-WindowsSandbox {
     Try{
         if ($Enabled -eq $false){
             Add-Log -Message "Sandbox disabled" -Level "info"
-            Dism /online /Disable-Feature /FeatureName:"Containers-DisposableClientVM"
+            Dism /online /Disable-Feature /FeatureName:"Containers-DisposableClientVM"  /NoRestart
         }
         else {
             Add-Log -Message "Sandbox enabled" -Level "info"
-            Dism /online /Enable-Feature /FeatureName:"Containers-DisposableClientVM" -All
+            Dism /online /Enable-Feature /FeatureName:"Containers-DisposableClientVM" -All /NoRestart
         }
     }
     Catch [System.Security.SecurityException] {
