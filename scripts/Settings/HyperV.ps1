@@ -9,12 +9,14 @@ function Invoke-HyperV {
 
     Try{
         if ($Enabled -eq $false){
-            Add-Log -Message "HyperV disabled" -Level "info"
-            dism.exe /online /enable-feature /featurename:Microsoft-Hyper-V-All /all /norestart
+            Add-Log -Message "Enabling HyperV..." -Level "info"
+            Start-Process powershell -ArgumentList 'dism.exe /online /disable-feature /featurename:"Microsoft-Hyper-V-All" /norestart' -Verb RunAs
+            Add-Log -Message "Restart required" -Level "info"
         }
         else {
-            Add-Log -Message "HyperV enabled" -Level "info"
-            dism.exe /online /disable-feature /featurename:Microsoft-Hyper-V-All /norestart
+            Add-Log -Message "Disabling HyperV..." -Level "info"
+            Start-Process powershell -ArgumentList 'dism.exe /online /enable-feature /featurename:"Microsoft-Hyper-V-All" /all /norestart' -Verb RunAs
+            Add-Log -Message "Restart required" -Level "info"
         }
     }
 
