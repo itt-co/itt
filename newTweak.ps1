@@ -228,7 +228,7 @@ if (Test-Path $outputFilePath) {
     }
     # Write the ordered JSON to the file
     $jsonOutput | ConvertTo-Json -Depth 20 | Out-File -FilePath $outputFilePath -Encoding utf8
-    Write-Host "Added successfully to existing JSON file. Don't forget to build and test it before PR" -ForegroundColor Green
+    Write-Host "Added successfully to existing JSON file. Don't forget to build and test it before PR!" -ForegroundColor Green
 } else {
     Write-Host "The file $outputFilePath does not exist!" -ForegroundColor Red
 }
