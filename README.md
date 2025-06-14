@@ -146,7 +146,7 @@ Example:
 <br>
 <br>
 
-# Resist for Justice in a World Ruled by Authoritarian Regimes - قاوم من أجل العدالة في عالم تحكمه الأنظمة الاستبدادية
+## Resist for Justice in a World Ruled by Authoritarian Regimes - قاوم من أجل العدالة في عالم تحكمه الأنظمة الاستبدادية
 
 <h1 align="left">
   <a href="https://git.io/typing-svg">
@@ -175,8 +175,7 @@ Example:
 [Other ways to support (Boycott)](https://boycott4.github.io/boycott/)
 </h3>
 
-<!-- Recommended Videos -->
-<h3 align="left">Recommended Videos</h3>
+<!-- Recommended -->
 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
   <a href="https://www.youtube.com/watch?v=kx5kanvn_ug" target="_blank">
     <img src="https://img.youtube.com/vi/kx5kanvn_ug/0.jpg" alt="Video 1" style="width: 200px;">
@@ -187,7 +186,10 @@ Example:
   <a href="https://youtu.be/mF6B5UVupyA?list=LL" target="_blank">
     <img src="https://img.youtube.com/vi/mF6B5UVupyA/0.jpg" alt="Video 3" style="width: 200px;">
   </a>
+
 </div>
+ 
+[ZionistThings](https://www.reddit.com/r/ZionistThings/)
 
 <!-- Note -->
 <h3 align="left"><i>"YouTube continues to remove recommended videos!"</i></h3>
