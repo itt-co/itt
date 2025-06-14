@@ -32,5 +32,5 @@ catch {
     Write-Host "An error occurred: $_"
 }
 finally {
-    Write-Host "Added successfully, Don't forget to build and test it before commit" -ForegroundColor Green 
+    Write-Host "Added successfully, Don't forget to build and test it before PR" -ForegroundColor Green 
 }
