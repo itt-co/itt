@@ -13,24 +13,32 @@ function Set-Registry {
     param ([array]$tweak)
     
     try {
+
         if(!(Test-Path 'HKU:\')) {New-PSDrive -PSProvider Registry -Name HKU -Root HKEY_USERS}
+
         $tweak | ForEach-Object {
+
             if($_.Value -ne "Remove")
             {
                 If (!(Test-Path $_.Path)) {
                     Add-Log -Message "$($_.Path) was not found, Creating..." -Level "info"
-                    New-Item -Path $_.Path | Out-Null   
+                    New-Item -Path $_.Path -Force -ErrorAction Stop | Out-Null
                 }
+
                 Add-Log -Message "Optmize $($_.name)..." -Level "info"
                 New-ItemProperty -Path $_.Path -Name $_.Name -PropertyType $_.Type -Value $_.Value -Force | Out-Null     
-            }else
+
+            }
+            else
             {
                 if($_.Name -ne $null)
                 {
                     # Remove the specific registry value
                     Add-Log -Message "Remove $($_.name) from registry..." -Level "info"
                     Remove-ItemProperty -Path $_.Path -Name $_.Name -Force -ErrorAction SilentlyContinue
-                }else{
+                }
+                else
+                {
                     # remove the registry path
                     Add-Log -Message "Remove $($_.Path)..." -Level "info"
                     Remove-Item -Path $_.Path -Recurse -Force -ErrorAction SilentlyContinue
