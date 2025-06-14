@@ -4004,12 +4004,14 @@ function Invoke-HyperV {
 Param($Enabled)
 Try{
 if ($Enabled -eq $false){
-Add-Log -Message "HyperV disabled" -Level "info"
-dism.exe /online /enable-feature /featurename:Microsoft-Hyper-V-All /all /norestart
+Add-Log -Message "Enabling HyperV..." -Level "info"
+Start-Process powershell -ArgumentList 'dism.exe /online /disable-feature /featurename:"Microsoft-Hyper-V-All" /norestart' -Verb RunAs
+Add-Log -Message "Restart required" -Level "info"
 }
 else {
-Add-Log -Message "HyperV enabled" -Level "info"
-dism.exe /online /disable-feature /featurename:Microsoft-Hyper-V-All /norestart
+Add-Log -Message "Disabling HyperV..." -Level "info"
+Start-Process powershell -ArgumentList 'dism.exe /online /enable-feature /featurename:"Microsoft-Hyper-V-All" /all /norestart' -Verb RunAs
+Add-Log -Message "Restart required" -Level "info"
 }
 }
 Catch [System.Security.SecurityException] {
@@ -8304,13 +8306,13 @@ $itt.event.FindName('date').text = '06/08/2025'.Trim()
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
