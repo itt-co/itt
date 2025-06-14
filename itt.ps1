@@ -3710,7 +3710,11 @@ return
 }
 ITT-ScriptBlock -ArgumentList $selectedTweaks -debug $debug -ScriptBlock {
 param($selectedTweaks, $debug)
-if((Get-ItemProperty -Path $itt.registryPath -Name "backup" -ErrorAction Stop).backup -eq 0){CreateRestorePoint}
+if((Get-ItemProperty -Path $itt.registryPath -Name "backup" -ErrorAction Stop).backup -eq 0){
+UpdateUI -Button "ApplyBtn" -NonKey "Please Wait..." -Width "auto"
+Set-Statusbar -Text "ℹ Current task: Creating Restore Point..."
+CreateRestorePoint
+}
 $itt.ProcessRunning = $true
 UpdateUI -Button "ApplyBtn" -Content "Applying" -Width "auto"
 $itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "Indeterminate" -value 0.01 -icon "logo" })
@@ -3779,7 +3783,7 @@ $itt["window"].Dispatcher.Invoke([action] { Set-Taskbar -progress "Indeterminate
 $itt.ProcessRunning = $true
 foreach ($App in $selectedApps) {
 Write-Host $source
-Set-Statusbar -Text "⬇ Current task: Downloading $($App.Name)"
+Set-Statusbar -Text "ℹ Current task: Downloading $($App.Name)"
 $chocoFolder = Join-Path $env:ProgramData "chocolatey\lib\$($App.Choco)"
 $ITTFolder = Join-Path $env:ProgramData "itt\downloads\$($App.ITT)"
 Remove-Item -Path "$chocoFolder" -Recurse -Force
@@ -4486,10 +4490,15 @@ param ([string]$Text)
 $itt.Statusbar.Dispatcher.Invoke([Action]{$itt.Statusbar.Text = $Text })
 }
 function UpdateUI {
-param([string]$Button,[string]$Content,[string]$Width = "140")
+param([string]$Button,[string]$Content,[string]$NonKey,[string]$Width = "140")
 $itt['window'].Dispatcher.Invoke([Action]{
 $itt.$Button.Width = $Width
+if($Content)
+{
 $itt.$Button.Content = $itt.database.locales.Controls.$($itt.Language).$Content
+}else{
+$itt.$Button.Content = $NonKey
+}
 })
 }
 $MainWindowXaml = '
@@ -8294,10 +8303,10 @@ Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
