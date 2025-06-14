@@ -4244,12 +4244,14 @@ function Invoke-WindowsSandbox {
 Param($Enabled)
 Try{
 if ($Enabled -eq $false){
-Add-Log -Message "Sandbox disabled" -Level "info"
-Dism /online /Disable-Feature /FeatureName:"Containers-DisposableClientVM"
+Add-Log -Message "Enabling Windows Sandbox..." -Level "info"
+Start-Process powershell -ArgumentList 'Dism /online /Enable-Feature /FeatureName:"Containers-DisposableClientVM" -All /NoRestart' -Verb RunAs
+Add-Log -Message "Restart required" -Level "info"
 }
 else {
-Add-Log -Message "Sandbox enabled" -Level "info"
-Dism /online /Enable-Feature /FeatureName:"Containers-DisposableClientVM" -All
+Add-Log -Message "Disabling Windows Sandbox..." -Level "info"
+Start-Process powershell -ArgumentList 'Dism /online /Disable-Feature /FeatureName:"Containers-DisposableClientVM"  /NoRestart' -Verb RunAs
+Add-Log -Message "Restart required" -Level "info"
 }
 }
 Catch [System.Security.SecurityException] {
@@ -4260,14 +4262,16 @@ function Invoke-WSL {
 Param($Enabled)
 Try{
 if ($Enabled -eq $false){
-Add-Log -Message "WSL2 disabled" -Level "info"
-dism.exe /online /disable-feature /featurename:Microsoft-Windows-Subsystem-Linux /norestart
-dism.exe /online /disable-feature /featurename:VirtualMachinePlatform /norestart
+Add-Log -Message "Enabling WSL2..." -Level "info"
+Start-Process powershell -ArgumentList 'dism.exe /online /enable-feature /featurename:"Microsoft-Windows-Subsystem-Linux" /all /norestart' -Verb RunAs
+Start-Process powershell -ArgumentList 'dism.exe /online /enable-feature /featurename:"VirtualMachinePlatform" /all /norestart' -Verb RunAs
+Add-Log -Message "Restart required" -Level "info"
 }
 else {
-Add-Log -Message "WSL2 enabled" -Level "info"
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+Add-Log -Message "Disabling WSL2..." -Level "info"
+Start-Process powershell -ArgumentList 'dism.exe /online /disable-feature /featurename:"Microsoft-Windows-Subsystem-Linux" /norestart' -Verb RunAs
+Start-Process powershell -ArgumentList 'dism.exe /online /disable-feature /featurename:"VirtualMachinePlatform" /norestart' -Verb RunAs
+Add-Log -Message "Restart required" -Level "info"
 }
 }
 Catch [System.Security.SecurityException] {
@@ -8297,16 +8301,16 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 1 -Force; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '06/08/2025'.Trim()
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
-})
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
