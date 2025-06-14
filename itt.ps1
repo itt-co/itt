@@ -5,7 +5,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "06/13/2025"
+lastupdate     = "06/14/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -2619,7 +2619,9 @@ $itt.database.Tweaks = @'
 "Category": "Personalization",
 "Check": "false",
 "Refresh": "false",
-"Script": ["New-Item -Path \"$env:USERPROFILE\\Desktop\\GodMode.{ED7BA470-8E54-465E-825C-99712043E01C}\" -ItemType Directory"]
+"Script": [
+"New-Item -Path \"$env:USERPROFILE\\Desktop\\GodMode.{ED7BA470-8E54-465E-825C-99712043E01C}\" -ItemType Directory"
+]
 },
 {
 "Name": "Detailed BSoD",
@@ -2641,50 +2643,6 @@ $itt.database.Tweaks = @'
 "Type": "DWord",
 "Value": "1",
 "defaultValue": "0"
-}
-]
-},
-{
-"Name": "Disable Powershell 7 Telemetry",
-"Description": "Tell Powershell 7 to not send Telemetry Data",
-"Category": "Privacy",
-"Check": "false",
-"Refresh": "false"
-},
-{
-"Name": "Debloat Brave",
-"Description": "Remove Rewards,Leo AI,Crypto Wallet and VPN",
-"Category": "Privacy",
-"Check": "false",
-"Refresh": "false",
-"Registry": [
-{
-"Path": "HKLM:\\SOFTWARE\\Policies\\BraveSoftware\\Brave",
-"Name": "BraveRewardsDisabled",
-"Type": "DWord",
-"Value": "1",
-"defaultValue": "Remove"
-},
-{
-"Path": "HKLM:\\SOFTWARE\\Policies\\BraveSoftware\\Brave",
-"Name": "BraveWalletDisabled",
-"Type": "DWord",
-"Value": "1",
-"defaultValue": "Remove"
-},
-{
-"Path": "HKLM:\\SOFTWARE\\Policies\\BraveSoftware\\Brave",
-"Name": "BraveVPNDisabled",
-"Type": "DWord",
-"Value": "1",
-"defaultValue": "Remove"
-},
-{
-"Path": "HKLM:\\SOFTWARE\\Policies\\BraveSoftware\\Brave",
-"Name": "BraveAIChatEnabled",
-"Type": "DWord",
-"Value": "0",
-"defaultValue": "Remove"
 }
 ]
 }
@@ -3545,17 +3503,20 @@ if($_.Value -ne "Remove")
 {
 If (!(Test-Path $_.Path)) {
 Add-Log -Message "$($_.Path) was not found, Creating..." -Level "info"
-New-Item -Path $_.Path | Out-Null
+New-Item -Path $_.Path -Force -ErrorAction Stop | Out-Null
 }
 Add-Log -Message "Optmize $($_.name)..." -Level "info"
 New-ItemProperty -Path $_.Path -Name $_.Name -PropertyType $_.Type -Value $_.Value -Force | Out-Null
-}else
+}
+else
 {
 if($_.Name -ne $null)
 {
 Add-Log -Message "Remove $($_.name) from registry..." -Level "info"
 Remove-ItemProperty -Path $_.Path -Name $_.Name -Force -ErrorAction SilentlyContinue
-}else{
+}
+else
+{
 Add-Log -Message "Remove $($_.Path)..." -Level "info"
 Remove-Item -Path $_.Path -Recurse -Force -ErrorAction SilentlyContinue
 }
@@ -8039,16 +8000,6 @@ AlternationCount="2">
 <CheckBox Content="Detailed BSoD" FontSize="15" Tag="||||Fixer"   ToolTip="You will see a detailed Blue Screen of Death BSOD with more information"/>
 <TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Fixer"/>
 </StackPanel>
-</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
-<StackPanel Orientation="Horizontal">
-<CheckBox Content="Disable Powershell 7 Telemetry" FontSize="15" Tag="||||Privacy"   ToolTip="Tell Powershell 7 to not send Telemetry Data"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Privacy"/>
-</StackPanel>
-</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
-<StackPanel Orientation="Horizontal">
-<CheckBox Content="Debloat Brave" FontSize="15" Tag="||||Privacy"   ToolTip="Remove RewardsLeo AICrypto Wallet and VPN"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Privacy"/>
-</StackPanel>
 </StackPanel>
 </ListView>
 </Grid>
@@ -8337,16 +8288,16 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 1 -Force; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '06/08/2025'.Trim()
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
-})
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
