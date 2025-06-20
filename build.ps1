@@ -178,7 +178,7 @@ function GenerateCheckboxes {
         <StackPanel Orientation="Vertical" Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox Content="$Content" FontSize="15" Tag="$ChocoPkg|$ScoopPkg|$WingetPkg|$ITTPkg|$CleanedCategory" $Toggle $Name ToolTip="$CleanedDescription"/>
-                <TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 $($Item.Category)"/>
+                <TextBlock Margin="8" FontSize="11" Text="{Binding $($Item.Category)}"/>
             </StackPanel>
         </StackPanel>
 "@
