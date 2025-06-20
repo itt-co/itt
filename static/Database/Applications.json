@@ -3706,5 +3706,14 @@
     "winget": "Evernote.Evernote",
     "itt": "na",
     "category": "Documents"
+  },
+  {
+    "Name": "Grayjay",
+    "Description": "Watch content on your own terms, ensuring you retain full ownership and control over what you watch. Your content, your way",
+    "choco": "grayjay",
+    "scoop": "na",
+    "winget": "futo-org.Grayjay.Desktop",
+    "itt": "na",
+    "category": "Media"
   }
 ]
