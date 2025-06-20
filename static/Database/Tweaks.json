@@ -2,7 +2,7 @@
   {
     "Name": "Disk cleanup",
     "Description": "Clean temporary files that are not necessary",
-    "Category": "Storage",
+    "Category": "Performance",
     "Check": "false",
     "Refresh": "false",
     "Script": [
@@ -2200,7 +2200,7 @@
   {
     "Name": "Set current network profile to public",
     "Description": "Deny file sharing, device discovery",
-    "Category": "",
+    "Category": "Privacy",
     "Check": "false",
     "Refresh": "false",
     "Script": [
