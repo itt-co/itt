@@ -46,17 +46,17 @@ Exit_msg,Sind Sie sicher dass Sie das Programm schließen möchten? Alle InstAll
 Empty_save_msg,Wählen Sie mindestens eine App zum Speichern aus
 easter_egg, Kannst du das verborgene Geheimnis entdecken? Tauche in den Quellcode ein sei der erste der die Funktion entdeckt und integriere sie in das Tool
 system_protection, Systemschutz
-web_browsers,Webbrowser
+web browsers,Webbrowser
 media,Medien
-media_tools,Medienwerkzeuge
+media tools,Medienwerkzeuge
 documents,Dokumente
 compression,Komprimierung
 communication,Kommunikation
-file_sharing,Dateifreigabe
+file sharing,Dateifreigabe
 imaging,Bildbearbeitung
 gaming,Spiele
 utilities,Dienstprogramme
-disk_tools,Laufwerkswerkzeuge
+disk tools,Laufwerkswerkzeuge
 development,Entwicklung
 security,Sicherheit
 portable,Tragbar
@@ -70,4 +70,4 @@ power,Energie
 protection,Schutz
 classic,Klassisch
 auto,automatisch
-package_manager,Manager der Pakete
+package manager,Manager der Pakete
