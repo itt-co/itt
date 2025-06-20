@@ -5,7 +5,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "06/14/2025"
+lastupdate     = "06/20/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -28,14 +28,14 @@ $logDir = Join-Path $ittDir 'logs'
 $timestamp = Get-Date -Format "yyyy-MM-dd"
 Start-Transcript -Path "$logDir\log_$timestamp.log" -Append -NoClobber *> $null
 $itt.database.locales = @'
-{"Controls":{"ar":{"name":"عربي","Welcome":"توفر هذه الأداة تسهيلات كبيرة في عملية تثبيت البرامج وتحسين الويندوز. انضم إلينا وكن جزءًا في تطويرها","System_Info":"معلومات النظام","Power_Options":"خيارات الطاقة","Device_Manager":"إدارة الأجهزة","Services":"خدمات","Networks":"شبكات","Apps_features":"التطبيقات و الميزات","Task_Manager":"مدير المهام","Disk_Managment":"إدارة القرص","Msconfig":"تكوين النظام","Environment_Variables":"متغيرات بيئة النظام","Install":"تثبيت","Apply":"تطبيق","Downloading":"...جارٍ التحميل","About":"عن الاداة","Third_party":"ادوات اخرى","Preferences":"التفضيلات","Management":"إدارة الجهاز","Apps":"برامج","Tweaks":"تحسينات","Settings":"إعدادات","Save":"حفظ البرامج","Restore":"أسترجاع البرامج","Music":"الموسيقى","On":"تشغيل ","Off":"كتم","Dark":"ليلا","Light":"نهارا","Use_system_setting":"استخدم إعدادات النظام","Create_desktop_shortcut":"أنشاء أختصار على سطح المكتب","Reset_preferences":"إعادة التفضيلات إلى الوضع الافتراضي","Reopen_itt_again":"يرجى اعادة فتح الاداة مرة اخرى","Theme":"المظهر","Language":"اللغة","Browsers_extensions":"أضافات المتصفحات","All":"الكل","Search":"بحث","Create_restore_point":"إنشاء نقطة الاستعادة","Portable_Downloads_Folder":"مجلد التنزيلات المحمولة","Install_msg":"هل تريد تثبيت البرامج التالية","Apply_msg":"هل تريد تطبيق التحسينات التالية","Applying":"...جارٍي التطبيق","Please_wait":"يرجى الانتظار، يوجد عملية في الخلفية","Last_update":"آخر تحديث","Exit_msg":"هل أنت متأكد من رغبتك في إغلاق البرنامج؟ إذا كان هناك أي تثبيتات، فسيتم إيقافها.","Empty_save_msg":"يرجى اختيار تطبيق واحد على الاقل لحفظه","easter_egg":"تقدر تكتشف الميزة المخفية؟ تصفح الكود، وكن أول واحد يكتشف الميزة، ويضيفها للأداة","system_protection":"حماية النظام","web_browsers":"المتصفحات","media":"مشغل","media_tools":"أدوات الفيديو","documents":"المستندات","compression":"الضغط","communication":"الاتصال","file_sharing":"مشاركة الملفات","imaging":"صور","gaming":"ألعاب","utilities":"أدوات النظام","disk_tools":"أدوات القرص","development":"تطوير","security":"حماية","portable":"محمولة","runtimes":"مكاتب","drivers":"تعريفات","privacy":"الخصوصية","fixer":"المصحح","performance":"الأداء","personalization":"التخصيص","power":"الطاقة","protection":"حماية","classic":"كلاسيكي","auto":"تلقائي","package_manager":"مدير الحزم"},"de":{"name":"Deutsch","Welcome":"Sparen Sie Zeit indem Sie mehrere Programme gleichzeitig instAllieren und die Leistung Ihres Windows steigern. Schließen Sie sich uns an um dieses Tool zu verbessern und noch besser zu machen. Sie können auch Ihre Lieblings-Musik-Apps und Anpassungen hinzufügen.","Install":"InstAllieren","Apply":"Anwenden","Downloading":"Herunterladen...","About":"Über","Third_party":"Drittanbieter","Preferences":"Einstellungen","Management":"Verwaltung","Apps":"Apps","Tweaks":"Optimierungen","Settings":"Einstellungen","Save":"Speichern","Restore":"Wiederherstellen","Music":"Musik","On":"Ein","Off":"Aus","Disk_Managment":"Datenträgerverwaltung","Msconfig":"Systemkonfiguration","Environment_Variables":"Umgebungsvariablen","Task_Manager":"Task-Manager","Apps_features":"Apps-FunktiOnen","Networks":"Netzwerke","Services":"Dienste","Device_Manager":"Geräte-Manager","Power_Options":"EnergieoptiOnen","System_Info":"Systeminfo","Use_system_setting":"Systemeinstellungen verwenden","Create_desktop_shortcut":"Desktop-Verknüpfung erstellen","Reset_preferences":"Einstellungen zurücksetzen","Reopen_itt_again":"Bitte ITT erneut öffnen.","Theme":"Thema","Language":"Sprache","Browsers_extensions":"Browser-Erweiterungen","All":"Alle","Search":"Suchen","Create_restore_point":"Wiederherstellungspunkt erstellen","Portable_Downloads_Folder":"Ordner für tragbare Downloads","Install_msg":"Sind Sie sicher  dass Sie die folgenden Anwendungen instAllieren möchten?","Apply_msg":"Sind Sie sicher dass Sie die folgenden Anpassungen anwenden möchten?","Applying":"Anwenden...","Please_wait":"Bitte warten ein Prozess läuft im Hintergrund","Last_update":"Letztes Update","Exit_msg":"Sind Sie sicher dass Sie das Programm schließen möchten? Alle InstAllatiOnen werden abgebrochen.","Empty_save_msg":"Wählen Sie mindestens eine App zum Speichern aus","easter_egg":"Kannst du das verborgene Geheimnis entdecken? Tauche in den Quellcode ein sei der erste der die Funktion entdeckt und integriere sie in das Tool","system_protection":"Systemschutz","web_browsers":"Webbrowser","media":"Medien","media_tools":"Medienwerkzeuge","documents":"Dokumente","compression":"Komprimierung","communication":"Kommunikation","file_sharing":"Dateifreigabe","imaging":"Bildbearbeitung","gaming":"Spiele","utilities":"Dienstprogramme","disk_tools":"Laufwerkswerkzeuge","development":"Entwicklung","security":"Sicherheit","portable":"Tragbar","runtimes":"Laufzeitumgebungen","drivers":"Treiber","privacy":"Datenschutz","fixer":"Reparierer","performance":"Leistung","personalization":"Personalisierung","power":"Energie","protection":"Schutz","classic":"Klassisch","auto":"automatisch","package_manager":"Manager der Pakete"},"en":{"name":"English","Welcome":"Save time and install all your programs at once and debloat Windows and more. Be part of ITT and contribute to improving it","Install":"Install","Apply":"Apply","Downloading":"Downloading...","About":"About","Third_party":"Third-party","Preferences":"Preferences","Management":"Management","Apps":"Apps","Tweaks":"Tweaks","Settings":"Settings","Save":"Save","Restore":"Restore","Music":"Music","On":"On","Off":"Off","Disk_Managment":"Disk Managment","Msconfig":"System Configuration","Environment_Variables":"Environment Variables","Task_Manager":"Task Manager","Apps_features":"Programs and Features","Networks":"Networks","Services":"Services","Device_Manager":"Device Manager","Power_Options":"Power options","System_Info":"System Info","Use_system_setting":"Use system setting","Create_desktop_shortcut":"Create desktop shortcut","Reset_preferences":"Reset Preferences","Reopen_itt_again":"Please reopen itt again.","Theme":"Theme","Language":"Language","Browsers_extensions":"Browsers extensions","All":"All","Search":"Search","Create_restore_point":"Create a restore point","Portable_Downloads_Folder":"Portable Downloads Folder","Install_msg":"Are you sure you want to install the following App(s)","Apply_msg":"Are you sure you want to apply the following Tweak(s)","Applying":"Applying...","Please_wait":"Please wait a process is running in the background","Last_update":"Last update","Exit_msg":"Are you sure you want to close the program? Any ongoing installations will be canceled","Empty_save_msg":"Choose at least One app to save it","easter_egg":"Can you uncover the hidden secret? Dive into the source code be the first to discover the feature and integrate it into the tool","system_protection":"System protection","web_browsers":"Web Browsers","media":"Media","media_tools":"Media Tools","documents":"Documents","compression":"Compression","communication":"Communication","file_sharing":"File Sharing","imaging":"Imaging","gaming":"Gaming","utilities":"Utilities","disk_tools":"Disk Tools","development":"Development","security":"Security","portable":"Portable","runtimes":"Runtimes","drivers":"Drivers","privacy":"Privacy","fixer":"Fixer","performance":"Performance","personalization":"Personalization","power":"Power","protection":"Protection","classic":"Classic","auto":"Auto"},"es":{"name":"Español","Welcome":"Ahorra tiempo instalando varios prograMAS a la vez y mejora el rendimiento de tu Windows. Únete a nosotros para mejorar esta herramienta y hacerla aún mejor. También puedes agregar tus aplicaciOnes Musicales y ajustes favoritos.","Install":"Instalar","Apply":"Aplicar","Downloading":"Descargando...","About":"Acerca de","Third_party":"Terceros","Preferences":"Preferencias","Management":"Gestión","Apps":"AplicaciOnes","Tweaks":"Ajustes","Settings":"COnfiguración","Save":"Guardar","Restore":"Restaurar","Music":"Música","On":"Encendido","Off":"Apagado","Disk_Managment":"Administración de discos","Msconfig":"Configuración del sistema","Environment_Variables":"Variables de entorno","Task_Manager":"Administrador de tareas","Apps_features":"AplicaciOnes-FunciOnes","Networks":"Redes","Services":"Servicios","Device_Manager":"Administrador de dispositivos","Power_Options":"OpciOnes de energía","System_Info":"Información del sistema","Use_system_setting":"Usar la cOnfiguración del sistema","Create_desktop_shortcut":"Crear acceso directo en el escritorio","Reset_preferences":"Restablecer preferencias","Reopen_itt_again":"Vuelve a abrir ITT.","Theme":"Tema","Language":"Idioma","Browsers_extensions":"ExtensiOnes del navegador","All":"Todos","Search":"Buscar","Create_restore_point":"Crear un punto de restauración","Portable_Downloads_Folder":"Carpeta de descargas portátiles","Install_msg":"¿Estás seguro de que deseas instalar las siguientes aplicaciOnes?","Apply_msg":"¿Estás seguro de que deseas aplicar los siguientes ajustes?","Applying":"Aplicando...","Please_wait":"Por favorespera un proceso se está ejecutando en segundo plano.","Last_update":"Última actualización","Exit_msg":"¿Estás seguro de que deseas cerrar el programa? Si hay instalaciOnes se interrumpirán.","Empty_save_msg":"Elige al menos una aplicación para guardarla.","easter_egg":"¿Puedes descubrir el secreto oculto? Sumérgete en el código fuente sé el primero en descubrir la función e intégrala en la herramienta","system_protection":"Protección del sistema","web_browsers":"Navegadores web","media":"Medios","media_tools":"Herramientas multimedia","documents":"Documentos","compression":"Compresión","communication":"Comunicación","file_sharing":"Compartición de archivos","imaging":"Imágenes","gaming":"Juegos","utilities":"Utilidades","disk_tools":"Herramientas de disco","development":"Desarrollo","security":"Seguridad","portable":"Portátil","runtimes":"Runtimes","drivers":"Controladores","privacy":"Privacidad","fixer":"Reparador","performance":"Rendimiento","personalization":"Personalización","power":"Potencia","protection":"Protección","classic":"Clásico","auto":"automático","package_manager":"Manager de paquetes"},"fr":{"name":"Français","Welcome":"Gagnez du temps en instAllant plusieurs programmes à la fois et améliorez les performances de votre Windows. Rejoignez-nous pour améliorer cet outil et le rendre encore meilleur. Vous pouvez également ajouter vos applicatiOns Musicales et vos Tweaks préférés.","Install":"InstAller","Apply":"Appliquer","Downloading":"Téléchargement...","About":"À propos","Third_party":"Tiers","Preferences":"Préférences","Management":"GestiOn","Apps":"ApplicatiOns","Tweaks":"OptimisatiOns","Settings":"Paramètres","Save":"Sauvegarder","Restore":"Restaurer","Music":"Musique","On":"Activé","Off":"Désactivé","Disk_Managment":"GestiOn des disques","Msconfig":"Configuration du système","Environment_Variables":"Variables d'environnement","Task_Manager":"GestiOnnaire des tâches","Apps_features":"ApplicatiOns-FOnctiOnnalités","Networks":"Réseaux","Services":"Services","Device_Manager":"GestiOnnaire de périphériques","Power_Options":"OptiOns d'alimentatiOn","System_Info":"Infos système","Use_system_setting":"Utiliser les paramètres système","Create_desktop_shortcut":"Créer un raccourci sur le bureau","Reset_preferences":"Réinitialiser les préférences","Reopen_itt_again":"Veuillez rouvrir ITT.","Theme":"Thème","Language":"Langue","Browsers_extensions":"Browsers_extensions de navigateurs","All":"Tout","Search":"Rechercher","Create_restore_point":"Créer un point de restauratiOn","Portable_Downloads_Folder":"Dossier de téléchargements portables","Install_msg":"Êtes-vous sûr de vouloir instAller les applicatiOns suivantes ?","Apply_msg":"Êtes-vous sûr de vouloir appliquer les Tweaks suivants ?","Applying":"ApplicatiOn...","Please_wait":"Veuillez patienter","Last_update":"Dernière mise à jour  un processus est en cours d'exécutiOn en arrière-plan.","Exit_msg":"Êtes-vous sûr de vouloir fermer le programme ? Si des instAllatiOns sOnt en cours  elles serOnt interrompues","Empty_save_msg":"Choisissez au moins une applicatiOn à sauvegarder","easter_egg":"Peux-tu découvrir le secret caché ? Plonge dans le code source sois le premier à découvrir la fonctionnalité et intègre-la dans l'outil","system_protection":"Protection du système","web_browsers":"Navigateurs Web","media":"Médias","media_tools":"Outils multimédias","documents":"Documents","compression":"Compression","communication":"Communication","file_sharing":"Partage de fichiers","imaging":"Imagerie","gaming":"Jeux","utilities":"Utilitaires","disk_tools":"Outils de disque","development":"Développement","security":"Sécurité","portable":"Portable","runtimes":"Runtimes","drivers":"Pilotes","privacy":"Confidentialité","fixer":"Réparateur","performance":"Performance","personalization":"Personnalisation","power":"Puissance","protection":"Protection","classic":"Classique","auto":"automatique","package_manager":"Manager des paquets"},"hi":{"name":"अंग्रेज़ी","Welcome":"एक बार में कई प्रोग्राम इंस्टॉल करके समय बचाएं और अपने विंडोज़ के प्रदर्शन को बढ़ावा दें। इस टूल को बेहतर बनाने और इसे और अच्छा बनाने में हमारा साथ दें। आप अपने पसंदीदा म्यूज़िक ऐप्स और ट्विक्स भी जोड़ सकते हैं।","Install":"इंस्टॉल करें","Apply":"लागू करें","Downloading":"डाउनलोड हो रहा है...","About":"के बारे में","Third_party":"थर्ड-पार्टी","Preferences":"पसंद","Management":"प्रबंधन","Apps":"ऐप्स","Tweaks":"ट्विक्स","Settings":"सेटिंग्स","Save":"सहेजें","Restore":"पुनर्स्थापित करें","Music":"संगीत","On":"चालू","Off":"बंद","Disk_Managment":"डिस्क प्रबंधन","Msconfig":"सिस्टम कॉन्फ़िगरेशन","Environment_Variables":"एन्विर्बल वार्डियल्स","Task_Manager":"टास्क मैनेजर","Apps_features":"ऐप्स-फीचर्स","Networks":"नेटवर्क्स","Services":"सेवाएँ","Device_Manager":"डिवाइस मैनेजर","Power_Options":"पावर विकल्प","System_Info":"सिस्टम जानकारी","Use_system_setting":"सिस्टम सेटिंग का उपयोग करें","Create_desktop_shortcut":"डेस्कटॉप शॉर्टकट बनाएं","Reset_preferences":"पसंद रीसेट करें","Reopen_itt_again":"कृपया इसे फिर से खोलें।","Theme":"थीम","Language":"भाषा","Browsers_extensions":"ब्राउज़र एक्सटेंशन","All":"सभी","Search":"खोज","Create_restore_point":"पुनर्स्थापना बिंदु बनाएँ","Portable_Downloads_Folder":"पोर्टेबल डाउनलोड फ़ोल्डर","Install_msg":"क्या आप निश्चित हैं कि आप निम्न ऐप्स इंस्टॉल करना चाहते हैं?","Apply_msg":"क्या आप निश्चित हैं कि आप निम्न ट्विक्स लागू करना चाहते हैं?","Applying":"लागू किया जा रहा है...","Please_wait":"कृपया प्रतीक्षा करें बैकग्राउंड में एक प्रक्रिया चल रही है","Last_update":"आखिरी अपडेट","Exit_msg":"क्या आप निश्चित हैं कि आप प्रोग्राम बंद करना चाहते हैं? यदि कोई इंस्टॉलेशन चल रहा हो तो वह समाप्त हो जाएगा","Empty_save_msg":"कम से कम एक ऐप चुनें और उसे सहेजें।","easter_egg":"क्या आप छिपे हुए रहस्य को उजागर कर सकते हैं? सोर्स कोड में डूबकी लगाएं पहले व्यक्ति बनें जो फीचर को खोजे और इसे टूल में इंटीग्रेट करें","system_protection":"सिस्टम सुरक्षा","web_browsers":"वेब ब्राउज़र","media":"मीडिया","media_tools":"मीडिया उपकरण","documents":"दस्तावेज़","compression":"संपीड़न","communication":"संचार","file_sharing":"फ़ाइल साझा करना","imaging":"इमेजिंग","gaming":"गेमिंग","utilities":"उपयोगिताएँ","disk_tools":"डिस्क उपकरण","development":"विकास","security":"सुरक्षा","portable":"पोर्टेबल","runtimes":"रनटाइम्स","drivers":"ड्राइवर","privacy":"गोपनीयता","fixer":"ठीक करने वाला","performance":"प रदर्शन","personalization":"वैयक्तिकरण","power":"शक्ति","protection":"सुरक्षा","classic":"क्लासिक","auto":"स्वचालित","package_manager":"पैकेज मैनेजर"},"it":{"name":"Italiano","Welcome":"Risparmia tempo installando più programmi contemporaneamente e migliora le prestazioni di Windows. Unisciti a noi per migliorare questo strumento e renderlo migliore. Puoi anche aggiungere le tue app musicali preferite e le personalizzazioni.","Install":"Installa","Apply":"Applica","Downloading":"Download in corso...","About":"Informazioni","Third_party":"Terze parti","Preferences":"Preferenze","Management":"Gestione","Apps":"App","Tweaks":"Personalizzazioni","Settings":"Impostazioni","Save":"Salva","Restore":"Ripristina","Music":"Musica","On":"Acceso","Off":"Spento","Disk_Managment":"Gestione disco","Msconfig":"Configurazione di sistema","Environment_Variables":"Variabili di ambiente","Task_Manager":"Gestore attività","Apps_features":"App-Funzionalità","Networks":"Reti","Services":"Servizi","Device_Manager":"Gestore dispositivi","Power_Options":"Opzioni risparmio energia","System_Info":"Informazioni di sistema","Use_system_setting":"Usa impostazioni di sistema","Create_desktop_shortcut":"Crea collegamento sul desktop","Reset_preferences":"Reimposta preferenze","Reopen_itt_again":"Per favore riapri di nuovo.","Theme":"Tema","Language":"Lingua","Browsers_extensions":"Estensioni per browser","All":"Tutti","Search":"Cerca","Create_restore_point":"Crea un punto di ripristino","Portable_Downloads_Folder":"Cartella download portatile","Install_msg":"Sei sicuro di voler installare le seguenti app?","Apply_msg":"Sei sicuro di voler applicare le seguenti personalizzazioni?","Applying":"Applicazione in corso...","Please_wait":"Attendere un processo è in corso in background","Last_update":"Ultimo aggiornamento","Exit_msg":"Sei sicuro di voler chiudere il programma? Se ci sono installazioni in corso verranno terminate.","Empty_save_msg":"Scegli almeno un'app per salvarla.","easter_egg":"Riuscirai a scoprire il segreto nascosto? Tuffati nel codice sorgente sii il primo a scoprire la funzionalità e integrala nello strumento","system_protection":"Protezione del sistema","web_browsers":"Browser Web","media":"Media","media_tools":"Strumenti Media","documents":"Documenti","compression":"Compressione","communication":"Comunicazione","file_sharing":"Condivisione File","imaging":"Imaging","gaming":"Giochi","utilities":"Utilità","disk_tools":"Strumenti Disco","development":"Sviluppo","security":"Sicurezza","portable":"Portatile","runtimes":"Runtime","drivers":"Driver","privacy":"Privacy","fixer":"Riparatore","performance":"Prestazioni","personalization":"Personalizzazione","power":"Potenza","protection":"Protezione","classic":"Classico","auto":"automatico","package_manager":"Gestore pacchetti"},"ko":{"name":"한국어","Welcome":"여러 프로그램을 한 번에 설치하여 시간을 절약하고 Windows 성능을 향상시킵니다. 도구를 개선하고 우리와 함께 훌륭하게 만들어 보세요.","System_Info":"시스템 정보","Power_Options":"전원 옵션","Device_Manager":"장치 관리자","Services":"서비스","Networks":"네트워크","Apps_features":"앱 기능","Task_Manager":"작업 관리자","Disk_Managment":"디스크 관리","Msconfig":"시스템 구성","Environment_Variables":"연습별 변수","Install":"설치","Apply":"적용","Downloading":"다운로드 중","About":"정보","Third_party":"외부","Preferences":"환경 설정","Management":"관리","Apps":"앱","Tweaks":"설정","Settings":"설정","Save":"선택한 앱 저장","Restore":"선택한 앱 복원","Music":"음악","On":"켜기","Reset_preferences":"환경 설정 초기화","Off":"끄기","Dark":"다크","Light":"라이트","Use_system_setting":"시스템","Create_desktop_shortcut":"바탕화면 바로 가기 만들기","Reopen_itt_again":"ITT를 다시 열어주세요.","Theme":"테마","Language":"언어","Browsers_extensions":"브라우저 확장 프로그램","All":"모두","Create_restore_point":"복원 지점 생성","Portable_Downloads_Folder":"휴대용 다운로드 폴더","Install_msg":"선택한 앱을 설치하시겠습니까","Apply_msg":"선택한 조정 사항을 적용하시겠습니까","instAlling":"설치 중..","Applying":"적용 중..","Please_wait":"배경에서 프로세스가 진행 중입니다. 잠시 기다려주세요.","Last_update":"마지막 업데이트","Exit_msg":"프로그램을 종료하시겠습니까? 진행 중인 설치가 있으면 중단됩니다.","easter_egg":"숨겨진 비밀을 발견할 수 있습니다. 소스 코드에 뛰어들고 최초로 기능을 발견하고 도구에 통합하세요","system_protection":"웹 보호","web_browsers":"웹 브라우저","media":"미디어","media_tools":"미디어 도구","documents":"문서","compression":"압축","communication":"커뮤니케이션","file_sharing":"파일 공유","imaging":"이미지 처리","gaming":"게임","utilities":"유틸리티","disk_tools":"디스크 도구","development":"개발","security":"보호","portable":"포터블","runtimes":"런타임","drivers":"드라이버","privacy":"개인 정보 보호","fixer":"수리공","performance":"성능","personalization":"개인화","power":"전력","protection":"보호","classic":"클래식","auto":"자동","package_manager":"패키지 관리자"},"ru":{"name":"Русский","Welcome":"Сэкономьте время устанавливая несколько программ одновременно и улучшите производительность Windows. Присоединяйтесь к нам для улучшения этого инструмента и его совершенствования. Вы также можете добавить свои любимые музыкальные приложения и настройки.","Install":"Установить","Apply":"Применить","Downloading":"Загрузка...","About":"О нас","Third_party":"Сторонние","Preferences":"Настройки","Management":"Управление","Apps":"Приложения","Tweaks":"Настройки","Settings":"Параметры","Save":"Сохранить","Restore":"Восстановить","Music":"Музыка","On":"Вкл","Off":"Выкл","Disk_Managment":"Управление дисками","Msconfig":"Конфигурация системы","Environment_Variables":"Переменные окружения","Task_Manager":"Диспетчер задач","Apps_features":"Приложения-Функции","Networks":"Сети","Services":"Сервисы","Device_Manager":"Диспетчер устройств","Power_Options":"Энергопитание","System_Info":"Информация о системе","Use_system_setting":"Использовать системные настройки","Create_desktop_shortcut":"Создать ярлык на рабочем столе","Reset_preferences":"Сбросить настройки","Reopen_itt_again":"Пожалуйста перезапустите ITT.","Theme":"Тема","Language":"Язык","Browsers_extensions":"Расширения для браузеров","All":"Все","Search":"Поиск","Create_restore_point":"Создать точку восстановления","Portable_Downloads_Folder":"Папка для портативных загрузок","Install_msg":"Вы уверены что хотите установить следующие приложения?","Apply_msg":"Вы уверены что хотите применить следующие настройки?","Applying":"Применение...","Please_wait":"Подождите выполняется фоновый процесс.","Last_update":"Последнее обновление","Exit_msg":"Вы уверены что хотите закрыть программу? Все установки будут прерваны.","Empty_save_msg":"Выберите хотя бы одно приложение для сохранения","easter_egg":"Можешь ли ты раскрыть скрытый секрет? Погрузись в исходный код стань первым кто обнаружит функцию и интегрируй её в инструмент","system_protection":"Системная защита","web_browsers":"Веб-браузеры","media":"Медиа","media_tools":"Медиа-инструменты","documents":"Документы","compression":"Архивация","communication":"Связь","file_sharing":"Обмен файлами","imaging":"Обработка изображений","gaming":"Игры","utilities":"Утилиты","disk_tools":"Работа с дисками","development":"Разработка","security":"Безопасность","portable":"Портативные","runtimes":"Среды выполнения","drivers":"Драйверы","privacy":"Конфиденциальность","fixer":"Исправитель","performance":"Производительность","personalization":"Персонализация","power":"Мощность","protection":"Защита","classic":"Классический","auto":"Автоматический","package_manager":"Менеджер пакетов"},"tr":{"name":"Türkçe","Welcome":"Birden fazla programı aynı anda yükleyerek zaman kazanın ve Windows performansınızı artırın. Bu aracı geliştirmek ve daha da iyileştirmek için bize katılın. Ayrıca favori müzik uygulamalarınızı ve ayarlarınızı da ekleyebilirsiniz.","Install":"Yükle","Apply":"Uygula","Downloading":"İndiriliyor...","About":"Hakkında","Third_party":"Üçüncü Taraf","Preferences":"Tercihler","Management":"Yönetim","Apps":"Uygulamalar","Tweaks":"İnce Ayarlar","Settings":"Ayarlar","Save":"Kayıt Et","Restore":"Geri Yükle","Music":"Müzik","On":"Açık","Off":"Kapalı","Disk_Managment":"Disk Yönetimi","Msconfig":"Sistem Yapılandırması","Environment_Variables":"Ortam Değişkenleri","Task_Manager":"Görev Yöneticisi","Apps_features":"Uygulamalar-Özellikler","Networks":"Ağlar","Services":"Hizmetler","Device_Manager":"Aygıt Yöneticisi","Power_Options":"Güç Seçenekleri","System_Info":"Sistem Bilgisi","Use_system_setting":"Sistem ayarlarını kullan","Create_desktop_shortcut":"MASaüstü kısayolu oluştur","Reset_preferences":"Tercihleri sıfırla","Reopen_itt_again":"Lütfen ITT'yi tekrar açın.","Theme":"Tema","Language":"Dil","Browsers_extensions":"Tarayıcı Eklentileri","All":"Tümü","Search":"Ara","Create_restore_point":"Geri yükleme noktası oluştur","Portable_Downloads_Folder":"Taşınabilir İndirilenler Klasörü","Install_msg":"Aşağıdaki uygulamaları yüklemek istediğinizden emin misiniz?","Apply_msg":"Aşağıdaki ayarları uygulamak istediğinizden emin misiniz?","Applying":"Uygulanıyor...","Please_wait":"Lütfen bekleyin arka planda bir işlem çalışıyor","Last_update":"SOn güncelleme","Exit_msg":"Programı kapatmak istediğinizden emin misiniz? Herhangi bir kurulum varsa durdurulacak","Empty_save_msg":"Kaydetmek için en az bir uygulama seçin","easter_egg":"Gizli sırrı keşfedebilir misin? Kaynağa dal özelliği ilk keşfeden ol ve araca entegre et","system_protection":"Sistem koruması","web_browsers":"Web Tarayıcıları","media":"Medya","media_tools":"Medya Araçları","documents":"Belgeler","compression":"Sıkıştırma","communication":"İletişim","file_sharing":"Dosya Paylaşımı","imaging":"Görüntü İşleme","gaming":"Oyun","utilities":"Araçlar","disk_tools":"Disk Araçları","development":"Geliştirme","security":"Güvenlik","portable":"Taşınabilir","runtimes":"Çalışma Zamanı","drivers":"Sürücüler","privacy":"Gizlilik","fixer":"Düzeltici","performance":"Performans","personalization":"Kişiselleştirme","power":"Güç","protection":"Koruma","classic":"Klasik","auto":"otomatik","package_manager":"Paket Yöneticisi"},"zh":{"name":"中文","Welcome":"通过一次安装多个程序节省时间并提升您的Windows性能。加入我们，改进工具，使其更加优秀。","System_Info":"系统信息","Power_Options":"电源选项","Device_Manager":"设备管理器","Services":"服务","Networks":"网络","Apps_features":"应用特性","Task_Manager":"任务管理器","Disk_Managment":"磁盘管理","Msconfig":"系统配置","Environment_Variables":"环境变量","Install":"安装","Apply":"应用","Downloading":"下载中","About":"关于","Third_party":"第三方","Preferences":"偏好","Management":"管理","Apps":"应用","Tweaks":"调整","Settings":"设置","Save":"保存选定应用","Restore":"恢复选定应用","Music":"音乐","On":"开启","Off":"关闭","Reset_preferences":"重置偏好设置","Dark":"深色","Light":"浅色","Use_system_setting":"系统","Create_desktop_shortcut":"创建桌面快捷方式","Reopen_itt_again":"请重新打开ITT。","Theme":"主题","Language":"语言","Browsers_extensions":"浏览器扩展","All":"都","Create_restore_point":"创建还原点","Portable_Downloads_Folder":"便携下载文件夹","Install_msg":"是否要安装选定的应用","Apply_msg":"是否要应用选定的调整","instAlling":"安装中..","Applying":"应用中..","Please_wait":"请等待，后台有进程在进行中。","Last_update":"最后更新","Exit_msg":"您确定要关闭程序吗？如果有任何安装正在进行，它们将被终止。","easter_egg":"你能发现隐藏的秘密吗？深入源代码，成为第一个发现功能的人，并将其集成到工具中","system_protection":"系统保护","web_browsers":"网页浏览器","media":"媒体","media_tools":"媒体工具","documents":"文档","compression":"压缩","communication":"通讯","file_sharing":"文件共享","imaging":"图像处理","gaming":"游戏","utilities":"实用工具","disk_tools":"磁盘工具","development":"开发","security":"安全","portable":"便携版","runtimes":"运行时","drivers":"驱动程序","privacy":"隐私","fixer":"修复工具","performance":"性能","personalization":"个性化","power":"电力","protection":"保护","classic":"经典","auto":"自动","package_manager":"包管理器"}}}
+{"Controls":{"ar":{"name":"عربي","Welcome":"توفر هذه الأداة تسهيلات كبيرة في عملية تثبيت البرامج وتحسين الويندوز. انضم إلينا وكن جزءًا في تطويرها","System_Info":"معلومات النظام","Power_Options":"خيارات الطاقة","Device_Manager":"إدارة الأجهزة","Services":"خدمات","Networks":"شبكات","Apps_features":"التطبيقات و الميزات","Task_Manager":"مدير المهام","Disk_Managment":"إدارة القرص","Msconfig":"تكوين النظام","Environment_Variables":"متغيرات بيئة النظام","Install":"تثبيت","Apply":"تطبيق","Downloading":"...جارٍ التحميل","About":"عن الاداة","Third_party":"ادوات اخرى","Preferences":"التفضيلات","Management":"إدارة الجهاز","Apps":"برامج","Tweaks":"تحسينات","Settings":"إعدادات","Save":"حفظ البرامج","Restore":"أسترجاع البرامج","Music":"الموسيقى","On":"تشغيل ","Off":"كتم","Dark":"ليلا","Light":"نهارا","Use_system_setting":"استخدم إعدادات النظام","Create_desktop_shortcut":"أنشاء أختصار على سطح المكتب","Reset_preferences":"إعادة التفضيلات إلى الوضع الافتراضي","Reopen_itt_again":"يرجى اعادة فتح الاداة مرة اخرى","Theme":"المظهر","Language":"اللغة","Browsers_extensions":"أضافات المتصفحات","All":"الكل","Search":"بحث","Create_restore_point":"إنشاء نقطة الاستعادة","Portable_Downloads_Folder":"مجلد التنزيلات المحمولة","Install_msg":"هل تريد تثبيت البرامج التالية","Apply_msg":"هل تريد تطبيق التحسينات التالية","Applying":"...جارٍي التطبيق","Please_wait":"يرجى الانتظار، يوجد عملية في الخلفية","Last_update":"آخر تحديث","Exit_msg":"هل أنت متأكد من رغبتك في إغلاق البرنامج؟ إذا كان هناك أي تثبيتات، فسيتم إيقافها.","Empty_save_msg":"يرجى اختيار تطبيق واحد على الاقل لحفظه","easter_egg":"تقدر تكتشف الميزة المخفية؟ تصفح الكود، وكن أول واحد يكتشف الميزة، ويضيفها للأداة","system_protection":"حماية النظام","web browsers":"متصفحات","media":"مشغل","media tools":"أدوات الفيديو","documents":"المستندات","compression":"الضغط","communication":"الاتصال","file sharing":"مشاركة الملفات","imaging":"صور","gaming":"ألعاب","utilities":"أدوات النظام","disk tools":"أدوات القرص","development":"تطوير","security":"حماية","portable":"محمولة","runtimes":"مكاتب","drivers":"تعريفات","privacy":"الخصوصية","fixer":"المصحح","performance":"الأداء","personalization":"التخصيص","power":"الطاقة","protection":"حماية","classic":"كلاسيكي","auto":"تلقائي","package_manager":"مدير الحزم"},"de":{"name":"Deutsch","Welcome":"Sparen Sie Zeit indem Sie mehrere Programme gleichzeitig instAllieren und die Leistung Ihres Windows steigern. Schließen Sie sich uns an um dieses Tool zu verbessern und noch besser zu machen. Sie können auch Ihre Lieblings-Musik-Apps und Anpassungen hinzufügen.","Install":"InstAllieren","Apply":"Anwenden","Downloading":"Herunterladen...","About":"Über","Third_party":"Drittanbieter","Preferences":"Einstellungen","Management":"Verwaltung","Apps":"Apps","Tweaks":"Optimierungen","Settings":"Einstellungen","Save":"Speichern","Restore":"Wiederherstellen","Music":"Musik","On":"Ein","Off":"Aus","Disk_Managment":"Datenträgerverwaltung","Msconfig":"Systemkonfiguration","Environment_Variables":"Umgebungsvariablen","Task_Manager":"Task-Manager","Apps_features":"Apps-FunktiOnen","Networks":"Netzwerke","Services":"Dienste","Device_Manager":"Geräte-Manager","Power_Options":"EnergieoptiOnen","System_Info":"Systeminfo","Use_system_setting":"Systemeinstellungen verwenden","Create_desktop_shortcut":"Desktop-Verknüpfung erstellen","Reset_preferences":"Einstellungen zurücksetzen","Reopen_itt_again":"Bitte ITT erneut öffnen.","Theme":"Thema","Language":"Sprache","Browsers_extensions":"Browser-Erweiterungen","All":"Alle","Search":"Suchen","Create_restore_point":"Wiederherstellungspunkt erstellen","Portable_Downloads_Folder":"Ordner für tragbare Downloads","Install_msg":"Sind Sie sicher  dass Sie die folgenden Anwendungen instAllieren möchten?","Apply_msg":"Sind Sie sicher dass Sie die folgenden Anpassungen anwenden möchten?","Applying":"Anwenden...","Please_wait":"Bitte warten ein Prozess läuft im Hintergrund","Last_update":"Letztes Update","Exit_msg":"Sind Sie sicher dass Sie das Programm schließen möchten? Alle InstAllatiOnen werden abgebrochen.","Empty_save_msg":"Wählen Sie mindestens eine App zum Speichern aus","easter_egg":"Kannst du das verborgene Geheimnis entdecken? Tauche in den Quellcode ein sei der erste der die Funktion entdeckt und integriere sie in das Tool","system_protection":"Systemschutz","web browsers":"Webbrowser","media":"Medien","media tools":"Medienwerkzeuge","documents":"Dokumente","compression":"Komprimierung","communication":"Kommunikation","file sharing":"Dateifreigabe","imaging":"Bildbearbeitung","gaming":"Spiele","utilities":"Dienstprogramme","disk tools":"Laufwerkswerkzeuge","development":"Entwicklung","security":"Sicherheit","portable":"Tragbar","runtimes":"Laufzeitumgebungen","drivers":"Treiber","privacy":"Datenschutz","fixer":"Reparierer","performance":"Leistung","personalization":"Personalisierung","power":"Energie","protection":"Schutz","classic":"Klassisch","auto":"automatisch","package_manager":"Manager der Pakete"},"en":{"name":"English","Welcome":"Save time and install all your programs at once and debloat Windows and more. Be part of ITT and contribute to improving it","Install":"Install","Apply":"Apply","Downloading":"Downloading...","About":"About","Third_party":"Third-party","Preferences":"Preferences","Management":"Management","Apps":"Apps","Tweaks":"Tweaks","Settings":"Settings","Save":"Save","Restore":"Restore","Music":"Music","On":"On","Off":"Off","Disk_Managment":"Disk Managment","Msconfig":"System Configuration","Environment_Variables":"Environment Variables","Task_Manager":"Task Manager","Apps_features":"Programs and Features","Networks":"Networks","Services":"Services","Device_Manager":"Device Manager","Power_Options":"Power options","System_Info":"System Info","Use_system_setting":"Use system setting","Create_desktop_shortcut":"Create desktop shortcut","Reset_preferences":"Reset Preferences","Reopen_itt_again":"Please reopen itt again.","Theme":"Theme","Language":"Language","Browsers_extensions":"Browsers extensions","All":"All","Search":"Search","Create_restore_point":"Create a restore point","Portable_Downloads_Folder":"Portable Downloads Folder","Install_msg":"Are you sure you want to install the following App(s)","Apply_msg":"Are you sure you want to apply the following Tweak(s)","Applying":"Applying...","Please_wait":"Please wait a process is running in the background","Last_update":"Last update","Exit_msg":"Are you sure you want to close the program? Any ongoing installations will be canceled","Empty_save_msg":"Choose at least One app to save it","easter_egg":"Can you uncover the hidden secret? Dive into the source code be the first to discover the feature and integrate it into the tool","system_protection":"System protection","web browsers":"Web Browsers","media":"Media","media tools":"Media Tools","documents":"Documents","compression":"Compression","communication":"Communication","file sharing":"File Sharing","imaging":"Imaging","gaming":"Gaming","utilities":"Utilities","disk tools":"Disk Tools","development":"Development","security":"Security","portable":"Portable","runtimes":"Runtimes","drivers":"Drivers","privacy":"Privacy","fixer":"Fixer","performance":"Performance","personalization":"Personalization","power":"Power","protection":"Protection","classic":"Classic","auto":"Auto","package_manager":"Package Manager"},"es":{"name":"Español","Welcome":"Ahorra tiempo instalando varios prograMAS a la vez y mejora el rendimiento de tu Windows. Únete a nosotros para mejorar esta herramienta y hacerla aún mejor. También puedes agregar tus aplicaciOnes Musicales y ajustes favoritos.","Install":"Instalar","Apply":"Aplicar","Downloading":"Descargando...","About":"Acerca de","Third_party":"Terceros","Preferences":"Preferencias","Management":"Gestión","Apps":"AplicaciOnes","Tweaks":"Ajustes","Settings":"COnfiguración","Save":"Guardar","Restore":"Restaurar","Music":"Música","On":"Encendido","Off":"Apagado","Disk_Managment":"Administración de discos","Msconfig":"Configuración del sistema","Environment_Variables":"Variables de entorno","Task_Manager":"Administrador de tareas","Apps_features":"AplicaciOnes-FunciOnes","Networks":"Redes","Services":"Servicios","Device_Manager":"Administrador de dispositivos","Power_Options":"OpciOnes de energía","System_Info":"Información del sistema","Use_system_setting":"Usar la cOnfiguración del sistema","Create_desktop_shortcut":"Crear acceso directo en el escritorio","Reset_preferences":"Restablecer preferencias","Reopen_itt_again":"Vuelve a abrir ITT.","Theme":"Tema","Language":"Idioma","Browsers_extensions":"ExtensiOnes del navegador","All":"Todos","Search":"Buscar","Create_restore_point":"Crear un punto de restauración","Portable_Downloads_Folder":"Carpeta de descargas portátiles","Install_msg":"¿Estás seguro de que deseas instalar las siguientes aplicaciOnes?","Apply_msg":"¿Estás seguro de que deseas aplicar los siguientes ajustes?","Applying":"Aplicando...","Please_wait":"Por favorespera un proceso se está ejecutando en segundo plano.","Last_update":"Última actualización","Exit_msg":"¿Estás seguro de que deseas cerrar el programa? Si hay instalaciOnes se interrumpirán.","Empty_save_msg":"Elige al menos una aplicación para guardarla.","easter_egg":"¿Puedes descubrir el secreto oculto? Sumérgete en el código fuente sé el primero en descubrir la función e intégrala en la herramienta","system_protection":"Protección del sistema","web browsers":"Navegadores web","media":"Medios","media tools":"Herramientas multimedia","documents":"Documentos","compression":"Compresión","communication":"Comunicación","file sharing":"Compartición de archivos","imaging":"Imágenes","gaming":"Juegos","utilities":"Utilidades","disk tools":"Herramientas de disco","development":"Desarrollo","security":"Seguridad","portable":"Portátil","runtimes":"Runtimes","drivers":"Controladores","privacy":"Privacidad","fixer":"Reparador","performance":"Rendimiento","personalization":"Personalización","power":"Potencia","protection":"Protección","classic":"Clásico","auto":"automático","package_manager":"Manager de paquetes"},"fr":{"name":"Français","Welcome":"Gagnez du temps en instAllant plusieurs programmes à la fois et améliorez les performances de votre Windows. Rejoignez-nous pour améliorer cet outil et le rendre encore meilleur. Vous pouvez également ajouter vos applicatiOns Musicales et vos Tweaks préférés.","Install":"InstAller","Apply":"Appliquer","Downloading":"Téléchargement...","About":"À propos","Third_party":"Tiers","Preferences":"Préférences","Management":"GestiOn","Apps":"ApplicatiOns","Tweaks":"OptimisatiOns","Settings":"Paramètres","Save":"Sauvegarder","Restore":"Restaurer","Music":"Musique","On":"Activé","Off":"Désactivé","Disk_Managment":"GestiOn des disques","Msconfig":"Configuration du système","Environment_Variables":"Variables d'environnement","Task_Manager":"GestiOnnaire des tâches","Apps_features":"ApplicatiOns-FOnctiOnnalités","Networks":"Réseaux","Services":"Services","Device_Manager":"GestiOnnaire de périphériques","Power_Options":"OptiOns d'alimentatiOn","System_Info":"Infos système","Use_system_setting":"Utiliser les paramètres système","Create_desktop_shortcut":"Créer un raccourci sur le bureau","Reset_preferences":"Réinitialiser les préférences","Reopen_itt_again":"Veuillez rouvrir ITT.","Theme":"Thème","Language":"Langue","Browsers_extensions":"Browsers_extensions de navigateurs","All":"Tout","Search":"Rechercher","Create_restore_point":"Créer un point de restauratiOn","Portable_Downloads_Folder":"Dossier de téléchargements portables","Install_msg":"Êtes-vous sûr de vouloir instAller les applicatiOns suivantes ?","Apply_msg":"Êtes-vous sûr de vouloir appliquer les Tweaks suivants ?","Applying":"ApplicatiOn...","Please_wait":"Veuillez patienter","Last_update":"Dernière mise à jour  un processus est en cours d'exécutiOn en arrière-plan.","Exit_msg":"Êtes-vous sûr de vouloir fermer le programme ? Si des instAllatiOns sOnt en cours  elles serOnt interrompues","Empty_save_msg":"Choisissez au moins une applicatiOn à sauvegarder","easter_egg":"Peux-tu découvrir le secret caché ? Plonge dans le code source sois le premier à découvrir la fonctionnalité et intègre-la dans l'outil","system_protection":"Protection du système","web browsers":"Navigateurs Web","media":"Médias","media tools":"Outils multimédias","documents":"Documents","compression":"Compression","communication":"Communication","file sharing":"Partage de fichiers","imaging":"Imagerie","gaming":"Jeux","utilities":"Utilitaires","disk tools":"Outils de disque","development":"Développement","security":"Sécurité","portable":"Portable","runtimes":"Runtimes","drivers":"Pilotes","privacy":"Confidentialité","fixer":"Réparateur","performance":"Performance","personalization":"Personnalisation","power":"Puissance","protection":"Protection","classic":"Classique","auto":"automatique","package_manager":"Manager des paquets"},"hi":{"name":"अंग्रेज़ी","Welcome":"एक बार में कई प्रोग्राम इंस्टॉल करके समय बचाएं और अपने विंडोज़ के प्रदर्शन को बढ़ावा दें। इस टूल को बेहतर बनाने और इसे और अच्छा बनाने में हमारा साथ दें। आप अपने पसंदीदा म्यूज़िक ऐप्स और ट्विक्स भी जोड़ सकते हैं।","Install":"इंस्टॉल करें","Apply":"लागू करें","Downloading":"डाउनलोड हो रहा है...","About":"के बारे में","Third_party":"थर्ड-पार्टी","Preferences":"पसंद","Management":"प्रबंधन","Apps":"ऐप्स","Tweaks":"ट्विक्स","Settings":"सेटिंग्स","Save":"सहेजें","Restore":"पुनर्स्थापित करें","Music":"संगीत","On":"चालू","Off":"बंद","Disk_Managment":"डिस्क प्रबंधन","Msconfig":"सिस्टम कॉन्फ़िगरेशन","Environment_Variables":"एन्विर्बल वार्डियल्स","Task_Manager":"टास्क मैनेजर","Apps_features":"ऐप्स-फीचर्स","Networks":"नेटवर्क्स","Services":"सेवाएँ","Device_Manager":"डिवाइस मैनेजर","Power_Options":"पावर विकल्प","System_Info":"सिस्टम जानकारी","Use_system_setting":"सिस्टम सेटिंग का उपयोग करें","Create_desktop_shortcut":"डेस्कटॉप शॉर्टकट बनाएं","Reset_preferences":"पसंद रीसेट करें","Reopen_itt_again":"कृपया इसे फिर से खोलें।","Theme":"थीम","Language":"भाषा","Browsers_extensions":"ब्राउज़र एक्सटेंशन","All":"सभी","Search":"खोज","Create_restore_point":"पुनर्स्थापना बिंदु बनाएँ","Portable_Downloads_Folder":"पोर्टेबल डाउनलोड फ़ोल्डर","Install_msg":"क्या आप निश्चित हैं कि आप निम्न ऐप्स इंस्टॉल करना चाहते हैं?","Apply_msg":"क्या आप निश्चित हैं कि आप निम्न ट्विक्स लागू करना चाहते हैं?","Applying":"लागू किया जा रहा है...","Please_wait":"कृपया प्रतीक्षा करें बैकग्राउंड में एक प्रक्रिया चल रही है","Last_update":"आखिरी अपडेट","Exit_msg":"क्या आप निश्चित हैं कि आप प्रोग्राम बंद करना चाहते हैं? यदि कोई इंस्टॉलेशन चल रहा हो तो वह समाप्त हो जाएगा","Empty_save_msg":"कम से कम एक ऐप चुनें और उसे सहेजें।","easter_egg":"क्या आप छिपे हुए रहस्य को उजागर कर सकते हैं? सोर्स कोड में डूबकी लगाएं पहले व्यक्ति बनें जो फीचर को खोजे और इसे टूल में इंटीग्रेट करें","system_protection":"सिस्टम सुरक्षा","web browsers":"वेब ब्राउज़र","media":"मीडिया","media tools":"मीडिया उपकरण","documents":"दस्तावेज़","compression":"संपीड़न","communication":"संचार","file sharing":"फ़ाइल साझा करना","imaging":"इमेजिंग","gaming":"गेमिंग","utilities":"उपयोगिताएँ","disk tools":"डिस्क उपकरण","development":"विकास","security":"सुरक्षा","portable":"पोर्टेबल","runtimes":"रनटाइम्स","drivers":"ड्राइवर","privacy":"गोपनीयता","fixer":"ठीक करने वाला","performance":"प रदर्शन","personalization":"वैयक्तिकरण","power":"शक्ति","protection":"सुरक्षा","classic":"क्लासिक","auto":"स्वचालित","package_manager":"पैकेज मैनेजर"},"it":{"name":"Italiano","Welcome":"Risparmia tempo installando più programmi contemporaneamente e migliora le prestazioni di Windows. Unisciti a noi per migliorare questo strumento e renderlo migliore. Puoi anche aggiungere le tue app musicali preferite e le personalizzazioni.","Install":"Installa","Apply":"Applica","Downloading":"Download in corso...","About":"Informazioni","Third_party":"Terze parti","Preferences":"Preferenze","Management":"Gestione","Apps":"App","Tweaks":"Personalizzazioni","Settings":"Impostazioni","Save":"Salva","Restore":"Ripristina","Music":"Musica","On":"Acceso","Off":"Spento","Disk_Managment":"Gestione disco","Msconfig":"Configurazione di sistema","Environment_Variables":"Variabili di ambiente","Task_Manager":"Gestore attività","Apps_features":"App-Funzionalità","Networks":"Reti","Services":"Servizi","Device_Manager":"Gestore dispositivi","Power_Options":"Opzioni risparmio energia","System_Info":"Informazioni di sistema","Use_system_setting":"Usa impostazioni di sistema","Create_desktop_shortcut":"Crea collegamento sul desktop","Reset_preferences":"Reimposta preferenze","Reopen_itt_again":"Per favore riapri di nuovo.","Theme":"Tema","Language":"Lingua","Browsers_extensions":"Estensioni per browser","All":"Tutti","Search":"Cerca","Create_restore_point":"Crea un punto di ripristino","Portable_Downloads_Folder":"Cartella download portatile","Install_msg":"Sei sicuro di voler installare le seguenti app?","Apply_msg":"Sei sicuro di voler applicare le seguenti personalizzazioni?","Applying":"Applicazione in corso...","Please_wait":"Attendere un processo è in corso in background","Last_update":"Ultimo aggiornamento","Exit_msg":"Sei sicuro di voler chiudere il programma? Se ci sono installazioni in corso verranno terminate.","Empty_save_msg":"Scegli almeno un'app per salvarla.","easter_egg":"Riuscirai a scoprire il segreto nascosto? Tuffati nel codice sorgente sii il primo a scoprire la funzionalità e integrala nello strumento","system_protection":"Protezione del sistema","web browsers":"Browser Web","media":"Media","media tools":"Strumenti Media","documents":"Documenti","compression":"Compressione","communication":"Comunicazione","file sharing":"Condivisione File","imaging":"Imaging","gaming":"Giochi","utilities":"Utilità","disk tools":"Strumenti Disco","development":"Sviluppo","security":"Sicurezza","portable":"Portatile","runtimes":"Runtime","drivers":"Driver","privacy":"Privacy","fixer":"Riparatore","performance":"Prestazioni","personalization":"Personalizzazione","power":"Potenza","protection":"Protezione","classic":"Classico","auto":"automatico","package_manager":"Gestore pacchetti"},"ko":{"name":"한국어","Welcome":"여러 프로그램을 한 번에 설치하여 시간을 절약하고 Windows 성능을 향상시킵니다. 도구를 개선하고 우리와 함께 훌륭하게 만들어 보세요.","System_Info":"시스템 정보","Power_Options":"전원 옵션","Device_Manager":"장치 관리자","Services":"서비스","Networks":"네트워크","Apps_features":"앱 기능","Task_Manager":"작업 관리자","Disk_Managment":"디스크 관리","Msconfig":"시스템 구성","Environment_Variables":"연습별 변수","Install":"설치","Apply":"적용","Downloading":"다운로드 중","About":"정보","Third_party":"외부","Preferences":"환경 설정","Management":"관리","Apps":"앱","Tweaks":"설정","Settings":"설정","Save":"선택한 앱 저장","Restore":"선택한 앱 복원","Music":"음악","On":"켜기","Reset_preferences":"환경 설정 초기화","Off":"끄기","Dark":"다크","Light":"라이트","Use_system_setting":"시스템","Create_desktop_shortcut":"바탕화면 바로 가기 만들기","Reopen_itt_again":"ITT를 다시 열어주세요.","Theme":"테마","Language":"언어","Browsers_extensions":"브라우저 확장 프로그램","All":"모두","Create_restore_point":"복원 지점 생성","Portable_Downloads_Folder":"휴대용 다운로드 폴더","Install_msg":"선택한 앱을 설치하시겠습니까","Apply_msg":"선택한 조정 사항을 적용하시겠습니까","instAlling":"설치 중..","Applying":"적용 중..","Please_wait":"배경에서 프로세스가 진행 중입니다. 잠시 기다려주세요.","Last_update":"마지막 업데이트","Exit_msg":"프로그램을 종료하시겠습니까? 진행 중인 설치가 있으면 중단됩니다.","easter_egg":"숨겨진 비밀을 발견할 수 있습니다. 소스 코드에 뛰어들고 최초로 기능을 발견하고 도구에 통합하세요","system_protection":"웹 보호","web browsers":"웹 브라우저","media":"미디어","media tools":"미디어 도구","documents":"문서","compression":"압축","communication":"커뮤니케이션","file sharing":"파일 공유","imaging":"이미지 처리","gaming":"게임","utilities":"유틸리티","disk tools":"디스크 도구","development":"개발","security":"보호","portable":"포터블","runtimes":"런타임","drivers":"드라이버","privacy":"개인 정보 보호","fixer":"수리공","performance":"성능","personalization":"개인화","power":"전력","protection":"보호","classic":"클래식","auto":"자동","package_manager":"패키지 관리자"},"ru":{"name":"Русский","Welcome":"Сэкономьте время устанавливая несколько программ одновременно и улучшите производительность Windows. Присоединяйтесь к нам для улучшения этого инструмента и его совершенствования. Вы также можете добавить свои любимые музыкальные приложения и настройки.","Install":"Установить","Apply":"Применить","Downloading":"Загрузка...","About":"О нас","Third_party":"Сторонние","Preferences":"Настройки","Management":"Управление","Apps":"Приложения","Tweaks":"Настройки","Settings":"Параметры","Save":"Сохранить","Restore":"Восстановить","Music":"Музыка","On":"Вкл","Off":"Выкл","Disk_Managment":"Управление дисками","Msconfig":"Конфигурация системы","Environment_Variables":"Переменные окружения","Task_Manager":"Диспетчер задач","Apps_features":"Приложения-Функции","Networks":"Сети","Services":"Сервисы","Device_Manager":"Диспетчер устройств","Power_Options":"Энергопитание","System_Info":"Информация о системе","Use_system_setting":"Использовать системные настройки","Create_desktop_shortcut":"Создать ярлык на рабочем столе","Reset_preferences":"Сбросить настройки","Reopen_itt_again":"Пожалуйста перезапустите ITT.","Theme":"Тема","Language":"Язык","Browsers_extensions":"Расширения для браузеров","All":"Все","Search":"Поиск","Create_restore_point":"Создать точку восстановления","Portable_Downloads_Folder":"Папка для портативных загрузок","Install_msg":"Вы уверены что хотите установить следующие приложения?","Apply_msg":"Вы уверены что хотите применить следующие настройки?","Applying":"Применение...","Please_wait":"Подождите выполняется фоновый процесс.","Last_update":"Последнее обновление","Exit_msg":"Вы уверены что хотите закрыть программу? Все установки будут прерваны.","Empty_save_msg":"Выберите хотя бы одно приложение для сохранения","easter_egg":"Можешь ли ты раскрыть скрытый секрет? Погрузись в исходный код стань первым кто обнаружит функцию и интегрируй её в инструмент","system_protection":"Системная защита","web browsers":"Веб-браузеры","media":"Медиа","media tools":"Медиа-инструменты","documents":"Документы","compression":"Архивация","communication":"Связь","file sharing":"Обмен файлами","imaging":"Обработка изображений","gaming":"Игры","utilities":"Утилиты","disk tools":"Работа с дисками","development":"Разработка","security":"Безопасность","portable":"Портативные","runtimes":"Среды выполнения","drivers":"Драйверы","privacy":"Конфиденциальность","fixer":"Исправитель","performance":"Производительность","personalization":"Персонализация","power":"Мощность","protection":"Защита","classic":"Классический","auto":"Автоматический","package_manager":"Менеджер пакетов"},"tr":{"name":"Türkçe","Welcome":"Birden fazla programı aynı anda yükleyerek zaman kazanın ve Windows performansınızı artırın. Bu aracı geliştirmek ve daha da iyileştirmek için bize katılın. Ayrıca favori müzik uygulamalarınızı ve ayarlarınızı da ekleyebilirsiniz.","Install":"Yükle","Apply":"Uygula","Downloading":"İndiriliyor...","About":"Hakkında","Third_party":"Üçüncü Taraf","Preferences":"Tercihler","Management":"Yönetim","Apps":"Uygulamalar","Tweaks":"İnce Ayarlar","Settings":"Ayarlar","Save":"Kayıt Et","Restore":"Geri Yükle","Music":"Müzik","On":"Açık","Off":"Kapalı","Disk_Managment":"Disk Yönetimi","Msconfig":"Sistem Yapılandırması","Environment_Variables":"Ortam Değişkenleri","Task_Manager":"Görev Yöneticisi","Apps_features":"Uygulamalar-Özellikler","Networks":"Ağlar","Services":"Hizmetler","Device_Manager":"Aygıt Yöneticisi","Power_Options":"Güç Seçenekleri","System_Info":"Sistem Bilgisi","Use_system_setting":"Sistem ayarlarını kullan","Create_desktop_shortcut":"MASaüstü kısayolu oluştur","Reset_preferences":"Tercihleri sıfırla","Reopen_itt_again":"Lütfen ITT'yi tekrar açın.","Theme":"Tema","Language":"Dil","Browsers_extensions":"Tarayıcı Eklentileri","All":"Tümü","Search":"Ara","Create_restore_point":"Geri yükleme noktası oluştur","Portable_Downloads_Folder":"Taşınabilir İndirilenler Klasörü","Install_msg":"Aşağıdaki uygulamaları yüklemek istediğinizden emin misiniz?","Apply_msg":"Aşağıdaki ayarları uygulamak istediğinizden emin misiniz?","Applying":"Uygulanıyor...","Please_wait":"Lütfen bekleyin arka planda bir işlem çalışıyor","Last_update":"SOn güncelleme","Exit_msg":"Programı kapatmak istediğinizden emin misiniz? Herhangi bir kurulum varsa durdurulacak","Empty_save_msg":"Kaydetmek için en az bir uygulama seçin","easter_egg":"Gizli sırrı keşfedebilir misin? Kaynağa dal özelliği ilk keşfeden ol ve araca entegre et","system_protection":"Sistem koruması","web browsers":"Web Tarayıcıları","media":"Medya","media tools":"Medya Araçları","documents":"Belgeler","compression":"Sıkıştırma","communication":"İletişim","file sharing":"Dosya Paylaşımı","imaging":"Görüntü İşleme","gaming":"Oyun","utilities":"Araçlar","disk tools":"Disk Araçları","development":"Geliştirme","security":"Güvenlik","portable":"Taşınabilir","runtimes":"Çalışma Zamanı","drivers":"Sürücüler","privacy":"Gizlilik","fixer":"Düzeltici","performance":"Performans","personalization":"Kişiselleştirme","power":"Güç","protection":"Koruma","classic":"Klasik","auto":"otomatik","package_manager":"Paket Yöneticisi"},"zh":{"name":"中文","Welcome":"通过一次安装多个程序节省时间并提升您的Windows性能。加入我们，改进工具，使其更加优秀。","System_Info":"系统信息","Power_Options":"电源选项","Device_Manager":"设备管理器","Services":"服务","Networks":"网络","Apps_features":"应用特性","Task_Manager":"任务管理器","Disk_Managment":"磁盘管理","Msconfig":"系统配置","Environment_Variables":"环境变量","Install":"安装","Apply":"应用","Downloading":"下载中","About":"关于","Third_party":"第三方","Preferences":"偏好","Management":"管理","Apps":"应用","Tweaks":"调整","Settings":"设置","Save":"保存选定应用","Restore":"恢复选定应用","Music":"音乐","On":"开启","Off":"关闭","Reset_preferences":"重置偏好设置","Dark":"深色","Light":"浅色","Use_system_setting":"系统","Create_desktop_shortcut":"创建桌面快捷方式","Reopen_itt_again":"请重新打开ITT。","Theme":"主题","Language":"语言","Browsers_extensions":"浏览器扩展","All":"都","Create_restore_point":"创建还原点","Portable_Downloads_Folder":"便携下载文件夹","Install_msg":"是否要安装选定的应用","Apply_msg":"是否要应用选定的调整","instAlling":"安装中..","Applying":"应用中..","Please_wait":"请等待，后台有进程在进行中。","Last_update":"最后更新","Exit_msg":"您确定要关闭程序吗？如果有任何安装正在进行，它们将被终止。","easter_egg":"你能发现隐藏的秘密吗？深入源代码，成为第一个发现功能的人，并将其集成到工具中","system_protection":"系统保护","web browsers":"网页浏览器","media":"媒体","media tools":"媒体工具","documents":"文档","compression":"压缩","communication":"通讯","file sharing":"文件共享","imaging":"图像处理","gaming":"游戏","utilities":"实用工具","disk tools":"磁盘工具","development":"开发","security":"安全","portable":"便携版","runtimes":"运行时","drivers":"驱动程序","privacy":"隐私","fixer":"修复工具","performance":"性能","personalization":"个性化","power":"电力","protection":"保护","classic":"经典","auto":"自动","package_manager":"包管理器"}}}
 '@ | ConvertFrom-Json
 $itt.database.Tweaks = @'
 [
 {
 "Name": "Disk cleanup",
 "Description": "Clean temporary files that are not necessary",
-"Category": "Storage",
+"Category": "Performance",
 "Check": "false",
 "Refresh": "false",
 "Script": [
@@ -2233,7 +2233,7 @@ $itt.database.Tweaks = @'
 {
 "Name": "Set current network profile to public",
 "Description": "Deny file sharing, device discovery",
-"Category": "",
+"Category": "Privacy",
 "Check": "false",
 "Refresh": "false",
 "Script": [
@@ -4341,7 +4341,7 @@ else {
 $collectionView.Filter = {
 param ($item)
 $tags = $item.Children[0].Children[0].Tag -split "\|"
-return $tags[4] -imatch $Cat
+return $tags[4] -ieq $Cat
 }
 }
 $collectionView.Refresh()
@@ -4625,15 +4625,32 @@ ContentSource="Content"/>
 <Setter Property="Template">
 <Setter.Value>
 <ControlTemplate TargetType="CheckBox">
-<StackPanel Orientation="Horizontal">
-<Border Name="CheckRadius" Width="20" Height="20" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="5" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+<Grid Margin="4">
+<Grid.ColumnDefinitions>
+<ColumnDefinition Width="Auto"/>
+<ColumnDefinition Width="*" />
+</Grid.ColumnDefinitions>
+<Border Width="20" Height="20"
+Grid.Column="0"
+BorderBrush="{TemplateBinding BorderBrush}"
+CornerRadius="5"
+BorderThickness="{TemplateBinding BorderThickness}"
+Background="{TemplateBinding Background}">
 <Grid>
 <TextBlock x:Name="CheckIcon" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17" />
-<Path x:Name="CheckMark" Width="Auto" Margin="4" Height="Auto" Stretch="Uniform" Stroke="White" StrokeThickness="2" Data="M 0 5 L 4 8 L 10 0" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+<Path x:Name="CheckMark"
+Margin="4"
+Stretch="Uniform"
+Stroke="White"
+StrokeThickness="2"
+Data="M 0 5 L 4 8 L 10 0"
+Visibility="Collapsed"
+HorizontalAlignment="Center"
+VerticalAlignment="Center"/>
 </Grid>
 </Border>
-<ContentPresenter Margin="8 0 0 0" VerticalAlignment="Center"/>
-</StackPanel>
+<ContentPresenter Grid.Column="1" Margin="8 0 0 0" VerticalAlignment="Center"/>
+</Grid>
 <ControlTemplate.Triggers>
 <Trigger Property="IsChecked" Value="True">
 <Setter TargetName="CheckMark" Property="Visibility" Value="Visible"/>
@@ -5502,7 +5519,7 @@ Width="auto">
 <ComboBoxItem Tag="Web Browsers">
 <TextBlock Foreground="{Binding RelativeSource={RelativeSource AncestorType=ComboBoxItem}, Path=Foreground}">
 <Run Text="🌐 "/>
-<Run Text="{Binding web_browsers, TargetNullValue=Web Browsers}"/>
+<Run Text="{Binding web browsers, TargetNullValue=Web Browsers}"/>
 </TextBlock>
 </ComboBoxItem>
 <ComboBoxItem Tag="Media">
@@ -5514,7 +5531,7 @@ Width="auto">
 <ComboBoxItem Tag="Media Tools">
 <TextBlock Foreground="{Binding RelativeSource={RelativeSource AncestorType=ComboBoxItem}, Path=Foreground}">
 <Run Text="🎚 "/>
-<Run Text="{Binding media_tools, TargetNullValue=Media Tools}"/>
+<Run Text="{Binding media tools, TargetNullValue=Media Tools}"/>
 </TextBlock>
 </ComboBoxItem>
 <ComboBoxItem Tag="Documents">
@@ -5538,7 +5555,7 @@ Width="auto">
 <ComboBoxItem Tag="File Sharing">
 <TextBlock Foreground="{Binding RelativeSource={RelativeSource AncestorType=ComboBoxItem}, Path=Foreground}">
 <Run Text="📁 "/>
-<Run Text="{Binding file_sharing, TargetNullValue=File Sharing}"/>
+<Run Text="{Binding file sharing, TargetNullValue=File Sharing}"/>
 </TextBlock>
 </ComboBoxItem>
 <ComboBoxItem Tag="Imaging">
@@ -5562,7 +5579,7 @@ Width="auto">
 <ComboBoxItem Tag="Disk Tools">
 <TextBlock Foreground="{Binding RelativeSource={RelativeSource AncestorType=ComboBoxItem}, Path=Foreground}">
 <Run Text="💽 "/>
-<Run Text="{Binding disk_tools, TargetNullValue=Disk Tools}"/>
+<Run Text="{Binding disk tools, TargetNullValue=Disk Tools}"/>
 </TextBlock>
 </ComboBoxItem>
 <ComboBoxItem Tag="Development">
@@ -5607,2062 +5624,2062 @@ Grid.Row="1">
 <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Brave" FontSize="15" Tag="brave|extras/brave|Brave.Brave|na|Web Browsers"   ToolTip="A privacy focused web browser that blocks ads and trackers"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Web Browsers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Web Browsers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Mozilla Firefox" FontSize="15" Tag="firefox|extras/firefox|Mozilla.Firefox|na|Web Browsers"   ToolTip="A widelyused opensource web browser known for its speed privacy"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Web Browsers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Web Browsers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Thorium AVX" FontSize="15" Tag="thorium --params /AVX|versions/thorium-avx2|Alex313031.Thorium.AVX2|na|Web Browsers"   ToolTip="A web browser designed for smooth and secure browsing experiences"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Web Browsers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Web Browsers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Google Chrome" FontSize="15" Tag="googlechrome|extras/googlechrome|Google.Chrome|na|Web Browsers"   ToolTip="A popular web browser known for its speed simplicity and"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Web Browsers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Web Browsers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Thorium SSE3" FontSize="15" Tag="thorium --params /SSE3|extras/thorium|Alex313031.Thorium|na|Web Browsers"   ToolTip="A web browser designed for smooth and secure browsing experiences"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Web Browsers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Web Browsers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Mozilla Firefox ESR" FontSize="15" Tag="firefoxesr|extras/firefox-esr|Mozilla.Firefox.ESR|na|Web Browsers"   ToolTip="A widelyused opensource web browser known for its speed privacy"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Web Browsers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Web Browsers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Edge" FontSize="15" Tag="microsoft-edge|na|Microsoft.Edge|na|Web Browsers"   ToolTip="Microsofts web browser built for fast and secure internet surfing"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Web Browsers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Web Browsers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Chromium" FontSize="15" Tag="chromium|extras/chromium|eloston.ungoogled-chromium|na|Web Browsers"   ToolTip="An opensource web browser project that serves as the foundation"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Web Browsers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Web Browsers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Tor Browser" FontSize="15" Tag="tor-browser|extras/tor-browser|TorProject.TorBrowser|na|Web Browsers"   ToolTip="A web browser that prioritizes user privacy by routing internet"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Web Browsers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Web Browsers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Opera" FontSize="15" Tag="opera|extras/opera|Opera.Opera|na|Web Browsers"   ToolTip="The Opera web browser makes the Web fast and fun"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Web Browsers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Web Browsers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Internet Download Manager" FontSize="15" Tag="internet-download-manager|extras/abdownloadmanager|Tonec.InternetDownloadManager|na|Web Browsers"   ToolTip="A popular download manager tool that accelerates downloads and allows"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Web Browsers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Web Browsers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="JDownloader" FontSize="15" Tag="jdownloader|extras/jdownloader|AppWork.JDownloader|na|Web Browsers"   ToolTip="JDownloader is an internet download manager"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Web Browsers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Web Browsers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="KLite Mega Codec Full Pack" FontSize="15" Tag="k-litecodecpackfull|nonportable/k-lite-codec-pack-full-np|na|na|Media"   ToolTip="Comprehensive collection of audio and video codecs filters and tools"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="PotPlayer" FontSize="15" Tag="potplayer|extras/potplayer|Daum.PotPlayer|na|Media"   ToolTip="A multimedia player with a sleek interface and advanced features"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="VLC" FontSize="15" Tag="vlc.install|extras/vlc|VideoLAN.VLC|na|Media"   ToolTip="A versatile media player capable of playing almost any multimedia"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Kodi" FontSize="15" Tag="kodi|extras/kodi|9NBLGGH4T892|na|Media"   ToolTip="A powerful opensource media center software that allows users to"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Jellyfin Server" FontSize="15" Tag="jellyfin|extras/jellyfin|Jellyfin.Server|na|Media"   ToolTip="An opensource media server software that enables users to stream"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Winamp" FontSize="15" Tag="winamp|na|Winamp.Winamp|na|Media"   ToolTip="A classic media player known for its customizable interface and"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Aimp" FontSize="15" Tag="na|extras/aimp|na|aimp|Media"   ToolTip="A lightweight and featurerich audio player with support for various"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Spotify" FontSize="15" Tag="spotify|extras/spotify|Spotify.Spotify|na|Media"   ToolTip="Spotify is a new way to listen to music"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="FastStone Image Viewer" FontSize="15" Tag="fsviewer|extras/fsviewer|FastStone.Viewer|na|Imaging"   ToolTip="FastStone Image Viewer is a fast stable userfriendly image browser"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Imaging"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Imaging}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="OpenOffice" FontSize="15" Tag="openoffice|extras/openoffice|Apache.OpenOffice|na|Documents"   ToolTip="An opensource office productivity suite offering word processing spreadsheet presentation"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Documents"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Documents}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="FoxitReader" FontSize="15" Tag="foxitreader|extras/foxit-reader|Foxit.FoxitReader|na|Documents"   ToolTip="A lightweight and featurerich PDF reader with annotation form filling"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Documents"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Documents}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="LibreOffice" FontSize="15" Tag="libreoffice-fresh|extras/libreoffice|Foxit.FoxitReader|na|Documents"   ToolTip="A powerful opensource office suite providing word processing spreadsheet presentation"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Documents"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Documents}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="SumatraPDF" FontSize="15" Tag="sumatrapdf.install|extras/sumatrapdf|SumatraPDF.SumatraPDF|na|Documents"   ToolTip="A lightweight and fast PDF reader with minimalistic design and"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Documents"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Documents}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="WinRAR" FontSize="15" Tag="winrar|extras/winrar|RARLab.WinRAR|na|Compression"   ToolTip="A popular file compression and archiving utility that supports various"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Compression"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Compression}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="7Zip" FontSize="15" Tag="7zip|extras/7zip|7zip.7zip|na|Compression"   ToolTip="An opensource file archiver with a high compression ratio supporting"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Compression"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Compression}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="PeaZip" FontSize="15" Tag="peazip|extras/peazip|Giorgiotani.Peazip|na|Compression"   ToolTip=" PeaZip is a free crossplatform file archiver"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Compression"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Compression}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Telegram Desktop" FontSize="15" Tag="telegram|extras/telegram|Telegram.TelegramDesktop|na|Communication"   ToolTip="A crossplatform messaging app with a focus on speed and"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Communication"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Communication}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Signal" FontSize="15" Tag="signal|extras/signal|OpenWhisperSystems.Signal|na|Communication"   ToolTip="Fast simple secure. Privacy that fits in your pocket"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Communication"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Communication}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Meta Messenger" FontSize="15" Tag="messenger|na|9WZDNCRF0083|na|Communication"   ToolTip="A messaging app that allows users to connect with friends"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Communication"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Communication}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Zoom" FontSize="15" Tag="zoom|extras/zoom|Zoom.ZoomRooms|na|Communication"   ToolTip="A video conferencing app that facilitates online meetings webinars and"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Communication"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Communication}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Teams" FontSize="15" Tag="microsoft-teams.install|extras/microsoft-teams|Microsoft.Teams|na|Communication"   ToolTip="A collaboration platform that combines workplace chat video meetings file"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Communication"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Communication}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Discord" FontSize="15" Tag="discord|extras/discord|Discord.Discord|na|Communication"   ToolTip="A VoIP application and digital distribution platform designed for creating"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Communication"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Communication}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="TeamViewer" FontSize="15" Tag="teamviewer|extras/teamviewer|TeamViewer.TeamViewer|na|File Sharing"   ToolTip="A remote access and support software that enables users to"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 File Sharing"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding File Sharing}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="GIMP" FontSize="15" Tag="gimp|extras/gimp|GIMP.GIMP|na|Imaging"   ToolTip="A free and opensource raster graphics editor used for image"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Imaging"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Imaging}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ Runtime - all versions" FontSize="15" Tag="vcredist-all|extras/vcredist-aio|na|na|Runtimes"   ToolTip="Microsoft Visual C Redistributable installs runtime components of Visual C"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="DirectX" FontSize="15" Tag="directx|na|Microsoft.DirectX|na|Runtimes"   ToolTip="DirectX is a collection of APIs for handling tasks related"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ 2005 (x86) Redistributable" FontSize="15" Tag="vcredist2005|extras/vcredist2005|na|na|Runtimes"   ToolTip="A set of runtime components required to run applications developed"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ 2005 (x64) Redistributable" FontSize="15" Tag="vcredist2005|na|na|na|Runtimes"   ToolTip="A set of runtime components required to run 64bit applications"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ 2008 (x86) Redistributable" FontSize="15" Tag="vcredist2008|extras/vcredist2008|na|na|Runtimes"   ToolTip="A set of runtime components required to run applications developed"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ 2008 (x64) Redistributable" FontSize="15" Tag="vcredist2008|extras/vcredist2008|na|na|Runtimes"   ToolTip="A set of runtime components required to run 64bit applications"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ 2010 (x86) Redistributable" FontSize="15" Tag="vcredist2010|extras/vcredist2010|na|na|Runtimes"   ToolTip="A set of runtime components required to run applications developed"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ 2010 (x64) Redistributable" FontSize="15" Tag="vcredist2010|extras/vcredist2010|na|na|Runtimes"   ToolTip="A set of runtime components required to run 64bit applications"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ 2012 (x86) Redistributable" FontSize="15" Tag="vcredist2012|extras/vcredist2012|na|na|Runtimes"   ToolTip="A set of runtime components required to run applications developed"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ 2012 (x64) Redistributable" FontSize="15" Tag="vcredist2012|extras/vcredist2012|na|na|Runtimes"   ToolTip="A set of runtime components required to run 64bit applications"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ 2013 (x86) Redistributable" FontSize="15" Tag="vcredist2013|extras/vcredist2013|na|na|Runtimes"   ToolTip="A set of runtime components required to run applications developed"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ 2013 (x64) Redistributable" FontSize="15" Tag="vcredist2013|extras/vcredist2013|na|na|Runtimes"   ToolTip="A set of runtime components required to run 64bit applications"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ 2015-2022 (x64) Redistributable" FontSize="15" Tag="vcredist2015|extras/vcredist2015|na|na|Runtimes"   ToolTip="A set of runtime components required to run 64bit applications"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ 2015-2022  (x86) Redistributable" FontSize="15" Tag="vcredist2015|extras/vcredist2015|na|na|Runtimes"   ToolTip="A set of runtime components required to run applications developed"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NET Framework All Versions" FontSize="15" Tag="dotnet-all|na|na|na|Runtimes"   ToolTip="A comprehensive and consistent programming model for building applications that"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="AMD Ryzen Chipset Drivers" FontSize="15" Tag="amd-ryzen-chipset|na|na|na|Drivers"   ToolTip="Supports AMD Ryzen Threadripper PRO Processor AMD Ryzen 8000/7040/7000 Series"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Drivers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Drivers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NVidia Display Driver" FontSize="15" Tag="nvidia-display-driver|nonportable/nvidia-display-driver-np|na|na|Drivers"   ToolTip="The software component that allows the operating system and installed"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Drivers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Drivers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NVIDIA GeForce Experience" FontSize="15" Tag="geforce-experience|na|Nvidia.GeForceExperience|na|Drivers"   ToolTip="A cloudbased gaming service provided by NVIDIA that allows users"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Drivers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Drivers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Msi Afterburner" FontSize="15" Tag="msiafterburner|extras/msiafterburner|Guru3D.Afterburner|na|Drivers"   ToolTip="MSI Afterburner is the ultimate graphics card utility codeveloped by"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Drivers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Drivers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NVIDIA PhysX" FontSize="15" Tag="physx.legacy|na|Nvidia.PhysXLegacy|na|Drivers"   ToolTip="A physics processing unit PPU software development kit SDK offered"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Drivers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Drivers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Steam" FontSize="15" Tag="steam|versions/steam|Valve.Steam|na|Gaming"   ToolTip="A digital distribution platform developed by Valve Corporation for purchasing"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Gaming"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Gaming}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Ubisoft Connect" FontSize="15" Tag="ubisoft-connect|versions/ubisoftconnect|Ubisoft.Connect|na|Gaming"   ToolTip="A digital distribution digital rights management multiplayer and communications service"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Gaming"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Gaming}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Origin" FontSize="15" Tag="origin|versions/origin|ElectronicArts.Origin|na|Gaming"   ToolTip=" Game store launcher"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Gaming"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Gaming}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Rockstar Games Launcher" FontSize="15" Tag="rockstar-launcher|versions/rockstarlauncher|na|na|Gaming"   ToolTip="Download and play the latest Rockstar Games PC titles"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Gaming"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Gaming}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="GameSave Manager" FontSize="15" Tag="gamesavemanager|na|InsaneMatt.GameSaveManager|na|Gaming"   ToolTip="A utility tool that allows users to backup restore and"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Gaming"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Gaming}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="StreamlabsOBS" FontSize="15" Tag="streamlabs-obs|extras/streamlabs-obs|Streamlabs.StreamlabsOBS|na|Gaming"   ToolTip="A free and opensource streaming software built on top of"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Gaming"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Gaming}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="OBS Studio" FontSize="15" Tag="obs-studio.install|extras/obs-studio|OBSProject.OBSStudio|na|Gaming"   ToolTip="A free and opensource software for video recording and live"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Gaming"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Gaming}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Logitech Gaming Software" FontSize="15" Tag="logitechgaming|nonportable/logitech-gaming-software-np|Logitech.LGS|na|Gaming"   ToolTip="Logitech Gaming Software lets you customize Logitech G gaming mice"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Gaming"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Gaming}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Lively Wallpaper" FontSize="15" Tag="lively|extras/lively|rocksdanister.LivelyWallpaper|na|Gaming"   ToolTip="A software that allows users to set animated and interactive"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Gaming"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Gaming}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Playnite" FontSize="15" Tag="playnite|extras/playnite|Playnite.Playnite|na|Gaming"   ToolTip="Open source video game library manager and launcher with support"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Gaming"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Gaming}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Driver Easy" FontSize="15" Tag="drivereasyfree|na|Easeware.DriverEasy|na|Drivers"   ToolTip="A driver update tool that automatically detects downloads and installs"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Drivers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Drivers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Intel Driver Support Assistant" FontSize="15" Tag="intel-dsa|na|Intel.IntelDriverAndSupportAssistant|na|Drivers"   ToolTip="Intel Driver  Support Assistant enables you to scan computing"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Drivers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Drivers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Snappy Driver Installer" FontSize="15" Tag="sdio|extras/snappy-driver-installer-origin|samlab-ws.SnappyDriverInstaller|na|Drivers"   ToolTip="A free and opensource tool for updating and installing device"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Drivers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Drivers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Driver booster" FontSize="15" Tag="driverbooster|na|IObit.DriverBooster|na|Drivers"   ToolTip="Scans and identifies outdated drivers automatically and downloads and installs"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Drivers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Drivers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Driver Genius" FontSize="15" Tag="drivergenius|na|na|na|Drivers"   ToolTip="Professional driver management tool and hardware diagnostics"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Drivers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Drivers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Display Driver Uninstaller" FontSize="15" Tag="ddu|extras/ddu|Wagnardsoft.DisplayDriverUninstaller|na|Drivers"   ToolTip="Utility to completely remove system drivers"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Drivers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Drivers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Driver Store Explorer" FontSize="15" Tag="rapr|extras/driverstoreexplorer|na|na|Drivers"   ToolTip=" Windows driver store utility"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Drivers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Drivers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="1Password" FontSize="15" Tag="1password|na|AgileBits.1Password|na|Utilities"   ToolTip="A password manager that securely stores login credentials credit card"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="AOMEI Partition Assistant Standard" FontSize="15" Tag="partition-assistant-standard|na|AOMEI.PartitionAssistant|na|Disk Tools"   ToolTip="AOMEI Partition Assistant Standard allows you to realize disk upgrade/replacement"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Disk Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Disk Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="AOMEI Backupper Standard" FontSize="15" Tag="backupper-standard|na|AOMEI.Backupper.Standard|na|Disk Tools"   ToolTip="A backup and recovery software that enables users to create"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Disk Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Disk Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Recuva recover" FontSize="15" Tag="recuva|extras/recuva|Piriform.Recuva|na|Disk Tools"   ToolTip="A data recovery software that helps users retrieve accidentally deleted"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Disk Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Disk Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="CCleaner" FontSize="15" Tag="ccleaner|extras/ccleaner|SingularLabs.CCEnhancer|na|Utilities"   ToolTip="A system optimization privacy and cleaning tool that helps users"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="BCUninstaller" FontSize="15" Tag="bulk-crap-uninstaller|extras/bulk-crap-uninstaller|Klocman.BulkCrapUninstaller|na|Utilities"   ToolTip="A powerful uninstaller tool for Windows that allows users to"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Easy Context Menu" FontSize="15" Tag="ecm|extras/easy-context-menu|na|na|Utilities"   ToolTip="To install Easy Context Menu run the following command from"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="HWiNFO" FontSize="15" Tag="hwinfo.install|extras/hwinfo|REALiX.HWiNFO|na|Utilities"   ToolTip="A hardware information and diagnostic tool that provides detailed information"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Speccy" FontSize="15" Tag="speccy|extras/speccy|Piriform.Speccy|na|Utilities"   ToolTip="A system information tool that provides detailed information about the"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="FurMark" FontSize="15" Tag="furmark|extras/furmark|Geeks3D.FurMark|na|Utilities"   ToolTip="A graphics card stress testing and benchmarking utility that helps"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Hard Disk Sentinel" FontSize="15" Tag="hdsentinel|extras/hard-disk-sentinel|JanosMathe.HardDiskSentinelPro|na|Disk Tools"   ToolTip="A hard disk monitoring and analysis software that helps users"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Disk Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Disk Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="CPU-Z" FontSize="15" Tag="cpu-z|extras/cpu-z|CPUID.CPU-Z|na|Utilities"   ToolTip="A system monitoring utility that provides detailed information about the"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Mem Reduct" FontSize="15" Tag="memreduct|extras/memreduct|Henry++.MemReduct|na|Utilities"   ToolTip="Lightweight realtime memory management application to monitor and clean system"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="HandBrake" FontSize="15" Tag="handbrake.install|extras/handbrake|HandBrake.HandBrake|na|Utilities"   ToolTip="A free and opensource video transcoder tool that converts video"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Rufus Portable" FontSize="15" Tag="rufus|extras/rufus|Rufus.Rufus|na|Portable"   ToolTip="A utility tool for creating bootable USB drives from ISO"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Portable"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Portable}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="ImgBurn" FontSize="15" Tag="imgburn|extras/imgburn|LIGHTNINGUK.ImgBurn|na|Development"   ToolTip="Lightweight CD / DVD burning application"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Virtual CloneDrive" FontSize="15" Tag="virtualclonedrive|na|na|na|Utilities"   ToolTip="A free software that allows users to mount disc images"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Ultra ISO" FontSize="15" Tag="ultraiso|extras/ultraiso|EZBSystems.UltraISO|na|Utilities"   ToolTip="A powerful ISO image management tool that enables users to"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Ventoy" FontSize="15" Tag="ventoy|extras/ventoy|Ventoy.Ventoy|na|Utilities"   ToolTip="An opensource tool for creating bootable USB drives with multiple"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="iVentoy" FontSize="15" Tag="iventoy|na|na|na|Utilities"   ToolTip="With iVentoy you can boot and install OS on multiple"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="AutoHotkey" FontSize="15" Tag="autohotkey|extras/autohotkey|AutoHotkey.AutoHotkey|na|Utilities"   ToolTip="A scripting language for automating repetitive tasks and creating macros"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Rainmeter" FontSize="15" Tag="rainmeter|extras/rainmeter|Rainmeter.Rainmeter|na|Utilities"   ToolTip="A customizable desktop customization tool that displays customizable skins widgets"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="FxSound" FontSize="15" Tag="fxsound|na|FxSoundLLC.FxSound|na|Utilities"   ToolTip="An audio enhancer software that improves the sound quality of"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Vysor" FontSize="15" Tag="vysor|na|Vysor.Vysor|na|Utilities"   ToolTip="A screen mirroring and remote control software that enables users"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Unified Remote" FontSize="15" Tag="unifiedremote|na|UnifiedIntents.UnifiedRemote|na|Utilities"   ToolTip="A remote control app that turns smartphones into universal remote"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="AnyDesk" FontSize="15" Tag="anydesk|extras/anydesk|AnyDeskSoftwareGmbH.AnyDesk|na|File Sharing"   ToolTip="A remote desktop software that allows users to access and"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 File Sharing"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding File Sharing}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Airdroid" FontSize="15" Tag="airdroid|extras/airdroid|AirDroid.AirDroid|na|File Sharing"   ToolTip="AirDroid is a free and fast Android device manager app"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 File Sharing"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding File Sharing}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="UltraViewer" FontSize="15" Tag="ultraviewer|na|DucFabulous.UltraViewer|na|File Sharing"   ToolTip="Remote control to support your clients / partners from everywhere"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 File Sharing"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding File Sharing}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Wireless Network Watcher Portable" FontSize="15" Tag="wnetwatcher.portable|nirsoft/wnetwatcher|NirSoft.WirelessNetworkWatcher|na|Portable"   ToolTip="Wireless Network Watcher is a small utility that scans your"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Portable"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Portable}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="WifiInfoView" FontSize="15" Tag="wifiinfoview|nirsoft/wifiinfoview|NirSoft.WifiInfoView|na|Utilities"   ToolTip="Wireless Network Watcher is a small utility that scans your"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="WirelessNetView" FontSize="15" Tag="wirelessnetview|nirsoft/wirelessnetview|na|na|Utilities"   ToolTip="Wireless Network Watcher is a small utility that scans your"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="qBittorrent" FontSize="15" Tag="qbittorrent|extras/qbittorrent|qBittorrent.qBittorrent|na|File Sharing"   ToolTip="A free and opensource BitTorrent client for downloading and uploading"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 File Sharing"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding File Sharing}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Google Earth Pro" FontSize="15" Tag="googleearthpro|na|Google.EarthPro|na|Imaging"   ToolTip="Google Earth Pro on desktop is free for users with"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Imaging"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Imaging}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="XAMPP" FontSize="15" Tag="xampp-81|extras/xampp|ApacheFriends.Xampp.8.2|na|Development"   ToolTip="XAMPP is a free and opensource crossplatform web server solution"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Visual Studio Professional 2022" FontSize="15" Tag="visualstudio2022professional|na|Microsoft.VisualStudio.2022.Professional|na|Development"   ToolTip="Visual Studio Professional 2022 is an integrated development environment IDE"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Visual Studio Community 2022" FontSize="15" Tag="visualstudio2022community|na|Microsoft.VisualStudio.2022.Community|na|Development"   ToolTip="Visual Studio Community 2022 is a free fullyfeatured and extensible"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Unity Hub" FontSize="15" Tag="unity-hub|nonportable/unity-hub-np|Unity.UnityHub|na|Development"   ToolTip="Unity is a crossplatform game creation system developed by Unity"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Godot Engine" FontSize="15" Tag="godot|extras/godot|GodotEngine.GodotEngine|na|Development"   ToolTip="Godot is a featurepacked crossplatform game engine for creating 2D"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Unity3D Engine" FontSize="15" Tag="unity|na|Unity.Unity.2020|na|Development"   ToolTip="Unity is a crossplatform game creation system developed by Unity"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Blender" FontSize="15" Tag="blender|na|BlenderFoundation.Blender|na|Development"   ToolTip="Blender is a free and opensource professionalgrade 3D computer graphics"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="VSCode" FontSize="15" Tag="vscode|extras/vscode|Microsoft.VisualStudioCode|na|Development"   ToolTip="Visual Studio Code is a free sourcecode editor developed by"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Vim" FontSize="15" Tag="vim|extras/vim|vim.vim|na|Development"   ToolTip="Vim is an advanced text editor that seeks to provide"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Sublime Text 4" FontSize="15" Tag="sublimetext4|extras/sublime-text|SublimeHQ.SublimeText.4|na|Development"   ToolTip="Sublime Text 4  The sophisticated text editor for code"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Atom" FontSize="15" Tag="atom|extras/atom|GitHub.Atom|na|Development"   ToolTip="Atom is a text editor thats modern approachable yet hackable"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="InnoSetup" FontSize="15" Tag="innosetup|nonportable/innosetup-np|JRSoftware.InnoSetup|na|Development"   ToolTip="Inno Setup is a free installer for Windows programs. First"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="PyCharm Community Edition" FontSize="15" Tag="pycharm-community|na|JetBrains.PyCharm.Community|na|Development"   ToolTip="PyCharm Community Edition is a free and opensource IDE for"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="PyCharm Professional Edition" FontSize="15" Tag="pycharm|extras/pycharm|JetBrains.PyCharm.Professional|na|Development"   ToolTip="PyCharm Professional Edition is a powerful IDE for professional Python"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Jetbrains Rider" FontSize="15" Tag="jetbrains-rider|extras/rider|JetBrains.Rider|na|Development"   ToolTip="Rider is a crossplatform .NET IDE developed by JetBrains. It"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NodeJs LTS" FontSize="15" Tag="nodejs-lts|main/nodejs-lts|OpenJS.NodeJS.LTS|na|Development"   ToolTip="Node.js is a JavaScript runtime built on Chromes V8 JavaScript"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Electron" FontSize="15" Tag="electron|extras/electron|na|na|Development"   ToolTip="Electron framework lets you write crossplatform desktop applications using JavaScript"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Electrum LTS" FontSize="15" Tag="electronim|na|Electrum.Electrum|na|Development"   ToolTip="Electrum is a lightweight Bitcoin wallet focused on speed and"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Hugo" FontSize="15" Tag="hugo|main/hugo|Hugo.Hugo|na|Development"   ToolTip="Hugo is one of the most popular opensource static site"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Hugo Extended" FontSize="15" Tag="hugo-extended|main/hugo-extended|Hugo.Hugo.Extended|na|Development"   ToolTip="Hugo is one of the most popular opensource static site"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Notepad++" FontSize="15" Tag="notepadplusplus|extras/notepadplusplus|Notepad++.Notepad++|na|Development"   ToolTip="Notepad is a free source code editor and Notepad replacement"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Windows Terminal" FontSize="15" Tag="microsoft-windows-terminal|extras/windows-terminal|Microsoft.WindowsTerminal|na|Development"   ToolTip="Windows Terminal is a modern terminal application for users of"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Powershell 7" FontSize="15" Tag="powershell-core|na|Microsoft.PowerShell|na|Development"   ToolTip="PowerShell Core is a crossplatform Windows Linux and macOS automation"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="x64dbg Portable" FontSize="15" Tag="x64dbg.portable|extras/x64dbg|na|na|Portable"   ToolTip="An opensource x64/x32 debugger for windows"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Portable"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Portable}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="dnSpy" FontSize="15" Tag="dnspy|extras/dnspy|dnSpyEx.dnSpy|na|Development"   ToolTip="dnSpy is a tool to reverse engineer .NET assemblies. It"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Cheat Engine" FontSize="15" Tag="cheatengine|extras/cheat-engine|na|na|Development"   ToolTip="Cheat Engine is an open source tool designed to help"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Python 3.12.6" FontSize="15" Tag="python|main/python|Python.Python.3.9|na|Development"   ToolTip="Python is a popular highlevel programming language known for its"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Git" FontSize="15" Tag="git|main/git|Git.Git|na|Development"   ToolTip="Git is a free and opensource distributed version control system"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="GitHub Desktop" FontSize="15" Tag="github-desktop|na|GitHub.GitHubDesktop|na|Development"   ToolTip="GitHub Desktop is a seamless way to contribute to projects"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Docker Desktop" FontSize="15" Tag="docker-desktop|na|Docker.DockerDesktop|na|Development"   ToolTip="Docker Desktop is an easytoinstall application for Windows and macOS"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Docker Compose" FontSize="15" Tag="docker-compose|main/docker-compose|Docker.DockerCompose|na|Development"   ToolTip="Docker Compose is a tool for defining and running multicontainer"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="PowerToys" FontSize="15" Tag="powertoys|extras/powertoys|Microsoft.PowerToys|na|Development"   ToolTip="PowerToys is a set of utilities for power users to"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Notion" FontSize="15" Tag="notion|extras/notion|Notion.Notion|na|Development"   ToolTip="The allinone workspace for your notes tasks wikis and databases"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="FL Studio" FontSize="15" Tag="ImageLine.FLStudio|na|ImageLine.FLStudio|na|Media Tools"   ToolTip="FL Studio is a digital audio workstation DAW developed by"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Android Debug Bridge" FontSize="15" Tag="adb|na|na|na|Development"   ToolTip="Android Debug Bridge ADB is a commandline tool that allows"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Universal ADB Drivers" FontSize="15" Tag="universal-adb-drivers|na|na|na|Development"   ToolTip="Universal ADB Drivers are drivers that provide compatibility with a"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Scrcpy" FontSize="15" Tag="scrcpy|main/scrcpy|Genymobile.scrcpy|na|Development"   ToolTip="Scrcpy is a free and opensource tool that allows you"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="VirtualBox" FontSize="15" Tag="virtualbox|nonportable/virtualbox-np|Oracle.VirtualBox|na|Development"   ToolTip="VirtualBox is a crossplatform virtualization application. It installs on existing"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Oh My Posh" FontSize="15" Tag="oh-my-posh|main/oh-my-posh|JanDeDobbeleer.OhMyPosh|na|Development"   ToolTip=" Oh my Posh is a custom prompt engine for"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Malwarebytes" FontSize="15" Tag="malwarebytes|na|Malwarebytes.Malwarebytes|na|Security"   ToolTip="Multiple layers of malwarecrushing tech including virus protection. Thorough malware"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Security"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Security}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Avast Free Antivirus" FontSize="15" Tag="avastfreeantivirus|na|XPDNZJFNCR1B07|na|Security"   ToolTip="Avast Free Antivirus"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Security"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Security}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Nerd Fonts - CascadiaCode" FontSize="15" Tag="nerd-fonts-cascadiacode|nerd-fonts/CascadiaCode-NF|na|na|Development"   ToolTip="Nerd Fonts is a project that patches developer targeted fonts"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Java SE Runtime Environment 8.0.411" FontSize="15" Tag="jre8|na|na|na|Runtimes"   ToolTip="Java allows you to play online games chat with people"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Audacity" FontSize="15" Tag="audacity|extras/audacity|Audacity.Audacity|na|Media Tools"   ToolTip="Audacity is free open source crossplatform software for recording and"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MusicBee" FontSize="15" Tag="musicbee|extras/musicbee|MusicBee.MusicBee|na|Media"   ToolTip="MusicBee makes it easy to organize find and play music"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Format Factory" FontSize="15" Tag="formatfactory|extras/format-factory|na|na|Media Tools"   ToolTip="multifunctional media processing tools"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Winaero Tweaker" FontSize="15" Tag="winaero-tweaker|extras/winaero-tweaker|na|na|Utilities"   ToolTip="Customize the appearance and behavior of the Windows operating system"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Windows Subsystem for Linux WSL2" FontSize="15" Tag="wsl2|na|Microsoft.WSL|na|Development"   ToolTip="To install Windows Subsystem for Linux 2 run the following"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Wamp Server 3.3.5" FontSize="15" Tag="wamp-server|extras/uwamp|na|na|Development"   ToolTip="WampServer is a Windows web development environment. It allows you"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MongoDB" FontSize="15" Tag="mongodb|main/mongodb|MongoDB.Server|na|Development"   ToolTip="MongoDB stores data using a flexible document data model that"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MPC-BE" FontSize="15" Tag="mpc-be|extras/mpc-be| MPC-BE.MPC-BE|na|Media"   ToolTip="Media Player Classic  BE is a free and open"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Kdenlive" FontSize="15" Tag="kdenlive|extras/kdenlive|KDE.Kdenlive|na|Media Tools"   ToolTip="A powerful nonlinear video editor"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="TablePlus" FontSize="15" Tag="tableplus|extras/tableplus|TablePlus.TablePlus|na|Development"   ToolTip="Modern native and friendly GUI tool for relational databases MySQL"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Hosts File Editor" FontSize="15" Tag="hosts.editor|extras/hosts-file-editor|scottlerch.hosts-file-editor|na|Utilities"   ToolTip="Hosts File Editor makes it easy to change your hosts"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Subtitle Edit" FontSize="15" Tag="subtitleedit|extras/subtitleedit|9NWH51GWJTKN|na|Development"   ToolTip="With SE you can easily adjust a subtitle if it"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Skype" FontSize="15" Tag="skype|na|Microsoft.Skype|na|Communication"   ToolTip="Skype  Install Skype add your friends as contacts then"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Communication"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Communication}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="FileZilla" FontSize="15" Tag="filezilla|extras/filezilla|na|na|Development"   ToolTip="FileZilla Client is a fast and reliable crossplatform FTP FTPS"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Everything" FontSize="15" Tag="everything|extras/everything|voidtools.Everything|na|Utilities"   ToolTip="Everything Search Engine  locate files and folders by name"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Yarn" FontSize="15" Tag="yarn|main/yarn|Yarn.Yarn|na|Development"   ToolTip="Yarn is a package manager for the npm and bower"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="VMware Workstation Player" FontSize="15" Tag="vmware-workstation-player|nonportable/vmware-workstation-player-np|na|na|Development"   ToolTip="VMware Workstation Player is a streamlined desktop virtualization application that"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="HDD Low Level Format Tool" FontSize="15" Tag="llftool|na|na|na|Utilities"   ToolTip="Will erase LowLevel Format and recertify a SATA IDE or"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="BlueStacks" FontSize="15" Tag="bluestacks|nonportable/bluestacks-np|BlueStack.BlueStacks|na|Gaming"   ToolTip="Play Android Games on PC"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Gaming"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Gaming}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Office 365 Business" FontSize="15" Tag="office365business|nonportable/office-365-apps-np|Microsoft.Office|na|Documents"   ToolTip="Microsoft 365 formerly Office 365 is a line of subscription"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Documents"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Documents}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Bandicam" FontSize="15" Tag="na|na|BandicamCompany.Bandicam|na|Imaging"   ToolTip="Bandicam is a closedsource screen capture and screen recording software"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Imaging"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Imaging}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="QQPlayer" FontSize="15" Tag="na|na|Tencent.QQPlayer|na|Media"   ToolTip="QQPlayer media player"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="4K Video Downloader" FontSize="15" Tag="4k-video-downloader|na|OpenMedia.4KVideoDownloader|na|Utilities"   ToolTip="4K Video Downloader allows downloading videos playlists channels and subtitles"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Active@ Partition Recovery" FontSize="15" Tag="na|na|LSoftTechnologies.ActivePartitionRecovery|na|Disk Tools"   ToolTip="Active Partition Recovery is a freeware toolkit that helps to"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Disk Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Disk Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="HiSuite" FontSize="15" Tag="na|na|Huawei.HiSuite|na|Utilities"   ToolTip="HUAWEI HiSuite is the official Android Smart Device Manager toolHiSuite"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Android Studio" FontSize="15" Tag="androidstudio|extras/android-studio|Google.AndroidStudio|na|Development"   ToolTip="Android Studio is the official integrated development environment for Googles"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="LibreWolf" FontSize="15" Tag="librewolf|extras/librewolf|LibreWolf.LibreWolf|na|Web Browsers"   ToolTip="LibreWolf is designed to increase protection against tracking and fingerprinting"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Web Browsers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Web Browsers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Flow Launcher" FontSize="15" Tag="flow-launcher|extras/flow-launcher|Flow-Launcher.Flow-Launcher|na|Utilities"   ToolTip="Dedicated to making your workflow flow more seamless. Search everything"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="IconsExtract" FontSize="15" Tag="iconsext|na|na|na|Utilities"   ToolTip="The IconsExtract utility scans the files and folders on your"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="AdGuard Home" FontSize="15" Tag="adguardhome|extras/adguardian|AdGuard.AdGuardHome|na|Security"   ToolTip="AdGuard Home is a networkwide software for blocking ads and"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Security"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Security}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Burp Suite Community Edition" FontSize="15" Tag="burp-suite-free-edition|nonportable/burp-suite-community-np|PortSwigger.BurpSuite.Community|na|Development"   ToolTip="Burp Suite is an integrated platform for performing security testing"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="CoreTemp" FontSize="15" Tag="coretemp|extras/coretemp|ALCPU.CoreTemp|na|Utilities"   ToolTip="Core Temp is a compact no fuss small footprint yet"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="ShareX" FontSize="15" Tag="sharex|extras/sharex|ShareX.ShareX|na|File Sharing"   ToolTip="Screen capture file sharing and productivity tool"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 File Sharing"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding File Sharing}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="ONLY OFFICE" FontSize="15" Tag="onlyoffice|extras/onlyoffice-desktopeditors|ONLYOFFICE.DesktopEditors|na|Documents"   ToolTip="ONLYOFFICE is a project developed by experienced IT experts from"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Documents"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Documents}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="ESET Internet Security" FontSize="15" Tag="eset-internet-security|na|ESET.EndpointSecurity|na|Security"   ToolTip="Ideal for modern users concerned about their privacy who actively"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Security"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Security}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="WinDirStat" FontSize="15" Tag="windirstat|extras/windirstat|WinDirStat.WinDirStat|na|Disk Tools"   ToolTip="WinDirStat is a disk usage statistics viewer and cleanup tool"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Disk Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Disk Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Winmerge" FontSize="15" Tag="winmerge|extras/winmerge|WinMerge.WinMerge|na|Utilities"   ToolTip="WinMerge is an Open Source differencing and merging tool for"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Wireshark" FontSize="15" Tag="wireshark|extras/wireshark|WiresharkFoundation.Wireshark|na|Utilities"   ToolTip="Wireshark is the worlds foremost and widelyused network protocol analyzer."/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="TeraCopy" FontSize="15" Tag="teracopy|nonportable/teracopy-np|CodeSector.TeraCopy|na|Utilities"   ToolTip="TeraCopy is designed to copy and move files at the"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="QuickLook" FontSize="15" Tag="quicklook|extras/quicklook|QL-Win.QuickLook|na|Utilities"   ToolTip="Quick Look is among the few features I missed from"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="RepoZ" FontSize="15" Tag="repoz|na|AndreasWascher.RepoZ|na|Development"   ToolTip="RepoZ provides a quick overview of the git repositories on"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Go Programming Language" FontSize="15" Tag="golang|main/go|Language GoLang.Go|na|Development"   ToolTip="Go is expressive concise clean and efficient Its concurrency mechanisms"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Rust" FontSize="15" Tag="rust|main/rust|Rustlang.Rust.GNU|na|Development"   ToolTip="Rust is a curlybrace blockstructured expression language It visually resembles"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Inkscape" FontSize="15" Tag="inkscape|extras/inkscape|Inkscape.Inkscape|na|Imaging"   ToolTip="Inkscape is an opensource vector graphics editor similar to Adobe"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Imaging"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Imaging}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Youtube Dl" FontSize="15" Tag="yt-dlp|main/youtube-dl|youtube-dl.youtube-dl|na|Utilities"   ToolTip="youtubedl is a small commandline program to download videos from"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Postman" FontSize="15" Tag="postman|extras/postman|Postman.Postman|na|Development"   ToolTip="Postman helps you be more efficient while working with APIs"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Azure CLI" FontSize="15" Tag="azure-cli|main/azure-cli|Microsoft.AzureCLI|na|Development"   ToolTip="The Azure CLI is available across Azure services and is"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="GameMaker Studio" FontSize="15" Tag="na|na|YoYoGames.GameMaker.Studio.2|na|Development"   ToolTip="GameMaker Studio has everything you need for games development no"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Charles" FontSize="15" Tag="charles|na|XK72.Charles|na|Development"   ToolTip="Charles is an HTTP proxy HTTP monitor Reverse Proxy that"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Windows Media Player" FontSize="15" Tag="na|na|9WZDNCRFJ3PT|na|Media"   ToolTip="Media Player is designed to make listening to and watching"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="espanso" FontSize="15" Tag="espanso|main/espanso|Espanso.Espanso|na|Development"   ToolTip="A crossplatform Text Expander written in Rust"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Ability Office" FontSize="15" Tag="abilityoffice|na|Ability.AbilityOffice.8.Standard|na|Documents"   ToolTip="Ability Office Standard offers 3 core applications essential for home"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Documents"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Documents}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Winbox" FontSize="15" Tag="na|extras/winbox|Mikrotik.Winbox|na|Utilities"   ToolTip="Small utility that allows administration of MikroTik RouterOS using a"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="SearchMyFiles" FontSize="15" Tag="searchmyfiles|nirsoft/searchmyfiles|NirSoft.SearchMyFiles|na|Utilities"   ToolTip="SearchMyFiles allows you to make a very accurate search that"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="iTunes" FontSize="15" Tag="itunes|na|Apple.iTunes|na|Media"   ToolTip="iTunes is the best way to organize and enjoy the"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="StartIsBack++" FontSize="15" Tag="startisback|na|StartIsBack.StartIsBack|na|Utilities"   ToolTip="StartIsBack returns Windows 10 and Windows 8 a real fully"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Advanced SystemCare Free" FontSize="15" Tag="afedteated|na|XPFFGSS4Z9M2TX|na|Utilities"   ToolTip="Over time your computer may accumulate with large quantities of"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Send Anywhere" FontSize="15" Tag="na|na|Estmob.SendAnywhere|na|File Sharing"   ToolTip="Send Anywhere is a multiplatform file sharing service where users"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 File Sharing"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding File Sharing}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="YUMI Legacy" FontSize="15" Tag="yumi|extras/yumi|YumiUsb.Legacy|na|Utilities"   ToolTip="YUMI Your Universal Multiboot Installer is the successor to MultibootISOs"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="YUMI UEFI" FontSize="15" Tag="yumi-uefi|extras/yumi-uefi|YumiUsb.UEFI|na|Utilities"   ToolTip="YUMI Your Universal Multiboot Installer is the successor to MultibootISOs"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="OP Auto Clicker" FontSize="15" Tag="autoclicker|extras/autoclicker|OPAutoClicker.OPAutoClicker|na|Utilities"   ToolTip="A fullfledged autoclicker with two modes of autoclicking at your"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Spotube" FontSize="15" Tag="spotube|extras/spotube|KRTirtho.Spotube|na|Media"   ToolTip="Spotube is a Flutter based lightweight spotify client It utilizes"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Audio Switcher" FontSize="15" Tag="audioswitcher|extras/audioswitcher|FortyOneLtd.AudioSwitcher|na|Media"   ToolTip="Easily switch the default audio device input or output on"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Teams Classic Desktop" FontSize="15" Tag="microsoft-teams.install|na|na|na|Communication"   ToolTip="Microsoft Teams is a messaging app for teams where all"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Communication"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Communication}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Windows SDK" FontSize="15" Tag="windows-sdk-10.1|na|na|na|Runtimes"   ToolTip="The Windows 10 SDK for Windows 10 version 1809 provides"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="RunAsDate Portable" FontSize="15" Tag="runasdate|nirsoft/runasdate|na|na|Portable"   ToolTip="RunAsDate is a small utility that allows you to run"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Portable"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Portable}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Visual Studio 2017 Build" FontSize="15" Tag="visualstudio2017buildtools|na|na|na|Development"   ToolTip="These Build Tools allow you to build native and managed"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MSEdgeRedirect" FontSize="15" Tag="msedgeredirect|extras/msedgeredirect|rcmaehl.MSEdgeRedirect|na|Utilities"   ToolTip="This tool filters and passes the command line arguments of"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NET Desktop Runtime 5" FontSize="15" Tag="dotnet-5.0-desktopruntime|na|Microsoft.DotNet.HostingBundle.5|na|Runtimes"   ToolTip="NET Core is a general purpose development platform maintained by"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NET Desktop Runtime 3" FontSize="15" Tag="Microsoft.DotNet.HostingBundle.3_1|versions/windowsdesktop-runtime-3.1|dotnetcore-3.0-desktopruntime|na|Runtimes"   ToolTip="NET Core is a general purpose development platform maintained by"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NET Desktop Runtime 6" FontSize="15" Tag="dotnet-6.0-desktopruntime|versions/windowsdesktop-runtime-6.0|Microsoft.DotNet.HostingBundle.6|na|Runtimes"   ToolTip="NET Core is a general purpose development platform maintained by"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NET Desktop Runtime 7" FontSize="15" Tag="dotnet-7.0-desktopruntime|versions/windowsdesktop-runtime-7.0|Microsoft.DotNet.AspNetCore.7|na|Runtimes"   ToolTip="NET Core is a general purpose development platform maintained by"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NET Desktop Runtime 8" FontSize="15" Tag="dotnet-desktopruntime|extras/windowsdesktop-runtime|Microsoft.DotNet.DesktopRuntime.8|na|Runtimes"   ToolTip="NET Core is a general purpose development platform maintained by"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Viber" FontSize="15" Tag="viber|na|XPFM5P5KDWF0JP|na|Communication"   ToolTip="Viber is a mobile application that lets you make free"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Communication"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Communication}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="StartAllBack" FontSize="15" Tag="startallback|na|StartIsBack.StartAllBack|na|Utilities"   ToolTip="Introducing StartAllBack Windows 11 from a better timeline Embrace enhance"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="DiskGenius Free" FontSize="15" Tag="diskgenius|na|Eassos.DiskGenius|na|Disk Tools"   ToolTip="With powerful capabilities and userfriendly interface DiskGenius Free Edition provides"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Disk Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Disk Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="UNFORMAT" FontSize="15" Tag="na|na|LSoftTechnologies.UNFORMAT|na|Disk Tools"   ToolTip="UNFORMAT is a software utility created to solve almost all"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Disk Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Disk Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Active@ UNDELETE" FontSize="15" Tag="na|na|LSoftTechnologies.ActiveUNDELETE|na|Disk Tools"   ToolTip="Active UNDELETE helps you to recover deleted files and restore"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Disk Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Disk Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="HxD Hex Editor" FontSize="15" Tag="hxd|extras/hxd|MHNexus.HxD|na|Disk Tools"   ToolTip="HxD is a carefully designed and fast hex editor which"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Disk Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Disk Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Epic Games Launcher" FontSize="15" Tag="epicgameslauncher|na|EpicGames.EpicGamesLauncher|na|Gaming"   ToolTip="The Epic Games Launcher is how you obtain the Unreal"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Gaming"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Gaming}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Vivaldi" FontSize="15" Tag="vivaldi|extras/vivaldi|VivaldiTechnologies.Vivaldi|na|Web Browsers"   ToolTip="The new Vivaldi browser protects you from trackers blocks unwanted"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Web Browsers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Web Browsers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft PC Manager" FontSize="15" Tag="na|na|9PM860492SZD|na|Utilities"   ToolTip="Microsoft PC manager a good way to protect your personal"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Openshot" FontSize="15" Tag="openshot|extras/openshot|OpenShot.OpenShot|na|Media Tools"   ToolTip="OpenShot Video Editor is an awardwinning opensource video editor available"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="WhatsApp" FontSize="15" Tag="na|na|9NKSQGP7F2NH|na|Communication"   ToolTip="WhatsApp Messenger or simply WhatsApp is an American freeware crossplatform"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Communication"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Communication}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Paint.NET" FontSize="15" Tag="paint.net|extras/paint.net|dotPDNLLC.paintdotnet|na|Imaging"   ToolTip="PaintNET is image and photo editing software for PCs that"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Imaging"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Imaging}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Stretchly" FontSize="15" Tag="stretchly|extras/stretchly|Stretchly.Stretchly|na|Utilities"   ToolTip="stretchly is a crossplatform electron app that reminds you to"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Silverlight" FontSize="15" Tag="silverlight|na|na|na|Runtimes"   ToolTip="Silverlight is a powerful development tool for creating engaging interactive"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="TreeSize" FontSize="15" Tag="treesizefree|extras/treesize-free|JAMSoftware.TreeSize.Free|na|Utilities"   ToolTip="Every hard disk is too small if you just wait"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Dot Net 3.5" FontSize="15" Tag="dotnet3.5|versions/de4dot-net35|Microsoft.DotNet.DesktopRuntime.3_1|na|Runtimes"   ToolTip="NET is a free crossplatform opensource developer platform for building"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Flash Player ActiveX" FontSize="15" Tag="flashplayeractivex|extras/flashplayer-sa|na|na|Runtimes"   ToolTip="The Adobe Flash Player is freeware software for viewing multimedia"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Google Drive" FontSize="15" Tag="googledrive|main/gdrive|na|na|File Sharing"   ToolTip="Google Drive All your files everywhere Safely store your files"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 File Sharing"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding File Sharing}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Dot Net 4.5.2" FontSize="15" Tag="dotnet4.5.2|na|na|na|Runtimes"   ToolTip="The Microsoft NET Framework 452 is a highly compatible inplace"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Dropbox" FontSize="15" Tag="dropbox|nonportable/dropbox-np|Dropbox.Dropbox|na|File Sharing"   ToolTip="Organize all your teams content tune out distractions and get"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 File Sharing"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding File Sharing}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="cURL" FontSize="15" Tag="curl|main/curl|cURL.cURL|na|Development"   ToolTip="Command line tool and library for transferring data with URLs"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="PDF Creator" FontSize="15" Tag="pdfcreator|nonportable/pdf24-creator-np|pdfforge.PDFCreator|na|Documents"   ToolTip="PDFCreator lets you convert any printable document to PDF"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Documents"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Documents}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Autoruns" FontSize="15" Tag="autoruns|sysinternals/autoruns|Microsoft.Sysinternals.Autoruns|na|Utilities"   ToolTip="This utility shows you what programs are configured to run"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft OneDrive" FontSize="15" Tag="onedrive|na|Microsoft.OneDrive|na|File Sharing"   ToolTip="Save your files and photos to OneDrive and access them"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 File Sharing"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding File Sharing}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Process Explorer" FontSize="15" Tag="procexp|sysinternals/process-explorer|Microsoft.Sysinternals.ProcessExplorer|na|Utilities"   ToolTip="Process Explorer shows you information about which handles and DLLs"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="FFmpeg" FontSize="15" Tag="ffmpeg|main/ffmpeg|Gyan.FFmpeg|na|Media Tools"   ToolTip="FFmpeg is a widelyused crossplatform multimedia framework which can process"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="OpenVPN Connect" FontSize="15" Tag="openvpn-connect|extras/openvpn-connect|OpenVPNTechnologies.OpenVPNConnect|na|Utilities"   ToolTip="The official OpenVPN Connect client software developed and maintained by"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Git Large File Storage" FontSize="15" Tag="git-lfs|na|na|na|Development"   ToolTip="Git Large File Storage LFS replaces large files such as"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Nmap" FontSize="15" Tag="nmap|main/nmap|Insecure.Nmap|na|Utilities"   ToolTip="Nmap Network Mapper is a free and open source utility"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="UltraVNC" FontSize="15" Tag="ultravnc|extras/ultravnc|uvncbvba.UltraVnc|na|File Sharing"   ToolTip="UltraVNC is an open source application that uses the VNC"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 File Sharing"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding File Sharing}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Plex" FontSize="15" Tag="plex|extras/plex-desktop|Plex.Plex|na|Media Tools"   ToolTip="Plex is a global streaming media service and a clientserver"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Plex Media Server" FontSize="15" Tag="plexmediaserver|main/plex-server|Plex.PlexMediaServer|na|Media Tools"   ToolTip="Plex Media Server helps you organise your media and stream"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visio Viewer" FontSize="15" Tag="visioviewer|na|Microsoft.VisioViewer|na|Documents"   ToolTip="Visio 2016 Viewer Visio users can freely distribute Visio drawings"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Documents"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Documents}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Keyn Stroke" FontSize="15" Tag="key-n-stroke|na|na|na|Utilities"   ToolTip="KeynStroke makes it easy for your audience to follow your"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Fing" FontSize="15" Tag="fing|na|na|na|Utilities"   ToolTip="Fing App is a free network scanner that makes you"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Ryujinx" FontSize="15" Tag="ryujinx --params|games/ryujinx|na|na|Gaming"   ToolTip="Ryujinx is an opensource Nintendo Switch emulator created by gdkchan"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Gaming"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Gaming}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Omnify Hotspot" FontSize="15" Tag="omnifyhotspot|na|na|na|File Sharing"   ToolTip="The best virtual router to turn your PC into a"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 File Sharing"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding File Sharing}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MKVToolNix" FontSize="15" Tag="mkvtoolnix|extras/mkvtoolnix|MoritzBunkus.MKVToolNix|na|Media Tools"   ToolTip="MKVToolNix is a set of tools to create alter and"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Neat Download Manager" FontSize="15" Tag="na|extras/neatdownloadmanager|na|neat|Web Browsers"   ToolTip="Neat Download Manager is a free Internet Download Manager for"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Web Browsers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Web Browsers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="x630ce for all games" FontSize="15" Tag="na|na|na|x360ce|Gaming"   ToolTip="Xbox 360 Controller Emulator allows your controller gamepad joystick steering"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Gaming"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Gaming}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft .NET SDK 7" FontSize="15" Tag="dotnet-7.0-sdk|na|Microsoft.DotNet.SDK.7|na|Runtimes"   ToolTip="NET is a free crossplatform opensource developer platform for building"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft .NET SDK 8" FontSize="15" Tag="dotnet-sdk|na|Microsoft.DotNet.SDK.Preview|na|Runtimes"   ToolTip="NET is a free crossplatform opensource developer platform for building"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft ASP.NET Core Runtime 7.0" FontSize="15" Tag="dotnet-aspnetruntime|na|Microsoft.DotNet.AspNetCore.7|na|Runtimes"   ToolTip="NET is a free crossplatform opensource developer platform for building"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="HFS HTTP File Server" FontSize="15" Tag="hfs|na|na|na|File Sharing"   ToolTip="You can use HFS HTTP File Server to send and"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 File Sharing"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding File Sharing}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Cemu" FontSize="15" Tag="cemu|games/cemu|Cemu.Cemu|na|Gaming"   ToolTip="Cemu is a highly experimental software to emulate Wii U"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Gaming"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Gaming}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Chatterino" FontSize="15" Tag="chatterino|extras/chatterino|ChatterinoTeam.Chatterino|na|Communication"   ToolTip="Chatterino is a chat client for Twitch chat that offers"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Communication"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Communication}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Clementine" FontSize="15" Tag="clementine|extras/clementine|Clementine.Clementine|na|Media Tools"   ToolTip="Clementine is a modern music player and library organizer supporting"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Clink" FontSize="15" Tag="clink|main/clink|chrisant996.Clink|na|Development"   ToolTip="Clink is a powerful Bashcompatible commandline interface CLIenhancement for Windows"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="CMake" FontSize="15" Tag="cmake|main/cmake|Kitware.CMake|na|Development"   ToolTip="CMake is an opensource crossplatform family of tools designed to"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="CopyQ Clipboard Manager" FontSize="15" Tag="copyq|extras/copyq|hluk.CopyQ|na|Utilities"   ToolTip="CopyQ is a clipboard manager with advanced features allowing you"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Crystal Disk Info" FontSize="15" Tag="crystaldiskinfo|na|CrystalDewWorld.CrystalDiskInfo|na|Utilities"   ToolTip="Crystal Disk Info is a disk health monitoring tool that"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Crystal Disk Mark" FontSize="15" Tag="crystaldiskmark|extras/crystaldiskmark|CrystalDewWorld.CrystalDiskMark|na|Utilities"   ToolTip="Crystal Disk Mark is a disk benchmarking tool that measures"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Darktable" FontSize="15" Tag="darktable|extras/darktable|darktable.darktable|na|Media Tools"   ToolTip="Opensource photo editing tool offering an intuitive interface advanced editing"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="EA App" FontSize="15" Tag="ea-app|na|ElectronicArts.EADesktop|na|Gaming"   ToolTip="EA App is a platform for accessing and playing Electronic"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Gaming"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Gaming}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Falkon" FontSize="15" Tag="falkon|extras/falkon|KDE.Falkon|na|Web Browsers"   ToolTip="Falkon is a lightweight and fast web browser with a"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Web Browsers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Web Browsers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="File Converter" FontSize="15" Tag="file-converter|nonportable/file-converter-np|AdrienAllard.FileConverter|na|Utilities"   ToolTip="File Converter is a very simple tool which allows you"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Files" FontSize="15" Tag="files|nonportable/files-np|na|na|Utilities"   ToolTip="Alternative file explorer"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Flameshot" FontSize="15" Tag="flameshot|extras/flameshot|Flameshot.Flameshot|na|Media Tools"   ToolTip="Flameshot is a powerful yet simple to use screenshot software"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Lightshot" FontSize="15" Tag="lightshot|versions/lightshot|Skillbrains.Lightshot|na|Media Tools"   ToolTip="Ligthshot is an Easytouse lightweight screenshot software tool where you"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="F.lux" FontSize="15" Tag="flux|extras/f.lux|flux.flux|na|Utilities"   ToolTip="flux adjusts the color temperature of your screen to reduce"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="GitHub CLI" FontSize="15" Tag="gh|na|GitHub.cli|na|Development"   ToolTip="GitHub CLI is a commandline tool that simplifies working with"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="GOG Galaxy" FontSize="15" Tag="goggalaxy|games/goggalaxy|GOG.Galaxy|na|Gaming"   ToolTip="GOG Galaxy is a gaming client that offers DRMfree games"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Gaming"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Gaming}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Greenshot" FontSize="15" Tag="greenshot|extras/greenshot|Greenshot.Greenshot|na|Media Tools"   ToolTip="Greenshot is a lightweight screenshot software tool with builtin image"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Hexchat" FontSize="15" Tag="hexchat|extras/hexchat|HexChat.HexChat|na|Communication"   ToolTip="HexChat is a free opensource IRC Internet Relay Chat client"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Communication"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Communication}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="HWMonitor" FontSize="15" Tag="hwmonitor|extras/hwmonitor|CPUID.HWMonitor|na|Utilities"   ToolTip="HWMonitor is a hardware monitoring program that reads PC systems"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="ImageGlass" FontSize="15" Tag="imageglass|extras/imageglass|DuongDieuPhap.ImageGlass|na|Media Tools"   ToolTip="ImageGlass is a versatile image viewer with support for various"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Itch.io" FontSize="15" Tag="itch|games/itch|ItchIo.Itch|na|Gaming"   ToolTip="Itchio is a digital distribution platform for indie games and"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Gaming"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Gaming}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="KDE Connect" FontSize="15" Tag="kdeconnect-kde|extras/kdeconnect|KDE.KDEConnect|na|File Sharing"   ToolTip="KDE Connect allows seamless integration between your KDE desktop and"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 File Sharing"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding File Sharing}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="KeePassXC" FontSize="15" Tag="keepassxc|extras/keepassxc|KeePassXCTeam.KeePassXC|na|Utilities"   ToolTip="KeePassXC is a crossplatform opensource password manager with strong encryption"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Lazygit" FontSize="15" Tag="lazygit|extras/lazygit|JesseDuffield.lazygit|na|Development"   ToolTip="Simple terminal UI for git commands"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="LocalSend" FontSize="15" Tag="localsend.install|extras/localsend|LocalSend.LocalSend|na|Utilities"   ToolTip="An open source crossplatform alternative to AirDrop"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Fork" FontSize="15" Tag="git-fork|extras/fork|Fork.Fork|na|Development"   ToolTip="Fork a fast and friendly git client"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="PulsarEdit" FontSize="15" Tag="pulsar|na|Pulsar-Edit.Pulsar|na|Development"   ToolTip="A Communityled HyperHackable Text Editor"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Shotcut" FontSize="15" Tag="Shotcut|extras/shotcut|Meltytech.Shotcut|na|Media Tools"   ToolTip="Shotcut is a free open source crossplatform video editor"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="PaleMoon" FontSize="15" Tag="paleMoon|extras/palemoon|MoonchildProductions.PaleMoon|na|Web Browsers"   ToolTip="Pale Moon is an Open Source Goannabased web browser available"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Web Browsers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Web Browsers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="JoyToKey" FontSize="15" Tag="joytokey|na|JTKsoftware.JoyToKey|na|Gaming"   ToolTip="enables PC game controllers to emulate the keyboard and mouse"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Gaming"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Gaming}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Windows Auto Dark Mode" FontSize="15" Tag="auto-dark-mode|nonportable/auto-dark-mode-np|Armin2208.WindowsAutoNightMode|na|Utilities"   ToolTip="Automatically switches between the dark and light theme of Windows"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Windows Firewall Control" FontSize="15" Tag="windowsfirewallcontrol|na|BiniSoft.WindowsFirewallControl|na|Utilities"   ToolTip="Windows Firewall Control is a powerful tool which extends the"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="TightVNC" FontSize="15" Tag="TightVNC|extras/tightvnc|GlavSoft.TightVNC|na|Utilities"   ToolTip="TightVNC is a free and Open Source remote desktop software"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Python Version Manager" FontSize="15" Tag="pyenv-win|na|na|na|Development"   ToolTip="pyenv for Windows is a simple python version management tool"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Pixi" FontSize="15" Tag="pixi|main/pixi|prefix-dev.pixi|na|Development"   ToolTip="Pixi is a fast software package manager built on top"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="VSCodium" FontSize="15" Tag="vscodium|extras/vscodium|VSCodium.VSCodium|na|Development"   ToolTip="VSCodium is a communitydriven freelylicensed binary distribution of Microsofts VS"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Thonny Python IDE" FontSize="15" Tag="thonny|extras/thonny|AivarAnnamaa.Thonny|na|Development"   ToolTip="Python IDE for beginners"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Poedit" FontSize="15" Tag="na|extras/poedit|na|na|Development"   ToolTip="Poedit translations editor The best way to translate apps and"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Adobe Acrobat Reader" FontSize="15" Tag="adobereader|na|Adobe.Acrobat.Reader.32-bit|na|Documents"   ToolTip="Adobe Acrobat Reader DC software is the free trusted global"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Documents"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Documents}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Flash Player Plugin" FontSize="15" Tag="flashplayerplugin|na|na|na|Documents"   ToolTip="The Adobe Flash Player is freeware software for viewing multimedia"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Documents"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Documents}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Sysinternals" FontSize="15" Tag="sysinternals|extras/sysinternals|na|na|Documents"   ToolTip="The Sysinternals Troubleshooting Utilities have been rolled up into a"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Documents"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Documents}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="SelfishNet" FontSize="15" Tag="na|na|na|selfishnet|Utilities"   ToolTip="Control your internet bandwidth with SelfishNet V3 ARP Spoofing application."/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NTLite" FontSize="15" Tag="ntlite-free|extras/ntlite|Nlitesoft.NTLite|na|Drivers"   ToolTip="Integrate updates drivers automate Windows and application setup speedup Windows"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Drivers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Drivers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Olive Video Editor" FontSize="15" Tag="olive|extras/olive-editor|OliveTeam.OliveVideoEditor|na|Media Tools"   ToolTip="Olive is a free nonlinear video editor for Windows"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Mark Text" FontSize="15" Tag="marktext.portable|extras/marktext|MarkText.MarkText|na|Portable"   ToolTip="A simple and elegant opensource markdown editor that focused on"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Portable"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Portable}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="pCloud Drive" FontSize="15" Tag="pcloud|na|pCloudAG.pCloudDrive|na|File Sharing"   ToolTip="pCloud is a file hosting service also called cloud storage"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 File Sharing"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding File Sharing}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Hurl" FontSize="15" Tag="hurl|main/hurl|Orange-OpenSource.Hurl|na|Utilities"   ToolTip="Hurl is a command line tool that runs HTTP requests"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="File Hash Generator" FontSize="15" Tag="file-hash-generator|na|BinaryMark.FileHashGenerator|na|Utilities"   ToolTip="Compute and save MD5 SHA1 SHA2 RIPEMD hashes and CRC1632"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Multimark down" FontSize="15" Tag="multimarkdown|na|na|na|Utilities"   ToolTip="MultiMarkdown or MMD is a tool to help turn minimally"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="PCSX2 Emulator" FontSize="15" Tag="pcsx2.portable|games/pcsx2|na|na|Portable"   ToolTip="PCSX2 is a free and opensource PlayStation 2 PS2 emulator"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Portable"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Portable}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="RetroArch" FontSize="15" Tag="retroarch|extras/retroarch|Libretro.RetroArch|na|Gaming"   ToolTip="RetroArch is a frontend for emulators game engines and media"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Gaming"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Gaming}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Free Virtual Keyboard" FontSize="15" Tag="free-virtual-keyboard|na|na|na|Utilities"   ToolTip="Free Virtual Keyboard works on any Windows based UMPC with"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Caret" FontSize="15" Tag="caret|extras/caret|Caret.Caret|na|Development"   ToolTip="Beautiful Clever Markdown Editor Download trial"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="iSpy" FontSize="15" Tag="ispy|na|na|na|Imaging"   ToolTip="iSpy is the worlds most popular open source video surveillance"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Imaging"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Imaging}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="WavPack" FontSize="15" Tag="wavpack|main/wavpack|na|na|Utilities"   ToolTip="WavPack is a completely open audio compression format providing lossless"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="ProcessThreadsView" FontSize="15" Tag="processthreadsview|nirsoft/processthreadsview|na|na|Utilities"   ToolTip="ProcessThreadsView is a small utility that displays extensive information about"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Zulu" FontSize="15" Tag="zulu12|java/zulu11-jre|Azul.Zulu.11.JRE|na|Development"   ToolTip="Zulu is a certified build of OpenJDK that is fully"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="GitHubReleaseNotesv1" FontSize="15" Tag="githubreleasenotes|na|StefHeyenrath.GitHubReleaseNotes|na|Development"   ToolTip="Generate Release Notes in MarkDown format from a GitHub project"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Tome" FontSize="15" Tag="tome-editor|games/tome4|na|na|Development"   ToolTip="Developing games is all about data With game systems"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Win32 OpenSSH" FontSize="15" Tag="openssh|main/openssh|Microsoft.OpenSSH.Beta|na|Utilities"   ToolTip="OpenSSH is a complete implementation of the SSH protocol version"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Komodo Edit" FontSize="15" Tag="komodo-edit|na|ActiveState.KomodoEdit|na|Development"   ToolTip="Komodo Edit is a free and open source text editor"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="FreeCAD" FontSize="15" Tag="freecad|extras/freecad|FreeCAD.FreeCAD|na|Imaging"   ToolTip="A free and opensource multiplatform 3D parametric modeler"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Imaging"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Imaging}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="SQLite" FontSize="15" Tag="sqlite|main/sqlite|SQLite.SQLite|na|Development"   ToolTip="SQLite is an inprocess library that implements a selfcontained serverless"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MkDocs" FontSize="15" Tag="mkdocs|na|na|na|Development"   ToolTip="MkDocs is a fast simple and downright gorgeous static site"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MkDocs Material Theme" FontSize="15" Tag="mkdocs-material|na|na|na|Development"   ToolTip="MkDocs is a fast simple and downright gorgeous static site"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="PuTTY" FontSize="15" Tag="putty|extras/putty|PuTTY.PuTTY|na|Utilities"   ToolTip="A free implementation of SSH and Telnet along with an"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="WinSCP" FontSize="15" Tag="winscp|extras/winscp|WinSCP.WinSCP|na|Utilities"   ToolTip="WinSCP is an open source free SFTP client FTP client"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="LibreOffice Still" FontSize="15" Tag="libreoffice-still|na|na|na|Documents"   ToolTip="LibreOffice is the free powerpacked Open Source personal productivity suite"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Documents"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Documents}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Aio Runtimes" FontSize="15" Tag="na|extras/vcredist-aio|na|aio-runtimes|Runtimes"   ToolTip="All in One Runtimes also known as AIO Runtimes is"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Visual-C-Runtimes All in One Oct 2024" FontSize="15" Tag="na|extras/vcredist|na|vsall|Runtimes"   ToolTip="This archive contains the latest version Oct 2024 of all"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="GPU-Z" FontSize="15" Tag="gpu-z|extras/gpu-z|TechPowerUp.GPU-Z|na|Utilities"   ToolTip="GPUZ is a lightweight system utility designed to provide vital"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MemTest86" FontSize="15" Tag="na|na|na|memtest86|Utilities"   ToolTip="MemTest86 boots from a USB flash drive and tests the"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Memtest86 Plus" FontSize="15" Tag="na|na|na|memtest86plus|Utilities"   ToolTip="Memtest86 Plus v6 is a unified free opensource memory testing"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="GrepWin" FontSize="15" Tag="grepwin|extras/grepwin|StefansTools.grepWin|na|Utilities"   ToolTip="Regular expression search and replace for Windows"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NICE DCV Server" FontSize="15" Tag="nice-dcv-server|na|na|na|Utilities"   ToolTip="NICE DCV is a remote display protocol that securely streams"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NTag" FontSize="15" Tag="ntag|na|nrittsti.NTag|na|Media Tools"   ToolTip="NTag is a cross platformgraphical tag editor focused on everyday"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Volume2" FontSize="15" Tag="volume2|extras/volume2|irzyxa.Volume2Portable|na|Media Tools"   ToolTip="Advanced Windows volume control"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="qBittorrent Enhanced Edition" FontSize="15" Tag="qbittorrent-enhanced|extras/qbittorrent-enhanced|wingetinstallc0re100.qBittorrent-Enhanced-Edition|na|File Sharing"   ToolTip="Unofficial qBittorrent Enhanced based on qBittorrent"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 File Sharing"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding File Sharing}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Aspia" FontSize="15" Tag="na|na|na|Aspia|File Sharing"   ToolTip="Remote desktop and file transfer tool"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 File Sharing"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding File Sharing}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="SimpleTransfer Desktop" FontSize="15" Tag="simpletransfer|extras/simpletransfer|Rambax.SimpleTransfer|na|File Sharing"   ToolTip="Simple Transfer is the easiest way of transferring your Photos"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 File Sharing"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding File Sharing}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Twitch Desktop App" FontSize="15" Tag="twitch|na|na|na|Gaming"   ToolTip="Servers  A virtual home for your community to chat"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Gaming"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Gaming}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Remote Desktop Manager" FontSize="15" Tag="rdm|sysinternals/rdcman|Devolutions.RemoteDesktopManager|na|File Sharing"   ToolTip="Remote Connections  Passwords. Everywhere"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 File Sharing"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding File Sharing}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Torrid" FontSize="15" Tag="torrid|na|na|na|Utilities"   ToolTip="Torrid is a multiserver multiclient multitracker Remote Torrent Client which"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Mediamonkey" FontSize="15" Tag="mediamonkey|na|VentisMedia.MediaMonkey|na|Media"   ToolTip="Manage small to large collections of audio files videos and"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MediaInfo" FontSize="15" Tag="mediainfo|main/mediainfo|MediaArea.MediaInfo.GUI|na|Media Tools"   ToolTip="Convenient unified display of the most relevent technical and tag"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Universal Media Server" FontSize="15" Tag="ums|na|UniversalMediaServer.UniversalMediaServer|na|Media"   ToolTip="Universal Media Server is a DLNAcompliant UPnP Media Server. It"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="K-Lite Codec Pack Standard" FontSize="15" Tag="k-litecodecpack-standard|nonportable/k-lite-codec-pack-standard-np|CodecGuide.K-LiteCodecPack.Standard|na|Media"   ToolTip="The KLite Codec Pack is a collection of DirectShow filters"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="PowerISO" FontSize="15" Tag="poweriso|na|PowerSoftware.PowerISO|na|Compression"   ToolTip="PowerISO provides an allinone solution. You can do every thing"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Compression"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Compression}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Screen To Gif" FontSize="15" Tag="screentogif.portable|na|NickeManarin.ScreenToGif|na|Utilities"   ToolTip="This tool allows you to record a selected area of"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Figma" FontSize="15" Tag="figma|extras/figma|Figma.Figma|na|Development"   ToolTip="The collaborative interface design tool Build better products as a"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="EarTrumpet" FontSize="15" Tag="eartrumpet|extras/eartrumpet|File-New-Project.EarTrumpet|na|Utilities"   ToolTip="EarTrumpet is a powerful volume control app for Windows"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Visual Studio Code Insiders" FontSize="15" Tag="vscode-insiders|versions/vscode-insiders|Microsoft.VisualStudioCode.Insiders|na|Development"   ToolTip="Microsoft Visual Studio Code is a code editor redefined and"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="AyuGramDesktop" FontSize="15" Tag="na|na|na|ayugramdesktop|Communication"   ToolTip=" Desktop Telegram client with good customization and Ghost mode"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Communication"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Communication}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Zettlr" FontSize="15" Tag="zettlr|extras/zettlr|Zettlr.Zettlr|na|Documents"   ToolTip="Zettlr is a supercharged markdown editor that combines many writing"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Documents"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Documents}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="RustDesk" FontSize="15" Tag="rustdesk|extras/rustdesk|RustDesk.RustDesk|na|File Sharing"   ToolTip="An opensource remote desktop software works out of the box"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 File Sharing"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding File Sharing}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Ente Auth" FontSize="15" Tag="ente-auth|na|na|na|Security"   ToolTip="An endtoend encrypted cross platform and free app for storing"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Security"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Security}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="SQLiteStudio" FontSize="15" Tag="sqlitestudio|extras/sqlitestudio|sqlitestudio.pl.SQLiteStudio|na|Development"   ToolTip="SQLiteStudio is desktop application for browsing and editing SQLite database"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="DuckStation" FontSize="15" Tag="na|games/duckstation|na|duckstation|Portable"   ToolTip=" Fast PlayStation 1 emulator for x8664/AArch32/AArch64/RV64"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Portable"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Portable}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Authme - Simple 2FA" FontSize="15" Tag="authme.portable|extras/authme|na|na|Security"   ToolTip="Simple 2FA desktop application"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Security"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Security}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="SuperCopier2" FontSize="15" Tag="na|na|na|supercopier2|Utilities"   ToolTip="SuperCopier2 SuperCopier replaces Windows explorer file copy and adds many"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Octopus Deploy" FontSize="15" Tag="octopusdeploy.tentacle|na|OctopusDeploy.Tentacle|na|Development"   ToolTip="Octopus Deploy is a Continuous Delivery platform for complex deployments"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Kindle Previewer" FontSize="15" Tag="kindlepreviewer|extras/kcc|na|na|Documents"   ToolTip="Kindle Previewer is a graphical user interface tool that emulates"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Documents"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Documents}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Interior Design 3D" FontSize="15" Tag="na|extras/sweethome3d|AMSSoftware.InteriorDesign3D-e|na|Imaging"   ToolTip="Interior Design 3D is an expert program for home design"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Imaging"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Imaging}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MeshLab" FontSize="15" Tag="meshlab|extras/meshlab|CNRISTI.MeshLab|na|Imaging"   ToolTip="MeshLab is an open source portable and extensible system for"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Imaging"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Imaging}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="GitKraken" FontSize="15" Tag="gitkraken|extras/gitkraken|Axosoft.GitKraken|na|Development"   ToolTip="Legendary Git GUI client for Windows Mac  Linux"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Slack" FontSize="15" Tag="slack|extras/slack|SlackTechnologies.Slack|na|Communication"   ToolTip="Slack is a collaboration hub for work no matter what"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Communication"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Communication}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Rocket Chat" FontSize="15" Tag="rocketchat|extras/rocketchat-client|RocketChat.RocketChat|na|Communication"   ToolTip="Rocket.Chat is the leading open source team chat software solution."/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Communication"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Communication}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="TeamSpeak" FontSize="15" Tag="teamspeak|extras/teamspeak3|TeamSpeakSystems.TeamSpeakClient|na|Communication"   ToolTip="Use crystal clear sound to communicate with your team mates"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Communication"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Communication}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="FFFTP" FontSize="15" Tag="ffftp|na|Sayuri.FFFTP|na|Development"   ToolTip="FFFTP is lightweight FTP client software. FFFTP has many useful"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="SmartFTP" FontSize="15" Tag="smartftp|na|SmartSoft.SmartFTP|na|Development"   ToolTip="SmartFTP is a fast and reliable FTP FTPS SFTP HTTP"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Rclone" FontSize="15" Tag="rclone|main/rclone|Rclone.Rclone|na|Development"   ToolTip="Rclone rsync for cloud storage is a commandline program to"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Cyberduck" FontSize="15" Tag="cyberduck|extras/cyberduck|Iterate.Cyberduck|na|Development"   ToolTip="Cyberduck is a libre server and cloud storage browser for"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Dolphin" FontSize="15" Tag="dolphin|extras/dolphin|DolphinEmulator.Dolphin|na|Gaming"   ToolTip="Dolphin is an emulator for two recent Nintendo video game"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Gaming"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Gaming}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="mGBA" FontSize="15" Tag="mgba|games/mgba|JeffreyPfau.mGBA|na|Gaming"   ToolTip="mGBA is an opensource Game Boy Advance emulator"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Gaming"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Gaming}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="EmulationStation" FontSize="15" Tag="emulationstation|na|Emulationstation.Emulationstation|na|Gaming"   ToolTip="A graphical and themeable emulator frontend that allows you to"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Gaming"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Gaming}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="ScummVM" FontSize="15" Tag="scummvm|games/scummvm|ScummVM.ScummVM|na|Gaming"   ToolTip="ScummVM is a program which allows you to run certain"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Gaming"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Gaming}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Project64" FontSize="15" Tag="project64|games/project64|Project64.Project64|na|Gaming"   ToolTip="Project64 is a free and opensource emulator for the Nintendo"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Gaming"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Gaming}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="DOSBox" FontSize="15" Tag="na|main/dosbox|DOSBox.DOSBox|na|Gaming"   ToolTip="DOSBox is an emulator program which emulates an IBM PC"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Gaming"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Gaming}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Kodu Game Lab" FontSize="15" Tag="na|na|InfiniteInstant.KoduGameLab|na|Development"   ToolTip="Kodu Game Lab is a 3D game development environment that"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="GDevelop" FontSize="15" Tag="gdevelop|extras/gdevelop|GDevelop.GDevelop|na|Development"   ToolTip="A free and open source nocode game engine designed to"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MongoDB Tools" FontSize="15" Tag="mongodb-database-tools|main/mongodb-database-tools|MongoDB.DatabaseTools|na|Development"   ToolTip="The MongoDB Database Tools are a collection of commandline utilities"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="DB Browser for SQLite" FontSize="15" Tag="sqlitebrowser|na|DBBrowserForSQLite.DBBrowserForSQLite|na|Development"   ToolTip="DB Browser for SQLite DB4S is a high quality visual"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MySQL" FontSize="15" Tag="mysql|main/mysql|Oracle.MySQL|na|Development"   ToolTip="The MySQL software delivers a very fast multithreaded multiuser and"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MongoDB Compass" FontSize="15" Tag="mongodb-compass|extras/mongodb-compass|MongoDB.Compass.Full|na|Development"   ToolTip="Compass is a free interactive tool for querying optimizing and"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MongoDB Compass readonly" FontSize="15" Tag="mongodb-compass-readonly|na|MongoDB.Compass.Readonly|na|Development"   ToolTip="Compass is a free interactive tool for analyzing your MongoDB"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="IDA free" FontSize="15" Tag="ida-free|extras/ida-free|na|na|Utilities"   ToolTip="DA is a Windows Linux or Mac OS X hosted"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Binary Ninja" FontSize="15" Tag="na|na|na|binaryninja|Utilities"   ToolTip="reverse engineering tool. It supports a number of great features"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Resource Hacker" FontSize="15" Tag="na|extras/resource-hacker|na|resourcehacker|Portable"   ToolTip="freeware resource compiler  decompiler for Windows applications"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Portable"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Portable}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Microsoft Visual C++ Redistributable for Visual Studio 2015-2022" FontSize="15" Tag="vcredist140|na|Microsoft.VCRedist.2015+.x86|na|Runtimes"   ToolTip="Runtime components that are required to run C applications that"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Runtimes"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Runtimes}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="MPV" FontSize="15" Tag="mpvio|extras/mpv|na|na|Media"   ToolTip="a free open source and crossplatform media player"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="ZenBrowser" FontSize="15" Tag="na|na|Zen-Team.Zen-Browser|na|Web Browsers"   ToolTip="The modern privacyfocused performancedriven browser built on Firefox"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Web Browsers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Web Browsers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Aegisub" FontSize="15" Tag="aegisub|extras/aegisub|Aegisub.Aegisub|na|Media Tools"   ToolTip="Aegisub is a free crossplatform open source tool for creating"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="AppGroup" FontSize="15" Tag="na|na|na|iandiv-appgroup|Documents"   ToolTip="App Group lets you organize customize and launch your apps"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Documents"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Documents}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Quran Companion" FontSize="15" Tag="na|na|na|yf-qc|Documents"   ToolTip="Free and opensource desktop Quran reader and player"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Documents"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Documents}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Cursor" FontSize="15" Tag="cursoride|extras/cursor|na|na|Development"   ToolTip="Cursor is an AIfirst Code Editor"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Reason" FontSize="15" Tag="reasonstudios-reason13|na|na|na|Media Tools"   ToolTip="A modular DAW and plugin for music production"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Media Tools"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media Tools}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Ruby" FontSize="15" Tag="ruby|main/ruby|RubyInstallerTeam.Ruby.3.1|na|Development"   ToolTip="Ruby  A dynamic open source programming language focusing on simplicity and productivity"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="FastCopy" FontSize="15" Tag="fastcopy|extras/fastcopy|FastCopy.FastCopy|na|Utilities"   ToolTip="The Fastest Copy/Delete Software on Windows"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Forkgram" FontSize="15" Tag="forkgram|extras/forkgram|na|na|Portable"   ToolTip="Fork of Telegram Desktop messaging app"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Portable"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Portable}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="DriverView" FontSize="15" Tag="driverview|extras/driverview|na|na|Utilities"   ToolTip="Loaded Windows Drivers List"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="RegScanner" FontSize="15" Tag="regscanner|nirsoft/regscanner|na|na|Utilities"   ToolTip="Scan and find values in the Registry"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Utilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Utilities}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Windsurf" FontSize="15" Tag="windsurf|extras/windsurf|Codeium.Windsurf|na|Development"   ToolTip="The first agentic IDE and then some. The Windsurf Editor is where the work of developers and AI truly flow together"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Development"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Deluge" FontSize="15" Tag="deluge|extras/deluge|DelugeTeam.Deluge|na|File Sharing"   ToolTip="Fullfeatured lightweight BitTorrent client"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 File Sharing"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding File Sharing}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Evernote" FontSize="15" Tag="evernote|na|Evernote.Evernote|na|Documents"   ToolTip="A crossplatform freemium app designed for note taking organizing and archiving"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Documents"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Documents}"/>
 </StackPanel>
 </StackPanel>
 </ListView>
@@ -7752,268 +7769,268 @@ AlternationCount="2">
 </ListView.ItemsPanel>
 <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Disk cleanup" FontSize="15" Tag="||||Storage"   ToolTip="Clean temporary files that are not necessary"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Storage"/>
+<CheckBox Content="Disk cleanup" FontSize="15" Tag="||||Performance"   ToolTip="Clean temporary files that are not necessary"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="System File Checker" FontSize="15" Tag="||||Fixer"   ToolTip="sfc /scannow Use the System File Checker tool to repair missing or corrupted system files"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Fixer"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Fixer}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Restore Classic Context Menu Windows 11" FontSize="15" Tag="||||Classic"   ToolTip="Restore the old context menu for Windows 11"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Classic"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Classic}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Restore All Windows Services to Default" FontSize="15" Tag="||||Fixer"   ToolTip="if you face issues with services try Restore All Windows Services to Default"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Fixer"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Fixer}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Super Privacy Disable all Privacy Settings and Telemetry" FontSize="15" Tag="||||Privacy"   ToolTip="Disable WifiSense  Activity History  ActivityFeed All Telemetry  DataCollection  disable various telemetry and annoyances in Edge"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Privacy"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Privacy}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Clean Taskbar" FontSize="15" Tag="||||Performance"   ToolTip="Disable icons"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Performance"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Remove Microsoft Apps" FontSize="15" Tag="||||Performance"   ToolTip="Uninstalls preinstalled Microsoft apps like Clipchamp People etc"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Performance"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Remove Xbox Apps" FontSize="15" Tag="||||Performance"   ToolTip="Uninstalls preinstalled Xbox apps"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Performance"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Fix Stutter in games" FontSize="15" Tag="||||Performance"   ToolTip="Fix Stutter in Games Disable GameBarPresenceWriter. Windows 10/11"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Performance"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Enable the Ultimate Performance Power Plan" FontSize="15" Tag="||||Power"   ToolTip="This will add the Ultimate Performance power plan to enable it go to the power options"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Power"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Power}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Reset the TCP/IP Stack" FontSize="15" Tag="||||Fixer"   ToolTip="If you have an internet issue reset the network configuration"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Fixer"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Fixer}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Setup Auto login" FontSize="15" Tag="||||Other"   ToolTip="Setup auto login Windows username"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Other"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Other}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable Xbox Services" FontSize="15" Tag="||||Performance"   ToolTip="Disables all Xbox Services Game Mode"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Performance"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable Start Menu Ads" FontSize="15" Tag="||||Privacy"   ToolTip="Start menu Ads and web search"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Privacy"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Privacy}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Turn off background Apps" FontSize="15" Tag="||||Performance"   ToolTip="Turn off background apps"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Performance"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable suggestions on Start Menu" FontSize="15" Tag="||||Privacy"   ToolTip="Suggestions on start menu"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Privacy"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Privacy}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Remove Folder Shortcuts From File Explorer" FontSize="15" Tag="||||Other"   ToolTip="Documents Videos Pictures Desktop. Shortcuts from File Explorer"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Other"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Other}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Optimize Windows Services" FontSize="15" Tag="||||Performance"   ToolTip="Print Spooler Fax Diagnostic Policy Downloaded Maps Manager Windows Error Reporting Service Remote Registry  Internet Connection Sharing Disables Telemetry and Data"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Performance"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable Hibernate" FontSize="15" Tag="||||Performance"   ToolTip="Allows the system to save the current state of your computer"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Performance"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable OneDrive" FontSize="15" Tag="||||Performance"   ToolTip="Disabling OneDrive"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Performance"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Remove OneDrive" FontSize="15" Tag="||||Performance"   ToolTip="Removes OneDrive from the system"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Performance"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Activate Windows Classic Photo Viewer" FontSize="15" Tag="||||Classic"   ToolTip="Classic Photo Viewer"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Classic"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Classic}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Remove Copilot in Windows 11" FontSize="15" Tag="||||Privacy"   ToolTip="AI assistance"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Privacy"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Privacy}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable Recall Snapshots in Windows 11 24H" FontSize="15" Tag="||||Privacy"   ToolTip="Recall is an upcoming preview experience exclusive to Copilot"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Privacy"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Privacy}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Delete Thumbnail Cache" FontSize="15" Tag="||||Performance"   ToolTip="Removing the stored image thumbnails"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Performance"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Classic Volume Control" FontSize="15" Tag="||||Classic"   ToolTip="The old volume control"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Classic"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Classic}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable Toggle Key Sounds" FontSize="15" Tag="||||Classic"   ToolTip="Toggle key sounds are audio cues that play when you press the Caps Lock Num Lock or Scroll Lock keys"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Classic"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Classic}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable Homegroup" FontSize="15" Tag="||||Privacy"   ToolTip="HomeGroup is a passwordprotected home networking service that lets you share your stuff with other PCs"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Privacy"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Privacy}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Remove Home and Gallery from explorer in Windows 11" FontSize="15" Tag="||||Privacy"   ToolTip="Home and Gallery from explorer and sets This PC as default"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Privacy"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Privacy}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable Wifi Sense" FontSize="15" Tag="||||Protection"   ToolTip="Service that phones home all nearby scanned wifi networks and your location"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Protection"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Protection}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable Autoplay and Autorun" FontSize="15" Tag="||||Protection"   ToolTip="Autoplay in prevents the automatic launch of media or applications when a removable device such as a USB drive or CD"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Protection"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Protection}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable SMB Server" FontSize="15" Tag="||||Protection"   ToolTip="SMB Server enables file and printer sharing over a network allowing access to resources on remote computers"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Protection"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Protection}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Set current network profile to public" FontSize="15" Tag="||||"   ToolTip="Deny file sharing device discovery"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 "/>
+<CheckBox Content="Set current network profile to public" FontSize="15" Tag="||||Privacy"   ToolTip="Deny file sharing device discovery"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Privacy}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Enable F8 boot menu options" FontSize="15" Tag="||||BIOS"   ToolTip="Enable F8 boot menu options"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 BIOS"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding BIOS}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable display and sleep mode timeouts" FontSize="15" Tag="||||Power"   ToolTip="If you frequently use your device disable this"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Power"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Power}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Set Wallpaper desktop Quality to 100%" FontSize="15" Tag="||||Personalization"   ToolTip="Set Wallpaper desktop Quality"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Personalization"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Personalization}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable Windows Transparency" FontSize="15" Tag="||||Performance"   ToolTip="Disableing improve performance"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Performance"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable scheduled defragmentation task" FontSize="15" Tag="||||Performance"   ToolTip="Optimizes disk performance"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Performance"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Enable NET 3.5" FontSize="15" Tag="||||Classic"   ToolTip="Some old games and applications require .NET Framework 3.5"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Classic"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Classic}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Super Performance" FontSize="15" Tag="||||Performance"   ToolTip="Disabled all windows effects. You may need to log out and back in for changes to take effect. You can reset to default settings in Settings Tab"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Performance"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Remove Widgets from Taskbar in Windows 11" FontSize="15" Tag="||||Performance"   ToolTip="Widgets are one of the new user interface elements in Windows 11"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Performance"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Set Username to Unknown" FontSize="15" Tag="||||Privacy"   ToolTip="Rename Computer name and Username to Unknown. The changes will take effect after you restart the computer"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Privacy"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Privacy}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Fix Arabic encoding" FontSize="15" Tag="||||Fixer"   ToolTip="Fix issues related to strange symbols appearing in Arabic text"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Fixer"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Fixer}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Restore Default File Type Associations" FontSize="15" Tag="||||Fixer"   ToolTip="Restoring default apps for file type associations resets Windows settings allowing the system to select the appropriate programs by default"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Fixer"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Fixer}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Limit Defender CPU Usage" FontSize="15" Tag="||||Performance"   ToolTip="Limits Defender CPU maximum usage at 25 instead of default 50"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Performance"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Optimizing GPU scheduling" FontSize="15" Tag="||||Performance"   ToolTip="Disables HardwareAccelerated GPU Scheduling which may improve performance"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Performance"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable Fullscreen Optimizations" FontSize="15" Tag="||||Performance"   ToolTip="Fullscreen Optimizations which may improve performance"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Performance"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Optimize Network" FontSize="15" Tag="||||Performance"   ToolTip="Optimize network performance"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Performance"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Enable system cache" FontSize="15" Tag="||||Performance"   ToolTip="Enabling large system cache can improve performance for certain workloads but may affect system stability"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Performance"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Optimizing NVIDIA GPU settings" FontSize="15" Tag="||||Performance"   ToolTip="Optimize NVIDIA GPU settings "/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Performance"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Enable Faster Shutdown" FontSize="15" Tag="||||Performance"   ToolTip="Optimize NVIDIA GPU settings "/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Performance"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Super Control Panel" FontSize="15" Tag="||||Personalization"   ToolTip="Create Super Control Panel shortcut on Desktop"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Personalization"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Personalization}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Detailed BSoD" FontSize="15" Tag="||||Fixer"   ToolTip="You will see a detailed Blue Screen of Death BSOD with more information"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Fixer"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Fixer}"/>
 </StackPanel>
 </StackPanel>
 </ListView>
@@ -8038,87 +8055,87 @@ AlternationCount="2">
 <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Show file extensions" FontSize="15" Tag="||||Protection" Style="{StaticResource ToggleSwitchStyle}" Name="Showfileextensions" ToolTip="Show file extensions in Windows displays the suffix at the end of file names like .txt .jpg .exe etc"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Protection"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Protection}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Show Super Hidden" FontSize="15" Tag="||||Protection" Style="{StaticResource ToggleSwitchStyle}" Name="ShowSuperHidden" ToolTip="Show Super Hidden displays files and folders"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Protection"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Protection}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Dark Mode" FontSize="15" Tag="||||Personalize" Style="{StaticResource ToggleSwitchStyle}" Name="DarkMode" ToolTip="Dark Mode is a setting that changes the screen to darker colors reducing eye strain and saving battery life on OLED screens"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Personalize"/>
+<CheckBox Content="Dark Mode" FontSize="15" Tag="||||Personalization" Style="{StaticResource ToggleSwitchStyle}" Name="DarkMode" ToolTip="Dark Mode is a setting that changes the screen to darker colors reducing eye strain and saving battery life on OLED screens"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Personalization}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="NumLook" FontSize="15" Tag="||||Protection" Style="{StaticResource ToggleSwitchStyle}" Name="NumLook" ToolTip="Toggle the Num Lock key state when your computer starts"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Protection"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Protection}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Sticky Keys" FontSize="15" Tag="||||Accessibility" Style="{StaticResource ToggleSwitchStyle}" Name="StickyKeys" ToolTip="Sticky keys is an accessibility feature of some graphical user interfaces which assists users who have physical disabilities"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Accessibility"/>
+<CheckBox Content="Sticky Keys" FontSize="15" Tag="||||Personalization" Style="{StaticResource ToggleSwitchStyle}" Name="StickyKeys" ToolTip="Sticky keys is an accessibility feature of some graphical user interfaces which assists users who have physical disabilities"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Personalization}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Mouse Acceleration" FontSize="15" Tag="||||Accessibility" Style="{StaticResource ToggleSwitchStyle}" Name="MouseAcceleration" ToolTip="Cursor movement is affected by the speed of your physical mouse movements"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Accessibility"/>
+<CheckBox Content="Mouse Acceleration" FontSize="15" Tag="||||Personalization" Style="{StaticResource ToggleSwitchStyle}" Name="MouseAcceleration" ToolTip="Cursor movement is affected by the speed of your physical mouse movements"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Personalization}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="End Task On Taskbar Windows 11" FontSize="15" Tag="||||Accessibility" Style="{StaticResource ToggleSwitchStyle}" Name="EndTaskOnTaskbarWindows11" ToolTip="End task when right clicking a program in the taskbar"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Accessibility"/>
+<CheckBox Content="End Task On Taskbar Windows 11" FontSize="15" Tag="||||Personalization" Style="{StaticResource ToggleSwitchStyle}" Name="EndTaskOnTaskbarWindows11" ToolTip="End task when right clicking a program in the taskbar"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Personalization}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Clear Page File At Shutdown" FontSize="15" Tag="||||Storage " Style="{StaticResource ToggleSwitchStyle}" Name="ClearPageFileAtShutdown" ToolTip="Removes sensitive data stored in virtual memory when the system shuts down"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Storage "/>
+<CheckBox Content="Clear Page File At Shutdown" FontSize="15" Tag="||||Performance" Style="{StaticResource ToggleSwitchStyle}" Name="ClearPageFileAtShutdown" ToolTip="Removes sensitive data stored in virtual memory when the system shuts down"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Auto End Tasks" FontSize="15" Tag="||||Performance" Style="{StaticResource ToggleSwitchStyle}" Name="AutoEndTasks" ToolTip="Automatically end tasks that are not responding"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Performance"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Performance Options" FontSize="15" Tag="||||Performance" Style="{StaticResource ToggleSwitchStyle}" Name="PerformanceOptions" ToolTip="Adjust for best performance"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Performance"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Launch To This PC" FontSize="15" Tag="||||Accessibility" Style="{StaticResource ToggleSwitchStyle}" Name="LaunchToThisPC" ToolTip="File Explorer open directly to This PC"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Accessibility"/>
+<CheckBox Content="Launch To This PC" FontSize="15" Tag="||||Personalization" Style="{StaticResource ToggleSwitchStyle}" Name="LaunchToThisPC" ToolTip="File Explorer open directly to This PC"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Personalization}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Disable Automatic Driver Installation" FontSize="15" Tag="||||Drivers" Style="{StaticResource ToggleSwitchStyle}" Name="DisableAutomaticDriverInstallation" ToolTip="Automatically downloading and installing drivers"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Drivers"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Drivers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Always show icons never Thumbnail" FontSize="15" Tag="||||Performance" Style="{StaticResource ToggleSwitchStyle}" Name="AlwaysshowiconsneverThumbnail" ToolTip="Show icons in the file explorer instead of thumbnails"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Performance"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
 <CheckBox Content="Core Isolation Memory Integrity" FontSize="15" Tag="||||Security" Style="{StaticResource ToggleSwitchStyle}" Name="CoreIsolationMemoryIntegrity" ToolTip="Core Isolation Memory Integrity"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Security"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Security}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Windows Sandbox" FontSize="15" Tag="||||Features" Style="{StaticResource ToggleSwitchStyle}" Name="WindowsSandbox" ToolTip="Windows Sandbox is a feature that allows you to run a sandboxed version of Windows"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Features"/>
+<CheckBox Content="Windows Sandbox" FontSize="15" Tag="||||Development" Style="{StaticResource ToggleSwitchStyle}" Name="WindowsSandbox" ToolTip="Windows Sandbox is a feature that allows you to run a sandboxed version of Windows"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Windows Subsystem for Linux" FontSize="15" Tag="||||Features" Style="{StaticResource ToggleSwitchStyle}" Name="WindowsSubsystemforLinux" ToolTip="Windows Subsystem for Linux is an optional feature of Windows that allows Linux programs to run natively on Windows without the need for a separate virtual machine or dual booting"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Features"/>
+<CheckBox Content="Windows Subsystem for Linux" FontSize="15" Tag="||||Development" Style="{StaticResource ToggleSwitchStyle}" Name="WindowsSubsystemforLinux" ToolTip="Windows Subsystem for Linux is an optional feature of Windows that allows Linux programs to run natively on Windows without the need for a separate virtual machine or dual booting"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="HyperV Virtualization" FontSize="15" Tag="||||Features" Style="{StaticResource ToggleSwitchStyle}" Name="HyperVVirtualization" ToolTip="HyperV is a hardware virtualization product developed by Microsoft that allows users to create and manage virtual machines"/>
-<TextBlock Margin="15 0 0 0" FontSize="13" Text="🏷 Features"/>
+<CheckBox Content="HyperV Virtualization" FontSize="15" Tag="||||Development" Style="{StaticResource ToggleSwitchStyle}" Name="HyperVVirtualization" ToolTip="HyperV is a hardware virtualization product developed by Microsoft that allows users to create and manage virtual machines"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Development}"/>
 </StackPanel>
 </StackPanel>
 </ListView>
@@ -8306,14 +8323,14 @@ $itt.event.FindName('date').text = '06/08/2025'.Trim()
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('shell').add_MouseLeftButtonDown({
-Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
+$itt.event.FindName('shell').add_MouseLeftButtonDown({
+Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
 $daysElapsed = (Get-Date) - $storedDate
