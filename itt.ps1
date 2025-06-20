@@ -7681,6 +7681,11 @@ Grid.Row="1">
 <CheckBox Content="Evernote" FontSize="15" Tag="evernote|na|Evernote.Evernote|na|Documents"   ToolTip="A crossplatform freemium app designed for note taking organizing and archiving"/>
 <TextBlock Margin="8" FontSize="11" Text="{Binding Documents}"/>
 </StackPanel>
+</StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
+<StackPanel Orientation="Horizontal">
+<CheckBox Content="Grayjay" FontSize="15" Tag="grayjay|na|futo-org.Grayjay.Desktop|na|Media"   ToolTip="Watch content on your own terms ensuring you retain full ownership and control over what you watch. Your content your way"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Media}"/>
+</StackPanel>
 </StackPanel>
 </ListView>
 </Grid>
