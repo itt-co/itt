@@ -12,7 +12,7 @@
   {
     "Name": "Dark Mode",
     "description": "Dark Mode is a setting that changes the screen to darker colors, reducing eye strain and saving battery life on OLED screens",
-    "category": "Personalize"
+    "category": "Personalization"
   },
   {
     "Name": "NumLook",
@@ -22,22 +22,22 @@
   {
     "Name": "Sticky Keys",
     "description": "Sticky keys is an accessibility feature of some graphical user interfaces which assists users who have physical disabilities",
-    "category": "Accessibility"
+    "category": "Personalization"
   },
   {
     "Name": "Mouse Acceleration",
     "description": "Cursor movement is affected by the speed of your physical mouse movements",
-    "category": "Accessibility"
+    "category": "Personalization"
   },
   {
     "Name": "End Task On Taskbar Windows 11",
     "description": "End task when right clicking a program in the taskbar",
-    "category": "Accessibility"
+    "category": "Personalization"
   },
   {
     "Name": "Clear Page File At Shutdown",
     "description": "Removes sensitive data stored in virtual memory when the system shuts down",
-    "category": "Storage "
+    "category": "Performance"
   },
   {
     "Name": "Auto End Tasks",
@@ -52,7 +52,7 @@
   {
     "Name": "Launch To This PC",
     "description": "File Explorer open directly to This PC",
-    "category": "Accessibility"
+    "category": "Personalization"
   },
   {
     "Name": "Disable Automatic Driver Installation",
@@ -72,16 +72,16 @@
   {
     "Name": "Windows Sandbox",
     "description": "Windows Sandbox is a feature that allows you to run a sandboxed version of Windows",
-    "category": "Features"
+    "category": "Development"
   },
   {
     "Name": "Windows Subsystem for Linux",
     "description": "Windows Subsystem for Linux is an optional feature of Windows that allows Linux programs to run natively on Windows without the need for a separate virtual machine or dual booting",
-    "category": "Features"
+    "category": "Development"
   },
   {
     "Name": "HyperV Virtualization",
     "description": "Hyper-V is a hardware virtualization product developed by Microsoft that allows users to create and manage virtual machines",
-    "category": "Features"
+    "category": "Development"
   }
 ]
