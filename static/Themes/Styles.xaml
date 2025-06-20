@@ -103,53 +103,77 @@
     </Style>
 <!--End ListView Style-->
 
-<!--CheckBox Style-->
-    <Style TargetType="CheckBox">
-        <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor}"/>
-        <Setter Property="Margin" Value="0"/>
-        <Setter Property="Padding" Value="6"/>
-        <Setter Property="Background" Value="{x:Null}"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="BorderBrush" Value="DarkGray"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="CheckBox">
-                    <StackPanel Orientation="Horizontal">
-                        <Border Name="CheckRadius" Width="20" Height="20" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="5" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
-                            <Grid>
-                                <TextBlock x:Name="CheckIcon" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17" />
-                                <Path x:Name="CheckMark" Width="Auto" Margin="4" Height="Auto" Stretch="Uniform" Stroke="White" StrokeThickness="2" Data="M 0 5 L 4 8 L 10 0" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Grid>
-                        </Border>
-                        <ContentPresenter Margin="8 0 0 0" VerticalAlignment="Center"/>
-                    </StackPanel>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsChecked" Value="True">
-                            <Setter TargetName="CheckMark" Property="Visibility" Value="Visible"/>
-                            <Setter Property="Background" Value="{DynamicResource HighlightColor}"/>
-                            <Setter TargetName="CheckIcon" Property="Visibility" Value="Hidden"/>
-                        </Trigger>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource HighlightColor}"/>
-                            <Setter TargetName="CheckMark" Property="Visibility" Value="Visible"/>
-                            <Setter TargetName="CheckIcon" Property="Foreground" Value="{DynamicResource HighlightColor}"/>
-                            <Setter Property="Foreground" Value="{DynamicResource HighlightColor}"/>
-                            <Setter Property="Cursor" Value="Hand"/>
-                        </Trigger>
+<Style TargetType="CheckBox">
+    <Setter Property="Foreground" Value="{DynamicResource TextColorSecondaryColor}"/>
+    <Setter Property="Margin" Value="0"/>
+    <Setter Property="Padding" Value="6"/>
+    <Setter Property="Background" Value="{x:Null}"/>
+    <Setter Property="BorderThickness" Value="0"/>
+    <Setter Property="BorderBrush" Value="DarkGray"/>
+    <Setter Property="Template">
+        <Setter.Value>
+            <ControlTemplate TargetType="CheckBox">
+                <Grid Margin="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <!-- Check Radius -->
+                    <Border Width="20" Height="20"
+                            Grid.Column="0"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            CornerRadius="5"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}">
+                        <Grid>
 
-                        <!-- DataTrigger based on the selected tab header -->
-                        <DataTrigger Binding="{Binding SelectedItem.Tag, ElementName=taps}" Value="apps">
-                            <Setter TargetName="CheckIcon" Property="Text" Value="📦"/>
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding SelectedItem.Tag, ElementName=taps}" Value="tweaks">
-                            <Setter TargetName="CheckIcon" Property="Text" Value="🛠"/>
-                        </DataTrigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-<!--End CheckBox Style-->
+                            <!-- Check Icon -->
+                            <TextBlock x:Name="CheckIcon" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17" />
+
+                            <!-- Check Mark -->
+                            <Path x:Name="CheckMark"
+                                  Margin="4"
+                                  Stretch="Uniform"
+                                  Stroke="White"
+                                  StrokeThickness="2"
+                                  Data="M 0 5 L 4 8 L 10 0"
+                                  Visibility="Collapsed"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+
+                    <!-- Content -->
+                    <ContentPresenter Grid.Column="1" Margin="8 0 0 0" VerticalAlignment="Center"/>
+                </Grid>
+
+                <ControlTemplate.Triggers>
+                    <Trigger Property="IsChecked" Value="True">
+                        <Setter TargetName="CheckMark" Property="Visibility" Value="Visible"/>
+                        <Setter Property="Background" Value="{DynamicResource HighlightColor}"/>
+                        <Setter TargetName="CheckIcon" Property="Visibility" Value="Hidden"/>
+                    </Trigger>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="{DynamicResource HighlightColor}"/>
+                        <Setter TargetName="CheckMark" Property="Visibility" Value="Visible"/>
+                        <Setter TargetName="CheckIcon" Property="Foreground" Value="{DynamicResource HighlightColor}"/>
+                        <Setter Property="Foreground" Value="{DynamicResource HighlightColor}"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                    </Trigger>
+
+                    <!-- Custom icon based on selected tab -->
+                    <DataTrigger Binding="{Binding SelectedItem.Tag, ElementName=taps}" Value="apps">
+                        <Setter TargetName="CheckIcon" Property="Text" Value="📦"/>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding SelectedItem.Tag, ElementName=taps}" Value="tweaks">
+                        <Setter TargetName="CheckIcon" Property="Text" Value="🛠"/>
+                    </DataTrigger>
+                </ControlTemplate.Triggers>
+            </ControlTemplate>
+        </Setter.Value>
+    </Setter>
+</Style>
 
 <!--SearchBox Style-->
     <Style x:Key="SearchBox" TargetType="TextBox">
