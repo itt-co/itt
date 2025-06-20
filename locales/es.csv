@@ -46,17 +46,17 @@ Exit_msg,¿Estás seguro de que deseas cerrar el programa? Si hay instalaciOnes 
 Empty_save_msg,Elige al menos una aplicación para guardarla.
 easter_egg, ¿Puedes descubrir el secreto oculto? Sumérgete en el código fuente sé el primero en descubrir la función e intégrala en la herramienta
 system_protection,Protección del sistema
-web_browsers,Navegadores web
+web browsers,Navegadores web
 media,Medios
-media_tools,Herramientas multimedia
+media tools,Herramientas multimedia
 documents,Documentos
 compression,Compresión
 communication,Comunicación
-file_sharing,Compartición de archivos
+file sharing,Compartición de archivos
 imaging,Imágenes
 gaming,Juegos
 utilities,Utilidades
-disk_tools,Herramientas de disco
+disk tools,Herramientas de disco
 development,Desarrollo
 security,Seguridad
 portable,Portátil
