@@ -66,17 +66,17 @@ Exit_msg,Are you sure you want to close the program? Any ongoing installations w
 Empty_save_msg,Choose at least One app to save it
 easter_egg,Can you uncover the hidden secret? Dive into the source code be the first to discover the feature and integrate it into the tool
 system_protection,System protection
-web_browsers,Web Browsers
+web browsers,Web Browsers
 media,Media
-media_tools,Media Tools
+media tools,Media Tools
 documents,Documents
 compression,Compression
 communication,Communication
-file_sharing,File Sharing
+file sharing,File Sharing
 imaging,Imaging
 gaming,Gaming
 utilities,Utilities
-disk_tools,Disk Tools
+disk tools,Disk Tools
 development,Development
 security,Security
 portable,Portable
