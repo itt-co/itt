@@ -36,7 +36,7 @@ function FilterByCat {
 
             $tags = $item.Children[0].Children[0].Tag -split "\|"
 
-            return $tags[4] -imatch $Cat
+            return $tags[4] -ieq $Cat
         }
     }
 
