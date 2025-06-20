@@ -40,7 +40,7 @@
                                 <ComboBoxItem Tag="Web Browsers">
                                     <TextBlock Foreground="{Binding RelativeSource={RelativeSource AncestorType=ComboBoxItem}, Path=Foreground}">
                                         <Run Text="🌐 "/>
-                                        <Run Text="{Binding web_browsers, TargetNullValue=Web Browsers}"/>
+                                        <Run Text="{Binding web browsers, TargetNullValue=Web Browsers}"/>
                                     </TextBlock>
                                 </ComboBoxItem>
 
@@ -54,7 +54,7 @@
                                 <ComboBoxItem Tag="Media Tools">
                                     <TextBlock Foreground="{Binding RelativeSource={RelativeSource AncestorType=ComboBoxItem}, Path=Foreground}">
                                         <Run Text="🎚 "/>
-                                        <Run Text="{Binding media_tools, TargetNullValue=Media Tools}"/>
+                                        <Run Text="{Binding media tools, TargetNullValue=Media Tools}"/>
                                     </TextBlock>
                                 </ComboBoxItem>
 
@@ -82,7 +82,7 @@
                                 <ComboBoxItem Tag="File Sharing">
                                     <TextBlock Foreground="{Binding RelativeSource={RelativeSource AncestorType=ComboBoxItem}, Path=Foreground}">
                                         <Run Text="📁 "/>
-                                        <Run Text="{Binding file_sharing, TargetNullValue=File Sharing}"/>
+                                        <Run Text="{Binding file sharing, TargetNullValue=File Sharing}"/>
                                     </TextBlock>
                                 </ComboBoxItem>
 
@@ -110,7 +110,7 @@
                                 <ComboBoxItem Tag="Disk Tools">
                                     <TextBlock Foreground="{Binding RelativeSource={RelativeSource AncestorType=ComboBoxItem}, Path=Foreground}">
                                         <Run Text="💽 "/>
-                                        <Run Text="{Binding disk_tools, TargetNullValue=Disk Tools}"/>
+                                        <Run Text="{Binding disk tools, TargetNullValue=Disk Tools}"/>
                                     </TextBlock>
                                 </ComboBoxItem>
 
