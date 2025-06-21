@@ -76,7 +76,7 @@ irm raw.githubusercontent.com/emadadel4/itt/main/itt.ps1 | iex
 Example:
 
 ```PowerShell
-iex "& { $(irm bit.ly/ittea) } -i .\myapps.itt"</code></pre>
+iex "& { $(irm bit.ly/ittea) } -i .\myapps.itt"
 ```
 
 # 🤝 How to Contribute
