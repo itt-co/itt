@@ -1,12 +1,20 @@
-## Type of Change
-- [ ] Refactoring
-- [ ] New feature
-- [ ] New language
-- [ ] Hotfix
-- [ ] Bug fix
-- [ ] UI improvement
-- [ ] Update build script
-## Screenshot (Optional)
-<!--[Provide a Screenshot explanation of the changes you have made. Include the reasons behind these changes and any relevant context. Link any related issues.]-->
-## Description (Optional)
-<!--[Provide a detailed explanation of the changes you have made. Include the reasons behind these changes and any relevant context. Link any related issues.]-->
+## 🔧 Type of Change  
+
+- [ ] ♻️ Refactoring (Code restructuring without changing functionality)  
+- [ ] ✨ New feature (A new feature or enhancement)  
+- [ ] 🌐 New language (Support for another language)  
+- [ ] 🚑 Hotfix (Critical fix that needs to go out immediately)  
+- [ ] 🐛 Bug fix (Fix for an existing issue or error)  
+- [ ] 🎨 UI improvement (Styling, layout, or design updates)  
+- [ ] 🛠️ Update build script (Changes in CI/CD or build configuration)
+
+---
+
+## 📸 Screenshot (Optional)  
+<!-- Attach screenshots if the UI/UX is affected, or visual confirmation is needed. -->
+
+---
+
+## 📝 Description (Optional)  
+<!-- Provide a detailed explanation of what was changed and why.
+Mention any linked issues, relevant discussions, or design decisions. -->
