@@ -74,7 +74,10 @@ irm raw.githubusercontent.com/emadadel4/itt/main/itt.ps1 | iex
 
 ## ⚡ Quick Install Your Saved Apps (Run as Admin is recommended)
 Example:
-<pre><code>iex "& { $(irm bit.ly/ittea) } -i .\myapps.itt"</code></pre>
+
+```PowerShell
+iex "& { $(irm bit.ly/ittea) } -i .\myapps.itt"</code></pre>
+```
 
 # 🤝 How to Contribute
 
@@ -122,7 +125,7 @@ Set-Location "C:\Users\$env:USERNAME\Documents\Github\ITT"
 ### 🌐 Add your native language  
 *Run the following script:*
 
-```powershell
+```PowerShell
 .\newLocale.ps1
 ```
 
@@ -132,7 +135,7 @@ Set-Location "C:\Users\$env:USERNAME\Documents\Github\ITT"
 
 ### 🎨 Create your own theme
 
-```powershell
+```PowerShell
 .\newTheme.ps1
 ```
 
@@ -140,7 +143,7 @@ Set-Location "C:\Users\$env:USERNAME\Documents\Github\ITT"
 
 ### 🎵 Add a New Soundtrack
 
-```powershell
+```PowerShell
 .\newOST.ps1
 ```
 
@@ -148,7 +151,7 @@ Set-Location "C:\Users\$env:USERNAME\Documents\Github\ITT"
 
 ### 📜 Add a New Quote
 
-```powershell
+```PowerShell
 .\newQuote.ps1
 ```
 
@@ -156,7 +159,7 @@ Set-Location "C:\Users\$env:USERNAME\Documents\Github\ITT"
 
 ### 🛠️ Build and debug
 
-```powershell
+```PowerShell
 .\build.ps1 -Debug
 ```
 
@@ -186,8 +189,7 @@ Set-Location "C:\Users\$env:USERNAME\Documents\Github\ITT"
 * [Support via Boycott](https://boycott4.github.io/boycott/)
 * [ZionistThings on Reddit](https://www.reddit.com/r/ZionistThings/)
 
-
-<div align="center">
+<div align="Center">
 
 ### "If you can't lift the injustice, at least tell everyone about it."
 ### "إذا لم تستطع رفع الظلم، على الاقل اخبر الجميع عنه"
