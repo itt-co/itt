@@ -1,13 +1,16 @@
 ---
 name: Tweak Request
-about: Create a tweaks request
-title: ''
-labels: 'Request'
-assignees: ''
+about: Request a new tweak or script
+title: "[Tweak Request] Tweak Name"
+labels: ["Request", "Tweak"]
+assignees: ""
 ---
 
-## Script
-<!-- script here -->
+## 💻 Script  
+<!-- Paste your script here or describe what it should do -->
 
-## Describe The tweak
-<!-- description of what the tweak is. -->
+## 🛠️ Description of the Tweak  
+<!-- Explain what the tweak is, what it changes or improves, and why it's useful -->
+
+## 📌 Additional Notes (Optional)  
+<!-- Any extra info, dependencies, or specific requirements -->
