@@ -38,14 +38,14 @@ ITT (Install Tweaks Tool) included most Windows 10/11 Software and Windows Tweak
 
 </p>
 
-<h2>Overview</h2>
+## 📖 Overview
 
-- **🚀 Automated Installation**: Say goodbye to manual software installations. ITT automates the process, saving you time and effort.
-- **⚙️ Windows Debloater**: Remove bloatware, boost performance, and customize Windows effortlessly with ITT. Optimize your system in minutes.
-- **👩‍💻 Developer-Friendly**: Easy-to-use and clear documentation to add a new app or tweaks as you like, you can create a new method to download apps. Be creative. <a href="#-how-to-contribute">How to Contribute</a>
-- **🎵 Soundtracks**: Enjoy listening to best music from games and movies while downloading your programs.
+* 🚀 **Automated Installation:** Get all your apps installed quietly in one go
+* ⚙️ **Windows Debloater:** Remove bloatware and optimize performance.
+* 👨‍💻 **Developer-Friendly:** Add apps, tweaks, themes, Locals and more.
+* 🎵 **Can you hear the music**: Chill with tracks from the world of entertainment during setup.
 
-<h2>⚡ Usage</h2>
+## ⚡ Usage
 
 <h3>On Windows 10/11:</h3>
 <ol>
@@ -60,12 +60,12 @@ ITT (Install Tweaks Tool) included most Windows 10/11 Software and Windows Tweak
 ```PowerShell
 irm bit.ly/ittea | iex
 ```
-
-<p>If the URL is blocked in your region try:</p>
+### If URL is blocked in your region try:
 
 ```PowerShell
 irm emadadel4.github.io/itt.ps1 | iex
 ```
+
 ```PowerShell
 irm raw.githubusercontent.com/emadadel4/itt/main/itt.ps1 | iex
 ```
@@ -74,7 +74,10 @@ irm raw.githubusercontent.com/emadadel4/itt/main/itt.ps1 | iex
 
 ## ⚡ Quick Install Your Saved Apps (Run as Admin is recommended)
 Example:
-<pre><code>iex "& { $(irm bit.ly/ittea) } -i .\myapps.itt"</code></pre>
+
+```PowerShell
+iex "& { $(irm bit.ly/ittea) } -i .\myapps.itt"
+```
 
 # 🤝 How to Contribute
 
@@ -96,123 +99,106 @@ Example:
 
 2. **Fork the repository and clone it using [Github desktop](https://desktop.github.com/download/). is available on ITT**
 
-3. **Open the ITT directory in PowerShell 7 run as administrator:**
+3. **Open ITT Directory in PowerShell 7 (Run as Administrator)**
 
-<pre><code>Set-Location "C:\Users\$env:USERNAME\Documents\Github\ITT"
-</code></pre>
+```PowerShell
+Set-Location "C:\Users\$env:USERNAME\Documents\Github\ITT"
+```
 
-<ol start="4">
-<li><strong>Choose what you want to add.</strong></li>
-</ol>
+4. **Choose what you want to add.**
 
 <h3>📦 Add a New App</h3>
 
-<pre><code>.\newApp.ps1
-</code></pre>
+```PowerShell
+.\newApp.ps1
+```
 
 <h3>⚙️ Add a New Tweak</h3>
 
-<pre><code>.\newTweak.ps1
-</code></pre>
+```PowerShell
+.\newTweak.ps1
+```
 
 > [!NOTE]  
 > Ensure you understand the tweak you are adding and test it before committing.
 
-<h3>🌐 Add your native language</h3>
-<p><em>
+### 🌐 Add your native language  
+*Run the following script:*
 
-<pre><code>.\newLocale.ps1
-</code></pre>
+```PowerShell
+.\newLocale.ps1
+```
 
-> Edit locale.csv file using [edit-csv extension ](https://marketplace.visualstudio.com/items?itemName=janisdd.vscode-edit-csv)
+> Edit `locale.csv` file using [edit-csv extension](https://marketplace.visualstudio.com/items?itemName=janisdd.vscode-edit-csv)
 
-<h3>🎨 Create your own theme</h3>
+---
 
-<pre><code>.\newTheme.ps1
-</code></pre>
+### 🎨 Create your own theme
 
-<h3>🎵 Add a New Soundtrack</h3>
+```PowerShell
+.\newTheme.ps1
+```
 
-<pre><code>.\newOST.ps1
-</code></pre>
+---
 
-<h3>📜 Add a New Quote</h3>
+### 🎵 Add a New Soundtrack
 
-<pre><code>.\newQuote.ps1
-</code></pre>
+```PowerShell
+.\newOST.ps1
+```
 
-<h3>🛠️ Build and debug</h3>
+---
 
-<pre><code>.\build.ps1 -Debug
-</code></pre>
+### 📜 Add a New Quote
+
+```PowerShell
+.\newQuote.ps1
+```
+
+---
+
+### 🛠️ Build and debug
+
+```PowerShell
+.\build.ps1 -Debug
+```
 
 > [!NOTE]  
 > Test your changes before you submit the Pull Request
 
 <br>
-<br>
 
-## Resist for Justice in a World Ruled by Authoritarian Regimes - قاوم من أجل العدالة في عالم تحكمه الأنظمة الاستبدادية
+## ✊ Resist for Justice in a World Ruled by Authoritarian Regimes 
 
-<h1 align="left">
-  <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=5000&color=F70000&width=435&lines=%23STOP_GENOCIDE!;%23StandWithPalestine" alt="Typing SVG" />
-  </a>
-</h1>
+<a href="https://git.io/typing-svg">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=5000&color=F70000&width=435&lines=%23STOP_GENOCIDE!;%23StandWithPalestine" alt="Typing SVG" />
+</a>
 
 <p align="left">
-<a href="https://www.palestinercs.org/en/Donation" target="_blank">
-  <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmY0ZWE5cnd5djVoaG12OHVteWI0Nm1zMzlpZGtxM2JwZmNwdG9iMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iUNO3pXpfqiZ8JQ1Jo/giphy.gif" width="270" alt="Palestine GIF" />
-</a>
-<a href="https://www.reddit.com/r/Palestine/wiki/donate/" target="_blank">
-  <img src="https://styles.redditmedia.com/t5_2qhak/styles/image_widget_78cydyzl3ktb1.png" width="339" alt="Stand with Palestine" />
-</a>
+  <a href="https://www.palestinercs.org/en/Donation" target="_blank">
+    <img src="https://media1.giphy.com/media/iUNO3pXpfqiZ8JQ1Jo/giphy.gif" width="270" alt="Palestine GIF" />
+  </a>
+  <a href="https://www.reddit.com/r/Palestine/wiki/donate/" target="_blank">
+    <img src="https://styles.redditmedia.com/t5_2qhak/styles/image_widget_78cydyzl3ktb1.png" width="339" alt="Stand with Palestine" />
+  </a>
 </p>
 
-<h3 align="left">
-  Don’t hesitate to speak up and join the conversation about Palestine. In this age, each of us has a role in raising awareness. Every post or message can inspire or educate others. Don’t fear expressing yourself, as words are a powerful force to change reality.
-  Make your platforms spaces for dialogue and contribute to creating change. Together, we raise the voices of the oppressed and work toward global justice. Let’s unite for Palestine and restore hope to those who need it.
-</h3>
+## Helpful Links
 
-<!-- Links -->
-<h3 align="left">
+* [Palestine Red Crescent Society](https://www.palestinercs.org/en/Donation)
+* [Support via Boycott](https://boycott4.github.io/boycott/)
+* [ZionistThings on Reddit](https://www.reddit.com/r/ZionistThings/)
 
-[Palestine Red Crescent Society](https://www.palestinercs.org/en/Donation) /
-[Other ways to support (Boycott)](https://boycott4.github.io/boycott/)
-</h3>
+<div align="Center">
 
-<!-- Recommended -->
-<div style="display: flex; gap: 10px; flex-wrap: wrap;">
-  <a href="https://www.youtube.com/watch?v=kx5kanvn_ug" target="_blank">
-    <img src="https://img.youtube.com/vi/kx5kanvn_ug/0.jpg" alt="Video 1" style="width: 200px;">
-  </a>
-  <a href="https://youtu.be/GTvsWLVC9QU" target="_blank">
-    <img src="https://img.youtube.com/vi/GTvsWLVC9QU/0.jpg" alt="Video 2" style="width: 200px;">
-  </a>
-  <a href="https://youtu.be/mF6B5UVupyA?list=LL" target="_blank">
-    <img src="https://img.youtube.com/vi/mF6B5UVupyA/0.jpg" alt="Video 3" style="width: 200px;">
-  </a>
-
+### "If you can't lift the injustice, at least tell everyone about it."
+### "إذا لم تستطع رفع الظلم، على الاقل اخبر الجميع عنه"
 </div>
- 
-[ZionistThings](https://www.reddit.com/r/ZionistThings/)
-
-<!-- Note -->
-<h3 align="left"><i>"YouTube continues to remove recommended videos!"</i></h3>
-
-<!-- Quote -->
-<h3 align="center">
-If you can't lift the injustice, at least tell everyone about it.<br>
-.إذا لم تستطع رفع الظلم، على الاقل اخبر الجميع عنه
-</h3>
 
 <br>
-<br>
 
-# 🌟 Support Project
+## ⭐ Support Project
 
-**Love the project?** Show your support by clicking the ⭐ (top right) and joining our community of [stargazers](https://github.com/emadadel4/itt/stargazers)!
+If you find this project helpful Give it a ⭐ on GitHub
 
 [![Stargazers repo roster for @emadadel4/itt](https://reporoster.com/stars/dark/emadadel4/itt)](https://github.com/emadadel4/itt/stargazers)
-
-
