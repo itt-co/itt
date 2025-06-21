@@ -199,6 +199,6 @@ Set-Location "C:\Users\$env:USERNAME\Documents\Github\ITT"
 
 ## ⭐ Support Project
 
-If you find this project helpful Give it a ⭐ on GitHub
+If you find this project helpful Give it a ⭐
 
 [![Stargazers repo roster for @emadadel4/itt](https://reporoster.com/stars/dark/emadadel4/itt)](https://github.com/emadadel4/itt/stargazers)
