@@ -4344,7 +4344,10 @@ return $tags[4] -ieq $Cat
 $collectionView.Refresh()
 }
 $KeyEvents = {
-if ($itt.ProcessRunning) { return }
+if ($itt.ProcessRunning) {
+Set-Statusbar -Text "📢 Shortcut is disabled while process is running"
+return
+}
 $modifiers = $_.KeyboardDevice.Modifiers
 $key = $_.Key
 switch ($key) {
@@ -4362,9 +4365,9 @@ elseif ($modifiers -eq "Shift") { Save-File }
 "D" { if ($modifiers -eq "Shift") { Get-file } }
 "M" {
 if ($modifiers -eq "Shift") {
-$global:toggleState = -not $global:toggleState
-if ($global:toggleState) { Manage-Music -action "SetVolume" -volume 100 }
-else { Manage-Music -action "SetVolume" -volume 0 }
+$itt.Music = if ($itt.Music -eq 0) { 100 } else { 0 }
+Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value $itt.Music
+Manage-Music -action "SetVolume" -volume $itt.Music
 }
 }
 "Q" {
@@ -8320,14 +8323,14 @@ $itt.event.FindName('date').text = '06/08/2025'.Trim()
 $itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
-})
 $itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
+})
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
 $daysElapsed = (Get-Date) - $storedDate
@@ -8692,12 +8695,6 @@ $itt["window"].Resources.MergedDictionaries.Add($itt["window"].FindResource($fal
 $itt.Theme = $fallback
 }
 $itt.mediaPlayer.settings.volume = "$($itt.Music)"
-if ($itt.Music -eq 0) {
-$global:toggleState = $false
-}
-else {
-$global:toggleState = $true
-}
 $itt["window"].title = "Install Tweaks Tool " + @("🔈", "🔊")[$itt.Music -eq 100]
 $itt.PopupWindow = (Get-ItemProperty -Path $itt.registryPath -Name "PopupWindow").PopupWindow
 $itt["window"].TaskbarItemInfo = New-Object System.Windows.Shell.TaskbarItemInfo
