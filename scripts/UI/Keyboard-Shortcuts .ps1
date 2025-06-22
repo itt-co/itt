@@ -1,5 +1,9 @@
 $KeyEvents = {
-    if ($itt.ProcessRunning) { return }
+
+    if ($itt.ProcessRunning) { 
+        Set-Statusbar -Text "📢 Shortcut is disabled while process is running" 
+        return 
+    }
 
     $modifiers = $_.KeyboardDevice.Modifiers
     $key = $_.Key
