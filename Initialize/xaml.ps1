@@ -144,15 +144,7 @@ try {
     #===========================================================================
     #region Get user Settings from registry
     #===========================================================================
-    # Check if Music is set to 100, then reset toggle state to false
     $itt.mediaPlayer.settings.volume = "$($itt.Music)"
-    if ($itt.Music -eq 0) {
-        $global:toggleState = $false
-    }
-    else {
-        $global:toggleState = $true
-    }
-
     $itt["window"].title = "Install Tweaks Tool " + @("🔈", "🔊")[$itt.Music -eq 100]
     $itt.PopupWindow = (Get-ItemProperty -Path $itt.registryPath -Name "PopupWindow").PopupWindow
     #===========================================================================
@@ -165,8 +157,6 @@ try {
 catch {
     Write-Output "Error: $_"
 }
-
-
 #===========================================================================
 #region Initialize WPF Controls
 #===========================================================================
