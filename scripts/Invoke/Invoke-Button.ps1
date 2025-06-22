@@ -150,9 +150,6 @@ function Invoke-Button {
         "shelltube"{
             Start-Process -FilePath "powershell" -ArgumentList "irm https://github.com/emadadel4/shelltube/releases/latest/download/st.ps1 | iex"
         }
-        "fmhy"{
-            Start-Process ("https://fmhy.net/")
-        }
         "rapidos"{
             Start-Process ("https://github.com/rapid-community/RapidOS")
         }
