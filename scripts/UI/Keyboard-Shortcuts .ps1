@@ -23,9 +23,9 @@ $KeyEvents = {
         "D" { if ($modifiers -eq "Shift") { Get-file } }
         "M" {
             if ($modifiers -eq "Shift") {
-                $global:toggleState = -not $global:toggleState
-                if ($global:toggleState) { Manage-Music -action "SetVolume" -volume 100 }
-                else { Manage-Music -action "SetVolume" -volume 0 }
+                $itt.Music = if ($itt.Music -eq 0) { 100 } else { 0 }
+                Set-ItemProperty -Path $itt.registryPath -Name "Music" -Value $itt.Music
+                Manage-Music -action "SetVolume" -volume $itt.Music
             }
         }
         # Easter Egg: Uncomment to enable functionality
