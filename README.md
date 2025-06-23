@@ -24,16 +24,16 @@ ITT (Install Tweaks Tool) included most Windows 10/11 Software and Windows Tweak
 [![Batman Cave](https://img.shields.io/badge/-Batman_Cave-8B0000?style=flat-square&logo=telegram&logoColor=white)](https://t.me/+BCH7DKqF52FmMTg0)
 [![Discord](https://img.shields.io/badge/-Join_Community-5865F2?style=flat-square&logo=discord&logoColor=white)](https://discord.gg/Twyz2Wd5fB)
 
-<a href="/locales/ar.csv"><img src="https://flagcdn.com/w40/ps.png" width="20"/> Arabic</a> 
-<a href="/locales/fr.csv"><img src="https://flagcdn.com/w40/fr.png" width="20"/> French</a> 
-<a href="/locales/tr.csv"><img src="https://flagcdn.com/w40/tr.png" width="20"/> Turkish</a> 
-<a href="/locales/zh.csv"><img src="https://flagcdn.com/w40/cn.png" width="20"/> Chinese</a> 
-<a href="/locales/ko.csv"><img src="https://flagcdn.com/w40/kr.png" width="20"/> Korean</a> 
-<a href="/locales/de.csv"><img src="https://flagcdn.com/w40/de.png" width="20"/> German</a> 
-<a href="/locales/ru.csv"><img src="https://flagcdn.com/w40/ru.png" width="20"/> Russian</a> 
-<a href="/locales/es.csv"><img src="https://flagcdn.com/w40/es.png" width="20"/> Spanish</a> 
-<a href="/locales/it.csv"><img src="https://flagcdn.com/w40/it.png" width="20"/> Italian</a> 
-<a href="/locales/hi.csv"><img src="https://flagcdn.com/w40/in.png" width="20"/> Hindi</a>
+[![Arabic](https://flagcdn.com/w20/ps.png)](/locales/ar.csv)
+[![French](https://flagcdn.com/w20/fr.png)](/locales/fr.csv)
+[![Turkish](https://flagcdn.com/w20/tr.png)](/locales/tr.csv)
+[![Chinese](https://flagcdn.com/w20/cn.png)](/locales/zh.csv)
+[![Korean](https://flagcdn.com/w20/kr.png)](/locales/ko.csv)
+[![German](https://flagcdn.com/w20/de.png)](/locales/de.csv)
+[![Russian](https://flagcdn.com/w20/ru.png)](/locales/ru.csv)
+[![Spanish](https://flagcdn.com/w20/es.png)](/locales/es.csv)
+[![Italian](https://flagcdn.com/w20/it.png)](/locales/it.csv)
+[![Hindi](https://flagcdn.com/w20/in.png)](/locales/hi.csv)
 
 ###### 📦 413 Apps • ⚙️ 53 Tweaks • 🔧 17 Settings • 💬 109 Quote • 🎵 28 Soundtrack • 🌐 11 Localization
 
