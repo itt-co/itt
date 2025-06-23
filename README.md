@@ -21,10 +21,19 @@ ITT (Install Tweaks Tool) included most Windows 10/11 Software and Windows Tweak
 ![Script size](https://img.shields.io/github/size/emadadel4/itt/itt.ps1?label=Script%20size)
 <!-- ![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Femadadel4%2Fitt%2F&countColor=%23263759&style=flat) -->
 
-[![itt Community](https://img.shields.io/badge/Telegram%20-Batman%20Cave-26A5E4?logo=telegram)](https://t.me/+BCH7DKqF52FmMTg0)
-[![Discord](https://img.shields.io/badge/Discord-Join%20Community-5865F2?logo=discord&logoColor=white)](https://discord.gg/Twyz2Wd5fB)
+[![Batman Cave](https://img.shields.io/badge/-Batman_Cave-8B0000?style=flat-square&logo=telegram&logoColor=white)](https://t.me/+BCH7DKqF52FmMTg0)
+[![Discord](https://img.shields.io/badge/-Join_Community-5865F2?style=flat-square&logo=discord&logoColor=white)](https://discord.gg/Twyz2Wd5fB)
 
-[![Arabic](https://img.shields.io/badge/Arabic-red)](/locales/ar.csv) [![French](https://img.shields.io/badge/French-blue)](/locales/fr.csv) [![Turkish](https://img.shields.io/badge/Turkish-red)](/locales/tr.csv) [![Chinese](https://img.shields.io/badge/Chinese-red)](/locales/zh.csv) [![Korean](https://img.shields.io/badge/Korean-white)](/locales/ko.csv) [![German](https://img.shields.io/badge/German-red)](/locales/de.csv) [![Russian](https://img.shields.io/badge/Russian-blue)](/locales/ru.csv) [![Spanish](https://img.shields.io/badge/Spanish-red)](/locales/es.csv) [![Italian](https://img.shields.io/badge/Italian-green)](/locales/it.csv) [![Hindi](https://img.shields.io/badge/Hindi-orange)](/locales/hi.csv)
+<a href="/locales/ar.csv"><img src="https://flagcdn.com/w40/ps.png" width="20"/> Arabic</a> 
+<a href="/locales/fr.csv"><img src="https://flagcdn.com/w40/fr.png" width="20"/> French</a> 
+<a href="/locales/tr.csv"><img src="https://flagcdn.com/w40/tr.png" width="20"/> Turkish</a> 
+<a href="/locales/zh.csv"><img src="https://flagcdn.com/w40/cn.png" width="20"/> Chinese</a> 
+<a href="/locales/ko.csv"><img src="https://flagcdn.com/w40/kr.png" width="20"/> Korean</a> 
+<a href="/locales/de.csv"><img src="https://flagcdn.com/w40/de.png" width="20"/> German</a> 
+<a href="/locales/ru.csv"><img src="https://flagcdn.com/w40/ru.png" width="20"/> Russian</a> 
+<a href="/locales/es.csv"><img src="https://flagcdn.com/w40/es.png" width="20"/> Spanish</a> 
+<a href="/locales/it.csv"><img src="https://flagcdn.com/w40/it.png" width="20"/> Italian</a> 
+<a href="/locales/hi.csv"><img src="https://flagcdn.com/w40/in.png" width="20"/> Hindi</a>
 
 ###### 📦 413 Apps • ⚙️ 53 Tweaks • 🔧 17 Settings • 💬 109 Quote • 🎵 28 Soundtrack • 🌐 11 Localization
 
