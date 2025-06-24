@@ -5,7 +5,7 @@ Add-Type -AssemblyName 'System.Windows.Forms', 'PresentationFramework', 'Present
 $itt = [Hashtable]::Synchronized(@{
 database       = @{}
 ProcessRunning = $false
-lastupdate     = "06/22/2025"
+lastupdate     = "06/24/2025"
 registryPath   = "HKCU:\Software\ITT@emadadel"
 icon           = "https://raw.githubusercontent.com/emadadel4/ITT/main/static/Icons/icon.ico"
 Theme          = "default"
@@ -1454,7 +1454,7 @@ $itt.database.Tweaks = @'
 {
 "Name": "Setup Auto login",
 "Description": "Setup auto login Windows username",
-"Category": "Other",
+"Category": "Classic",
 "Check": "false",
 "Refresh": "false",
 "Script": [
@@ -1735,7 +1735,7 @@ $itt.database.Tweaks = @'
 {
 "Name": "Remove Folder Shortcuts From File Explorer",
 "Description": "Documents, Videos, Pictures, Desktop. Shortcuts from File Explorer",
-"Category": "Other",
+"Category": "Performance",
 "Check": "false",
 "Refresh": "false",
 "Registry": [
@@ -7824,8 +7824,8 @@ AlternationCount="2">
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Setup Auto login" FontSize="15" Tag="||||Other"   ToolTip="Setup auto login Windows username"/>
-<TextBlock Margin="8" FontSize="11" Text="{Binding Other}"/>
+<CheckBox Content="Setup Auto login" FontSize="15" Tag="||||Classic"   ToolTip="Setup auto login Windows username"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Classic}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
@@ -7849,8 +7849,8 @@ AlternationCount="2">
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Remove Folder Shortcuts From File Explorer" FontSize="15" Tag="||||Other"   ToolTip="Documents Videos Pictures Desktop. Shortcuts from File Explorer"/>
-<TextBlock Margin="8" FontSize="11" Text="{Binding Other}"/>
+<CheckBox Content="Remove Folder Shortcuts From File Explorer" FontSize="15" Tag="||||Performance"   ToolTip="Documents Videos Pictures Desktop. Shortcuts from File Explorer"/>
+<TextBlock Margin="8" FontSize="11" Text="{Binding Performance}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
@@ -8320,17 +8320,17 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 1 -Force; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '06/08/2025'.Trim()
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
+$itt.event.FindName('preview2').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
+})
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
-})
-$itt.event.FindName('preview2').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
 })
 $storedDate = [datetime]::ParseExact($itt.event.FindName('date').Text, 'MM/dd/yyyy', $null)
 $daysElapsed = (Get-Date) - $storedDate
