@@ -1421,7 +1421,7 @@
   {
     "Name": "Setup Auto login",
     "Description": "Setup auto login Windows username",
-    "Category": "Other",
+    "Category": "Classic",
     "Check": "false",
     "Refresh": "false",
     "Script": [
@@ -1702,7 +1702,7 @@
   {
     "Name": "Remove Folder Shortcuts From File Explorer",
     "Description": "Documents, Videos, Pictures, Desktop. Shortcuts from File Explorer",
-    "Category": "Other",
+    "Category": "Performance",
     "Check": "false",
     "Refresh": "false",
     "Registry": [
