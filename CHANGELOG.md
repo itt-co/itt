@@ -4,9 +4,9 @@
 
 ### 📦 Package manager
 
-![itt.xName:preview [https://github.com/emadadel4/itt]](https://github.com/user-attachments/assets/4e5b1040-313f-49cb-8f43-2127ef5d53ac)
+![itt.xName:preview [https://github.com/emadadel4/itt]](https://github.com/user-attachments/assets/caedd558-9703-4d8e-8047-f526689374fa)
 
-#### Select the package manager used to install packages
+#### Discover the internet’s biggest collection of free stuff — built by a helpful, sharing community!
 
 ##### Keyboard Shortcuts
 
