@@ -6,7 +6,7 @@
 
 ![itt.xName:preview [https://t.me/+BCH7DKqF52FmMTg0]](https://github.com/user-attachments/assets/caedd558-9703-4d8e-8047-f526689374fa)
 
-#### Discover the internet’s biggest collection of free stuff — built by a helpful, sharing community!
+#### Discover the internets biggest collection of free stuff — built by a helpful, sharing community!
 
 ##### Keyboard Shortcuts
 
