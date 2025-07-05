@@ -3227,8 +3227,8 @@ return @{ Success = $false; Message = "Invalid package manager" }
 }
 }
 }
-if ($Choco -eq "na" -and $Winget -eq "na" -and $itt -ne "na" -and $scoop -eq "na") {
-Install-ITTAChoco
+if ($Choco -eq "na" -and $Winget -eq "na" -and $itt -ne "na") {
+Install-Dependencies -PKGMan "itt"
 Add-Log -Message "Attempting to install $Name." -Level "ITT"
 $ITTResult = Install-AppWithInstaller "itt" $ittArgs
 Log $ITTResult "itt"
@@ -6918,7 +6918,7 @@ Grid.Row="1">
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
 <StackPanel Orientation="Horizontal">
-<CheckBox Content="Neat Download Manager" FontSize="15" Tag="na|extras/neatdownloadmanager|na|neat|Web Browsers"   ToolTip="Neat Download Manager is a free Internet Download Manager for"/>
+<CheckBox Content="Neat Download Manager" FontSize="15" Tag="na|na|na|neat|Web Browsers"   ToolTip="Neat Download Manager is a free Internet Download Manager for"/>
 <TextBlock Margin="8" FontSize="11" Text="{Binding Web Browsers}"/>
 </StackPanel>
 </StackPanel>        <StackPanel Orientation="Vertical" Margin="10">
@@ -8320,14 +8320,14 @@ $itt.event.FindName('closebtn').add_MouseLeftButtonDown({ $itt.event.Close() })
 $itt.event.FindName('DisablePopup').add_MouseLeftButtonDown({ Set-ItemProperty -Path $itt.registryPath -Name "PopupWindow" -Value 1 -Force; $itt.event.Close() })
 $itt.event.FindName('title').text = 'Changelog'.Trim()
 $itt.event.FindName('date').text = '07/01/2025'.Trim()
-$itt.event.FindName('preview').add_MouseLeftButtonDown({
-Start-Process('https://t.me/+BjM2Xjpvw_s3ZDhk')
+$itt.event.FindName('esg').add_MouseLeftButtonDown({
+Start-Process('https://github.com/emadadel4/itt')
 })
 $itt.event.FindName('preview2').add_MouseLeftButtonDown({
 Start-Process('https://github.com/emadadel4/itt')
 })
-$itt.event.FindName('esg').add_MouseLeftButtonDown({
-Start-Process('https://github.com/emadadel4/itt')
+$itt.event.FindName('preview').add_MouseLeftButtonDown({
+Start-Process('https://t.me/+BjM2Xjpvw_s3ZDhk')
 })
 $itt.event.FindName('shell').add_MouseLeftButtonDown({
 Start-Process('https://www.youtube.com/watch?v=nI7rUhWeOrA')
