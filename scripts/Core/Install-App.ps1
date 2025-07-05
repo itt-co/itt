@@ -36,7 +36,7 @@ function Install-App {
     }
 
      # If specific package manager is requested
-     if ($Source -ne "auto") {
+    if ($Source -ne "auto") {
 
         switch ($Source.ToLower()) {
             "choco" { 
@@ -86,9 +86,9 @@ function Install-App {
     }
 
     # TODO: if all package managers are 'none', use itt
-    if ($Choco -eq "na" -and $Winget -eq "na" -and $itt -ne "na" -and $scoop -eq "na") {
+    if ($Choco -eq "na" -and $Winget -eq "na" -and $itt -ne "na") {
 
-        Install-ITTAChoco
+        Install-Dependencies -PKGMan "itt"
         Add-Log -Message "Attempting to install $Name." -Level "ITT"
         $ITTResult = Install-AppWithInstaller "itt" $ittArgs
         Log $ITTResult "itt"
