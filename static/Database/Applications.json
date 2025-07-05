@@ -2343,7 +2343,7 @@
     "Name": "Neat Download Manager",
     "Description": "Neat Download Manager is a free Internet Download Manager for",
     "choco": "na",
-    "scoop": "extras/neatdownloadmanager",
+    "scoop": "na",
     "winget": "na",
     "itt": "neat",
     "category": "Web Browsers"
